@@ -3,7 +3,7 @@ import './App.scss'
 
 class App extends Component {
   render() {
-    return <div className="App">Analytics App</div>
+    return <div className="App">Analytics App CI</div>
   }
 }
 
