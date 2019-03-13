@@ -22,6 +22,7 @@
 .env.production.local
 /.vscode
 /.firebase
+.env
 
 npm-debug.log*
 yarn-debug.log*
