@@ -14,9 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "cd functions && npm install",
-    "deploy": "firebase deploy -P webchat-analytics --only functions,hosting --token \"$FIREBASE_TOKEN\"",
-    "deploy:ci": "if test \"$BRANCH_NAME\" = \"master\"; then npm run deploy; fi"
+    "postinstall": "cd functions && npm install"
   },
   "eslintConfig": {
     "extends": "react-app"
