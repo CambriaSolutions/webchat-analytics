@@ -13,6 +13,8 @@ steps:
     args:
       [
         'deploy',
+        '-P',
+        'webchat-analytics',
         '--only',
         'functions,hosting',
         '--token',
