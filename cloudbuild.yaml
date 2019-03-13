@@ -2,9 +2,6 @@ steps:
   # NPM Install
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
-  # NPM Install Functions
+  # Test
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'postinstall']
-  # Build
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
+    args: ['run', 'test']
