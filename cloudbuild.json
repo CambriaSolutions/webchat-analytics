@@ -6,6 +6,10 @@
     },
     {
       "name": "gcr.io/cloud-builders/npm",
+      "args": ["run", "postinstall"]
+    },
+    {
+      "name": "gcr.io/cloud-builders/npm",
       "args": ["run", "build"]
     },
     {
