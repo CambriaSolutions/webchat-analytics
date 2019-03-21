@@ -5,6 +5,7 @@ admin.initializeApp(functions.config().firebase)
 const store = admin.firestore()
 
 // Date FNS imports
+const format = require('date-fns/format')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 
 // -------------------------------------------------------------------------
@@ -14,26 +15,64 @@ const differenceInSeconds = require('date-fns/difference_in_seconds')
 // Regex to retrieve text after last "/" on a path
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
-// Store intent from conversation
-const storeIntent = intent => {
-  const intentsRef = store.collection('intents').doc(intent.id)
-  intentsRef
+// Store intent from conversation & increase occurrences in metric
+const storeIntent = (conversationId, currIntent) => {
+  const currDate = new Date()
+  const dateKey = format(currDate, 'MM-DD-YYYY')
+
+  const metricsRef = store.collection('metrics').doc(dateKey)
+  metricsRef
     .get()
     .then(doc => {
       if (doc.exists) {
-        const currIntent = doc.data()
-        intentsRef.update({ occurrences: currIntent.occurrences + 1 })
+        const currMetric = doc.data()
+
+        // Check if current intent is already on the list
+        const intentMetric = currMetric.intents.filter(
+          intent => intent.id === currIntent.id
+        )[0]
+        // Update intent metric counters
+        if (intentMetric) {
+          intentMetric.occurrences++
+
+          // Check if current conversation is already included in intent metric, if not increse the sessions counter
+          if (!intentMetric.conversations.includes(conversationId)) {
+            intentMetric.sessions++
+            intentMetric.conversations.push(conversationId)
+          }
+          metricsRef.update({ intents: currMetric.intents })
+        } else {
+          // Create new intent entry on the metric
+          const newIntent = {
+            id: currIntent.id,
+            name: currIntent.name,
+            occurrences: 1,
+            sessions: 1,
+            conversations: [conversationId],
+          }
+          metricsRef.update({
+            intents: admin.firestore.FieldValue.arrayUnion(newIntent),
+          })
+        }
       } else {
-        // Create new intent
-        intentsRef.set({
-          name: intent.name,
-          occurrences: 1,
+        // Create new metric entry with current intent
+        metricsRef.set({
+          date: admin.firestore.Timestamp.fromDate(currDate),
+          intents: [
+            {
+              id: currIntent.id,
+              name: currIntent.name,
+              occurrences: 1,
+              sessions: 1,
+              conversations: [conversationId],
+            },
+          ],
         })
       }
       return
     })
     .catch(error => {
-      console.log('Error getting intent document:', error)
+      console.log(`Error getting metric document with key ${dateKey}:`, error)
     })
 }
 
@@ -48,18 +87,11 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   }
   const currTimestamp = new Date()
 
-  // Save request data
-  store
-    .collection('requests')
-    .add(reqData)
-    .catch(error => {
-      res.send(500, `Error storing data: ${error}`)
-    })
-
   // Check that conversation data exists on the request
   if (!reqData.session || !reqData.queryResult) {
     res.send(500, 'Missing conversation parameters')
   }
+
   // Get ID's from conversation (session) & intent
   const conversationId = getIdFromPath(reqData.session)
   const currIntent = reqData.queryResult.intent
@@ -67,6 +99,33 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
     id: getIdFromPath(currIntent.name),
     name: currIntent.displayName,
   }
+
+  // Check if conversation has a support request
+  const hasSupportRequest = intent.name.startsWith('support')
+  // Get support type
+  let supportType = ''
+  if (hasSupportRequest && reqData.queryResult.outputContexts) {
+    // Loop through request output contexts array to find the ticket information
+    for (let context of reqData.queryResult.outputContexts) {
+      if (getIdFromPath(context.name) === 'ticketinfo') {
+        // Read the support type from the ticket
+        supportType = context.parameters.supportType.toLowerCase()
+
+        // Remove PII data from parameters before storing request data
+        context.parameters = { supportType: supportType }
+        break
+      }
+    }
+  }
+
+  // Save request data, add timestamp
+  reqData.createdAt = admin.firestore.Timestamp.fromDate(currTimestamp)
+  store
+    .collection('requests')
+    .add(reqData)
+    .catch(error => {
+      res.send(500, `Error storing data: ${error}`)
+    })
 
   // Store conversation metrics
   const conversationRef = store.collection('conversations').doc(conversationId)
@@ -76,20 +135,6 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
       let conversation = {
         updatedAt: admin.firestore.Timestamp.fromDate(currTimestamp),
         lastIntent: intent,
-      }
-
-      // Check if conversation has a support request
-      const hasSupportRequest = intent.name.startsWith('support')
-      let supportType = ''
-      if (hasSupportRequest) {
-        // Loop through request output contexts array to find the ticket information
-        for (let context of reqData.queryResult.outputContexts) {
-          if (getIdFromPath(context.name) === 'ticketinfo') {
-            // Read the support type from the ticket
-            supportType = context.parameters.supportType
-            break
-          }
-        }
       }
 
       if (doc.exists) {
@@ -103,12 +148,12 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
         // Change support request flag only if it's true
         if (hasSupportRequest) {
           conversation.hasSupportRequest = hasSupportRequest
-          // Add current support request to list
-          currConversation.supportRequests.push(supportType)
-          // Make sure all values are unique
-          conversation.supportRequests = [
-            ...new Set(currConversation.supportRequests),
-          ]
+          conversation.supportRequests = currConversation.supportRequests
+
+          // Add current support request to list if not already there
+          if (!conversation.supportRequests.includes(supportType)) {
+            conversation.supportRequests.push(supportType)
+          }
         }
         conversationRef.update(conversation)
       } else {
@@ -121,7 +166,7 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
         conversationRef.set(conversation)
       }
       // Keep record of intents usage
-      storeIntent(intent)
+      storeIntent(conversationId, intent)
 
       return res.send(200, 'Analytics stored successfully')
     })
