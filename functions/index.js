@@ -57,7 +57,7 @@ const storeIntent = (conversationId, currIntent) => {
       } else {
         // Create new metric entry with current intent
         metricsRef.set({
-          date: admin.firestore.Timestamp.fromDate(currDate),
+          date: admin.firestore.Timestamp.now(),
           intents: [
             {
               id: currIntent.id,
@@ -119,7 +119,7 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   }
 
   // Save request data, add timestamp
-  reqData.createdAt = admin.firestore.Timestamp.fromDate(currTimestamp)
+  reqData.createdAt = admin.firestore.Timestamp.now()
   store
     .collection('requests')
     .add(reqData)
@@ -133,7 +133,7 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
     .get()
     .then(doc => {
       let conversation = {
-        updatedAt: admin.firestore.Timestamp.fromDate(currTimestamp),
+        updatedAt: admin.firestore.Timestamp.now(),
         lastIntent: intent,
       }
 
@@ -158,9 +158,7 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
         conversationRef.update(conversation)
       } else {
         // Create new conversation doc
-        conversation.createdAt = admin.firestore.Timestamp.fromDate(
-          currTimestamp
-        )
+        conversation.createdAt = admin.firestore.Timestamp.now()
         conversation.hasSupportRequest = hasSupportRequest
         conversation.supportRequests = hasSupportRequest ? [supportType] : []
         conversationRef.set(conversation)

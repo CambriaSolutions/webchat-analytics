@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
-import './App.scss'
+import Header from './containers/Header'
+import Dashboard from './containers/Dashboard'
 
 class App extends Component {
   render() {
-    return <div className="App">Analytics App CI</div>
+    return (
+      <div className="App">
+        <Header />
+        <Dashboard />
+      </div>
+    )
   }
 }
 
