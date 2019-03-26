@@ -1,38 +1,59 @@
 import React from 'react'
-
 import styled from 'styled-components'
 
-import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import Icon from '@material-ui/core/Icon'
 
-const Details = styled(Grid)`
-  padding: 10px;
+const StyledCard = styled(Card)`
+  color: #fff;
+  width: '100%';
+  display: flex;
+  padding: 5px;
 `
-const Image = styled(Grid)`
-  padding: 10px;
-  text-align: center;
+
+const Details = styled(CardContent)`
+  display: inline-block;
+  flex: 70%;
+  color: #fff;
+  text-align: left;
+  h5 {
+    font-size: 1.6em;
+    display: inline;
+  }
+  p {
+    margin: 0 5px 5px 0;
+  }
+`
+
+const Image = styled.div`
+  display: inline-block;
+  flex: 70%;
+  text-align: right;
   .material-icons {
-    font-size: 40px;
+    margin-top: 10px;
+    font-size: 60px;
+    color: #fff;
     opacity: 0.4;
+    padding-right: 10px;
   }
 `
 
 const card = props => {
-  const Card = styled(Grid)`
-    color: #fff;
-    background-color: ${props.color};
-  `
+  const cardStyle = {
+    backgroundColor: `${props.color}`,
+  }
 
   return (
-    <Card container>
-      <Details item xs={8}>
+    <StyledCard style={cardStyle}>
+      <Details>
         <h5>{props.value}</h5>
         <p>{props.label}</p>
       </Details>
-      <Image item xs={4}>
+      <Image>
         <Icon>{props.icon}</Icon>
       </Image>
-    </Card>
+    </StyledCard>
   )
 }
 

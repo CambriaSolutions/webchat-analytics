@@ -4,7 +4,7 @@ import { updateObject } from '../utility'
 const initialState = {
   conversationsTotal: 0,
   durationTotal: 0,
-  exitIntents: {}, // 'IntentID' = { name: 'welcome', exits: 2 }
+  exitIntents: [], // { id: '1234', name: 'welcome', exits: 2 }
   supportRequests: 0,
   allConversations: [],
   loading: false,

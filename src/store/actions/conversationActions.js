@@ -54,7 +54,10 @@ export const fetchConversationsSuccess = conversations => {
       }
   }
   // Convert dictionary to array of objects
-  exitIntents = Object.keys(exitIntents).map(i => exitIntents[i])
+  exitIntents = Object.keys(exitIntents).map(key => ({
+    ...exitIntents[key],
+    id: key,
+  }))
 
   return {
     type: actionTypes.FETCH_CONVERSATIONS_SUCCESS,

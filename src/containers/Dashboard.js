@@ -5,9 +5,46 @@ import styled from 'styled-components'
 
 // Material UI
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import Icon from '@material-ui/core/Icon'
 
 // Components
 import Card from '../components/Card'
+import PieChart from '../components/PieChart'
+import BarChart from '../components/BarChart'
+import EnhancedTable from '../components/EnhancedTable'
+import CircularProgress from '@material-ui/core/CircularProgress'
+
+const rootStyles = {
+  flexGrow: 1,
+  margin: '2.5% 3%',
+}
+
+const GraphWrap = styled(Paper)`
+  padding: 15px;
+  background-color: rgb(250, 250, 250) !important;
+  h3 {
+    margin-top: 5px;
+  }
+`
+const CenterDiv = styled.div`
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  .material-icons {
+    font-size: 65px;
+    color: #3f51b5;
+  }
+`
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -16,58 +53,114 @@ class Dashboard extends Component {
   }
 
   render() {
-    return (
-      <Grid container>
-        <Grid item xs={12} sm={6}>
-          <Grid container direction="column">
-            <Grid item xs={12}>
+    let dashboardUI = (
+      <CenterDiv>
+        <h2>Loading Metrics...</h2>
+        <CircularProgress />
+      </CenterDiv>
+    )
+    if (!this.props.loadingConversations) {
+      if (this.props.conversationsTotal > 0) {
+        dashboardUI = (
+          <Grid container spacing={16}>
+            <Grid item xs={12} sm={4}>
               <Card
-                color="#e6f5ff"
+                color="#a1aade"
                 value={this.props.conversationsTotal}
-                label="Visits"
+                label="Total Users"
                 icon="account_circle"
               />
             </Grid>
-            {this.props.filterLabel.start}
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={4}>
               <Card
-                color="#99d6ff"
-                value={`${this.props.avgDuration} sec`}
+                color="#7b88d1"
+                value={`${this.props.avgDuration}`}
                 label="Avg. Conv Duration"
                 icon="schedule"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={4}>
               <Card
-                color="#66c2ff"
-                value="58%"
-                label="Exit rate"
+                color="#5566c3"
+                value={`${this.props.supportRequestsPercentage}%`}
+                label="Support Requests"
                 icon="help_outline"
               />
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <h3>Frequently used intents</h3>
+                <PieChart
+                  data={this.props.intents.slice(0, 5)}
+                  dataKey="occurrences"
+                />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <h3>Top exit intents on conversations</h3>
+                <BarChart
+                  data={this.props.exitIntents.slice(0, 5)}
+                  dataKey="exits"
+                />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12}>
+              <EnhancedTable data={this.props.intents} />
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} sm={6} />
-      </Grid>
-    )
+        )
+      } else {
+        dashboardUI = (
+          <CenterDiv>
+            <Icon>speaker_notes_off</Icon>
+            <h2>No conversations found</h2>
+            <p>Try changing the filter</p>
+          </CenterDiv>
+        )
+      }
+    }
+    return <div style={rootStyles}>{dashboardUI}</div>
   }
 }
 
+const beautifyTime = seconds => {
+  if (seconds > 3600) return `${(seconds / 3600).toFixed(1)} hours`
+  else if (seconds > 60) return `${(seconds / 60).toFixed(1)} minutes`
+  else return `${seconds.toFixed(1)} seconds`
+}
+
 const mapStateToProps = state => {
+  let allIntents = state.intents.intents
+  const allExitIntents = state.conversations.exitIntents
+
+  if (!state.intents.loading) {
+    // Merge exit intents with intents array
+    allIntents = allIntents.map(intent =>
+      Object.assign(
+        {},
+        intent,
+        allExitIntents.find(conv => conv.id === intent.id) || {
+          exits: 0,
+        }
+      )
+    )
+  }
+
   return {
-    filterLabel: state.filters.dateFilters,
     loadingConversations: state.conversations.loading,
     loadingIntents: state.intents.loading,
     conversationsTotal: state.conversations.conversationsTotal,
-    supportRequestsPercentage:
+    supportRequestsPercentage: Math.floor(
       (state.conversations.supportRequests /
         state.conversations.conversationsTotal) *
-      100,
-    avgDuration:
-      state.conversations.durationTotal /
-      state.conversations.conversationsTotal,
-    exitIntents: state.conversations.exitIntents,
-    intents: state.intents.intents,
+        100
+    ),
+    avgDuration: beautifyTime(
+      state.conversations.durationTotal / state.conversations.conversationsTotal
+    ),
+    exitIntents: allExitIntents,
+    intents: allIntents,
   }
 }
 

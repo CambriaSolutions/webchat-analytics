@@ -14,7 +14,7 @@ import InsertChartOutlined from '@material-ui/icons/InsertChartOutlined'
 
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
-  margin-left: 10px;
+  margin-left: 10px !important;
 `
 
 const Dropdown = styled(Select)`
@@ -32,7 +32,7 @@ const Dropdown = styled(Select)`
 class Header extends Component {
   render() {
     return (
-      <AppBar position="static">
+      <AppBar position="static" color="primary">
         <Toolbar>
           <InsertChartOutlined />
           <ToolbarTitle variant="h6" color="inherit">

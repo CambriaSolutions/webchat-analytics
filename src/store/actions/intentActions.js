@@ -47,8 +47,11 @@ export const fetchIntentsSuccess = metrics => {
         }
     }
   }
-  // Convert dictionary to array of objects
-  intents = Object.keys(intents).map(i => intents[i])
+  // Convert dictionary to array of objects (add ids)
+  intents = Object.keys(intents).map(key => ({
+    ...intents[key],
+    id: key,
+  }))
 
   return {
     type: actionTypes.FETCH_INTENTS_SUCCESS,

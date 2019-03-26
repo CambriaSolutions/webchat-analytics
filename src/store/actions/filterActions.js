@@ -50,10 +50,10 @@ export const updateFilters = event => {
     dispatch(fetchConversations(dateFilters))
     dispatch(fetchIntents(dateFilters))
 
-    return {
+    dispatch({
       type: actionTypes.UPDATE_FILTERS,
       filterLabel: event.target.value,
       dateFilters: dateFilters,
-    }
+    })
   }
 }
