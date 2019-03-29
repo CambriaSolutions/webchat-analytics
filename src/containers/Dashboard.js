@@ -15,6 +15,8 @@ import BarChart from '../components/BarChart'
 import EnhancedTable from '../components/EnhancedTable'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
+import db from '../Firebase'
+
 const rootStyles = {
   flexGrow: 1,
   margin: '2.5% 3%',
@@ -84,7 +86,7 @@ class Dashboard extends Component {
                 color="#5566c3"
                 value={`${this.props.supportRequestsPercentage}%`}
                 label="Support Requests"
-                icon="help_outline"
+                icon="contact_support"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -130,9 +132,21 @@ const beautifyTime = seconds => {
   else return `${seconds.toFixed(1)} secs`
 }
 
+const beautifyIntents = intents => {
+  return intents.map(intent => {
+    // Replace dashes with spaces & capitalize 1st letter
+    let newName = intent.name.replace(/-/g, ' ')
+    newName = newName.charAt(0).toUpperCase() + newName.slice(1)
+    return {
+      ...intent,
+      name: newName,
+    }
+  })
+}
+
 const mapStateToProps = state => {
-  let allIntents = state.intents.intents
-  const allExitIntents = state.conversations.exitIntents
+  let allIntents = beautifyIntents(state.intents.intents)
+  const allExitIntents = beautifyIntents(state.conversations.exitIntents)
 
   if (!state.intents.loading) {
     // Merge exit intents with intents array
