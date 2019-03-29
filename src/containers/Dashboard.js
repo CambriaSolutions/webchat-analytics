@@ -126,8 +126,8 @@ class Dashboard extends Component {
 
 const beautifyTime = seconds => {
   if (seconds > 3600) return `${(seconds / 3600).toFixed(1)} hours`
-  else if (seconds > 60) return `${(seconds / 60).toFixed(1)} minutes`
-  else return `${seconds.toFixed(1)} seconds`
+  else if (seconds > 60) return `${(seconds / 60).toFixed(1)} mins`
+  else return `${seconds.toFixed(1)} secs`
 }
 
 const mapStateToProps = state => {
