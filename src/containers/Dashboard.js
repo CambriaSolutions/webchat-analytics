@@ -144,9 +144,30 @@ const beautifyIntents = intents => {
   })
 }
 
+const compareValues = (key, order = 'asc') => {
+  return (a, b) => {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      return 0
+    }
+
+    const varA = typeof a[key] === 'string' ? a[key].toUpperCase() : a[key]
+    const varB = typeof b[key] === 'string' ? b[key].toUpperCase() : b[key]
+
+    let comparison = 0
+    if (varA > varB) {
+      comparison = 1
+    } else if (varA < varB) {
+      comparison = -1
+    }
+    return order === 'desc' ? comparison * -1 : comparison
+  }
+}
+
 const mapStateToProps = state => {
   let allIntents = beautifyIntents(state.intents.intents)
   const allExitIntents = beautifyIntents(state.conversations.exitIntents)
+  // Sort array by exits
+  allExitIntents.sort(compareValues('exits', 'desc'))
 
   if (!state.intents.loading) {
     // Merge exit intents with intents array
@@ -159,6 +180,8 @@ const mapStateToProps = state => {
         }
       )
     )
+    // Sort array by occurrences
+    allIntents.sort(compareValues('occurrences', 'desc'))
   }
 
   return {
