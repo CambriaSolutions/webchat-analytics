@@ -13,12 +13,3 @@ steps:
       "REACT_APP_FIREBASE_STORAGE_BUCKET=${_FIREBASE_STORAGE_BUCKET}",
       "REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${_FIREBASE_MESSAGING_SENDER_ID}",
     ]
-substitutions:
-  _FIREBASE_API_KEY: 'AIzaSyAYz_uL2DyMYggJk7EC9PZ93iQyOGLU4ZE'
-  _FIREBASE_AUTH_DOMAIN: 'webchat-analytics.firebaseapp.com'
-  _FIREBASE_DATABASE_URL: 'https://webchat-analytics.firebaseio.com'
-  _FIREBASE_PROJECT_ID: 'webchat-analytics'
-  _FIREBASE_STORAGE_BUCKET: 'webchat-analytics.appspot.com'
-  _FIREBASE_MESSAGING_SENDER_ID: '338284905017'
-options:
-  substitution_option: 'ALLOW_LOOSE'
