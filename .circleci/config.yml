@@ -37,7 +37,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run postinstall
-      - run: npm run build
+      - run: CI=false npm run build
       - run: firebase deploy -P $FIREBASE_PROJECT_ID --only functions,hosting --token $FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 2
