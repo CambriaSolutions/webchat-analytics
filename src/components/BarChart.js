@@ -24,16 +24,17 @@ const pieChart = props => {
           width={500}
           height={300}
           data={props.data}
+          layout="vertical"
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
+            right: 20,
+            left: 30,
             bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey={'name'} />
-          <YAxis />
+          <XAxis type="number" />
+          <YAxis type="category" dataKey={'name'} style={{ fontSize: 13 }} />
           <Tooltip />
           <Bar dataKey={props.dataKey} fill="#8884d8">
             {props.data.map((entry, index) => (

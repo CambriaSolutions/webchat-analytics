@@ -8,7 +8,7 @@ const setup = propOverrides => {
   const renderer = createRenderer()
   renderer.render(<App />)
   const output = renderer.getRenderOutput()
-  return output
+  return output.props.children[0]
 }
 
 describe('components', () => {
