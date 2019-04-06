@@ -44,7 +44,7 @@ workflows:
       - test_analytics
       - deploy_analytics:
           requires:
-            - build_analytics
+            - test_analytics
           filters:
             branches:
               only:
