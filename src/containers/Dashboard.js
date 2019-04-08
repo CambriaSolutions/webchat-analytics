@@ -15,8 +15,6 @@ import BarChart from '../components/BarChart'
 import EnhancedTable from '../components/EnhancedTable'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-import db from '../Firebase'
-
 const rootStyles = {
   flexGrow: 1,
   margin: '2.5% 3%',
