@@ -23,6 +23,7 @@ const rootStyles = {
 const GraphWrap = styled(Paper)`
   padding: 15px;
   background-color: rgb(250, 250, 250) !important;
+  height: 93%;
   h3 {
     margin-top: 5px;
   }
