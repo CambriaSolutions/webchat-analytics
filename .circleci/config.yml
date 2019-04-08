@@ -28,14 +28,6 @@ jobs:
             export REACT_APP_FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID
             export REACT_APP_FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET
             npm run test
-      #- save_cache:
-      #    key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-      #    paths:
-      #      - node_modules
-      #      - package.json
-      #      - functions/node_modules
-      #      - firebase.json
-      #      - .firebaserc
   deploy_analytics:
     docker:
       - image: circleci/node:10.15.0
@@ -68,4 +60,4 @@ workflows:
           filters:
             branches:
               only:
-                - development
+                - master
