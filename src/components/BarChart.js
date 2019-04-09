@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 import randomColor from 'randomcolor'
 
-const pieChart = props => {
+const barChart = props => {
   const COLORS = randomColor({
     count: props.data.length,
     hue: 'blue',
@@ -47,4 +47,4 @@ const pieChart = props => {
   )
 }
 
-export default pieChart
+export default barChart

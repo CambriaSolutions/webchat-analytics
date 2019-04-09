@@ -84,7 +84,7 @@ const storeMetrics = (conversationId, currIntent, supportRequestType) => {
       } else {
         // Create new metric entry with current intent & supportRequest
         metricsRef.set({
-          date: admin.firestore.Timestamp.now(),
+          date: admin.firestore.Timestamp.fromDate(currDate),
           intents: [
             {
               id: currIntent.id,
