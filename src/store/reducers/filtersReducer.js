@@ -1,5 +1,6 @@
 import { UPDATE_FILTERS } from '../actions/actionTypes'
 import { updateObject } from '../utility'
+//import randomColor from 'randomcolor'
 
 // Date FNS imports
 const format = require('date-fns/format')
@@ -14,10 +15,26 @@ const getDateRange = date => {
   return { start: startOfToday, end: endOfToday }
 }
 
+// Shuffles array in place
+const shuffle = a => {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+const COLORS = ['#C2CDFC', '#756BED', '#4158D0', '#387EB5', '#6B53DD']
+/*const COLORS = randomColor({
+  count: 10,
+  hue: 'blue',
+})*/
+
 const initialState = {
   // Set Today filter by default
   filterLabel: 'Today',
   dateFilters: getDateRange(new Date()),
+  colors: shuffle(COLORS),
 }
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +42,7 @@ const reducer = (state = initialState, action) => {
     return updateObject(state, {
       filterLabel: action.filterLabel,
       dateFilters: action.dateFilters,
+      //colors: action.colors,
     })
   }
   return state

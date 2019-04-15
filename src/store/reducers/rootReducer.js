@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import filters from './filtersReducer'
-import intents from './intentsReducer'
+import metrics from './metricsReducer'
 import conversations from './conversationsReducer'
 
 const rootReducer = combineReducers({
   filters,
-  intents,
+  metrics,
   conversations,
 })
 

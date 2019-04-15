@@ -7,20 +7,14 @@ import {
   Legend,
   Tooltip,
 } from 'recharts'
-import randomColor from 'randomcolor'
 
 class ResponsivePieChart extends Component {
   constructor(props) {
     super(props)
 
-    const COLORS = randomColor({
-      count: 5,
-      hue: 'blue',
-    })
-
     this.state = {
       width: window.innerWidth,
-      colors: COLORS,
+      colors: props.colors,
     }
   }
 

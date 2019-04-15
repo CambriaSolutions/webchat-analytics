@@ -114,7 +114,7 @@ class EnhancedTableHead extends React.Component {
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit,
     overflowX: 'auto',
   },
   row: {

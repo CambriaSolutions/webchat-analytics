@@ -10,6 +10,7 @@ const StyledCard = styled(Card)`
   width: '100%';
   display: flex;
   padding: 5px;
+  height: 90%;
 `
 
 const Details = styled(CardContent)`

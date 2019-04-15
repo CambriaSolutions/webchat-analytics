@@ -9,16 +9,12 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts'
-import randomColor from 'randomcolor'
+import EmptyChart from './EmptyChart'
 
-const pieChart = props => {
-  const COLORS = randomColor({
-    count: props.data.length,
-    hue: 'blue',
-  })
-
-  return (
-    <div style={{ width: '100%', height: 300 }}>
+const barChart = props => {
+  let chartUI
+  if (props.data && props.data.length > 0) {
+    chartUI = (
       <ResponsiveContainer>
         <BarChart
           width={500}
@@ -36,15 +32,21 @@ const pieChart = props => {
           <XAxis type="number" />
           <YAxis type="category" dataKey={'name'} style={{ fontSize: 13 }} />
           <Tooltip />
-          <Bar dataKey={props.dataKey} fill="#8884d8">
+          <Bar dataKey={props.dataKey} fill="#8884d8" maxBarSize={45}>
             {props.data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index]} />
+              <Cell key={`cell-${index}`} fill={props.colors[index]} />
             ))}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-    </div>
-  )
+    )
+  } else {
+    chartUI = (
+      <EmptyChart icon="contact_support" message="No support requests found" />
+    )
+  }
+
+  return <div style={{ width: '100%', height: 300 }}>{chartUI}</div>
 }
 
-export default pieChart
+export default barChart

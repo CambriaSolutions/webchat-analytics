@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes'
 import { fetchConversations } from './conversationActions'
-import { fetchIntents } from './intentActions'
+import { fetchMetrics } from './metricActions'
+//import randomColor from 'randomcolor'
 
 // Date FNS imports
 const format = require('date-fns/format')
@@ -27,13 +28,13 @@ const getDateFilters = newFilter => {
     case 'Last 7 days':
       dateRange = {
         start: formatDate(subDays(today, 7)),
-        end: formatDate(today),
+        end: formatDate(endOfDay(today)),
       }
       break
     case 'Last 30 days':
       dateRange = {
         start: formatDate(subDays(today, 30)),
-        end: formatDate(today),
+        end: formatDate(endOfDay(today)),
       }
       break
     case 'Today':
@@ -46,14 +47,20 @@ const getDateFilters = newFilter => {
 export const updateFilters = event => {
   const dateFilters = getDateFilters(event.target.value)
 
+  /*const COLORS = randomColor({
+    count: 10,
+    hue: 'blue',
+  })*/
+
   return dispatch => {
     dispatch(fetchConversations(dateFilters))
-    dispatch(fetchIntents(dateFilters))
+    dispatch(fetchMetrics(dateFilters))
 
     dispatch({
       type: actionTypes.UPDATE_FILTERS,
       filterLabel: event.target.value,
       dateFilters: dateFilters,
+      //colors: COLORS,
     })
   }
 }
