@@ -2,16 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../store/actions/index'
 import styled from 'styled-components'
+import { withStyles } from '@material-ui/core/styles'
 
 // Material UI
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Icon from '@material-ui/core/Icon'
+import ToggleButton from '@material-ui/lab/ToggleButton'
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
 // Components
 import Card from '../components/Card'
 import PieChart from '../components/PieChart'
 import BarChart from '../components/BarChart'
+import RadarChart from '../components/RadarChart'
 import EnhancedTable from '../components/EnhancedTable'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
@@ -22,12 +26,40 @@ const rootStyles = {
 
 const GraphWrap = styled(Paper)`
   padding: 15px;
+  position: relative;
   background-color: rgb(250, 250, 250) !important;
   height: 93%;
   h3 {
     margin-top: 5px;
   }
 `
+const FeedbackButtonGroup = styled(ToggleButtonGroup)`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+`
+
+const StyledToggleButton = withStyles(theme => ({
+  selected: {
+    color: '#7B88D1 !important',
+    backgroundColor: 'rgba(0,0,0,0.05) !important',
+  },
+}))(ToggleButton)
+
+const FeedbackTotalsDiv = styled.div`
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: #666;
+
+  .material-icons {
+    margin-bottom: -2px;
+    font-size: 16px !important;
+    color: #3f51b5;
+    opacity: 0.7;
+  }
+`
+
 const CenterDiv = styled.div`
   text-align: center;
   position: absolute;
@@ -50,8 +82,11 @@ const CenterDiv = styled.div`
 class Dashboard extends Component {
   componentDidMount() {
     this.props.onFetchConversations()
-    this.props.onFetchIntents()
+    this.props.onFetchMetrics()
   }
+
+  feedbackTypeChange = (event, feedbackSelected) =>
+    this.props.onFeedbackChange(feedbackSelected)
 
   render() {
     let dashboardUI = (
@@ -94,6 +129,7 @@ class Dashboard extends Component {
                 <PieChart
                   data={this.props.intents.slice(0, 5)}
                   dataKey="occurrences"
+                  colors={this.props.colors}
                 />
               </GraphWrap>
             </Grid>
@@ -103,7 +139,52 @@ class Dashboard extends Component {
                 <BarChart
                   data={this.props.exitIntents.slice(0, 5)}
                   dataKey="exits"
+                  colors={this.props.colors}
                 />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <h3>Top support requests</h3>
+                <BarChart
+                  data={this.props.supportRequests.slice(0, 5)}
+                  dataKey="occurrences"
+                  colors={this.props.colors}
+                />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <h3>Feedback</h3>
+                <FeedbackButtonGroup
+                  value={this.props.feedbackSelected}
+                  exclusive
+                  onChange={this.feedbackTypeChange}
+                >
+                  <StyledToggleButton value="positive">
+                    <Icon>thumb_up</Icon>
+                  </StyledToggleButton>
+                  <StyledToggleButton value="negative">
+                    <Icon>thumb_down</Icon>
+                  </StyledToggleButton>
+                </FeedbackButtonGroup>
+                <RadarChart
+                  data={this.props.feedback.details}
+                  total={this.props.feedback.total}
+                  dataKey="occurrences"
+                  color={this.props.colors[0]}
+                />
+                <FeedbackTotalsDiv>
+                  <b>
+                    <Icon>
+                      {this.props.feedbackSelected === 'positive'
+                        ? 'thumb_up'
+                        : 'thumb_down'}
+                    </Icon>{' '}
+                    Entries:{' '}
+                  </b>{' '}
+                  {this.props.feedback.total}
+                </FeedbackTotalsDiv>
               </GraphWrap>
             </Grid>
             <Grid item xs={12}>
@@ -163,12 +244,14 @@ const compareValues = (key, order = 'asc') => {
 }
 
 const mapStateToProps = state => {
-  let allIntents = beautifyIntents(state.intents.intents)
+  let allIntents = beautifyIntents(state.metrics.intents)
+  let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
   const allExitIntents = beautifyIntents(state.conversations.exitIntents)
-  // Sort array by exits
+  // Sort arrays by exits & occurrences
   allExitIntents.sort(compareValues('exits', 'desc'))
+  allSupportRequests.sort(compareValues('occurrences', 'desc'))
 
-  if (!state.intents.loading) {
+  if (!state.metrics.loading) {
     // Merge exit intents with intents array
     allIntents = allIntents.map(intent =>
       Object.assign(
@@ -185,7 +268,7 @@ const mapStateToProps = state => {
 
   return {
     loadingConversations: state.conversations.loading,
-    loadingIntents: state.intents.loading,
+    loadingIntents: state.metrics.loading,
     conversationsTotal: state.conversations.conversationsTotal,
     supportRequestsPercentage: Math.floor(
       (state.conversations.supportRequests /
@@ -197,13 +280,19 @@ const mapStateToProps = state => {
     ),
     exitIntents: allExitIntents,
     intents: allIntents,
+    supportRequests: allSupportRequests,
+    feedbackSelected: state.metrics.feedbackSelected,
+    feedback: state.metrics.feedbackFiltered,
+    colors: state.filters.colors,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onFetchConversations: () => dispatch(actions.fetchConversations()),
-    onFetchIntents: () => dispatch(actions.fetchIntents()),
+    onFetchMetrics: () => dispatch(actions.fetchMetrics()),
+    onFeedbackChange: feedbackType =>
+      dispatch(actions.updateFeedbackType(feedbackType)),
   }
 }
 

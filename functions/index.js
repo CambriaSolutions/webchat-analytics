@@ -1,6 +1,8 @@
+const cors = require('cors')({ origin: true })
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
+
 // Connect to DB
 const store = admin.firestore()
 
@@ -33,7 +35,7 @@ const storeMetrics = (conversationId, currIntent, supportRequestType) => {
         if (supportRequestType) {
           // Check if current supportRequest is already on the list
           const supportMetric = currMetric.supportRequests.filter(
-            request => request.id === supportRequestType
+            request => request.name === supportRequestType
           )[0]
           // Update support metric counters
           if (supportMetric) {
@@ -111,10 +113,38 @@ const storeMetrics = (conversationId, currIntent, supportRequestType) => {
     })
 }
 
+const storeConversationFeedback = (
+  conversationId,
+  wasHelpful,
+  feedbackList
+) => {
+  // Update the conversation with a feedback entry
+  var conversationRef = store
+    .collection('conversations')
+    .doc(`${conversationId}`)
+
+  // Set the "capital" field of the city 'DC'
+  return conversationRef
+    .update({
+      hasFeedback: true,
+      feedback: admin.firestore.FieldValue.arrayUnion({
+        helpful: wasHelpful,
+        feedback: feedbackList,
+      }),
+    })
+    .catch(error => {
+      // The document probably doesn't exist.
+      console.error('Error updating document: ', error)
+    })
+}
+
 // -------------------------------------------------------------------------
 // ------------------ P U B L I C   F U N C T I O N S ----------------------
 // -------------------------------------------------------------------------
 
+// ------------------ S T O R E   A N A L Y T I C S ----------------------
+
+// Calculate metrics based on requests
 exports.storeAnalytics = functions.https.onRequest((req, res) => {
   const reqData = req.body
   if (!reqData) {
@@ -214,4 +244,126 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
     .catch(error => {
       console.log('Error getting conversation document:', error)
     })
+})
+
+// ------------------ S T O R E   F E E D B A C K ----------------------
+
+// Store feedback from conversations
+exports.storeFeedback = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    const reqData = req.body
+    if (!reqData) {
+      res.send(500, "The request body doesn't contain expected parameters")
+    }
+
+    // Check that feedback data exists on the request
+    if (!reqData.session || typeof reqData.wasHelpful === 'undefined') {
+      res.send(500, 'Missing feedback parameters')
+    }
+
+    const wasHelpful = reqData.wasHelpful
+    let feedbackList = reqData.feedbackList
+    // Get ID's from conversation (session)
+    const conversationId = getIdFromPath(reqData.session)
+
+    // Store feedback directly on the conversation
+    //storeConversationFeedback(conversationId, wasHelpful, feedbackList)
+
+    // Create/Update metric entry
+    const currDate = new Date()
+    const dateKey = format(currDate, 'MM-DD-YYYY')
+
+    const metricsRef = store.collection('metrics').doc(dateKey)
+    metricsRef
+      .get()
+      .then(doc => {
+        if (doc.exists) {
+          const currMetric = doc.data()
+
+          if (currMetric.feedback) {
+            if (wasHelpful) {
+              currMetric.feedback.positive++
+              if (!currMetric.feedback.helpful) currMetric.feedback.helpful = []
+
+              // Loop through feedback sent and update occurrences on DB
+              for (let feedbackType of feedbackList) {
+                // Check if current feedback type is already on the list
+                const existingFeedback = currMetric.feedback.helpful.filter(
+                  feedback => feedback.name === feedbackType
+                )[0]
+                // Update support metric counters
+                if (existingFeedback) {
+                  existingFeedback.occurrences++
+
+                  metricsRef.update({ feedback: currMetric.feedback })
+                } else {
+                  // Create new feedback type entry on the metric
+                  const newFeedbackType = {
+                    name: feedbackType,
+                    occurrences: 1,
+                  }
+                  metricsRef.update({
+                    'feedback.helpful': admin.firestore.FieldValue.arrayUnion(
+                      newFeedbackType
+                    ),
+                    'feedback.positive': currMetric.feedback.positive,
+                  })
+                }
+              }
+            } else {
+              currMetric.feedback.negative++
+              if (!currMetric.feedback.notHelpful)
+                currMetric.feedback.notHelpful = []
+
+              // Loop through feedback sent and update occurrences on DB
+              for (let feedbackType of feedbackList) {
+                // Check if current feedback type is already on the list
+                const existingFeedback = currMetric.feedback.notHelpful.filter(
+                  feedback => feedback.name === feedbackType
+                )[0]
+                // Update support metric counters
+                if (existingFeedback) {
+                  existingFeedback.occurrences++
+
+                  metricsRef.update({ feedback: currMetric.feedback })
+                } else {
+                  // Create new feedback type entry on the metric
+                  const newFeedbackType = {
+                    name: feedbackType,
+                    occurrences: 1,
+                  }
+                  metricsRef.update({
+                    'feedback.notHelpful': admin.firestore.FieldValue.arrayUnion(
+                      newFeedbackType
+                    ),
+                    'feedback.negative': currMetric.feedback.negative,
+                  })
+                }
+              }
+            }
+          } else {
+            feedbackList = feedbackList.map(feedback => ({
+              name: feedback,
+              occurrences: 1,
+            }))
+            // Create new metric entry with feedback and empty intent & supportRequest
+            metricsRef.update({
+              feedback: {
+                helpful: wasHelpful ? feedbackList : [],
+                notHelpful: wasHelpful ? [] : feedbackList,
+                positive: wasHelpful ? 1 : 0,
+                negative: wasHelpful ? 0 : 1,
+              },
+            })
+          }
+        }
+        return res.send(200, 'Feedback stored successfully')
+      })
+      .catch(error => {
+        console.log(
+          `Error getting feedback metric document with key ${dateKey}:`,
+          error
+        )
+      })
+  })
 })

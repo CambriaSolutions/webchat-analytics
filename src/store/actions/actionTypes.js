@@ -1,13 +1,10 @@
-export const UPDATE_FILTERS = 'Update filters date range'
-//export const GET_CONVERSATIONS_DURATION = 'Get conversations total durations'
-//export const GET_CONVERSATIONS_EXITS = 'Get exit intents from conversations'
-//export const GET_SUPPORT_REQUESTS = 'Retrieve support requests from conversations'
-//export const GET_INTENTS = 'Retrieve intents in date range'
+export const UPDATE_FILTERS = 'UPDATE_FILTERS_DATE_RANGE'
+export const UPDATE_FEEDBACK_TYPE = 'UPDATE_FEEDBACK_TYPE'
 
 export const FETCH_CONVERSATIONS_START = 'FETCH_CONVERSATIONS_START'
 export const FETCH_CONVERSATIONS_SUCCESS = 'FETCH_CONVERSATIONS_SUCCESS'
 export const FETCH_CONVERSATIONS_FAIL = 'FETCH_CONVERSATIONS_FAIL'
 
-export const FETCH_INTENTS_START = 'FETCH_INTENTS_START'
-export const FETCH_INTENTS_SUCCESS = 'FETCH_INTENTS_SUCCESS'
-export const FETCH_INTENTS_FAIL = 'FETCH_INTENTS_FAIL'
+export const FETCH_METRICS_START = 'FETCH_METRICS_START'
+export const FETCH_METRICS_SUCCESS = 'FETCH_METRICS_SUCCESS'
+export const FETCH_METRICS_FAIL = 'FETCH_METRICS_FAIL'
