@@ -22,7 +22,6 @@
 .env.production.local
 /.vscode
 /.firebase
-/backup
 .env
 
 npm-debug.log*

@@ -20,11 +20,16 @@ const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 // Metrics:
 // - Store intent from conversation & increase occurrences in metric
 // - Store support request submitted & increase occurrences
-const storeMetrics = (conversationId, currIntent, supportRequestType) => {
+const storeMetrics = (
+  context,
+  conversationId,
+  currIntent,
+  supportRequestType
+) => {
   const currDate = new Date()
   const dateKey = format(currDate, 'MM-DD-YYYY')
 
-  const metricsRef = store.collection('metrics').doc(dateKey)
+  const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
   metricsRef
     .get()
     .then(doc => {
@@ -114,13 +119,14 @@ const storeMetrics = (conversationId, currIntent, supportRequestType) => {
 }
 
 const storeConversationFeedback = (
+  context,
   conversationId,
   wasHelpful,
   feedbackList
 ) => {
   // Update the conversation with a feedback entry
   var conversationRef = store
-    .collection('conversations')
+    .collection(`${context}/conversations`)
     .doc(`${conversationId}`)
 
   // Set the "capital" field of the city 'DC'
@@ -156,6 +162,10 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   if (!reqData.session || !reqData.queryResult) {
     res.send(500, 'Missing conversation parameters')
   }
+  /*if (!reqData.project) {
+    res.send(500, 'Missing project information')
+  }*/
+  const context = `projects/${!reqData.project ? 'gen' : reqData.project}`
 
   // Get ID's from conversation (session) & intent
   const conversationId = getIdFromPath(reqData.session)
@@ -186,14 +196,16 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
   store
-    .collection('requests')
+    .collection(`${context}/requests`)
     .add(reqData)
     .catch(error => {
       res.send(500, `Error storing data: ${error}`)
     })
 
   // Store conversation metrics
-  const conversationRef = store.collection('conversations').doc(conversationId)
+  const conversationRef = store
+    .collection(`${context}/conversations`)
+    .doc(conversationId)
   conversationRef
     .get()
     .then(doc => {
@@ -237,7 +249,7 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
 
       const supportRequestType = supportRequestSubmitted ? supportType : null
       // Keep record of intents & support requests usage
-      storeMetrics(conversationId, intent, supportRequestType)
+      storeMetrics(context, conversationId, intent, supportRequestType)
 
       return res.send(200, 'Analytics stored successfully')
     })
@@ -260,6 +272,10 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
     if (!reqData.session || typeof reqData.wasHelpful === 'undefined') {
       res.send(500, 'Missing feedback parameters')
     }
+    /*if (!reqData.project) {
+      res.send(500, 'Missing project information')
+    }*/
+    const context = `projects/${!reqData.project ? 'gen' : reqData.project}`
 
     const wasHelpful = reqData.wasHelpful
     let feedbackList = reqData.feedbackList
@@ -267,13 +283,13 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
     const conversationId = getIdFromPath(reqData.session)
 
     // Store feedback directly on the conversation
-    //storeConversationFeedback(conversationId, wasHelpful, feedbackList)
+    //storeConversationFeedback(context, conversationId, wasHelpful, feedbackList)
 
     // Create/Update metric entry
     const currDate = new Date()
     const dateKey = format(currDate, 'MM-DD-YYYY')
 
-    const metricsRef = store.collection('metrics').doc(dateKey)
+    const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
     metricsRef
       .get()
       .then(doc => {
