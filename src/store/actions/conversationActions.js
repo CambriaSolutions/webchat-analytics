@@ -1,11 +1,13 @@
 import * as actionTypes from '../actions/actionTypes'
 import db from '../../Firebase'
 
-export const fetchConversations = dateRange => {
+export const fetchConversations = (dateRange, context) => {
   return (dispatch, getState) => {
     if (typeof dateRange === 'undefined')
       dateRange = getState().filters.dateFilters
-    const conversationsRef = db.collection('conversations')
+    if (typeof context === 'undefined') context = getState().filters.context
+
+    const conversationsRef = db.collection(`${context}/conversations`)
 
     dispatch(fetchConversationsStart())
     conversationsRef

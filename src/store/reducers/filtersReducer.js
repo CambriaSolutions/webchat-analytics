@@ -1,19 +1,13 @@
-import { UPDATE_FILTERS } from '../actions/actionTypes'
+import { UPDATE_FILTERS, UPDATE_CONTEXT } from '../actions/actionTypes'
 import { updateObject } from '../utility'
 //import randomColor from 'randomcolor'
 
 // Date FNS imports
 const format = require('date-fns/format')
-const startOfDay = require('date-fns/start_of_day')
 const endOfDay = require('date-fns/end_of_day')
+const subDays = require('date-fns/sub_days')
 
 const formatDate = date => format(date, 'YYYY-MM-DDTHH:mm:ssZ')
-
-const getDateRange = date => {
-  const startOfToday = formatDate(startOfDay(date))
-  const endOfToday = formatDate(endOfDay(date))
-  return { start: startOfToday, end: endOfToday }
-}
 
 // Shuffles array in place
 const shuffle = a => {
@@ -24,7 +18,17 @@ const shuffle = a => {
   return a
 }
 
-const COLORS = ['#C2CDFC', '#756BED', '#4158D0', '#387EB5', '#6B53DD']
+const COLORS = [
+  '#C2CDFC',
+  '#756BED',
+  '#4158D0',
+  '#387EB5',
+  '#6B53DD',
+  '#C6B3E6',
+  '#90A0E7',
+  '#7067AB',
+  '#8681A6',
+]
 /*const COLORS = randomColor({
   count: 10,
   hue: 'blue',
@@ -32,20 +36,30 @@ const COLORS = ['#C2CDFC', '#756BED', '#4158D0', '#387EB5', '#6B53DD']
 
 const initialState = {
   // Set Today filter by default
-  filterLabel: 'Today',
-  dateFilters: getDateRange(new Date()),
+  filterLabel: 'Last 7 days',
+  dateFilters: {
+    start: formatDate(subDays(new Date(), 7)),
+    end: formatDate(endOfDay(new Date())),
+  },
   colors: shuffle(COLORS),
+  context: 'projects/gen',
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === UPDATE_FILTERS) {
-    return updateObject(state, {
-      filterLabel: action.filterLabel,
-      dateFilters: action.dateFilters,
-      //colors: action.colors,
-    })
+  switch (action.type) {
+    case UPDATE_FILTERS:
+      return updateObject(state, {
+        filterLabel: action.filterLabel,
+        dateFilters: action.dateFilters,
+        //colors: action.colors,
+      })
+    case UPDATE_CONTEXT:
+      return updateObject(state, {
+        context: action.context,
+      })
+    default:
+      return state
   }
-  return state
 }
 
 export default reducer

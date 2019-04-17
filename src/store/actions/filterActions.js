@@ -64,3 +64,19 @@ export const updateFilters = event => {
     })
   }
 }
+
+// Change project/context and retrieve new metrics & conversations
+export const updateContext = event => {
+  const context = `projects/${event.target.value}`
+
+  return (dispatch, getState) => {
+    const dateFilters = getState().filters.dateFilters
+    dispatch(fetchConversations(dateFilters, context))
+    dispatch(fetchMetrics(dateFilters, context))
+
+    dispatch({
+      type: actionTypes.UPDATE_CONTEXT,
+      context: context,
+    })
+  }
+}

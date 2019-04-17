@@ -293,6 +293,7 @@ const mapDispatchToProps = dispatch => {
     onFetchMetrics: () => dispatch(actions.fetchMetrics()),
     onFeedbackChange: feedbackType =>
       dispatch(actions.updateFeedbackType(feedbackType)),
+    onContextChange: context => dispatch(actions.updateContext(context)),
   }
 }
 
