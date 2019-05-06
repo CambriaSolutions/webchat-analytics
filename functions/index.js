@@ -162,10 +162,13 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   if (!reqData.session || !reqData.queryResult) {
     res.send(500, 'Missing conversation parameters')
   }
-  /*if (!reqData.project) {
-    res.send(500, 'Missing project information')
-  }*/
-  const context = `projects/${!reqData.project ? 'gen' : reqData.project}`
+
+  // Check that session ID is valid: projects/project_name/agent/sessions/session_id
+  const projectName = reqData.session.split('/')[1]
+  if (!projectName) {
+    res.send(500, 'Invalid session ID')
+  }
+  const context = `projects/${projectName}`
 
   // Get ID's from conversation (session) & intent
   const conversationId = getIdFromPath(reqData.session)
@@ -272,10 +275,13 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
     if (!reqData.session || typeof reqData.wasHelpful === 'undefined') {
       res.send(500, 'Missing feedback parameters')
     }
-    /*if (!reqData.project) {
-      res.send(500, 'Missing project information')
-    }*/
-    const context = `projects/${!reqData.project ? 'gen' : reqData.project}`
+
+    // Check that session ID is valid: projects/project_name/agent/sessions/session_id
+    const projectName = reqData.session.split('/')[1]
+    if (!projectName) {
+      res.send(500, 'Invalid session ID')
+    }
+    const context = `projects/${projectName}`
 
     const wasHelpful = reqData.wasHelpful
     let feedbackList = reqData.feedbackList
