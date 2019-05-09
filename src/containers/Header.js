@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateFilters } from '../store/actions/filterActions'
+import { updateFilters, updateSettings } from '../store/actions/filterActions'
 import styled from 'styled-components'
 
 // Material UI
@@ -28,24 +28,37 @@ const Dropdown = styled(Select)`
     color: #fff;
   }
 `
+// Regex to retrieve text after last "/" on a context
+const getNameFromContext = context => /[^/]*$/.exec(context)[0]
 
 class Header extends Component {
   render() {
     return (
-      <AppBar position="static" color="primary">
+      <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-          <ToolbarTitle variant="h6" color="inherit">
+          <Dropdown
+            value={this.props.projectName}
+            onChange={event => this.props.onProjectChange(event.target.value)}
+            name='context'
+          >
+            {this.props.projects.map(project => (
+              <MenuItem value={project.name} key={project.name}>
+                {project.name}
+              </MenuItem>
+            ))}
+          </Dropdown>
+          <ToolbarTitle variant='h6' color='inherit'>
             Analytics
           </ToolbarTitle>
 
-          <Typography variant="subtitle1" color="inherit">
+          <Typography variant='subtitle1' color='inherit'>
             Filter
           </Typography>
           <Dropdown
             value={this.props.filterLabel}
             onChange={event => this.props.onFilterChange(event)}
-            name="filter"
+            name='filter'
           >
             <MenuItem value={'Today'}>Today</MenuItem>
             <MenuItem value={'Yesterday'}>Yesterday</MenuItem>
@@ -61,12 +74,16 @@ class Header extends Component {
 const mapStateToProps = state => {
   return {
     filterLabel: state.filters.filterLabel,
+    mainColor: state.filters.mainColor,
+    projects: state.filters.projects,
+    projectName: getNameFromContext(state.filters.context),
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
+    onProjectChange: newContext => dispatch(updateSettings(newContext)),
   }
 }
 

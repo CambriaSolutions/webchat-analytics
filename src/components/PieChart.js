@@ -30,15 +30,25 @@ class ResponsivePieChart extends Component {
     this.setState({ width: window.innerWidth })
   }
 
+  renderLegendText(value, entry) {
+    //const { color } = entry
+    return <span style={{ fontSize: 15 }}>{value}</span>
+  }
+
   render() {
     if (this.state.colors.length === 0) {
       this.setState({ width: window.innerWidth })
     }
     const isMobile = this.state.width <= 900
     const legend = !isMobile ? (
-      <Legend layout="vertical" verticalAlign="middle" align="right" />
+      <Legend
+        layout='vertical'
+        verticalAlign='middle'
+        align='right'
+        formatter={this.renderLegendText}
+      />
     ) : (
-      <Legend />
+      <Legend formatter={this.renderLegendText} />
     )
     return (
       <div style={{ width: '100%', height: 300 }}>
@@ -47,7 +57,7 @@ class ResponsivePieChart extends Component {
             <Pie
               dataKey={this.props.dataKey}
               data={this.props.data}
-              fill="#8884d8"
+              fill='#8884d8'
               label
             >
               {this.props.data.map((entry, index) => (

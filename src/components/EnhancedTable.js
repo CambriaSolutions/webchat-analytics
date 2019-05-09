@@ -12,7 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip'
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: '#7b88d1',
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     fontSize: '1em',
   },
@@ -89,7 +89,7 @@ class EnhancedTableHead extends React.Component {
                 sortDirection={orderBy === row.id ? order : false}
               >
                 <Tooltip
-                  title="Sort"
+                  title='Sort'
                   placement={row.numeric ? 'bottom-end' : 'bottom-start'}
                   enterDelay={300}
                 >
@@ -161,7 +161,7 @@ class EnhancedTable extends React.Component {
     return (
       <Paper className={classes.root}>
         <div className={classes.tableWrapper}>
-          <Table className={classes.table} aria-labelledby="tableTitle">
+          <Table className={classes.table} aria-labelledby='tableTitle'>
             <EnhancedTableHead
               order={order}
               orderBy={orderBy}
@@ -176,16 +176,16 @@ class EnhancedTable extends React.Component {
                     <TableRow
                       className={classes.row}
                       hover
-                      role="checkbox"
+                      role='checkbox'
                       tabIndex={-1}
                       key={n.id}
                     >
-                      <TableCell component="th" scope="row">
+                      <TableCell component='th' scope='row'>
                         {n.name}
                       </TableCell>
-                      <TableCell align="right">{n.occurrences}</TableCell>
-                      <TableCell align="right">{n.sessions}</TableCell>
-                      <TableCell align="right">{n.exits}</TableCell>
+                      <TableCell align='right'>{n.occurrences}</TableCell>
+                      <TableCell align='right'>{n.sessions}</TableCell>
+                      <TableCell align='right'>{n.exits}</TableCell>
                     </TableRow>
                   )
                 })}
@@ -199,7 +199,7 @@ class EnhancedTable extends React.Component {
         </div>
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
-          component="div"
+          component='div'
           count={data.length}
           rowsPerPage={rowsPerPage}
           page={page}
