@@ -2,6 +2,10 @@
 
 # dependencies
 /node_modules
+export/node_modules
+export/package-lock.json
+export/keys
+export/*.zip
 /.pnp
 .pnp.js
 
