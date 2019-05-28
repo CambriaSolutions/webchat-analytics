@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import * as actions from '../store/actions/index'
 import styled from 'styled-components'
 import { withStyles } from '@material-ui/core/styles'
+import Settings from './Settings'
 
 // Material UI
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Icon from '@material-ui/core/Icon'
+import Drawer from '@material-ui/core/Drawer'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
@@ -105,7 +107,7 @@ class Dashboard extends Component {
           .slice(0, 5)
 
         dashboardUI = (
-          <Grid container spacing={16}>
+          <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <Card
                 color={colorShades(this.props.mainColor, 40)}
@@ -209,7 +211,18 @@ class Dashboard extends Component {
         )
       }
     }
-    return <div style={rootStyles}>{dashboardUI}</div>
+    return (
+      <div style={rootStyles}>
+        <Drawer
+          anchor='right'
+          open={this.props.showSettings}
+          onClose={() => this.props.onSettingsToggle(false)}
+        >
+          <Settings />
+        </Drawer>
+        {dashboardUI}
+      </div>
+    )
   }
 }
 
@@ -292,6 +305,7 @@ const mapStateToProps = state => {
     feedback: state.metrics.feedbackFiltered,
     colors: state.filters.colors,
     mainColor: state.filters.mainColor,
+    showSettings: state.filters.showSettings,
   }
 }
 
@@ -302,6 +316,8 @@ const mapDispatchToProps = dispatch => {
     onFetchMetrics: () => dispatch(actions.fetchMetrics()),
     onFeedbackChange: feedbackType =>
       dispatch(actions.updateFeedbackType(feedbackType)),
+    onSettingsToggle: showSettings =>
+      dispatch(actions.toggleSettings(showSettings)),
   }
 }
 

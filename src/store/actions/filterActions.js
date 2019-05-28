@@ -3,14 +3,9 @@ import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
 import db from '../../Firebase'
 import randomColor from 'randomcolor'
+import { format, startOfDay, endOfDay, subDays } from 'date-fns'
 
-// Date FNS imports
-const format = require('date-fns/format')
-const startOfDay = require('date-fns/start_of_day')
-const endOfDay = require('date-fns/end_of_day')
-const subDays = require('date-fns/sub_days')
-
-const formatDate = date => format(date, 'YYYY-MM-DDTHH:mm:ssZ')
+const formatDate = date => format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 const getDateRange = date => {
   const startOfToday = formatDate(startOfDay(date))
@@ -61,7 +56,7 @@ export const updateFilters = event => {
 }
 
 // Change project/context and retrieve new metrics & conversations
-export const updateSettings = (projectName, projects = []) => {
+export const updateContext = (projectName, projects = []) => {
   const context = `projects/${projectName}`
 
   return (dispatch, getState) => {
@@ -82,14 +77,14 @@ export const updateSettings = (projectName, projects = []) => {
       })
 
       dispatch({
-        type: actionTypes.UPDATE_SETTINGS,
+        type: actionTypes.UPDATE_CONTEXT,
         context: context,
         mainColor: currProject.primaryColor,
         colors: COLORS,
       })
     } else {
       dispatch({
-        type: actionTypes.UPDATE_SETTINGS,
+        type: actionTypes.UPDATE_CONTEXT,
         context: context,
         mainColor: '',
         colors: [],
@@ -113,7 +108,7 @@ export const fetchProjects = () => {
 
         // Update project settings
         if (fetchedProjects.length > 0) {
-          dispatch(updateSettings(fetchedProjects[0].name, fetchedProjects))
+          dispatch(updateContext(fetchedProjects[0].name, fetchedProjects))
         }
 
         dispatch(fetchProjectsSuccess(fetchedProjects))
@@ -142,5 +137,59 @@ export const fetchProjectsFail = error => {
 export const fetchProjectsStart = () => {
   return {
     type: actionTypes.FETCH_PROJECTS_START,
+  }
+}
+
+export const toggleSettings = showSettings => {
+  return {
+    type: actionTypes.TOGGLE_SETTINGS,
+    showSettings: showSettings,
+  }
+}
+
+export const updateExportDate = newDate => {
+  return {
+    type: actionTypes.UPDATE_EXPORT_DATE,
+    downloadExportDate: newDate,
+  }
+}
+
+export const downloadExport = () => {
+  return (dispatch, getState) => {
+    const exportDate = getState().filters.downloadExportDate
+
+    const exportFileName = `${format(exportDate, 'MM-dd-yyyy')}.json`
+
+    // Download export file
+    fetch(process.env.REACT_APP_DOWNLOAD_EXPORT_FUNCTION_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        filename: exportFileName,
+      }),
+    })
+      .then(response => {
+        // Convert the ReadableStream reponse into a Blob
+        if (response.status === 200) return response.blob()
+      })
+      .then(blob => {
+        // Create object URL based on blob
+        if (blob) return URL.createObjectURL(blob)
+      })
+      .then(url => {
+        if (url) {
+          // Create temporary tag to download objectURL on the client side
+          const a = document.createElement('a')
+          a.setAttribute('hidden', '')
+          a.setAttribute('href', url)
+          a.setAttribute('download', exportFileName)
+          document.body.appendChild(a)
+          a.click()
+          document.body.removeChild(a)
+        }
+      })
   }
 }

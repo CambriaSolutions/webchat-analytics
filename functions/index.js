@@ -144,6 +144,28 @@ const storeConversationFeedback = (
     })
 }
 
+// Aggregate & clean up request data
+const aggregateRequest = (context, reqData, conversationId) => {
+  const currIntent = reqData.queryResult.intent
+
+  aggregateData = {
+    conversationId,
+    createdAt: admin.firestore.Timestamp.now(),
+    language: reqData.queryResult.languageCode,
+    intentId: getIdFromPath(currIntent.name),
+    intentName: currIntent.displayName,
+    intentDetectionConfidence: reqData.queryResult.intentDetectionConfidence,
+    messageText: reqData.queryResult.queryText,
+  }
+
+  store
+    .collection(`${context}/aggregate/${conversationId}/requests`)
+    .add(aggregateData)
+    .catch(error => {
+      console.log(`Error storing request in conversation: ${error}`)
+    })
+}
+
 // -------------------------------------------------------------------------
 // ------------------ P U B L I C   F U N C T I O N S ----------------------
 // -------------------------------------------------------------------------
@@ -205,6 +227,35 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
       res.send(500, `Error storing data: ${error}`)
     })
 
+  // Store aggregate used on export: conversations with requests
+  const aggregateRef = store
+    .collection(`${context}/aggregate`)
+    .doc(conversationId)
+  aggregateRef
+    .get()
+    .then(doc => {
+      let conversation = {
+        updatedAt: admin.firestore.Timestamp.now(),
+      }
+
+      if (doc.exists) {
+        aggregateRef.update(conversation)
+      } else {
+        // Create new conversation doc
+        conversation.createdAt = admin.firestore.Timestamp.now()
+        conversation.conversationId = conversationId
+        aggregateRef.set(conversation)
+      }
+
+      // Store request within aggregate conversation
+      aggregateRequest(context, reqData, conversationId)
+
+      return
+    })
+    .catch(error => {
+      console.log(`Error storing aggregated data: ${error}`)
+    })
+
   // Store conversation metrics
   const conversationRef = store
     .collection(`${context}/conversations`)
@@ -257,7 +308,7 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
       return res.send(200, 'Analytics stored successfully')
     })
     .catch(error => {
-      console.log('Error getting conversation document:', error)
+      res.send(500, `Error storing conversation document: ${error}`)
     })
 })
 
@@ -387,5 +438,38 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
           error
         )
       })
+  })
+})
+
+const { Storage } = require('@google-cloud/storage')
+// Creates a client
+const storage = new Storage({
+  projectId: 'webchat-analytics-234317',
+  keyFilename: './keys/firestore-key.json',
+})
+const bucketName = 'daily-json-exports'
+
+// Calculate metrics based on requests
+exports.downloadExport = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    const reqData = req.body
+    if (!reqData) {
+      res.send(500, "The request body doesn't contain expected parameters")
+    }
+
+    // Check that filename exists on the request
+    if (!reqData.filename) {
+      res.send(500, 'Missing file parameters')
+    }
+
+    const filename = reqData.filename
+    const bucket = storage.bucket(bucketName)
+    let file = bucket.file(filename)
+
+    res.setHeader('Content-disposition', 'attachment; filename=' + filename)
+    res.setHeader('Content-type', 'application/json')
+
+    const readStream = file.createReadStream()
+    readStream.pipe(res)
   })
 })

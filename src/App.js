@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import Header from './containers/Header'
 import Dashboard from './containers/Dashboard'
 
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
+
 import { createMuiTheme } from '@material-ui/core/styles'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 
@@ -26,7 +29,7 @@ class App extends Component {
       },
     }
     return (
-      <React.Fragment>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <MuiThemeProvider theme={createMuiTheme(theme)}>
           <div className='App'>
             <Header />
@@ -34,7 +37,7 @@ class App extends Component {
           </div>
           <GlobalStyle />
         </MuiThemeProvider>
-      </React.Fragment>
+      </MuiPickersUtilsProvider>
     )
   }
 }

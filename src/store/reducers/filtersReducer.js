@@ -1,13 +1,9 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../utility'
 //import randomColor from 'randomcolor'
+import { format, endOfDay, subDays } from 'date-fns'
 
-// Date FNS imports
-const format = require('date-fns/format')
-const endOfDay = require('date-fns/end_of_day')
-const subDays = require('date-fns/sub_days')
-
-const formatDate = date => format(date, 'YYYY-MM-DDTHH:mm:ssZ')
+const formatDate = date => format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 // Shuffles array in place
 /*const shuffle = a => {
@@ -37,11 +33,13 @@ const initialState = {
     start: formatDate(subDays(new Date(), 7)),
     end: formatDate(endOfDay(new Date())),
   },
+  downloadExportDate: new Date(),
   colors: [],
   mainColor: '#8681A6',
   context: '',
   projects: [],
   loading: false,
+  showSettings: false,
 }
 
 const fetchProjectsStart = (state, action) => {
@@ -66,7 +64,7 @@ const reducer = (state = initialState, action) => {
         filterLabel: action.filterLabel,
         dateFilters: action.dateFilters,
       })
-    case actionTypes.UPDATE_SETTINGS:
+    case actionTypes.UPDATE_CONTEXT:
       return updateObject(state, {
         context: action.context,
         mainColor: action.mainColor,
@@ -78,6 +76,14 @@ const reducer = (state = initialState, action) => {
       return fetchProjectsSuccess(state, action)
     case actionTypes.FETCH_PROJECTS_FAIL:
       return fetchProjectsFail(state, action)
+    case actionTypes.UPDATE_EXPORT_DATE:
+      return updateObject(state, {
+        downloadExportDate: action.downloadExportDate,
+      })
+    case actionTypes.TOGGLE_SETTINGS:
+      return updateObject(state, {
+        showSettings: action.showSettings,
+      })
     default:
       return state
   }

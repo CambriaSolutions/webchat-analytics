@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateFilters, updateSettings } from '../store/actions/filterActions'
+import {
+  updateFilters,
+  updateContext,
+  toggleSettings,
+} from '../store/actions/filterActions'
 import styled from 'styled-components'
 
 // Material UI
+import Hidden from '@material-ui/core/Hidden'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Select from '@material-ui/core/Select'
+import IconButton from '@material-ui/core/IconButton'
 import MenuItem from '@material-ui/core/MenuItem'
 // Icons
 import InsertChartOutlined from '@material-ui/icons/InsertChartOutlined'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
@@ -37,17 +44,19 @@ class Header extends Component {
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-          <Dropdown
-            value={this.props.projectName}
-            onChange={event => this.props.onProjectChange(event.target.value)}
-            name='context'
-          >
-            {this.props.projects.map(project => (
-              <MenuItem value={project.name} key={project.name}>
-                {project.name}
-              </MenuItem>
-            ))}
-          </Dropdown>
+          <Hidden xsDown>
+            <Dropdown
+              value={this.props.projectName}
+              onChange={event => this.props.onProjectChange(event.target.value)}
+              name='context'
+            >
+              {this.props.projects.map(project => (
+                <MenuItem value={project.name} key={project.name}>
+                  {project.name}
+                </MenuItem>
+              ))}
+            </Dropdown>
+          </Hidden>
           <ToolbarTitle variant='h6' color='inherit'>
             Analytics
           </ToolbarTitle>
@@ -65,6 +74,13 @@ class Header extends Component {
             <MenuItem value={'Last 7 days'}>Last 7 days</MenuItem>
             <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
           </Dropdown>
+          <IconButton
+            color='inherit'
+            onClick={() => this.props.onSettingsToggle(true)}
+            aria-label='Open settings'
+          >
+            <SettingsIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     )
@@ -83,7 +99,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
-    onProjectChange: newContext => dispatch(updateSettings(newContext)),
+    onProjectChange: newContext => dispatch(updateContext(newContext)),
+    onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
   }
 }
 

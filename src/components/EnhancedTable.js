@@ -28,7 +28,7 @@ const StyledTableSortLabel = withStyles(theme => ({
     },
   },
   active: {
-    color: '#fff',
+    color: '#fff !important',
     fontWeight: 'bold',
     '&:hover': {
       color: '#d9ddf2',
@@ -114,7 +114,7 @@ class EnhancedTableHead extends React.Component {
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(),
     overflowX: 'auto',
   },
   row: {
