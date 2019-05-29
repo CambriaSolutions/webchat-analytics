@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Header from './containers/Header'
-import Dashboard from './containers/Dashboard'
-
-import { MuiPickersUtilsProvider } from '@material-ui/pickers'
-import DateFnsUtils from '@date-io/date-fns'
-
-import { createMuiTheme } from '@material-ui/core/styles'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Snackbar from '@material-ui/core/Snackbar'
+import ThemedApp from './containers/ThemedApp'
+import PrivateRoute from './PrivateRoute'
+import SignIn from './components/SignIn'
+import { fetchUser, closeSnackbar } from './store/actions'
 
 import { createGlobalStyle } from 'styled-components'
 import background from './img/grey.png'
@@ -19,34 +17,56 @@ const GlobalStyle = createGlobalStyle`
 `
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchUser()
+  }
+
   render() {
-    const theme = {
-      palette: {
-        primary: { main: this.props.mainColor },
-      },
-      typography: {
-        useNextVariants: true,
-      },
-    }
+    const {
+      snackbarOpen,
+      closeSnackbar,
+      snackbarMessage,
+      isLoggedIn,
+    } = this.props
+
     return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <MuiThemeProvider theme={createMuiTheme(theme)}>
-          <div className='App'>
-            <Header />
-            <Dashboard />
-          </div>
-          <GlobalStyle />
-        </MuiThemeProvider>
-      </MuiPickersUtilsProvider>
+      <Router>
+        <div className='container'>
+          <Route path='/login' component={SignIn} />
+
+          <PrivateRoute
+            exact
+            path='/'
+            loggedIn={isLoggedIn}
+            component={ThemedApp}
+          />
+
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            open={snackbarOpen}
+            autoHideDuration={3500}
+            onClose={closeSnackbar}
+            message={<span id='message-id'>{snackbarMessage}</span>}
+          />
+        </div>
+        <GlobalStyle />
+      </Router>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    filterLabel: state.filters.filterLabel,
-    mainColor: state.filters.mainColor,
+    isLoggedIn: state.auth.isLoggedIn,
+    snackbarOpen: state.config.snackbarOpen,
+    snackbarMessage: state.config.snackbarMessage,
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(
+  mapStateToProps,
+  { fetchUser, closeSnackbar }
+)(App)

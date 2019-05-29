@@ -40,23 +40,31 @@ const getNameFromContext = context => /[^/]*$/.exec(context)[0]
 
 class Header extends Component {
   render() {
+    let projectDropdown = ''
+    if (this.props.projects.length > 1) {
+      projectDropdown = (
+        <Hidden xsDown>
+          <Dropdown
+            value={this.props.projectName}
+            onChange={event => this.props.onProjectChange(event.target.value)}
+            name='context'
+          >
+            {this.props.projects.map(project => (
+              <MenuItem value={project.name} key={project.name}>
+                {project.name}
+              </MenuItem>
+            ))}
+          </Dropdown>
+        </Hidden>
+      )
+    }
+
     return (
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-          <Hidden xsDown>
-            <Dropdown
-              value={this.props.projectName}
-              onChange={event => this.props.onProjectChange(event.target.value)}
-              name='context'
-            >
-              {this.props.projects.map(project => (
-                <MenuItem value={project.name} key={project.name}>
-                  {project.name}
-                </MenuItem>
-              ))}
-            </Dropdown>
-          </Hidden>
+
+          {projectDropdown}
           <ToolbarTitle variant='h6' color='inherit'>
             Analytics
           </ToolbarTitle>
@@ -91,7 +99,7 @@ const mapStateToProps = state => {
   return {
     filterLabel: state.filters.filterLabel,
     mainColor: state.filters.mainColor,
-    projects: state.filters.projects,
+    projects: state.config.projects,
     projectName: getNameFromContext(state.filters.context),
   }
 }

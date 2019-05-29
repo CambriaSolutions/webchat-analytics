@@ -37,24 +37,7 @@ const initialState = {
   colors: [],
   mainColor: '#8681A6',
   context: '',
-  projects: [],
-  loading: false,
   showSettings: false,
-}
-
-const fetchProjectsStart = (state, action) => {
-  return updateObject(state, { loading: true })
-}
-
-const fetchProjectsSuccess = (state, action) => {
-  return updateObject(state, {
-    projects: action.projects,
-    loading: false,
-  })
-}
-
-const fetchProjectsFail = (state, action) => {
-  return updateObject(state, { loading: false })
 }
 
 const reducer = (state = initialState, action) => {
@@ -70,12 +53,6 @@ const reducer = (state = initialState, action) => {
         mainColor: action.mainColor,
         colors: action.colors,
       })
-    case actionTypes.FETCH_PROJECTS_START:
-      return fetchProjectsStart(state, action)
-    case actionTypes.FETCH_PROJECTS_SUCCESS:
-      return fetchProjectsSuccess(state, action)
-    case actionTypes.FETCH_PROJECTS_FAIL:
-      return fetchProjectsFail(state, action)
     case actionTypes.UPDATE_EXPORT_DATE:
       return updateObject(state, {
         downloadExportDate: action.downloadExportDate,

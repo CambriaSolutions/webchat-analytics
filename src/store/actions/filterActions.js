@@ -1,7 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
-import db from '../../Firebase'
 import randomColor from 'randomcolor'
 import { format, startOfDay, endOfDay, subDays } from 'date-fns'
 
@@ -62,7 +61,7 @@ export const updateContext = (projectName, projects = []) => {
   return (dispatch, getState) => {
     // Get projects settings based on the given context
     if (projects.length === 0) {
-      projects = getState().filters.projects
+      projects = getState().config.projects
     }
 
     const currProject = projects.filter(p => p.name === projectName)[0]
@@ -90,53 +89,6 @@ export const updateContext = (projectName, projects = []) => {
         colors: [],
       })
     }
-  }
-}
-
-export const fetchProjects = () => {
-  return (dispatch, getState) => {
-    const settingsRef = db.collection(`settings`)
-
-    dispatch(fetchProjectsStart())
-    settingsRef
-      .get()
-      .then(querySnapshot => {
-        let fetchedProjects = []
-        querySnapshot.forEach(doc => {
-          fetchedProjects.push(doc.data())
-        })
-
-        // Update project settings
-        if (fetchedProjects.length > 0) {
-          dispatch(updateContext(fetchedProjects[0].name, fetchedProjects))
-        }
-
-        dispatch(fetchProjectsSuccess(fetchedProjects))
-      })
-      .catch(err => {
-        dispatch(fetchProjectsFail(err))
-      })
-  }
-}
-
-export const fetchProjectsSuccess = projects => {
-  return {
-    type: actionTypes.FETCH_PROJECTS_SUCCESS,
-    projects: projects,
-  }
-}
-
-export const fetchProjectsFail = error => {
-  console.log(error)
-  return {
-    type: actionTypes.FETCH_PROJECTS_FAIL,
-    error: error,
-  }
-}
-
-export const fetchProjectsStart = () => {
-  return {
-    type: actionTypes.FETCH_PROJECTS_START,
   }
 }
 

@@ -5,6 +5,7 @@ import {
   updateExportDate,
   downloadExport,
 } from '../store/actions/filterActions'
+import { signOut } from '../store/actions/authActions'
 import styled from 'styled-components'
 import background from '../img/grey.png'
 
@@ -17,10 +18,12 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListSubheader from '@material-ui/core/ListSubheader'
 import IconButton from '@material-ui/core/IconButton'
+import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import Switch from '@material-ui/core/Switch'
 // Icons
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
+import CloudOffIcon from '@material-ui/icons/CloudOff'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 
 import { DatePicker } from '@material-ui/pickers'
@@ -31,17 +34,31 @@ const StyledDiv = styled.div`
   background-image: url(${background});
 `
 
-const TitleDiv = styled(Typography)`
-  padding: 8px 0 8px 16px;
+const BottomDiv = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+`
+
+const SignOutButton = styled(Button)`
+  border-radius: 0 !important;
+`
+
+const SignOutIcon = styled(CloudOffIcon)`
+  margin-right: 10px;
 `
 
 class Settings extends Component {
   render() {
+    const TitleDiv = styled(Typography)`
+      padding: 8px 0 8px 16px;
+      color: #fff;
+      background-color: ${this.props.mainColor};
+    `
     return (
       <StyledDiv>
-        <TitleDiv variant='h6' color='primary'>
-          Data Export
-        </TitleDiv>
+        <TitleDiv variant='h6'>Data Export</TitleDiv>
         <Divider />
         <List
           subheader={
@@ -66,9 +83,7 @@ class Settings extends Component {
           </ListItem>
         </List>
         <Divider />
-        <TitleDiv variant='h6' color='primary'>
-          Settings
-        </TitleDiv>
+        <TitleDiv variant='h6'>Settings</TitleDiv>
         <Divider />
         <List>
           <ListItem>
@@ -81,6 +96,19 @@ class Settings extends Component {
             </ListItemSecondaryAction>
           </ListItem>
         </List>
+        <BottomDiv>
+          <SignOutButton
+            color='primary'
+            edge='end'
+            aria-label='SignOut'
+            variant='contained'
+            fullWidth={true}
+            onClick={this.props.onSignOut}
+          >
+            <SignOutIcon />
+            Logout
+          </SignOutButton>
+        </BottomDiv>
       </StyledDiv>
     )
   }
@@ -100,6 +128,7 @@ const mapDispatchToProps = dispatch => {
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
     onDownloadDateChange: newDate => dispatch(updateExportDate(newDate)),
     onExportDownload: () => dispatch(downloadExport()),
+    onSignOut: () => dispatch(signOut()),
   }
 }
 

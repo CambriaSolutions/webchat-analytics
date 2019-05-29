@@ -45,10 +45,6 @@ const FeedbackButtonGroup = styled(ToggleButtonGroup)`
 `
 
 class Dashboard extends Component {
-  componentDidMount() {
-    this.props.onFetchProjects()
-  }
-
   feedbackTypeChange = (event, feedbackSelected) =>
     this.props.onFeedbackChange(feedbackSelected)
 
@@ -311,7 +307,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchProjects: () => dispatch(actions.fetchProjects()),
     onFetchConversations: () => dispatch(actions.fetchConversations()),
     onFetchMetrics: () => dispatch(actions.fetchMetrics()),
     onFeedbackChange: feedbackType =>
