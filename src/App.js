@@ -47,7 +47,7 @@ class App extends Component {
               horizontal: 'right',
             }}
             open={snackbarOpen}
-            autoHideDuration={3500}
+            autoHideDuration={4000}
             onClose={closeSnackbar}
             message={<span id='message-id'>{snackbarMessage}</span>}
           />

@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {
-  updateFilters,
-  updateContext,
-  toggleSettings,
-} from '../store/actions/filterActions'
+import { updateFilters, updateContext } from '../store/actions/filterActions'
+import { toggleSettings } from '../store/actions/configActions'
 import styled from 'styled-components'
 
 // Material UI

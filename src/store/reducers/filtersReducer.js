@@ -33,11 +33,9 @@ const initialState = {
     start: formatDate(subDays(new Date(), 7)),
     end: formatDate(endOfDay(new Date())),
   },
-  downloadExportDate: new Date(),
   colors: [],
   mainColor: '#8681A6',
   context: '',
-  showSettings: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -52,14 +50,6 @@ const reducer = (state = initialState, action) => {
         context: action.context,
         mainColor: action.mainColor,
         colors: action.colors,
-      })
-    case actionTypes.UPDATE_EXPORT_DATE:
-      return updateObject(state, {
-        downloadExportDate: action.downloadExportDate,
-      })
-    case actionTypes.TOGGLE_SETTINGS:
-      return updateObject(state, {
-        showSettings: action.showSettings,
       })
     default:
       return state

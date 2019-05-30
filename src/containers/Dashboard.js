@@ -301,7 +301,7 @@ const mapStateToProps = state => {
     feedback: state.metrics.feedbackFiltered,
     colors: state.filters.colors,
     mainColor: state.filters.mainColor,
-    showSettings: state.filters.showSettings,
+    showSettings: state.config.showSettings,
   }
 }
 

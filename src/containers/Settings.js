@@ -4,7 +4,7 @@ import {
   toggleSettings,
   updateExportDate,
   downloadExport,
-} from '../store/actions/filterActions'
+} from '../store/actions/configActions'
 import { signOut } from '../store/actions/authActions'
 import styled from 'styled-components'
 import background from '../img/grey.png'
@@ -118,8 +118,8 @@ const mapStateToProps = state => {
   return {
     filterLabel: state.filters.filterLabel,
     mainColor: state.filters.mainColor,
-    projects: state.filters.projects,
-    downloadDate: state.filters.downloadExportDate,
+    projects: state.config.projects,
+    downloadDate: state.config.downloadExportDate,
   }
 }
 

@@ -2,10 +2,12 @@ import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../utility'
 
 const initialState = {
-  snackbarOpen: false,
-  snackbarMessage: '',
   projects: [],
   loading: false,
+  downloadExportDate: new Date(),
+  showSettings: false,
+  snackbarOpen: false,
+  snackbarMessage: '',
 }
 
 const fetchProjectsStart = (state, action) => {
@@ -31,6 +33,18 @@ const reducer = (state = initialState, action) => {
       return fetchProjectsSuccess(state, action)
     case actionTypes.FETCH_PROJECTS_FAIL:
       return fetchProjectsFail(state, action)
+    case actionTypes.UPDATE_EXPORT_DATE:
+      return updateObject(state, {
+        downloadExportDate: action.downloadExportDate,
+      })
+    case actionTypes.TOGGLE_SETTINGS:
+      return updateObject(state, {
+        showSettings: action.showSettings,
+      })
+    case actionTypes.TOGGLE_CONFIG_LOADING:
+      return updateObject(state, {
+        loading: action.loading,
+      })
     case actionTypes.CLOSE_SNACKBAR:
       return updateObject(state, {
         snackbarOpen: false,

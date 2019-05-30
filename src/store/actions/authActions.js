@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import { authRef } from '../../Firebase'
-import { toggleSettings } from './filterActions'
+import { toggleSettings } from './configActions'
 import { fetchProjects, showSnackbar } from './configActions'
 
 export const fetchUser = () => dispatch => {

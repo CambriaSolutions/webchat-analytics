@@ -466,10 +466,26 @@ exports.downloadExport = functions.https.onRequest((req, res) => {
     const bucket = storage.bucket(bucketName)
     let file = bucket.file(filename)
 
-    res.setHeader('Content-disposition', 'attachment; filename=' + filename)
-    res.setHeader('Content-type', 'application/json')
+    file
+      .exists()
+      .then(data => {
+        var exists = data[0]
+        if (exists) {
+          res.setHeader(
+            'Content-disposition',
+            'attachment; filename=' + filename
+          )
+          res.setHeader('Content-type', 'application/json')
 
-    const readStream = file.createReadStream()
-    readStream.pipe(res)
+          const readStream = file.createReadStream()
+          return readStream.pipe(res)
+        } else {
+          return res.send(404, "The requested file doesn't exist")
+        }
+      })
+      .catch(err => {
+        res.send(404, "The requested file doesn't exist")
+        return err
+      })
   })
 })
