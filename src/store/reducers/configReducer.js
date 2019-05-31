@@ -3,6 +3,7 @@ import { updateObject } from '../utility'
 
 const initialState = {
   projects: [],
+  defaultProject: '',
   loading: false,
   downloadExportDate: new Date(),
   showSettings: false,
@@ -36,6 +37,10 @@ const reducer = (state = initialState, action) => {
     case actionTypes.UPDATE_EXPORT_DATE:
       return updateObject(state, {
         downloadExportDate: action.downloadExportDate,
+      })
+    case actionTypes.UPDATE_DEFAULT_PROJECT:
+      return updateObject(state, {
+        defaultProject: action.defaultProject,
       })
     case actionTypes.TOGGLE_SETTINGS:
       return updateObject(state, {

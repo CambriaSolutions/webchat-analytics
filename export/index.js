@@ -107,17 +107,7 @@ const retrieveData = async () => {
 exports.handler = (event, callback) => {
   // Retrieve today's data from Firestore
   try {
-    //retrieveData()
-
-    const bucket = storage.bucket(bucketName)
-    let file = bucket.file('05-14-2019.json')
-
-    file.download(
-      {
-        destination: './json-export.json',
-      },
-      function(err) {}
-    )
+    retrieveData()
   } catch (err) {
     console.log('Error retrieving data', err)
   }

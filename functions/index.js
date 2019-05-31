@@ -155,7 +155,7 @@ const aggregateRequest = (context, reqData, conversationId) => {
     intentId: getIdFromPath(currIntent.name),
     intentName: currIntent.displayName,
     intentDetectionConfidence: reqData.queryResult.intentDetectionConfidence,
-    messageText: reqData.queryResult.queryText,
+    //messageText: reqData.queryResult.queryText,
   }
 
   store
@@ -367,22 +367,16 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
                 // Update support metric counters
                 if (existingFeedback) {
                   existingFeedback.occurrences++
-
-                  metricsRef.update({ feedback: currMetric.feedback })
                 } else {
                   // Create new feedback type entry on the metric
                   const newFeedbackType = {
                     name: feedbackType,
                     occurrences: 1,
                   }
-                  metricsRef.update({
-                    'feedback.helpful': admin.firestore.FieldValue.arrayUnion(
-                      newFeedbackType
-                    ),
-                    'feedback.positive': currMetric.feedback.positive,
-                  })
+                  currMetric.feedback.helpful.push(newFeedbackType)
                 }
               }
+              metricsRef.update({ feedback: currMetric.feedback })
             } else {
               currMetric.feedback.negative++
               if (!currMetric.feedback.notHelpful)
@@ -397,22 +391,16 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
                 // Update support metric counters
                 if (existingFeedback) {
                   existingFeedback.occurrences++
-
-                  metricsRef.update({ feedback: currMetric.feedback })
                 } else {
                   // Create new feedback type entry on the metric
                   const newFeedbackType = {
                     name: feedbackType,
                     occurrences: 1,
                   }
-                  metricsRef.update({
-                    'feedback.notHelpful': admin.firestore.FieldValue.arrayUnion(
-                      newFeedbackType
-                    ),
-                    'feedback.negative': currMetric.feedback.negative,
-                  })
+                  currMetric.feedback.notHelpful.push(newFeedbackType)
                 }
               }
+              metricsRef.update({ feedback: currMetric.feedback })
             }
           } else {
             feedbackList = feedbackList.map(feedback => ({

@@ -15,6 +15,7 @@ export const fetchProjects = user => {
         if (doc.exists) {
           const userData = doc.data()
           user.defaultProject = userData.defaultProject
+          user.dataExport = userData.dataExport ? userData.dataExport : false
 
           const settingsRef = db.collection(`settings`)
 
@@ -40,6 +41,10 @@ export const fetchProjects = user => {
                   p => p.name === user.defaultProject
                 )[0]
 
+                dispatch({
+                  type: actionTypes.UPDATE_DEFAULT_PROJECT,
+                  defaultProject: defaultProject.name,
+                })
                 dispatch(updateContext(defaultProject.name, fetchedProjects))
               }
 
@@ -103,6 +108,23 @@ export const updateExportDate = newDate => {
   }
 }
 
+export const updateDefaultProject = projectName => {
+  return (dispatch, getState) => {
+    // Get projects settings based on the given context
+    const user = getState().auth.user
+    if (user) {
+      const userRef = db.collection(`users`).doc(user.uid)
+      userRef.update({ defaultProject: projectName }).then(() => {
+        dispatch({
+          type: actionTypes.UPDATE_DEFAULT_PROJECT,
+          defaultProject: projectName,
+        })
+        dispatch(showSnackbar(`Default project updated successfully`))
+      })
+    }
+  }
+}
+
 export const downloadExport = () => {
   return (dispatch, getState) => {
     const exportDate = getState().config.downloadExportDate
@@ -110,6 +132,7 @@ export const downloadExport = () => {
     const exportFileName = `${format(exportDate, 'MM-dd-yyyy')}.json`
 
     // Download export file
+    dispatch(toggleConfigLoading(true))
     fetch(process.env.REACT_APP_DOWNLOAD_EXPORT_FUNCTION_URL, {
       method: 'POST',
       headers: {
@@ -123,7 +146,6 @@ export const downloadExport = () => {
       .then(response => {
         // Convert the ReadableStream reponse into a Blob
         if (response.status === 200) {
-          toggleConfigLoading(true)
           return response.blob()
         } else if (response.status === 404) {
           dispatch(
@@ -134,6 +156,9 @@ export const downloadExport = () => {
               )}`
             )
           )
+          dispatch(toggleConfigLoading(false))
+        } else {
+          dispatch(toggleConfigLoading(false))
         }
       })
       .then(blob => {
@@ -150,7 +175,9 @@ export const downloadExport = () => {
           document.body.appendChild(a)
           a.click()
           document.body.removeChild(a)
-          toggleConfigLoading(false)
+          setTimeout(() => {
+            dispatch(toggleConfigLoading(false))
+          }, 1000)
         }
       })
   }
