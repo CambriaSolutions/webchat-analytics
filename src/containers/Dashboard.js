@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import * as actions from '../store/actions/index'
 import styled from 'styled-components'
 import { withStyles } from '@material-ui/core/styles'
+import Settings from './Settings'
 
 // Material UI
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Icon from '@material-ui/core/Icon'
+import Drawer from '@material-ui/core/Drawer'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
@@ -18,6 +20,9 @@ import BarChart from '../components/BarChart'
 import RadarChart from '../components/RadarChart'
 import EnhancedTable from '../components/EnhancedTable'
 import CircularProgress from '@material-ui/core/CircularProgress'
+
+// Helpers
+import { colorShades } from '../common/helper'
 
 const rootStyles = {
   flexGrow: 1,
@@ -39,56 +44,51 @@ const FeedbackButtonGroup = styled(ToggleButtonGroup)`
   right: 15px;
 `
 
-const StyledToggleButton = withStyles(theme => ({
-  selected: {
-    color: '#7B88D1 !important',
-    backgroundColor: 'rgba(0,0,0,0.05) !important',
-  },
-}))(ToggleButton)
-
-const FeedbackTotalsDiv = styled.div`
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  color: #666;
-
-  .material-icons {
-    margin-bottom: -2px;
-    font-size: 16px !important;
-    color: #3f51b5;
-    opacity: 0.7;
-  }
-`
-
-const CenterDiv = styled.div`
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 300px;
-  height: 300px;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: auto;
-  .material-icons {
-    font-size: 65px;
-    color: #3f51b5;
-  }
-`
-
 class Dashboard extends Component {
-  componentDidMount() {
-    this.props.onFetchConversations()
-    this.props.onFetchMetrics()
-  }
-
   feedbackTypeChange = (event, feedbackSelected) =>
     this.props.onFeedbackChange(feedbackSelected)
 
   render() {
+    const FeedbackTotalsDiv = styled.div`
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      color: #666;
+
+      .material-icons {
+        margin-bottom: -2px;
+        font-size: 16px !important;
+        color: ${this.props.mainColor};
+        opacity: 0.7;
+      }
+    `
+
+    const StyledToggleButton = withStyles(theme => ({
+      selected: {
+        color: `${this.props.mainColor} !important`,
+        backgroundColor: 'rgba(0,0,0,0.05) !important',
+      },
+    }))(ToggleButton)
+
+    const CenterDiv = styled.div`
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 300px;
+      height: 300px;
+      max-width: 100%;
+      max-height: 100%;
+      overflow: auto;
+      .material-icons {
+        font-size: 65px;
+        color: ${this.props.mainColor};
+      }
+    `
+
     let dashboardUI = (
       <CenterDiv>
         <h2>Loading Metrics...</h2>
@@ -97,38 +97,43 @@ class Dashboard extends Component {
     )
     if (!this.props.loadingConversations) {
       if (this.props.conversationsTotal > 0) {
+        // Remove welcome intent from frequent intents list
+        let frequentIntents = this.props.intents
+          .filter(i => i.name !== 'Default Welcome Intent')
+          .slice(0, 5)
+
         dashboardUI = (
-          <Grid container spacing={16}>
+          <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <Card
-                color="#a1aade"
+                color={colorShades(this.props.mainColor, 40)}
                 value={this.props.conversationsTotal}
-                label="Total Users"
-                icon="account_circle"
+                label='Total Users'
+                icon='account_circle'
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Card
-                color="#7b88d1"
+                color={colorShades(this.props.mainColor, 20)}
                 value={`${this.props.avgDuration}`}
-                label="Avg. Conv Duration"
-                icon="schedule"
+                label='Avg. Conv Duration'
+                icon='schedule'
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Card
-                color="#5566c3"
+                color={colorShades(this.props.mainColor, 5)}
                 value={`${this.props.supportRequestsPercentage}%`}
-                label="Support Requests"
-                icon="contact_support"
+                label='Support Requests'
+                icon='contact_support'
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
                 <h3>Frequently used intents</h3>
                 <PieChart
-                  data={this.props.intents.slice(0, 5)}
-                  dataKey="occurrences"
+                  data={frequentIntents}
+                  dataKey='occurrences'
                   colors={this.props.colors}
                 />
               </GraphWrap>
@@ -138,7 +143,7 @@ class Dashboard extends Component {
                 <h3>Top exit intents on conversations</h3>
                 <BarChart
                   data={this.props.exitIntents.slice(0, 5)}
-                  dataKey="exits"
+                  dataKey='exits'
                   colors={this.props.colors}
                 />
               </GraphWrap>
@@ -148,7 +153,7 @@ class Dashboard extends Component {
                 <h3>Top support requests</h3>
                 <BarChart
                   data={this.props.supportRequests.slice(0, 5)}
-                  dataKey="occurrences"
+                  dataKey='occurrences'
                   colors={this.props.colors}
                 />
               </GraphWrap>
@@ -161,18 +166,18 @@ class Dashboard extends Component {
                   exclusive
                   onChange={this.feedbackTypeChange}
                 >
-                  <StyledToggleButton value="positive">
+                  <StyledToggleButton value='positive'>
                     <Icon>thumb_up</Icon>
                   </StyledToggleButton>
-                  <StyledToggleButton value="negative">
+                  <StyledToggleButton value='negative'>
                     <Icon>thumb_down</Icon>
                   </StyledToggleButton>
                 </FeedbackButtonGroup>
                 <RadarChart
                   data={this.props.feedback.details}
                   total={this.props.feedback.total}
-                  dataKey="occurrences"
-                  color={this.props.colors[0]}
+                  dataKey='occurrences'
+                  color={this.props.mainColor}
                 />
                 <FeedbackTotalsDiv>
                   <b>
@@ -202,7 +207,18 @@ class Dashboard extends Component {
         )
       }
     }
-    return <div style={rootStyles}>{dashboardUI}</div>
+    return (
+      <div style={rootStyles}>
+        <Drawer
+          anchor='right'
+          open={this.props.showSettings}
+          onClose={() => this.props.onSettingsToggle(false)}
+        >
+          <Settings />
+        </Drawer>
+        {dashboardUI}
+      </div>
+    )
   }
 }
 
@@ -284,6 +300,8 @@ const mapStateToProps = state => {
     feedbackSelected: state.metrics.feedbackSelected,
     feedback: state.metrics.feedbackFiltered,
     colors: state.filters.colors,
+    mainColor: state.filters.mainColor,
+    showSettings: state.config.showSettings,
   }
 }
 
@@ -293,6 +311,8 @@ const mapDispatchToProps = dispatch => {
     onFetchMetrics: () => dispatch(actions.fetchMetrics()),
     onFeedbackChange: feedbackType =>
       dispatch(actions.updateFeedbackType(feedbackType)),
+    onSettingsToggle: showSettings =>
+      dispatch(actions.toggleSettings(showSettings)),
   }
 }
 

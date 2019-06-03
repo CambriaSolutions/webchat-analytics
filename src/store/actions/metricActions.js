@@ -1,11 +1,13 @@
 import * as actionTypes from './actionTypes'
 import db from '../../Firebase'
 
-export const fetchMetrics = dateRange => {
+export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
     if (typeof dateRange === 'undefined')
       dateRange = getState().filters.dateFilters
-    const metricsRef = db.collection('metrics')
+    if (typeof context === 'undefined') context = getState().filters.context
+
+    const metricsRef = db.collection(`${context}/metrics`)
 
     dispatch(fetchMetricsStart())
     metricsRef

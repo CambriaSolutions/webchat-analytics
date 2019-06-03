@@ -1,15 +1,10 @@
 import * as actionTypes from '../actions/actionTypes'
 import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
-//import randomColor from 'randomcolor'
+import randomColor from 'randomcolor'
+import { format, startOfDay, endOfDay, subDays } from 'date-fns'
 
-// Date FNS imports
-const format = require('date-fns/format')
-const startOfDay = require('date-fns/start_of_day')
-const endOfDay = require('date-fns/end_of_day')
-const subDays = require('date-fns/sub_days')
-
-const formatDate = date => format(date, 'YYYY-MM-DDTHH:mm:ssZ')
+const formatDate = date => format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 const getDateRange = date => {
   const startOfToday = formatDate(startOfDay(date))
@@ -47,11 +42,6 @@ const getDateFilters = newFilter => {
 export const updateFilters = event => {
   const dateFilters = getDateFilters(event.target.value)
 
-  /*const COLORS = randomColor({
-    count: 10,
-    hue: 'blue',
-  })*/
-
   return dispatch => {
     dispatch(fetchConversations(dateFilters))
     dispatch(fetchMetrics(dateFilters))
@@ -60,7 +50,44 @@ export const updateFilters = event => {
       type: actionTypes.UPDATE_FILTERS,
       filterLabel: event.target.value,
       dateFilters: dateFilters,
-      //colors: COLORS,
     })
+  }
+}
+
+// Change project/context and retrieve new metrics & conversations
+export const updateContext = (projectName, projects = []) => {
+  const context = `projects/${projectName}`
+
+  return (dispatch, getState) => {
+    // Get projects settings based on the given context
+    if (projects.length === 0) {
+      projects = getState().config.projects
+    }
+
+    const currProject = projects.filter(p => p.name === projectName)[0]
+    if (currProject) {
+      const dateFilters = getState().filters.dateFilters
+      dispatch(fetchConversations(dateFilters, context))
+      dispatch(fetchMetrics(dateFilters, context))
+
+      const COLORS = randomColor({
+        count: 10,
+        hue: currProject.primaryColor,
+      })
+
+      dispatch({
+        type: actionTypes.UPDATE_CONTEXT,
+        context: context,
+        mainColor: currProject.primaryColor,
+        colors: COLORS,
+      })
+    } else {
+      dispatch({
+        type: actionTypes.UPDATE_CONTEXT,
+        context: context,
+        mainColor: '',
+        colors: [],
+      })
+    }
   }
 }

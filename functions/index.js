@@ -20,11 +20,16 @@ const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 // Metrics:
 // - Store intent from conversation & increase occurrences in metric
 // - Store support request submitted & increase occurrences
-const storeMetrics = (conversationId, currIntent, supportRequestType) => {
+const storeMetrics = (
+  context,
+  conversationId,
+  currIntent,
+  supportRequestType
+) => {
   const currDate = new Date()
   const dateKey = format(currDate, 'MM-DD-YYYY')
 
-  const metricsRef = store.collection('metrics').doc(dateKey)
+  const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
   metricsRef
     .get()
     .then(doc => {
@@ -86,7 +91,7 @@ const storeMetrics = (conversationId, currIntent, supportRequestType) => {
       } else {
         // Create new metric entry with current intent & supportRequest
         metricsRef.set({
-          date: admin.firestore.Timestamp.fromDate(currDate),
+          date: currDate,
           intents: [
             {
               id: currIntent.id,
@@ -114,13 +119,14 @@ const storeMetrics = (conversationId, currIntent, supportRequestType) => {
 }
 
 const storeConversationFeedback = (
+  context,
   conversationId,
   wasHelpful,
   feedbackList
 ) => {
   // Update the conversation with a feedback entry
   var conversationRef = store
-    .collection('conversations')
+    .collection(`${context}/conversations`)
     .doc(`${conversationId}`)
 
   // Set the "capital" field of the city 'DC'
@@ -135,6 +141,28 @@ const storeConversationFeedback = (
     .catch(error => {
       // The document probably doesn't exist.
       console.error('Error updating document: ', error)
+    })
+}
+
+// Aggregate & clean up request data
+const aggregateRequest = (context, reqData, conversationId) => {
+  const currIntent = reqData.queryResult.intent
+
+  aggregateData = {
+    conversationId,
+    createdAt: admin.firestore.Timestamp.now(),
+    language: reqData.queryResult.languageCode,
+    intentId: getIdFromPath(currIntent.name),
+    intentName: currIntent.displayName,
+    intentDetectionConfidence: reqData.queryResult.intentDetectionConfidence,
+    //messageText: reqData.queryResult.queryText,
+  }
+
+  store
+    .collection(`${context}/aggregate/${conversationId}/requests`)
+    .add(aggregateData)
+    .catch(error => {
+      console.log(`Error storing request in conversation: ${error}`)
     })
 }
 
@@ -156,6 +184,13 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   if (!reqData.session || !reqData.queryResult) {
     res.send(500, 'Missing conversation parameters')
   }
+
+  // Check that session ID is valid: projects/project_name/agent/sessions/session_id
+  const projectName = reqData.session.split('/')[1]
+  if (!projectName) {
+    res.send(500, 'Invalid session ID')
+  }
+  const context = `projects/${projectName}`
 
   // Get ID's from conversation (session) & intent
   const conversationId = getIdFromPath(reqData.session)
@@ -186,14 +221,45 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
   store
-    .collection('requests')
+    .collection(`${context}/requests`)
     .add(reqData)
     .catch(error => {
       res.send(500, `Error storing data: ${error}`)
     })
 
+  // Store aggregate used on export: conversations with requests
+  const aggregateRef = store
+    .collection(`${context}/aggregate`)
+    .doc(conversationId)
+  aggregateRef
+    .get()
+    .then(doc => {
+      let conversation = {
+        updatedAt: admin.firestore.Timestamp.now(),
+      }
+
+      if (doc.exists) {
+        aggregateRef.update(conversation)
+      } else {
+        // Create new conversation doc
+        conversation.createdAt = admin.firestore.Timestamp.now()
+        conversation.conversationId = conversationId
+        aggregateRef.set(conversation)
+      }
+
+      // Store request within aggregate conversation
+      aggregateRequest(context, reqData, conversationId)
+
+      return
+    })
+    .catch(error => {
+      console.log(`Error storing aggregated data: ${error}`)
+    })
+
   // Store conversation metrics
-  const conversationRef = store.collection('conversations').doc(conversationId)
+  const conversationRef = store
+    .collection(`${context}/conversations`)
+    .doc(conversationId)
   conversationRef
     .get()
     .then(doc => {
@@ -237,12 +303,12 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
 
       const supportRequestType = supportRequestSubmitted ? supportType : null
       // Keep record of intents & support requests usage
-      storeMetrics(conversationId, intent, supportRequestType)
+      storeMetrics(context, conversationId, intent, supportRequestType)
 
       return res.send(200, 'Analytics stored successfully')
     })
     .catch(error => {
-      console.log('Error getting conversation document:', error)
+      res.send(500, `Error storing conversation document: ${error}`)
     })
 })
 
@@ -261,19 +327,26 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
       res.send(500, 'Missing feedback parameters')
     }
 
+    // Check that session ID is valid: projects/project_name/agent/sessions/session_id
+    const projectName = reqData.session.split('/')[1]
+    if (!projectName) {
+      res.send(500, 'Invalid session ID')
+    }
+    const context = `projects/${projectName}`
+
     const wasHelpful = reqData.wasHelpful
     let feedbackList = reqData.feedbackList
     // Get ID's from conversation (session)
     const conversationId = getIdFromPath(reqData.session)
 
     // Store feedback directly on the conversation
-    //storeConversationFeedback(conversationId, wasHelpful, feedbackList)
+    //storeConversationFeedback(context, conversationId, wasHelpful, feedbackList)
 
     // Create/Update metric entry
     const currDate = new Date()
     const dateKey = format(currDate, 'MM-DD-YYYY')
 
-    const metricsRef = store.collection('metrics').doc(dateKey)
+    const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
     metricsRef
       .get()
       .then(doc => {
@@ -294,22 +367,16 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
                 // Update support metric counters
                 if (existingFeedback) {
                   existingFeedback.occurrences++
-
-                  metricsRef.update({ feedback: currMetric.feedback })
                 } else {
                   // Create new feedback type entry on the metric
                   const newFeedbackType = {
                     name: feedbackType,
                     occurrences: 1,
                   }
-                  metricsRef.update({
-                    'feedback.helpful': admin.firestore.FieldValue.arrayUnion(
-                      newFeedbackType
-                    ),
-                    'feedback.positive': currMetric.feedback.positive,
-                  })
+                  currMetric.feedback.helpful.push(newFeedbackType)
                 }
               }
+              metricsRef.update({ feedback: currMetric.feedback })
             } else {
               currMetric.feedback.negative++
               if (!currMetric.feedback.notHelpful)
@@ -324,22 +391,16 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
                 // Update support metric counters
                 if (existingFeedback) {
                   existingFeedback.occurrences++
-
-                  metricsRef.update({ feedback: currMetric.feedback })
                 } else {
                   // Create new feedback type entry on the metric
                   const newFeedbackType = {
                     name: feedbackType,
                     occurrences: 1,
                   }
-                  metricsRef.update({
-                    'feedback.notHelpful': admin.firestore.FieldValue.arrayUnion(
-                      newFeedbackType
-                    ),
-                    'feedback.negative': currMetric.feedback.negative,
-                  })
+                  currMetric.feedback.notHelpful.push(newFeedbackType)
                 }
               }
+              metricsRef.update({ feedback: currMetric.feedback })
             }
           } else {
             feedbackList = feedbackList.map(feedback => ({
@@ -364,6 +425,58 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
           `Error getting feedback metric document with key ${dateKey}:`,
           error
         )
+      })
+  })
+})
+
+const { Storage } = require('@google-cloud/storage')
+// Creates a client
+const storage = new Storage({
+  projectId: functions.config().gcs.project_id,
+  credentials: {
+    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
+    client_email: functions.config().gcs.client_email,
+  },
+})
+const bucketName = 'daily-json-exports'
+
+// Calculate metrics based on requests
+exports.downloadExport = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    const reqData = req.body
+    if (!reqData) {
+      res.send(500, "The request body doesn't contain expected parameters")
+    }
+
+    // Check that filename exists on the request
+    if (!reqData.filename) {
+      res.send(500, 'Missing file parameters')
+    }
+
+    const filename = reqData.filename
+    const bucket = storage.bucket(bucketName)
+    let file = bucket.file(filename)
+
+    file
+      .exists()
+      .then(data => {
+        var exists = data[0]
+        if (exists) {
+          res.setHeader(
+            'Content-disposition',
+            'attachment; filename=' + filename
+          )
+          res.setHeader('Content-type', 'application/json')
+
+          const readStream = file.createReadStream()
+          return readStream.pipe(res)
+        } else {
+          return res.send(404, "The requested file doesn't exist")
+        }
+      })
+      .catch(err => {
+        res.send(404, "The requested file doesn't exist")
+        return err
       })
   })
 })

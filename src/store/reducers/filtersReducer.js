@@ -1,51 +1,59 @@
-import { UPDATE_FILTERS } from '../actions/actionTypes'
+import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../utility'
 //import randomColor from 'randomcolor'
+import { format, endOfDay, subDays } from 'date-fns'
 
-// Date FNS imports
-const format = require('date-fns/format')
-const startOfDay = require('date-fns/start_of_day')
-const endOfDay = require('date-fns/end_of_day')
-
-const formatDate = date => format(date, 'YYYY-MM-DDTHH:mm:ssZ')
-
-const getDateRange = date => {
-  const startOfToday = formatDate(startOfDay(date))
-  const endOfToday = formatDate(endOfDay(date))
-  return { start: startOfToday, end: endOfToday }
-}
+const formatDate = date => format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 // Shuffles array in place
-const shuffle = a => {
+/*const shuffle = a => {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[a[i], a[j]] = [a[j], a[i]]
   }
   return a
-}
+}*/
 
-const COLORS = ['#C2CDFC', '#756BED', '#4158D0', '#387EB5', '#6B53DD']
-/*const COLORS = randomColor({
-  count: 10,
-  hue: 'blue',
-})*/
+/*const COLORS = [
+  '#C2CDFC',
+  '#756BED',
+  '#4158D0',
+  '#387EB5',
+  '#6B53DD',
+  '#C6B3E6',
+  '#90A0E7',
+  '#7067AB',
+  '#8681A6',
+]*/
 
 const initialState = {
   // Set Today filter by default
-  filterLabel: 'Today',
-  dateFilters: getDateRange(new Date()),
-  colors: shuffle(COLORS),
+  filterLabel: 'Last 7 days',
+  dateFilters: {
+    start: formatDate(subDays(new Date(), 7)),
+    end: formatDate(endOfDay(new Date())),
+  },
+  colors: [],
+  mainColor: '#8681A6',
+  context: '',
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === UPDATE_FILTERS) {
-    return updateObject(state, {
-      filterLabel: action.filterLabel,
-      dateFilters: action.dateFilters,
-      //colors: action.colors,
-    })
+  switch (action.type) {
+    case actionTypes.UPDATE_FILTERS:
+      return updateObject(state, {
+        filterLabel: action.filterLabel,
+        dateFilters: action.dateFilters,
+      })
+    case actionTypes.UPDATE_CONTEXT:
+      return updateObject(state, {
+        context: action.context,
+        mainColor: action.mainColor,
+        colors: action.colors,
+      })
+    default:
+      return state
   }
-  return state
 }
 
 export default reducer
