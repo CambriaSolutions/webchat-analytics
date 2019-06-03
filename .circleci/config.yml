@@ -27,7 +27,7 @@ jobs:
             export REACT_APP_FIREBASE_MESSAGING_SENDER_ID=$FIREBASE_MESSAGING_SENDER_ID
             export REACT_APP_FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID
             export REACT_APP_FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET
-            npm run test
+
   deploy_analytics:
     docker:
       - image: circleci/node:10.15.0
