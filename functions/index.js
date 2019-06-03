@@ -432,8 +432,11 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
 const { Storage } = require('@google-cloud/storage')
 // Creates a client
 const storage = new Storage({
-  projectId: 'webchat-analytics-234317',
-  keyFilename: './keys/firestore-key.json',
+  projectId: functions.config().gcs.project_id,
+  credentials: {
+    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
+    client_email: functions.config().gcs.client_email,
+  },
 })
 const bucketName = 'daily-json-exports'
 
