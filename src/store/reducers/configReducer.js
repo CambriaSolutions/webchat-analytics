@@ -1,11 +1,13 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../utility'
 
+import { subDays } from 'date-fns'
+
 const initialState = {
   projects: [],
   defaultProject: '',
   loading: false,
-  downloadExportDate: new Date(),
+  downloadExportDate: subDays(new Date(), 1),
   showSettings: false,
   snackbarOpen: false,
   snackbarMessage: '',
