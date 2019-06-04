@@ -147,7 +147,7 @@ export const downloadExport = () => {
         // Convert the ReadableStream reponse into a Blob
         if (response.status === 200) {
           return response.blob()
-        } else if (response.status === 404) {
+        } else if (response.status === 204 || response.status === 404) {
           dispatch(
             showSnackbar(
               `The export is not available for ${format(
