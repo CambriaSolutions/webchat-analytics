@@ -3,6 +3,17 @@ const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
 
+// Google Cloud Storage Setup
+const { Storage } = require('@google-cloud/storage')
+const storage = new Storage({
+  projectId: functions.config().gcs.project_id,
+  credentials: {
+    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
+    client_email: functions.config().gcs.client_email,
+  },
+})
+const bucketName = 'daily-json-exports'
+
 // Connect to DB
 const store = admin.firestore()
 
@@ -429,16 +440,7 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
   })
 })
 
-const { Storage } = require('@google-cloud/storage')
-// Creates a client
-const storage = new Storage({
-  projectId: functions.config().gcs.project_id,
-  credentials: {
-    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
-    client_email: functions.config().gcs.client_email,
-  },
-})
-const bucketName = 'daily-json-exports'
+// ------------------  D O W N L O A D   E X P O R T  ----------------------
 
 // Calculate metrics based on requests
 exports.downloadExport = functions.https.onRequest((req, res) => {
@@ -471,7 +473,7 @@ exports.downloadExport = functions.https.onRequest((req, res) => {
           const readStream = file.createReadStream()
           return readStream.pipe(res)
         } else {
-          return res.send(404, "The requested file doesn't exist")
+          return res.send(204, "The requested file doesn't exist")
         }
       })
       .catch(err => {
