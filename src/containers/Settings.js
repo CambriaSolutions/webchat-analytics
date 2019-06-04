@@ -6,7 +6,7 @@ import {
   downloadExport,
   updateDefaultProject,
 } from '../store/actions/configActions'
-import { signOut } from '../store/actions/authActions'
+import { signOut, resetPassword } from '../store/actions/authActions'
 import styled from 'styled-components'
 import background from '../img/grey.png'
 
@@ -24,6 +24,7 @@ import Divider from '@material-ui/core/Divider'
 import CircularProgress from '@material-ui/core/CircularProgress'
 // Icons
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
+import SecurityIcon from '@material-ui/icons/Security'
 import CloudOffIcon from '@material-ui/icons/CloudOff'
 
 import { DatePicker } from '@material-ui/pickers'
@@ -37,16 +38,19 @@ const StyledDiv = styled.div`
 const BottomDiv = styled.div`
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
 `
 
-const SignOutButton = styled(Button)`
+const AuthButton = styled(Button)`
   border-radius: 0 !important;
+  margin-bottom: 10px !important;
 `
 
-const SignOutIcon = styled(CloudOffIcon)`
-  margin-right: 10px;
+const AuthIcon = styled.div`
+  position: absolute;
+  left: 15px;
+  top: 5px;
 `
 
 class Settings extends Component {
@@ -129,7 +133,20 @@ class Settings extends Component {
         <Divider />
         {defaultProjectSetting}
         <BottomDiv>
-          <SignOutButton
+          <AuthButton
+            color='primary'
+            edge='end'
+            aria-label='PasswordReset'
+            variant='contained'
+            fullWidth={true}
+            onClick={this.props.onPwdReset}
+          >
+            <AuthIcon>
+              <SecurityIcon />
+            </AuthIcon>
+            Reset Password
+          </AuthButton>
+          <AuthButton
             color='primary'
             edge='end'
             aria-label='SignOut'
@@ -137,9 +154,11 @@ class Settings extends Component {
             fullWidth={true}
             onClick={this.props.onSignOut}
           >
-            <SignOutIcon />
+            <AuthIcon>
+              <CloudOffIcon />
+            </AuthIcon>
             Logout
-          </SignOutButton>
+          </AuthButton>
         </BottomDiv>
       </StyledDiv>
     )
@@ -165,6 +184,7 @@ const mapDispatchToProps = dispatch => {
     onExportDownload: () => dispatch(downloadExport()),
     onProjectChange: defaultProject =>
       dispatch(updateDefaultProject(defaultProject)),
+    onPwdReset: () => dispatch(resetPassword()),
     onSignOut: () => dispatch(signOut()),
   }
 }
