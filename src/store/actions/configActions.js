@@ -150,10 +150,7 @@ export const downloadExport = () => {
         } else if (response.status === 204 || response.status === 404) {
           dispatch(
             showSnackbar(
-              `The export is not available for ${format(
-                exportDate,
-                'MMM do, yyyy'
-              )}`
+              `No data is available for ${format(exportDate, 'MMM do, yyyy')}`
             )
           )
           dispatch(toggleConfigLoading(false))

@@ -63,7 +63,7 @@ const retrieveData = async () => {
   if (conversationsCount > 0) {
     // Write collection to JSON file
     const fileName = 'firestore-export.json'
-    const tempFilePath = path.join(os.tmpdir(), fileName) //`./${fileName}` //
+    const tempFilePath = path.join(os.tmpdir(), fileName) // `./${fileName}`
     let f = fs.openSync(tempFilePath, 'w')
     fs.writeSync(f, '{"conversations": [')
 
