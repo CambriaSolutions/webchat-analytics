@@ -47,10 +47,10 @@ jobs:
             export REACT_APP_FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID
             export REACT_APP_FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET
             export REACT_APP_DOWNLOAD_EXPORT_FUNCTION_URL=$DOWNLOAD_EXPORT_FUNCTION_URL
-            CI=false npm run build
+            CI=false
       - run: sudo npm install -g firebase-tools
-      - run: echo '$GCS_PRIVATE_KEY'
-      - run: firebase -P $FIREBASE_PROJECT_ID --token $FIREBASE_DEPLOY_TOKEN functions:config:set gcs.project_id='$GCS_PROJECT_ID' gcs.client_email='$GCS_CLIENT_EMAIL' gcs.private_key='$GCS_PRIVATE_KEY'
+      - run: echo $GCS_PRIVATE_KEY
+      - run: firebase -P $FIREBASE_PROJECT_ID --token $FIREBASE_DEPLOY_TOKEN functions:config:set gcs.project_id=$GCS_PROJECT_ID gcs.client_email=$GCS_CLIENT_EMAIL gcs.private_key="$GCS_PRIVATE_KEY"
       - run: firebase -P $FIREBASE_PROJECT_ID --token $FIREBASE_DEPLOY_TOKEN functions:config:get
       - run: firebase deploy -P $FIREBASE_PROJECT_ID --only functions --token $FIREBASE_DEPLOY_TOKEN
 workflows:
