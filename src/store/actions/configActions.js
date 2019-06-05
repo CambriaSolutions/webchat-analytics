@@ -14,8 +14,13 @@ export const fetchProjects = user => {
       .then(doc => {
         if (doc.exists) {
           const userData = doc.data()
+          user.isAdmin = userData.admin && userData.admin === true
           user.defaultProject = userData.defaultProject
-          user.dataExport = userData.dataExport ? userData.dataExport : false
+          user.dataExport = user.isAdmin
+            ? true
+            : userData.dataExport
+            ? userData.dataExport
+            : false
 
           const settingsRef = db.collection(`settings`)
 
@@ -28,7 +33,7 @@ export const fetchProjects = user => {
                 // If user is admin add all the projects
                 const projectData = doc.data()
                 if (
-                  userData.admin ||
+                  user.isAdmin ||
                   userData.projects.includes(projectData.name)
                 ) {
                   fetchedProjects.push(projectData)
@@ -120,6 +125,20 @@ export const updateDefaultProject = projectName => {
           defaultProject: projectName,
         })
         dispatch(showSnackbar(`Default project updated successfully`))
+      })
+    }
+  }
+}
+
+export const updateProjectColor = newColor => {
+  return (dispatch, getState) => {
+    let projectName = getState().filters.context
+
+    if (projectName.length > 0) {
+      projectName = projectName.replace('projects/', '')
+      const settingsRef = db.collection(`settings`).doc(projectName)
+      settingsRef.update({ primaryColor: newColor }).then(() => {
+        dispatch(showSnackbar(`Project primary color updated successfully`))
       })
     }
   }

@@ -35,6 +35,13 @@ class ResponsivePieChart extends Component {
     return <span style={{ fontSize: 15 }}>{value}</span>
   }
 
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.colors !== prevProps.colors) {
+      this.setState({ colors: this.props.colors })
+    }
+  }
+
   render() {
     if (this.state.colors.length === 0) {
       this.setState({ width: window.innerWidth })

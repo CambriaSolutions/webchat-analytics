@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes'
 import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
+import { updateProjectColor } from './configActions'
 import randomColor from 'randomcolor'
 import { format, startOfDay, endOfDay, subDays } from 'date-fns'
 
@@ -51,6 +52,24 @@ export const updateFilters = event => {
       filterLabel: event.target.value,
       dateFilters: dateFilters,
     })
+  }
+}
+
+export const updateMainColor = (newColor, updateDB = false) => {
+  return (dispatch, getState) => {
+    const COLORS = randomColor({
+      count: 10,
+      hue: newColor,
+    })
+
+    dispatch({
+      type: actionTypes.UPDATE_MAIN_COLOR,
+      mainColor: newColor,
+      colors: COLORS,
+    })
+    if (updateDB) {
+      dispatch(updateProjectColor(newColor))
+    }
   }
 }
 

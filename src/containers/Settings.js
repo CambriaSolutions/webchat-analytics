@@ -6,9 +6,11 @@ import {
   downloadExport,
   updateDefaultProject,
 } from '../store/actions/configActions'
+import { updateMainColor } from '../store/actions/filterActions'
 import { signOut, resetPassword } from '../store/actions/authActions'
 import styled from 'styled-components'
 import background from '../img/grey.png'
+import { SketchPicker } from 'react-color'
 
 // Material UI
 import Typography from '@material-ui/core/Typography'
@@ -46,14 +48,57 @@ const AuthButton = styled(Button)`
   border-radius: 0 !important;
   margin-bottom: 10px !important;
 `
-
 const AuthIcon = styled.div`
   position: absolute;
   left: 15px;
   top: 5px;
 `
 
+const ColorPickerPopover = styled.div`
+  position: absolute;
+  z-index: 2;
+`
+const ColorPickerCover = styled.div`
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+`
+const ColorPickerSwatch = styled.div`
+  padding: 5px;
+  background: #fff;
+  borderradius: 1px;
+  boxshadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  cursor: pointer;
+`
+const PickColorLabel = styled(Typography)`
+  text-transform: none;
+  margin-right: 10px !important;
+`
+
 class Settings extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      displayColorPicker: false,
+    }
+  }
+
+  handleClick = () => {
+    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  }
+
+  handleClose = () => {
+    this.setState({ displayColorPicker: false })
+    this.props.onMainColorChange(this.props.mainColor, true)
+  }
+
+  handleChange = color => {
+    this.props.onMainColorChange(color.hex)
+  }
+
   render() {
     const TitleDiv = styled(Typography)`
       padding: 8px 0 8px 16px;
@@ -65,9 +110,16 @@ class Settings extends Component {
       margin-top: 15px;
       color: ${this.props.mainColor} !important;
     `
+    const ColorPickerColor = styled.div`
+      width: 36px;
+      height: 14px;
+      borderradius: 2px;
+      background: ${this.props.mainColor};
+    `
 
     let downloadExportsSetting = '',
-      defaultProjectSetting = ''
+      defaultProjectSetting = '',
+      currentProjectSettings = ''
     if (this.props.user.dataExport) {
       let downloadBtnToggle = (
         <IconButton
@@ -125,6 +177,32 @@ class Settings extends Component {
         </div>
       )
     }
+    if (this.props.user.isAdmin) {
+      currentProjectSettings = (
+        <div>
+          <List subheader={<ListHeader>Project Primary Color</ListHeader>}>
+            <ListItem>
+              <Button onClick={this.handleClick}>
+                <PickColorLabel variant='subtitle1'>Pick color</PickColorLabel>
+                <ColorPickerSwatch>
+                  <ColorPickerColor />
+                </ColorPickerSwatch>
+              </Button>
+              {this.state.displayColorPicker ? (
+                <ColorPickerPopover>
+                  <ColorPickerCover onClick={this.handleClose} />
+                  <SketchPicker
+                    color={this.props.mainColor}
+                    onChange={this.handleChange}
+                  />
+                </ColorPickerPopover>
+              ) : null}
+            </ListItem>
+          </List>
+          <Divider />
+        </div>
+      )
+    }
 
     return (
       <StyledDiv>
@@ -132,6 +210,7 @@ class Settings extends Component {
         <TitleDiv variant='h6'>Settings</TitleDiv>
         <Divider />
         {defaultProjectSetting}
+        {currentProjectSettings}
         <BottomDiv>
           <AuthButton
             color='primary'
@@ -184,6 +263,8 @@ const mapDispatchToProps = dispatch => {
     onExportDownload: () => dispatch(downloadExport()),
     onProjectChange: defaultProject =>
       dispatch(updateDefaultProject(defaultProject)),
+    onMainColorChange: (newColor, updateDB) =>
+      dispatch(updateMainColor(newColor, updateDB)),
     onPwdReset: () => dispatch(resetPassword()),
     onSignOut: () => dispatch(signOut()),
   }
