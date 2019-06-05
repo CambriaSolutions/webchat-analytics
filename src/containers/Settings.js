@@ -5,12 +5,14 @@ import {
   updateExportDate,
   downloadExport,
   updateDefaultProject,
+  updateProjectTimezone,
 } from '../store/actions/configActions'
 import { updateMainColor } from '../store/actions/filterActions'
 import { signOut, resetPassword } from '../store/actions/authActions'
 import styled from 'styled-components'
 import background from '../img/grey.png'
 import { SketchPicker } from 'react-color'
+import timezones from '../common/timezones'
 
 // Material UI
 import Typography from '@material-ui/core/Typography'
@@ -54,6 +56,10 @@ const AuthIcon = styled.div`
   top: 5px;
 `
 
+const ColorPickerButton = styled(Button)`
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+`
 const ColorPickerPopover = styled.div`
   position: absolute;
   z-index: 2;
@@ -66,7 +72,7 @@ const ColorPickerCover = styled.div`
   left: 0px;
 `
 const ColorPickerSwatch = styled.div`
-  padding: 5px;
+  padding: 3px;
   background: #fff;
   borderradius: 1px;
   boxshadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
@@ -83,6 +89,7 @@ class Settings extends Component {
     super(props)
     this.state = {
       displayColorPicker: false,
+      color: this.props.mainColor,
     }
   }
 
@@ -92,7 +99,10 @@ class Settings extends Component {
 
   handleClose = () => {
     this.setState({ displayColorPicker: false })
-    this.props.onMainColorChange(this.props.mainColor, true)
+    if (this.state.color !== this.props.mainColor) {
+      this.props.onMainColorChange(this.props.mainColor, true)
+      this.setState({ color: this.props.mainColor })
+    }
   }
 
   handleChange = color => {
@@ -180,14 +190,14 @@ class Settings extends Component {
     if (this.props.user.isAdmin) {
       currentProjectSettings = (
         <div>
-          <List subheader={<ListHeader>Project Primary Color</ListHeader>}>
+          <List subheader={<ListHeader>Primary Color</ListHeader>}>
             <ListItem>
-              <Button onClick={this.handleClick}>
+              <ColorPickerButton onClick={this.handleClick}>
                 <PickColorLabel variant='subtitle1'>Pick color</PickColorLabel>
                 <ColorPickerSwatch>
                   <ColorPickerColor />
                 </ColorPickerSwatch>
-              </Button>
+              </ColorPickerButton>
               {this.state.displayColorPicker ? (
                 <ColorPickerPopover>
                   <ColorPickerCover onClick={this.handleClose} />
@@ -200,6 +210,24 @@ class Settings extends Component {
             </ListItem>
           </List>
           <Divider />
+          <List subheader={<ListHeader>Timezone</ListHeader>}>
+            <ListItem>
+              <Select
+                value={this.props.timezone}
+                onChange={event =>
+                  this.props.onTimezoneChange(event.target.value)
+                }
+                name='timezone'
+              >
+                {timezones.map(timezone => (
+                  <MenuItem value={timezone.text} key={timezone.text}>
+                    {timezone.text}
+                  </MenuItem>
+                ))}
+              </Select>
+            </ListItem>
+          </List>
+          <Divider />
         </div>
       )
     }
@@ -209,8 +237,8 @@ class Settings extends Component {
         {downloadExportsSetting}
         <TitleDiv variant='h6'>Settings</TitleDiv>
         <Divider />
-        {defaultProjectSetting}
         {currentProjectSettings}
+        {defaultProjectSetting}
         <BottomDiv>
           <AuthButton
             color='primary'
@@ -223,7 +251,7 @@ class Settings extends Component {
             <AuthIcon>
               <SecurityIcon />
             </AuthIcon>
-            Reset Password
+            Change Password
           </AuthButton>
           <AuthButton
             color='primary'
@@ -245,14 +273,19 @@ class Settings extends Component {
 }
 
 const mapStateToProps = state => {
+  const projects = state.config.projects
+  const projectName = state.filters.context.replace('projects/', '')
+  let currProject = projects.filter(p => p.name === projectName)[0]
+
   return {
     filterLabel: state.filters.filterLabel,
     mainColor: state.filters.mainColor,
-    projects: state.config.projects,
+    projects: projects,
     defaultProject: state.config.defaultProject,
     downloadDate: state.config.downloadExportDate,
     user: state.auth.user,
     loadingDownload: state.config.loading,
+    timezone: currProject.timezone.name,
   }
 }
 
@@ -265,6 +298,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateDefaultProject(defaultProject)),
     onMainColorChange: (newColor, updateDB) =>
       dispatch(updateMainColor(newColor, updateDB)),
+    onTimezoneChange: newTimezone =>
+      dispatch(updateProjectTimezone(newTimezone)),
     onPwdReset: () => dispatch(resetPassword()),
     onSignOut: () => dispatch(signOut()),
   }

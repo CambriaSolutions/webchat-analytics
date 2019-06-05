@@ -3,6 +3,7 @@ import db from '../../Firebase'
 import { updateContext } from './filterActions'
 import { completeSignIn } from './authActions'
 import { format } from 'date-fns'
+import timezones from '../../common/timezones'
 
 export const fetchProjects = user => {
   return (dispatch, getState) => {
@@ -133,12 +134,55 @@ export const updateDefaultProject = projectName => {
 export const updateProjectColor = newColor => {
   return (dispatch, getState) => {
     let projectName = getState().filters.context
+    let projects = getState().config.projects
 
     if (projectName.length > 0) {
       projectName = projectName.replace('projects/', '')
       const settingsRef = db.collection(`settings`).doc(projectName)
       settingsRef.update({ primaryColor: newColor }).then(() => {
         dispatch(showSnackbar(`Project primary color updated successfully`))
+      })
+
+      // Update projects object with new primary color
+      let currProject = projects.filter(p => p.name === projectName)[0]
+      currProject.primaryColor = newColor
+      dispatch({
+        type: actionTypes.FETCH_PROJECTS_SUCCESS,
+        projects: projects,
+      })
+    }
+  }
+}
+
+export const updateProjectTimezone = newTimezone => {
+  return (dispatch, getState) => {
+    let projectName = getState().filters.context
+    let projects = getState().config.projects
+
+    console.log(newTimezone)
+    const selectedTimezone = timezones.filter(
+      timezone => timezone.text === newTimezone
+    )[0]
+    console.log(selectedTimezone)
+    if (projectName.length > 0 && selectedTimezone) {
+      // Setup timezone value as DB expects it
+      newTimezone = {
+        name: selectedTimezone.text,
+        offset: selectedTimezone.offset,
+      }
+
+      projectName = projectName.replace('projects/', '')
+      const settingsRef = db.collection(`settings`).doc(projectName)
+      settingsRef.update({ timezone: newTimezone }).then(() => {
+        dispatch(showSnackbar(`Project timezone updated successfully`))
+      })
+
+      // Update projects object with new timezone
+      let currProject = projects.filter(p => p.name === projectName)[0]
+      currProject.timezone = newTimezone
+      dispatch({
+        type: actionTypes.FETCH_PROJECTS_SUCCESS,
+        projects: projects,
       })
     }
   }

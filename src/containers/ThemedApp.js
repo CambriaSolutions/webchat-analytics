@@ -17,6 +17,7 @@ class ThemedApp extends Component {
       },
       typography: {
         useNextVariants: true,
+        fontSize: 13,
       },
     }
     return (
