@@ -14,6 +14,13 @@ const storage = new Storage({
 })
 const bucketName = 'daily-json-exports'
 
+// Project Default Settings
+const PROJECT_DEFAULT_PRIMARY_COLOR = '#6497AD'
+const PROJECT_DEFAULT_TIMEZONE = {
+  name: '(UTC-07:00) Pacific Time (US & Canada)',
+  offset: -7,
+}
+
 // Connect to DB
 const store = admin.firestore()
 
@@ -439,6 +446,36 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
       })
   })
 })
+
+// ------------------  A D D  P R O J E C T  S E T T I N G S  O N  C R E A T E  ----------------------
+
+// Trigger function when a new project metric is added
+exports.createProjectSettings = functions.firestore
+  .document('projects/{projectId}/metrics/{metricId}')
+  .onCreate(async (snap, context) => {
+    const projectName = context.params.projectId
+
+    const settingsRef = store.collection('settings').doc(projectName)
+    settingsRef
+      .get()
+      .then(doc => {
+        // If setting doesn't exist, add new project setting with default values
+        if (!doc.exists) {
+          settingsRef.set({
+            name: projectName,
+            primaryColor: PROJECT_DEFAULT_PRIMARY_COLOR,
+            timezone: PROJECT_DEFAULT_TIMEZONE,
+          })
+        }
+        return
+      })
+      .catch(error => {
+        console.log(
+          `Error creating settings for project ${projectName}:`,
+          error
+        )
+      })
+  })
 
 // ------------------  D O W N L O A D   E X P O R T  ----------------------
 
