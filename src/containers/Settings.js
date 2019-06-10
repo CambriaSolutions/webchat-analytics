@@ -163,6 +163,13 @@ class Settings extends Component {
         </div>
       )
     }
+    const settingsHeader = (
+      <div>
+        <TitleDiv variant='h6'>Settings</TitleDiv>
+        <Divider />
+      </div>
+    )
+
     if (this.props.projects.length > 1) {
       defaultProjectSetting = (
         <div>
@@ -235,8 +242,9 @@ class Settings extends Component {
     return (
       <StyledDiv>
         {downloadExportsSetting}
-        <TitleDiv variant='h6'>Settings</TitleDiv>
-        <Divider />
+        {currentProjectSettings !== '' || defaultProjectSetting !== ''
+          ? settingsHeader
+          : ''}
         {currentProjectSettings}
         {defaultProjectSetting}
         <BottomDiv>
