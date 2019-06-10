@@ -16,7 +16,6 @@ class ThemedApp extends Component {
         primary: { main: this.props.mainColor },
       },
       typography: {
-        useNextVariants: true,
         fontSize: 13,
       },
     }

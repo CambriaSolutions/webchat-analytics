@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Snackbar from '@material-ui/core/Snackbar'
+import { createMuiTheme } from '@material-ui/core/styles'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import ThemedApp from './containers/ThemedApp'
 import PrivateRoute from './PrivateRoute'
 import SignIn from './components/SignIn'
@@ -15,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
     background-image: url(${background});
   }
 `
+const theme = {
+  typography: {
+    fontSize: 13,
+  },
+}
 
 class App extends Component {
   componentWillMount() {
@@ -41,16 +48,21 @@ class App extends Component {
             component={ThemedApp}
           />
 
-          <Snackbar
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            open={snackbarOpen}
-            autoHideDuration={4000}
-            onClose={closeSnackbar}
-            message={<span id='message-id'>{snackbarMessage}</span>}
-          />
+          <MuiThemeProvider theme={createMuiTheme(theme)}>
+            <Snackbar
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              ContentProps={{
+                typography: { fontSize: 13 },
+              }}
+              open={snackbarOpen}
+              autoHideDuration={4000}
+              onClose={closeSnackbar}
+              message={<span id='message-id'>{snackbarMessage}</span>}
+            />
+          </MuiThemeProvider>
         </div>
         <GlobalStyle />
       </Router>
