@@ -66,9 +66,11 @@ class Header extends Component {
             Analytics
           </ToolbarTitle>
 
-          <Typography variant='subtitle1' color='inherit'>
-            Filter
-          </Typography>
+          <Hidden xsDown>
+            <Typography variant='subtitle1' color='inherit'>
+              Filter
+            </Typography>
+          </Hidden>
           <Dropdown
             value={this.props.filterLabel}
             onChange={event => this.props.onFilterChange(event)}

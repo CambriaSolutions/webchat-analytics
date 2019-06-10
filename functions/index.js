@@ -3,6 +3,10 @@ const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
 
+// Init PII remover
+const { SyncRedactor } = require('redact-pii')
+const redactor = new SyncRedactor()
+
 // Google Cloud Storage Setup
 const { Storage } = require('@google-cloud/storage')
 const storage = new Storage({
@@ -13,6 +17,13 @@ const storage = new Storage({
   },
 })
 const bucketName = 'daily-json-exports'
+
+// Project Default Settings
+const PROJECT_DEFAULT_PRIMARY_COLOR = '#6497AD'
+const PROJECT_DEFAULT_TIMEZONE = {
+  name: '(UTC-07:00) Pacific Time (US & Canada)',
+  offset: -7,
+}
 
 // Connect to DB
 const store = admin.firestore()
@@ -28,6 +39,38 @@ const differenceInSeconds = require('date-fns/difference_in_seconds')
 // Regex to retrieve text after last "/" on a path
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
+const getDateWithProjectTimezone = timezoneOffset => {
+  const currDate = new Date()
+  // Get the timezone offset from local time in minutes
+  const tzDifference = timezoneOffset * 60 + currDate.getTimezoneOffset()
+  // Convert the offset to milliseconds, add to targetTime, and make a new Date
+  return new Date(currDate.getTime() + tzDifference * 60 * 1000)
+}
+
+const getProjectSettings = async projectName => {
+  const settingsRef = store.collection('settings').doc(projectName)
+  return await settingsRef
+    .get()
+    .then(doc => {
+      // If setting doesn't exist, add new project setting with default values
+      if (!doc.exists) {
+        const defaultSettings = {
+          name: projectName,
+          primaryColor: PROJECT_DEFAULT_PRIMARY_COLOR,
+          timezone: PROJECT_DEFAULT_TIMEZONE,
+        }
+        settingsRef.set(defaultSettings)
+        return defaultSettings
+      } else {
+        return doc.data()
+      }
+    })
+    .catch(error => {
+      console.log(`Error getting settings for project ${projectName}:`, error)
+      return -7
+    })
+}
+
 // Metrics:
 // - Store intent from conversation & increase occurrences in metric
 // - Store support request submitted & increase occurrences
@@ -35,9 +78,10 @@ const storeMetrics = (
   context,
   conversationId,
   currIntent,
-  supportRequestType
+  supportRequestType,
+  timezoneOffset
 ) => {
-  const currDate = new Date()
+  const currDate = getDateWithProjectTimezone(timezoneOffset)
   const dateKey = format(currDate, 'MM-DD-YYYY')
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
@@ -102,7 +146,7 @@ const storeMetrics = (
       } else {
         // Create new metric entry with current intent & supportRequest
         metricsRef.set({
-          date: currDate,
+          date: admin.firestore.Timestamp.now(),
           intents: [
             {
               id: currIntent.id,
@@ -166,7 +210,7 @@ const aggregateRequest = (context, reqData, conversationId) => {
     intentId: getIdFromPath(currIntent.name),
     intentName: currIntent.displayName,
     intentDetectionConfidence: reqData.queryResult.intentDetectionConfidence,
-    //messageText: reqData.queryResult.queryText,
+    messageText: reqData.queryResult.queryText,
   }
 
   store
@@ -184,7 +228,7 @@ const aggregateRequest = (context, reqData, conversationId) => {
 // ------------------ S T O R E   A N A L Y T I C S ----------------------
 
 // Calculate metrics based on requests
-exports.storeAnalytics = functions.https.onRequest((req, res) => {
+exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
   const reqData = req.body
   if (!reqData) {
     res.send(500, "The request body doesn't contain expected parameters")
@@ -211,6 +255,10 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
     name: currIntent.displayName,
   }
 
+  // Get project settings
+  const settings = await getProjectSettings(projectName)
+  const timezoneOffset = settings.timezone.offset
+
   // Check if conversation has a support request
   const hasSupportRequest = intent.name.startsWith('support')
   // Get support type
@@ -228,6 +276,9 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
       }
     }
   }
+
+  // Remove PII
+  reqData.queryResult.queryText = redactor.redact(reqData.queryResult.queryText)
 
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
@@ -314,7 +365,13 @@ exports.storeAnalytics = functions.https.onRequest((req, res) => {
 
       const supportRequestType = supportRequestSubmitted ? supportType : null
       // Keep record of intents & support requests usage
-      storeMetrics(context, conversationId, intent, supportRequestType)
+      storeMetrics(
+        context,
+        conversationId,
+        intent,
+        supportRequestType,
+        timezoneOffset
+      )
 
       return res.send(200, 'Analytics stored successfully')
     })

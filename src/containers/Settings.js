@@ -5,10 +5,14 @@ import {
   updateExportDate,
   downloadExport,
   updateDefaultProject,
+  updateProjectTimezone,
 } from '../store/actions/configActions'
-import { signOut } from '../store/actions/authActions'
+import { updateMainColor } from '../store/actions/filterActions'
+import { signOut, resetPassword } from '../store/actions/authActions'
 import styled from 'styled-components'
 import background from '../img/grey.png'
+import { SketchPicker } from 'react-color'
+import timezones from '../common/timezones'
 
 // Material UI
 import Typography from '@material-ui/core/Typography'
@@ -24,6 +28,7 @@ import Divider from '@material-ui/core/Divider'
 import CircularProgress from '@material-ui/core/CircularProgress'
 // Icons
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
+import SecurityIcon from '@material-ui/icons/Security'
 import CloudOffIcon from '@material-ui/icons/CloudOff'
 
 import { DatePicker } from '@material-ui/pickers'
@@ -37,19 +42,73 @@ const StyledDiv = styled.div`
 const BottomDiv = styled.div`
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
 `
 
-const SignOutButton = styled(Button)`
+const AuthButton = styled(Button)`
   border-radius: 0 !important;
+  margin-bottom: 10px !important;
+`
+const AuthIcon = styled.div`
+  position: absolute;
+  left: 15px;
+  top: 5px;
 `
 
-const SignOutIcon = styled(CloudOffIcon)`
-  margin-right: 10px;
+const ColorPickerButton = styled(Button)`
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+`
+const ColorPickerPopover = styled.div`
+  position: absolute;
+  z-index: 2;
+`
+const ColorPickerCover = styled.div`
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+`
+const ColorPickerSwatch = styled.div`
+  padding: 3px;
+  background: #fff;
+  borderradius: 1px;
+  boxshadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  cursor: pointer;
+`
+const PickColorLabel = styled(Typography)`
+  text-transform: none;
+  margin-right: 10px !important;
 `
 
 class Settings extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      displayColorPicker: false,
+      color: this.props.mainColor,
+    }
+  }
+
+  handleClick = () => {
+    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  }
+
+  handleClose = () => {
+    this.setState({ displayColorPicker: false })
+    if (this.state.color !== this.props.mainColor) {
+      this.props.onMainColorChange(this.props.mainColor, true)
+      this.setState({ color: this.props.mainColor })
+    }
+  }
+
+  handleChange = color => {
+    this.props.onMainColorChange(color.hex)
+  }
+
   render() {
     const TitleDiv = styled(Typography)`
       padding: 8px 0 8px 16px;
@@ -61,9 +120,16 @@ class Settings extends Component {
       margin-top: 15px;
       color: ${this.props.mainColor} !important;
     `
+    const ColorPickerColor = styled.div`
+      width: 36px;
+      height: 14px;
+      borderradius: 2px;
+      background: ${this.props.mainColor};
+    `
 
     let downloadExportsSetting = '',
-      defaultProjectSetting = ''
+      defaultProjectSetting = '',
+      currentProjectSettings = ''
     if (this.props.user.dataExport) {
       let downloadBtnToggle = (
         <IconButton
@@ -121,15 +187,73 @@ class Settings extends Component {
         </div>
       )
     }
+    if (this.props.user.isAdmin) {
+      currentProjectSettings = (
+        <div>
+          <List subheader={<ListHeader>Primary Color</ListHeader>}>
+            <ListItem>
+              <ColorPickerButton onClick={this.handleClick}>
+                <PickColorLabel variant='subtitle1'>Pick color</PickColorLabel>
+                <ColorPickerSwatch>
+                  <ColorPickerColor />
+                </ColorPickerSwatch>
+              </ColorPickerButton>
+              {this.state.displayColorPicker ? (
+                <ColorPickerPopover>
+                  <ColorPickerCover onClick={this.handleClose} />
+                  <SketchPicker
+                    color={this.props.mainColor}
+                    onChange={this.handleChange}
+                  />
+                </ColorPickerPopover>
+              ) : null}
+            </ListItem>
+          </List>
+          <Divider />
+          <List subheader={<ListHeader>Timezone</ListHeader>}>
+            <ListItem>
+              <Select
+                value={this.props.timezone}
+                onChange={event =>
+                  this.props.onTimezoneChange(event.target.value)
+                }
+                name='timezone'
+              >
+                {timezones.map(timezone => (
+                  <MenuItem value={timezone.text} key={timezone.text}>
+                    {timezone.text}
+                  </MenuItem>
+                ))}
+              </Select>
+            </ListItem>
+          </List>
+          <Divider />
+        </div>
+      )
+    }
 
     return (
       <StyledDiv>
         {downloadExportsSetting}
         <TitleDiv variant='h6'>Settings</TitleDiv>
         <Divider />
+        {currentProjectSettings}
         {defaultProjectSetting}
         <BottomDiv>
-          <SignOutButton
+          <AuthButton
+            color='primary'
+            edge='end'
+            aria-label='PasswordReset'
+            variant='contained'
+            fullWidth={true}
+            onClick={this.props.onPwdReset}
+          >
+            <AuthIcon>
+              <SecurityIcon />
+            </AuthIcon>
+            Change Password
+          </AuthButton>
+          <AuthButton
             color='primary'
             edge='end'
             aria-label='SignOut'
@@ -137,9 +261,11 @@ class Settings extends Component {
             fullWidth={true}
             onClick={this.props.onSignOut}
           >
-            <SignOutIcon />
+            <AuthIcon>
+              <CloudOffIcon />
+            </AuthIcon>
             Logout
-          </SignOutButton>
+          </AuthButton>
         </BottomDiv>
       </StyledDiv>
     )
@@ -147,14 +273,19 @@ class Settings extends Component {
 }
 
 const mapStateToProps = state => {
+  const projects = state.config.projects
+  const projectName = state.filters.context.replace('projects/', '')
+  let currProject = projects.filter(p => p.name === projectName)[0]
+
   return {
     filterLabel: state.filters.filterLabel,
     mainColor: state.filters.mainColor,
-    projects: state.config.projects,
+    projects: projects,
     defaultProject: state.config.defaultProject,
     downloadDate: state.config.downloadExportDate,
     user: state.auth.user,
     loadingDownload: state.config.loading,
+    timezone: currProject.timezone.name,
   }
 }
 
@@ -165,6 +296,11 @@ const mapDispatchToProps = dispatch => {
     onExportDownload: () => dispatch(downloadExport()),
     onProjectChange: defaultProject =>
       dispatch(updateDefaultProject(defaultProject)),
+    onMainColorChange: (newColor, updateDB) =>
+      dispatch(updateMainColor(newColor, updateDB)),
+    onTimezoneChange: newTimezone =>
+      dispatch(updateProjectTimezone(newTimezone)),
+    onPwdReset: () => dispatch(resetPassword()),
     onSignOut: () => dispatch(signOut()),
   }
 }

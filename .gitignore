@@ -4,8 +4,8 @@
 /node_modules
 export/node_modules
 export/package-lock.json
-export/keys
-export/*.zip
+functions/package-lock.json
+package-lock.json
 /.pnp
 .pnp.js
 
@@ -27,6 +27,9 @@ export/*.zip
 /.vscode
 /.firebase
 .env
+
+export/keys
+export/*.zip
 
 npm-debug.log*
 yarn-debug.log*

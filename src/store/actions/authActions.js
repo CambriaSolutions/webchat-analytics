@@ -44,6 +44,28 @@ export const completeSignIn = user => {
   }
 }
 
+export const resetPassword = () => {
+  return (dispatch, getState) => {
+    const user = getState().auth.user
+    if (user) {
+      authRef
+        .sendPasswordResetEmail(user.email)
+        .then(() => {
+          dispatch(
+            showSnackbar(
+              `A password reset email has been sent to ${user.email}`
+            )
+          )
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    } else {
+      dispatch(showSnackbar(`No user was found`))
+    }
+  }
+}
+
 export const signOut = () => dispatch => {
   authRef
     .signOut()

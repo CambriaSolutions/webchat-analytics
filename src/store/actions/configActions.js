@@ -3,6 +3,7 @@ import db from '../../Firebase'
 import { updateContext } from './filterActions'
 import { completeSignIn } from './authActions'
 import { format } from 'date-fns'
+import timezones from '../../common/timezones'
 
 export const fetchProjects = user => {
   return (dispatch, getState) => {
@@ -14,8 +15,13 @@ export const fetchProjects = user => {
       .then(doc => {
         if (doc.exists) {
           const userData = doc.data()
+          user.isAdmin = userData.admin && userData.admin === true
           user.defaultProject = userData.defaultProject
-          user.dataExport = userData.dataExport ? userData.dataExport : false
+          user.dataExport = user.isAdmin
+            ? true
+            : userData.dataExport
+            ? userData.dataExport
+            : false
 
           const settingsRef = db.collection(`settings`)
 
@@ -28,7 +34,7 @@ export const fetchProjects = user => {
                 // If user is admin add all the projects
                 const projectData = doc.data()
                 if (
-                  userData.admin ||
+                  user.isAdmin ||
                   userData.projects.includes(projectData.name)
                 ) {
                   fetchedProjects.push(projectData)
@@ -125,6 +131,63 @@ export const updateDefaultProject = projectName => {
   }
 }
 
+export const updateProjectColor = newColor => {
+  return (dispatch, getState) => {
+    let projectName = getState().filters.context
+    let projects = getState().config.projects
+
+    if (projectName.length > 0) {
+      projectName = projectName.replace('projects/', '')
+      const settingsRef = db.collection(`settings`).doc(projectName)
+      settingsRef.update({ primaryColor: newColor }).then(() => {
+        dispatch(showSnackbar(`Project primary color updated successfully`))
+      })
+
+      // Update projects object with new primary color
+      let currProject = projects.filter(p => p.name === projectName)[0]
+      currProject.primaryColor = newColor
+      dispatch({
+        type: actionTypes.FETCH_PROJECTS_SUCCESS,
+        projects: projects,
+      })
+    }
+  }
+}
+
+export const updateProjectTimezone = newTimezone => {
+  return (dispatch, getState) => {
+    let projectName = getState().filters.context
+    let projects = getState().config.projects
+
+    console.log(newTimezone)
+    const selectedTimezone = timezones.filter(
+      timezone => timezone.text === newTimezone
+    )[0]
+    console.log(selectedTimezone)
+    if (projectName.length > 0 && selectedTimezone) {
+      // Setup timezone value as DB expects it
+      newTimezone = {
+        name: selectedTimezone.text,
+        offset: selectedTimezone.offset,
+      }
+
+      projectName = projectName.replace('projects/', '')
+      const settingsRef = db.collection(`settings`).doc(projectName)
+      settingsRef.update({ timezone: newTimezone }).then(() => {
+        dispatch(showSnackbar(`Project timezone updated successfully`))
+      })
+
+      // Update projects object with new timezone
+      let currProject = projects.filter(p => p.name === projectName)[0]
+      currProject.timezone = newTimezone
+      dispatch({
+        type: actionTypes.FETCH_PROJECTS_SUCCESS,
+        projects: projects,
+      })
+    }
+  }
+}
+
 export const downloadExport = () => {
   return (dispatch, getState) => {
     const exportDate = getState().config.downloadExportDate
@@ -150,10 +213,7 @@ export const downloadExport = () => {
         } else if (response.status === 204 || response.status === 404) {
           dispatch(
             showSnackbar(
-              `The export is not available for ${format(
-                exportDate,
-                'MMM do, yyyy'
-              )}`
+              `No data is available for ${format(exportDate, 'MMM do, yyyy')}`
             )
           )
           dispatch(toggleConfigLoading(false))
