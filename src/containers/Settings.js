@@ -36,6 +36,7 @@ import { DatePicker } from '@material-ui/pickers'
 const StyledDiv = styled.div`
   width: 250px;
   height: 100%;
+  overflow-x: hidden;
   background-image: url(${background});
 `
 
