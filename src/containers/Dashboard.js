@@ -97,35 +97,65 @@ class Dashboard extends Component {
     )
     if (!this.props.loadingConversations) {
       if (this.props.conversationsTotal > 0) {
-        // Remove welcome intent from frequent intents list
+        // Remove welcome intent from frequent intents list & exit intents
         let frequentIntents = this.props.intents
+          .filter(i => i.name !== 'Default Welcome Intent')
+          .slice(0, 5)
+
+        let welcomeExitIntent = this.props.exitIntents.filter(
+          i => i.name === 'Default Welcome Intent'
+        )[0]
+        if (!welcomeExitIntent) welcomeExitIntent = { exits: 0 }
+
+        let exitIntents = this.props.exitIntents
           .filter(i => i.name !== 'Default Welcome Intent')
           .slice(0, 5)
 
         dashboardUI = (
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <Card
-                color={colorShades(this.props.mainColor, 40)}
+                color={colorShades(this.props.mainColor, 50)}
                 value={this.props.conversationsTotal}
                 label='Total Users'
+                notes=''
                 icon='account_circle'
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <Card
-                color={colorShades(this.props.mainColor, 20)}
+                color={colorShades(this.props.mainColor, 30)}
                 value={`${this.props.avgDuration}`}
                 label='Avg. Conv Duration'
+                notes=''
                 icon='schedule'
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <Card
-                color={colorShades(this.props.mainColor, 5)}
+                color={colorShades(this.props.mainColor, 20)}
                 value={`${this.props.supportRequestsPercentage}%`}
                 label='Support Requests'
+                notes={
+                  this.props.totalSupportRequests > 0
+                    ? `${this.props.totalSupportRequests} requests`
+                    : ''
+                }
                 icon='contact_support'
+              />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+              <Card
+                color={colorShades(this.props.mainColor, 10)}
+                value={`${this.props.conversationsTotal -
+                  welcomeExitIntent.exits}`}
+                label='Engaged Users'
+                notes={
+                  welcomeExitIntent.exits > 0
+                    ? `${welcomeExitIntent.exits} immediate exits`
+                    : ''
+                }
+                icon='speaker_notes'
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -142,9 +172,10 @@ class Dashboard extends Component {
               <GraphWrap>
                 <h3>Top exit intents on conversations</h3>
                 <BarChart
-                  data={this.props.exitIntents.slice(0, 5)}
+                  data={exitIntents}
                   dataKey='exits'
                   colors={this.props.colors}
+                  emptyMsg='No exit intents found'
                 />
               </GraphWrap>
             </Grid>
@@ -155,6 +186,7 @@ class Dashboard extends Component {
                   data={this.props.supportRequests.slice(0, 5)}
                   dataKey='occurrences'
                   colors={this.props.colors}
+                  emptyMsg='No support requests found'
                 />
               </GraphWrap>
             </Grid>
@@ -296,6 +328,7 @@ const mapStateToProps = state => {
     ),
     exitIntents: allExitIntents,
     intents: allIntents,
+    totalSupportRequests: state.conversations.supportRequests,
     supportRequests: allSupportRequests,
     feedbackSelected: state.metrics.feedbackSelected,
     feedback: state.metrics.feedbackFiltered,

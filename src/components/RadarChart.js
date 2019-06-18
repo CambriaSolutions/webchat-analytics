@@ -25,7 +25,7 @@ const radarChart = props => {
           <PolarRadiusAxis angle={30} domain={[0, props.total]} />
           <Tooltip />
           <Radar
-            name="Count"
+            name='Count'
             dataKey={props.dataKey}
             stroke={props.color}
             fill={props.color}
@@ -35,7 +35,7 @@ const radarChart = props => {
       </ResponsiveContainer>
     )
   } else {
-    chartUI = <EmptyChart message="No feedback found" />
+    chartUI = <EmptyChart message='No feedback found' />
   }
 
   return <div style={{ width: '100%', height: 300 }}>{chartUI}</div>

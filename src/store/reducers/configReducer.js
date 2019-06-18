@@ -11,6 +11,8 @@ const initialState = {
   showSettings: false,
   snackbarOpen: false,
   snackbarMessage: '',
+  showIntentModal: false,
+  updateRealtime: true,
 }
 
 const fetchProjectsStart = (state, action) => {
@@ -47,6 +49,10 @@ const reducer = (state = initialState, action) => {
     case actionTypes.TOGGLE_SETTINGS:
       return updateObject(state, {
         showSettings: action.showSettings,
+      })
+    case actionTypes.TOGGLE_INTENT_MODAL:
+      return updateObject(state, {
+        showIntentModal: action.showIntentModal,
       })
     case actionTypes.TOGGLE_CONFIG_LOADING:
       return updateObject(state, {

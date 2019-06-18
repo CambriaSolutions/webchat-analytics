@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { showIntentDetails } from '../store/actions/configActions'
 import { withStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -118,6 +120,10 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   row: {
+    //cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.background.default,
     },
@@ -171,21 +177,22 @@ class EnhancedTable extends React.Component {
             <TableBody>
               {stableSort(data, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(n => {
+                .map(row => {
                   return (
                     <TableRow
                       className={classes.row}
                       hover
+                      //onClick={event => this.props.onIntentSelected(row)}
                       role='checkbox'
                       tabIndex={-1}
-                      key={n.id}
+                      key={row.id}
                     >
                       <TableCell component='th' scope='row'>
-                        {n.name}
+                        {row.name}
                       </TableCell>
-                      <TableCell align='right'>{n.occurrences}</TableCell>
-                      <TableCell align='right'>{n.sessions}</TableCell>
-                      <TableCell align='right'>{n.exits}</TableCell>
+                      <TableCell align='right'>{row.occurrences}</TableCell>
+                      <TableCell align='right'>{row.sessions}</TableCell>
+                      <TableCell align='right'>{row.exits}</TableCell>
                     </TableRow>
                   )
                 })}
@@ -217,4 +224,15 @@ class EnhancedTable extends React.Component {
   }
 }
 
-export default withStyles(styles)(EnhancedTable)
+const mapDispatchToProps = dispatch => {
+  return {
+    onIntentSelected: intent => dispatch(showIntentDetails(intent)),
+  }
+}
+
+export default withStyles(styles)(
+  connect(
+    null,
+    mapDispatchToProps
+  )(EnhancedTable)
+)

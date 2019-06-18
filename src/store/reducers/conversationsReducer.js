@@ -37,6 +37,12 @@ const reducer = (state = initialState, action) => {
       return fetchConversationsSuccess(state, action)
     case actionTypes.FETCH_CONVERSATIONS_FAIL:
       return fetchConversationsFail(state, action)
+    case actionTypes.UPDATE_CONVERSATION_METRICS:
+      return updateObject(state, {
+        durationTotal: action.durationTotal,
+        supportRequests: action.supportRequests,
+        exitIntents: action.exitIntents,
+      })
     default:
       return state
   }

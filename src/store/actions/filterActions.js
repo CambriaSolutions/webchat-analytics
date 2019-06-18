@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes'
 import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
+import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
 import { format, startOfDay, endOfDay, subDays } from 'date-fns'
 
@@ -44,6 +45,7 @@ export const updateFilters = event => {
   const dateFilters = getDateFilters(event.target.value)
 
   return dispatch => {
+    dispatch(clearSubscriptions())
     dispatch(fetchConversations(dateFilters))
     dispatch(fetchMetrics(dateFilters))
 
@@ -78,6 +80,7 @@ export const updateContext = (projectName, projects = []) => {
   const context = `projects/${projectName}`
 
   return (dispatch, getState) => {
+    dispatch(clearSubscriptions())
     // Get projects settings based on the given context
     if (projects.length === 0) {
       projects = getState().config.projects

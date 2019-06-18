@@ -8,6 +8,10 @@ const initialState = {
   feedback: [],
   feedbackFiltered: [],
   feedbackSelected: 'positive',
+  //pastMetrics: {},
+  pastIntents: [],
+  pastSupportRequests: [],
+  pastFeedback: {},
 }
 
 const fetchMetricsStart = (state, action) => {
@@ -21,6 +25,10 @@ const fetchMetricsSuccess = (state, action) => {
     feedback: action.feedback,
     feedbackSelected: action.feedbackSelected,
     feedbackFiltered: action.feedbackFiltered,
+    //pastMetrics: action.pastMetrics,
+    pastIntents: action.pastIntents,
+    pastSupportRequests: action.pastSupportRequests,
+    pastFeedback: action.pastFeedback,
     loading: false,
   })
 }
@@ -46,6 +54,14 @@ const reducer = (state = initialState, action) => {
       return fetchMetricsFail(state, action)
     case actionTypes.UPDATE_FEEDBACK_TYPE:
       return updateFeedbackType(state, action)
+    case actionTypes.UPDATE_METRICS:
+      return updateObject(state, {
+        intents: action.intents,
+        supportRequests: action.supportRequests,
+        feedback: action.feedback,
+        feedbackSelected: action.feedbackSelected,
+        feedbackFiltered: action.feedbackFiltered,
+      })
     default:
       return state
   }

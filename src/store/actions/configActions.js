@@ -188,6 +188,40 @@ export const updateProjectTimezone = newTimezone => {
   }
 }
 
+export const showIntentDetails = intent => {
+  console.log(intent)
+
+  return (dispatch, getState) => {
+    const context = getState().filters.context
+    const dateRange = getState().filters.dateFilters
+
+    const aggregateRef = db.collection(`${context}/requests`)
+
+    //dispatch(fetchMetricsStart())
+    aggregateRef
+      .where('createdAt', '>', new Date(dateRange.start))
+      .where('createdAt', '<', new Date(dateRange.end))
+      .get()
+      .then(querySnapshot => {
+        let fetchedAggregate = []
+        querySnapshot.forEach(doc => {
+          fetchedAggregate.push({ ...doc.data() })
+        })
+
+        console.log(fetchedAggregate)
+        //dispatch(fetchMetricsSuccess(fetchedMetrics))
+      })
+      .catch(err => {
+        //dispatch(fetchMetricsFail(err))
+      })
+
+    dispatch({
+      type: actionTypes.TOGGLE_INTENT_MODAL,
+      showIntentModal: true,
+    })
+  }
+}
+
 export const downloadExport = () => {
   return (dispatch, getState) => {
     const exportDate = getState().config.downloadExportDate
