@@ -23,6 +23,8 @@ class IntentDetails extends Component {
 
     this.timeout = null
     this.dialogRef = React.createRef()
+    this.size = 0
+
     this.state = {
       width: window.innerWidth,
       loading: false,
@@ -41,6 +43,14 @@ class IntentDetails extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.state.width !== nextState.width ||
+      nextProps.loading !== nextState.loading ||
+      nextProps.data.length !== this.size
+    )
   }
 
   handleWindowSizeChange = () => {
@@ -69,6 +79,7 @@ class IntentDetails extends Component {
       this.props.data.length > 0 &&
       !this.state.loading
     ) {
+      this.size = this.props.data.length
       detailsUI = (
         <IntentDetailsList
           color={this.props.color}
