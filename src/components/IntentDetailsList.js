@@ -60,11 +60,7 @@ const intentDetailsList = props => {
       )
 
     return (
-      <DetailDiv
-        style={{
-          ...itemStyles,
-        }}
-      >
+      <DetailDiv style={itemStyles}>
         <DetailText>
           <strong>Message: </strong>
           {row.messageText}
@@ -90,16 +86,7 @@ const intentDetailsList = props => {
         >
           {({ index, style }) => {
             const item = items[index]
-            return (
-              <div
-                style={{
-                  ...style,
-                  //height: `${parseFloat(style.height) + 20}px`,
-                }}
-              >
-                {item}
-              </div>
-            )
+            return <div style={style}>{item}</div>
           }}
         </StyledList>
       </StyledDialogContent>
