@@ -120,7 +120,7 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   row: {
-    //cursor: 'pointer',
+    cursor: 'pointer',
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
     },
@@ -182,7 +182,7 @@ class EnhancedTable extends React.Component {
                     <TableRow
                       className={classes.row}
                       hover
-                      //onClick={event => this.props.onIntentSelected(row)}
+                      onClick={event => this.props.onIntentSelected(row)}
                       role='checkbox'
                       tabIndex={-1}
                       key={row.id}

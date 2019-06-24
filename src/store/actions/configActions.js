@@ -5,6 +5,10 @@ import { completeSignIn } from './authActions'
 import { format } from 'date-fns'
 import timezones from '../../common/timezones'
 
+// ------------------------------------------------------------------------
+// -------------------------- P R O J E C T S -----------------------------
+// ------------------------------------------------------------------------
+
 export const fetchProjects = user => {
   return (dispatch, getState) => {
     const userRef = db.collection(`users`).doc(user.uid)
@@ -93,6 +97,83 @@ export const fetchProjectsStart = () => {
   }
 }
 
+// ------------------------------------------------------------------------
+// --------------------- I N T E N T  D E T A I L S -----------------------
+// ------------------------------------------------------------------------
+
+// Regex to retrieve text after last "/" on a path
+const getIdFromPath = path => /[^/]*$/.exec(path)[0]
+
+export const showIntentDetails = intent => {
+  return (dispatch, getState) => {
+    const context = getState().filters.context
+    const dateRange = getState().filters.dateFilters
+
+    dispatch(fetchIntentDetailsStart())
+    db.collection(`${context}/requests`)
+      .where('createdAt', '>', new Date(dateRange.start))
+      .where('createdAt', '<', new Date(dateRange.end))
+      .where('intentId', '==', intent.id)
+      .orderBy('createdAt', 'desc')
+      .get()
+      .then(querySnapshot => {
+        let intentDetails = []
+        querySnapshot.forEach(doc => {
+          let tempData = doc.data()
+
+          intentDetails.push({
+            createdAt: tempData.createdAt.toDate(),
+            intentId: intent.id,
+            intentName: tempData.queryResult.intent.displayName,
+            intentDetectionConfidence:
+              tempData.queryResult.intentDetectionConfidence,
+            messageText: tempData.queryResult.queryText,
+            outputContexts: tempData.queryResult.outputContexts
+              ? tempData.queryResult.outputContexts.map(o => ({
+                  ...o,
+                  context: getIdFromPath(o.name),
+                }))
+              : [],
+            conversationId: getIdFromPath(tempData.session),
+            botResponse: tempData.queryResult.fulfillmentText,
+          })
+        })
+
+        dispatch(fetchIntentDetailsSuccess(intentDetails))
+      })
+      .catch(err => {
+        dispatch(fetchIntentDetailsFail(err))
+      })
+
+    dispatch(toggleIntentsModal(true))
+  }
+}
+
+export const fetchIntentDetailsSuccess = intentDetails => {
+  return {
+    type: actionTypes.FETCH_INTENT_DETAILS_SUCCESS,
+    intentDetails: intentDetails,
+  }
+}
+
+export const fetchIntentDetailsFail = error => {
+  console.log(error)
+  return {
+    type: actionTypes.FETCH_INTENT_DETAILS_FAIL,
+    error: error,
+  }
+}
+
+export const fetchIntentDetailsStart = () => {
+  return {
+    type: actionTypes.FETCH_INTENT_DETAILS_START,
+  }
+}
+
+// ------------------------------------------------------------------------
+// -------------------------- S E T T I N G S -----------------------------
+// ------------------------------------------------------------------------
+
 export const toggleSettings = showSettings => {
   return {
     type: actionTypes.TOGGLE_SETTINGS,
@@ -104,6 +185,13 @@ export const toggleConfigLoading = loading => {
   return {
     type: actionTypes.TOGGLE_CONFIG_LOADING,
     loading: loading,
+  }
+}
+
+export const toggleIntentsModal = option => {
+  return {
+    type: actionTypes.TOGGLE_INTENT_MODAL,
+    showIntentModal: option,
   }
 }
 
@@ -185,40 +273,6 @@ export const updateProjectTimezone = newTimezone => {
         projects: projects,
       })
     }
-  }
-}
-
-export const showIntentDetails = intent => {
-  console.log(intent)
-
-  return (dispatch, getState) => {
-    const context = getState().filters.context
-    const dateRange = getState().filters.dateFilters
-
-    const aggregateRef = db.collection(`${context}/requests`)
-
-    //dispatch(fetchMetricsStart())
-    aggregateRef
-      .where('createdAt', '>', new Date(dateRange.start))
-      .where('createdAt', '<', new Date(dateRange.end))
-      .get()
-      .then(querySnapshot => {
-        let fetchedAggregate = []
-        querySnapshot.forEach(doc => {
-          fetchedAggregate.push({ ...doc.data() })
-        })
-
-        console.log(fetchedAggregate)
-        //dispatch(fetchMetricsSuccess(fetchedMetrics))
-      })
-      .catch(err => {
-        //dispatch(fetchMetricsFail(err))
-      })
-
-    dispatch({
-      type: actionTypes.TOGGLE_INTENT_MODAL,
-      showIntentModal: true,
-    })
   }
 }
 

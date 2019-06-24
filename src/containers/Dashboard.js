@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Icon from '@material-ui/core/Icon'
 import Drawer from '@material-ui/core/Drawer'
+import Dialog from '@material-ui/core/Dialog'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
@@ -19,6 +20,7 @@ import PieChart from '../components/PieChart'
 import BarChart from '../components/BarChart'
 import RadarChart from '../components/RadarChart'
 import EnhancedTable from '../components/EnhancedTable'
+import IntentDetails from '../components/IntentDetails'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 // Helpers
@@ -244,11 +246,24 @@ class Dashboard extends Component {
         <Drawer
           anchor='right'
           open={this.props.showSettings}
-          onClose={() => this.props.onSettingsToggle(false)}
+          onClose={this.props.onSettingsToggle}
         >
           <Settings />
         </Drawer>
         {dashboardUI}
+        <Dialog
+          open={this.props.showIntentModal}
+          onClose={this.props.onIntentsModalClose}
+          maxWidth={'md'}
+          fullWidth={true}
+          aria-labelledby='intent_details_title'
+        >
+          <IntentDetails
+            loading={this.props.loadingIntentDetails}
+            data={this.props.intentDetails}
+            color={this.props.mainColor}
+          />
+        </Dialog>
       </div>
     )
   }
@@ -317,6 +332,7 @@ const mapStateToProps = state => {
   return {
     loadingConversations: state.conversations.loading,
     loadingIntents: state.metrics.loading,
+    loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.conversations.conversationsTotal,
     supportRequestsPercentage: Math.floor(
       (state.conversations.supportRequests /
@@ -335,6 +351,8 @@ const mapStateToProps = state => {
     colors: state.filters.colors,
     mainColor: state.filters.mainColor,
     showSettings: state.config.showSettings,
+    showIntentModal: state.config.showIntentModal,
+    intentDetails: state.config.intentDetails,
   }
 }
 
@@ -344,8 +362,8 @@ const mapDispatchToProps = dispatch => {
     onFetchMetrics: () => dispatch(actions.fetchMetrics()),
     onFeedbackChange: feedbackType =>
       dispatch(actions.updateFeedbackType(feedbackType)),
-    onSettingsToggle: showSettings =>
-      dispatch(actions.toggleSettings(showSettings)),
+    onSettingsToggle: () => dispatch(actions.toggleSettings(false)),
+    onIntentsModalClose: () => dispatch(actions.toggleIntentsModal(false)),
   }
 }
 

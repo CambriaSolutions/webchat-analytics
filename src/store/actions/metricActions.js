@@ -52,36 +52,6 @@ export const fetchMetrics = (dateRange, context) => {
   }
 }
 
-/*export const fetchRealtimeMetrics = (dateRange, context) => {
-  // If realtime is enabled, subscribe to any changes on the current conversations query
-  return (dispatch, getState) => {
-    const useRealtimeUpdates = getState().config.updateRealtime
-
-    if (useRealtimeUpdates) {
-      if (typeof dateRange === 'undefined')
-        dateRange = getState().filters.dateFilters
-      if (typeof context === 'undefined') context = getState().filters.context
-
-      const startDate = new Date(dateRange.start)
-      let endDate = new Date(dateRange.end)
-      const sameDay = isSameDay(startDate, endDate)
-
-      const metricsRef = db.collection(`${context}/metrics`)
-
-      const dateKey = format(new Date(), 'MM-dd-yyyy')
-      console.log(dateKey)
-
-      // Load data from today and continue listening for changes
-      const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
-        const metric = doc.data()
-        if (metric) dispatch(updateMetrics(metric, sameDay))
-      })
-
-      dispatch(storeMetricsSubscription(unsubscribeMetrics))
-    }
-  }
-}*/
-
 export const fetchMetricsSuccess = metrics => {
   return dispatch => {
     // Retrieve intents & support requests from daily metrics
@@ -244,13 +214,17 @@ export const updateMetrics = (metric, sameDay = false) => {
       positive: 0,
       negative: 0,
     }
-    let { feedbackFiltered, feedbackSelected } = getState().metrics
+    let { feedbackSelected } = getState().metrics
 
     let intents = getState().metrics.pastIntents.map(item => ({ ...item }))
     let supportRequests = getState().metrics.pastSupportRequests.map(item => ({
       ...item,
     }))
-    let feedback = { ...getState().metrics.pastFeedback }
+    // Deep clone feedback objects
+    let feedback = JSON.parse(JSON.stringify(getState().metrics.pastFeedback))
+    let feedbackFiltered = JSON.parse(
+      JSON.stringify(getState().metrics.feedbackFiltered)
+    )
 
     if (sameDay) {
       const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
