@@ -66,3 +66,25 @@ export const chunkString = (str, size) => {
     ['']
   )
 }
+
+export const convertHex = (hex, opacity) => {
+  hex = hex.replace('#', '')
+  const r = parseInt(hex.substring(0, 2), 16),
+    g = parseInt(hex.substring(2, 4), 16),
+    b = parseInt(hex.substring(4, 6), 16)
+
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')'
+}
+
+export const getUTCDate = (dateString = Date.now(), timezoneOffset = -7) => {
+  const date = new Date(dateString)
+
+  return new Date(
+    date.getUTCFullYear(),
+    date.getUTCMonth(),
+    date.getUTCDate(),
+    date.getUTCHours() + timezoneOffset,
+    date.getUTCMinutes(),
+    date.getUTCSeconds()
+  )
+}

@@ -1,20 +1,17 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../utility'
-//import randomColor from 'randomcolor'
-import { format, endOfDay, subDays } from 'date-fns'
-
-const formatDate = date => format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 const initialState = {
   // Set Today filter by default
   filterLabel: 'Last 7 days',
   dateFilters: {
-    start: formatDate(subDays(new Date(), 7)),
-    end: formatDate(endOfDay(new Date())),
+    start: null,
+    end: null,
   },
   colors: [],
   mainColor: '#8681A6',
   context: '',
+  timezoneOffset: -7,
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +26,8 @@ const reducer = (state = initialState, action) => {
         context: action.context,
         mainColor: action.mainColor,
         colors: action.colors,
+        timezoneOffset: action.timezoneOffset,
+        dateFilters: action.dateFilters,
       })
     case actionTypes.UPDATE_MAIN_COLOR:
       return updateObject(state, {

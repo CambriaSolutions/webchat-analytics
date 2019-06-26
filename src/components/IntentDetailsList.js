@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 import { VariableSizeList as List } from 'react-window'
 import useCellMeasurer from '../common/useCellMeasurer'
-import { format } from 'date-fns'
+import { convertHex } from '../common/helper'
+import { format, addHours } from 'date-fns'
 
 // Material UI
 import DialogTitle from '@material-ui/core/DialogTitle'
@@ -33,15 +34,6 @@ const beautifyContext = context => {
   return newName.charAt(0).toUpperCase() + newName.slice(1)
 }
 
-const convertHex = (hex, opacity) => {
-  hex = hex.replace('#', '')
-  const r = parseInt(hex.substring(0, 2), 16),
-    g = parseInt(hex.substring(2, 4), 16),
-    b = parseInt(hex.substring(4, 6), 16)
-
-  return 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')'
-}
-
 const intentDetailsList = props => {
   const items = props.data.map((row, index) => {
     let itemStyles =
@@ -59,13 +51,22 @@ const intentDetailsList = props => {
         ''
       )
 
+    // Convert server time to project's timezone
+    const SERVER_TIMEZONE_OFFSET = -7
+    const timeDiffOffset =
+      SERVER_TIMEZONE_OFFSET >= props.timezoneOffset
+        ? SERVER_TIMEZONE_OFFSET - props.timezoneOffset
+        : props.timezoneOffset - SERVER_TIMEZONE_OFFSET
+
     return (
       <DetailDiv style={itemStyles}>
         <DetailText>
           <strong>Message: </strong>
           {row.messageText}
           {contextDiv}
-          <DetailDate>{format(row.createdAt, "ccc PPP 'at' p")}</DetailDate>
+          <DetailDate>
+            {format(addHours(row.createdAt, timeDiffOffset), "ccc PPP 'at' p")}
+          </DetailDate>
         </DetailText>
       </DetailDiv>
     )

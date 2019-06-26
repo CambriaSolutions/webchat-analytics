@@ -45,23 +45,15 @@ class IntentDetails extends Component {
     window.removeEventListener('resize', this.handleWindowSizeChange)
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (
-      this.state.width !== nextState.width ||
-      nextProps.loading !== nextState.loading ||
-      nextProps.data.length !== this.size
-    )
-  }
-
   handleWindowSizeChange = () => {
     this.setState({ loading: true })
-    clearTimeout(this.timeout)
+    if (this.timeout) clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       this.setState({
         width: this.dialogRef.current.clientWidth,
         loading: false,
       })
-    }, 100)
+    }, 200)
   }
 
   render() {
@@ -84,6 +76,7 @@ class IntentDetails extends Component {
         <IntentDetailsList
           color={this.props.color}
           data={this.props.data}
+          timezoneOffset={this.props.timezoneOffset}
           width={this.state.width}
         />
       )

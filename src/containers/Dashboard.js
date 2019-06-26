@@ -262,6 +262,7 @@ class Dashboard extends Component {
             loading={this.props.loadingIntentDetails}
             data={this.props.intentDetails}
             color={this.props.mainColor}
+            timezoneOffset={this.props.timezoneOffset}
           />
         </Dialog>
       </div>
@@ -353,6 +354,7 @@ const mapStateToProps = state => {
     showSettings: state.config.showSettings,
     showIntentModal: state.config.showIntentModal,
     intentDetails: state.config.intentDetails,
+    timezoneOffset: state.filters.timezoneOffset,
   }
 }
 
