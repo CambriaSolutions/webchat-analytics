@@ -200,15 +200,13 @@ const storeConversationFeedback = (
 }
 
 // Aggregate & clean up request data
-const aggregateRequest = (context, reqData, conversationId) => {
-  const currIntent = reqData.queryResult.intent
-
+const aggregateRequest = (context, reqData, conversationId, intent) => {
   aggregateData = {
     conversationId,
     createdAt: admin.firestore.Timestamp.now(),
     language: reqData.queryResult.languageCode,
-    intentId: getIdFromPath(currIntent.name),
-    intentName: currIntent.displayName,
+    intentId: intent.id,
+    intentName: intent.name,
     intentDetectionConfidence: reqData.queryResult.intentDetectionConfidence,
     messageText: reqData.queryResult.queryText,
   }
@@ -282,6 +280,7 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
 
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
+  reqData.intentId = intent.id
   store
     .collection(`${context}/requests`)
     .add(reqData)
@@ -310,7 +309,7 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
       }
 
       // Store request within aggregate conversation
-      aggregateRequest(context, reqData, conversationId)
+      aggregateRequest(context, reqData, conversationId, intent)
 
       return
     })
@@ -408,7 +407,7 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
     const conversationId = getIdFromPath(reqData.session)
 
     // Store feedback directly on the conversation
-    //storeConversationFeedback(context, conversationId, wasHelpful, feedbackList)
+    storeConversationFeedback(context, conversationId, wasHelpful, feedbackList)
 
     // Create/Update metric entry
     const currDate = new Date()

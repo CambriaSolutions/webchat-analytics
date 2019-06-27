@@ -90,9 +90,7 @@ const barChart = props => {
       </ResponsiveContainer>
     )
   } else {
-    chartUI = (
-      <EmptyChart icon='contact_support' message='No support requests found' />
-    )
+    chartUI = <EmptyChart icon='contact_support' message={props.emptyMsg} />
   }
 
   return <div style={{ width: '100%', height: 300 }}>{chartUI}</div>

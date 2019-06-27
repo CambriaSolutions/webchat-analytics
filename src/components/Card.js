@@ -18,6 +18,7 @@ const Details = styled(CardContent)`
   flex: 70%;
   color: #fff;
   text-align: left;
+  padding-right: 5px !important;
   h5 {
     font-size: 1.6em;
     display: inline;
@@ -27,9 +28,13 @@ const Details = styled(CardContent)`
   }
 `
 
+const Notes = styled.div`
+  font-size: 12px;
+`
+
 const Image = styled.div`
   display: inline-block;
-  flex: 70%;
+  flex: 30%;
   text-align: right;
   .material-icons {
     margin-top: 10px;
@@ -50,6 +55,7 @@ const card = props => {
       <Details>
         <h5>{props.value}</h5>
         <p>{props.label}</p>
+        <Notes>{props.notes}</Notes>
       </Details>
       <Image>
         <Icon>{props.icon}</Icon>
