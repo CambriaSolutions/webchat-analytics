@@ -307,6 +307,11 @@ const compareValues = (key, order = 'asc') => {
   }
 }
 
+const round = (value, precision) => {
+  var multiplier = Math.pow(10, precision || 0)
+  return Math.round(value * multiplier) / multiplier
+}
+
 const mapStateToProps = state => {
   let allIntents = beautifyIntents(state.metrics.intents)
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
@@ -335,10 +340,11 @@ const mapStateToProps = state => {
     loadingIntents: state.metrics.loading,
     loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.conversations.conversationsTotal,
-    supportRequestsPercentage: Math.floor(
+    supportRequestsPercentage: round(
       (state.conversations.supportRequests /
         state.conversations.conversationsTotal) *
-        100
+        100,
+      1
     ),
     avgDuration: beautifyTime(
       state.conversations.durationTotal / state.conversations.conversationsTotal

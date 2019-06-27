@@ -1,7 +1,8 @@
 import * as actionTypes from './actionTypes'
 import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
-import { format, subDays, isSameDay } from 'date-fns'
+import { format, subDays } from 'date-fns'
+import { getUTCDate } from '../../common/helper'
 
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
@@ -9,12 +10,13 @@ export const fetchMetrics = (dateRange, context) => {
     if (typeof dateRange === 'undefined')
       dateRange = getState().filters.dateFilters
     if (typeof context === 'undefined') context = getState().filters.context
+    const timezoneOffset = getState().filters.timezoneOffset
 
     const metricsRef = db.collection(`${context}/metrics`)
 
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
-    const sameDay = isSameDay(startDate, endDate)
+    const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
     // If metrics are updated on realtime, change the date filter to load data until yesterday, today's data will be handled via realtime snapshots
     if (useRealtimeUpdates && !sameDay) {
@@ -35,7 +37,8 @@ export const fetchMetrics = (dateRange, context) => {
         dispatch(fetchMetricsSuccess(fetchedMetrics))
 
         if (useRealtimeUpdates) {
-          const dateKey = format(new Date(), 'MM-dd-yyyy')
+          const dateWithProjectTimezone = getUTCDate(new Date(), timezoneOffset)
+          const dateKey = format(dateWithProjectTimezone, 'MM-dd-yyyy')
 
           // Load data from today and continue listening for changes
           const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
