@@ -60,12 +60,10 @@ class Header extends Component {
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-
           {projectDropdown}
           <ToolbarTitle variant='h6' color='inherit'>
             Analytics
           </ToolbarTitle>
-
           <Hidden xsDown>
             <Typography variant='subtitle1' color='inherit'>
               Filter
@@ -80,6 +78,7 @@ class Header extends Component {
             <MenuItem value={'Yesterday'}>Yesterday</MenuItem>
             <MenuItem value={'Last 7 days'}>Last 7 days</MenuItem>
             <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
+            <MenuItem value={'Custom'}>Custom</MenuItem>
           </Dropdown>
           <IconButton
             color='inherit'

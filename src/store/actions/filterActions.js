@@ -51,20 +51,33 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
   return dateRange
 }
 
+// Waiting on client to determine if they want to either simply include
+// last month, last quarter, YTD, or custom ranges
 export const updateFilters = event => {
   return (dispatch, getState) => {
     const offset = getState().filters.timezoneOffset
-    const dateFilters = getDateFilters(event.target.value, offset)
 
-    dispatch(clearSubscriptions())
-    dispatch(fetchConversations(dateFilters))
-    dispatch(fetchMetrics(dateFilters))
+    // If the selected filter doesn't require a date picker,
+    // format the date filter and dispatch data retrieval actions
+    if (event.target.value.toLowerCase() !== 'custom') {
+      const dateFilters = getDateFilters(event.target.value, offset)
 
-    dispatch({
-      type: actionTypes.UPDATE_FILTERS,
-      filterLabel: event.target.value,
-      dateFilters: dateFilters,
-    })
+      dispatch(clearSubscriptions())
+      dispatch(fetchConversations(dateFilters))
+      dispatch(fetchMetrics(dateFilters))
+
+      dispatch({
+        type: actionTypes.UPDATE_FILTERS,
+        filterLabel: event.target.value,
+        dateFilters: dateFilters,
+      })
+    } else {
+      // TODO: dispatch and action to
+      // 1. Open a picker
+      // 2. Take the values from the picker
+      // 3. Send the values to fetchConversations & fetchMetrics
+      console.log(event.target.value)
+    }
   }
 }
 
