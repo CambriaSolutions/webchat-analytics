@@ -4,6 +4,7 @@ import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
+import moment from 'moment'
 import { format, startOfDay, endOfDay, subDays } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
 
@@ -61,7 +62,6 @@ export const updateFilters = event => {
     // format the date filter and dispatch data retrieval actions
     if (event.target.value.toLowerCase() !== 'custom') {
       const dateFilters = getDateFilters(event.target.value, offset)
-
       dispatch(clearSubscriptions())
       dispatch(fetchConversations(dateFilters))
       dispatch(fetchMetrics(dateFilters))
@@ -70,17 +70,47 @@ export const updateFilters = event => {
         type: actionTypes.UPDATE_FILTERS,
         filterLabel: event.target.value,
         dateFilters: dateFilters,
+        isCustomDateRange: false,
       })
     } else {
-      // TODO: dispatch and action to
-      // 1. Open a picker
-      // 2. Take the values from the picker
-      // 3. Send the values to fetchConversations & fetchMetrics
-      console.log(event.target.value)
+      // The user has specified that they would like to select a custom
+      // date range, so we dispatch the action to open the date range picker
+      dispatch({
+        type: actionTypes.SET_IS_CUSTOM_DATE_RANGE,
+        isCustomDateRange: true,
+      })
     }
   }
 }
 
+export const updateFiltersWithRange = (startDate, endDate) => {
+  return (dispatch, getState) => {
+    const offset = getState().filters.timezoneOffset
+    const dateFilters = getState().filters.dateFilters
+    const utcStart = getUTCDate(moment(startDate).toDate(), offset)
+    const utcEnd = getUTCDate(moment(endDate).toDate(), offset)
+
+    const newDateFilters = {
+      start: formatDate(endOfDay(utcStart), offset),
+      end: formatDate(endOfDay(utcEnd), offset),
+    }
+
+    const formattedStartDate = moment(startDate).format('M/D/YY')
+    const formattedEndDate = moment(endDate).format('M/D/YY')
+
+    const newFilterDisplay = `${formattedStartDate} - ${formattedEndDate}`
+
+    dispatch(fetchConversations(newDateFilters))
+    dispatch(fetchMetrics(newDateFilters))
+
+    dispatch({
+      type: actionTypes.UPDATE_FILTERS,
+      filterLabel: newFilterDisplay,
+      dateFilters: dateFilters,
+      isCustomDateRange: false,
+    })
+  }
+}
 export const updateMainColor = (newColor, updateDB = false) => {
   return (dispatch, getState) => {
     const COLORS = randomColor({

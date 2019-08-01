@@ -16,6 +16,9 @@ import MenuItem from '@material-ui/core/MenuItem'
 import InsertChartOutlined from '@material-ui/icons/InsertChartOutlined'
 import SettingsIcon from '@material-ui/icons/Settings'
 
+// Date Filter
+import DateFilter from '../components/DateFilter'
+
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
   margin-left: 10px !important;
@@ -69,17 +72,7 @@ class Header extends Component {
               Filter
             </Typography>
           </Hidden>
-          <Dropdown
-            value={this.props.filterLabel}
-            onChange={event => this.props.onFilterChange(event)}
-            name='filter'
-          >
-            <MenuItem value={'Today'}>Today</MenuItem>
-            <MenuItem value={'Yesterday'}>Yesterday</MenuItem>
-            <MenuItem value={'Last 7 days'}>Last 7 days</MenuItem>
-            <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
-            <MenuItem value={'Custom'}>Custom</MenuItem>
-          </Dropdown>
+          <DateFilter />
           <IconButton
             color='inherit'
             onClick={() => this.props.onSettingsToggle(true)}

@@ -8,10 +8,11 @@ const initialState = {
     start: null,
     end: null,
   },
+  isCustomDateRange: false,
   colors: [],
   mainColor: '#8681A6',
   context: '',
-  timezoneOffset: -7,
+  timezoneOffset: -7, // Offset Firebase
 }
 
 const reducer = (state = initialState, action) => {
@@ -20,7 +21,9 @@ const reducer = (state = initialState, action) => {
       return updateObject(state, {
         filterLabel: action.filterLabel,
         dateFilters: action.dateFilters,
+        isCustomDateRange: action.isCustomDateRange,
       })
+
     case actionTypes.UPDATE_CONTEXT:
       return updateObject(state, {
         context: action.context,
@@ -29,11 +32,23 @@ const reducer = (state = initialState, action) => {
         timezoneOffset: action.timezoneOffset,
         dateFilters: action.dateFilters,
       })
+
+    case actionTypes.UPDATE_FILTER_LABEL:
+      return updateObject(state, {
+        filterLabel: action.filterLabel,
+      })
+
     case actionTypes.UPDATE_MAIN_COLOR:
       return updateObject(state, {
         mainColor: action.mainColor,
         colors: action.colors,
       })
+    // case actionTypes.SET_IS_CUSTOM_DATE_RANGE:
+    //   return updateObject(state, {
+    //     isCustomDateRange: action.isCustomDateRange,
+    //   })
+    case actionTypes.SET_IS_CUSTOM_DATE_RANGE:
+      return { ...state, isCustomDateRange: action.isCustomDateRange }
     default:
       return state
   }
