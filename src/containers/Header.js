@@ -23,6 +23,9 @@ const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
   margin-left: 10px !important;
 `
+const FilterTitle = styled(Typography)`
+  padding-bottom: 4px;
+`
 
 const Dropdown = styled(Select)`
   color: #fff !important;
@@ -68,9 +71,9 @@ class Header extends Component {
             Analytics
           </ToolbarTitle>
           <Hidden xsDown>
-            <Typography variant='subtitle1' color='inherit'>
+            <FilterTitle variant='subtitle1' color='inherit'>
               Filter
-            </Typography>
+            </FilterTitle>
           </Hidden>
           <DateFilter />
           <IconButton

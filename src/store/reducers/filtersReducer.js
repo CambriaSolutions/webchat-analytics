@@ -21,7 +21,6 @@ const reducer = (state = initialState, action) => {
       return updateObject(state, {
         filterLabel: action.filterLabel,
         dateFilters: action.dateFilters,
-        isCustomDateRange: action.isCustomDateRange,
       })
 
     case actionTypes.UPDATE_CONTEXT:
@@ -33,22 +32,18 @@ const reducer = (state = initialState, action) => {
         dateFilters: action.dateFilters,
       })
 
-    case actionTypes.UPDATE_FILTER_LABEL:
-      return updateObject(state, {
-        filterLabel: action.filterLabel,
-      })
-
     case actionTypes.UPDATE_MAIN_COLOR:
       return updateObject(state, {
         mainColor: action.mainColor,
         colors: action.colors,
       })
-    // case actionTypes.SET_IS_CUSTOM_DATE_RANGE:
-    //   return updateObject(state, {
-    //     isCustomDateRange: action.isCustomDateRange,
-    //   })
+
     case actionTypes.SET_IS_CUSTOM_DATE_RANGE:
-      return { ...state, isCustomDateRange: action.isCustomDateRange }
+      return {
+        ...state,
+        isCustomDateRange: action.isCustomDateRange,
+      }
+
     default:
       return state
   }
