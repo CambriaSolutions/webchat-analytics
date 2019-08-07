@@ -43,7 +43,6 @@ function CustomDateDialog(props) {
   const [buttonText, setButtomText] = React.useState('')
   const [startDate, setStartDate] = React.useState(null)
   const [endDate, setEndDate] = React.useState(null)
-
   function handleClickOpen() {
     toggleDateDialog(true)
   }
@@ -83,7 +82,7 @@ function CustomDateDialog(props) {
               initialFocusedDate={filterStartDate}
               format='MM/dd/yyyy'
               value={startDate}
-              maxDate={endDate ? endDate : false}
+              maxDate={endDate ? endDate : new Date(`2100 - 01 - 01`)}
               onChange={date => setStartDate(date)}
             />
             <Picker
