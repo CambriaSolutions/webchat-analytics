@@ -78,6 +78,7 @@ export const convertHex = (hex, opacity) => {
 
 export const getUTCDate = (dateString = Date.now(), timezoneOffset = -7) => {
   const date = new Date(dateString)
+
   return new Date(
     date.getUTCFullYear(),
     date.getUTCMonth(),

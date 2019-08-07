@@ -91,8 +91,6 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
   return dateRange
 }
 
-// Waiting on client to determine if they want to either simply include
-// last month, last quarter, YTD, or custom ranges
 export const updateFilters = event => {
   return (dispatch, getState) => {
     const offset = getState().filters.timezoneOffset
@@ -110,21 +108,11 @@ export const updateFilters = event => {
         filterLabel: event.target.value,
         dateFilters: dateFilters,
       })
-      dispatch({
-        type: actionTypes.SET_IS_CUSTOM_DATE_RANGE,
-        isCustomDateRange: false,
-      })
+      dispatch(setIsCustomDateRange(false))
     } else {
       // The user has specified that they would like to select a custom
       // date range, so we enable the to and from date pickers
-      dispatch({
-        type: actionTypes.SET_IS_CUSTOM_DATE_RANGE,
-        isCustomDateRange: true,
-      })
-      dispatch({
-        type: actionTypes.UPDATE_FILTER_LABEL,
-        filterLabel: 'Custom',
-      })
+      dispatch(setIsCustomDateRange(true))
       dispatch(toggleDateDialog(true))
     }
   }
@@ -149,10 +137,7 @@ export const updateFiltersWithRange = (startDate, endDate) => {
       filterLabel: 'Custom',
       dateFilters: newDateFilters,
     })
-    dispatch({
-      type: actionTypes.SET_IS_CUSTOM_DATE_RANGE,
-      isCustomDateRange: true,
-    })
+    dispatch(setIsCustomDateRange(true))
   }
 }
 

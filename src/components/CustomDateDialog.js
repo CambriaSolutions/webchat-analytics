@@ -26,7 +26,6 @@ const PickerContainer = styled.div`
 const Picker = styled(KeyboardDatePicker)`
   && {
     margin-left: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.42) !important;
   }
 `
 
@@ -40,7 +39,7 @@ function CustomDateDialog(props) {
     toggleDateDialog,
   } = props
 
-  const [buttonText, setButtomText] = React.useState('')
+  const [buttonText, setButtonText] = React.useState('')
   const [startDate, setStartDate] = React.useState(null)
   const [endDate, setEndDate] = React.useState(null)
   function handleClickOpen() {
@@ -54,7 +53,7 @@ function CustomDateDialog(props) {
     if (isValid(startDate) && isValid(endDate)) {
       updateFiltersWithRange(startDate, endDate)
       toggleDateDialog(false)
-      setButtomText(
+      setButtonText(
         `${format(startDate, 'M/d/yy')} - ${format(endDate, 'M/d/yy')}`
       )
     }
@@ -65,12 +64,8 @@ function CustomDateDialog(props) {
       {filterLabel === 'Custom' && (
         <StyledButton onClick={handleClickOpen}>{buttonText}</StyledButton>
       )}
-      <Dialog
-        open={openDateDialog}
-        onClose={handleClose}
-        aria-labelledby='max-width-dialog-title'
-      >
-        <DialogTitle id='max-width-dialog-title'>Custom Time Range</DialogTitle>
+      <Dialog open={openDateDialog} onClose={handleClose}>
+        <DialogTitle>Custom Time Range</DialogTitle>
         <DialogContent>
           <PickerContainer>
             <Picker
