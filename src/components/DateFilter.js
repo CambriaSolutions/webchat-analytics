@@ -64,8 +64,8 @@ class DateFilter extends Component {
           <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
           <MenuItem value={'Last 60 days'}>Last 60 days</MenuItem>
           <MenuItem value={'Last 90 days'}>Last 90 days</MenuItem>
-          <MenuItem value={'Last quarter'}>Last Quarter</MenuItem>
-          <MenuItem value={'Last 12 months'}>Last 12 Months</MenuItem>
+          <MenuItem value={'Last quarter'}>Last quarter</MenuItem>
+          <MenuItem value={'Last 12 months'}>Last 12 months</MenuItem>
           <CustomMenuItem value={'Custom'}>Custom</CustomMenuItem>
         </Dropdown>
         {isCustomDateRange && <CustomDateDialog />}

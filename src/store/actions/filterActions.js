@@ -4,7 +4,14 @@ import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
-import { format, startOfDay, endOfDay, subDays, subMonths } from 'date-fns'
+import {
+  format,
+  startOfDay,
+  endOfDay,
+  subDays,
+  subMonths,
+  startOfQuarter,
+} from 'date-fns'
 import { getUTCDate } from '../../common/helper'
 
 const formatDate = (date, timezoneOffset = null) => {
@@ -20,6 +27,17 @@ const getDateRange = (date, timezoneOffset = null) => {
   const startOfToday = formatDate(startOfDay(date), timezoneOffset)
   const endOfToday = formatDate(endOfDay(date), timezoneOffset)
   return { start: startOfToday, end: endOfToday }
+}
+
+const getLastQuarter = today => {
+  // TODO: confirm definition of quarter
+  const startOfCurrentQuarter = startOfQuarter(today)
+  const lastDayOfLastQuarter = subDays(startOfCurrentQuarter, 1)
+  const firstDayOfLastQuarter = startOfQuarter(lastDayOfLastQuarter)
+  return {
+    start: formatDate(startOfDay(firstDayOfLastQuarter)),
+    end: formatDate(endOfDay(lastDayOfLastQuarter)),
+  }
 }
 
 // Set date range based on filter selected
@@ -54,6 +72,9 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
         start: formatDate(startOfDay(subDays(today, 90)), timezoneOffset),
         end: formatDate(endOfDay(today), timezoneOffset),
       }
+      break
+    case 'Last quarter':
+      dateRange = getLastQuarter(today)
       break
     case 'Last 12 months':
       dateRange = {
