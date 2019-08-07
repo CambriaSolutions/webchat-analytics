@@ -9,6 +9,7 @@ const initialState = {
     end: null,
   },
   isCustomDateRange: false,
+  openDateDialog: false,
   colors: [],
   mainColor: '#8681A6',
   context: '',
@@ -42,6 +43,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isCustomDateRange: action.isCustomDateRange,
+      }
+
+    case actionTypes.TOGGLE_DATE_DIALOG:
+      return {
+        ...state,
+        openDateDialog: action.shouldOpen,
       }
 
     default:

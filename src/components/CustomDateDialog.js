@@ -9,7 +9,10 @@ import { KeyboardDatePicker } from '@material-ui/pickers'
 import { format, isValid } from 'date-fns'
 import styled from 'styled-components'
 
-import { updateFiltersWithRange } from '../store/actions/filterActions'
+import {
+  updateFiltersWithRange,
+  toggleDateDialog,
+} from '../store/actions/filterActions'
 
 const StyledButton = styled(Button)`
   && {
@@ -33,24 +36,25 @@ function CustomDateDialog(props) {
     filterEndDate,
     updateFiltersWithRange,
     filterLabel,
+    openDateDialog,
+    toggleDateDialog,
   } = props
 
-  const [open, setOpen] = React.useState(true)
   const [buttonText, setButtomText] = React.useState('')
   const [startDate, setStartDate] = React.useState(null)
   const [endDate, setEndDate] = React.useState(null)
 
   function handleClickOpen() {
-    setOpen(true)
+    toggleDateDialog(true)
   }
   function handleClose() {
-    setOpen(false)
+    toggleDateDialog(false)
   }
 
   function handleUpdate() {
     if (isValid(startDate) && isValid(endDate)) {
       updateFiltersWithRange(startDate, endDate)
-      setOpen(false)
+      toggleDateDialog(false)
       setButtomText(
         `${format(startDate, 'M/d/yy')} - ${format(endDate, 'M/d/yy')}`
       )
@@ -63,7 +67,7 @@ function CustomDateDialog(props) {
         <StyledButton onClick={handleClickOpen}>{buttonText}</StyledButton>
       )}
       <Dialog
-        open={open}
+        open={openDateDialog}
         onClose={handleClose}
         aria-labelledby='max-width-dialog-title'
       >
@@ -79,6 +83,7 @@ function CustomDateDialog(props) {
               initialFocusedDate={filterStartDate}
               format='MM/dd/yyyy'
               value={startDate}
+              maxDate={endDate ? endDate : false}
               onChange={date => setStartDate(date)}
             />
             <Picker
@@ -90,6 +95,7 @@ function CustomDateDialog(props) {
               initialFocusedDate={filterEndDate}
               format='MM/dd/yyyy'
               value={endDate}
+              minDate={startDate ? startDate : false}
               onChange={date => setEndDate(date)}
             />
           </PickerContainer>
@@ -112,6 +118,7 @@ const mapStateToProps = state => {
     filterLabel: state.filters.filterLabel,
     filterStartDate: state.filters.dateFilters.start,
     filterEndDate: state.filters.dateFilters.end,
+    openDateDialog: state.filters.openDateDialog,
   }
 }
 
@@ -119,6 +126,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateFiltersWithRange: (startDate, endDate) =>
       dispatch(updateFiltersWithRange(startDate, endDate)),
+    toggleDateDialog: shouldOpen => dispatch(toggleDateDialog(shouldOpen)),
   }
 }
 

@@ -97,6 +97,7 @@ export const updateFilters = event => {
         type: actionTypes.UPDATE_FILTER_LABEL,
         filterLabel: 'Custom',
       })
+      dispatch(toggleDateDialog(true))
     }
   }
 }
@@ -135,6 +136,16 @@ export const setIsCustomDateRange = (isCustomDateRange = false) => {
     })
   }
 }
+
+export const toggleDateDialog = shouldOpen => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.TOGGLE_DATE_DIALOG,
+      shouldOpen,
+    })
+  }
+}
+
 export const updateMainColor = (newColor, updateDB = false) => {
   return (dispatch, getState) => {
     const COLORS = randomColor({
