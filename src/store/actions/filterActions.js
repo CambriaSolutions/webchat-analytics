@@ -4,7 +4,7 @@ import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
-import { format, startOfDay, endOfDay, subDays } from 'date-fns'
+import { format, startOfDay, endOfDay, subDays, subMonths } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
 
 const formatDate = (date, timezoneOffset = null) => {
@@ -55,6 +55,13 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
         end: formatDate(endOfDay(today), timezoneOffset),
       }
       break
+    case 'Last 12 months':
+      dateRange = {
+        start: formatDate(startOfDay(subMonths(today, 12)), timezoneOffset),
+        end: formatDate(endOfDay(today), timezoneOffset),
+      }
+      break
+
     case 'Today':
     default:
       dateRange = getDateRange(today, timezoneOffset)
