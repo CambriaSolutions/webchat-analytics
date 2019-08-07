@@ -16,7 +16,6 @@ export const fetchMetrics = (dateRange, context) => {
 
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
-    console.log(dateRange)
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
     // If metrics are updated on realtime, change the date filter to load data until yesterday, today's data will be handled via realtime snapshots
