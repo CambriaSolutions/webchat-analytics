@@ -42,14 +42,16 @@ function CustomDateDialog(props) {
   const [buttonText, setButtonText] = React.useState('')
   const [startDate, setStartDate] = React.useState(null)
   const [endDate, setEndDate] = React.useState(null)
-  function handleClickOpen() {
+
+  const handleClickOpen = () => {
     toggleDateDialog(true)
   }
-  function handleClose() {
+
+  const handleClose = () => {
     toggleDateDialog(false)
   }
 
-  function handleUpdate() {
+  const handleUpdate = () => {
     if (isValid(startDate) && isValid(endDate)) {
       updateFiltersWithRange(startDate, endDate)
       toggleDateDialog(false)

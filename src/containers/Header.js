@@ -24,7 +24,7 @@ const ToolbarTitle = styled(Typography)`
   margin-left: 10px !important;
 `
 const FilterTitle = styled(Typography)`
-  padding-bottom: 4px;
+  padding-bottom: 2px;
 `
 
 const Dropdown = styled(Select)`
@@ -67,7 +67,7 @@ class Header extends Component {
         <Toolbar>
           <InsertChartOutlined />
           {projectDropdown}
-          <ToolbarTitle variant='h6' color='inherit'>
+          <ToolbarTitle variant='h5' color='inherit'>
             Analytics
           </ToolbarTitle>
           <Hidden xsDown>

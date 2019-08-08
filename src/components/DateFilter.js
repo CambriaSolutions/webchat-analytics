@@ -16,7 +16,6 @@ import {
 const Dropdown = styled(Select)`
   color: #fff !important;
   margin-left: 15px;
-  padding-bottom: 2px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.42) !important;
   &:after {
     border-bottom: 2px solid #fff !important;
