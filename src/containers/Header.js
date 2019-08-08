@@ -16,9 +16,15 @@ import MenuItem from '@material-ui/core/MenuItem'
 import InsertChartOutlined from '@material-ui/icons/InsertChartOutlined'
 import SettingsIcon from '@material-ui/icons/Settings'
 
+// Date Filter
+import DateFilter from '../components/DateFilter'
+
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
   margin-left: 10px !important;
+`
+const FilterTitle = styled(Typography)`
+  padding-bottom: 2px;
 `
 
 const Dropdown = styled(Select)`
@@ -60,27 +66,16 @@ class Header extends Component {
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-
           {projectDropdown}
-          <ToolbarTitle variant='h6' color='inherit'>
+          <ToolbarTitle variant='h5' color='inherit'>
             Analytics
           </ToolbarTitle>
-
           <Hidden xsDown>
-            <Typography variant='subtitle1' color='inherit'>
+            <FilterTitle variant='subtitle1' color='inherit'>
               Filter
-            </Typography>
+            </FilterTitle>
           </Hidden>
-          <Dropdown
-            value={this.props.filterLabel}
-            onChange={event => this.props.onFilterChange(event)}
-            name='filter'
-          >
-            <MenuItem value={'Today'}>Today</MenuItem>
-            <MenuItem value={'Yesterday'}>Yesterday</MenuItem>
-            <MenuItem value={'Last 7 days'}>Last 7 days</MenuItem>
-            <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
-          </Dropdown>
+          <DateFilter />
           <IconButton
             color='inherit'
             onClick={() => this.props.onSettingsToggle(true)}

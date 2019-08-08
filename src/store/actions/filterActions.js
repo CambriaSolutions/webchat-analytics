@@ -4,7 +4,14 @@ import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
-import { format, startOfDay, endOfDay, subDays } from 'date-fns'
+import {
+  format,
+  startOfDay,
+  endOfDay,
+  subDays,
+  subMonths,
+  startOfQuarter,
+} from 'date-fns'
 import { getUTCDate } from '../../common/helper'
 
 const formatDate = (date, timezoneOffset = null) => {
@@ -20,6 +27,17 @@ const getDateRange = (date, timezoneOffset = null) => {
   const startOfToday = formatDate(startOfDay(date), timezoneOffset)
   const endOfToday = formatDate(endOfDay(date), timezoneOffset)
   return { start: startOfToday, end: endOfToday }
+}
+
+const getLastQuarter = today => {
+  // TODO: confirm definition of quarter
+  const startOfCurrentQuarter = startOfQuarter(today)
+  const lastDayOfLastQuarter = subDays(startOfCurrentQuarter, 1)
+  const firstDayOfLastQuarter = startOfQuarter(lastDayOfLastQuarter)
+  return {
+    start: formatDate(startOfDay(firstDayOfLastQuarter)),
+    end: formatDate(endOfDay(lastDayOfLastQuarter)),
+  }
 }
 
 // Set date range based on filter selected
@@ -43,6 +61,28 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
         end: formatDate(endOfDay(today), timezoneOffset),
       }
       break
+    case 'Last 60 days':
+      dateRange = {
+        start: formatDate(startOfDay(subDays(today, 60)), timezoneOffset),
+        end: formatDate(endOfDay(today), timezoneOffset),
+      }
+      break
+    case 'Last 90 days':
+      dateRange = {
+        start: formatDate(startOfDay(subDays(today, 90)), timezoneOffset),
+        end: formatDate(endOfDay(today), timezoneOffset),
+      }
+      break
+    case 'Last quarter':
+      dateRange = getLastQuarter(today)
+      break
+    case 'Last 12 months':
+      dateRange = {
+        start: formatDate(startOfDay(subMonths(today, 12)), timezoneOffset),
+        end: formatDate(endOfDay(today), timezoneOffset),
+      }
+      break
+
     case 'Today':
     default:
       dateRange = getDateRange(today, timezoneOffset)
@@ -54,16 +94,67 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
 export const updateFilters = event => {
   return (dispatch, getState) => {
     const offset = getState().filters.timezoneOffset
-    const dateFilters = getDateFilters(event.target.value, offset)
 
-    dispatch(clearSubscriptions())
-    dispatch(fetchConversations(dateFilters))
-    dispatch(fetchMetrics(dateFilters))
+    // If the selected filter doesn't require a date picker,
+    // format the date filter and dispatch data retrieval actions
+    if (event.target.value.toLowerCase() !== 'custom') {
+      const dateFilters = getDateFilters(event.target.value, offset)
+      dispatch(clearSubscriptions())
+      dispatch(fetchConversations(dateFilters))
+      dispatch(fetchMetrics(dateFilters))
+
+      dispatch({
+        type: actionTypes.UPDATE_FILTERS,
+        filterLabel: event.target.value,
+        dateFilters: dateFilters,
+      })
+      dispatch(setIsCustomDateRange(false))
+    } else {
+      // The user has specified that they would like to select a custom
+      // date range, so we enable the to and from date pickers
+      dispatch(setIsCustomDateRange(true))
+      dispatch(toggleDateDialog(true))
+    }
+  }
+}
+
+export const updateFiltersWithRange = (startDate, endDate) => {
+  return (dispatch, getState) => {
+    const offset = getState().filters.timezoneOffset
+    const utcStart = getUTCDate(startDate, offset)
+    const utcEnd = getUTCDate(endDate, offset)
+
+    const newDateFilters = {
+      start: formatDate(endOfDay(utcStart), offset),
+      end: formatDate(endOfDay(utcEnd), offset),
+    }
+
+    dispatch(fetchConversations(newDateFilters))
+    dispatch(fetchMetrics(newDateFilters))
 
     dispatch({
       type: actionTypes.UPDATE_FILTERS,
-      filterLabel: event.target.value,
-      dateFilters: dateFilters,
+      filterLabel: 'Custom',
+      dateFilters: newDateFilters,
+    })
+    dispatch(setIsCustomDateRange(true))
+  }
+}
+
+export const setIsCustomDateRange = (isCustomDateRange = false) => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.SET_IS_CUSTOM_DATE_RANGE,
+      isCustomDateRange,
+    })
+  }
+}
+
+export const toggleDateDialog = shouldOpen => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.TOGGLE_DATE_DIALOG,
+      shouldOpen,
     })
   }
 }
