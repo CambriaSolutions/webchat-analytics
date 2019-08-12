@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import {
   ResponsiveContainer,
   BarChart,
@@ -8,10 +9,14 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  LabelList,
 } from 'recharts'
 import EmptyChart from './EmptyChart'
 import { chunkString } from '../common/helper'
 
+const ChartContainer = styled.div`
+  height: ${props => (props.height ? props.height : '300px')};
+`
 class CustomizedAxisTick extends Component {
   render() {
     const {
@@ -78,13 +83,17 @@ const barChart = props => {
           <YAxis
             type='category'
             dataKey={'name'}
-            tick={<CustomizedAxisTick />}
+            tick={<CustomizedAxisTick maxChars={props.maxChars} />}
+            width={props.width}
           />
           <Tooltip />
-          <Bar dataKey={props.dataKey} fill='#8884d8' maxBarSize={45}>
+          <Bar dataKey={props.dataKey} fill='#8884d8' maxBarSize={45} label>
             {props.data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={props.colors[index]} />
             ))}
+            {props.dataLabel && (
+              <LabelList dataKey={`${props.dataLabel}`} position='right' />
+            )}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
@@ -93,7 +102,7 @@ const barChart = props => {
     chartUI = <EmptyChart icon='contact_support' message={props.emptyMsg} />
   }
 
-  return <div style={{ width: '100%', height: 300 }}>{chartUI}</div>
+  return <ChartContainer height={props.height}>{chartUI}</ChartContainer>
 }
 
 export default barChart
