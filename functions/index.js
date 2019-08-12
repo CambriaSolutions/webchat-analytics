@@ -7,15 +7,15 @@ admin.initializeApp(functions.config().firebase)
 const { SyncRedactor } = require('redact-pii')
 const redactor = new SyncRedactor()
 
-// Google Cloud Storage Setup
-const { Storage } = require('@google-cloud/storage')
-const storage = new Storage({
-  projectId: functions.config().gcs.project_id,
-  credentials: {
-    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
-    client_email: functions.config().gcs.client_email,
-  },
-})
+// // Google Cloud Storage Setup
+// const { Storage } = require('@google-cloud/storage')
+// const storage = new Storage({
+//   projectId: functions.config().gcs.project_id,
+//   credentials: {
+//     private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
+//     client_email: functions.config().gcs.client_email,
+//   },
+// })
 const bucketName = 'daily-json-exports'
 
 // Project Default Settings
@@ -90,9 +90,32 @@ const storeMetrics = (
     .then(doc => {
       if (doc.exists) {
         const currMetric = doc.data()
-
         // Record support request only if it's been submitted
         if (supportRequestType) {
+          // Add to number of conversations with support requests
+          let newConversationsWithRequests = []
+          if (
+            currMetric.conversationsWithRequests &&
+            !currMetric.conversationsWithRequests.includes(conversationId)
+          ) {
+            newConversationsWithRequests = [
+              ...currMetric.conversationsWithRequests,
+              conversationId,
+            ]
+          } else if (
+            currMetric.conversationsWithRequests &&
+            currMetric.conversationsWithRequests.includes(conversationId)
+          ) {
+            newConversationsWithRequests = [
+              currMetric.conversationsWithRequests,
+            ]
+          } else {
+            newConversationsWithRequests.push(conversationId)
+          }
+          metricsRef.update({
+            conversationsWithRequests: newConversationsWithRequests,
+          })
+
           // Check if current supportRequest is already on the list
           const supportMetric = currMetric.supportRequests.filter(
             request => request.name === supportRequestType
@@ -419,7 +442,6 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
       .then(doc => {
         if (doc.exists) {
           const currMetric = doc.data()
-
           if (currMetric.feedback) {
             if (wasHelpful) {
               currMetric.feedback.positive++
@@ -499,42 +521,42 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
 // ------------------  D O W N L O A D   E X P O R T  ----------------------
 
 // Calculate metrics based on requests
-exports.downloadExport = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    const reqData = req.body
-    if (!reqData) {
-      res.send(500, "The request body doesn't contain expected parameters")
-    }
+// exports.downloadExport = functions.https.onRequest((req, res) => {
+//   cors(req, res, () => {
+//     const reqData = req.body
+//     if (!reqData) {
+//       res.send(500, "The request body doesn't contain expected parameters")
+//     }
 
-    // Check that filename exists on the request
-    if (!reqData.filename) {
-      res.send(500, 'Missing file parameters')
-    }
+//     // Check that filename exists on the request
+//     if (!reqData.filename) {
+//       res.send(500, 'Missing file parameters')
+//     }
 
-    const filename = reqData.filename
-    const bucket = storage.bucket(bucketName)
-    let file = bucket.file(filename)
+//     const filename = reqData.filename
+//     const bucket = storage.bucket(bucketName)
+//     let file = bucket.file(filename)
 
-    file
-      .exists()
-      .then(data => {
-        var exists = data[0]
-        if (exists) {
-          res.setHeader(
-            'Content-disposition',
-            'attachment; filename=' + filename
-          )
-          res.setHeader('Content-type', 'application/json')
+//     file
+//       .exists()
+//       .then(data => {
+//         var exists = data[0]
+//         if (exists) {
+//           res.setHeader(
+//             'Content-disposition',
+//             'attachment; filename=' + filename
+//           )
+//           res.setHeader('Content-type', 'application/json')
 
-          const readStream = file.createReadStream()
-          return readStream.pipe(res)
-        } else {
-          return res.send(204, "The requested file doesn't exist")
-        }
-      })
-      .catch(err => {
-        res.send(404, "The requested file doesn't exist")
-        return err
-      })
-  })
-})
+//           const readStream = file.createReadStream()
+//           return readStream.pipe(res)
+//         } else {
+//           return res.send(204, "The requested file doesn't exist")
+//         }
+//       })
+//       .catch(err => {
+//         res.send(404, "The requested file doesn't exist")
+//         return err
+//       })
+//   })
+// })
