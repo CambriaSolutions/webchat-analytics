@@ -35,7 +35,7 @@ function ChartModal({
           dataKey={dataKey}
           colors={colors}
           width={width}
-          emptyMsg={`No ${chartData.toLowerCase()} found`}
+          emptyMsg={`No ${chartData} found`}
           dataLabel={dataLabel}
         />
         <DialogActions>
