@@ -139,6 +139,30 @@ const storeMetrics = (
           }
         }
 
+        // Add to last intent array
+        const currentExitIntents = currMetric.exitIntents
+        let newExitIntents
+        let newExitIntent = {}
+
+        if (
+          currentExitIntents &&
+          currentExitIntents.hasOwnProperty(conversationId)
+        ) {
+          currentExitIntents[conversationId] = { lastIntent: currIntent }
+          newExitIntents = currentExitIntents
+        } else if (
+          currentExitIntents &&
+          !currentExitIntents.hasOwnProperty(conversationId)
+        ) {
+          newExitIntent[conversationId] = { lastIntent: currIntent }
+          newExitIntents = { ...currentExitIntents, newExitIntent }
+        } else {
+          newExitIntent[conversationId] = { lastIntent: currIntent }
+          newExitIntents = newExitIntent
+        }
+
+        metricsRef.update({ exitIntents: newExitIntents })
+
         // Check if current intent is already on the list
         const intentMetric = currMetric.intents.filter(
           intent => intent.id === currIntent.id
