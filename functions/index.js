@@ -93,37 +93,45 @@ const storeMetrics = (
         // Record support request only if it's been submitted
         if (supportRequestType) {
           // Add to number of conversations with support requests
-          let newConversationsWithRequests = []
+          let newconversationsWithSupportRequests = []
+          // Check if the conversationId has already been included, i.e.
+          // a conversation has more than one request
+          const conversationsWithSupportRequests = currMetric.conversationsWithSupportRequests.includes(
+            conversationId
+          )
+
+          console.log(conversationsWithSupportRequests)
           if (
-            currMetric.conversationsWithRequests &&
-            !currMetric.conversationsWithRequests.includes(conversationId)
+            currMetric.conversationsWithSupportRequests &&
+            !currMetric.conversationsWithSupportRequests.includes(
+              conversationId
+            )
           ) {
-            newConversationsWithRequests = [
-              ...currMetric.conversationsWithRequests,
+            newconversationsWithSupportRequests = [
+              ...currMetric.conversationsWithSupportRequests,
               conversationId,
             ]
           } else if (
-            currMetric.conversationsWithRequests &&
-            currMetric.conversationsWithRequests.includes(conversationId)
+            currMetric.conversationsWithSupportRequests &&
+            currMetric.conversationsWithSupportRequests.includes(conversationId)
           ) {
-            newConversationsWithRequests = [
-              currMetric.conversationsWithRequests,
+            newconversationsWithSupportRequests = [
+              currMetric.conversationsWithSupportRequests,
             ]
           } else {
-            newConversationsWithRequests.push(conversationId)
+            newconversationsWithSupportRequests.push(conversationId)
           }
           metricsRef.update({
-            conversationsWithRequests: newConversationsWithRequests,
+            conversationsWithSupportRequests: newconversationsWithSupportRequests,
           })
-
           // Check if current supportRequest is already on the list
           const supportMetric = currMetric.supportRequests.filter(
             request => request.name === supportRequestType
           )[0]
+
           // Update support metric counters
           if (supportMetric) {
             supportMetric.occurrences++
-
             metricsRef.update({ supportRequests: currMetric.supportRequests })
           } else {
             // Create new support request entry on the metric
@@ -139,29 +147,18 @@ const storeMetrics = (
           }
         }
 
-        // Add to last intent array
+        // Update the last intent based on conversationId
         const currentExitIntents = currMetric.exitIntents
-        let newExitIntents
-        let newExitIntent = {}
 
-        if (
-          currentExitIntents &&
-          currentExitIntents.hasOwnProperty(conversationId)
-        ) {
-          currentExitIntents[conversationId] = { lastIntent: currIntent }
-          newExitIntents = currentExitIntents
-        } else if (
-          currentExitIntents &&
-          !currentExitIntents.hasOwnProperty(conversationId)
-        ) {
-          newExitIntent[conversationId] = { lastIntent: currIntent }
-          newExitIntents = { ...currentExitIntents, newExitIntent }
+        currentExitIntents[conversationId] = { lastIntent: currIntent }
+        metricsRef.update({ exitIntents: currentExitIntents })
+        if (currentExitIntents.hasOwnProperty(conversationId)) {
+          console.log('has it')
         } else {
-          newExitIntent[conversationId] = { lastIntent: currIntent }
-          newExitIntents = newExitIntent
+          console.log('doesnt')
+          newExitIntents[conversationId] = { lastIntent: currIntent }
+          metricsRef.update({ exitIntents: newExitIntents })
         }
-
-        metricsRef.update({ exitIntents: newExitIntents })
 
         // Check if current intent is already on the list
         const intentMetric = currMetric.intents.filter(
@@ -192,6 +189,9 @@ const storeMetrics = (
         }
       } else {
         // Create new metric entry with current intent & supportRequest
+        let currentExitIntent = {}
+        currentExitIntent[conversationId] = { exitIntent: currIntent }
+
         metricsRef.set({
           date: admin.firestore.Timestamp.now(),
           intents: [
@@ -203,6 +203,7 @@ const storeMetrics = (
               conversations: [conversationId],
             },
           ],
+          exitIntents: currentExitIntent,
           supportRequests: supportRequestType
             ? [
                 {
@@ -210,6 +211,9 @@ const storeMetrics = (
                   occurrences: 1,
                 },
               ]
+            : [],
+          conversationsWithSupportRequests: supportRequestType
+            ? [conversationId]
             : [],
         })
       }
