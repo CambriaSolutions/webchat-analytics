@@ -101,7 +101,7 @@ export const updateFilters = event => {
       const dateFilters = getDateFilters(event.target.value, offset)
       dispatch(clearSubscriptions())
       dispatch(fetchConversations(dateFilters))
-      dispatch(fetchMetrics(dateFilters))
+      dispatch(fetchMetrics(dateFilters, event.target.value))
 
       dispatch({
         type: actionTypes.UPDATE_FILTERS,
@@ -130,7 +130,7 @@ export const updateFiltersWithRange = (startDate, endDate) => {
     }
 
     dispatch(fetchConversations(newDateFilters))
-    dispatch(fetchMetrics(newDateFilters))
+    dispatch(fetchMetrics(newDateFilters, 'custom'))
 
     dispatch({
       type: actionTypes.UPDATE_FILTERS,
@@ -196,7 +196,7 @@ export const updateContext = (projectName, projects = []) => {
       )
 
       dispatch(fetchConversations(dateFilters, context))
-      dispatch(fetchMetrics(dateFilters, context))
+      dispatch(fetchMetrics(dateFilters))
 
       const COLORS = randomColor({
         count: 10,

@@ -1,21 +1,131 @@
 import * as actionTypes from './actionTypes'
 import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
-import { format, subDays } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
+import {
+  format,
+  getMonth,
+  getYear,
+  startOfMonth,
+  isWithinInterval,
+  subMonths,
+  subDays,
+  isToday,
+  endOfMonth,
+} from 'date-fns'
 
-export const fetchMetrics = (dateRange, context) => {
+const getQuery = (startDate, endDate, type) => {
+  //default type
+  if (!type) {
+    type = 'Last 7 days'
+  }
+  let months = [],
+    days = []
+
+  const currMonth = getMonth(endDate)
+  const currYear = getYear(endDate)
+
+  const includeCurrMonth = isToday(endDate)
+  let tempDate = endDate
+  let tempStartOfMonth = startOfMonth(tempDate)
+  let isWithinIntervals = isWithinInterval(tempDate, {
+    start: startDate,
+    end: endDate,
+  })
+
+  while (isWithinIntervals) {
+    const tempMonth = getMonth(tempDate)
+    const tempYear = getYear(tempDate)
+    let nextTempDate = null
+
+    if (type.includes('days')) {
+      nextTempDate = subDays(tempDate, 30)
+    } else {
+      nextTempDate = subMonths(tempDate, 1)
+    }
+
+    if (type === 'Today' || type === 'Yesterday' || type === 'Last 7 days') {
+      days.push({ start: startDate, end: endDate })
+    } else if (type === 'Last quarter') {
+      months.push(startOfMonth(tempDate))
+    } else if (
+      includeCurrMonth &&
+      currMonth === tempMonth &&
+      currYear === tempYear
+    ) {
+      months.push(startOfMonth(tempDate))
+    } else if (currMonth === tempMonth) {
+      if (currYear !== tempYear) {
+        days.push({ start: tempDate, end: endOfMonth(tempDate) })
+      } else {
+        days.push({ start: tempStartOfMonth, end: tempDate })
+      }
+    } else if (tempDate === tempStartOfMonth) {
+      months.push(startOfMonth(tempDate))
+    } else if (
+      isWithinInterval(nextTempDate, {
+        start: startDate,
+        end: endDate,
+      })
+    ) {
+      months.push(startOfMonth(tempDate))
+    } else if (
+      type === 'custom' &&
+      nextTempDate > tempDate &&
+      isWithinInterval(tempDate, {
+        start: startDate,
+        end: endDate,
+      })
+    ) {
+      tempDate = startDate
+    } else {
+      if (tempDate > startDate || tempDate === startDate) {
+        days.push({ start: tempDate, end: endOfMonth(tempDate) })
+      } else {
+        days.push({ start: tempStartOfMonth, end: tempDate })
+      }
+    }
+
+    tempDate = nextTempDate
+
+    tempStartOfMonth = startOfMonth(tempDate)
+    isWithinIntervals = isWithinInterval(tempDate, {
+      start: startDate,
+      end: endDate,
+    })
+  }
+  months.sort(function(a, b) {
+    return a - b
+  })
+
+  let monthRanges = null
+  if (months.length > 1) {
+    monthRanges = {
+      start: months[0],
+      end: months[months.length - 1],
+    }
+  } else {
+    monthRanges = {
+      start: months[0],
+      end: months[0],
+    }
+  }
+  //console.log('results', { monthRanges, dayRanges: days })
+  return { monthRanges, dayRanges: days }
+}
+
+export const fetchMetrics = (dateRange, type) => {
   return (dispatch, getState) => {
     const useRealtimeUpdates = getState().config.updateRealtime
     if (typeof dateRange === 'undefined')
       dateRange = getState().filters.dateFilters
-    if (typeof context === 'undefined') context = getState().filters.context
     const timezoneOffset = getState().filters.timezoneOffset
-
-    const metricsRef = db.collection(`${context}/metrics`)
-
+    const metricsRef = db.collectionGroup(`metrics`)
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
+
+    const queryRanges = getQuery(startDate, endDate, type)
+
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
     // If metrics are updated on realtime, change the date filter to load data until yesterday, today's data will be handled via realtime snapshots
