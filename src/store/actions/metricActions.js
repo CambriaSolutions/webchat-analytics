@@ -3,97 +3,63 @@ import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
 import { getUTCDate } from '../../common/helper'
 import {
-  format,
   getMonth,
-  getYear,
   startOfMonth,
   isWithinInterval,
   subMonths,
-  subDays,
+  isEqual,
   isToday,
+  isSameDay,
   endOfMonth,
+  subDays,
+  format,
 } from 'date-fns'
 
-const getQuery = (startDate, endDate, type) => {
-  //default type
-  if (!type) {
-    type = 'Last 7 days'
-  }
+const getQuery = (startDate, endDate) => {
   let months = [],
     days = []
 
   const currMonth = getMonth(endDate)
-  const currYear = getYear(endDate)
+  const includeCurrMonth =
+    isToday(endDate) || isSameDay(endDate, endOfMonth(endDate))
 
-  const includeCurrMonth = isToday(endDate)
   let tempDate = endDate
   let tempStartOfMonth = startOfMonth(tempDate)
-  let isWithinIntervals = isWithinInterval(tempDate, {
-    start: startDate,
-    end: endDate,
-  })
+  let excludeDaysAddition = false
 
-  while (isWithinIntervals) {
-    const tempMonth = getMonth(tempDate)
-    const tempYear = getYear(tempDate)
-    let nextTempDate = null
-
-    if (type.includes('days')) {
-      nextTempDate = subDays(tempDate, 30)
-    } else {
-      nextTempDate = subMonths(tempDate, 1)
-    }
-
-    if (type === 'Today' || type === 'Yesterday' || type === 'Last 7 days') {
-      days.push({ start: startDate, end: endDate })
-    } else if (type === 'Last quarter') {
-      months.push(startOfMonth(tempDate))
-    } else if (
-      includeCurrMonth &&
-      currMonth === tempMonth &&
-      currYear === tempYear
-    ) {
-      months.push(startOfMonth(tempDate))
-    } else if (currMonth === tempMonth) {
-      if (currYear !== tempYear) {
-        days.push({ start: tempDate, end: endOfMonth(tempDate) })
-      } else {
-        days.push({ start: tempStartOfMonth, end: tempDate })
-      }
-    } else if (tempDate === tempStartOfMonth) {
-      months.push(startOfMonth(tempDate))
-    } else if (
-      isWithinInterval(nextTempDate, {
-        start: startDate,
-        end: endDate,
-      })
-    ) {
-      months.push(startOfMonth(tempDate))
-    } else if (
-      type === 'custom' &&
-      nextTempDate > tempDate &&
-      isWithinInterval(tempDate, {
-        start: startDate,
-        end: endDate,
-      })
-    ) {
-      tempDate = startDate
-    } else {
-      if (tempDate > startDate || tempDate === startDate) {
-        days.push({ start: tempDate, end: endOfMonth(tempDate) })
-      } else {
-        days.push({ start: tempStartOfMonth, end: tempDate })
-      }
-    }
-
-    tempDate = nextTempDate
-
-    tempStartOfMonth = startOfMonth(tempDate)
-    isWithinIntervals = isWithinInterval(tempDate, {
+  const isInRange = givenDate => {
+    return isWithinInterval(givenDate, {
       start: startDate,
       end: endDate,
     })
   }
+
+  while (isInRange(tempStartOfMonth)) {
+    const tempMonth = getMonth(tempDate)
+
+    if (includeCurrMonth && currMonth === tempMonth) {
+      months.push(startOfMonth(tempDate))
+    } else {
+      if (currMonth === tempMonth) {
+        days.push({ start: tempStartOfMonth, end: tempDate })
+      } else {
+        months.push(startOfMonth(tempDate))
+        if (isEqual(startDate, startOfMonth(tempDate)))
+          excludeDaysAddition = true
+      }
+    }
+    tempDate = subMonths(tempDate, 1)
+    tempStartOfMonth = startOfMonth(tempDate)
+  }
+
+  if (!excludeDaysAddition) {
+    if (isInRange(endOfMonth(tempDate))) {
+      days.push({ start: startDate, end: endOfMonth(tempDate) })
+    } else {
+      days.push({ start: startDate, end: tempDate })
+    }
+  }
+
   months.sort(function(a, b) {
     return a - b
   })
@@ -124,7 +90,7 @@ export const fetchMetrics = (dateRange, type) => {
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
 
-    const queryRanges = getQuery(startDate, endDate, type)
+    const queryRanges = getQuery(startDate, endDate)
 
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
