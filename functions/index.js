@@ -134,15 +134,8 @@ const storeMetrics = (
         // Update the last intent based on conversationId
         const currentExitIntents = currMetric.exitIntents
 
-        currentExitIntents[conversationId] = { lastIntent: currIntent }
+        currentExitIntents[conversationId] = currIntent
         metricsRef.update({ exitIntents: currentExitIntents })
-        if (currentExitIntents.hasOwnProperty(conversationId)) {
-          console.log('has it')
-        } else {
-          console.log('doesnt')
-          newExitIntents[conversationId] = { lastIntent: currIntent }
-          metricsRef.update({ exitIntents: newExitIntents })
-        }
 
         // Check if current intent is already on the list
         const intentMetric = currMetric.intents.filter(
