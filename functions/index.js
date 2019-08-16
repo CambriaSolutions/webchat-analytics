@@ -93,37 +93,21 @@ const storeMetrics = (
         // Record support request only if it's been submitted
         if (supportRequestType) {
           // Add to number of conversations with support requests
-          let newconversationsWithSupportRequests = []
           // Check if the conversationId has already been included, i.e.
           // a conversation has more than one request
-          const conversationsWithSupportRequests = currMetric.conversationsWithSupportRequests.includes(
+          const idInSupportRequests = currMetric.conversationsWithSupportRequests.includes(
             conversationId
           )
-
-          console.log(conversationsWithSupportRequests)
-          if (
-            currMetric.conversationsWithSupportRequests &&
-            !currMetric.conversationsWithSupportRequests.includes(
-              conversationId
-            )
-          ) {
-            newconversationsWithSupportRequests = [
-              ...currMetric.conversationsWithSupportRequests,
-              conversationId,
-            ]
-          } else if (
-            currMetric.conversationsWithSupportRequests &&
-            currMetric.conversationsWithSupportRequests.includes(conversationId)
-          ) {
-            newconversationsWithSupportRequests = [
-              currMetric.conversationsWithSupportRequests,
-            ]
-          } else {
-            newconversationsWithSupportRequests.push(conversationId)
+          // If the conversation hasn't been accounted for, add the id to the conversations
+          // including support requests
+          if (!idInSupportRequests) {
+            metricsRef.update({
+              conversationsWithSupportRequests: admin.firestore.FieldValue.arrayUnion(
+                conversationId
+              ),
+            })
           }
-          metricsRef.update({
-            conversationsWithSupportRequests: newconversationsWithSupportRequests,
-          })
+
           // Check if current supportRequest is already on the list
           const supportMetric = currMetric.supportRequests.filter(
             request => request.name === supportRequestType
