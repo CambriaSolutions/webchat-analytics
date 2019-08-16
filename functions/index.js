@@ -79,7 +79,9 @@ const storeMetrics = (
   conversationId,
   currIntent,
   supportRequestType,
-  timezoneOffset
+  timezoneOffset,
+  newConversation,
+  conversationDuration
 ) => {
   const currDate = getDateWithProjectTimezone(timezoneOffset)
   const dateKey = format(currDate, 'MM-DD-YYYY')
@@ -90,6 +92,30 @@ const storeMetrics = (
     .then(doc => {
       if (doc.exists) {
         const currMetric = doc.data()
+
+        // Update number of conversations
+        let numConversations = currMetric.numConversations
+        if (newConversation) {
+          numConversations += 1
+          metricsRef.update({
+            numConversations,
+          })
+        }
+
+        // Update average conversation duration
+        // Add conversationDuration to current average conversation
+        // and divide by total num conversation
+        let newAverageDuration
+        if (newConversation) {
+          newAverageDuration =
+            (currMetric.averageConversationDuration + conversationDuration) /
+            numConversations
+        } else {
+          averageConversationDuration
+        }
+
+        metricsRef.update({ averageConversationDuration: newAverageDuration })
+
         // Record support request only if it's been submitted
         if (supportRequestType) {
           // Add to number of conversations with support requests
@@ -181,6 +207,8 @@ const storeMetrics = (
             },
           ],
           exitIntents: currentExitIntent,
+          numConversations: 1,
+          averageConversationDuration: 0,
           supportRequests: supportRequestType
             ? [
                 {
@@ -357,16 +385,21 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         lastIntent: intent,
       }
 
+      let newConversation = false
+      let conversationDuration
+
       // The conversation has a support request only if it has been submitted
       const supportRequestSubmitted = intent.name === 'support-submit-issue'
       if (doc.exists) {
         const currConversation = doc.data()
         // Calculate conversation duration (compare creation time with current)
-        conversation.duration = differenceInSeconds(
+
+        duration = differenceInSeconds(
           currTimestamp,
           currConversation.createdAt.toDate()
         )
-
+        conversation.duration = duration
+        conversationDuration = duration
         // Change support request flag only if it's true
         if (hasSupportRequest) {
           conversation.hasSupportRequest = supportRequestSubmitted
@@ -382,6 +415,10 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         }
         conversationRef.update(conversation)
       } else {
+        // Conversation data doesn't exist for this id
+        // Flag that the conversation is true for metrics count
+        newConversation = true
+
         // Create new conversation doc
         conversation.createdAt = admin.firestore.Timestamp.now()
         conversation.hasSupportRequest = supportRequestSubmitted
@@ -391,13 +428,16 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
       }
 
       const supportRequestType = supportRequestSubmitted ? supportType : null
+
       // Keep record of intents & support requests usage
       storeMetrics(
         context,
         conversationId,
         intent,
         supportRequestType,
-        timezoneOffset
+        timezoneOffset,
+        newConversation,
+        conversationDuration
       )
 
       return res.send(200, 'Analytics stored successfully')
