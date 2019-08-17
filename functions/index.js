@@ -81,7 +81,9 @@ const storeMetrics = (
   supportRequestType,
   timezoneOffset,
   newConversation,
-  conversationDuration
+  newConversationDuration,
+  previousConversationDuration,
+  newConversationFirstDuration
 ) => {
   const currDate = getDateWithProjectTimezone(timezoneOffset)
   const dateKey = format(currDate, 'MM-DD-YYYY')
@@ -95,6 +97,7 @@ const storeMetrics = (
 
         // Update number of conversations
         let numConversations = currMetric.numConversations
+        const oldNumConversations = currMetric.numConversations
         if (newConversation) {
           numConversations += 1
           metricsRef.update({
@@ -105,16 +108,46 @@ const storeMetrics = (
         // Update average conversation duration
         // Add conversationDuration to current average conversation
         // and divide by total num conversation
-        let newAverageDuration
-        if (newConversation) {
-          newAverageDuration =
-            (currMetric.averageConversationDuration + conversationDuration) /
-            numConversations
-        } else {
-          averageConversationDuration
-        }
+        console.log(
+          `outside newConversationDuration ${newConversationDuration}`
+        )
+        console.log(
+          `outside previousConversationDuration ${previousConversationDuration}`
+        )
 
-        metricsRef.update({ averageConversationDuration: newAverageDuration })
+        if (newConversationDuration > 0) {
+          console.log(
+            `Current Average ${currMetric.averageConversationDuration}`
+          )
+          console.log(`oldNumConversations ${oldNumConversations}`)
+          console.log(`newConversationDuration ${newConversationDuration}`)
+          console.log(`numConversations ${numConversations}`)
+
+          let newAverageDuration = 0
+          if (numConversations > 1) {
+            if (newConversation || newConversationFirstDuration) {
+              newAverageDuration =
+                (currMetric.averageConversationDuration * oldNumConversations +
+                  newConversationDuration) /
+                numConversations
+              console.log(`new convo newAverageDuration ${newAverageDuration}`)
+            } else {
+              newAverageDuration =
+                (currMetric.averageConversationDuration * oldNumConversations +
+                  (newConversationDuration - previousConversationDuration)) /
+                numConversations
+              console.log(
+                `existing convo newAverageDuration ${newAverageDuration}`
+              )
+            }
+          } else {
+            newAverageDuration = newConversationDuration
+            console.log(`init newAverageDuration ${newAverageDuration}`)
+          }
+          metricsRef.update({
+            averageConversationDuration: newAverageDuration,
+          })
+        }
 
         // Record support request only if it's been submitted
         if (supportRequestType) {
@@ -386,20 +419,28 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
       }
 
       let newConversation = false
-      let conversationDuration
+      let newConversationFirstDuration = false
+      let newConversationDuration = 0
+      let previousConversationDuration = 0
 
       // The conversation has a support request only if it has been submitted
       const supportRequestSubmitted = intent.name === 'support-submit-issue'
       if (doc.exists) {
         const currConversation = doc.data()
         // Calculate conversation duration (compare creation time with current)
-
-        duration = differenceInSeconds(
+        const duration = differenceInSeconds(
           currTimestamp,
           currConversation.createdAt.toDate()
         )
+        if (!currConversation.calcMetric) {
+          newConversationFirstDuration = true
+          conversation.calcMetric = true
+        }
+
+        // Add the duration to the conversation object
         conversation.duration = duration
-        conversationDuration = duration
+        newConversationDuration = duration
+        previousConversationDuration = currConversation.duration
         // Change support request flag only if it's true
         if (hasSupportRequest) {
           conversation.hasSupportRequest = supportRequestSubmitted
@@ -421,6 +462,7 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
 
         // Create new conversation doc
         conversation.createdAt = admin.firestore.Timestamp.now()
+        conversation.calcMetric = false
         conversation.hasSupportRequest = supportRequestSubmitted
         conversation.supportRequests =
           hasSupportRequest && supportType !== '' ? [supportType] : []
@@ -437,7 +479,9 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         supportRequestType,
         timezoneOffset,
         newConversation,
-        conversationDuration
+        newConversationDuration,
+        previousConversationDuration,
+        newConversationFirstDuration
       )
 
       return res.send(200, 'Analytics stored successfully')
