@@ -95,10 +95,22 @@ const storeMetrics = (
       if (doc.exists) {
         const currMetric = doc.data()
 
-        // Update number of conversations
+        // Update number of conversations and number of
+        // conversations with durations
         let numConversations = currMetric.numConversations
-        const oldNumConversations = currMetric.numConversations
-        if (newConversation) {
+        let numConversationsWithDuration =
+          currMetric.numConversationsWithDuration
+        const oldNumConversations = currMetric.numConversationsWithDuration
+
+        if (newConversationFirstDuration) {
+          // The conversation contains a duration
+          numConversationsWithDuration += 1
+          metricsRef.update({
+            numConversationsWithDuration,
+          })
+        }
+        if (newConversation && !newConversationDuration) {
+          // This is a new conversation, but doesn't have a duration yet
           numConversations += 1
           metricsRef.update({
             numConversations,
@@ -106,8 +118,6 @@ const storeMetrics = (
         }
 
         // Update average conversation duration
-        // Add conversationDuration to current average conversation
-        // and divide by total num conversation
         console.log(
           `outside newConversationDuration ${newConversationDuration}`
         )
@@ -115,7 +125,9 @@ const storeMetrics = (
           `outside previousConversationDuration ${previousConversationDuration}`
         )
 
+        // A conversation has a duration i.e. more than one request per conversationId
         if (newConversationDuration > 0) {
+          console.log('The conversation has a duration')
           console.log(
             `Current Average ${currMetric.averageConversationDuration}`
           )
@@ -124,26 +136,34 @@ const storeMetrics = (
           console.log(`numConversations ${numConversations}`)
 
           let newAverageDuration = 0
+          const currAvD = currMetric.averageConversationDuration
+          // This is not the first conversation of the day
           if (numConversations > 1) {
+            console.log('The conversation has a duration')
+            // This is a new conversation, or this is the first duration
             if (newConversation || newConversationFirstDuration) {
+              console.log('This is a new conversation')
               newAverageDuration =
-                (currMetric.averageConversationDuration * oldNumConversations +
-                  newConversationDuration) /
-                numConversations
+                (currAvD * oldNumConversations + newConversationDuration) /
+                numConversationsWithDuration
               console.log(`new convo newAverageDuration ${newAverageDuration}`)
             } else {
+              // This is a continuing conversation, that has already undergone the
+              // calculation above
               newAverageDuration =
-                (currMetric.averageConversationDuration * oldNumConversations +
+                (currAvD * oldNumConversations +
                   (newConversationDuration - previousConversationDuration)) /
-                numConversations
+                numConversationsWithDuration
               console.log(
                 `existing convo newAverageDuration ${newAverageDuration}`
               )
             }
           } else {
+            // This is the first conversation of the day
             newAverageDuration = newConversationDuration
             console.log(`init newAverageDuration ${newAverageDuration}`)
           }
+          // Update the average conversations of the day
           metricsRef.update({
             averageConversationDuration: newAverageDuration,
           })
@@ -241,6 +261,7 @@ const storeMetrics = (
           ],
           exitIntents: currentExitIntent,
           numConversations: 1,
+          numConversationsWithDuration: 0,
           averageConversationDuration: 0,
           supportRequests: supportRequestType
             ? [
