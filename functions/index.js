@@ -162,6 +162,7 @@ const storeMetrics = (
               conversationsWithSupportRequests: admin.firestore.FieldValue.arrayUnion(
                 conversationId
               ),
+              numConversationsWithSupportRequests: (currMetric.numConversationsWithSupportRequests += 1),
             })
           }
 
@@ -241,6 +242,7 @@ const storeMetrics = (
           numConversations: 1,
           numConversationsWithDuration: 0,
           averageConversationDuration: 0,
+          numConversationsWithSupportRequests: 0,
           supportRequests: supportRequestType
             ? [
                 {
