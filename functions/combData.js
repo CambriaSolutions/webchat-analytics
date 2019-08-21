@@ -25,7 +25,6 @@ const performQuery = async (startDate, endDate) => {
       querySnapshot.forEach(doc => {
         let numConversations = 0
         let numConversationsWithDuration = 0
-        let conversationsWithSupportRequests = 0
         let numConversationsWithSupportRequests = 0
         let conversationDuration = 0
         let exitIntents = {}
@@ -44,11 +43,14 @@ const performQuery = async (startDate, endDate) => {
           // duration to the total duration for the day
           // if (data.duration && data.duration > 0) {
           if (data.duration && data.duration > 0 && data.duration < 86400) {
+            // Used for average duration logic
             dailyMetric[day].conversationDuration += data.duration
+            // Used for engaged users
             dailyMetric[day].numConversationsWithDuration += 1
           }
 
           // If the duration of the conversation is longer than 1 day
+          // save to file to investigate later
           if (data.duration > 86400) {
             daysToInspect.push({
               day,
@@ -58,9 +60,8 @@ const performQuery = async (startDate, endDate) => {
             })
           }
 
-          // Add the conversation id of conversations with support requests
+          // Increment number of support requests
           if (data.hasSupportRequest) {
-            dailyMetric[day].conversationsWithSupportRequests += 1
             dailyMetric[day].numConversationsWithSupportRequests += 1
           }
 
@@ -80,10 +81,8 @@ const performQuery = async (startDate, endDate) => {
             numConversationsWithDuration += 1
           }
 
-          // Add the conversation id of conversations with support requests
-          // and increment the number of conversations with support requests counter
+          // Increment the number of conversations with support requests counter
           if (data.hasSupportRequest) {
-            conversationsWithSupportRequests += 1
             numConversationsWithSupportRequests += 1
           }
 
@@ -95,7 +94,6 @@ const performQuery = async (startDate, endDate) => {
           dailyMetric[day] = {
             numConversations,
             numConversationsWithDuration,
-            conversationsWithSupportRequests,
             numConversationsWithSupportRequests,
             conversationDuration,
             exitIntents,
@@ -106,6 +104,7 @@ const performQuery = async (startDate, endDate) => {
     .catch(err => {
       console.log(err)
     })
+  // Save wildcard conversation lengths to json for later investigation
   fs.writeFile('./daysToInspect.json', JSON.stringify(daysToInspect), err => {
     if (err) throw err
     console.log('Saved!')
@@ -113,14 +112,19 @@ const performQuery = async (startDate, endDate) => {
   return dailyMetric
 }
 
+// Perform a query with start and end
 performQuery(
   new Date('Jun 10 2019 00:00:00 GMT-0700 (Pacific Daylight Time)'),
-  new Date('Aug 11 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+  new Date('Jun 13 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 ).then(metric => {
+  // Create a reference for the metrics
   const metricsRef = db.collection(`projects/mdhs-csa-dev/metrics`)
 
+  // Strip conversations from intents
   for (const day in metric) {
     const dayMetric = metricsRef.doc(day)
+
+    // Pull out the intents, and strip conversations
     dayMetric
       .get()
       .then(doc => {
@@ -147,22 +151,21 @@ performQuery(
         return newExitIntents
       })
       .then(newExitIntents => {
-        console.log(newExitIntents)
         const {
           numConversations,
           numConversationsWithDuration,
-          conversationsWithSupportRequests,
           numConversationsWithSupportRequests,
           conversationDuration,
-          exitIntents,
+          // TODO: intents
         } = metric[day]
+
         const averageConversationDuration = Math.round(
           conversationDuration / numConversationsWithDuration
         )
+
         dayMetric.update({
           averageConversationDuration,
           exitIntents: newExitIntents,
-          intents,
           numConversationsWithDuration,
           numConversationsWithSupportRequests,
           numConversations,
