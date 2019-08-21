@@ -8,15 +8,15 @@ const { SyncRedactor } = require('redact-pii')
 const redactor = new SyncRedactor()
 
 // Google Cloud Storage Setup
-const { Storage } = require('@google-cloud/storage')
-const storage = new Storage({
-  projectId: functions.config().gcs.project_id,
-  credentials: {
-    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
-    client_email: functions.config().gcs.client_email,
-  },
-})
-const bucketName = 'daily-json-exports'
+// const { Storage } = require('@google-cloud/storage')
+// const storage = new Storage({
+//   projectId: functions.config().gcs.project_id,
+//   credentials: {
+//     private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
+//     client_email: functions.config().gcs.client_email,
+//   },
+// })
+// const bucketName = 'daily-json-exports'
 
 // Project Default Settings
 const PROJECT_DEFAULT_PRIMARY_COLOR = '#6497AD'
@@ -190,10 +190,39 @@ const storeMetrics = (
         }
 
         // Update the last intent based on conversationId
-        const currentExitIntents = currMetric.exitIntents
+        const currentExitIntentsCollection = currMetric.dailyExitIntents
+        const exitIntentsIncludesConvoId = currentExitIntentsCollection.hasOwnProperty(
+          conversationId
+        )
+        currentExitIntentsCollection[conversationId] = currIntent
+        metricsRef.update({ dailyExitIntents: currentExitIntentsCollection })
 
-        currentExitIntents[conversationId] = currIntent
-        metricsRef.update({ exitIntents: currentExitIntents })
+        // Use the daily exit intents to calculate an aggregate of exit intents
+        // Check to see if the conversation is in progress and/or this is a new
+        // conversation
+        if (!exitIntentsIncludesConvoId) {
+          const exitIntents = currMetric.dailyExitIntents
+          let newExitIntents = []
+          for (const intent in exitIntents) {
+            const currentIntent = exitIntents[intent].name
+
+            // check to see if this intent is already on the list
+            const exitIntentExists = newExitIntents.filter(
+              intent => intent.name === currentIntent
+            )[0]
+            if (exitIntentExists) {
+              exitIntentExists.occurrences++
+            } else {
+              const newExitIntent = {
+                name: exitIntents[intent].name,
+                id: exitIntents[intent].id,
+                occurrences: 1,
+              }
+              newExitIntents.push(newExitIntent)
+            }
+          }
+          metricsRef.update({ exitIntents: newExitIntents })
+        }
 
         // Check if current intent is already on the list
         const intentMetric = currMetric.intents.filter(
@@ -238,7 +267,8 @@ const storeMetrics = (
               conversations: [conversationId],
             },
           ],
-          exitIntents: currentExitIntent,
+          dailyExitIntents: currentExitIntent,
+          exitIntents: [],
           numConversations: 1,
           numConversationsWithDuration: 0,
           averageConversationDuration: 0,
@@ -433,6 +463,9 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
           currTimestamp,
           currConversation.createdAt.toDate()
         )
+
+        // calcMetric is used to determine whether the conversation should
+        // be including in the calculation yet
         if (!currConversation.calcMetric) {
           newConversationFirstDuration = true
           conversation.calcMetric = true
@@ -611,42 +644,42 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
 // ------------------  D O W N L O A D   E X P O R T  ----------------------
 
 // Calculate metrics based on requests
-exports.downloadExport = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    const reqData = req.body
-    if (!reqData) {
-      res.send(500, "The request body doesn't contain expected parameters")
-    }
+// exports.downloadExport = functions.https.onRequest((req, res) => {
+//   cors(req, res, () => {
+//     const reqData = req.body
+//     if (!reqData) {
+//       res.send(500, "The request body doesn't contain expected parameters")
+//     }
 
-    // Check that filename exists on the request
-    if (!reqData.filename) {
-      res.send(500, 'Missing file parameters')
-    }
+//     // Check that filename exists on the request
+//     if (!reqData.filename) {
+//       res.send(500, 'Missing file parameters')
+//     }
 
-    const filename = reqData.filename
-    const bucket = storage.bucket(bucketName)
-    let file = bucket.file(filename)
+//     const filename = reqData.filename
+//     const bucket = storage.bucket(bucketName)
+//     let file = bucket.file(filename)
 
-    file
-      .exists()
-      .then(data => {
-        var exists = data[0]
-        if (exists) {
-          res.setHeader(
-            'Content-disposition',
-            'attachment; filename=' + filename
-          )
-          res.setHeader('Content-type', 'application/json')
+//     file
+//       .exists()
+//       .then(data => {
+//         var exists = data[0]
+//         if (exists) {
+//           res.setHeader(
+//             'Content-disposition',
+//             'attachment; filename=' + filename
+//           )
+//           res.setHeader('Content-type', 'application/json')
 
-          const readStream = file.createReadStream()
-          return readStream.pipe(res)
-        } else {
-          return res.send(204, "The requested file doesn't exist")
-        }
-      })
-      .catch(err => {
-        res.send(404, "The requested file doesn't exist")
-        return err
-      })
-  })
-})
+//           const readStream = file.createReadStream()
+//           return readStream.pipe(res)
+//         } else {
+//           return res.send(204, "The requested file doesn't exist")
+//         }
+//       })
+//       .catch(err => {
+//         res.send(404, "The requested file doesn't exist")
+//         return err
+//       })
+//   })
+// })
