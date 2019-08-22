@@ -112,11 +112,11 @@ const performQuery = async (startDate, endDate) => {
   return dailyMetric
 }
 
+const start = new Date('Jun 10 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Aug 22 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+
 // Perform a query with start and end
-performQuery(
-  new Date('Jun 10 2019 00:00:00 GMT-0700 (Pacific Daylight Time)'),
-  new Date('Jun 13 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
-).then(metric => {
+performQuery(start, end).then(metric => {
   // Create a reference for the metrics
   const metricsRef = db.collection(`projects/mdhs-csa-dev/metrics`)
 
@@ -124,39 +124,44 @@ performQuery(
   for (const day in metric) {
     const dayMetric = metricsRef.doc(day)
 
-    // Pull out the intents, and strip conversations
+    // Format exit intents
+    const exitIntents = metric[day].exitIntents
+    let newExitIntents = []
+    for (const intent in exitIntents) {
+      const currentIntent = exitIntents[intent].name
+      // check to see if this intent is already on the list
+      const exitIntentExists = newExitIntents.filter(
+        intent => intent.name === currentIntent
+      )[0]
+      if (exitIntentExists) {
+        exitIntentExists.occurrences++
+      } else {
+        const newExitIntent = {
+          name: exitIntents[intent].name,
+          id: exitIntents[intent].id,
+          occurrences: 1,
+        }
+        newExitIntents.push(newExitIntent)
+      }
+    }
     dayMetric
       .get()
       .then(doc => {
         const data = doc.data()
-        const exitIntents = data.exitIntents
-        let newExitIntents = []
-        for (const intent in exitIntents) {
-          const currentIntent = exitIntents[intent].name
-          // check to see if this intent is already on the list
-          const exitIntentExists = newExitIntents.filter(
-            intent => intent.name === currentIntent
-          )[0]
-          if (exitIntentExists) {
-            exitIntentExists.occurrences++
-          } else {
-            const newExitIntent = {
-              name: exitIntents[intent].name,
-              id: exitIntents[intent].id,
-              occurrences: 1,
-            }
-            newExitIntents.push(newExitIntent)
-          }
-        }
-        return newExitIntents
+
+        // Pull out the intents, and strip conversations
+        data.intents.map(intent => {
+          delete intent.conversations
+        })
+
+        return data.intents
       })
-      .then(newExitIntents => {
+      .then(intents => {
         const {
           numConversations,
           numConversationsWithDuration,
           numConversationsWithSupportRequests,
           conversationDuration,
-          // TODO: intents
         } = metric[day]
 
         const averageConversationDuration = Math.round(
@@ -168,8 +173,8 @@ performQuery(
           exitIntents: newExitIntents,
           numConversationsWithDuration,
           numConversationsWithSupportRequests,
+          intents,
           numConversations,
-          conversationsWithSupportRequests,
         })
       })
   }
