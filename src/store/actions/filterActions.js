@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'
-import { fetchConversations } from './conversationActions'
+// import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
@@ -100,7 +100,7 @@ export const updateFilters = event => {
     if (event.target.value.toLowerCase() !== 'custom') {
       const dateFilters = getDateFilters(event.target.value, offset)
       dispatch(clearSubscriptions())
-      dispatch(fetchConversations(dateFilters))
+      // dispatch(fetchConversations(dateFilters))
       dispatch(fetchMetrics(dateFilters))
 
       dispatch({
@@ -129,7 +129,7 @@ export const updateFiltersWithRange = (startDate, endDate) => {
       end: formatDate(endOfDay(utcEnd), offset),
     }
 
-    dispatch(fetchConversations(newDateFilters))
+    // dispatch(fetchConversations(newDateFilters))
     dispatch(fetchMetrics(newDateFilters))
 
     dispatch({
@@ -195,7 +195,7 @@ export const updateContext = (projectName, projects = []) => {
         currProject.timezone.offset
       )
 
-      dispatch(fetchConversations(dateFilters, context))
+      // dispatch(fetchConversations(dateFilters, context))
       dispatch(fetchMetrics(dateFilters, context))
 
       const COLORS = randomColor({
