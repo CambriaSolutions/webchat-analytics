@@ -191,37 +191,39 @@ const storeMetrics = (
 
         // Update the last intent based on conversationId
         const currentExitIntentsCollection = currMetric.dailyExitIntents
-        const exitIntentsIncludesConvoId = currentExitIntentsCollection.hasOwnProperty(
-          conversationId
-        )
+
         currentExitIntentsCollection[conversationId] = currIntent
         metricsRef.update({ dailyExitIntents: currentExitIntentsCollection })
 
         // Use the daily exit intents to calculate an aggregate of exit intents
-        // Check to see if the conversation is in progress and/or this is a new
+        // check to see if the conversation is in progress and/or this is a new
         // conversation
-        if (!exitIntentsIncludesConvoId) {
+        if (newConversation) {
           const exitIntents = currMetric.dailyExitIntents
           let newExitIntents = []
           for (const intent in exitIntents) {
-            const currentIntent = exitIntents[intent].name
+            // Exclude current exit intent, as we aren't sure if this
+            // conversation will continue
+            if (intent !== conversationId) {
+              const currentIntent = exitIntents[intent].name
 
-            // check to see if this intent is already on the list
-            const exitIntentExists = newExitIntents.filter(
-              intent => intent.name === currentIntent
-            )[0]
-            if (exitIntentExists) {
-              exitIntentExists.occurrences++
-            } else {
-              const newExitIntent = {
-                name: exitIntents[intent].name,
-                id: exitIntents[intent].id,
-                occurrences: 1,
+              // Check to see if this intent is already on the list
+              const exitIntentExists = newExitIntents.filter(
+                intent => intent.name === currentIntent
+              )[0]
+              if (exitIntentExists) {
+                exitIntentExists.occurrences++
+              } else {
+                const newExitIntent = {
+                  name: exitIntents[intent].name,
+                  id: exitIntents[intent].id,
+                  occurrences: 1,
+                }
+                newExitIntents.push(newExitIntent)
               }
-              newExitIntents.push(newExitIntent)
             }
+            metricsRef.update({ exitIntents: newExitIntents })
           }
-          metricsRef.update({ exitIntents: newExitIntents })
         }
 
         // Check if current intent is already on the list
