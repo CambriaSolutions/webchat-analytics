@@ -493,7 +493,7 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         conversationRef.update(conversation)
       } else {
         // Conversation data doesn't exist for this id
-        // Flag that the conversation is true for metrics count
+        // Flag that the conversation is new for metrics count
         newConversation = true
 
         // Create new conversation doc
