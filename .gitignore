@@ -34,4 +34,5 @@ export/*.zip
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-functions/testAnalyticsKey.json
+scripts/testAnalyticsKey.json
+scripts/node_modules
