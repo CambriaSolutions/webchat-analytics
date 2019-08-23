@@ -19,12 +19,10 @@ const StyledButton = styled(Button)`
     color: #fff;
   }
 `
-
 const PickerContainer = styled.div`
   display: flex;
   justify-content: center;
 `
-
 const Picker = styled(KeyboardDatePicker)`
   && {
     margin-left: 15px;

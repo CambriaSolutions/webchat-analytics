@@ -1,6 +1,5 @@
 const admin = require('firebase-admin')
 const format = require('date-fns/format')
-const parse = require('date-fns/parse')
 const fs = require('fs')
 
 const serviceAccount = require('./testAnalyticsKey.json')
@@ -12,15 +11,15 @@ admin.initializeApp({
 
 const db = admin.firestore()
 
-let conversationsRef = db.collection(`projects/mdhs-csa-dev/conversations/`)
+let conversationsRef = db.collection(`projects/mdhs-csa-dev/conversations`)
 
 const performQuery = async (startDate, endDate) => {
   let dailyMetric = {}
   let daysToInspect = []
 
   await conversationsRef
-    .where('createdAt', '>=', startDate)
-    .where('createdAt', '<=', endDate)
+    .where('createdAt', '>', startDate)
+    .where('createdAt', '<', endDate)
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
@@ -34,7 +33,7 @@ const performQuery = async (startDate, endDate) => {
 
         const day = format(data.createdAt.toDate(), 'MM-DD-YYYY')
 
-        // // Make a new day in the daily metric
+        // Make a new day in the daily metric
         if (dailyMetric.hasOwnProperty(day)) {
           // Increment number of conversations
           dailyMetric[day].numConversations += 1
@@ -114,12 +113,13 @@ const performQuery = async (startDate, endDate) => {
 }
 
 const start = new Date('Jun 10 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
-const end = new Date('Aug 23 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Aug 22 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 // Perform a query with start and end
 performQuery(start, end).then(metric => {
   // Create a reference for the metrics
   const metricsRef = db.collection(`projects/mdhs-csa-dev/metrics`)
+
   // Strip conversations from intents
   for (const day in metric) {
     const dayMetric = metricsRef.doc(day)
@@ -129,7 +129,7 @@ performQuery(start, end).then(metric => {
     let newExitIntents = []
     for (const intent in exitIntents) {
       const currentIntent = exitIntents[intent].name
-      // Check to see if this intent is already on the list
+      // check to see if this intent is already on the list
       const exitIntentExists = newExitIntents.filter(
         intent => intent.name === currentIntent
       )[0]
@@ -144,42 +144,36 @@ performQuery(start, end).then(metric => {
         newExitIntents.push(newExitIntent)
       }
     }
-
-    let newDate
-    let intents
     dayMetric
       .get()
       .then(doc => {
         const data = doc.data()
 
         // Pull out the intents, and strip conversations
-        if (data) {
-          data.intents.map(intent => {
-            delete intent.conversations
-          })
-        }
+        data.intents.map(intent => {
+          delete intent.conversations
+        })
 
-        // Ensure that the date in the database matches the document id
-        newDate = admin.firestore.Timestamp.fromDate(parse(doc.id))
-        intents = data.intents
+        return data.intents
       })
-      .then(() => {
+      .then(intents => {
         const {
           numConversations,
           numConversationsWithDuration,
           numConversationsWithSupportRequests,
           conversationDuration,
         } = metric[day]
+
         const averageConversationDuration = Math.round(
           conversationDuration / numConversationsWithDuration
         )
+
         dayMetric.update({
           averageConversationDuration,
           exitIntents: newExitIntents,
           numConversationsWithDuration,
           numConversationsWithSupportRequests,
           intents,
-          date: newDate,
           numConversations,
         })
       })
