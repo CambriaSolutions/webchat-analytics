@@ -1,16 +1,15 @@
 const firebase = require('firebase')
 const admin = require('firebase-admin')
-const key = require('testAnalyticsKey')
 const dateFNS = require('date-fns')
 var _ = require('lodash')
 //process.env.PORT
 var config = {
-  apiKey: key.apiKey,
-  authDomain: key.authDomain,
-  databaseURL: key.databaseURL,
-  projectId: key.projectId,
-  storageBucket: key.storageBucket,
-  messagingSenderId: key.messagingSenderId,
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
 }
 
 firebase.initializeApp(config)
