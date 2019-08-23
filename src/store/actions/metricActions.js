@@ -100,8 +100,8 @@ export const fetchMetrics = (dateRange, type) => {
 
     dispatch(fetchMetricsStart())
     metricsRef
-      .where('date', '>', startDate)
-      .where('date', '<', endDate)
+      .where('date', '>=', startDate)
+      .where('date', '<=', endDate)
       .get()
       .then(querySnapshot => {
         let fetchedMetrics = []
@@ -151,23 +151,24 @@ export const fetchMetricsSuccess = metrics => {
       numConversationsWithDuration += metric.numConversationsWithDuration
       // numConversationsWithSupportRequests +=
       //   metric.numConversationsWithSupportRequests
-    for (const intent in metric.exitIntents) {
-      const currentIntent = metric.exitIntents[intent].name
-      // check to see if this intent is already on the list
-      const exitIntentExists = exitIntents.filter(
-        intent => intent.name === currentIntent
-      )[0]
-      if (exitIntentExists) {
-        exitIntents[intent].occurrences+= metric.exitIntents[intent].occurrences
-      } else {
-        const newExitIntent = {
-          name: metric.exitIntents[intent].name,
-          id: metric.exitIntents[intent].id,
-          occurrences: metric.exitIntents[intent].occurrences
+      for (const intent in metric.exitIntents) {
+        const currentIntent = metric.exitIntents[intent].name
+        // check to see if this intent is already on the list
+        const exitIntentExists = exitIntents.filter(
+          intent => intent.name === currentIntent
+        )[0]
+        if (exitIntentExists) {
+          exitIntents[intent].occurrences +=
+            metric.exitIntents[intent].occurrences
+        } else {
+          const newExitIntent = {
+            name: metric.exitIntents[intent].name,
+            id: metric.exitIntents[intent].id,
+            occurrences: metric.exitIntents[intent].occurrences,
+          }
+          exitIntents.push(newExitIntent)
         }
-        exitIntents.push(newExitIntent)
       }
-    }
 
       // Intents
       const dateIntents = metric.intents
@@ -201,13 +202,14 @@ export const fetchMetricsSuccess = metrics => {
             }
         }
 
-           supportRequestTotal += dateSupportRequests.reduce((accumulator, supportRequest) => {
-    return supportRequest.occurrences
-      ? accumulator + supportRequest.occurrences
-      : accumulator
-  }, 0)
-
-
+        supportRequestTotal += dateSupportRequests.reduce(
+          (accumulator, supportRequest) => {
+            return supportRequest.occurrences
+              ? accumulator + supportRequest.occurrences
+              : accumulator
+          },
+          0
+        )
       }
       // Feedback
       const feedbackEntry = metric.feedback
@@ -246,11 +248,6 @@ export const fetchMetricsSuccess = metrics => {
         }
       }
     }
-    console.log(avgConvoDuration, 'avgConvoDuration')
-    console.log(numConversations, 'numConversations')
-    console.log(metrics.length, 'metrics.length')
-    console.log(supportRequestTotal, 'supportRequestTotal')
-
     // Feedback contains helpful & non helpful data, send only positive feedback
     const feedbackFiltered = filterFeedback('positive', feedback)
 
