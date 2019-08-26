@@ -79,7 +79,11 @@ const storeMetrics = (
   conversationId,
   currIntent,
   supportRequestType,
-  timezoneOffset
+  timezoneOffset,
+  newConversation,
+  newConversationDuration,
+  previousConversationDuration,
+  newConversationFirstDuration
 ) => {
   const currDate = getDateWithProjectTimezone(timezoneOffset)
   const dateKey = format(currDate, 'MM-DD-YYYY')
@@ -91,16 +95,85 @@ const storeMetrics = (
       if (doc.exists) {
         const currMetric = doc.data()
 
+        // Update number of conversations and number of
+        // conversations with durations
+        let numConversations = currMetric.numConversations
+        let numConversationsWithDuration =
+          currMetric.numConversationsWithDuration
+        const oldNumConversations = currMetric.numConversationsWithDuration
+
+        if (newConversationFirstDuration) {
+          // The conversation contains a duration
+          numConversationsWithDuration += 1
+          metricsRef.update({
+            numConversationsWithDuration,
+          })
+        }
+        if (newConversation && !newConversationDuration) {
+          // This is a new conversation, but doesn't have a duration yet
+          numConversations += 1
+          metricsRef.update({
+            numConversations,
+          })
+        }
+
+        // Update average conversation duration
+        // A conversation has a duration i.e. more than one request per conversationId
+        if (newConversationDuration > 0) {
+          let newAverageDuration = 0
+          const currAvD = currMetric.averageConversationDuration
+          // This is not the first conversation of the day
+          if (numConversations > 1) {
+            // This is a new conversation, or this is the first duration
+            if (newConversation || newConversationFirstDuration) {
+              newAverageDuration =
+                (currAvD * oldNumConversations + newConversationDuration) /
+                numConversationsWithDuration
+            } else {
+              // This is a continuing conversation, that has already undergone the
+              // calculation above
+              newAverageDuration =
+                (currAvD * oldNumConversations +
+                  (newConversationDuration - previousConversationDuration)) /
+                numConversationsWithDuration
+            }
+          } else {
+            // This is the first conversation of the day
+            newAverageDuration = newConversationDuration
+          }
+          // Update the average conversations of the day
+          metricsRef.update({
+            averageConversationDuration: newAverageDuration,
+          })
+        }
+
         // Record support request only if it's been submitted
         if (supportRequestType) {
+          // Add to number of conversations with support requests
+          // Check if the conversationId has already been included, i.e.
+          // a conversation has more than one request
+          const idInSupportRequests = currMetric.conversationsWithSupportRequests.includes(
+            conversationId
+          )
+          // If the conversation hasn't been accounted for, add the id to the conversations
+          // including support requests
+          if (!idInSupportRequests) {
+            metricsRef.update({
+              conversationsWithSupportRequests: admin.firestore.FieldValue.arrayUnion(
+                conversationId
+              ),
+              numConversationsWithSupportRequests: (currMetric.numConversationsWithSupportRequests += 1),
+            })
+          }
+
           // Check if current supportRequest is already on the list
           const supportMetric = currMetric.supportRequests.filter(
             request => request.name === supportRequestType
           )[0]
+
           // Update support metric counters
           if (supportMetric) {
             supportMetric.occurrences++
-
             metricsRef.update({ supportRequests: currMetric.supportRequests })
           } else {
             // Create new support request entry on the metric
@@ -113,6 +186,43 @@ const storeMetrics = (
                 newSupportRequest
               ),
             })
+          }
+        }
+
+        // Update the last intent based on conversationId
+        const currentExitIntentsCollection = currMetric.dailyExitIntents
+
+        currentExitIntentsCollection[conversationId] = currIntent
+        metricsRef.update({ dailyExitIntents: currentExitIntentsCollection })
+
+        // Use the daily exit intents to calculate an aggregate of exit intents
+        // check to see if the conversation is in progress and/or this is a new
+        // conversation
+        if (newConversation) {
+          const exitIntents = currMetric.dailyExitIntents
+          let newExitIntents = []
+          for (const intent in exitIntents) {
+            // Exclude current exit intent, as we aren't sure if this
+            // conversation will continue
+            if (intent !== conversationId) {
+              const currentIntent = exitIntents[intent].name
+
+              // Check to see if this intent is already on the list
+              const exitIntentExists = newExitIntents.filter(
+                intent => intent.name === currentIntent
+              )[0]
+              if (exitIntentExists) {
+                exitIntentExists.occurrences++
+              } else {
+                const newExitIntent = {
+                  name: exitIntents[intent].name,
+                  id: exitIntents[intent].id,
+                  occurrences: 1,
+                }
+                newExitIntents.push(newExitIntent)
+              }
+            }
+            metricsRef.update({ exitIntents: newExitIntents })
           }
         }
 
@@ -145,6 +255,9 @@ const storeMetrics = (
         }
       } else {
         // Create new metric entry with current intent & supportRequest
+        let currentExitIntent = {}
+        currentExitIntent[conversationId] = { exitIntent: currIntent }
+
         metricsRef.set({
           date: admin.firestore.Timestamp.now(),
           intents: [
@@ -156,6 +269,12 @@ const storeMetrics = (
               conversations: [conversationId],
             },
           ],
+          dailyExitIntents: currentExitIntent,
+          exitIntents: [],
+          numConversations: 1,
+          numConversationsWithDuration: 0,
+          averageConversationDuration: 0,
+          numConversationsWithSupportRequests: 0,
           supportRequests: supportRequestType
             ? [
                 {
@@ -163,6 +282,9 @@ const storeMetrics = (
                   occurrences: 1,
                 },
               ]
+            : [],
+          conversationsWithSupportRequests: supportRequestType
+            ? [conversationId]
             : [],
         })
       }
@@ -329,16 +451,32 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         lastIntent: intent,
       }
 
+      let newConversation = false
+      let newConversationFirstDuration = false
+      let newConversationDuration = 0
+      let previousConversationDuration = 0
+
       // The conversation has a support request only if it has been submitted
       const supportRequestSubmitted = intent.name === 'support-submit-issue'
       if (doc.exists) {
         const currConversation = doc.data()
         // Calculate conversation duration (compare creation time with current)
-        conversation.duration = differenceInSeconds(
+        const duration = differenceInSeconds(
           currTimestamp,
           currConversation.createdAt.toDate()
         )
 
+        // calcMetric is used to determine whether the conversation should
+        // be including in the calculation yet
+        if (!currConversation.calcMetric) {
+          newConversationFirstDuration = true
+          conversation.calcMetric = true
+        }
+
+        // Add the duration to the conversation object
+        conversation.duration = duration
+        newConversationDuration = duration
+        previousConversationDuration = currConversation.duration
         // Change support request flag only if it's true
         if (hasSupportRequest) {
           conversation.hasSupportRequest = supportRequestSubmitted
@@ -354,8 +492,13 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         }
         conversationRef.update(conversation)
       } else {
+        // Conversation data doesn't exist for this id
+        // Flag that the conversation is new for metrics count
+        newConversation = true
+
         // Create new conversation doc
         conversation.createdAt = admin.firestore.Timestamp.now()
+        conversation.calcMetric = false
         conversation.hasSupportRequest = supportRequestSubmitted
         conversation.supportRequests =
           hasSupportRequest && supportType !== '' ? [supportType] : []
@@ -363,13 +506,18 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
       }
 
       const supportRequestType = supportRequestSubmitted ? supportType : null
+
       // Keep record of intents & support requests usage
       storeMetrics(
         context,
         conversationId,
         intent,
         supportRequestType,
-        timezoneOffset
+        timezoneOffset,
+        newConversation,
+        newConversationDuration,
+        previousConversationDuration,
+        newConversationFirstDuration
       )
 
       return res.send(200, 'Analytics stored successfully')
@@ -419,7 +567,6 @@ exports.storeFeedback = functions.https.onRequest((req, res) => {
       .then(doc => {
         if (doc.exists) {
           const currMetric = doc.data()
-
           if (currMetric.feedback) {
             if (wasHelpful) {
               currMetric.feedback.positive++
