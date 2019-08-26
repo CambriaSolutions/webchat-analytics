@@ -1,6 +1,6 @@
 {
   "projects": {
     "default": "webchat-analytics",
-    "dev": "test-chat-analytics"
+    "dev": "webchat-analytics-dev"
   }
 }
