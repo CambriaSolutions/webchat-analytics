@@ -15,70 +15,6 @@ import {
   format,
 } from 'date-fns'
 
-const getQuery = (startDate, endDate) => {
-  let months = [],
-    days = []
-
-  const currMonth = getMonth(endDate)
-  const includeCurrMonth =
-    isToday(endDate) || isSameDay(endDate, endOfMonth(endDate))
-
-  let tempDate = endDate
-  let tempStartOfMonth = startOfMonth(tempDate)
-  let excludeDaysAddition = false
-
-  const isInRange = givenDate => {
-    return isWithinInterval(givenDate, {
-      start: startDate,
-      end: endDate,
-    })
-  }
-
-  while (isInRange(tempStartOfMonth)) {
-    const tempMonth = getMonth(tempDate)
-
-    if (includeCurrMonth && currMonth === tempMonth) {
-      months.push(startOfMonth(tempDate))
-    } else {
-      if (currMonth === tempMonth) {
-        days.push({ start: tempStartOfMonth, end: tempDate })
-      } else {
-        months.push(startOfMonth(tempDate))
-        if (isEqual(startDate, startOfMonth(tempDate)))
-          excludeDaysAddition = true
-      }
-    }
-    tempDate = subMonths(tempDate, 1)
-    tempStartOfMonth = startOfMonth(tempDate)
-  }
-
-  if (!excludeDaysAddition) {
-    if (isInRange(endOfMonth(tempDate))) {
-      days.push({ start: startDate, end: endOfMonth(tempDate) })
-    } else {
-      days.push({ start: startDate, end: tempDate })
-    }
-  }
-
-  months.sort(function(a, b) {
-    return a - b
-  })
-
-  let monthRanges = null
-  if (months.length > 1) {
-    monthRanges = {
-      start: months[0],
-      end: months[months.length - 1],
-    }
-  } else {
-    monthRanges = {
-      start: months[0],
-      end: months[0],
-    }
-  }
-  return { monthRanges, dayRanges: days }
-}
-
 export const fetchMetrics = (dateRange, type) => {
   return (dispatch, getState) => {
     const useRealtimeUpdates = getState().config.updateRealtime
@@ -88,8 +24,6 @@ export const fetchMetrics = (dateRange, type) => {
     const metricsRef = db.collection(`projects/mdhs-csa-dev/metrics`)
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
-
-    const queryRanges = getQuery(startDate, endDate)
 
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
