@@ -9,6 +9,7 @@ export const fetchMetrics = (dateRange, context) => {
     const useRealtimeUpdates = getState().config.updateRealtime
     if (typeof dateRange === 'undefined')
       dateRange = getState().filters.dateFilters
+    if (typeof context === 'undefined') context = getState().filters.context
     const timezoneOffset = getState().filters.timezoneOffset
     const metricsRef = db.collection(`${context}/metrics`)
     const startDate = new Date(dateRange.start)
@@ -185,8 +186,8 @@ export const fetchMetricsSuccess = metrics => {
       pastFeedback: { ...feedback },
       conversationsDurationTotal: numConversationsWithDuration,
       conversationsTotal: numConversations,
-      durationTotal: avgConvoDuration / metrics.length,
-      durationTotalNoExit: avgConvoDuration / metrics.length,
+      durationTotal: avgConvoDuration / numConversations,
+      durationTotalNoExit: avgConvoDuration / numConversationsWithDuration,
       exitIntents: exitIntents,
     })
   }
