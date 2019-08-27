@@ -3,11 +3,11 @@ const format = require('date-fns/format')
 const parse = require('date-fns/parse')
 const fs = require('fs')
 
-const serviceAccount = require('./testAnalyticsKey.json')
+const serviceAccount = require('./analyticsKey.json')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://test-chat-analytics.firebaseio.com',
+  databaseURL: 'https://webchat-analytics-dev.firebaseio.com',
 })
 
 const db = admin.firestore()
@@ -114,7 +114,7 @@ const performQuery = async (startDate, endDate) => {
 }
 
 const start = new Date('Jun 10 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
-const end = new Date('Aug 23 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Aug 28 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 // Perform a query with start and end
 performQuery(start, end).then(metric => {
