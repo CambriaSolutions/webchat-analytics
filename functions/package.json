@@ -6,7 +6,8 @@
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "firebase deploy --only functions --project default",
+    "deploy-dev": "firebase deploy --only functions --project dev",
     "logs": "firebase functions:log"
   },
   "dependencies": {

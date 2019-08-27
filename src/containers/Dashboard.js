@@ -22,6 +22,7 @@ import RadarChart from '../components/RadarChart'
 import EnhancedTable from '../components/EnhancedTable'
 import IntentDetails from '../components/IntentDetails'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import SupportRequestsTile from '../components/SupportRequestsTile'
 
 // Helpers
 import { colorShades } from '../common/helper'
@@ -178,15 +179,10 @@ class Dashboard extends Component {
               </GraphWrap>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <GraphWrap>
-                <h3>Top support requests</h3>
-                <BarChart
-                  data={this.props.supportRequests.slice(0, 5)}
-                  dataKey='occurrences'
-                  colors={this.props.colors}
-                  emptyMsg='No support requests found'
-                />
-              </GraphWrap>
+              <SupportRequestsTile
+                supportRequests={this.props.supportRequests}
+                colors={this.props.colors}
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
