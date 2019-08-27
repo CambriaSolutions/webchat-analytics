@@ -4,13 +4,13 @@ import db from '../../Firebase'
 import { getUTCDate } from '../../common/helper'
 import { subDays, format } from 'date-fns'
 
-export const fetchMetrics = (dateRange, type) => {
+export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
     const useRealtimeUpdates = getState().config.updateRealtime
     if (typeof dateRange === 'undefined')
       dateRange = getState().filters.dateFilters
     const timezoneOffset = getState().filters.timezoneOffset
-    const metricsRef = db.collection(`projects/mdhs-csa-dev/metrics`)
+    const metricsRef = db.collection(`${context}/metrics`)
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
 
