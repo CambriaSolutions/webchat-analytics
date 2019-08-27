@@ -97,7 +97,6 @@ class Dashboard extends Component {
         <CircularProgress />
       </CenterDiv>
     )
-    console.log('this.props', this.props)
     if (!this.props.loadingConversations) {
       if (this.props.conversationsTotal > 0) {
         // Remove welcome intent from frequent intents list & exit intents
@@ -313,7 +312,6 @@ const round = (value, precision) => {
 }
 
 const mapStateToProps = state => {
-  console.log('all metrics:', state.metrics)
   let allIntents = beautifyIntents(state.metrics.intents)
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
   const allExitIntents = beautifyIntents(state.metrics.exitIntents)
@@ -334,9 +332,6 @@ const mapStateToProps = state => {
     // Sort array by occurrences
     allIntents.sort(compareValues('occurrences', 'desc'))
   }
-console.log('state.metrics', state.metrics)
-console.log('allIntents', allIntents)
-console.log('supportRequests percent', state.metrics.supportRequests.length / state.metrics.conversationsTotal)
 
   return {
     loadingConversations: state.metrics.loading,
@@ -344,7 +339,9 @@ console.log('supportRequests percent', state.metrics.supportRequests.length / st
     loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
-      (state.metrics.supportRequests.length / state.metrics.conversationsTotal) * 100,
+      (state.metrics.supportRequests.length /
+        state.metrics.conversationsTotal) *
+        100,
       1
     ),
     supportRequestTotal: state.metrics.supportRequestTotal,
@@ -354,7 +351,8 @@ console.log('supportRequests percent', state.metrics.supportRequests.length / st
     totalSupportRequests: state.metrics.supportRequests,
     supportRequests: allSupportRequests,
     feedbackSelected: state.metrics.feedbackSelected,
-    conversationWithSupportRequestTotal: state.metrics.conversationWithSupportRequestTotal,
+    conversationWithSupportRequestTotal:
+      state.metrics.conversationWithSupportRequestTotal,
     conversationsDurationTotal: state.metrics.conversationsDurationTotal,
     feedback: state.metrics.feedbackFiltered,
     colors: state.filters.colors,
