@@ -174,6 +174,15 @@ export const updateMainColor = (newColor, updateDB = false) => {
   }
 }
 
+export const updateEngagedUserToggle = showEngagedUser => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.UPDATE_ENGAGED_USER_TOGGLE,
+      showEngagedUser,
+    })
+  }
+}
+
 // Change project/context and retrieve new metrics & conversations
 export const updateContext = (projectName, projects = []) => {
   const context = `projects/${projectName}`
