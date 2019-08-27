@@ -140,8 +140,8 @@ class Dashboard extends Component {
                 value={`${this.props.supportRequestsPercentage}%`}
                 label='Support Requests'
                 notes={
-                  this.props.totalSupportRequests > 0
-                    ? `${this.props.totalSupportRequests} requests`
+                  this.props.supportRequestTotal > 0
+                    ? `${this.props.supportRequestTotal} requests`
                     : ''
                 }
                 icon='contact_support'
@@ -150,14 +150,10 @@ class Dashboard extends Component {
             <Grid item xs={12} sm={3}>
               <Card
                 color={colorShades(this.props.mainColor, 10)}
-                value={`${this.props.conversationsTotal -
-                  welcomeExitIntent.exits}`}
+                value={`${this.props.conversationsDurationTotal}`}
                 label='Engaged Users'
-                notes={
-                  welcomeExitIntent.exits > 0
-                    ? `${welcomeExitIntent.exits} immediate exits`
-                    : ''
-                }
+                notes={`${this.props.conversationsTotal -
+                  this.props.conversationsDurationTotal} immediate exits`}
                 icon='speaker_notes'
               />
             </Grid>
@@ -176,7 +172,7 @@ class Dashboard extends Component {
                 <h3>Top exit intents on conversations</h3>
                 <BarChart
                   data={exitIntents}
-                  dataKey='exits'
+                  dataKey='occurrences'
                   colors={this.props.colors}
                   emptyMsg='No exit intents found'
                 />
@@ -311,11 +307,10 @@ const round = (value, precision) => {
 const mapStateToProps = state => {
   let allIntents = beautifyIntents(state.metrics.intents)
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
-  const allExitIntents = beautifyIntents(state.conversations.exitIntents)
+  const allExitIntents = beautifyIntents(state.metrics.exitIntents)
   // Sort arrays by exits & occurrences
-  allExitIntents.sort(compareValues('exits', 'desc'))
+  allExitIntents.sort(compareValues('occurrences', 'desc'))
   allSupportRequests.sort(compareValues('occurrences', 'desc'))
-
   if (!state.metrics.loading) {
     // Merge exit intents with intents array
     allIntents = allIntents.map(intent =>
@@ -332,24 +327,23 @@ const mapStateToProps = state => {
   }
 
   return {
-    loadingConversations: state.conversations.loading,
+    loadingConversations: state.metrics.loading,
     loadingIntents: state.metrics.loading,
     loadingIntentDetails: state.config.loadingIntentDetails,
-    conversationsTotal: state.conversations.conversationsTotal,
+    conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
-      (state.conversations.supportRequests /
-        state.conversations.conversationsTotal) *
+      (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
         100,
       1
     ),
-    avgDuration: beautifyTime(
-      state.conversations.durationTotal / state.conversations.conversationsTotal
-    ),
+    supportRequestTotal: state.metrics.supportRequestTotal,
+    avgDuration: beautifyTime(state.metrics.durationTotal),
     exitIntents: allExitIntents,
     intents: allIntents,
-    totalSupportRequests: state.conversations.supportRequests,
+    totalSupportRequests: state.metrics.supportRequests,
     supportRequests: allSupportRequests,
     feedbackSelected: state.metrics.feedbackSelected,
+    conversationsDurationTotal: state.metrics.conversationsDurationTotal,
     feedback: state.metrics.feedbackFiltered,
     colors: state.filters.colors,
     mainColor: state.filters.mainColor,
@@ -362,7 +356,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchConversations: () => dispatch(actions.fetchConversations()),
+    onFetchConversations: () => dispatch(actions.fetchMetrics()),
     onFetchMetrics: () => dispatch(actions.fetchMetrics()),
     onFeedbackChange: feedbackType =>
       dispatch(actions.updateFeedbackType(feedbackType)),
