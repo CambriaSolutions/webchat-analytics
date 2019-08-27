@@ -347,8 +347,6 @@ const mapStateToProps = state => {
     totalSupportRequests: state.metrics.supportRequests,
     supportRequests: allSupportRequests,
     feedbackSelected: state.metrics.feedbackSelected,
-    conversationWithSupportRequestTotal:
-      state.metrics.conversationWithSupportRequestTotal,
     conversationsDurationTotal: state.metrics.conversationsDurationTotal,
     feedback: state.metrics.feedbackFiltered,
     colors: state.filters.colors,
