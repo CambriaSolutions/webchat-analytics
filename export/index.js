@@ -41,7 +41,7 @@ const cleanUpMetrics = async () => {
   const metricName = format(today, 'MM-DD-YYYY')
   // Create a reference to the previous days metrics
   const metricsRef = db
-    .collection(`projects/${process.env.FIRESTORE_PROJECT}/metrics`)
+    .collection(`projects/${currProject}/metrics`)
     .doc(metricName)
 
   // Retrieve and parse the day's metrics
@@ -65,84 +65,85 @@ const cleanUpMetrics = async () => {
   })
 }
 
-const uploadToBucket = filename => {
-  // Uploads a local file to the bucket
-  const bucket = storage.bucket(bucketName)
-  const jsonExportName = format(today, 'MM-DD-YYYY')
-  bucket.upload(
-    filename,
-    {
-      destination: bucket.file(`${jsonExportName}.json`),
-    },
-    (err, file) => {
-      if (err) {
-        return console.log(err)
-      }
-      console.log('Uploaded successfully')
-    }
-  )
-  console.log(`${filename} uploaded to ${bucketName}.`)
-}
+// const uploadToBucket = filename => {
+//   // Uploads a local file to the bucket
+//   const bucket = storage.bucket(bucketName)
+//   const jsonExportName = format(today, 'MM-DD-YYYY')
+//   bucket.upload(
+//     filename,
+//     {
+//       destination: bucket.file(`${jsonExportName}.json`),
+//     },
+//     (err, file) => {
+//       if (err) {
+//         return console.log(err)
+//       }
+//       console.log('Uploaded successfully')
+//     }
+//   )
+//   console.log(`${filename} uploaded to ${bucketName}.`)
+// }
 
-const retrieveData = async () => {
-  const aggregateRef = db.collection(
-    `projects/${process.env.FIRESTORE_PROJECT}/aggregate`
-  )
-  const activeRef = await aggregateRef
-    .where('createdAt', '>', startTime)
-    .where('createdAt', '<', endTime)
-    .get()
+// const retrieveData = async () => {
+//   const aggregateRef = db.collection(
+//     `projects/${process.env.FIRESTORE_PROJECT}/aggregate`
+//   )
+//   const activeRef = await aggregateRef
+//     .where('createdAt', '>', startTime)
+//     .where('createdAt', '<', endTime)
+//     .get()
 
-  const conversationsCount = activeRef.docs.length
-  let conversationsIdx = 1
-  if (conversationsCount > 0) {
-    // Write collection to JSON file
-    const fileName = 'firestore-export.json'
-    const tempFilePath = path.join(os.tmpdir(), fileName) // `./${fileName}`
-    let f = fs.openSync(tempFilePath, 'w')
-    fs.writeSync(f, '{"conversations": [')
+//   const conversationsCount = activeRef.docs.length
+//   let conversationsIdx = 1
+//   if (conversationsCount > 0) {
+//     // Write collection to JSON file
+//     const fileName = 'firestore-export.json'
+//     const tempFilePath = path.join(os.tmpdir(), fileName) // `./${fileName}`
+//     let f = fs.openSync(tempFilePath, 'w')
+//     fs.writeSync(f, '{"conversations": [')
 
-    for (let conversation of activeRef.docs) {
-      let conversationDoc = conversation.data()
+//     for (let conversation of activeRef.docs) {
+//       let conversationDoc = conversation.data()
 
-      let tempStr =
-        JSON.stringify(conversationDoc).slice(0, -1) + ',"requests": ['
-      fs.writeSync(f, tempStr)
+//       let tempStr =
+//         JSON.stringify(conversationDoc).slice(0, -1) + ',"requests": ['
+//       fs.writeSync(f, tempStr)
 
-      const requestsRef = await aggregateRef
-        .doc(conversation.id)
-        .collection('requests')
-        .get()
+//       const requestsRef = await aggregateRef
+//         .doc(conversation.id)
+//         .collection('requests')
+//         .get()
 
-      const requestsCount = requestsRef.docs.length
-      let requestsIdx = 1
-      for (let request of requestsRef.docs) {
-        const requestDoc = request.data()
+//       const requestsCount = requestsRef.docs.length
+//       let requestsIdx = 1
+//       for (let request of requestsRef.docs) {
+//         const requestDoc = request.data()
 
-        tempStr =
-          JSON.stringify(requestDoc) + (requestsIdx < requestsCount ? ',' : '')
-        fs.writeSync(f, tempStr)
+//         tempStr =
+//           JSON.stringify(requestDoc) + (requestsIdx < requestsCount ? ',' : '')
+//         fs.writeSync(f, tempStr)
 
-        requestsIdx++
-      }
+//         requestsIdx++
+//       }
 
-      fs.writeSync(f, ']}' + (conversationsIdx < conversationsCount ? ',' : ''))
-      conversationsIdx++
-    }
+//       fs.writeSync(f, ']}' + (conversationsIdx < conversationsCount ? ',' : ''))
+//       conversationsIdx++
+//     }
 
-    fs.writeSync(f, ']}')
+//     fs.writeSync(f, ']}')
 
-    fs.close(f, function() {
-      console.log('File completed')
-      uploadToBucket(tempFilePath)
-    })
-  }
-}
+//     fs.close(f, function() {
+//       console.log('File completed')
+//       uploadToBucket(tempFilePath)
+//     })
+//   }
+// }
 
 exports.handler = (event, callback) => {
   // Retrieve today's data from Firestore
   try {
     // retrieveData()
+    cleanUpMetrics()
   } catch (err) {
     console.log('Error retrieving data', err)
   }
