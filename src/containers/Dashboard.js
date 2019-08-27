@@ -151,11 +151,8 @@ class Dashboard extends Component {
                 color={colorShades(this.props.mainColor, 10)}
                 value={`${this.props.conversationsDurationTotal}`}
                 label='Engaged Users'
-                notes={
-                  welcomeExitIntent.exits > 0
-                    ? `${welcomeExitIntent.exits} immediate exits`
-                    : ''
-                }
+                notes={`${this.props.conversationsTotal -
+                  this.props.conversationsDurationTotal} immediate exits`}
                 icon='speaker_notes'
               />
             </Grid>
@@ -316,7 +313,7 @@ const mapStateToProps = state => {
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
   const allExitIntents = beautifyIntents(state.metrics.exitIntents)
   // Sort arrays by exits & occurrences
-  allExitIntents.sort(compareValues('exits', 'desc'))
+  allExitIntents.sort(compareValues('occurrences', 'desc'))
   allSupportRequests.sort(compareValues('occurrences', 'desc'))
   if (!state.metrics.loading) {
     // Merge exit intents with intents array
@@ -339,8 +336,7 @@ const mapStateToProps = state => {
     loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
-      (state.metrics.supportRequests.length /
-        state.metrics.conversationsTotal) *
+      (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
         100,
       1
     ),
