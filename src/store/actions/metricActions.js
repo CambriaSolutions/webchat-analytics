@@ -2,18 +2,7 @@ import * as actionTypes from './actionTypes'
 import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
 import { getUTCDate } from '../../common/helper'
-import {
-  getMonth,
-  startOfMonth,
-  isWithinInterval,
-  subMonths,
-  isEqual,
-  isToday,
-  isSameDay,
-  endOfMonth,
-  subDays,
-  format,
-} from 'date-fns'
+import { subDays, format } from 'date-fns'
 
 export const fetchMetrics = (dateRange, type) => {
   return (dispatch, getState) => {
@@ -65,7 +54,7 @@ export const fetchMetrics = (dateRange, type) => {
 }
 
 export const fetchMetricsSuccess = metrics => {
-   return dispatch => {
+  return dispatch => {
     // Retrieve intents & support requests from daily metrics
     // Create intents & support requests dictionary with counters for occurrences & sessions
     let intents = {},
@@ -75,7 +64,7 @@ export const fetchMetricsSuccess = metrics => {
     let numConversations = 0
     let numConversationsWithDuration = 0
     const numConversationsWithSupportRequests = 0
-    let supportRequestTotal=0;
+    let supportRequestTotal = 0
     const exitIntents = []
 
     // Loop through metrics per day
@@ -119,7 +108,6 @@ export const fetchMetricsSuccess = metrics => {
             sessions: dateIntent.sessions,
           }
       }
-      debugger
       // Support requests
       const dateSupportRequests = metric.supportRequests
       if (dateSupportRequests) {
