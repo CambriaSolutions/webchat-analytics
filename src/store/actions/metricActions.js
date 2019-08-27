@@ -63,8 +63,7 @@ export const fetchMetricsSuccess = metrics => {
     let avgConvoDuration = 0
     let numConversations = 0
     let numConversationsWithDuration = 0
-    const numConversationsWithSupportRequests = 0
-    let supportRequestTotal = 0
+    let numConversationsWithSupportRequests = 0
     const exitIntents = []
 
     // Loop through metrics per day
@@ -72,8 +71,9 @@ export const fetchMetricsSuccess = metrics => {
       avgConvoDuration += metric.averageConversationDuration
       numConversations += metric.numConversations
       numConversationsWithDuration += metric.numConversationsWithDuration
-      // numConversationsWithSupportRequests +=
-      //   metric.numConversationsWithSupportRequests
+      numConversationsWithSupportRequests +=
+        metric.numConversationsWithSupportRequests
+
       for (const intent in metric.exitIntents) {
         const currentIntent = metric.exitIntents[intent].name
         // check to see if this intent is already on the list
@@ -123,15 +123,6 @@ export const fetchMetricsSuccess = metrics => {
               occurrences: dateRequest.occurrences,
             }
         }
-
-        supportRequestTotal += dateSupportRequests.reduce(
-          (accumulator, supportRequest) => {
-            return supportRequest.occurrences
-              ? accumulator + supportRequest.occurrences
-              : accumulator
-          },
-          0
-        )
       }
       // Feedback
       const feedbackEntry = metric.feedback
@@ -170,6 +161,7 @@ export const fetchMetricsSuccess = metrics => {
         }
       }
     }
+
     // Feedback contains helpful & non helpful data, send only positive feedback
     const feedbackFiltered = filterFeedback('positive', feedback)
 
@@ -185,14 +177,13 @@ export const fetchMetricsSuccess = metrics => {
       type: actionTypes.FETCH_METRICS_SUCCESS,
       intents: intents,
       supportRequests: supportRequests,
-      supportRequestTotal: supportRequestTotal,
+      supportRequestTotal: numConversationsWithSupportRequests,
       feedback: feedback,
       feedbackSelected: 'positive',
       feedbackFiltered: feedbackFiltered,
       pastIntents: intents,
       pastSupportRequests: [...supportRequests],
       pastFeedback: { ...feedback },
-      conversationWithSupportRequestTotal: numConversationsWithSupportRequests,
       conversationsDurationTotal: numConversationsWithDuration,
       conversationsTotal: numConversations,
       durationTotal: avgConvoDuration / metrics.length,
