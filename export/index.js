@@ -14,21 +14,56 @@ const bucketName = 'daily-json-exports'
 
 // Date FNS imports
 const format = require('date-fns/format')
+const parse = require('date-fns/parse')
 const startOfDay = require('date-fns/start_of_day')
 const endOfDay = require('date-fns/end_of_day')
 const subDays = require('date-fns/sub_days')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: 'gs://webchat-analytics.appspot.com/',
+  storageBucket: 'gs://webchat-analytics-dev.appspot.com/',
 })
 
 const today = subDays(new Date(), 1)
 const startTime = startOfDay(today)
 const endTime = endOfDay(today)
-
-//const currProject = 'mdhs-csa-dev'
+const currProject = 'mdhs-csa-dev'
 var db = admin.firestore()
+
+// We keep several data points that are only needed to calculate the current day's metrics.
+// 1. An array of conversations inside of each intent counter
+// 2. An array of conversations that contain support requests
+// 3. A collection of conversationIds needed to update the exit intent per conversation
+// In order to keep our queries efficient, we delete the day's unneeded metrics.
+
+const cleanUpMetrics = async () => {
+  // The metric's id is a formatted day
+  const metricName = format(today, 'MM-DD-YYYY')
+  // Create a reference to the previous days metrics
+  const metricsRef = db
+    .collection(`projects/${process.env.FIRESTORE_PROJECT}/metrics`)
+    .doc(metricName)
+
+  // Retrieve and parse the day's metrics
+  const doc = await metricsRef.get()
+  const data = await doc.data()
+
+  // Retrieve the intents and delete the conversations arrays
+  data.intents.map(intent => {
+    delete intent.conversations
+  })
+
+  // Ensure that the date in the database matches the document id
+  const newDate = admin.firestore.Timestamp.fromDate(parse(doc.id))
+
+  // Update the metrics for the previous day
+  metricsRef.update({
+    intents: data.intents,
+    newDate,
+    conversationsWithSupportRequests: [], // This deletes the conversations with support requests
+    dailyExitIntents: {}, // This deletes the daily exit intents collection
+  })
+}
 
 const uploadToBucket = filename => {
   // Uploads a local file to the bucket
@@ -107,7 +142,7 @@ const retrieveData = async () => {
 exports.handler = (event, callback) => {
   // Retrieve today's data from Firestore
   try {
-    retrieveData()
+    // retrieveData()
   } catch (err) {
     console.log('Error retrieving data', err)
   }
