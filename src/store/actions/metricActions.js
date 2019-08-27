@@ -81,8 +81,7 @@ export const fetchMetricsSuccess = metrics => {
           intent => intent.name === currentIntent
         )[0]
         if (exitIntentExists) {
-          exitIntents[intent].occurrences +=
-            metric.exitIntents[intent].occurrences
+          exitIntentExists.occurrences += metric.exitIntents[intent].occurrences
         } else {
           const newExitIntent = {
             name: metric.exitIntents[intent].name,
