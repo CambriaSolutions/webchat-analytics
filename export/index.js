@@ -21,13 +21,12 @@ const subDays = require('date-fns/sub_days')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: 'gs://webchat-analytics-dev.appspot.com/',
+  storageBucket: 'gs://webchat-analytics.appspot.com/',
 })
 
 const today = subDays(new Date(), 1)
 const startTime = startOfDay(today)
 const endTime = endOfDay(today)
-const currProject = 'mdhs-csa-dev'
 var db = admin.firestore()
 
 // We keep several data points that are only needed to calculate the current day's metrics.
@@ -41,7 +40,7 @@ const cleanUpMetrics = async () => {
   const metricName = format(today, 'MM-DD-YYYY')
   // Create a reference to the previous days metrics
   const metricsRef = db
-    .collection(`projects/${currProject}/metrics`)
+    .collection(`projects/${process.env.FIRESTORE_PROJECT}/metrics`)
     .doc(metricName)
 
   // Retrieve and parse the day's metrics
