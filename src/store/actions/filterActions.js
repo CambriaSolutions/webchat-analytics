@@ -10,6 +10,7 @@ import {
   subDays,
   subMonths,
   startOfQuarter,
+  isSameDay,
 } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
 
@@ -119,20 +120,33 @@ export const updateFilters = event => {
 export const updateFiltersWithRange = (startDate, endDate) => {
   return (dispatch, getState) => {
     const offset = getState().filters.timezoneOffset
-    const utcStart = getUTCDate(startDate, offset)
-    const utcEnd = getUTCDate(endDate, offset)
 
-    const newDateFilters = {
-      start: formatDate(endOfDay(utcStart), offset),
-      end: formatDate(endOfDay(utcEnd), offset),
+    // Check to see if the user has selected the same day
+    let selectedDateFilters
+    if (isSameDay(startDate, endDate)) {
+      // The user has selected the same day, get the date range
+      // based on the startDate selected
+      selectedDateFilters = getDateRange(startDate, offset)
+    } else {
+      // Format the days based on offset
+      const utcStart = getUTCDate(startDate, offset)
+      const utcEnd = getUTCDate(endDate, offset)
+
+      // Set the new date filters base on start and end of days
+      selectedDateFilters = {
+        start: formatDate(startOfDay(utcStart), offset),
+        end: formatDate(endOfDay(utcEnd), offset),
+      }
     }
 
-    dispatch(fetchMetrics(newDateFilters))
+    // Fetch the data based on the range
+    dispatch(fetchMetrics(selectedDateFilters))
 
+    // Update the filters
     dispatch({
       type: actionTypes.UPDATE_FILTERS,
       filterLabel: 'Custom',
-      dateFilters: newDateFilters,
+      dateFilters: selectedDateFilters,
     })
     dispatch(setIsCustomDateRange(true))
   }
