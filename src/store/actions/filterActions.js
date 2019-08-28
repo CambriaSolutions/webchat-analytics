@@ -122,31 +122,31 @@ export const updateFiltersWithRange = (startDate, endDate) => {
     const offset = getState().filters.timezoneOffset
 
     // Check to see if the user has selected the same day
-    let newDateFilters
+    let selectedDateFilters
     if (isSameDay(startDate, endDate)) {
       // The user has selected the same day, get the date range
       // based on the startDate selected
-      newDateFilters = getDateRange(startDate, offset)
+      selectedDateFilters = getDateRange(startDate, offset)
     } else {
       // Format the days based on offset
       const utcStart = getUTCDate(startDate, offset)
       const utcEnd = getUTCDate(endDate, offset)
 
       // Set the new date filters base on start and end of days
-      newDateFilters = {
+      selectedDateFilters = {
         start: formatDate(startOfDay(utcStart), offset),
         end: formatDate(endOfDay(utcEnd), offset),
       }
     }
 
     // Fetch the data based on the range
-    dispatch(fetchMetrics(newDateFilters))
+    dispatch(fetchMetrics(selectedDateFilters))
 
     // Update the filters
     dispatch({
       type: actionTypes.UPDATE_FILTERS,
       filterLabel: 'Custom',
-      dateFilters: newDateFilters,
+      dateFilters: selectedDateFilters,
     })
     dispatch(setIsCustomDateRange(true))
   }
