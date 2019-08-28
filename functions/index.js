@@ -465,10 +465,6 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
           currTimestamp,
           currConversation.createdAt.toDate()
         )
-        if (!currConversation.calcMetric) {
-          newConversationFirstDuration = true
-          conversation.calcMetric = true
-        }
 
         // calcMetric is used to determine whether the conversation should
         // be including in the calculation yet
