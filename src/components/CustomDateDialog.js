@@ -71,7 +71,6 @@ function CustomDateDialog(props) {
         <DialogContent>
           <PickerContainer>
             <Picker
-              disableFuture
               autoOk
               variant='inline'
               inputVariant='outlined'
@@ -79,7 +78,7 @@ function CustomDateDialog(props) {
               initialFocusedDate={filterStartDate}
               format='MM/dd/yyyy'
               value={startDate}
-              maxDate={endDate ? endDate : new Date(`2100 - 01 - 01`)}
+              maxDate={endDate ? endDate : new Date(`2100-01-01`)}
               onChange={date => setStartDate(date)}
             />
             <Picker

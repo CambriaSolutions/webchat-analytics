@@ -4,6 +4,7 @@ import { updateObject } from '../utility'
 const initialState = {
   intents: [], // { id: '1234', name: 'support', occurrences: 3, sessions: 9 }
   supportRequests: [],
+  supportRequestTotal:0,
   loading: false,
   feedback: [],
   feedbackFiltered: [],
@@ -12,6 +13,11 @@ const initialState = {
   pastIntents: [],
   pastSupportRequests: [],
   pastFeedback: {},
+  conversationWithSupportRequestTotal: 0,
+  conversationsDurationTotal: 0,
+  conversationsTotal: 0,
+  durationTotal: 0,
+  exitIntents: [],
 }
 
 const fetchMetricsStart = (state, action) => {
@@ -22,6 +28,7 @@ const fetchMetricsSuccess = (state, action) => {
   return updateObject(state, {
     intents: action.intents,
     supportRequests: action.supportRequests,
+    supportRequestTotal: action.supportRequestTotal,
     feedback: action.feedback,
     feedbackSelected: action.feedbackSelected,
     feedbackFiltered: action.feedbackFiltered,
@@ -30,6 +37,11 @@ const fetchMetricsSuccess = (state, action) => {
     pastSupportRequests: action.pastSupportRequests,
     pastFeedback: action.pastFeedback,
     loading: false,
+    conversationWithSupportRequestTotal: action.conversationWithSupportRequestTotal,
+    conversationsDurationTotal: action.conversationsDurationTotal,
+    conversationsTotal: action.conversationsTotal,
+    durationTotal: action.durationTotal,
+    exitIntents: action.exitIntents,
   })
 }
 

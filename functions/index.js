@@ -162,6 +162,7 @@ const storeMetrics = (
               conversationsWithSupportRequests: admin.firestore.FieldValue.arrayUnion(
                 conversationId
               ),
+              numConversationsWithSupportRequests: (currMetric.numConversationsWithSupportRequests += 1),
             })
           }
 
@@ -189,10 +190,41 @@ const storeMetrics = (
         }
 
         // Update the last intent based on conversationId
-        const currentExitIntents = currMetric.exitIntents
+        const currentExitIntentsCollection = currMetric.dailyExitIntents
 
-        currentExitIntents[conversationId] = currIntent
-        metricsRef.update({ exitIntents: currentExitIntents })
+        currentExitIntentsCollection[conversationId] = currIntent
+        metricsRef.update({ dailyExitIntents: currentExitIntentsCollection })
+
+        // Use the daily exit intents to calculate an aggregate of exit intents
+        // check to see if the conversation is in progress and/or this is a new
+        // conversation
+        if (newConversation) {
+          const exitIntents = currMetric.dailyExitIntents
+          let newExitIntents = []
+          for (const intent in exitIntents) {
+            // Exclude current exit intent, as we aren't sure if this
+            // conversation will continue
+            if (intent !== conversationId) {
+              const currentIntent = exitIntents[intent].name
+
+              // Check to see if this intent is already on the list
+              const exitIntentExists = newExitIntents.filter(
+                intent => intent.name === currentIntent
+              )[0]
+              if (exitIntentExists) {
+                exitIntentExists.occurrences++
+              } else {
+                const newExitIntent = {
+                  name: exitIntents[intent].name,
+                  id: exitIntents[intent].id,
+                  occurrences: 1,
+                }
+                newExitIntents.push(newExitIntent)
+              }
+            }
+            metricsRef.update({ exitIntents: newExitIntents })
+          }
+        }
 
         // Check if current intent is already on the list
         const intentMetric = currMetric.intents.filter(
@@ -237,10 +269,12 @@ const storeMetrics = (
               conversations: [conversationId],
             },
           ],
-          exitIntents: currentExitIntent,
+          dailyExitIntents: currentExitIntent,
+          exitIntents: [],
           numConversations: 1,
           numConversationsWithDuration: 0,
           averageConversationDuration: 0,
+          numConversationsWithSupportRequests: 0,
           supportRequests: supportRequestType
             ? [
                 {
@@ -436,6 +470,13 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
           conversation.calcMetric = true
         }
 
+        // calcMetric is used to determine whether the conversation should
+        // be including in the calculation yet
+        if (!currConversation.calcMetric) {
+          newConversationFirstDuration = true
+          conversation.calcMetric = true
+        }
+
         // Add the duration to the conversation object
         conversation.duration = duration
         newConversationDuration = duration
@@ -456,7 +497,7 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         conversationRef.update(conversation)
       } else {
         // Conversation data doesn't exist for this id
-        // Flag that the conversation is true for metrics count
+        // Flag that the conversation is new for metrics count
         newConversation = true
 
         // Create new conversation doc
