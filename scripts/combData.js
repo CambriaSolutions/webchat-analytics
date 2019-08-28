@@ -1,3 +1,4 @@
+require('dotenv').config()
 const admin = require('firebase-admin')
 const format = require('date-fns/format')
 const parse = require('date-fns/parse')
@@ -7,12 +8,14 @@ const serviceAccount = require('./analyticsKey.json')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://webchat-analytics-dev.firebaseio.com',
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
 })
 
 const db = admin.firestore()
 
-let conversationsRef = db.collection(`projects/mdhs-csa-dev/conversations/`)
+let conversationsRef = db.collection(
+  `projects/${process.env.FIREBASE_PROJECT_ID}/conversations/`
+)
 
 const performQuery = async (startDate, endDate) => {
   let dailyMetric = {}
