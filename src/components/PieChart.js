@@ -18,7 +18,7 @@ class ResponsivePieChart extends Component {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     window.addEventListener('resize', this.handleWindowSizeChange)
   }
 

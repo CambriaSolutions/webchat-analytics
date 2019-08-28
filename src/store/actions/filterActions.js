@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes'
-import { fetchConversations } from './conversationActions'
 import { fetchMetrics } from './metricActions'
 import { updateProjectColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
@@ -11,6 +10,7 @@ import {
   subDays,
   subMonths,
   startOfQuarter,
+  isSameDay,
 } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
 
@@ -100,7 +100,6 @@ export const updateFilters = event => {
     if (event.target.value.toLowerCase() !== 'custom') {
       const dateFilters = getDateFilters(event.target.value, offset)
       dispatch(clearSubscriptions())
-      dispatch(fetchConversations(dateFilters))
       dispatch(fetchMetrics(dateFilters))
 
       dispatch({
@@ -121,21 +120,33 @@ export const updateFilters = event => {
 export const updateFiltersWithRange = (startDate, endDate) => {
   return (dispatch, getState) => {
     const offset = getState().filters.timezoneOffset
-    const utcStart = getUTCDate(startDate, offset)
-    const utcEnd = getUTCDate(endDate, offset)
 
-    const newDateFilters = {
-      start: formatDate(endOfDay(utcStart), offset),
-      end: formatDate(endOfDay(utcEnd), offset),
+    // Check to see if the user has selected the same day
+    let selectedDateFilters
+    if (isSameDay(startDate, endDate)) {
+      // The user has selected the same day, get the date range
+      // based on the startDate selected
+      selectedDateFilters = getDateRange(startDate, offset)
+    } else {
+      // Format the days based on offset
+      const utcStart = getUTCDate(startDate, offset)
+      const utcEnd = getUTCDate(endDate, offset)
+
+      // Set the new date filters base on start and end of days
+      selectedDateFilters = {
+        start: formatDate(startOfDay(utcStart), offset),
+        end: formatDate(endOfDay(utcEnd), offset),
+      }
     }
 
-    dispatch(fetchConversations(newDateFilters))
-    dispatch(fetchMetrics(newDateFilters))
+    // Fetch the data based on the range
+    dispatch(fetchMetrics(selectedDateFilters))
 
+    // Update the filters
     dispatch({
       type: actionTypes.UPDATE_FILTERS,
       filterLabel: 'Custom',
-      dateFilters: newDateFilters,
+      dateFilters: selectedDateFilters,
     })
     dispatch(setIsCustomDateRange(true))
   }
@@ -177,6 +188,15 @@ export const updateMainColor = (newColor, updateDB = false) => {
   }
 }
 
+export const updateEngagedUserToggle = showEngagedUser => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.UPDATE_ENGAGED_USER_TOGGLE,
+      showEngagedUser,
+    })
+  }
+}
+
 // Change project/context and retrieve new metrics & conversations
 export const updateContext = (projectName, projects = []) => {
   const context = `projects/${projectName}`
@@ -195,7 +215,6 @@ export const updateContext = (projectName, projects = []) => {
         currProject.timezone.offset
       )
 
-      dispatch(fetchConversations(dateFilters, context))
       dispatch(fetchMetrics(dateFilters, context))
 
       const COLORS = randomColor({
