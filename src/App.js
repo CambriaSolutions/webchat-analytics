@@ -73,6 +73,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.auth.isLoggedIn,
+    isLoading: state.auth.isLoading,
     snackbarOpen: state.config.snackbarOpen,
     snackbarMessage: state.config.snackbarMessage,
   }

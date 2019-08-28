@@ -8,11 +8,11 @@ export const fetchUser = () => dispatch => {
     if (user) {
       // Retrieve projects & permissions attached to this user
       dispatch(fetchProjects(user))
-      /*dispatch({
-        type: actionTypes.FETCH_USER,
-        user: user,
-        isLoggedIn: true,
-      })*/
+    } else {
+      // If no user, reset auth state
+      dispatch({
+        type: actionTypes.SIGNOUT_USER,
+      })
     }
   })
 }

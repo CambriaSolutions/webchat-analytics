@@ -4,7 +4,7 @@ import { updateObject } from '../utility'
 const initialState = {
   isLoggedIn: false,
   user: null,
-  loading: false,
+  isLoading: true,
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,21 +16,22 @@ const reducer = (state = initialState, action) => {
       })
     case actionTypes.SIGNIN_START:
       return updateObject(state, {
-        loading: true,
+        isLoading: true,
       })
     case actionTypes.SIGNIN_FAIL:
       return updateObject(state, {
-        loading: false,
+        isLoading: false,
       })
     case actionTypes.SIGNIN_SUCCESS:
       return updateObject(state, {
         isLoggedIn: true,
         user: action.user,
-        loading: false,
+        isLoading: false,
       })
     case actionTypes.SIGNOUT_USER:
       return updateObject(state, {
         isLoggedIn: false,
+        isLoading: false,
         user: null,
       })
     default:
