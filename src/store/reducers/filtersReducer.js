@@ -4,6 +4,7 @@ import { updateObject } from '../utility'
 const initialState = {
   // Set Today filter by default
   filterLabel: 'Last 7 days',
+  showEngagedUser: false,
   dateFilters: {
     start: null,
     end: null,
@@ -50,6 +51,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         openDateDialog: action.shouldOpen,
       }
+
+    case actionTypes.UPDATE_ENGAGED_USER_TOGGLE:
+      return updateObject(state, {
+        showEngagedUser: action.showEngagedUser,
+      })
 
     default:
       return state
