@@ -6,13 +6,16 @@ import { fetchProjects, showSnackbar } from './configActions'
 export const fetchUser = () => dispatch => {
   authRef.onAuthStateChanged(user => {
     if (user) {
+       dispatch({
+        type: actionTypes.UPDATE_USER_STATUS,
+      })
       // Retrieve projects & permissions attached to this user
       dispatch(fetchProjects(user))
-      /*dispatch({
-        type: actionTypes.FETCH_USER,
-        user: user,
-        isLoggedIn: true,
-      })*/
+    } else {
+      // If no user, reset auth state
+      dispatch({
+        type: actionTypes.SIGNOUT_USER,
+      })
     }
   })
 }

@@ -55,10 +55,9 @@ const Spinner = styled(CircularProgress)`
 `
 
 function SignIn(props) {
-  const { signIn, isLoggedIn, isLoading } = props
+  const { signIn, isLoggedIn, isLoading, isAuthenticating } = props
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
   let { from } = props.location.state || { from: { pathname: '/' } }
 
   const handleFormSubmit = e => {
@@ -67,56 +66,63 @@ function SignIn(props) {
       signIn(username.toLowerCase(), password)
     }
   }
-
-  return isLoggedIn ? (
-    <Redirect to={from} />
-  ) : (
-    <OuterContainer>
-      <InnerContainer>
-        <IconContainer>
-          <InsertChartOutlined />
-        </IconContainer>
-        <Typography component='h1' variant='h5'>
-          Analytics Sign In
-        </Typography>
-        <FormContainer>
-          <TextField
-            label='Email'
-            margin='normal'
-            fullWidth
-            required
-            onChange={e => setUsername(e.target.value)}
-            id='username_input'
-          />
-          <TextField
-            label='Password'
-            margin='normal'
-            fullWidth
-            required
-            type='password'
-            onChange={e => setPassword(e.target.value)}
-            autoComplete='current-password'
-            id='pwd_input'
-          />
-          <SubmitButton
-            type='submit'
-            fullWidth
-            variant='contained'
-            color='primary'
-            onClick={handleFormSubmit}
-          >
-            {isLoading ? <Spinner size={24} /> : 'Sign In'}
-          </SubmitButton>
-        </FormContainer>
-      </InnerContainer>
-    </OuterContainer>
-  )
+  
+  if (isLoggedIn && !isAuthenticating && !isLoading) {
+    return <Redirect to={from} />
+  } 
+  else if ((!isLoading && !isLoggedIn) || isAuthenticating){
+        return (
+      <OuterContainer>
+        <InnerContainer>
+          <IconContainer>
+            <InsertChartOutlined />
+          </IconContainer>
+          <Typography component='h1' variant='h5'>
+            Analytics Sign In
+          </Typography>
+          <FormContainer>
+            <TextField
+              label='Email'
+              margin='normal'
+              fullWidth
+              required
+              onChange={e => setUsername(e.target.value)}
+              id='username_input'
+            />
+            <TextField
+              label='Password'
+              margin='normal'
+              fullWidth
+              required
+              type='password'
+              onChange={e => setPassword(e.target.value)}
+              autoComplete='current-password'
+              id='pwd_input'
+            />
+            <SubmitButton
+              type='submit'
+              fullWidth
+              variant='contained'
+              color='primary'
+              onClick={handleFormSubmit}
+            >
+              {isAuthenticating ? <Spinner size={24} /> : 'Sign In'}
+            </SubmitButton>
+          </FormContainer>
+        </InnerContainer>
+      </OuterContainer>
+    )
+  }
+  else {
+    return null
+  }
 }
 
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.auth.isLoggedIn,
-    isLoading: state.auth.loading,
+    isLoading: state.auth.isLoading,
+    isAuthenticating: state.auth.isAuthenticating
   }
 }
 
