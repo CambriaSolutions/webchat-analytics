@@ -76,8 +76,9 @@ function CustomDateDialog(props) {
               inputVariant='outlined'
               label='Start Date'
               initialFocusedDate={filterStartDate}
-              format='MM/dd/yyyy'
+              format='MM/dd/yy'
               value={startDate}
+              invalidDateMessage='Try mm/dd/yy'
               maxDate={endDate ? endDate : new Date(`2100-01-01`)}
               onChange={date => setStartDate(date)}
             />
@@ -88,8 +89,9 @@ function CustomDateDialog(props) {
               inputVariant='outlined'
               label='End Date'
               initialFocusedDate={filterEndDate}
-              format='MM/dd/yyyy'
+              format='MM/dd/yy'
               value={endDate}
+              invalidDateMessage='Try mm/dd/yy'
               minDate={startDate ? startDate : false}
               onChange={date => setEndDate(date)}
             />
