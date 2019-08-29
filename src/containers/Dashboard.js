@@ -119,7 +119,11 @@ class Dashboard extends Component {
             <Grid item xs={12} sm={3}>
               <Card
                 color={colorShades(this.props.mainColor, 50)}
-                value={this.props.conversationsTotal}
+                value={
+                  this.props.showEngagedUser
+                    ? this.props.conversationsDurationTotal
+                    : this.props.conversationsTotal
+                }
                 label='Total Users'
                 notes=''
                 icon='account_circle'
@@ -128,7 +132,11 @@ class Dashboard extends Component {
             <Grid item xs={12} sm={3}>
               <Card
                 color={colorShades(this.props.mainColor, 30)}
-                value={`${this.props.avgDuration}`}
+                value={
+                  this.props.showEngagedUser
+                    ? this.props.avgEngagedDuration
+                    : this.props.avgDuration
+                }
                 label='Avg. Conv Duration'
                 notes=''
                 icon='schedule'
@@ -137,7 +145,11 @@ class Dashboard extends Component {
             <Grid item xs={12} sm={3}>
               <Card
                 color={colorShades(this.props.mainColor, 20)}
-                value={`${this.props.supportRequestsPercentage}%`}
+                value={
+                  this.props.showEngagedUser
+                    ? `${this.props.supportEngagedRequestsPercentage}%`
+                    : `${this.props.supportRequestsPercentage}%`
+                }
                 label='Support Requests'
                 notes={
                   this.props.supportRequestTotal > 0
@@ -327,6 +339,7 @@ const mapStateToProps = state => {
   }
 
   return {
+    showEngagedUser: state.filters.showEngagedUser,
     loadingConversations: state.metrics.loading,
     loadingIntents: state.metrics.loading,
     loadingIntentDetails: state.config.loadingIntentDetails,
@@ -336,8 +349,15 @@ const mapStateToProps = state => {
         100,
       1
     ),
+    supportEngagedRequestsPercentage: round(
+      (state.metrics.supportRequestTotal /
+        state.metrics.conversationsDurationTotal) *
+        100,
+      1
+    ),
     supportRequestTotal: state.metrics.supportRequestTotal,
     avgDuration: beautifyTime(state.metrics.durationTotal),
+    avgEngagedDuration: beautifyTime(state.metrics.durationTotalNoExit),
     exitIntents: allExitIntents,
     intents: allIntents,
     totalSupportRequests: state.metrics.supportRequests,

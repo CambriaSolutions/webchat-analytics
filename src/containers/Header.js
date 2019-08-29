@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateFilters, updateContext } from '../store/actions/filterActions'
+import {
+  updateFilters,
+  updateContext,
+  updateEngagedUserToggle,
+} from '../store/actions/filterActions'
 import { toggleSettings } from '../store/actions/configActions'
 import styled from 'styled-components'
 
@@ -12,6 +16,10 @@ import Typography from '@material-ui/core/Typography'
 import Select from '@material-ui/core/Select'
 import IconButton from '@material-ui/core/IconButton'
 import MenuItem from '@material-ui/core/MenuItem'
+import FormGroup from '@material-ui/core/FormGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Switch from '@material-ui/core/Switch'
+
 // Icons
 import InsertChartOutlined from '@material-ui/icons/InsertChartOutlined'
 import SettingsIcon from '@material-ui/icons/Settings'
@@ -72,10 +80,24 @@ class Header extends Component {
           </ToolbarTitle>
           <Hidden xsDown>
             <FilterTitle variant='subtitle1' color='inherit'>
-              Filter
+              Filter Date
             </FilterTitle>
           </Hidden>
           <DateFilter />
+          <FormGroup row>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={this.props.showEngagedUser}
+                  onChange={event =>
+                    this.props.onEngagedUserToggle(!this.props.showEngagedUser)
+                  }
+                />
+              }
+              labelPlacement='start'
+              label='Engaged Users'
+            />
+          </FormGroup>
           <IconButton
             color='inherit'
             onClick={() => this.props.onSettingsToggle(true)}
@@ -92,6 +114,7 @@ class Header extends Component {
 const mapStateToProps = state => {
   return {
     filterLabel: state.filters.filterLabel,
+    showEngagedUser: state.filters.showEngagedUser,
     mainColor: state.filters.mainColor,
     projects: state.config.projects,
     projectName: getNameFromContext(state.filters.context),
@@ -102,6 +125,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
     onProjectChange: newContext => dispatch(updateContext(newContext)),
+    onEngagedUserToggle: showEngagedUser =>
+      dispatch(updateEngagedUserToggle(showEngagedUser)),
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
   }
 }
