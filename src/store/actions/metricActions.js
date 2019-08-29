@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes'
 import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
-import { format, subDays } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
+import { subDays, format } from 'date-fns'
 
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
@@ -11,11 +11,10 @@ export const fetchMetrics = (dateRange, context) => {
       dateRange = getState().filters.dateFilters
     if (typeof context === 'undefined') context = getState().filters.context
     const timezoneOffset = getState().filters.timezoneOffset
-
     const metricsRef = db.collection(`${context}/metrics`)
-
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
+
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
     // If metrics are updated on realtime, change the date filter to load data until yesterday, today's data will be handled via realtime snapshots
@@ -25,8 +24,8 @@ export const fetchMetrics = (dateRange, context) => {
 
     dispatch(fetchMetricsStart())
     metricsRef
-      .where('date', '>', startDate)
-      .where('date', '<', endDate)
+      .where('date', '>=', startDate)
+      .where('date', '<=', endDate)
       .get()
       .then(querySnapshot => {
         let fetchedMetrics = []
@@ -58,13 +57,42 @@ export const fetchMetrics = (dateRange, context) => {
 export const fetchMetricsSuccess = metrics => {
   return dispatch => {
     // Retrieve intents & support requests from daily metrics
-
     // Create intents & support requests dictionary with counters for occurrences & sessions
     let intents = {},
       supportRequests = {},
       feedback = { helpful: {}, notHelpful: {}, positive: 0, negative: 0 }
+    let avgConvoDuration = 0
+    let numConversations = 0
+    let numConversationsWithDuration = 0
+    let numConversationsWithSupportRequests = 0
+    const exitIntents = []
+
     // Loop through metrics per day
     for (let metric of metrics) {
+      avgConvoDuration += metric.averageConversationDuration
+      numConversations += metric.numConversations
+      numConversationsWithDuration += metric.numConversationsWithDuration
+      numConversationsWithSupportRequests +=
+        metric.numConversationsWithSupportRequests
+
+      for (const intent in metric.exitIntents) {
+        const currentIntent = metric.exitIntents[intent].name
+        // check to see if this intent is already on the list
+        const exitIntentExists = exitIntents.filter(
+          intent => intent.name === currentIntent
+        )[0]
+        if (exitIntentExists) {
+          exitIntentExists.occurrences += metric.exitIntents[intent].occurrences
+        } else {
+          const newExitIntent = {
+            name: metric.exitIntents[intent].name,
+            id: metric.exitIntents[intent].id,
+            occurrences: metric.exitIntents[intent].occurrences,
+          }
+          exitIntents.push(newExitIntent)
+        }
+      }
+
       // Intents
       const dateIntents = metric.intents
       for (let dateIntent of dateIntents) {
@@ -133,6 +161,7 @@ export const fetchMetricsSuccess = metrics => {
         }
       }
     }
+
     // Feedback contains helpful & non helpful data, send only positive feedback
     const feedbackFiltered = filterFeedback('positive', feedback)
 
@@ -144,17 +173,22 @@ export const fetchMetricsSuccess = metrics => {
     supportRequests = Object.keys(supportRequests).map(key => ({
       ...supportRequests[key],
     }))
-
     dispatch({
       type: actionTypes.FETCH_METRICS_SUCCESS,
       intents: intents,
       supportRequests: supportRequests,
+      supportRequestTotal: numConversationsWithSupportRequests,
       feedback: feedback,
       feedbackSelected: 'positive',
       feedbackFiltered: feedbackFiltered,
       pastIntents: intents,
       pastSupportRequests: [...supportRequests],
       pastFeedback: { ...feedback },
+      conversationsDurationTotal: numConversationsWithDuration,
+      conversationsTotal: numConversations,
+      durationTotal: avgConvoDuration / numConversations,
+      durationTotalNoExit: avgConvoDuration / numConversationsWithDuration,
+      exitIntents: exitIntents,
     })
   }
 }

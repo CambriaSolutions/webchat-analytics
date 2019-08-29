@@ -4,14 +4,17 @@ import { updateObject } from '../utility'
 const initialState = {
   // Set Today filter by default
   filterLabel: 'Last 7 days',
+  showEngagedUser: false,
   dateFilters: {
     start: null,
     end: null,
   },
+  isCustomDateRange: false,
+  openDateDialog: false,
   colors: [],
   mainColor: '#8681A6',
   context: '',
-  timezoneOffset: -7,
+  timezoneOffset: -7, // Offset Firebase
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +24,7 @@ const reducer = (state = initialState, action) => {
         filterLabel: action.filterLabel,
         dateFilters: action.dateFilters,
       })
+
     case actionTypes.UPDATE_CONTEXT:
       return updateObject(state, {
         context: action.context,
@@ -29,11 +33,30 @@ const reducer = (state = initialState, action) => {
         timezoneOffset: action.timezoneOffset,
         dateFilters: action.dateFilters,
       })
+
     case actionTypes.UPDATE_MAIN_COLOR:
       return updateObject(state, {
         mainColor: action.mainColor,
         colors: action.colors,
       })
+
+    case actionTypes.SET_IS_CUSTOM_DATE_RANGE:
+      return {
+        ...state,
+        isCustomDateRange: action.isCustomDateRange,
+      }
+
+    case actionTypes.TOGGLE_DATE_DIALOG:
+      return {
+        ...state,
+        openDateDialog: action.shouldOpen,
+      }
+
+    case actionTypes.UPDATE_ENGAGED_USER_TOGGLE:
+      return updateObject(state, {
+        showEngagedUser: action.showEngagedUser,
+      })
+
     default:
       return state
   }

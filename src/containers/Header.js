@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateFilters, updateContext } from '../store/actions/filterActions'
+import {
+  updateFilters,
+  updateContext,
+  updateEngagedUserToggle,
+} from '../store/actions/filterActions'
 import { toggleSettings } from '../store/actions/configActions'
 import styled from 'styled-components'
 
@@ -12,13 +16,23 @@ import Typography from '@material-ui/core/Typography'
 import Select from '@material-ui/core/Select'
 import IconButton from '@material-ui/core/IconButton'
 import MenuItem from '@material-ui/core/MenuItem'
+import FormGroup from '@material-ui/core/FormGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Switch from '@material-ui/core/Switch'
+
 // Icons
 import InsertChartOutlined from '@material-ui/icons/InsertChartOutlined'
 import SettingsIcon from '@material-ui/icons/Settings'
 
+// Date Filter
+import DateFilter from '../components/DateFilter'
+
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
   margin-left: 10px !important;
+`
+const FilterTitle = styled(Typography)`
+  padding-bottom: 2px;
 `
 
 const Dropdown = styled(Select)`
@@ -60,27 +74,30 @@ class Header extends Component {
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-
           {projectDropdown}
-          <ToolbarTitle variant='h6' color='inherit'>
+          <ToolbarTitle variant='h5' color='inherit'>
             Analytics
           </ToolbarTitle>
-
           <Hidden xsDown>
-            <Typography variant='subtitle1' color='inherit'>
-              Filter
-            </Typography>
+            <FilterTitle variant='subtitle1' color='inherit'>
+              Filter Date
+            </FilterTitle>
           </Hidden>
-          <Dropdown
-            value={this.props.filterLabel}
-            onChange={event => this.props.onFilterChange(event)}
-            name='filter'
-          >
-            <MenuItem value={'Today'}>Today</MenuItem>
-            <MenuItem value={'Yesterday'}>Yesterday</MenuItem>
-            <MenuItem value={'Last 7 days'}>Last 7 days</MenuItem>
-            <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
-          </Dropdown>
+          <DateFilter />
+          <FormGroup row>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={this.props.showEngagedUser}
+                  onChange={event =>
+                    this.props.onEngagedUserToggle(!this.props.showEngagedUser)
+                  }
+                />
+              }
+              labelPlacement='start'
+              label='Engaged Users'
+            />
+          </FormGroup>
           <IconButton
             color='inherit'
             onClick={() => this.props.onSettingsToggle(true)}
@@ -97,6 +114,7 @@ class Header extends Component {
 const mapStateToProps = state => {
   return {
     filterLabel: state.filters.filterLabel,
+    showEngagedUser: state.filters.showEngagedUser,
     mainColor: state.filters.mainColor,
     projects: state.config.projects,
     projectName: getNameFromContext(state.filters.context),
@@ -107,6 +125,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
     onProjectChange: newContext => dispatch(updateContext(newContext)),
+    onEngagedUserToggle: showEngagedUser =>
+      dispatch(updateEngagedUserToggle(showEngagedUser)),
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
   }
 }
