@@ -55,7 +55,7 @@ const Spinner = styled(CircularProgress)`
 `
 
 function SignIn(props) {
-  const { signIn, isLoggedIn, isLoading } = props
+  const { signIn, isLoggedIn, isLoading, isAuthenticating } = props
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   let { from } = props.location.state || { from: { pathname: '/' } }
@@ -66,12 +66,12 @@ function SignIn(props) {
       signIn(username.toLowerCase(), password)
     }
   }
-  if (isLoggedIn && !isLoading) {
+  
+  if (isLoggedIn && !isAuthenticating && !isLoading) {
     return <Redirect to={from} />
-  } else if (isLoading) {
-    return null
-  } else
-    return (
+  } 
+  else if ((!isLoading && !isLoggedIn) || isAuthenticating){
+        return (
       <OuterContainer>
         <InnerContainer>
           <IconContainer>
@@ -106,18 +106,23 @@ function SignIn(props) {
               color='primary'
               onClick={handleFormSubmit}
             >
-              {isLoading ? <Spinner size={24} /> : 'Sign In'}
+              {isAuthenticating ? <Spinner size={24} /> : 'Sign In'}
             </SubmitButton>
           </FormContainer>
         </InnerContainer>
       </OuterContainer>
     )
+  }
+  else {
+    return null
+  }
 }
 
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.auth.isLoggedIn,
     isLoading: state.auth.isLoading,
+    isAuthenticating: state.auth.isAuthenticating
   }
 }
 
