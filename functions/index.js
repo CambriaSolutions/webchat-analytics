@@ -31,6 +31,7 @@ const store = admin.firestore()
 // Date FNS imports
 const format = require('date-fns/format')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
+const isSameDay = require('date-fns/is_same_day')
 
 // -------------------------------------------------------------------------
 // ---------------- P R I V A T E   F U N C T I O N S ----------------------
@@ -83,7 +84,8 @@ const storeMetrics = (
   newConversation,
   newConversationDuration,
   previousConversationDuration,
-  newConversationFirstDuration
+  newConversationFirstDuration,
+  shouldCalculateDuration
 ) => {
   const currDate = getDateWithProjectTimezone(timezoneOffset)
   const dateKey = format(currDate, 'MM-DD-YYYY')
@@ -119,7 +121,7 @@ const storeMetrics = (
 
         // Update average conversation duration
         // A conversation has a duration i.e. more than one request per conversationId
-        if (newConversationDuration > 0) {
+        if (newConversationDuration > 0 && shouldCalculateDuration) {
           let newAverageDuration = 0
           const currAvD = currMetric.averageConversationDuration
           // This is not the first conversation of the day
@@ -455,6 +457,7 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
       let newConversationFirstDuration = false
       let newConversationDuration = 0
       let previousConversationDuration = 0
+      let shouldCalculateDuration = true
 
       // The conversation has a support request only if it has been submitted
       const supportRequestSubmitted = intent.name === 'support-submit-issue'
@@ -462,6 +465,12 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         const currConversation = doc.data()
         // Calculate conversation duration (compare creation time with current)
         const duration = differenceInSeconds(
+          currTimestamp,
+          currConversation.createdAt.toDate()
+        )
+
+        // Check to see if this conversation is not a wildcard duration
+        shouldCalculateDuration = isSameDay(
           currTimestamp,
           currConversation.createdAt.toDate()
         )
@@ -517,7 +526,8 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
         newConversation,
         newConversationDuration,
         previousConversationDuration,
-        newConversationFirstDuration
+        newConversationFirstDuration,
+        shouldCalculateDuration
       )
 
       return res.send(200, 'Analytics stored successfully')
