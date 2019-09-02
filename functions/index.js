@@ -260,10 +260,14 @@ const storeMetrics = (
       } else {
         // Create new metric entry with current intent & supportRequest
         let currentExitIntent = {}
-        currentExitIntent[conversationId] = { exitIntent: currIntent }
+        currentExitIntent[conversationId] = {
+          name: currIntent.name,
+          id: currIntent.id,
+          occurrences: 1,
+        }
 
         metricsRef.set({
-          date: admin.firestore.Timestamp.now(),
+          date: admin.firestore.Timestamp.fromDate(parse(dateKey)),
           intents: [
             {
               id: currIntent.id,
