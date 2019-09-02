@@ -87,8 +87,8 @@ const storeMetrics = (
   newConversationFirstDuration,
   shouldCalculateDuration
 ) => {
-  const currDate = getDateWithProjectTimezone(timezoneOffset)
-  const dateKey = format(currDate, 'MM-DD-YYYY')
+  const currentDate = getDateWithProjectTimezone(timezoneOffset)
+  const dateKey = format(currentDate, 'MM-DD-YYYY')
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
   metricsRef
@@ -267,7 +267,7 @@ const storeMetrics = (
         }
 
         metricsRef.set({
-          date: admin.firestore.Timestamp.fromDate(parse(dateKey)),
+          date: currentDate,
           intents: [
             {
               id: currIntent.id,
