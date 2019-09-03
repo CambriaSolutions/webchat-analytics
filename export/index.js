@@ -55,13 +55,9 @@ const cleanUpMetrics = async () => {
     delete intent.conversations
   })
 
-  // Ensure that the date in the database matches the document id
-  const newDate = admin.firestore.Timestamp.fromDate(parse(doc.id))
-
   // Update the metrics for the previous day
   metricsRef.update({
     intents: data.intents,
-    date: newDate,
     conversationsWithSupportRequests: admin.firestore.FieldValue.delete(), // This deletes the conversations with support requests
     dailyExitIntents: admin.firestore.FieldValue.delete(), // This deletes the daily exit intents collection
   })
