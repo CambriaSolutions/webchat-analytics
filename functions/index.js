@@ -125,7 +125,7 @@ const storeMetrics = (
           let newAverageDuration = 0
           const currAvD = currMetric.averageConversationDuration
           // This is not the first conversation of the day
-          if (numConversations > 1) {
+          if (numConversations > 1 && numConversationsWithDuration > 0) {
             // This is a new conversation, or this is the first duration
             if (newConversation || newConversationFirstDuration) {
               newAverageDuration =
@@ -221,7 +221,9 @@ const storeMetrics = (
                   id: exitIntents[intent].id,
                   occurrences: 1,
                 }
-                newExitIntents.push(newExitIntent)
+                if (newExitIntent.name !== undefined) {
+                  newExitIntents.push(newExitIntent)
+                }
               }
             }
             metricsRef.update({ exitIntents: newExitIntents })
