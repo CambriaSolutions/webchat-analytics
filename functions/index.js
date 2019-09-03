@@ -30,6 +30,7 @@ const store = admin.firestore()
 
 // Date FNS imports
 const format = require('date-fns/format')
+const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
@@ -266,8 +267,14 @@ const storeMetrics = (
           occurrences: 1,
         }
 
+        // Add 7 hours to offset firestore's date timestamp
+        // to ensure that the date reflects the document id
+        const formattedDate = admin.firestore.Timestamp.fromDate(
+          addHours(new Date(dateKey), 7)
+        )
+
         metricsRef.set({
-          date: currentDate,
+          date: formattedDate,
           intents: [
             {
               id: currIntent.id,
