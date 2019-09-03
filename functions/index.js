@@ -30,6 +30,7 @@ const store = admin.firestore()
 
 // Date FNS imports
 const format = require('date-fns/format')
+const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
@@ -87,8 +88,8 @@ const storeMetrics = (
   newConversationFirstDuration,
   shouldCalculateDuration
 ) => {
-  const currDate = getDateWithProjectTimezone(timezoneOffset)
-  const dateKey = format(currDate, 'MM-DD-YYYY')
+  const currentDate = getDateWithProjectTimezone(timezoneOffset)
+  const dateKey = format(currentDate, 'MM-DD-YYYY')
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
   metricsRef
@@ -96,6 +97,7 @@ const storeMetrics = (
     .then(doc => {
       if (doc.exists) {
         const currMetric = doc.data()
+        let updatedMetrics = {}
 
         // Update number of conversations and number of
         // conversations with durations
@@ -107,16 +109,12 @@ const storeMetrics = (
         if (newConversationFirstDuration) {
           // The conversation contains a duration
           numConversationsWithDuration += 1
-          metricsRef.update({
-            numConversationsWithDuration,
-          })
+          updatedMetrics.numConversationsWithDuration = numConversationsWithDuration
         }
         if (newConversation && !newConversationDuration) {
           // This is a new conversation, but doesn't have a duration yet
           numConversations += 1
-          metricsRef.update({
-            numConversations,
-          })
+          updatedMetrics.numConversations = numConversations
         }
 
         // Update average conversation duration
@@ -144,9 +142,7 @@ const storeMetrics = (
             newAverageDuration = newConversationDuration
           }
           // Update the average conversations of the day
-          metricsRef.update({
-            averageConversationDuration: newAverageDuration,
-          })
+          updatedMetrics.averageConversationDuration = newAverageDuration
         }
 
         // Record support request only if it's been submitted
@@ -160,12 +156,10 @@ const storeMetrics = (
           // If the conversation hasn't been accounted for, add the id to the conversations
           // including support requests
           if (!idInSupportRequests) {
-            metricsRef.update({
-              conversationsWithSupportRequests: admin.firestore.FieldValue.arrayUnion(
-                conversationId
-              ),
-              numConversationsWithSupportRequests: (currMetric.numConversationsWithSupportRequests += 1),
-            })
+            updatedMetrics.conversationsWithSupportRequests = admin.firestore.FieldValue.arrayUnion(
+              conversationId
+            )
+            updatedMetrics.numConversationsWithSupportRequests = currMetric.numConversationsWithSupportRequests += 1
           }
 
           // Check if current supportRequest is already on the list
@@ -176,18 +170,16 @@ const storeMetrics = (
           // Update support metric counters
           if (supportMetric) {
             supportMetric.occurrences++
-            metricsRef.update({ supportRequests: currMetric.supportRequests })
+            updatedMetrics.supportRequests = currMetric.supportRequests
           } else {
             // Create new support request entry on the metric
             const newSupportRequest = {
               name: supportRequestType,
               occurrences: 1,
             }
-            metricsRef.update({
-              supportRequests: admin.firestore.FieldValue.arrayUnion(
-                newSupportRequest
-              ),
-            })
+            updatedMetrics.supportRequests = admin.firestore.FieldValue.arrayUnion(
+              newSupportRequest
+            )
           }
         }
 
@@ -195,7 +187,7 @@ const storeMetrics = (
         const currentExitIntentsCollection = currMetric.dailyExitIntents
 
         currentExitIntentsCollection[conversationId] = currIntent
-        metricsRef.update({ dailyExitIntents: currentExitIntentsCollection })
+        updatedMetrics.dailyExitIntents = currentExitIntentsCollection
 
         // Use the daily exit intents to calculate an aggregate of exit intents
         // check to see if the conversation is in progress and/or this is a new
@@ -226,7 +218,7 @@ const storeMetrics = (
                 }
               }
             }
-            metricsRef.update({ exitIntents: newExitIntents })
+            updatedMetrics.exitIntents = newExitIntents
           }
         }
 
@@ -243,7 +235,7 @@ const storeMetrics = (
             intentMetric.sessions++
             intentMetric.conversations.push(conversationId)
           }
-          metricsRef.update({ intents: currMetric.intents })
+          updatedMetrics.intents = currMetric.intents
         } else {
           // Create new intent entry on the metric
           const newIntent = {
@@ -253,17 +245,30 @@ const storeMetrics = (
             sessions: 1,
             conversations: [conversationId],
           }
-          metricsRef.update({
-            intents: admin.firestore.FieldValue.arrayUnion(newIntent),
-          })
+          updatedMetrics.intents = admin.firestore.FieldValue.arrayUnion(
+            newIntent
+          )
         }
+
+        // Update the metrics collection for this request
+        metricsRef.update(updatedMetrics)
       } else {
         // Create new metric entry with current intent & supportRequest
         let currentExitIntent = {}
-        currentExitIntent[conversationId] = { exitIntent: currIntent }
+        currentExitIntent[conversationId] = {
+          name: currIntent.name,
+          id: currIntent.id,
+          occurrences: 1,
+        }
+
+        // Add 7 hours to offset firestore's date timestamp
+        // to ensure that the date reflects the document id
+        const formattedDate = admin.firestore.Timestamp.fromDate(
+          addHours(new Date(dateKey), 7)
+        )
 
         metricsRef.set({
-          date: admin.firestore.Timestamp.now(),
+          date: formattedDate,
           intents: [
             {
               id: currIntent.id,
@@ -310,7 +315,6 @@ const storeConversationFeedback = (
     .collection(`${context}/conversations`)
     .doc(`${conversationId}`)
 
-  // Set the "capital" field of the city 'DC'
   return conversationRef
     .update({
       hasFeedback: true,
