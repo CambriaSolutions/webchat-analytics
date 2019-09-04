@@ -181,9 +181,6 @@ export const fetchMetricsSuccess = metrics => {
       feedback: feedback,
       feedbackSelected: 'positive',
       feedbackFiltered: feedbackFiltered,
-      pastIntents: intents,
-      pastSupportRequests: [...supportRequests],
-      pastFeedback: { ...feedback },
       conversationsDurationTotal: numConversationsWithDuration,
       conversationsTotal: numConversations,
       durationTotal: avgConvoDuration / numConversations,
@@ -253,12 +250,12 @@ export const updateMetrics = (metric, sameDay = false) => {
     }
     let { feedbackSelected } = getState().metrics
 
-    let intents = getState().metrics.pastIntents.map(item => ({ ...item }))
-    let supportRequests = getState().metrics.pastSupportRequests.map(item => ({
+    let intents = getState().metrics.intents.map(item => ({ ...item }))
+    let supportRequests = getState().metrics.supportRequests.map(item => ({
       ...item,
     }))
     // Deep clone feedback objects
-    let feedback = JSON.parse(JSON.stringify(getState().metrics.pastFeedback))
+    let feedback = JSON.parse(JSON.stringify(getState().metrics.feedback))
     let feedbackFiltered = JSON.parse(
       JSON.stringify(getState().metrics.feedbackFiltered)
     )
