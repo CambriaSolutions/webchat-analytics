@@ -241,6 +241,28 @@ export const updateFeedbackType = feedbackType => {
 
 // --------------------------------  R E A L T I M E   U P D A T E S  --------------------------------
 
+const formatExitIntents = metric => {
+  let exitIntents = []
+  for (const intent in metric.exitIntents) {
+    const currentIntent = metric.exitIntents[intent].name
+    // check to see if this intent is already on the list
+    const exitIntentExists = exitIntents.filter(
+      intent => intent.name === currentIntent
+    )[0]
+    if (exitIntentExists) {
+      exitIntentExists.exits += metric.exitIntents[intent].occurrences
+    } else {
+      const newExitIntent = {
+        name: metric.exitIntents[intent].name,
+        id: metric.exitIntents[intent].id,
+        exits: metric.exitIntents[intent].occurrences,
+      }
+      exitIntents.push(newExitIntent)
+    }
+  }
+  return exitIntents
+}
+
 export const updateMetrics = (metric, sameDay = false) => {
   console.log(metric)
   return (dispatch, getState) => {
@@ -271,6 +293,7 @@ export const updateMetrics = (metric, sameDay = false) => {
     console.log(exitIntents)
     if (sameDay) {
       const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
+      const exitIntents = formatExitIntents(metric)
       dispatch({
         type: actionTypes.UPDATE_METRICS,
         intents: metric.intents,
@@ -284,7 +307,7 @@ export const updateMetrics = (metric, sameDay = false) => {
         durationTotalNoExit:
           metric.averageConversationDuration /
           metric.numConversationsWithDuration,
-        exitIntents: metric.exitIntents,
+        exitIntents: exitIntents,
         feedbackSelected: feedbackSelected,
         feedbackFiltered: filterFeedback(feedbackSelected, metricFeedback),
       })
