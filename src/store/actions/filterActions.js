@@ -210,11 +210,10 @@ export const updateContext = (projectName, projects = []) => {
 
     const currProject = projects.filter(p => p.name === projectName)[0]
     if (currProject) {
-      const dateFilters = getDateFilters('Today', currProject.timezone.offset)
-      // const dateFilters = getDateFilters(
-      //   getState().filters.filterLabel,
-      //   currProject.timezone.offset
-      // )
+      const dateFilters = getDateFilters(
+        getState().filters.filterLabel,
+        currProject.timezone.offset
+      )
 
       dispatch(fetchMetrics(dateFilters, context))
 

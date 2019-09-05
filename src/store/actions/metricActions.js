@@ -18,9 +18,9 @@ export const fetchMetrics = (dateRange, context) => {
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
     // If metrics are updated on realtime, change the date filter to load data until yesterday, today's data will be handled via realtime snapshots
-    if (useRealtimeUpdates && !sameDay) {
-      endDate = subDays(endDate, 1)
-    }
+    // if (useRealtimeUpdates && !sameDay) {
+    //   endDate = subDays(endDate, 1)
+    // }
 
     dispatch(fetchMetricsStart())
     metricsRef
@@ -35,7 +35,8 @@ export const fetchMetrics = (dateRange, context) => {
 
         dispatch(fetchMetricsSuccess(fetchedMetrics))
 
-        if (useRealtimeUpdates) {
+        // Only subscribe to real time updates and its the same day view
+        if (useRealtimeUpdates && sameDay) {
           const dateWithProjectTimezone = getUTCDate(new Date(), timezoneOffset)
           const dateKey = format(dateWithProjectTimezone, 'MM-dd-yyyy')
 
@@ -43,7 +44,6 @@ export const fetchMetrics = (dateRange, context) => {
           const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
             const metric = doc.data()
             if (metric) dispatch(updateMetrics(metric, sameDay))
-            // if (metric) dispatch(fetchMetricsSuccess(metric))
           })
 
           dispatch(storeMetricsSubscription(unsubscribeMetrics))
@@ -241,30 +241,29 @@ export const updateFeedbackType = feedbackType => {
 
 // --------------------------------  R E A L T I M E   U P D A T E S  --------------------------------
 
-const formatExitIntents = metric => {
-  let exitIntents = []
-  for (const intent in metric.exitIntents) {
-    const currentIntent = metric.exitIntents[intent].name
+const formatExitIntents = exitIntents => {
+  let exitIntentsAggregate = []
+  for (const intent in exitIntents) {
+    const currentIntent = exitIntents[intent].name
     // check to see if this intent is already on the list
-    const exitIntentExists = exitIntents.filter(
+    const exitIntentExists = exitIntentsAggregate.filter(
       intent => intent.name === currentIntent
     )[0]
     if (exitIntentExists) {
-      exitIntentExists.exits += metric.exitIntents[intent].occurrences
+      exitIntentExists.exits += exitIntents[intent].occurrences
     } else {
       const newExitIntent = {
-        name: metric.exitIntents[intent].name,
-        id: metric.exitIntents[intent].id,
-        exits: metric.exitIntents[intent].occurrences,
+        name: exitIntents[intent].name,
+        id: exitIntents[intent].id,
+        exits: exitIntents[intent].occurrences,
       }
-      exitIntents.push(newExitIntent)
+      exitIntentsAggregate.push(newExitIntent)
     }
   }
-  return exitIntents
+  return exitIntentsAggregate
 }
 
 export const updateMetrics = (metric, sameDay = false) => {
-  console.log(metric)
   return (dispatch, getState) => {
     const emptyFeedback = {
       helpful: {},
@@ -272,11 +271,16 @@ export const updateMetrics = (metric, sameDay = false) => {
       positive: 0,
       negative: 0,
     }
+
     let {
       feedbackSelected,
-      supportRequestTotal,
-      exitIntents,
+      // supportRequestTotal,
+      // exitIntents,
+      // conversationsDurationTotal,
+      // numConversationsWithDuration,
+      // conversationsTotal,
     } = getState().metrics
+
     let intents = getState().metrics.intents.map(item => ({ ...item }))
     let supportRequests = getState().metrics.supportRequests.map(item => ({
       ...item,
@@ -287,13 +291,9 @@ export const updateMetrics = (metric, sameDay = false) => {
       JSON.stringify(getState().metrics.feedbackFiltered)
     )
 
-    // // Conversations with support requests
-    // const supportRequestsChanged = supportRequestTotal +
-    console.log(metric.exitIntents)
-    console.log(exitIntents)
     if (sameDay) {
       const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
-      const exitIntents = formatExitIntents(metric)
+      const updatedExitIntents = formatExitIntents(metric.exitIntents)
       dispatch({
         type: actionTypes.UPDATE_METRICS,
         intents: metric.intents,
@@ -307,7 +307,7 @@ export const updateMetrics = (metric, sameDay = false) => {
         durationTotalNoExit:
           metric.averageConversationDuration /
           metric.numConversationsWithDuration,
-        exitIntents: exitIntents,
+        exitIntents: updatedExitIntents,
         feedbackSelected: feedbackSelected,
         feedbackFiltered: filterFeedback(feedbackSelected, metricFeedback),
       })
@@ -328,6 +328,26 @@ export const updateMetrics = (metric, sameDay = false) => {
             sessions: dateIntent.sessions,
           })
       }
+
+      // // Total number of conversations
+      // const updatedConversationsTotal =
+      //   metric.numConversations + conversationsTotal
+
+      // // Total number of conversations with duration
+      // const updatedConversationsWithDuration =
+      //   metric.numConversationsWithDuration + numConversationsWithDuration
+
+      // Exit Intents
+      // const updatedExitIntents = formatExitIntents(mergedExitIntents)
+
+      // supportRequestTotal
+      // const updatedSupportRequestTotal =
+      //   metric.numConversationsWithSupportRequests + supportRequestTotal
+
+      // // conversationsDurationTotal
+      // const updatedConverstationDurationTotal =
+      // metric.numConversationsWithDuration + conversationsDurationTotal
+
       // Support requests
       const dateSupportRequests = metric.supportRequests
       if (dateSupportRequests) {
@@ -389,6 +409,14 @@ export const updateMetrics = (metric, sameDay = false) => {
         intents: intents,
         supportRequests: supportRequests,
         feedback: feedback,
+        // exitIntents: updatedExitIntents,
+        // supportRequestTotal: updatedSupportRequestTotal,
+        // conversationsDurationTotal: updatedConverstationDurationTotal,
+        // conversationsTotal: updatedConversationsTotal,
+        // durationTotal:
+        // updatedConverstationDurationTotal / updatedConversationsTotal,
+        // durationTotalNoExit:
+        // updatedConverstationDurationTotal / updatedConversationsWithDuration,
         feedbackSelected: feedbackSelected,
         feedbackFiltered: feedbackFiltered,
       })
