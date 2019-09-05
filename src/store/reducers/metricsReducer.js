@@ -65,6 +65,11 @@ const reducer = (state = initialState, action) => {
         feedback: action.feedback,
         feedbackSelected: action.feedbackSelected,
         feedbackFiltered: action.feedbackFiltered,
+        conversationsDurationTotal: action.conversationsDurationTotal,
+        conversationsTotal: action.conversationsTotal,
+        durationTotalNoExit: action.durationTotalNoExit,
+        exitIntents: action.exitIntents,
+        durationTotal: action.durationTotal,
       })
     default:
       return state

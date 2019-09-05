@@ -43,6 +43,7 @@ export const fetchMetrics = (dateRange, context) => {
           const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
             const metric = doc.data()
             if (metric) dispatch(updateMetrics(metric, sameDay))
+            // if (metric) dispatch(fetchMetricsSuccess(metric))
           })
 
           dispatch(storeMetricsSubscription(unsubscribeMetrics))
@@ -241,6 +242,7 @@ export const updateFeedbackType = feedbackType => {
 // --------------------------------  R E A L T I M E   U P D A T E S  --------------------------------
 
 export const updateMetrics = (metric, sameDay = false) => {
+  console.log(metric)
   return (dispatch, getState) => {
     const emptyFeedback = {
       helpful: {},
@@ -248,8 +250,11 @@ export const updateMetrics = (metric, sameDay = false) => {
       positive: 0,
       negative: 0,
     }
-    let { feedbackSelected } = getState().metrics
-
+    let {
+      feedbackSelected,
+      supportRequestTotal,
+      exitIntents,
+    } = getState().metrics
     let intents = getState().metrics.intents.map(item => ({ ...item }))
     let supportRequests = getState().metrics.supportRequests.map(item => ({
       ...item,
@@ -260,6 +265,10 @@ export const updateMetrics = (metric, sameDay = false) => {
       JSON.stringify(getState().metrics.feedbackFiltered)
     )
 
+    // // Conversations with support requests
+    // const supportRequestsChanged = supportRequestTotal +
+    console.log(metric.exitIntents)
+    console.log(exitIntents)
     if (sameDay) {
       const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
       dispatch({
@@ -267,6 +276,15 @@ export const updateMetrics = (metric, sameDay = false) => {
         intents: metric.intents,
         supportRequests: metric.supportRequests,
         feedback: metricFeedback,
+        supportRequestTotal: metric.numConversationsWithSupportRequests,
+        conversationsDurationTotal: metric.numConversationsWithDuration,
+        conversationsTotal: metric.numConversations,
+        durationTotal:
+          metric.averageConversationDuration / metric.numConversations,
+        durationTotalNoExit:
+          metric.averageConversationDuration /
+          metric.numConversationsWithDuration,
+        exitIntents: metric.exitIntents,
         feedbackSelected: feedbackSelected,
         feedbackFiltered: filterFeedback(feedbackSelected, metricFeedback),
       })
@@ -343,7 +361,6 @@ export const updateMetrics = (metric, sameDay = false) => {
         // Feedback contains helpful & non helpful data, send only positive feedback
         feedbackFiltered = filterFeedback(feedbackSelected, feedback)
       }
-
       dispatch({
         type: actionTypes.UPDATE_METRICS,
         intents: intents,
