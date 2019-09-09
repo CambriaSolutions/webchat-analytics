@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes'
 import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
 import { getUTCDate } from '../../common/helper'
-import { subDays, format } from 'date-fns'
+import { format } from 'date-fns'
 
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
