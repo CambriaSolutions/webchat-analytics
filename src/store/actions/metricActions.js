@@ -17,11 +17,6 @@ export const fetchMetrics = (dateRange, context) => {
 
     const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
 
-    // If metrics are updated on realtime, change the date filter to load data until yesterday, today's data will be handled via realtime snapshots
-    // if (useRealtimeUpdates && !sameDay) {
-    //   endDate = subDays(endDate, 1)
-    // }
-
     dispatch(fetchMetricsStart())
     metricsRef
       .where('date', '>=', startDate)
@@ -43,7 +38,7 @@ export const fetchMetrics = (dateRange, context) => {
           // Load data from today and continue listening for changes
           const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
             const metric = doc.data()
-            if (metric) dispatch(updateMetrics(metric, sameDay))
+            if (metric) dispatch(updateMetrics(metric))
           })
 
           dispatch(storeMetricsSubscription(unsubscribeMetrics))
@@ -263,7 +258,7 @@ const formatExitIntents = exitIntents => {
   return exitIntentsAggregate
 }
 
-export const updateMetrics = (metric, sameDay = false) => {
+export const updateMetrics = metric => {
   return (dispatch, getState) => {
     const emptyFeedback = {
       helpful: {},
@@ -272,154 +267,26 @@ export const updateMetrics = (metric, sameDay = false) => {
       negative: 0,
     }
 
-    let {
-      feedbackSelected,
-      // supportRequestTotal,
-      // exitIntents,
-      // conversationsDurationTotal,
-      // numConversationsWithDuration,
-      // conversationsTotal,
-    } = getState().metrics
+    let { feedbackSelected } = getState().metrics
 
-    let intents = getState().metrics.intents.map(item => ({ ...item }))
-    let supportRequests = getState().metrics.supportRequests.map(item => ({
-      ...item,
-    }))
-    // Deep clone feedback objects
-    let feedback = JSON.parse(JSON.stringify(getState().metrics.feedback))
-    let feedbackFiltered = JSON.parse(
-      JSON.stringify(getState().metrics.feedbackFiltered)
-    )
-
-    if (sameDay) {
-      const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
-      const updatedExitIntents = formatExitIntents(metric.exitIntents)
-      dispatch({
-        type: actionTypes.UPDATE_METRICS,
-        intents: metric.intents,
-        supportRequests: metric.supportRequests,
-        feedback: metricFeedback,
-        supportRequestTotal: metric.numConversationsWithSupportRequests,
-        conversationsDurationTotal: metric.numConversationsWithDuration,
-        conversationsTotal: metric.numConversations,
-        durationTotal:
-          metric.averageConversationDuration / metric.numConversations,
-        durationTotalNoExit:
-          metric.averageConversationDuration /
-          metric.numConversationsWithDuration,
-        exitIntents: updatedExitIntents,
-        feedbackSelected: feedbackSelected,
-        feedbackFiltered: filterFeedback(feedbackSelected, metricFeedback),
-      })
-    } else {
-      // Intents
-      const dateIntents = metric.intents
-      for (let dateIntent of dateIntents) {
-        let currIntent = intents.filter(i => i.id === dateIntent.id)[0]
-        if (currIntent) {
-          currIntent.occurrences =
-            currIntent.occurrences + dateIntent.occurrences
-          currIntent.sessions = currIntent.sessions + dateIntent.sessions
-        } else
-          intents.push({
-            id: dateIntent.id,
-            name: `${dateIntent.name}`,
-            occurrences: dateIntent.occurrences,
-            sessions: dateIntent.sessions,
-          })
-      }
-
-      // // Total number of conversations
-      // const updatedConversationsTotal =
-      //   metric.numConversations + conversationsTotal
-
-      // // Total number of conversations with duration
-      // const updatedConversationsWithDuration =
-      //   metric.numConversationsWithDuration + numConversationsWithDuration
-
-      // Exit Intents
-      // const updatedExitIntents = formatExitIntents(mergedExitIntents)
-
-      // supportRequestTotal
-      // const updatedSupportRequestTotal =
-      //   metric.numConversationsWithSupportRequests + supportRequestTotal
-
-      // // conversationsDurationTotal
-      // const updatedConverstationDurationTotal =
-      // metric.numConversationsWithDuration + conversationsDurationTotal
-
-      // Support requests
-      const dateSupportRequests = metric.supportRequests
-      if (dateSupportRequests) {
-        for (let dateRequest of dateSupportRequests) {
-          //const supportId = dateRequest.name.replace(/\s+/g, '-')
-          let currRequest = supportRequests.filter(
-            i => i.name === dateRequest.name
-          )[0]
-          if (currRequest) {
-            currRequest.occurrences =
-              currRequest.occurrences + dateRequest.occurrences
-          } else
-            supportRequests.push({
-              name: `${dateRequest.name}`,
-              occurrences: dateRequest.occurrences,
-            })
-        }
-      }
-      // Feedback
-      const feedbackEntry = metric.feedback
-      if (feedbackEntry) {
-        // Add up totals
-        feedback.positive = feedback.positive + feedbackEntry.positive
-        feedback.negative = feedback.negative + feedbackEntry.negative
-        // Count through helpful feedback
-        for (let helpfulFeedback of feedbackEntry.helpful) {
-          const helpfulFeedbackId = helpfulFeedback.name.replace(/\s+/g, '-')
-          let currFeedback = feedback.helpful[`${helpfulFeedbackId}`]
-          if (currFeedback) {
-            currFeedback.occurrences =
-              currFeedback.occurrences + helpfulFeedback.occurrences
-          } else
-            feedback.helpful[`${helpfulFeedbackId}`] = {
-              name: `${helpfulFeedback.name}`,
-              occurrences: helpfulFeedback.occurrences,
-            }
-        }
-        // Count through not-helpful feedback
-        for (let notHelpfulFeedback of feedbackEntry.notHelpful) {
-          const notHelpfulFeedbackId = notHelpfulFeedback.name.replace(
-            /\s+/g,
-            '-'
-          )
-          let currFeedback = feedback.notHelpful[`${notHelpfulFeedbackId}`]
-          if (currFeedback) {
-            currFeedback.occurrences =
-              currFeedback.occurrences + notHelpfulFeedback.occurrences
-          } else
-            feedback.notHelpful[`${notHelpfulFeedbackId}`] = {
-              name: `${notHelpfulFeedback.name}`,
-              occurrences: notHelpfulFeedback.occurrences,
-            }
-        }
-        // Feedback contains helpful & non helpful data, send only positive feedback
-        feedbackFiltered = filterFeedback(feedbackSelected, feedback)
-      }
-      dispatch({
-        type: actionTypes.UPDATE_METRICS,
-        intents: intents,
-        supportRequests: supportRequests,
-        feedback: feedback,
-        // exitIntents: updatedExitIntents,
-        // supportRequestTotal: updatedSupportRequestTotal,
-        // conversationsDurationTotal: updatedConverstationDurationTotal,
-        // conversationsTotal: updatedConversationsTotal,
-        // durationTotal:
-        // updatedConverstationDurationTotal / updatedConversationsTotal,
-        // durationTotalNoExit:
-        // updatedConverstationDurationTotal / updatedConversationsWithDuration,
-        feedbackSelected: feedbackSelected,
-        feedbackFiltered: feedbackFiltered,
-      })
-    }
+    const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
+    const updatedExitIntents = formatExitIntents(metric.exitIntents)
+    dispatch({
+      type: actionTypes.UPDATE_METRICS,
+      intents: metric.intents,
+      supportRequests: metric.supportRequests,
+      feedback: metricFeedback,
+      supportRequestTotal: metric.numConversationsWithSupportRequests,
+      conversationsDurationTotal: metric.numConversationsWithDuration,
+      conversationsTotal: metric.numConversations,
+      durationTotal:
+        metric.averageConversationDuration / metric.numConversations,
+      durationTotalNoExit:
+        metric.averageConversationDuration /
+        metric.numConversationsWithDuration,
+      exitIntents: updatedExitIntents,
+      feedbackSelected: feedbackSelected,
+      feedbackFiltered: filterFeedback(feedbackSelected, metricFeedback),
+    })
   }
 }
