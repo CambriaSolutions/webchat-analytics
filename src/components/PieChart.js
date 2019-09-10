@@ -8,6 +8,34 @@ import {
   Tooltip,
 } from 'recharts'
 
+const RADIAN = Math.PI / 180
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+  index,
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5
+  const x = cx + radius * Math.cos(-midAngle * RADIAN)
+  const y = cy + radius * Math.sin(-midAngle * RADIAN)
+
+  console.log(x)
+  return (
+    <text
+      x={x}
+      y={y}
+      fill='white'
+      textAnchor={x > cx ? 'start' : 'end'}
+      dominantBaseline='central'
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  )
+}
+
 class ResponsivePieChart extends Component {
   constructor(props) {
     super(props)
@@ -65,7 +93,8 @@ class ResponsivePieChart extends Component {
               dataKey={this.props.dataKey}
               data={this.props.data}
               fill='#8884d8'
-              label
+              label={renderCustomizedLabel}
+              labelLine={false}
             >
               {this.props.data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={this.state.colors[index]} />
