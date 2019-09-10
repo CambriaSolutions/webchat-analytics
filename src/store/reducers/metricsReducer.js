@@ -9,11 +9,6 @@ const initialState = {
   feedback: [],
   feedbackFiltered: [],
   feedbackSelected: 'positive',
-  //pastMetrics: {},
-  pastIntents: [],
-  pastSupportRequests: [],
-  pastFeedback: {},
-  conversationWithSupportRequestTotal: 0,
   conversationsDurationTotal: 0,
   conversationsTotal: 0,
   durationTotal: 0,
@@ -33,13 +28,7 @@ const fetchMetricsSuccess = (state, action) => {
     feedback: action.feedback,
     feedbackSelected: action.feedbackSelected,
     feedbackFiltered: action.feedbackFiltered,
-    //pastMetrics: action.pastMetrics,
-    pastIntents: action.pastIntents,
-    pastSupportRequests: action.pastSupportRequests,
-    pastFeedback: action.pastFeedback,
     loading: false,
-    conversationWithSupportRequestTotal:
-      action.conversationWithSupportRequestTotal,
     conversationsDurationTotal: action.conversationsDurationTotal,
     conversationsTotal: action.conversationsTotal,
     durationTotal: action.durationTotal,
@@ -76,6 +65,11 @@ const reducer = (state = initialState, action) => {
         feedback: action.feedback,
         feedbackSelected: action.feedbackSelected,
         feedbackFiltered: action.feedbackFiltered,
+        conversationsDurationTotal: action.conversationsDurationTotal,
+        conversationsTotal: action.conversationsTotal,
+        durationTotalNoExit: action.durationTotalNoExit,
+        exitIntents: action.exitIntents,
+        durationTotal: action.durationTotal,
       })
     default:
       return state
