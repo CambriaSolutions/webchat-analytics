@@ -15,7 +15,8 @@ export const fetchMetrics = (dateRange, context) => {
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
 
-    const sameDay = dateRange.end.startsWith(dateRange.start.slice(0, 10))
+    const today = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    const isToday = today.startsWith(dateRange.start.slice(0, 10))
 
     dispatch(fetchMetricsStart())
     metricsRef
@@ -31,7 +32,7 @@ export const fetchMetrics = (dateRange, context) => {
         dispatch(fetchMetricsSuccess(fetchedMetrics))
 
         // Only subscribe to real time updates and its the same day view
-        if (useRealtimeUpdates && sameDay) {
+        if (useRealtimeUpdates && isToday) {
           const dateWithProjectTimezone = getUTCDate(new Date(), timezoneOffset)
           const dateKey = format(dateWithProjectTimezone, 'MM-dd-yyyy')
 
