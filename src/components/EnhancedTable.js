@@ -92,7 +92,7 @@ const rows = [
     disablePadding: false,
     label: 'Exits',
     toolTip:
-      'Sort by the number of times this was the last intent of the conversation',
+      'Sort by the number of times the intent was the last intent of the conversation',
   },
 ]
 
