@@ -65,10 +65,35 @@ function getSorting(order, orderBy) {
 }
 
 const rows = [
-  { id: 'name', numeric: false, disablePadding: false, label: 'Intent Name' },
-  { id: 'occurrences', numeric: true, disablePadding: false, label: 'Count' },
-  { id: 'sessions', numeric: true, disablePadding: false, label: 'Sessions' },
-  { id: 'exits', numeric: true, disablePadding: false, label: 'Exits' },
+  {
+    id: 'name',
+    numeric: false,
+    disablePadding: false,
+    label: 'Intent Name',
+    toolTip: 'Sort by the name of the intent',
+  },
+  {
+    id: 'occurrences',
+    numeric: true,
+    disablePadding: false,
+    label: 'Count',
+    toolTip: 'Sort by the number of times the intent was triggered',
+  },
+  {
+    id: 'sessions',
+    numeric: true,
+    disablePadding: false,
+    label: 'Conversations',
+    toolTip: 'Sort by the number of conversations in which the intent occurred',
+  },
+  {
+    id: 'exits',
+    numeric: true,
+    disablePadding: false,
+    label: 'Exits',
+    toolTip:
+      'Sort by the number of times the intent was the last intent of the conversation',
+  },
 ]
 
 class EnhancedTableHead extends React.Component {
@@ -91,7 +116,7 @@ class EnhancedTableHead extends React.Component {
                 sortDirection={orderBy === row.id ? order : false}
               >
                 <Tooltip
-                  title='Sort'
+                  title={row.toolTip}
                   placement={row.numeric ? 'bottom-end' : 'bottom-start'}
                   enterDelay={300}
                 >
