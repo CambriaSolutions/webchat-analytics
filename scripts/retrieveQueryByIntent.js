@@ -1,7 +1,6 @@
 require('dotenv').config()
 const admin = require('firebase-admin')
-const format = require('date-fns/format')
-const parse = require('date-fns/parse')
+const { format, getMonth, getDate } = require('date-fns')
 const fs = require('fs')
 
 const serviceAccount = require('./analyticsKey.json')
@@ -15,26 +14,27 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
-const start = new Date('Aug 27 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
-const end = new Date('Aug 28 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
-const intentName = 'Default Fallback Intent'
+const start = new Date('Jun 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Sept 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
-const performQuery = (start, end, intentName) => {
+const intent = {
+  name: 'Default Fallback Intent',
+  id: 'd832e961-7c6c-4b00-a608-88a5c1c3f3f5',
+}
+
+const performQuery = (start, end, intent) => {
   db.collection(`projects/${process.env.FIREBASE_PROJECT_ID}/requests`)
     .where('createdAt', '>', start)
     .where('createdAt', '<', end)
-    .where('intentId', '==', intentName)
+    .where('intentId', '==', intent.id)
     .orderBy('createdAt', 'desc')
     .get()
     .then(querySnapshot => {
       let intentDetails = []
+      let intentQueries = []
       querySnapshot.forEach(doc => {
         let tempData = doc.data()
-        console.log(tempData)
         intentDetails.push({
-          createdAt: tempData.createdAt.toDate(),
-          intentId: intent.id,
-          intentName: tempData.queryResult.intent.displayName,
           intentDetectionConfidence:
             tempData.queryResult.intentDetectionConfidence,
           messageText: tempData.queryResult.queryText,
@@ -45,16 +45,29 @@ const performQuery = (start, end, intentName) => {
               }))
             : [],
           conversationId: getIdFromPath(tempData.session),
-          botResponse: tempData.queryResult.fulfillmentText,
+          createdAt: format(tempData.createdAt.toDate(), 'MM-DD-YYYY'),
         })
+        intentQueries.push(tempData.queryResult.queryText)
       })
-      return intentDetails
+      return (intentData = { intentDetails, intentQueries })
     })
-    .then(intentDetails => {
-      // Save intents
+    .then(intentData => {
+      const startDate = format(start, 'MM-DD')
+      const endDate = format(end, 'MM-DD')
+
+      // Save full intent data
       fs.writeFile(
-        `./${intentName}.json`,
-        JSON.stringify(intentDetails),
+        `./fallbackFullDetails_${startDate}_${endDate}.json`,
+        JSON.stringify(intentData.intentDetails),
+        err => {
+          if (err) throw err
+          console.log('Saved!')
+        }
+      )
+      // Save user says details
+      fs.writeFile(
+        `./fallbackQueries_${startDate}_${endDate}.json`,
+        JSON.stringify(intentData.intentQueries),
         err => {
           if (err) throw err
           console.log('Saved!')
@@ -66,4 +79,4 @@ const performQuery = (start, end, intentName) => {
     })
 }
 
-performQuery(start, end, intentName)
+performQuery(start, end, intent)
