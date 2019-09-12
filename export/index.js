@@ -80,7 +80,7 @@ const uploadToBucket = filename => {
       console.log('Uploaded successfully')
     }
   )
-  console.log(`${filename} uploaded to ${bucketName}.`)
+  console.log(`${jsonExportName} uploaded to ${bucketName}.`)
 }
 
 const retrieveData = async () => {
@@ -138,11 +138,12 @@ const retrieveData = async () => {
   }
 }
 
-exports.handler = (event, callback) => {
+exports.handler = async (event, callback) => {
   // Retrieve today's data from Firestore
   try {
-    retrieveData()
-    cleanUpMetrics()
+    await retrieveData()
+    await cleanUpMetrics()
+    callback()
   } catch (err) {
     console.log('Error retrieving data', err)
   }
