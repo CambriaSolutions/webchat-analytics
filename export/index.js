@@ -138,7 +138,7 @@ const retrieveData = async () => {
   }
 }
 
-exports.handler = async (event, callback) => {
+exports.handler = async (event, context, callback) => {
   // Retrieve today's data from Firestore
   try {
     await retrieveData()
