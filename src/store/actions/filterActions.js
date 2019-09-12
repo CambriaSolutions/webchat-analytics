@@ -8,6 +8,7 @@ import {
   startOfDay,
   endOfDay,
   subDays,
+  addDays,
   subMonths,
   startOfQuarter,
   isSameDay,
@@ -51,25 +52,25 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
     case 'Last 7 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 7)), timezoneOffset),
-        end: formatDate(endOfDay(today), timezoneOffset),
+        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 30 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 30)), timezoneOffset),
-        end: formatDate(endOfDay(today), timezoneOffset),
+        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 60 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 60)), timezoneOffset),
-        end: formatDate(endOfDay(today), timezoneOffset),
+        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 90 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 90)), timezoneOffset),
-        end: formatDate(endOfDay(today), timezoneOffset),
+        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last quarter':
