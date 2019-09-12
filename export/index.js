@@ -143,8 +143,8 @@ exports.handler = async (event, callback) => {
   try {
     await retrieveData()
     await cleanUpMetrics()
-    callback()
+    callback(null, 'Success!');
   } catch (err) {
-    console.log('Error retrieving data', err)
+    callback(err, 'Error retrieving data');
   }
 }
