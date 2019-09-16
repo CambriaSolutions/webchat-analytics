@@ -6,6 +6,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "@google-cloud/language": "^3.2.6",
     "date-fns": "^1.30.1",
     "dotenv": "^8.1.0",
     "firebase": "^6.4.0",

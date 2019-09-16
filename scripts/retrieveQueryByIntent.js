@@ -14,7 +14,7 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
-const start = new Date('Jun 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const start = new Date('Aug 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 const end = new Date('Sept 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 const intent = {
@@ -57,7 +57,7 @@ const performQuery = (start, end, intent) => {
 
       // Save full intent data
       fs.writeFile(
-        `./fallbackFullDetails_${startDate}_${endDate}.json`,
+        `./dataFiles/fallbackFullDetails_${startDate}_${endDate}.json`,
         JSON.stringify(intentData.intentDetails),
         err => {
           if (err) throw err
@@ -66,7 +66,7 @@ const performQuery = (start, end, intent) => {
       )
       // Save user says details
       fs.writeFile(
-        `./fallbackQueries_${startDate}_${endDate}.json`,
+        `./dataFiles/fallbackQueries_${startDate}_${endDate}.json`,
         JSON.stringify(intentData.intentQueries),
         err => {
           if (err) throw err
