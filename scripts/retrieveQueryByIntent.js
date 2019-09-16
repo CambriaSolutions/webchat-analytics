@@ -2,7 +2,7 @@ require('dotenv').config()
 const admin = require('firebase-admin')
 const { format, getMonth, getDate } = require('date-fns')
 const fs = require('fs')
-
+const analyzeQueries = require('./analyzeQueries')
 const serviceAccount = require('./analyticsKey.json')
 
 admin.initializeApp({
@@ -73,6 +73,7 @@ const performQuery = (start, end, intent) => {
           console.log('Saved!')
         }
       )
+      analyzeQueries(intentData.intentDetails)
     })
     .catch(err => {
       console.log(err)

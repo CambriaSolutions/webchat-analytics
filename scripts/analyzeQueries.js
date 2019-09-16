@@ -1,6 +1,6 @@
 require('dotenv').config()
 // const queries = require('./fallbackFullDetails_06-01_09-01')
-const queries = require('./fallbackFullDetails_08-01_09-01')
+const queries = require('./dataFiles/fallbackFullDetails_08-01_09-01')
 // const queries = require('./fallbackQueries_06-01_07-01')
 // const queries = require('./fallbackQueries_07-01_08-01')
 // const queries = require('./fallbackQueries_08-01_09-01')
@@ -9,8 +9,8 @@ const fs = require('fs')
 const language = require('@google-cloud/language')
 const client = new language.LanguageServiceClient()
 
-//
-async function getEntities(query) {
+// Get entities
+const getEntities = async query => {
   let entitiesArray = []
   if (query.messageText && query.messageText.toLowerCase() !== 'no') {
     // Instantiates a client
@@ -26,28 +26,29 @@ async function getEntities(query) {
     })
   }
 
+  console.log(entitiesArray, query.messageText)
   return { entitiesArray, message: query.messageText }
 }
 
-// Annotate Text provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.
-// https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/annotateText
-async function annotateText() {
-  const individualDoc = {
-    content: query.messageText,
-    type: 'PLAIN_TEXT',
-  }
-  const features = {
-    extractSyntax: true,
-    extractEntities: true,
-    extractDocumentSentiment: true,
-    extractEntitySentiment: true,
-    classifyText: true,
-  }
-  const request = { document: individualDoc, features }
-  const [result] = await client.annotateText(request)
-}
+// // Annotate Text provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.
+// // https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/annotateText
+// async function annotateText() {
+//   const individualDoc = {
+//     content: query.messageText,
+//     type: 'PLAIN_TEXT',
+//   }
+//   const features = {
+//     extractSyntax: true,
+//     extractEntities: true,
+//     extractDocumentSentiment: true,
+//     extractEntitySentiment: true,
+//     classifyText: true,
+//   }
+//   const request = { document: individualDoc, features }
+//   const [result] = await client.annotateText(request)
+// }
 
-async function analyzeQueries() {
+const analyzeQueries = () => {
   let queryDictionary = {}
   queries.forEach(query => {
     // Store the available contexts if available
@@ -102,7 +103,7 @@ async function analyzeQueries() {
   // Loop through the invididual queries to extract entities
   queries.forEach(async (query, i) => {
     // Minimize number of times we call the API
-    if (i < 2000) {
+    if (i < 20) {
       const entities = await getEntities(query)
       if (entities) {
         entities.entitiesArray.forEach(entity => {
@@ -152,4 +153,5 @@ const thing = async () => {
     console.log(err)
   }
 }
-thing()
+
+module.exports = analyzeQueries
