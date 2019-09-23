@@ -3,7 +3,6 @@ const admin = require('firebase-admin')
 const { format } = require('date-fns')
 const fs = require('fs')
 const serviceAccount = require('./analyticsKey.json')
-const queries = require('./dataFiles/fallbackFullDetails_08-01_09-01')
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: process.env.FIREBASE_DATABASE_URL,
@@ -14,9 +13,9 @@ const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
 const start = new Date(
-  'Sept 11 2019  00:00:00 GMT-0700 (Pacific Daylight Time)'
+  'Sept 21 2019  00:00:00 GMT-0700 (Pacific Daylight Time)'
 )
-const end = new Date('Sept 13 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Sept 24 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 const intent = {
   name: 'Default Fallback Intent',
@@ -58,7 +57,7 @@ const performQuery = (start, end, intent) => {
 
       // Save full intent data
       fs.writeFile(
-        `./dataFiles/fallbackFullDetails_${startDate}_${endDate}.json`,
+        `./dataFiles_raw/fallbackFullDetails_${startDate}_${endDate}.json`,
         JSON.stringify(intentData.intentDetails),
         err => {
           if (err) throw err
@@ -67,7 +66,7 @@ const performQuery = (start, end, intent) => {
       )
       // Save user says details
       fs.writeFile(
-        `./dataFiles/fallbackQueries_${startDate}_${endDate}.json`,
+        `./dataFiles_raw/fallbackQueries_${startDate}_${endDate}.json`,
         JSON.stringify(intentData.intentQueries),
         err => {
           if (err) throw err
@@ -83,7 +82,7 @@ const performQuery = (start, end, intent) => {
 
       // Save user says details
       fs.writeFile(
-        `./dataFiles/queries_${startDate}_${endDate}.csv`,
+        `./dataFiles_raw/queries_${startDate}_${endDate}.csv`,
         data,
         err => {
           if (err) throw err

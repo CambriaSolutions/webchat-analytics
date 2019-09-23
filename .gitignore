@@ -40,3 +40,4 @@ scripts/testAnalyticsKey.json
 scripts/analyticsKey.json
 autoMl/node_modules
 
+autoMl/analyticsKey.json
