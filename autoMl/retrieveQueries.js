@@ -12,10 +12,8 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
-const start = new Date(
-  'Sept 21 2019  00:00:00 GMT-0700 (Pacific Daylight Time)'
-)
-const end = new Date('Sept 24 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const start = new Date('Sept 1 2019  00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Oct 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 const intent = {
   name: 'Default Fallback Intent',
@@ -64,31 +62,32 @@ const performQuery = (start, end, intent) => {
           console.log('Saved!')
         }
       )
-      // Save user says details
-      fs.writeFile(
-        `./dataFiles_raw/fallbackQueries_${startDate}_${endDate}.json`,
-        JSON.stringify(intentData.intentQueries),
-        err => {
-          if (err) throw err
-          console.log('Saved!')
-        }
-      )
 
-      let data = ''
-      intentData.intentQueries.forEach((line, i) => {
-        const cleanLine = line.replace(/,/g, '').trim()
-        i === 0 ? (data += cleanLine) : (data += `,\n${cleanLine}`)
-      })
+      // // Save user says details
+      // fs.writeFile(
+      //   `./dataFiles_raw/fallbackQueries_${startDate}_${endDate}.json`,
+      //   JSON.stringify(intentData.intentQueries),
+      //   err => {
+      //     if (err) throw err
+      //     console.log('Saved!')
+      //   }
+      // )
 
-      // Save user says details
-      fs.writeFile(
-        `./dataFiles_raw/queries_${startDate}_${endDate}.csv`,
-        data,
-        err => {
-          if (err) throw err
-          console.log('Saved!')
-        }
-      )
+      // let data = ''
+      // intentData.intentQueries.forEach((line, i) => {
+      //   const cleanLine = line.replace(/,/g, '').trim()
+      //   i === 0 ? (data += cleanLine) : (data += `,\n${cleanLine}`)
+      // })
+
+      // // Save user says details
+      // fs.writeFile(
+      //   `./dataFiles_raw/queries_${startDate}_${endDate}.csv`,
+      //   data,
+      //   err => {
+      //     if (err) throw err
+      //     console.log('Saved!')
+      //   }
+      // )
     })
     .catch(err => {
       console.log(err)
