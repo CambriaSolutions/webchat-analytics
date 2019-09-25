@@ -3,10 +3,6 @@ const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
 
-// Init PII remover
-const { SyncRedactor } = require('redact-pii')
-const redactor = new SyncRedactor()
-
 // Google Cloud Storage Setup
 const { Storage } = require('@google-cloud/storage')
 const storage = new Storage({
@@ -404,9 +400,6 @@ exports.storeAnalytics = functions.https.onRequest(async (req, res) => {
       }
     }
   }
-
-  // Remove PII
-  reqData.queryResult.queryText = redactor.redact(reqData.queryResult.queryText)
 
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
