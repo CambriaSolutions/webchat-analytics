@@ -69,47 +69,46 @@ const predict = async intentDetails => {
           predictionAggregate[topCategory.displayName].queries.push(
             query.messageText
           )
+
+          // Increment count of context if, if it is present
           if (contexts) {
-            contexts.forEach(context => {
-              predictionAggregate[topCategory.displayName].contexts.push(
-                context
-              )
+            contexts.forEach((currentContext, i) => {
+              const contextExists = predictionAggregate[
+                topCategory.displayName
+              ].contexts.filter(e => {
+                return e.name === currentContext
+              })
+              if (contextExists.length > 0) {
+                contextExists[0].count++
+              } else {
+                predictionAggregate[topCategory.displayName].contexts.push({
+                  name: currentContext,
+                  count: 1,
+                })
+              }
             })
           }
         } else {
+          const currentContexts = contexts.map(context => {
+            return { name: context, count: 1 }
+          })
           predictionAggregate[topCategory.displayName] = {
             occurences: 1,
             queries: [query.messageText],
-            contexts,
+            contexts: currentContexts,
           }
         }
       }
     }
   }
 
-  // Sort the contexts per category
-  for (const key in predictionAggregate) {
-    const contextArray = predictionAggregate[key].contexts
-    let contextsDictionary = {}
-    if (contextArray.length > 0) {
-      contextArray.forEach(context => {
-        if (contextsDictionary[context]) {
-          contextsDictionary[context].occurences += 1
-        } else {
-          contextsDictionary[context] = {
-            occurences: 1,
-          }
-        }
-      })
-    }
-    predictionAggregate[key].contexts = contextsDictionary
-  }
+  // Sort the contexts by occurrences
+  let contextsToSort = []
 
-  // // Sort the predictions by occurrences
+  // Sort the predictions by occurrences
   let sortable = []
   // Save predictions
   for (const prediction in predictionAggregate) {
-    console.log(predictionAggregate[prediction])
     sortable.push([
       prediction,
       predictionAggregate[prediction],
@@ -125,10 +124,9 @@ const predict = async intentDetails => {
   sortable.forEach(prediction => {
     sortedAggregate[prediction[0]] = prediction[1]
   })
-  console.log(sortedAggregate)
 
   fs.writeFile(
-    `./predictionAggregate_09-01_09-024.json`,
+    `./predictionAggregate_09-01_10-01.json`,
     JSON.stringify(sortedAggregate),
     err => {
       if (err) throw err

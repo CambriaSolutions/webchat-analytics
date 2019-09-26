@@ -38,6 +38,5 @@ scripts/node_modules
 functions/testAnalyticsKey.json
 scripts/testAnalyticsKey.json
 scripts/analyticsKey.json
-autoMl/node_modules
-
 autoMl/analyticsKey.json
+autoMl/node_modules
