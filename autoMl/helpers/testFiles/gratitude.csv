@@ -1,0 +1,1089 @@
+"occurences","queries","contexts.name","contexts.count"
+32,"no thank you for your help","waiting-restart-conversation",15
+32,"no thank you for your help","waiting-feedback-root",13
+32,"no thank you for your help","waiting-support-cancel-issue",10
+32,"no thank you for your help","waiting-pmtmethods-debit-card",3
+32,"no thank you for your help","waiting-pmts-general-receive-payments",2
+32,"no thank you for your help","waiting-feedback-helpful",2
+32,"no thank you for your help","waiting-pmts-general-non-custodial",2
+32,"no thank you for your help","waiting-pmtmethods-withhold-payments",1
+32,"no thank you for your help","waiting-maps-deliver-map",1
+32,"no thank you for your help","waiting-pmtmethods-cant-make",1
+32,"no thank you for your help","waiting-support-type",1
+32,"no thank you for your help","waiting-support-employment-status",1
+32,"no thank you for your help","waiting-support-general-inquiries",1
+32,"no thank you for your help","waiting-pmtmethods-cash",1
+32,"no thank you for your help","waiting-feedback-complete",1
+32,"no thank you for your help","waiting-support-phone-number",1
+32,"no thank you for your help","waiting-support-no-phone-number",1
+32,"no thank you for your help","waiting-pmtmethods-checkormoneyorder",1
+32,"no thank you for your help","waiting-support-employer",1
+32,"no thank you for your help","waiting-support-parent-paying",1
+32,"no thank you for your help","waiting-support-parent-receiving",1
+32,"no thank you for your help","waiting-eppi-faq",1
+32,"no thank you for your help","waiting-eppi-notifications",1
+32,"no thank you for your help","waiting-eppi-fees",1
+32,"no thank you for your help","waiting-eppi-activate",1
+32,"no thank you for your help","waiting-eppi-replace-report",1
+32,"no thank you for your help","waiting-eppi-get-card",1
+32,"no thank you for your help","waiting-pmtmethods-paynearme",1
+32,"no thank you for your help","waiting-pmtmethods-moneygram",1
+32,"no thank you for your help","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"no thank you for your help","waiting-feedback-not-helpful",1
+32,"no thank you for your help","waiting-pmtmethods-echeckdebit",1
+32,"no thank you for your help","waiting-caseqa-general-support-request",1
+32,"no thank you for your help","ticketinfo",1
+32,"No thaks","waiting-restart-conversation",15
+32,"No thaks","waiting-feedback-root",13
+32,"No thaks","waiting-support-cancel-issue",10
+32,"No thaks","waiting-pmtmethods-debit-card",3
+32,"No thaks","waiting-pmts-general-receive-payments",2
+32,"No thaks","waiting-feedback-helpful",2
+32,"No thaks","waiting-pmts-general-non-custodial",2
+32,"No thaks","waiting-pmtmethods-withhold-payments",1
+32,"No thaks","waiting-maps-deliver-map",1
+32,"No thaks","waiting-pmtmethods-cant-make",1
+32,"No thaks","waiting-support-type",1
+32,"No thaks","waiting-support-employment-status",1
+32,"No thaks","waiting-support-general-inquiries",1
+32,"No thaks","waiting-pmtmethods-cash",1
+32,"No thaks","waiting-feedback-complete",1
+32,"No thaks","waiting-support-phone-number",1
+32,"No thaks","waiting-support-no-phone-number",1
+32,"No thaks","waiting-pmtmethods-checkormoneyorder",1
+32,"No thaks","waiting-support-employer",1
+32,"No thaks","waiting-support-parent-paying",1
+32,"No thaks","waiting-support-parent-receiving",1
+32,"No thaks","waiting-eppi-faq",1
+32,"No thaks","waiting-eppi-notifications",1
+32,"No thaks","waiting-eppi-fees",1
+32,"No thaks","waiting-eppi-activate",1
+32,"No thaks","waiting-eppi-replace-report",1
+32,"No thaks","waiting-eppi-get-card",1
+32,"No thaks","waiting-pmtmethods-paynearme",1
+32,"No thaks","waiting-pmtmethods-moneygram",1
+32,"No thaks","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"No thaks","waiting-feedback-not-helpful",1
+32,"No thaks","waiting-pmtmethods-echeckdebit",1
+32,"No thaks","waiting-caseqa-general-support-request",1
+32,"No thaks","ticketinfo",1
+32,"Ok","waiting-restart-conversation",15
+32,"Ok","waiting-feedback-root",13
+32,"Ok","waiting-support-cancel-issue",10
+32,"Ok","waiting-pmtmethods-debit-card",3
+32,"Ok","waiting-pmts-general-receive-payments",2
+32,"Ok","waiting-feedback-helpful",2
+32,"Ok","waiting-pmts-general-non-custodial",2
+32,"Ok","waiting-pmtmethods-withhold-payments",1
+32,"Ok","waiting-maps-deliver-map",1
+32,"Ok","waiting-pmtmethods-cant-make",1
+32,"Ok","waiting-support-type",1
+32,"Ok","waiting-support-employment-status",1
+32,"Ok","waiting-support-general-inquiries",1
+32,"Ok","waiting-pmtmethods-cash",1
+32,"Ok","waiting-feedback-complete",1
+32,"Ok","waiting-support-phone-number",1
+32,"Ok","waiting-support-no-phone-number",1
+32,"Ok","waiting-pmtmethods-checkormoneyorder",1
+32,"Ok","waiting-support-employer",1
+32,"Ok","waiting-support-parent-paying",1
+32,"Ok","waiting-support-parent-receiving",1
+32,"Ok","waiting-eppi-faq",1
+32,"Ok","waiting-eppi-notifications",1
+32,"Ok","waiting-eppi-fees",1
+32,"Ok","waiting-eppi-activate",1
+32,"Ok","waiting-eppi-replace-report",1
+32,"Ok","waiting-eppi-get-card",1
+32,"Ok","waiting-pmtmethods-paynearme",1
+32,"Ok","waiting-pmtmethods-moneygram",1
+32,"Ok","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Ok","waiting-feedback-not-helpful",1
+32,"Ok","waiting-pmtmethods-echeckdebit",1
+32,"Ok","waiting-caseqa-general-support-request",1
+32,"Ok","ticketinfo",1
+32,"Ok","waiting-restart-conversation",15
+32,"Ok","waiting-feedback-root",13
+32,"Ok","waiting-support-cancel-issue",10
+32,"Ok","waiting-pmtmethods-debit-card",3
+32,"Ok","waiting-pmts-general-receive-payments",2
+32,"Ok","waiting-feedback-helpful",2
+32,"Ok","waiting-pmts-general-non-custodial",2
+32,"Ok","waiting-pmtmethods-withhold-payments",1
+32,"Ok","waiting-maps-deliver-map",1
+32,"Ok","waiting-pmtmethods-cant-make",1
+32,"Ok","waiting-support-type",1
+32,"Ok","waiting-support-employment-status",1
+32,"Ok","waiting-support-general-inquiries",1
+32,"Ok","waiting-pmtmethods-cash",1
+32,"Ok","waiting-feedback-complete",1
+32,"Ok","waiting-support-phone-number",1
+32,"Ok","waiting-support-no-phone-number",1
+32,"Ok","waiting-pmtmethods-checkormoneyorder",1
+32,"Ok","waiting-support-employer",1
+32,"Ok","waiting-support-parent-paying",1
+32,"Ok","waiting-support-parent-receiving",1
+32,"Ok","waiting-eppi-faq",1
+32,"Ok","waiting-eppi-notifications",1
+32,"Ok","waiting-eppi-fees",1
+32,"Ok","waiting-eppi-activate",1
+32,"Ok","waiting-eppi-replace-report",1
+32,"Ok","waiting-eppi-get-card",1
+32,"Ok","waiting-pmtmethods-paynearme",1
+32,"Ok","waiting-pmtmethods-moneygram",1
+32,"Ok","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Ok","waiting-feedback-not-helpful",1
+32,"Ok","waiting-pmtmethods-echeckdebit",1
+32,"Ok","waiting-caseqa-general-support-request",1
+32,"Ok","ticketinfo",1
+32,"Thank you","waiting-restart-conversation",15
+32,"Thank you","waiting-feedback-root",13
+32,"Thank you","waiting-support-cancel-issue",10
+32,"Thank you","waiting-pmtmethods-debit-card",3
+32,"Thank you","waiting-pmts-general-receive-payments",2
+32,"Thank you","waiting-feedback-helpful",2
+32,"Thank you","waiting-pmts-general-non-custodial",2
+32,"Thank you","waiting-pmtmethods-withhold-payments",1
+32,"Thank you","waiting-maps-deliver-map",1
+32,"Thank you","waiting-pmtmethods-cant-make",1
+32,"Thank you","waiting-support-type",1
+32,"Thank you","waiting-support-employment-status",1
+32,"Thank you","waiting-support-general-inquiries",1
+32,"Thank you","waiting-pmtmethods-cash",1
+32,"Thank you","waiting-feedback-complete",1
+32,"Thank you","waiting-support-phone-number",1
+32,"Thank you","waiting-support-no-phone-number",1
+32,"Thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"Thank you","waiting-support-employer",1
+32,"Thank you","waiting-support-parent-paying",1
+32,"Thank you","waiting-support-parent-receiving",1
+32,"Thank you","waiting-eppi-faq",1
+32,"Thank you","waiting-eppi-notifications",1
+32,"Thank you","waiting-eppi-fees",1
+32,"Thank you","waiting-eppi-activate",1
+32,"Thank you","waiting-eppi-replace-report",1
+32,"Thank you","waiting-eppi-get-card",1
+32,"Thank you","waiting-pmtmethods-paynearme",1
+32,"Thank you","waiting-pmtmethods-moneygram",1
+32,"Thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thank you","waiting-feedback-not-helpful",1
+32,"Thank you","waiting-pmtmethods-echeckdebit",1
+32,"Thank you","waiting-caseqa-general-support-request",1
+32,"Thank you","ticketinfo",1
+32,"Okay ","waiting-restart-conversation",15
+32,"Okay ","waiting-feedback-root",13
+32,"Okay ","waiting-support-cancel-issue",10
+32,"Okay ","waiting-pmtmethods-debit-card",3
+32,"Okay ","waiting-pmts-general-receive-payments",2
+32,"Okay ","waiting-feedback-helpful",2
+32,"Okay ","waiting-pmts-general-non-custodial",2
+32,"Okay ","waiting-pmtmethods-withhold-payments",1
+32,"Okay ","waiting-maps-deliver-map",1
+32,"Okay ","waiting-pmtmethods-cant-make",1
+32,"Okay ","waiting-support-type",1
+32,"Okay ","waiting-support-employment-status",1
+32,"Okay ","waiting-support-general-inquiries",1
+32,"Okay ","waiting-pmtmethods-cash",1
+32,"Okay ","waiting-feedback-complete",1
+32,"Okay ","waiting-support-phone-number",1
+32,"Okay ","waiting-support-no-phone-number",1
+32,"Okay ","waiting-pmtmethods-checkormoneyorder",1
+32,"Okay ","waiting-support-employer",1
+32,"Okay ","waiting-support-parent-paying",1
+32,"Okay ","waiting-support-parent-receiving",1
+32,"Okay ","waiting-eppi-faq",1
+32,"Okay ","waiting-eppi-notifications",1
+32,"Okay ","waiting-eppi-fees",1
+32,"Okay ","waiting-eppi-activate",1
+32,"Okay ","waiting-eppi-replace-report",1
+32,"Okay ","waiting-eppi-get-card",1
+32,"Okay ","waiting-pmtmethods-paynearme",1
+32,"Okay ","waiting-pmtmethods-moneygram",1
+32,"Okay ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Okay ","waiting-feedback-not-helpful",1
+32,"Okay ","waiting-pmtmethods-echeckdebit",1
+32,"Okay ","waiting-caseqa-general-support-request",1
+32,"Okay ","ticketinfo",1
+32,"Thanks ","waiting-restart-conversation",15
+32,"Thanks ","waiting-feedback-root",13
+32,"Thanks ","waiting-support-cancel-issue",10
+32,"Thanks ","waiting-pmtmethods-debit-card",3
+32,"Thanks ","waiting-pmts-general-receive-payments",2
+32,"Thanks ","waiting-feedback-helpful",2
+32,"Thanks ","waiting-pmts-general-non-custodial",2
+32,"Thanks ","waiting-pmtmethods-withhold-payments",1
+32,"Thanks ","waiting-maps-deliver-map",1
+32,"Thanks ","waiting-pmtmethods-cant-make",1
+32,"Thanks ","waiting-support-type",1
+32,"Thanks ","waiting-support-employment-status",1
+32,"Thanks ","waiting-support-general-inquiries",1
+32,"Thanks ","waiting-pmtmethods-cash",1
+32,"Thanks ","waiting-feedback-complete",1
+32,"Thanks ","waiting-support-phone-number",1
+32,"Thanks ","waiting-support-no-phone-number",1
+32,"Thanks ","waiting-pmtmethods-checkormoneyorder",1
+32,"Thanks ","waiting-support-employer",1
+32,"Thanks ","waiting-support-parent-paying",1
+32,"Thanks ","waiting-support-parent-receiving",1
+32,"Thanks ","waiting-eppi-faq",1
+32,"Thanks ","waiting-eppi-notifications",1
+32,"Thanks ","waiting-eppi-fees",1
+32,"Thanks ","waiting-eppi-activate",1
+32,"Thanks ","waiting-eppi-replace-report",1
+32,"Thanks ","waiting-eppi-get-card",1
+32,"Thanks ","waiting-pmtmethods-paynearme",1
+32,"Thanks ","waiting-pmtmethods-moneygram",1
+32,"Thanks ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thanks ","waiting-feedback-not-helpful",1
+32,"Thanks ","waiting-pmtmethods-echeckdebit",1
+32,"Thanks ","waiting-caseqa-general-support-request",1
+32,"Thanks ","ticketinfo",1
+32,"Thank you ","waiting-restart-conversation",15
+32,"Thank you ","waiting-feedback-root",13
+32,"Thank you ","waiting-support-cancel-issue",10
+32,"Thank you ","waiting-pmtmethods-debit-card",3
+32,"Thank you ","waiting-pmts-general-receive-payments",2
+32,"Thank you ","waiting-feedback-helpful",2
+32,"Thank you ","waiting-pmts-general-non-custodial",2
+32,"Thank you ","waiting-pmtmethods-withhold-payments",1
+32,"Thank you ","waiting-maps-deliver-map",1
+32,"Thank you ","waiting-pmtmethods-cant-make",1
+32,"Thank you ","waiting-support-type",1
+32,"Thank you ","waiting-support-employment-status",1
+32,"Thank you ","waiting-support-general-inquiries",1
+32,"Thank you ","waiting-pmtmethods-cash",1
+32,"Thank you ","waiting-feedback-complete",1
+32,"Thank you ","waiting-support-phone-number",1
+32,"Thank you ","waiting-support-no-phone-number",1
+32,"Thank you ","waiting-pmtmethods-checkormoneyorder",1
+32,"Thank you ","waiting-support-employer",1
+32,"Thank you ","waiting-support-parent-paying",1
+32,"Thank you ","waiting-support-parent-receiving",1
+32,"Thank you ","waiting-eppi-faq",1
+32,"Thank you ","waiting-eppi-notifications",1
+32,"Thank you ","waiting-eppi-fees",1
+32,"Thank you ","waiting-eppi-activate",1
+32,"Thank you ","waiting-eppi-replace-report",1
+32,"Thank you ","waiting-eppi-get-card",1
+32,"Thank you ","waiting-pmtmethods-paynearme",1
+32,"Thank you ","waiting-pmtmethods-moneygram",1
+32,"Thank you ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thank you ","waiting-feedback-not-helpful",1
+32,"Thank you ","waiting-pmtmethods-echeckdebit",1
+32,"Thank you ","waiting-caseqa-general-support-request",1
+32,"Thank you ","ticketinfo",1
+32,"Ok","waiting-restart-conversation",15
+32,"Ok","waiting-feedback-root",13
+32,"Ok","waiting-support-cancel-issue",10
+32,"Ok","waiting-pmtmethods-debit-card",3
+32,"Ok","waiting-pmts-general-receive-payments",2
+32,"Ok","waiting-feedback-helpful",2
+32,"Ok","waiting-pmts-general-non-custodial",2
+32,"Ok","waiting-pmtmethods-withhold-payments",1
+32,"Ok","waiting-maps-deliver-map",1
+32,"Ok","waiting-pmtmethods-cant-make",1
+32,"Ok","waiting-support-type",1
+32,"Ok","waiting-support-employment-status",1
+32,"Ok","waiting-support-general-inquiries",1
+32,"Ok","waiting-pmtmethods-cash",1
+32,"Ok","waiting-feedback-complete",1
+32,"Ok","waiting-support-phone-number",1
+32,"Ok","waiting-support-no-phone-number",1
+32,"Ok","waiting-pmtmethods-checkormoneyorder",1
+32,"Ok","waiting-support-employer",1
+32,"Ok","waiting-support-parent-paying",1
+32,"Ok","waiting-support-parent-receiving",1
+32,"Ok","waiting-eppi-faq",1
+32,"Ok","waiting-eppi-notifications",1
+32,"Ok","waiting-eppi-fees",1
+32,"Ok","waiting-eppi-activate",1
+32,"Ok","waiting-eppi-replace-report",1
+32,"Ok","waiting-eppi-get-card",1
+32,"Ok","waiting-pmtmethods-paynearme",1
+32,"Ok","waiting-pmtmethods-moneygram",1
+32,"Ok","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Ok","waiting-feedback-not-helpful",1
+32,"Ok","waiting-pmtmethods-echeckdebit",1
+32,"Ok","waiting-caseqa-general-support-request",1
+32,"Ok","ticketinfo",1
+32,"Thank you","waiting-restart-conversation",15
+32,"Thank you","waiting-feedback-root",13
+32,"Thank you","waiting-support-cancel-issue",10
+32,"Thank you","waiting-pmtmethods-debit-card",3
+32,"Thank you","waiting-pmts-general-receive-payments",2
+32,"Thank you","waiting-feedback-helpful",2
+32,"Thank you","waiting-pmts-general-non-custodial",2
+32,"Thank you","waiting-pmtmethods-withhold-payments",1
+32,"Thank you","waiting-maps-deliver-map",1
+32,"Thank you","waiting-pmtmethods-cant-make",1
+32,"Thank you","waiting-support-type",1
+32,"Thank you","waiting-support-employment-status",1
+32,"Thank you","waiting-support-general-inquiries",1
+32,"Thank you","waiting-pmtmethods-cash",1
+32,"Thank you","waiting-feedback-complete",1
+32,"Thank you","waiting-support-phone-number",1
+32,"Thank you","waiting-support-no-phone-number",1
+32,"Thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"Thank you","waiting-support-employer",1
+32,"Thank you","waiting-support-parent-paying",1
+32,"Thank you","waiting-support-parent-receiving",1
+32,"Thank you","waiting-eppi-faq",1
+32,"Thank you","waiting-eppi-notifications",1
+32,"Thank you","waiting-eppi-fees",1
+32,"Thank you","waiting-eppi-activate",1
+32,"Thank you","waiting-eppi-replace-report",1
+32,"Thank you","waiting-eppi-get-card",1
+32,"Thank you","waiting-pmtmethods-paynearme",1
+32,"Thank you","waiting-pmtmethods-moneygram",1
+32,"Thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thank you","waiting-feedback-not-helpful",1
+32,"Thank you","waiting-pmtmethods-echeckdebit",1
+32,"Thank you","waiting-caseqa-general-support-request",1
+32,"Thank you","ticketinfo",1
+32,"That’s all thank you ","waiting-restart-conversation",15
+32,"That’s all thank you ","waiting-feedback-root",13
+32,"That’s all thank you ","waiting-support-cancel-issue",10
+32,"That’s all thank you ","waiting-pmtmethods-debit-card",3
+32,"That’s all thank you ","waiting-pmts-general-receive-payments",2
+32,"That’s all thank you ","waiting-feedback-helpful",2
+32,"That’s all thank you ","waiting-pmts-general-non-custodial",2
+32,"That’s all thank you ","waiting-pmtmethods-withhold-payments",1
+32,"That’s all thank you ","waiting-maps-deliver-map",1
+32,"That’s all thank you ","waiting-pmtmethods-cant-make",1
+32,"That’s all thank you ","waiting-support-type",1
+32,"That’s all thank you ","waiting-support-employment-status",1
+32,"That’s all thank you ","waiting-support-general-inquiries",1
+32,"That’s all thank you ","waiting-pmtmethods-cash",1
+32,"That’s all thank you ","waiting-feedback-complete",1
+32,"That’s all thank you ","waiting-support-phone-number",1
+32,"That’s all thank you ","waiting-support-no-phone-number",1
+32,"That’s all thank you ","waiting-pmtmethods-checkormoneyorder",1
+32,"That’s all thank you ","waiting-support-employer",1
+32,"That’s all thank you ","waiting-support-parent-paying",1
+32,"That’s all thank you ","waiting-support-parent-receiving",1
+32,"That’s all thank you ","waiting-eppi-faq",1
+32,"That’s all thank you ","waiting-eppi-notifications",1
+32,"That’s all thank you ","waiting-eppi-fees",1
+32,"That’s all thank you ","waiting-eppi-activate",1
+32,"That’s all thank you ","waiting-eppi-replace-report",1
+32,"That’s all thank you ","waiting-eppi-get-card",1
+32,"That’s all thank you ","waiting-pmtmethods-paynearme",1
+32,"That’s all thank you ","waiting-pmtmethods-moneygram",1
+32,"That’s all thank you ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"That’s all thank you ","waiting-feedback-not-helpful",1
+32,"That’s all thank you ","waiting-pmtmethods-echeckdebit",1
+32,"That’s all thank you ","waiting-caseqa-general-support-request",1
+32,"That’s all thank you ","ticketinfo",1
+32,"No that’s all thank you!","waiting-restart-conversation",15
+32,"No that’s all thank you!","waiting-feedback-root",13
+32,"No that’s all thank you!","waiting-support-cancel-issue",10
+32,"No that’s all thank you!","waiting-pmtmethods-debit-card",3
+32,"No that’s all thank you!","waiting-pmts-general-receive-payments",2
+32,"No that’s all thank you!","waiting-feedback-helpful",2
+32,"No that’s all thank you!","waiting-pmts-general-non-custodial",2
+32,"No that’s all thank you!","waiting-pmtmethods-withhold-payments",1
+32,"No that’s all thank you!","waiting-maps-deliver-map",1
+32,"No that’s all thank you!","waiting-pmtmethods-cant-make",1
+32,"No that’s all thank you!","waiting-support-type",1
+32,"No that’s all thank you!","waiting-support-employment-status",1
+32,"No that’s all thank you!","waiting-support-general-inquiries",1
+32,"No that’s all thank you!","waiting-pmtmethods-cash",1
+32,"No that’s all thank you!","waiting-feedback-complete",1
+32,"No that’s all thank you!","waiting-support-phone-number",1
+32,"No that’s all thank you!","waiting-support-no-phone-number",1
+32,"No that’s all thank you!","waiting-pmtmethods-checkormoneyorder",1
+32,"No that’s all thank you!","waiting-support-employer",1
+32,"No that’s all thank you!","waiting-support-parent-paying",1
+32,"No that’s all thank you!","waiting-support-parent-receiving",1
+32,"No that’s all thank you!","waiting-eppi-faq",1
+32,"No that’s all thank you!","waiting-eppi-notifications",1
+32,"No that’s all thank you!","waiting-eppi-fees",1
+32,"No that’s all thank you!","waiting-eppi-activate",1
+32,"No that’s all thank you!","waiting-eppi-replace-report",1
+32,"No that’s all thank you!","waiting-eppi-get-card",1
+32,"No that’s all thank you!","waiting-pmtmethods-paynearme",1
+32,"No that’s all thank you!","waiting-pmtmethods-moneygram",1
+32,"No that’s all thank you!","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"No that’s all thank you!","waiting-feedback-not-helpful",1
+32,"No that’s all thank you!","waiting-pmtmethods-echeckdebit",1
+32,"No that’s all thank you!","waiting-caseqa-general-support-request",1
+32,"No that’s all thank you!","ticketinfo",1
+32,"not right now thanks","waiting-restart-conversation",15
+32,"not right now thanks","waiting-feedback-root",13
+32,"not right now thanks","waiting-support-cancel-issue",10
+32,"not right now thanks","waiting-pmtmethods-debit-card",3
+32,"not right now thanks","waiting-pmts-general-receive-payments",2
+32,"not right now thanks","waiting-feedback-helpful",2
+32,"not right now thanks","waiting-pmts-general-non-custodial",2
+32,"not right now thanks","waiting-pmtmethods-withhold-payments",1
+32,"not right now thanks","waiting-maps-deliver-map",1
+32,"not right now thanks","waiting-pmtmethods-cant-make",1
+32,"not right now thanks","waiting-support-type",1
+32,"not right now thanks","waiting-support-employment-status",1
+32,"not right now thanks","waiting-support-general-inquiries",1
+32,"not right now thanks","waiting-pmtmethods-cash",1
+32,"not right now thanks","waiting-feedback-complete",1
+32,"not right now thanks","waiting-support-phone-number",1
+32,"not right now thanks","waiting-support-no-phone-number",1
+32,"not right now thanks","waiting-pmtmethods-checkormoneyorder",1
+32,"not right now thanks","waiting-support-employer",1
+32,"not right now thanks","waiting-support-parent-paying",1
+32,"not right now thanks","waiting-support-parent-receiving",1
+32,"not right now thanks","waiting-eppi-faq",1
+32,"not right now thanks","waiting-eppi-notifications",1
+32,"not right now thanks","waiting-eppi-fees",1
+32,"not right now thanks","waiting-eppi-activate",1
+32,"not right now thanks","waiting-eppi-replace-report",1
+32,"not right now thanks","waiting-eppi-get-card",1
+32,"not right now thanks","waiting-pmtmethods-paynearme",1
+32,"not right now thanks","waiting-pmtmethods-moneygram",1
+32,"not right now thanks","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"not right now thanks","waiting-feedback-not-helpful",1
+32,"not right now thanks","waiting-pmtmethods-echeckdebit",1
+32,"not right now thanks","waiting-caseqa-general-support-request",1
+32,"not right now thanks","ticketinfo",1
+32,"welcome","waiting-restart-conversation",15
+32,"welcome","waiting-feedback-root",13
+32,"welcome","waiting-support-cancel-issue",10
+32,"welcome","waiting-pmtmethods-debit-card",3
+32,"welcome","waiting-pmts-general-receive-payments",2
+32,"welcome","waiting-feedback-helpful",2
+32,"welcome","waiting-pmts-general-non-custodial",2
+32,"welcome","waiting-pmtmethods-withhold-payments",1
+32,"welcome","waiting-maps-deliver-map",1
+32,"welcome","waiting-pmtmethods-cant-make",1
+32,"welcome","waiting-support-type",1
+32,"welcome","waiting-support-employment-status",1
+32,"welcome","waiting-support-general-inquiries",1
+32,"welcome","waiting-pmtmethods-cash",1
+32,"welcome","waiting-feedback-complete",1
+32,"welcome","waiting-support-phone-number",1
+32,"welcome","waiting-support-no-phone-number",1
+32,"welcome","waiting-pmtmethods-checkormoneyorder",1
+32,"welcome","waiting-support-employer",1
+32,"welcome","waiting-support-parent-paying",1
+32,"welcome","waiting-support-parent-receiving",1
+32,"welcome","waiting-eppi-faq",1
+32,"welcome","waiting-eppi-notifications",1
+32,"welcome","waiting-eppi-fees",1
+32,"welcome","waiting-eppi-activate",1
+32,"welcome","waiting-eppi-replace-report",1
+32,"welcome","waiting-eppi-get-card",1
+32,"welcome","waiting-pmtmethods-paynearme",1
+32,"welcome","waiting-pmtmethods-moneygram",1
+32,"welcome","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"welcome","waiting-feedback-not-helpful",1
+32,"welcome","waiting-pmtmethods-echeckdebit",1
+32,"welcome","waiting-caseqa-general-support-request",1
+32,"welcome","ticketinfo",1
+32,"Thank u ","waiting-restart-conversation",15
+32,"Thank u ","waiting-feedback-root",13
+32,"Thank u ","waiting-support-cancel-issue",10
+32,"Thank u ","waiting-pmtmethods-debit-card",3
+32,"Thank u ","waiting-pmts-general-receive-payments",2
+32,"Thank u ","waiting-feedback-helpful",2
+32,"Thank u ","waiting-pmts-general-non-custodial",2
+32,"Thank u ","waiting-pmtmethods-withhold-payments",1
+32,"Thank u ","waiting-maps-deliver-map",1
+32,"Thank u ","waiting-pmtmethods-cant-make",1
+32,"Thank u ","waiting-support-type",1
+32,"Thank u ","waiting-support-employment-status",1
+32,"Thank u ","waiting-support-general-inquiries",1
+32,"Thank u ","waiting-pmtmethods-cash",1
+32,"Thank u ","waiting-feedback-complete",1
+32,"Thank u ","waiting-support-phone-number",1
+32,"Thank u ","waiting-support-no-phone-number",1
+32,"Thank u ","waiting-pmtmethods-checkormoneyorder",1
+32,"Thank u ","waiting-support-employer",1
+32,"Thank u ","waiting-support-parent-paying",1
+32,"Thank u ","waiting-support-parent-receiving",1
+32,"Thank u ","waiting-eppi-faq",1
+32,"Thank u ","waiting-eppi-notifications",1
+32,"Thank u ","waiting-eppi-fees",1
+32,"Thank u ","waiting-eppi-activate",1
+32,"Thank u ","waiting-eppi-replace-report",1
+32,"Thank u ","waiting-eppi-get-card",1
+32,"Thank u ","waiting-pmtmethods-paynearme",1
+32,"Thank u ","waiting-pmtmethods-moneygram",1
+32,"Thank u ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thank u ","waiting-feedback-not-helpful",1
+32,"Thank u ","waiting-pmtmethods-echeckdebit",1
+32,"Thank u ","waiting-caseqa-general-support-request",1
+32,"Thank u ","ticketinfo",1
+32,"Thank you","waiting-restart-conversation",15
+32,"Thank you","waiting-feedback-root",13
+32,"Thank you","waiting-support-cancel-issue",10
+32,"Thank you","waiting-pmtmethods-debit-card",3
+32,"Thank you","waiting-pmts-general-receive-payments",2
+32,"Thank you","waiting-feedback-helpful",2
+32,"Thank you","waiting-pmts-general-non-custodial",2
+32,"Thank you","waiting-pmtmethods-withhold-payments",1
+32,"Thank you","waiting-maps-deliver-map",1
+32,"Thank you","waiting-pmtmethods-cant-make",1
+32,"Thank you","waiting-support-type",1
+32,"Thank you","waiting-support-employment-status",1
+32,"Thank you","waiting-support-general-inquiries",1
+32,"Thank you","waiting-pmtmethods-cash",1
+32,"Thank you","waiting-feedback-complete",1
+32,"Thank you","waiting-support-phone-number",1
+32,"Thank you","waiting-support-no-phone-number",1
+32,"Thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"Thank you","waiting-support-employer",1
+32,"Thank you","waiting-support-parent-paying",1
+32,"Thank you","waiting-support-parent-receiving",1
+32,"Thank you","waiting-eppi-faq",1
+32,"Thank you","waiting-eppi-notifications",1
+32,"Thank you","waiting-eppi-fees",1
+32,"Thank you","waiting-eppi-activate",1
+32,"Thank you","waiting-eppi-replace-report",1
+32,"Thank you","waiting-eppi-get-card",1
+32,"Thank you","waiting-pmtmethods-paynearme",1
+32,"Thank you","waiting-pmtmethods-moneygram",1
+32,"Thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thank you","waiting-feedback-not-helpful",1
+32,"Thank you","waiting-pmtmethods-echeckdebit",1
+32,"Thank you","waiting-caseqa-general-support-request",1
+32,"Thank you","ticketinfo",1
+32,"Not at this time","waiting-restart-conversation",15
+32,"Not at this time","waiting-feedback-root",13
+32,"Not at this time","waiting-support-cancel-issue",10
+32,"Not at this time","waiting-pmtmethods-debit-card",3
+32,"Not at this time","waiting-pmts-general-receive-payments",2
+32,"Not at this time","waiting-feedback-helpful",2
+32,"Not at this time","waiting-pmts-general-non-custodial",2
+32,"Not at this time","waiting-pmtmethods-withhold-payments",1
+32,"Not at this time","waiting-maps-deliver-map",1
+32,"Not at this time","waiting-pmtmethods-cant-make",1
+32,"Not at this time","waiting-support-type",1
+32,"Not at this time","waiting-support-employment-status",1
+32,"Not at this time","waiting-support-general-inquiries",1
+32,"Not at this time","waiting-pmtmethods-cash",1
+32,"Not at this time","waiting-feedback-complete",1
+32,"Not at this time","waiting-support-phone-number",1
+32,"Not at this time","waiting-support-no-phone-number",1
+32,"Not at this time","waiting-pmtmethods-checkormoneyorder",1
+32,"Not at this time","waiting-support-employer",1
+32,"Not at this time","waiting-support-parent-paying",1
+32,"Not at this time","waiting-support-parent-receiving",1
+32,"Not at this time","waiting-eppi-faq",1
+32,"Not at this time","waiting-eppi-notifications",1
+32,"Not at this time","waiting-eppi-fees",1
+32,"Not at this time","waiting-eppi-activate",1
+32,"Not at this time","waiting-eppi-replace-report",1
+32,"Not at this time","waiting-eppi-get-card",1
+32,"Not at this time","waiting-pmtmethods-paynearme",1
+32,"Not at this time","waiting-pmtmethods-moneygram",1
+32,"Not at this time","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Not at this time","waiting-feedback-not-helpful",1
+32,"Not at this time","waiting-pmtmethods-echeckdebit",1
+32,"Not at this time","waiting-caseqa-general-support-request",1
+32,"Not at this time","ticketinfo",1
+32,"thank you ","waiting-restart-conversation",15
+32,"thank you ","waiting-feedback-root",13
+32,"thank you ","waiting-support-cancel-issue",10
+32,"thank you ","waiting-pmtmethods-debit-card",3
+32,"thank you ","waiting-pmts-general-receive-payments",2
+32,"thank you ","waiting-feedback-helpful",2
+32,"thank you ","waiting-pmts-general-non-custodial",2
+32,"thank you ","waiting-pmtmethods-withhold-payments",1
+32,"thank you ","waiting-maps-deliver-map",1
+32,"thank you ","waiting-pmtmethods-cant-make",1
+32,"thank you ","waiting-support-type",1
+32,"thank you ","waiting-support-employment-status",1
+32,"thank you ","waiting-support-general-inquiries",1
+32,"thank you ","waiting-pmtmethods-cash",1
+32,"thank you ","waiting-feedback-complete",1
+32,"thank you ","waiting-support-phone-number",1
+32,"thank you ","waiting-support-no-phone-number",1
+32,"thank you ","waiting-pmtmethods-checkormoneyorder",1
+32,"thank you ","waiting-support-employer",1
+32,"thank you ","waiting-support-parent-paying",1
+32,"thank you ","waiting-support-parent-receiving",1
+32,"thank you ","waiting-eppi-faq",1
+32,"thank you ","waiting-eppi-notifications",1
+32,"thank you ","waiting-eppi-fees",1
+32,"thank you ","waiting-eppi-activate",1
+32,"thank you ","waiting-eppi-replace-report",1
+32,"thank you ","waiting-eppi-get-card",1
+32,"thank you ","waiting-pmtmethods-paynearme",1
+32,"thank you ","waiting-pmtmethods-moneygram",1
+32,"thank you ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"thank you ","waiting-feedback-not-helpful",1
+32,"thank you ","waiting-pmtmethods-echeckdebit",1
+32,"thank you ","waiting-caseqa-general-support-request",1
+32,"thank you ","ticketinfo",1
+32,"thank you ","waiting-restart-conversation",15
+32,"thank you ","waiting-feedback-root",13
+32,"thank you ","waiting-support-cancel-issue",10
+32,"thank you ","waiting-pmtmethods-debit-card",3
+32,"thank you ","waiting-pmts-general-receive-payments",2
+32,"thank you ","waiting-feedback-helpful",2
+32,"thank you ","waiting-pmts-general-non-custodial",2
+32,"thank you ","waiting-pmtmethods-withhold-payments",1
+32,"thank you ","waiting-maps-deliver-map",1
+32,"thank you ","waiting-pmtmethods-cant-make",1
+32,"thank you ","waiting-support-type",1
+32,"thank you ","waiting-support-employment-status",1
+32,"thank you ","waiting-support-general-inquiries",1
+32,"thank you ","waiting-pmtmethods-cash",1
+32,"thank you ","waiting-feedback-complete",1
+32,"thank you ","waiting-support-phone-number",1
+32,"thank you ","waiting-support-no-phone-number",1
+32,"thank you ","waiting-pmtmethods-checkormoneyorder",1
+32,"thank you ","waiting-support-employer",1
+32,"thank you ","waiting-support-parent-paying",1
+32,"thank you ","waiting-support-parent-receiving",1
+32,"thank you ","waiting-eppi-faq",1
+32,"thank you ","waiting-eppi-notifications",1
+32,"thank you ","waiting-eppi-fees",1
+32,"thank you ","waiting-eppi-activate",1
+32,"thank you ","waiting-eppi-replace-report",1
+32,"thank you ","waiting-eppi-get-card",1
+32,"thank you ","waiting-pmtmethods-paynearme",1
+32,"thank you ","waiting-pmtmethods-moneygram",1
+32,"thank you ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"thank you ","waiting-feedback-not-helpful",1
+32,"thank you ","waiting-pmtmethods-echeckdebit",1
+32,"thank you ","waiting-caseqa-general-support-request",1
+32,"thank you ","ticketinfo",1
+32,"Great. ","waiting-restart-conversation",15
+32,"Great. ","waiting-feedback-root",13
+32,"Great. ","waiting-support-cancel-issue",10
+32,"Great. ","waiting-pmtmethods-debit-card",3
+32,"Great. ","waiting-pmts-general-receive-payments",2
+32,"Great. ","waiting-feedback-helpful",2
+32,"Great. ","waiting-pmts-general-non-custodial",2
+32,"Great. ","waiting-pmtmethods-withhold-payments",1
+32,"Great. ","waiting-maps-deliver-map",1
+32,"Great. ","waiting-pmtmethods-cant-make",1
+32,"Great. ","waiting-support-type",1
+32,"Great. ","waiting-support-employment-status",1
+32,"Great. ","waiting-support-general-inquiries",1
+32,"Great. ","waiting-pmtmethods-cash",1
+32,"Great. ","waiting-feedback-complete",1
+32,"Great. ","waiting-support-phone-number",1
+32,"Great. ","waiting-support-no-phone-number",1
+32,"Great. ","waiting-pmtmethods-checkormoneyorder",1
+32,"Great. ","waiting-support-employer",1
+32,"Great. ","waiting-support-parent-paying",1
+32,"Great. ","waiting-support-parent-receiving",1
+32,"Great. ","waiting-eppi-faq",1
+32,"Great. ","waiting-eppi-notifications",1
+32,"Great. ","waiting-eppi-fees",1
+32,"Great. ","waiting-eppi-activate",1
+32,"Great. ","waiting-eppi-replace-report",1
+32,"Great. ","waiting-eppi-get-card",1
+32,"Great. ","waiting-pmtmethods-paynearme",1
+32,"Great. ","waiting-pmtmethods-moneygram",1
+32,"Great. ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Great. ","waiting-feedback-not-helpful",1
+32,"Great. ","waiting-pmtmethods-echeckdebit",1
+32,"Great. ","waiting-caseqa-general-support-request",1
+32,"Great. ","ticketinfo",1
+32,"Thank you","waiting-restart-conversation",15
+32,"Thank you","waiting-feedback-root",13
+32,"Thank you","waiting-support-cancel-issue",10
+32,"Thank you","waiting-pmtmethods-debit-card",3
+32,"Thank you","waiting-pmts-general-receive-payments",2
+32,"Thank you","waiting-feedback-helpful",2
+32,"Thank you","waiting-pmts-general-non-custodial",2
+32,"Thank you","waiting-pmtmethods-withhold-payments",1
+32,"Thank you","waiting-maps-deliver-map",1
+32,"Thank you","waiting-pmtmethods-cant-make",1
+32,"Thank you","waiting-support-type",1
+32,"Thank you","waiting-support-employment-status",1
+32,"Thank you","waiting-support-general-inquiries",1
+32,"Thank you","waiting-pmtmethods-cash",1
+32,"Thank you","waiting-feedback-complete",1
+32,"Thank you","waiting-support-phone-number",1
+32,"Thank you","waiting-support-no-phone-number",1
+32,"Thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"Thank you","waiting-support-employer",1
+32,"Thank you","waiting-support-parent-paying",1
+32,"Thank you","waiting-support-parent-receiving",1
+32,"Thank you","waiting-eppi-faq",1
+32,"Thank you","waiting-eppi-notifications",1
+32,"Thank you","waiting-eppi-fees",1
+32,"Thank you","waiting-eppi-activate",1
+32,"Thank you","waiting-eppi-replace-report",1
+32,"Thank you","waiting-eppi-get-card",1
+32,"Thank you","waiting-pmtmethods-paynearme",1
+32,"Thank you","waiting-pmtmethods-moneygram",1
+32,"Thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Thank you","waiting-feedback-not-helpful",1
+32,"Thank you","waiting-pmtmethods-echeckdebit",1
+32,"Thank you","waiting-caseqa-general-support-request",1
+32,"Thank you","ticketinfo",1
+32,"Yes ","waiting-restart-conversation",15
+32,"Yes ","waiting-feedback-root",13
+32,"Yes ","waiting-support-cancel-issue",10
+32,"Yes ","waiting-pmtmethods-debit-card",3
+32,"Yes ","waiting-pmts-general-receive-payments",2
+32,"Yes ","waiting-feedback-helpful",2
+32,"Yes ","waiting-pmts-general-non-custodial",2
+32,"Yes ","waiting-pmtmethods-withhold-payments",1
+32,"Yes ","waiting-maps-deliver-map",1
+32,"Yes ","waiting-pmtmethods-cant-make",1
+32,"Yes ","waiting-support-type",1
+32,"Yes ","waiting-support-employment-status",1
+32,"Yes ","waiting-support-general-inquiries",1
+32,"Yes ","waiting-pmtmethods-cash",1
+32,"Yes ","waiting-feedback-complete",1
+32,"Yes ","waiting-support-phone-number",1
+32,"Yes ","waiting-support-no-phone-number",1
+32,"Yes ","waiting-pmtmethods-checkormoneyorder",1
+32,"Yes ","waiting-support-employer",1
+32,"Yes ","waiting-support-parent-paying",1
+32,"Yes ","waiting-support-parent-receiving",1
+32,"Yes ","waiting-eppi-faq",1
+32,"Yes ","waiting-eppi-notifications",1
+32,"Yes ","waiting-eppi-fees",1
+32,"Yes ","waiting-eppi-activate",1
+32,"Yes ","waiting-eppi-replace-report",1
+32,"Yes ","waiting-eppi-get-card",1
+32,"Yes ","waiting-pmtmethods-paynearme",1
+32,"Yes ","waiting-pmtmethods-moneygram",1
+32,"Yes ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Yes ","waiting-feedback-not-helpful",1
+32,"Yes ","waiting-pmtmethods-echeckdebit",1
+32,"Yes ","waiting-caseqa-general-support-request",1
+32,"Yes ","ticketinfo",1
+32,"Yes ","waiting-restart-conversation",15
+32,"Yes ","waiting-feedback-root",13
+32,"Yes ","waiting-support-cancel-issue",10
+32,"Yes ","waiting-pmtmethods-debit-card",3
+32,"Yes ","waiting-pmts-general-receive-payments",2
+32,"Yes ","waiting-feedback-helpful",2
+32,"Yes ","waiting-pmts-general-non-custodial",2
+32,"Yes ","waiting-pmtmethods-withhold-payments",1
+32,"Yes ","waiting-maps-deliver-map",1
+32,"Yes ","waiting-pmtmethods-cant-make",1
+32,"Yes ","waiting-support-type",1
+32,"Yes ","waiting-support-employment-status",1
+32,"Yes ","waiting-support-general-inquiries",1
+32,"Yes ","waiting-pmtmethods-cash",1
+32,"Yes ","waiting-feedback-complete",1
+32,"Yes ","waiting-support-phone-number",1
+32,"Yes ","waiting-support-no-phone-number",1
+32,"Yes ","waiting-pmtmethods-checkormoneyorder",1
+32,"Yes ","waiting-support-employer",1
+32,"Yes ","waiting-support-parent-paying",1
+32,"Yes ","waiting-support-parent-receiving",1
+32,"Yes ","waiting-eppi-faq",1
+32,"Yes ","waiting-eppi-notifications",1
+32,"Yes ","waiting-eppi-fees",1
+32,"Yes ","waiting-eppi-activate",1
+32,"Yes ","waiting-eppi-replace-report",1
+32,"Yes ","waiting-eppi-get-card",1
+32,"Yes ","waiting-pmtmethods-paynearme",1
+32,"Yes ","waiting-pmtmethods-moneygram",1
+32,"Yes ","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Yes ","waiting-feedback-not-helpful",1
+32,"Yes ","waiting-pmtmethods-echeckdebit",1
+32,"Yes ","waiting-caseqa-general-support-request",1
+32,"Yes ","ticketinfo",1
+32,"No , but thank you🙂","waiting-restart-conversation",15
+32,"No , but thank you🙂","waiting-feedback-root",13
+32,"No , but thank you🙂","waiting-support-cancel-issue",10
+32,"No , but thank you🙂","waiting-pmtmethods-debit-card",3
+32,"No , but thank you🙂","waiting-pmts-general-receive-payments",2
+32,"No , but thank you🙂","waiting-feedback-helpful",2
+32,"No , but thank you🙂","waiting-pmts-general-non-custodial",2
+32,"No , but thank you🙂","waiting-pmtmethods-withhold-payments",1
+32,"No , but thank you🙂","waiting-maps-deliver-map",1
+32,"No , but thank you🙂","waiting-pmtmethods-cant-make",1
+32,"No , but thank you🙂","waiting-support-type",1
+32,"No , but thank you🙂","waiting-support-employment-status",1
+32,"No , but thank you🙂","waiting-support-general-inquiries",1
+32,"No , but thank you🙂","waiting-pmtmethods-cash",1
+32,"No , but thank you🙂","waiting-feedback-complete",1
+32,"No , but thank you🙂","waiting-support-phone-number",1
+32,"No , but thank you🙂","waiting-support-no-phone-number",1
+32,"No , but thank you🙂","waiting-pmtmethods-checkormoneyorder",1
+32,"No , but thank you🙂","waiting-support-employer",1
+32,"No , but thank you🙂","waiting-support-parent-paying",1
+32,"No , but thank you🙂","waiting-support-parent-receiving",1
+32,"No , but thank you🙂","waiting-eppi-faq",1
+32,"No , but thank you🙂","waiting-eppi-notifications",1
+32,"No , but thank you🙂","waiting-eppi-fees",1
+32,"No , but thank you🙂","waiting-eppi-activate",1
+32,"No , but thank you🙂","waiting-eppi-replace-report",1
+32,"No , but thank you🙂","waiting-eppi-get-card",1
+32,"No , but thank you🙂","waiting-pmtmethods-paynearme",1
+32,"No , but thank you🙂","waiting-pmtmethods-moneygram",1
+32,"No , but thank you🙂","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"No , but thank you🙂","waiting-feedback-not-helpful",1
+32,"No , but thank you🙂","waiting-pmtmethods-echeckdebit",1
+32,"No , but thank you🙂","waiting-caseqa-general-support-request",1
+32,"No , but thank you🙂","ticketinfo",1
+32,"Okay","waiting-restart-conversation",15
+32,"Okay","waiting-feedback-root",13
+32,"Okay","waiting-support-cancel-issue",10
+32,"Okay","waiting-pmtmethods-debit-card",3
+32,"Okay","waiting-pmts-general-receive-payments",2
+32,"Okay","waiting-feedback-helpful",2
+32,"Okay","waiting-pmts-general-non-custodial",2
+32,"Okay","waiting-pmtmethods-withhold-payments",1
+32,"Okay","waiting-maps-deliver-map",1
+32,"Okay","waiting-pmtmethods-cant-make",1
+32,"Okay","waiting-support-type",1
+32,"Okay","waiting-support-employment-status",1
+32,"Okay","waiting-support-general-inquiries",1
+32,"Okay","waiting-pmtmethods-cash",1
+32,"Okay","waiting-feedback-complete",1
+32,"Okay","waiting-support-phone-number",1
+32,"Okay","waiting-support-no-phone-number",1
+32,"Okay","waiting-pmtmethods-checkormoneyorder",1
+32,"Okay","waiting-support-employer",1
+32,"Okay","waiting-support-parent-paying",1
+32,"Okay","waiting-support-parent-receiving",1
+32,"Okay","waiting-eppi-faq",1
+32,"Okay","waiting-eppi-notifications",1
+32,"Okay","waiting-eppi-fees",1
+32,"Okay","waiting-eppi-activate",1
+32,"Okay","waiting-eppi-replace-report",1
+32,"Okay","waiting-eppi-get-card",1
+32,"Okay","waiting-pmtmethods-paynearme",1
+32,"Okay","waiting-pmtmethods-moneygram",1
+32,"Okay","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Okay","waiting-feedback-not-helpful",1
+32,"Okay","waiting-pmtmethods-echeckdebit",1
+32,"Okay","waiting-caseqa-general-support-request",1
+32,"Okay","ticketinfo",1
+32,"Yes. Very.","waiting-restart-conversation",15
+32,"Yes. Very.","waiting-feedback-root",13
+32,"Yes. Very.","waiting-support-cancel-issue",10
+32,"Yes. Very.","waiting-pmtmethods-debit-card",3
+32,"Yes. Very.","waiting-pmts-general-receive-payments",2
+32,"Yes. Very.","waiting-feedback-helpful",2
+32,"Yes. Very.","waiting-pmts-general-non-custodial",2
+32,"Yes. Very.","waiting-pmtmethods-withhold-payments",1
+32,"Yes. Very.","waiting-maps-deliver-map",1
+32,"Yes. Very.","waiting-pmtmethods-cant-make",1
+32,"Yes. Very.","waiting-support-type",1
+32,"Yes. Very.","waiting-support-employment-status",1
+32,"Yes. Very.","waiting-support-general-inquiries",1
+32,"Yes. Very.","waiting-pmtmethods-cash",1
+32,"Yes. Very.","waiting-feedback-complete",1
+32,"Yes. Very.","waiting-support-phone-number",1
+32,"Yes. Very.","waiting-support-no-phone-number",1
+32,"Yes. Very.","waiting-pmtmethods-checkormoneyorder",1
+32,"Yes. Very.","waiting-support-employer",1
+32,"Yes. Very.","waiting-support-parent-paying",1
+32,"Yes. Very.","waiting-support-parent-receiving",1
+32,"Yes. Very.","waiting-eppi-faq",1
+32,"Yes. Very.","waiting-eppi-notifications",1
+32,"Yes. Very.","waiting-eppi-fees",1
+32,"Yes. Very.","waiting-eppi-activate",1
+32,"Yes. Very.","waiting-eppi-replace-report",1
+32,"Yes. Very.","waiting-eppi-get-card",1
+32,"Yes. Very.","waiting-pmtmethods-paynearme",1
+32,"Yes. Very.","waiting-pmtmethods-moneygram",1
+32,"Yes. Very.","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Yes. Very.","waiting-feedback-not-helpful",1
+32,"Yes. Very.","waiting-pmtmethods-echeckdebit",1
+32,"Yes. Very.","waiting-caseqa-general-support-request",1
+32,"Yes. Very.","ticketinfo",1
+32,"thank you","waiting-restart-conversation",15
+32,"thank you","waiting-feedback-root",13
+32,"thank you","waiting-support-cancel-issue",10
+32,"thank you","waiting-pmtmethods-debit-card",3
+32,"thank you","waiting-pmts-general-receive-payments",2
+32,"thank you","waiting-feedback-helpful",2
+32,"thank you","waiting-pmts-general-non-custodial",2
+32,"thank you","waiting-pmtmethods-withhold-payments",1
+32,"thank you","waiting-maps-deliver-map",1
+32,"thank you","waiting-pmtmethods-cant-make",1
+32,"thank you","waiting-support-type",1
+32,"thank you","waiting-support-employment-status",1
+32,"thank you","waiting-support-general-inquiries",1
+32,"thank you","waiting-pmtmethods-cash",1
+32,"thank you","waiting-feedback-complete",1
+32,"thank you","waiting-support-phone-number",1
+32,"thank you","waiting-support-no-phone-number",1
+32,"thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"thank you","waiting-support-employer",1
+32,"thank you","waiting-support-parent-paying",1
+32,"thank you","waiting-support-parent-receiving",1
+32,"thank you","waiting-eppi-faq",1
+32,"thank you","waiting-eppi-notifications",1
+32,"thank you","waiting-eppi-fees",1
+32,"thank you","waiting-eppi-activate",1
+32,"thank you","waiting-eppi-replace-report",1
+32,"thank you","waiting-eppi-get-card",1
+32,"thank you","waiting-pmtmethods-paynearme",1
+32,"thank you","waiting-pmtmethods-moneygram",1
+32,"thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"thank you","waiting-feedback-not-helpful",1
+32,"thank you","waiting-pmtmethods-echeckdebit",1
+32,"thank you","waiting-caseqa-general-support-request",1
+32,"thank you","ticketinfo",1
+32,"thank you","waiting-restart-conversation",15
+32,"thank you","waiting-feedback-root",13
+32,"thank you","waiting-support-cancel-issue",10
+32,"thank you","waiting-pmtmethods-debit-card",3
+32,"thank you","waiting-pmts-general-receive-payments",2
+32,"thank you","waiting-feedback-helpful",2
+32,"thank you","waiting-pmts-general-non-custodial",2
+32,"thank you","waiting-pmtmethods-withhold-payments",1
+32,"thank you","waiting-maps-deliver-map",1
+32,"thank you","waiting-pmtmethods-cant-make",1
+32,"thank you","waiting-support-type",1
+32,"thank you","waiting-support-employment-status",1
+32,"thank you","waiting-support-general-inquiries",1
+32,"thank you","waiting-pmtmethods-cash",1
+32,"thank you","waiting-feedback-complete",1
+32,"thank you","waiting-support-phone-number",1
+32,"thank you","waiting-support-no-phone-number",1
+32,"thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"thank you","waiting-support-employer",1
+32,"thank you","waiting-support-parent-paying",1
+32,"thank you","waiting-support-parent-receiving",1
+32,"thank you","waiting-eppi-faq",1
+32,"thank you","waiting-eppi-notifications",1
+32,"thank you","waiting-eppi-fees",1
+32,"thank you","waiting-eppi-activate",1
+32,"thank you","waiting-eppi-replace-report",1
+32,"thank you","waiting-eppi-get-card",1
+32,"thank you","waiting-pmtmethods-paynearme",1
+32,"thank you","waiting-pmtmethods-moneygram",1
+32,"thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"thank you","waiting-feedback-not-helpful",1
+32,"thank you","waiting-pmtmethods-echeckdebit",1
+32,"thank you","waiting-caseqa-general-support-request",1
+32,"thank you","ticketinfo",1
+32,"Lol ok thanks","waiting-restart-conversation",15
+32,"Lol ok thanks","waiting-feedback-root",13
+32,"Lol ok thanks","waiting-support-cancel-issue",10
+32,"Lol ok thanks","waiting-pmtmethods-debit-card",3
+32,"Lol ok thanks","waiting-pmts-general-receive-payments",2
+32,"Lol ok thanks","waiting-feedback-helpful",2
+32,"Lol ok thanks","waiting-pmts-general-non-custodial",2
+32,"Lol ok thanks","waiting-pmtmethods-withhold-payments",1
+32,"Lol ok thanks","waiting-maps-deliver-map",1
+32,"Lol ok thanks","waiting-pmtmethods-cant-make",1
+32,"Lol ok thanks","waiting-support-type",1
+32,"Lol ok thanks","waiting-support-employment-status",1
+32,"Lol ok thanks","waiting-support-general-inquiries",1
+32,"Lol ok thanks","waiting-pmtmethods-cash",1
+32,"Lol ok thanks","waiting-feedback-complete",1
+32,"Lol ok thanks","waiting-support-phone-number",1
+32,"Lol ok thanks","waiting-support-no-phone-number",1
+32,"Lol ok thanks","waiting-pmtmethods-checkormoneyorder",1
+32,"Lol ok thanks","waiting-support-employer",1
+32,"Lol ok thanks","waiting-support-parent-paying",1
+32,"Lol ok thanks","waiting-support-parent-receiving",1
+32,"Lol ok thanks","waiting-eppi-faq",1
+32,"Lol ok thanks","waiting-eppi-notifications",1
+32,"Lol ok thanks","waiting-eppi-fees",1
+32,"Lol ok thanks","waiting-eppi-activate",1
+32,"Lol ok thanks","waiting-eppi-replace-report",1
+32,"Lol ok thanks","waiting-eppi-get-card",1
+32,"Lol ok thanks","waiting-pmtmethods-paynearme",1
+32,"Lol ok thanks","waiting-pmtmethods-moneygram",1
+32,"Lol ok thanks","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Lol ok thanks","waiting-feedback-not-helpful",1
+32,"Lol ok thanks","waiting-pmtmethods-echeckdebit",1
+32,"Lol ok thanks","waiting-caseqa-general-support-request",1
+32,"Lol ok thanks","ticketinfo",1
+32,"thank you","waiting-restart-conversation",15
+32,"thank you","waiting-feedback-root",13
+32,"thank you","waiting-support-cancel-issue",10
+32,"thank you","waiting-pmtmethods-debit-card",3
+32,"thank you","waiting-pmts-general-receive-payments",2
+32,"thank you","waiting-feedback-helpful",2
+32,"thank you","waiting-pmts-general-non-custodial",2
+32,"thank you","waiting-pmtmethods-withhold-payments",1
+32,"thank you","waiting-maps-deliver-map",1
+32,"thank you","waiting-pmtmethods-cant-make",1
+32,"thank you","waiting-support-type",1
+32,"thank you","waiting-support-employment-status",1
+32,"thank you","waiting-support-general-inquiries",1
+32,"thank you","waiting-pmtmethods-cash",1
+32,"thank you","waiting-feedback-complete",1
+32,"thank you","waiting-support-phone-number",1
+32,"thank you","waiting-support-no-phone-number",1
+32,"thank you","waiting-pmtmethods-checkormoneyorder",1
+32,"thank you","waiting-support-employer",1
+32,"thank you","waiting-support-parent-paying",1
+32,"thank you","waiting-support-parent-receiving",1
+32,"thank you","waiting-eppi-faq",1
+32,"thank you","waiting-eppi-notifications",1
+32,"thank you","waiting-eppi-fees",1
+32,"thank you","waiting-eppi-activate",1
+32,"thank you","waiting-eppi-replace-report",1
+32,"thank you","waiting-eppi-get-card",1
+32,"thank you","waiting-pmtmethods-paynearme",1
+32,"thank you","waiting-pmtmethods-moneygram",1
+32,"thank you","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"thank you","waiting-feedback-not-helpful",1
+32,"thank you","waiting-pmtmethods-echeckdebit",1
+32,"thank you","waiting-caseqa-general-support-request",1
+32,"thank you","ticketinfo",1
+32,"Ok","waiting-restart-conversation",15
+32,"Ok","waiting-feedback-root",13
+32,"Ok","waiting-support-cancel-issue",10
+32,"Ok","waiting-pmtmethods-debit-card",3
+32,"Ok","waiting-pmts-general-receive-payments",2
+32,"Ok","waiting-feedback-helpful",2
+32,"Ok","waiting-pmts-general-non-custodial",2
+32,"Ok","waiting-pmtmethods-withhold-payments",1
+32,"Ok","waiting-maps-deliver-map",1
+32,"Ok","waiting-pmtmethods-cant-make",1
+32,"Ok","waiting-support-type",1
+32,"Ok","waiting-support-employment-status",1
+32,"Ok","waiting-support-general-inquiries",1
+32,"Ok","waiting-pmtmethods-cash",1
+32,"Ok","waiting-feedback-complete",1
+32,"Ok","waiting-support-phone-number",1
+32,"Ok","waiting-support-no-phone-number",1
+32,"Ok","waiting-pmtmethods-checkormoneyorder",1
+32,"Ok","waiting-support-employer",1
+32,"Ok","waiting-support-parent-paying",1
+32,"Ok","waiting-support-parent-receiving",1
+32,"Ok","waiting-eppi-faq",1
+32,"Ok","waiting-eppi-notifications",1
+32,"Ok","waiting-eppi-fees",1
+32,"Ok","waiting-eppi-activate",1
+32,"Ok","waiting-eppi-replace-report",1
+32,"Ok","waiting-eppi-get-card",1
+32,"Ok","waiting-pmtmethods-paynearme",1
+32,"Ok","waiting-pmtmethods-moneygram",1
+32,"Ok","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Ok","waiting-feedback-not-helpful",1
+32,"Ok","waiting-pmtmethods-echeckdebit",1
+32,"Ok","waiting-caseqa-general-support-request",1
+32,"Ok","ticketinfo",1
+32,"Ok","waiting-restart-conversation",15
+32,"Ok","waiting-feedback-root",13
+32,"Ok","waiting-support-cancel-issue",10
+32,"Ok","waiting-pmtmethods-debit-card",3
+32,"Ok","waiting-pmts-general-receive-payments",2
+32,"Ok","waiting-feedback-helpful",2
+32,"Ok","waiting-pmts-general-non-custodial",2
+32,"Ok","waiting-pmtmethods-withhold-payments",1
+32,"Ok","waiting-maps-deliver-map",1
+32,"Ok","waiting-pmtmethods-cant-make",1
+32,"Ok","waiting-support-type",1
+32,"Ok","waiting-support-employment-status",1
+32,"Ok","waiting-support-general-inquiries",1
+32,"Ok","waiting-pmtmethods-cash",1
+32,"Ok","waiting-feedback-complete",1
+32,"Ok","waiting-support-phone-number",1
+32,"Ok","waiting-support-no-phone-number",1
+32,"Ok","waiting-pmtmethods-checkormoneyorder",1
+32,"Ok","waiting-support-employer",1
+32,"Ok","waiting-support-parent-paying",1
+32,"Ok","waiting-support-parent-receiving",1
+32,"Ok","waiting-eppi-faq",1
+32,"Ok","waiting-eppi-notifications",1
+32,"Ok","waiting-eppi-fees",1
+32,"Ok","waiting-eppi-activate",1
+32,"Ok","waiting-eppi-replace-report",1
+32,"Ok","waiting-eppi-get-card",1
+32,"Ok","waiting-pmtmethods-paynearme",1
+32,"Ok","waiting-pmtmethods-moneygram",1
+32,"Ok","waiting-pmtqa-ncp-payment-status-submit-request",1
+32,"Ok","waiting-feedback-not-helpful",1
+32,"Ok","waiting-pmtmethods-echeckdebit",1
+32,"Ok","waiting-caseqa-general-support-request",1
+32,"Ok","ticketinfo",1

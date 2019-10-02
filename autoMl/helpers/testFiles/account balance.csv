@@ -1,0 +1,568 @@
+"occurences","queries","contexts.name","contexts.count"
+27,"Check balance ","waiting-pmts-general-non-custodial",2
+27,"Check balance ","waiting-pmtmethods-debit-card",2
+27,"Check balance ","waiting-support-type",2
+27,"Check balance ","request-type",2
+27,"Check balance ","waiting-restart-conversation",2
+27,"Check balance ","waiting-pmts-general-receive-payments",2
+27,"Check balance ","waiting-support-parent-paying-more",1
+27,"Check balance ","waiting-feedback-root",1
+27,"Check balance ","waiting-eppi-replace-report",1
+27,"Check balance ","waiting-support-employer",1
+27,"Check balance ","waiting-support-employment-status",1
+27,"Check balance ","waiting-support-parent-receiving",1
+27,"Check balance ","waiting-feedback-helpful",1
+27,"Check balance ","waiting-feedback-not-helpful",1
+27,"Check balance ","waiting-support-general-inquiries",1
+27,"Check balance ","waiting-eppi-faq",1
+27,"Check balance ","waiting-eppi-fees",1
+27,"Check balance ","waiting-eppi-notifications",1
+27,"Check balance ","waiting-eppi-activate",1
+27,"Check balance ","waiting-eppi-get-card",1
+27,"Check balance ","waiting-support-parent-paying",1
+27,"How can I check my balance on this site? It does not show this","waiting-pmts-general-non-custodial",2
+27,"How can I check my balance on this site? It does not show this","waiting-pmtmethods-debit-card",2
+27,"How can I check my balance on this site? It does not show this","waiting-support-type",2
+27,"How can I check my balance on this site? It does not show this","request-type",2
+27,"How can I check my balance on this site? It does not show this","waiting-restart-conversation",2
+27,"How can I check my balance on this site? It does not show this","waiting-pmts-general-receive-payments",2
+27,"How can I check my balance on this site? It does not show this","waiting-support-parent-paying-more",1
+27,"How can I check my balance on this site? It does not show this","waiting-feedback-root",1
+27,"How can I check my balance on this site? It does not show this","waiting-eppi-replace-report",1
+27,"How can I check my balance on this site? It does not show this","waiting-support-employer",1
+27,"How can I check my balance on this site? It does not show this","waiting-support-employment-status",1
+27,"How can I check my balance on this site? It does not show this","waiting-support-parent-receiving",1
+27,"How can I check my balance on this site? It does not show this","waiting-feedback-helpful",1
+27,"How can I check my balance on this site? It does not show this","waiting-feedback-not-helpful",1
+27,"How can I check my balance on this site? It does not show this","waiting-support-general-inquiries",1
+27,"How can I check my balance on this site? It does not show this","waiting-eppi-faq",1
+27,"How can I check my balance on this site? It does not show this","waiting-eppi-fees",1
+27,"How can I check my balance on this site? It does not show this","waiting-eppi-notifications",1
+27,"How can I check my balance on this site? It does not show this","waiting-eppi-activate",1
+27,"How can I check my balance on this site? It does not show this","waiting-eppi-get-card",1
+27,"How can I check my balance on this site? It does not show this","waiting-support-parent-paying",1
+27,"I need to check my payment ","waiting-pmts-general-non-custodial",2
+27,"I need to check my payment ","waiting-pmtmethods-debit-card",2
+27,"I need to check my payment ","waiting-support-type",2
+27,"I need to check my payment ","request-type",2
+27,"I need to check my payment ","waiting-restart-conversation",2
+27,"I need to check my payment ","waiting-pmts-general-receive-payments",2
+27,"I need to check my payment ","waiting-support-parent-paying-more",1
+27,"I need to check my payment ","waiting-feedback-root",1
+27,"I need to check my payment ","waiting-eppi-replace-report",1
+27,"I need to check my payment ","waiting-support-employer",1
+27,"I need to check my payment ","waiting-support-employment-status",1
+27,"I need to check my payment ","waiting-support-parent-receiving",1
+27,"I need to check my payment ","waiting-feedback-helpful",1
+27,"I need to check my payment ","waiting-feedback-not-helpful",1
+27,"I need to check my payment ","waiting-support-general-inquiries",1
+27,"I need to check my payment ","waiting-eppi-faq",1
+27,"I need to check my payment ","waiting-eppi-fees",1
+27,"I need to check my payment ","waiting-eppi-notifications",1
+27,"I need to check my payment ","waiting-eppi-activate",1
+27,"I need to check my payment ","waiting-eppi-get-card",1
+27,"I need to check my payment ","waiting-support-parent-paying",1
+27,"Number to check child support balance","waiting-pmts-general-non-custodial",2
+27,"Number to check child support balance","waiting-pmtmethods-debit-card",2
+27,"Number to check child support balance","waiting-support-type",2
+27,"Number to check child support balance","request-type",2
+27,"Number to check child support balance","waiting-restart-conversation",2
+27,"Number to check child support balance","waiting-pmts-general-receive-payments",2
+27,"Number to check child support balance","waiting-support-parent-paying-more",1
+27,"Number to check child support balance","waiting-feedback-root",1
+27,"Number to check child support balance","waiting-eppi-replace-report",1
+27,"Number to check child support balance","waiting-support-employer",1
+27,"Number to check child support balance","waiting-support-employment-status",1
+27,"Number to check child support balance","waiting-support-parent-receiving",1
+27,"Number to check child support balance","waiting-feedback-helpful",1
+27,"Number to check child support balance","waiting-feedback-not-helpful",1
+27,"Number to check child support balance","waiting-support-general-inquiries",1
+27,"Number to check child support balance","waiting-eppi-faq",1
+27,"Number to check child support balance","waiting-eppi-fees",1
+27,"Number to check child support balance","waiting-eppi-notifications",1
+27,"Number to check child support balance","waiting-eppi-activate",1
+27,"Number to check child support balance","waiting-eppi-get-card",1
+27,"Number to check child support balance","waiting-support-parent-paying",1
+27,"to check status of payment ","waiting-pmts-general-non-custodial",2
+27,"to check status of payment ","waiting-pmtmethods-debit-card",2
+27,"to check status of payment ","waiting-support-type",2
+27,"to check status of payment ","request-type",2
+27,"to check status of payment ","waiting-restart-conversation",2
+27,"to check status of payment ","waiting-pmts-general-receive-payments",2
+27,"to check status of payment ","waiting-support-parent-paying-more",1
+27,"to check status of payment ","waiting-feedback-root",1
+27,"to check status of payment ","waiting-eppi-replace-report",1
+27,"to check status of payment ","waiting-support-employer",1
+27,"to check status of payment ","waiting-support-employment-status",1
+27,"to check status of payment ","waiting-support-parent-receiving",1
+27,"to check status of payment ","waiting-feedback-helpful",1
+27,"to check status of payment ","waiting-feedback-not-helpful",1
+27,"to check status of payment ","waiting-support-general-inquiries",1
+27,"to check status of payment ","waiting-eppi-faq",1
+27,"to check status of payment ","waiting-eppi-fees",1
+27,"to check status of payment ","waiting-eppi-notifications",1
+27,"to check status of payment ","waiting-eppi-activate",1
+27,"to check status of payment ","waiting-eppi-get-card",1
+27,"to check status of payment ","waiting-support-parent-paying",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-pmts-general-non-custodial",2
+27,"I’m trying to find out if I have had a check deposited ","waiting-pmtmethods-debit-card",2
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-type",2
+27,"I’m trying to find out if I have had a check deposited ","request-type",2
+27,"I’m trying to find out if I have had a check deposited ","waiting-restart-conversation",2
+27,"I’m trying to find out if I have had a check deposited ","waiting-pmts-general-receive-payments",2
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-parent-paying-more",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-feedback-root",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-eppi-replace-report",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-employer",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-employment-status",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-parent-receiving",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-feedback-helpful",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-feedback-not-helpful",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-general-inquiries",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-eppi-faq",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-eppi-fees",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-eppi-notifications",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-eppi-activate",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-eppi-get-card",1
+27,"I’m trying to find out if I have had a check deposited ","waiting-support-parent-paying",1
+27,"Find balance owef","waiting-pmts-general-non-custodial",2
+27,"Find balance owef","waiting-pmtmethods-debit-card",2
+27,"Find balance owef","waiting-support-type",2
+27,"Find balance owef","request-type",2
+27,"Find balance owef","waiting-restart-conversation",2
+27,"Find balance owef","waiting-pmts-general-receive-payments",2
+27,"Find balance owef","waiting-support-parent-paying-more",1
+27,"Find balance owef","waiting-feedback-root",1
+27,"Find balance owef","waiting-eppi-replace-report",1
+27,"Find balance owef","waiting-support-employer",1
+27,"Find balance owef","waiting-support-employment-status",1
+27,"Find balance owef","waiting-support-parent-receiving",1
+27,"Find balance owef","waiting-feedback-helpful",1
+27,"Find balance owef","waiting-feedback-not-helpful",1
+27,"Find balance owef","waiting-support-general-inquiries",1
+27,"Find balance owef","waiting-eppi-faq",1
+27,"Find balance owef","waiting-eppi-fees",1
+27,"Find balance owef","waiting-eppi-notifications",1
+27,"Find balance owef","waiting-eppi-activate",1
+27,"Find balance owef","waiting-eppi-get-card",1
+27,"Find balance owef","waiting-support-parent-paying",1
+27,"Just trying to check my balance","waiting-pmts-general-non-custodial",2
+27,"Just trying to check my balance","waiting-pmtmethods-debit-card",2
+27,"Just trying to check my balance","waiting-support-type",2
+27,"Just trying to check my balance","request-type",2
+27,"Just trying to check my balance","waiting-restart-conversation",2
+27,"Just trying to check my balance","waiting-pmts-general-receive-payments",2
+27,"Just trying to check my balance","waiting-support-parent-paying-more",1
+27,"Just trying to check my balance","waiting-feedback-root",1
+27,"Just trying to check my balance","waiting-eppi-replace-report",1
+27,"Just trying to check my balance","waiting-support-employer",1
+27,"Just trying to check my balance","waiting-support-employment-status",1
+27,"Just trying to check my balance","waiting-support-parent-receiving",1
+27,"Just trying to check my balance","waiting-feedback-helpful",1
+27,"Just trying to check my balance","waiting-feedback-not-helpful",1
+27,"Just trying to check my balance","waiting-support-general-inquiries",1
+27,"Just trying to check my balance","waiting-eppi-faq",1
+27,"Just trying to check my balance","waiting-eppi-fees",1
+27,"Just trying to check my balance","waiting-eppi-notifications",1
+27,"Just trying to check my balance","waiting-eppi-activate",1
+27,"Just trying to check my balance","waiting-eppi-get-card",1
+27,"Just trying to check my balance","waiting-support-parent-paying",1
+27,"Checking balance online","waiting-pmts-general-non-custodial",2
+27,"Checking balance online","waiting-pmtmethods-debit-card",2
+27,"Checking balance online","waiting-support-type",2
+27,"Checking balance online","request-type",2
+27,"Checking balance online","waiting-restart-conversation",2
+27,"Checking balance online","waiting-pmts-general-receive-payments",2
+27,"Checking balance online","waiting-support-parent-paying-more",1
+27,"Checking balance online","waiting-feedback-root",1
+27,"Checking balance online","waiting-eppi-replace-report",1
+27,"Checking balance online","waiting-support-employer",1
+27,"Checking balance online","waiting-support-employment-status",1
+27,"Checking balance online","waiting-support-parent-receiving",1
+27,"Checking balance online","waiting-feedback-helpful",1
+27,"Checking balance online","waiting-feedback-not-helpful",1
+27,"Checking balance online","waiting-support-general-inquiries",1
+27,"Checking balance online","waiting-eppi-faq",1
+27,"Checking balance online","waiting-eppi-fees",1
+27,"Checking balance online","waiting-eppi-notifications",1
+27,"Checking balance online","waiting-eppi-activate",1
+27,"Checking balance online","waiting-eppi-get-card",1
+27,"Checking balance online","waiting-support-parent-paying",1
+27,"How can I set up an account to check my balance online?","waiting-pmts-general-non-custodial",2
+27,"How can I set up an account to check my balance online?","waiting-pmtmethods-debit-card",2
+27,"How can I set up an account to check my balance online?","waiting-support-type",2
+27,"How can I set up an account to check my balance online?","request-type",2
+27,"How can I set up an account to check my balance online?","waiting-restart-conversation",2
+27,"How can I set up an account to check my balance online?","waiting-pmts-general-receive-payments",2
+27,"How can I set up an account to check my balance online?","waiting-support-parent-paying-more",1
+27,"How can I set up an account to check my balance online?","waiting-feedback-root",1
+27,"How can I set up an account to check my balance online?","waiting-eppi-replace-report",1
+27,"How can I set up an account to check my balance online?","waiting-support-employer",1
+27,"How can I set up an account to check my balance online?","waiting-support-employment-status",1
+27,"How can I set up an account to check my balance online?","waiting-support-parent-receiving",1
+27,"How can I set up an account to check my balance online?","waiting-feedback-helpful",1
+27,"How can I set up an account to check my balance online?","waiting-feedback-not-helpful",1
+27,"How can I set up an account to check my balance online?","waiting-support-general-inquiries",1
+27,"How can I set up an account to check my balance online?","waiting-eppi-faq",1
+27,"How can I set up an account to check my balance online?","waiting-eppi-fees",1
+27,"How can I set up an account to check my balance online?","waiting-eppi-notifications",1
+27,"How can I set up an account to check my balance online?","waiting-eppi-activate",1
+27,"How can I set up an account to check my balance online?","waiting-eppi-get-card",1
+27,"How can I set up an account to check my balance online?","waiting-support-parent-paying",1
+27,"Check my account ","waiting-pmts-general-non-custodial",2
+27,"Check my account ","waiting-pmtmethods-debit-card",2
+27,"Check my account ","waiting-support-type",2
+27,"Check my account ","request-type",2
+27,"Check my account ","waiting-restart-conversation",2
+27,"Check my account ","waiting-pmts-general-receive-payments",2
+27,"Check my account ","waiting-support-parent-paying-more",1
+27,"Check my account ","waiting-feedback-root",1
+27,"Check my account ","waiting-eppi-replace-report",1
+27,"Check my account ","waiting-support-employer",1
+27,"Check my account ","waiting-support-employment-status",1
+27,"Check my account ","waiting-support-parent-receiving",1
+27,"Check my account ","waiting-feedback-helpful",1
+27,"Check my account ","waiting-feedback-not-helpful",1
+27,"Check my account ","waiting-support-general-inquiries",1
+27,"Check my account ","waiting-eppi-faq",1
+27,"Check my account ","waiting-eppi-fees",1
+27,"Check my account ","waiting-eppi-notifications",1
+27,"Check my account ","waiting-eppi-activate",1
+27,"Check my account ","waiting-eppi-get-card",1
+27,"Check my account ","waiting-support-parent-paying",1
+27,"Check my balance ","waiting-pmts-general-non-custodial",2
+27,"Check my balance ","waiting-pmtmethods-debit-card",2
+27,"Check my balance ","waiting-support-type",2
+27,"Check my balance ","request-type",2
+27,"Check my balance ","waiting-restart-conversation",2
+27,"Check my balance ","waiting-pmts-general-receive-payments",2
+27,"Check my balance ","waiting-support-parent-paying-more",1
+27,"Check my balance ","waiting-feedback-root",1
+27,"Check my balance ","waiting-eppi-replace-report",1
+27,"Check my balance ","waiting-support-employer",1
+27,"Check my balance ","waiting-support-employment-status",1
+27,"Check my balance ","waiting-support-parent-receiving",1
+27,"Check my balance ","waiting-feedback-helpful",1
+27,"Check my balance ","waiting-feedback-not-helpful",1
+27,"Check my balance ","waiting-support-general-inquiries",1
+27,"Check my balance ","waiting-eppi-faq",1
+27,"Check my balance ","waiting-eppi-fees",1
+27,"Check my balance ","waiting-eppi-notifications",1
+27,"Check my balance ","waiting-eppi-activate",1
+27,"Check my balance ","waiting-eppi-get-card",1
+27,"Check my balance ","waiting-support-parent-paying",1
+27,"i want to check my child support payments","waiting-pmts-general-non-custodial",2
+27,"i want to check my child support payments","waiting-pmtmethods-debit-card",2
+27,"i want to check my child support payments","waiting-support-type",2
+27,"i want to check my child support payments","request-type",2
+27,"i want to check my child support payments","waiting-restart-conversation",2
+27,"i want to check my child support payments","waiting-pmts-general-receive-payments",2
+27,"i want to check my child support payments","waiting-support-parent-paying-more",1
+27,"i want to check my child support payments","waiting-feedback-root",1
+27,"i want to check my child support payments","waiting-eppi-replace-report",1
+27,"i want to check my child support payments","waiting-support-employer",1
+27,"i want to check my child support payments","waiting-support-employment-status",1
+27,"i want to check my child support payments","waiting-support-parent-receiving",1
+27,"i want to check my child support payments","waiting-feedback-helpful",1
+27,"i want to check my child support payments","waiting-feedback-not-helpful",1
+27,"i want to check my child support payments","waiting-support-general-inquiries",1
+27,"i want to check my child support payments","waiting-eppi-faq",1
+27,"i want to check my child support payments","waiting-eppi-fees",1
+27,"i want to check my child support payments","waiting-eppi-notifications",1
+27,"i want to check my child support payments","waiting-eppi-activate",1
+27,"i want to check my child support payments","waiting-eppi-get-card",1
+27,"i want to check my child support payments","waiting-support-parent-paying",1
+27,"How can i check on a pending payment ","waiting-pmts-general-non-custodial",2
+27,"How can i check on a pending payment ","waiting-pmtmethods-debit-card",2
+27,"How can i check on a pending payment ","waiting-support-type",2
+27,"How can i check on a pending payment ","request-type",2
+27,"How can i check on a pending payment ","waiting-restart-conversation",2
+27,"How can i check on a pending payment ","waiting-pmts-general-receive-payments",2
+27,"How can i check on a pending payment ","waiting-support-parent-paying-more",1
+27,"How can i check on a pending payment ","waiting-feedback-root",1
+27,"How can i check on a pending payment ","waiting-eppi-replace-report",1
+27,"How can i check on a pending payment ","waiting-support-employer",1
+27,"How can i check on a pending payment ","waiting-support-employment-status",1
+27,"How can i check on a pending payment ","waiting-support-parent-receiving",1
+27,"How can i check on a pending payment ","waiting-feedback-helpful",1
+27,"How can i check on a pending payment ","waiting-feedback-not-helpful",1
+27,"How can i check on a pending payment ","waiting-support-general-inquiries",1
+27,"How can i check on a pending payment ","waiting-eppi-faq",1
+27,"How can i check on a pending payment ","waiting-eppi-fees",1
+27,"How can i check on a pending payment ","waiting-eppi-notifications",1
+27,"How can i check on a pending payment ","waiting-eppi-activate",1
+27,"How can i check on a pending payment ","waiting-eppi-get-card",1
+27,"How can i check on a pending payment ","waiting-support-parent-paying",1
+27,"How to find out my balance on child support ","waiting-pmts-general-non-custodial",2
+27,"How to find out my balance on child support ","waiting-pmtmethods-debit-card",2
+27,"How to find out my balance on child support ","waiting-support-type",2
+27,"How to find out my balance on child support ","request-type",2
+27,"How to find out my balance on child support ","waiting-restart-conversation",2
+27,"How to find out my balance on child support ","waiting-pmts-general-receive-payments",2
+27,"How to find out my balance on child support ","waiting-support-parent-paying-more",1
+27,"How to find out my balance on child support ","waiting-feedback-root",1
+27,"How to find out my balance on child support ","waiting-eppi-replace-report",1
+27,"How to find out my balance on child support ","waiting-support-employer",1
+27,"How to find out my balance on child support ","waiting-support-employment-status",1
+27,"How to find out my balance on child support ","waiting-support-parent-receiving",1
+27,"How to find out my balance on child support ","waiting-feedback-helpful",1
+27,"How to find out my balance on child support ","waiting-feedback-not-helpful",1
+27,"How to find out my balance on child support ","waiting-support-general-inquiries",1
+27,"How to find out my balance on child support ","waiting-eppi-faq",1
+27,"How to find out my balance on child support ","waiting-eppi-fees",1
+27,"How to find out my balance on child support ","waiting-eppi-notifications",1
+27,"How to find out my balance on child support ","waiting-eppi-activate",1
+27,"How to find out my balance on child support ","waiting-eppi-get-card",1
+27,"How to find out my balance on child support ","waiting-support-parent-paying",1
+27,"Check my account","waiting-pmts-general-non-custodial",2
+27,"Check my account","waiting-pmtmethods-debit-card",2
+27,"Check my account","waiting-support-type",2
+27,"Check my account","request-type",2
+27,"Check my account","waiting-restart-conversation",2
+27,"Check my account","waiting-pmts-general-receive-payments",2
+27,"Check my account","waiting-support-parent-paying-more",1
+27,"Check my account","waiting-feedback-root",1
+27,"Check my account","waiting-eppi-replace-report",1
+27,"Check my account","waiting-support-employer",1
+27,"Check my account","waiting-support-employment-status",1
+27,"Check my account","waiting-support-parent-receiving",1
+27,"Check my account","waiting-feedback-helpful",1
+27,"Check my account","waiting-feedback-not-helpful",1
+27,"Check my account","waiting-support-general-inquiries",1
+27,"Check my account","waiting-eppi-faq",1
+27,"Check my account","waiting-eppi-fees",1
+27,"Check my account","waiting-eppi-notifications",1
+27,"Check my account","waiting-eppi-activate",1
+27,"Check my account","waiting-eppi-get-card",1
+27,"Check my account","waiting-support-parent-paying",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-pmts-general-non-custodial",2
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-pmtmethods-debit-card",2
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-type",2
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","request-type",2
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-restart-conversation",2
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-pmts-general-receive-payments",2
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-parent-paying-more",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-feedback-root",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-eppi-replace-report",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-employer",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-employment-status",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-parent-receiving",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-feedback-helpful",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-feedback-not-helpful",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-general-inquiries",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-eppi-faq",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-eppi-fees",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-eppi-notifications",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-eppi-activate",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-eppi-get-card",1
+27,"I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on","waiting-support-parent-paying",1
+27,"I need to know the amount that was collected on my child support account ","waiting-pmts-general-non-custodial",2
+27,"I need to know the amount that was collected on my child support account ","waiting-pmtmethods-debit-card",2
+27,"I need to know the amount that was collected on my child support account ","waiting-support-type",2
+27,"I need to know the amount that was collected on my child support account ","request-type",2
+27,"I need to know the amount that was collected on my child support account ","waiting-restart-conversation",2
+27,"I need to know the amount that was collected on my child support account ","waiting-pmts-general-receive-payments",2
+27,"I need to know the amount that was collected on my child support account ","waiting-support-parent-paying-more",1
+27,"I need to know the amount that was collected on my child support account ","waiting-feedback-root",1
+27,"I need to know the amount that was collected on my child support account ","waiting-eppi-replace-report",1
+27,"I need to know the amount that was collected on my child support account ","waiting-support-employer",1
+27,"I need to know the amount that was collected on my child support account ","waiting-support-employment-status",1
+27,"I need to know the amount that was collected on my child support account ","waiting-support-parent-receiving",1
+27,"I need to know the amount that was collected on my child support account ","waiting-feedback-helpful",1
+27,"I need to know the amount that was collected on my child support account ","waiting-feedback-not-helpful",1
+27,"I need to know the amount that was collected on my child support account ","waiting-support-general-inquiries",1
+27,"I need to know the amount that was collected on my child support account ","waiting-eppi-faq",1
+27,"I need to know the amount that was collected on my child support account ","waiting-eppi-fees",1
+27,"I need to know the amount that was collected on my child support account ","waiting-eppi-notifications",1
+27,"I need to know the amount that was collected on my child support account ","waiting-eppi-activate",1
+27,"I need to know the amount that was collected on my child support account ","waiting-eppi-get-card",1
+27,"I need to know the amount that was collected on my child support account ","waiting-support-parent-paying",1
+27,"How can I find out when my money is on my card","waiting-pmts-general-non-custodial",2
+27,"How can I find out when my money is on my card","waiting-pmtmethods-debit-card",2
+27,"How can I find out when my money is on my card","waiting-support-type",2
+27,"How can I find out when my money is on my card","request-type",2
+27,"How can I find out when my money is on my card","waiting-restart-conversation",2
+27,"How can I find out when my money is on my card","waiting-pmts-general-receive-payments",2
+27,"How can I find out when my money is on my card","waiting-support-parent-paying-more",1
+27,"How can I find out when my money is on my card","waiting-feedback-root",1
+27,"How can I find out when my money is on my card","waiting-eppi-replace-report",1
+27,"How can I find out when my money is on my card","waiting-support-employer",1
+27,"How can I find out when my money is on my card","waiting-support-employment-status",1
+27,"How can I find out when my money is on my card","waiting-support-parent-receiving",1
+27,"How can I find out when my money is on my card","waiting-feedback-helpful",1
+27,"How can I find out when my money is on my card","waiting-feedback-not-helpful",1
+27,"How can I find out when my money is on my card","waiting-support-general-inquiries",1
+27,"How can I find out when my money is on my card","waiting-eppi-faq",1
+27,"How can I find out when my money is on my card","waiting-eppi-fees",1
+27,"How can I find out when my money is on my card","waiting-eppi-notifications",1
+27,"How can I find out when my money is on my card","waiting-eppi-activate",1
+27,"How can I find out when my money is on my card","waiting-eppi-get-card",1
+27,"How can I find out when my money is on my card","waiting-support-parent-paying",1
+27,"Check balance online","waiting-pmts-general-non-custodial",2
+27,"Check balance online","waiting-pmtmethods-debit-card",2
+27,"Check balance online","waiting-support-type",2
+27,"Check balance online","request-type",2
+27,"Check balance online","waiting-restart-conversation",2
+27,"Check balance online","waiting-pmts-general-receive-payments",2
+27,"Check balance online","waiting-support-parent-paying-more",1
+27,"Check balance online","waiting-feedback-root",1
+27,"Check balance online","waiting-eppi-replace-report",1
+27,"Check balance online","waiting-support-employer",1
+27,"Check balance online","waiting-support-employment-status",1
+27,"Check balance online","waiting-support-parent-receiving",1
+27,"Check balance online","waiting-feedback-helpful",1
+27,"Check balance online","waiting-feedback-not-helpful",1
+27,"Check balance online","waiting-support-general-inquiries",1
+27,"Check balance online","waiting-eppi-faq",1
+27,"Check balance online","waiting-eppi-fees",1
+27,"Check balance online","waiting-eppi-notifications",1
+27,"Check balance online","waiting-eppi-activate",1
+27,"Check balance online","waiting-eppi-get-card",1
+27,"Check balance online","waiting-support-parent-paying",1
+27,"How do I find out how much money I owe in child support?","waiting-pmts-general-non-custodial",2
+27,"How do I find out how much money I owe in child support?","waiting-pmtmethods-debit-card",2
+27,"How do I find out how much money I owe in child support?","waiting-support-type",2
+27,"How do I find out how much money I owe in child support?","request-type",2
+27,"How do I find out how much money I owe in child support?","waiting-restart-conversation",2
+27,"How do I find out how much money I owe in child support?","waiting-pmts-general-receive-payments",2
+27,"How do I find out how much money I owe in child support?","waiting-support-parent-paying-more",1
+27,"How do I find out how much money I owe in child support?","waiting-feedback-root",1
+27,"How do I find out how much money I owe in child support?","waiting-eppi-replace-report",1
+27,"How do I find out how much money I owe in child support?","waiting-support-employer",1
+27,"How do I find out how much money I owe in child support?","waiting-support-employment-status",1
+27,"How do I find out how much money I owe in child support?","waiting-support-parent-receiving",1
+27,"How do I find out how much money I owe in child support?","waiting-feedback-helpful",1
+27,"How do I find out how much money I owe in child support?","waiting-feedback-not-helpful",1
+27,"How do I find out how much money I owe in child support?","waiting-support-general-inquiries",1
+27,"How do I find out how much money I owe in child support?","waiting-eppi-faq",1
+27,"How do I find out how much money I owe in child support?","waiting-eppi-fees",1
+27,"How do I find out how much money I owe in child support?","waiting-eppi-notifications",1
+27,"How do I find out how much money I owe in child support?","waiting-eppi-activate",1
+27,"How do I find out how much money I owe in child support?","waiting-eppi-get-card",1
+27,"How do I find out how much money I owe in child support?","waiting-support-parent-paying",1
+27,"I’m trying to check the arrearage on my account","waiting-pmts-general-non-custodial",2
+27,"I’m trying to check the arrearage on my account","waiting-pmtmethods-debit-card",2
+27,"I’m trying to check the arrearage on my account","waiting-support-type",2
+27,"I’m trying to check the arrearage on my account","request-type",2
+27,"I’m trying to check the arrearage on my account","waiting-restart-conversation",2
+27,"I’m trying to check the arrearage on my account","waiting-pmts-general-receive-payments",2
+27,"I’m trying to check the arrearage on my account","waiting-support-parent-paying-more",1
+27,"I’m trying to check the arrearage on my account","waiting-feedback-root",1
+27,"I’m trying to check the arrearage on my account","waiting-eppi-replace-report",1
+27,"I’m trying to check the arrearage on my account","waiting-support-employer",1
+27,"I’m trying to check the arrearage on my account","waiting-support-employment-status",1
+27,"I’m trying to check the arrearage on my account","waiting-support-parent-receiving",1
+27,"I’m trying to check the arrearage on my account","waiting-feedback-helpful",1
+27,"I’m trying to check the arrearage on my account","waiting-feedback-not-helpful",1
+27,"I’m trying to check the arrearage on my account","waiting-support-general-inquiries",1
+27,"I’m trying to check the arrearage on my account","waiting-eppi-faq",1
+27,"I’m trying to check the arrearage on my account","waiting-eppi-fees",1
+27,"I’m trying to check the arrearage on my account","waiting-eppi-notifications",1
+27,"I’m trying to check the arrearage on my account","waiting-eppi-activate",1
+27,"I’m trying to check the arrearage on my account","waiting-eppi-get-card",1
+27,"I’m trying to check the arrearage on my account","waiting-support-parent-paying",1
+27,"What is the website to check my card balance ","waiting-pmts-general-non-custodial",2
+27,"What is the website to check my card balance ","waiting-pmtmethods-debit-card",2
+27,"What is the website to check my card balance ","waiting-support-type",2
+27,"What is the website to check my card balance ","request-type",2
+27,"What is the website to check my card balance ","waiting-restart-conversation",2
+27,"What is the website to check my card balance ","waiting-pmts-general-receive-payments",2
+27,"What is the website to check my card balance ","waiting-support-parent-paying-more",1
+27,"What is the website to check my card balance ","waiting-feedback-root",1
+27,"What is the website to check my card balance ","waiting-eppi-replace-report",1
+27,"What is the website to check my card balance ","waiting-support-employer",1
+27,"What is the website to check my card balance ","waiting-support-employment-status",1
+27,"What is the website to check my card balance ","waiting-support-parent-receiving",1
+27,"What is the website to check my card balance ","waiting-feedback-helpful",1
+27,"What is the website to check my card balance ","waiting-feedback-not-helpful",1
+27,"What is the website to check my card balance ","waiting-support-general-inquiries",1
+27,"What is the website to check my card balance ","waiting-eppi-faq",1
+27,"What is the website to check my card balance ","waiting-eppi-fees",1
+27,"What is the website to check my card balance ","waiting-eppi-notifications",1
+27,"What is the website to check my card balance ","waiting-eppi-activate",1
+27,"What is the website to check my card balance ","waiting-eppi-get-card",1
+27,"What is the website to check my card balance ","waiting-support-parent-paying",1
+27,"Check balance ","waiting-pmts-general-non-custodial",2
+27,"Check balance ","waiting-pmtmethods-debit-card",2
+27,"Check balance ","waiting-support-type",2
+27,"Check balance ","request-type",2
+27,"Check balance ","waiting-restart-conversation",2
+27,"Check balance ","waiting-pmts-general-receive-payments",2
+27,"Check balance ","waiting-support-parent-paying-more",1
+27,"Check balance ","waiting-feedback-root",1
+27,"Check balance ","waiting-eppi-replace-report",1
+27,"Check balance ","waiting-support-employer",1
+27,"Check balance ","waiting-support-employment-status",1
+27,"Check balance ","waiting-support-parent-receiving",1
+27,"Check balance ","waiting-feedback-helpful",1
+27,"Check balance ","waiting-feedback-not-helpful",1
+27,"Check balance ","waiting-support-general-inquiries",1
+27,"Check balance ","waiting-eppi-faq",1
+27,"Check balance ","waiting-eppi-fees",1
+27,"Check balance ","waiting-eppi-notifications",1
+27,"Check balance ","waiting-eppi-activate",1
+27,"Check balance ","waiting-eppi-get-card",1
+27,"Check balance ","waiting-support-parent-paying",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-pmts-general-non-custodial",2
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-pmtmethods-debit-card",2
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-type",2
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","request-type",2
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-restart-conversation",2
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-pmts-general-receive-payments",2
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-parent-paying-more",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-feedback-root",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-eppi-replace-report",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-employer",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-employment-status",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-parent-receiving",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-feedback-helpful",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-feedback-not-helpful",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-general-inquiries",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-eppi-faq",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-eppi-fees",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-eppi-notifications",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-eppi-activate",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-eppi-get-card",1
+27,"Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf","waiting-support-parent-paying",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-pmts-general-non-custodial",2
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-pmtmethods-debit-card",2
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-type",2
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","request-type",2
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-restart-conversation",2
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-pmts-general-receive-payments",2
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-parent-paying-more",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-feedback-root",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-eppi-replace-report",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-employer",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-employment-status",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-parent-receiving",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-feedback-helpful",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-feedback-not-helpful",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-general-inquiries",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-eppi-faq",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-eppi-fees",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-eppi-notifications",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-eppi-activate",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-eppi-get-card",1
+27,"I'm trying to see what my balance is for my child support it suppose to be over with this month","waiting-support-parent-paying",1
+27,"Check child support balance ","waiting-pmts-general-non-custodial",2
+27,"Check child support balance ","waiting-pmtmethods-debit-card",2
+27,"Check child support balance ","waiting-support-type",2
+27,"Check child support balance ","request-type",2
+27,"Check child support balance ","waiting-restart-conversation",2
+27,"Check child support balance ","waiting-pmts-general-receive-payments",2
+27,"Check child support balance ","waiting-support-parent-paying-more",1
+27,"Check child support balance ","waiting-feedback-root",1
+27,"Check child support balance ","waiting-eppi-replace-report",1
+27,"Check child support balance ","waiting-support-employer",1
+27,"Check child support balance ","waiting-support-employment-status",1
+27,"Check child support balance ","waiting-support-parent-receiving",1
+27,"Check child support balance ","waiting-feedback-helpful",1
+27,"Check child support balance ","waiting-feedback-not-helpful",1
+27,"Check child support balance ","waiting-support-general-inquiries",1
+27,"Check child support balance ","waiting-eppi-faq",1
+27,"Check child support balance ","waiting-eppi-fees",1
+27,"Check child support balance ","waiting-eppi-notifications",1
+27,"Check child support balance ","waiting-eppi-activate",1
+27,"Check child support balance ","waiting-eppi-get-card",1
+27,"Check child support balance ","waiting-support-parent-paying",1

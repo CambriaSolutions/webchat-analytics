@@ -2,10 +2,6 @@ require('dotenv').config()
 const fs = require('fs')
 const automl = require('@google-cloud/automl')
 const client = new automl.v1beta1.PredictionServiceClient({})
-const queries = require('./dataFiles_raw/fallbackFullDetails_06-01_07-01')
-// const queries = require('./dataFiles_raw/fallbackFullDetails_07-01_08-01')
-// const queries = require('./dataFiles_raw/fallbackFullDetails_08-01_09-01')
-// const queries = require('./dataFiles_raw/fallbackFullDetails_09-01_10-01')
 
 const admin = require('firebase-admin')
 const { format } = require('date-fns')
@@ -19,12 +15,9 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
-const start = new Date(
-  'Sept 27 2019  00:00:00 GMT-0700 (Pacific Daylight Time)'
-)
-const end = new Date('Sept 28 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
-const startDate = format(start, 'MM-DD')
-const endDate = format(end, 'MM-DD')
+const start = new Date('Jun 1 2019  00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Oct 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+
 const intent = {
   name: 'Default Fallback Intent',
   id: 'd832e961-7c6c-4b00-a608-88a5c1c3f3f5',
@@ -38,7 +31,6 @@ const formattedName = client.modelPath(
 
 const predict = async intentDetails => {
   const queriesToSkip = ['i acknowledge', 'no', 'yes']
-  let predictionsWithQuery = []
   let predictionAggregate = {}
   for (const query of intentDetails) {
     if (!queriesToSkip.includes(query.messageText.toLowerCase())) {
@@ -127,7 +119,7 @@ const predict = async intentDetails => {
 
   fs.writeFile(
     `./predictions/predictionAggregate_${format(start, 'MM-DD')}-${format(
-      start,
+      end,
       'MM-DD'
     )}.json`,
     JSON.stringify(sortedAggregate),
@@ -137,7 +129,7 @@ const predict = async intentDetails => {
     }
   )
 }
-predict(queries)
+
 const performQuery = (start, end, intent) => {
   db.collection(`projects/${process.env.FIREBASE_PROJECT_ID}/requests`)
     .where('createdAt', '>', start)
@@ -170,21 +162,19 @@ const performQuery = (start, end, intent) => {
       })
       return intentDetails
     })
-    .then(intentDetails => predict(intentDetails))
-  // .then(predictions => {
-  //   // Save predictions
-  //   fs.writeFile(
-  //     `./predictions_${format(start, 'MM-DD-YYYY')}-${format(
-  //       start,
-  //       'MM-DD-YYYY'
-  //     )}.json`,
-  //     JSON.stringify(predictions),
-  //     err => {
-  //       if (err) throw err
-  //       console.log('Saved!')
-  //     }
-  //   )
-  // })
+    .then(intentDetails => {
+      // Save full intent data
+      fs.writeFile(
+        `./dataFiles_raw/fallbackFullDetails_${start}_${end}.json`,
+        JSON.stringify(intentDetails),
+        err => {
+          if (err) throw err
+          console.log('Saved!')
+        }
+      )
+      predict(intentDetails)
+    })
+    .catch(err => console.log(err))
 }
 
-// performQuery(start, end, intent)
+performQuery(start, end, intent)

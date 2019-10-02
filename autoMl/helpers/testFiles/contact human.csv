@@ -1,0 +1,931 @@
+"occurences","queries","contexts.name","contexts.count"
+30,"Do I even read these questions ","waiting-restart-conversation",10
+30,"Do I even read these questions ","waiting-feedback-root",9
+30,"Do I even read these questions ","waiting-pmtmethods-debit-card",4
+30,"Do I even read these questions ","waiting-support-employer",3
+30,"Do I even read these questions ","waiting-support-parent-paying",3
+30,"Do I even read these questions ","waiting-support-parent-receiving",3
+30,"Do I even read these questions ","waiting-open-csc-location-services",3
+30,"Do I even read these questions ","waiting-open-csc-employer-payments",3
+30,"Do I even read these questions ","waiting-open-csc-full-services",3
+30,"Do I even read these questions ","waiting-eppi-get-card",2
+30,"Do I even read these questions ","waiting-eppi-replace-report",2
+30,"Do I even read these questions ","ticketinfo",2
+30,"Do I even read these questions ","waiting-eppi-activate",2
+30,"Do I even read these questions ","waiting-eppi-fees",2
+30,"Do I even read these questions ","waiting-eppi-notifications",2
+30,"Do I even read these questions ","waiting-caseqa-general-support-request",2
+30,"Do I even read these questions ","waiting-eppi-faq",2
+30,"Do I even read these questions ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Do I even read these questions ","waiting-yes-child-support",1
+30,"Do I even read these questions ","waiting-support-no-phone-number",1
+30,"Do I even read these questions ","waiting-support-phone-number",1
+30,"Do I even read these questions ","waiting-support-no-email",1
+30,"Do I even read these questions ","waiting-support-email",1
+30,"Do I even read these questions ","waiting-not-child-support",1
+30,"Do I even read these questions ","waiting-iwo-disposable-income",1
+30,"Do I even read these questions ","waiting-dirdep-no-learn-more-eppicard",1
+30,"Do I even read these questions ","waiting-dirdep-learn-more-eppicard",1
+30,"Do I even read these questions ","payment-factors",1
+30,"Do I even read these questions ","waiting-pmt-calc-retirement-contributions",1
+30,"Do I even read these questions ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Do I even read these questions ","iwo-factors",1
+30,"Can I speak to someone?","waiting-restart-conversation",10
+30,"Can I speak to someone?","waiting-feedback-root",9
+30,"Can I speak to someone?","waiting-pmtmethods-debit-card",4
+30,"Can I speak to someone?","waiting-support-employer",3
+30,"Can I speak to someone?","waiting-support-parent-paying",3
+30,"Can I speak to someone?","waiting-support-parent-receiving",3
+30,"Can I speak to someone?","waiting-open-csc-location-services",3
+30,"Can I speak to someone?","waiting-open-csc-employer-payments",3
+30,"Can I speak to someone?","waiting-open-csc-full-services",3
+30,"Can I speak to someone?","waiting-eppi-get-card",2
+30,"Can I speak to someone?","waiting-eppi-replace-report",2
+30,"Can I speak to someone?","ticketinfo",2
+30,"Can I speak to someone?","waiting-eppi-activate",2
+30,"Can I speak to someone?","waiting-eppi-fees",2
+30,"Can I speak to someone?","waiting-eppi-notifications",2
+30,"Can I speak to someone?","waiting-caseqa-general-support-request",2
+30,"Can I speak to someone?","waiting-eppi-faq",2
+30,"Can I speak to someone?","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Can I speak to someone?","waiting-yes-child-support",1
+30,"Can I speak to someone?","waiting-support-no-phone-number",1
+30,"Can I speak to someone?","waiting-support-phone-number",1
+30,"Can I speak to someone?","waiting-support-no-email",1
+30,"Can I speak to someone?","waiting-support-email",1
+30,"Can I speak to someone?","waiting-not-child-support",1
+30,"Can I speak to someone?","waiting-iwo-disposable-income",1
+30,"Can I speak to someone?","waiting-dirdep-no-learn-more-eppicard",1
+30,"Can I speak to someone?","waiting-dirdep-learn-more-eppicard",1
+30,"Can I speak to someone?","payment-factors",1
+30,"Can I speak to someone?","waiting-pmt-calc-retirement-contributions",1
+30,"Can I speak to someone?","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Can I speak to someone?","iwo-factors",1
+30,"answer my question","waiting-restart-conversation",10
+30,"answer my question","waiting-feedback-root",9
+30,"answer my question","waiting-pmtmethods-debit-card",4
+30,"answer my question","waiting-support-employer",3
+30,"answer my question","waiting-support-parent-paying",3
+30,"answer my question","waiting-support-parent-receiving",3
+30,"answer my question","waiting-open-csc-location-services",3
+30,"answer my question","waiting-open-csc-employer-payments",3
+30,"answer my question","waiting-open-csc-full-services",3
+30,"answer my question","waiting-eppi-get-card",2
+30,"answer my question","waiting-eppi-replace-report",2
+30,"answer my question","ticketinfo",2
+30,"answer my question","waiting-eppi-activate",2
+30,"answer my question","waiting-eppi-fees",2
+30,"answer my question","waiting-eppi-notifications",2
+30,"answer my question","waiting-caseqa-general-support-request",2
+30,"answer my question","waiting-eppi-faq",2
+30,"answer my question","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"answer my question","waiting-yes-child-support",1
+30,"answer my question","waiting-support-no-phone-number",1
+30,"answer my question","waiting-support-phone-number",1
+30,"answer my question","waiting-support-no-email",1
+30,"answer my question","waiting-support-email",1
+30,"answer my question","waiting-not-child-support",1
+30,"answer my question","waiting-iwo-disposable-income",1
+30,"answer my question","waiting-dirdep-no-learn-more-eppicard",1
+30,"answer my question","waiting-dirdep-learn-more-eppicard",1
+30,"answer my question","payment-factors",1
+30,"answer my question","waiting-pmt-calc-retirement-contributions",1
+30,"answer my question","waiting-pmt-calc-unknown-ss-deductions",1
+30,"answer my question","iwo-factors",1
+30,"Who do I talk to check the status of that ","waiting-restart-conversation",10
+30,"Who do I talk to check the status of that ","waiting-feedback-root",9
+30,"Who do I talk to check the status of that ","waiting-pmtmethods-debit-card",4
+30,"Who do I talk to check the status of that ","waiting-support-employer",3
+30,"Who do I talk to check the status of that ","waiting-support-parent-paying",3
+30,"Who do I talk to check the status of that ","waiting-support-parent-receiving",3
+30,"Who do I talk to check the status of that ","waiting-open-csc-location-services",3
+30,"Who do I talk to check the status of that ","waiting-open-csc-employer-payments",3
+30,"Who do I talk to check the status of that ","waiting-open-csc-full-services",3
+30,"Who do I talk to check the status of that ","waiting-eppi-get-card",2
+30,"Who do I talk to check the status of that ","waiting-eppi-replace-report",2
+30,"Who do I talk to check the status of that ","ticketinfo",2
+30,"Who do I talk to check the status of that ","waiting-eppi-activate",2
+30,"Who do I talk to check the status of that ","waiting-eppi-fees",2
+30,"Who do I talk to check the status of that ","waiting-eppi-notifications",2
+30,"Who do I talk to check the status of that ","waiting-caseqa-general-support-request",2
+30,"Who do I talk to check the status of that ","waiting-eppi-faq",2
+30,"Who do I talk to check the status of that ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Who do I talk to check the status of that ","waiting-yes-child-support",1
+30,"Who do I talk to check the status of that ","waiting-support-no-phone-number",1
+30,"Who do I talk to check the status of that ","waiting-support-phone-number",1
+30,"Who do I talk to check the status of that ","waiting-support-no-email",1
+30,"Who do I talk to check the status of that ","waiting-support-email",1
+30,"Who do I talk to check the status of that ","waiting-not-child-support",1
+30,"Who do I talk to check the status of that ","waiting-iwo-disposable-income",1
+30,"Who do I talk to check the status of that ","waiting-dirdep-no-learn-more-eppicard",1
+30,"Who do I talk to check the status of that ","waiting-dirdep-learn-more-eppicard",1
+30,"Who do I talk to check the status of that ","payment-factors",1
+30,"Who do I talk to check the status of that ","waiting-pmt-calc-retirement-contributions",1
+30,"Who do I talk to check the status of that ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Who do I talk to check the status of that ","iwo-factors",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-restart-conversation",10
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-feedback-root",9
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-pmtmethods-debit-card",4
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-employer",3
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-parent-paying",3
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-parent-receiving",3
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-open-csc-location-services",3
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-open-csc-employer-payments",3
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-open-csc-full-services",3
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-eppi-get-card",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-eppi-replace-report",2
+30,"I need help trying to find out who I need to talk to about chil custody ","ticketinfo",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-eppi-activate",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-eppi-fees",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-eppi-notifications",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-caseqa-general-support-request",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-eppi-faq",2
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-yes-child-support",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-no-phone-number",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-phone-number",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-no-email",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-support-email",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-not-child-support",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-iwo-disposable-income",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-dirdep-no-learn-more-eppicard",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-dirdep-learn-more-eppicard",1
+30,"I need help trying to find out who I need to talk to about chil custody ","payment-factors",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-pmt-calc-retirement-contributions",1
+30,"I need help trying to find out who I need to talk to about chil custody ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I need help trying to find out who I need to talk to about chil custody ","iwo-factors",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-restart-conversation",10
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-feedback-root",9
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-pmtmethods-debit-card",4
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-employer",3
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-parent-paying",3
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-parent-receiving",3
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-open-csc-location-services",3
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-open-csc-employer-payments",3
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-open-csc-full-services",3
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-eppi-get-card",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-eppi-replace-report",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","ticketinfo",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-eppi-activate",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-eppi-fees",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-eppi-notifications",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-caseqa-general-support-request",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-eppi-faq",2
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-yes-child-support",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-no-phone-number",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-phone-number",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-no-email",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-support-email",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-not-child-support",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-iwo-disposable-income",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-dirdep-no-learn-more-eppicard",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-dirdep-learn-more-eppicard",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","payment-factors",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-pmt-calc-retirement-contributions",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I just want to ask if I need to talk with someone about my case again, do I need to come in again? I have written a letter and drove an hour to Hattiesburg but I still need to talk to someone about our situation cuz it isn't healthy.","iwo-factors",1
+30,"i need to talk with someone","waiting-restart-conversation",10
+30,"i need to talk with someone","waiting-feedback-root",9
+30,"i need to talk with someone","waiting-pmtmethods-debit-card",4
+30,"i need to talk with someone","waiting-support-employer",3
+30,"i need to talk with someone","waiting-support-parent-paying",3
+30,"i need to talk with someone","waiting-support-parent-receiving",3
+30,"i need to talk with someone","waiting-open-csc-location-services",3
+30,"i need to talk with someone","waiting-open-csc-employer-payments",3
+30,"i need to talk with someone","waiting-open-csc-full-services",3
+30,"i need to talk with someone","waiting-eppi-get-card",2
+30,"i need to talk with someone","waiting-eppi-replace-report",2
+30,"i need to talk with someone","ticketinfo",2
+30,"i need to talk with someone","waiting-eppi-activate",2
+30,"i need to talk with someone","waiting-eppi-fees",2
+30,"i need to talk with someone","waiting-eppi-notifications",2
+30,"i need to talk with someone","waiting-caseqa-general-support-request",2
+30,"i need to talk with someone","waiting-eppi-faq",2
+30,"i need to talk with someone","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"i need to talk with someone","waiting-yes-child-support",1
+30,"i need to talk with someone","waiting-support-no-phone-number",1
+30,"i need to talk with someone","waiting-support-phone-number",1
+30,"i need to talk with someone","waiting-support-no-email",1
+30,"i need to talk with someone","waiting-support-email",1
+30,"i need to talk with someone","waiting-not-child-support",1
+30,"i need to talk with someone","waiting-iwo-disposable-income",1
+30,"i need to talk with someone","waiting-dirdep-no-learn-more-eppicard",1
+30,"i need to talk with someone","waiting-dirdep-learn-more-eppicard",1
+30,"i need to talk with someone","payment-factors",1
+30,"i need to talk with someone","waiting-pmt-calc-retirement-contributions",1
+30,"i need to talk with someone","waiting-pmt-calc-unknown-ss-deductions",1
+30,"i need to talk with someone","iwo-factors",1
+30,"Can I get the 800 number","waiting-restart-conversation",10
+30,"Can I get the 800 number","waiting-feedback-root",9
+30,"Can I get the 800 number","waiting-pmtmethods-debit-card",4
+30,"Can I get the 800 number","waiting-support-employer",3
+30,"Can I get the 800 number","waiting-support-parent-paying",3
+30,"Can I get the 800 number","waiting-support-parent-receiving",3
+30,"Can I get the 800 number","waiting-open-csc-location-services",3
+30,"Can I get the 800 number","waiting-open-csc-employer-payments",3
+30,"Can I get the 800 number","waiting-open-csc-full-services",3
+30,"Can I get the 800 number","waiting-eppi-get-card",2
+30,"Can I get the 800 number","waiting-eppi-replace-report",2
+30,"Can I get the 800 number","ticketinfo",2
+30,"Can I get the 800 number","waiting-eppi-activate",2
+30,"Can I get the 800 number","waiting-eppi-fees",2
+30,"Can I get the 800 number","waiting-eppi-notifications",2
+30,"Can I get the 800 number","waiting-caseqa-general-support-request",2
+30,"Can I get the 800 number","waiting-eppi-faq",2
+30,"Can I get the 800 number","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Can I get the 800 number","waiting-yes-child-support",1
+30,"Can I get the 800 number","waiting-support-no-phone-number",1
+30,"Can I get the 800 number","waiting-support-phone-number",1
+30,"Can I get the 800 number","waiting-support-no-email",1
+30,"Can I get the 800 number","waiting-support-email",1
+30,"Can I get the 800 number","waiting-not-child-support",1
+30,"Can I get the 800 number","waiting-iwo-disposable-income",1
+30,"Can I get the 800 number","waiting-dirdep-no-learn-more-eppicard",1
+30,"Can I get the 800 number","waiting-dirdep-learn-more-eppicard",1
+30,"Can I get the 800 number","payment-factors",1
+30,"Can I get the 800 number","waiting-pmt-calc-retirement-contributions",1
+30,"Can I get the 800 number","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Can I get the 800 number","iwo-factors",1
+30,"Question submitted and no one called","waiting-restart-conversation",10
+30,"Question submitted and no one called","waiting-feedback-root",9
+30,"Question submitted and no one called","waiting-pmtmethods-debit-card",4
+30,"Question submitted and no one called","waiting-support-employer",3
+30,"Question submitted and no one called","waiting-support-parent-paying",3
+30,"Question submitted and no one called","waiting-support-parent-receiving",3
+30,"Question submitted and no one called","waiting-open-csc-location-services",3
+30,"Question submitted and no one called","waiting-open-csc-employer-payments",3
+30,"Question submitted and no one called","waiting-open-csc-full-services",3
+30,"Question submitted and no one called","waiting-eppi-get-card",2
+30,"Question submitted and no one called","waiting-eppi-replace-report",2
+30,"Question submitted and no one called","ticketinfo",2
+30,"Question submitted and no one called","waiting-eppi-activate",2
+30,"Question submitted and no one called","waiting-eppi-fees",2
+30,"Question submitted and no one called","waiting-eppi-notifications",2
+30,"Question submitted and no one called","waiting-caseqa-general-support-request",2
+30,"Question submitted and no one called","waiting-eppi-faq",2
+30,"Question submitted and no one called","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Question submitted and no one called","waiting-yes-child-support",1
+30,"Question submitted and no one called","waiting-support-no-phone-number",1
+30,"Question submitted and no one called","waiting-support-phone-number",1
+30,"Question submitted and no one called","waiting-support-no-email",1
+30,"Question submitted and no one called","waiting-support-email",1
+30,"Question submitted and no one called","waiting-not-child-support",1
+30,"Question submitted and no one called","waiting-iwo-disposable-income",1
+30,"Question submitted and no one called","waiting-dirdep-no-learn-more-eppicard",1
+30,"Question submitted and no one called","waiting-dirdep-learn-more-eppicard",1
+30,"Question submitted and no one called","payment-factors",1
+30,"Question submitted and no one called","waiting-pmt-calc-retirement-contributions",1
+30,"Question submitted and no one called","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Question submitted and no one called","iwo-factors",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-restart-conversation",10
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-feedback-root",9
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-pmtmethods-debit-card",4
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-employer",3
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-parent-paying",3
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-parent-receiving",3
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-open-csc-location-services",3
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-open-csc-employer-payments",3
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-open-csc-full-services",3
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-eppi-get-card",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-eppi-replace-report",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","ticketinfo",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-eppi-activate",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-eppi-fees",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-eppi-notifications",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-caseqa-general-support-request",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-eppi-faq",2
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-yes-child-support",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-no-phone-number",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-phone-number",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-no-email",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-support-email",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-not-child-support",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-iwo-disposable-income",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-dirdep-no-learn-more-eppicard",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-dirdep-learn-more-eppicard",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","payment-factors",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-pmt-calc-retirement-contributions",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Who do i need to speak wit or who cn i talk on the phone with about this ongoing issue.  ","iwo-factors",1
+30,"I need to talk to someone about my case","waiting-restart-conversation",10
+30,"I need to talk to someone about my case","waiting-feedback-root",9
+30,"I need to talk to someone about my case","waiting-pmtmethods-debit-card",4
+30,"I need to talk to someone about my case","waiting-support-employer",3
+30,"I need to talk to someone about my case","waiting-support-parent-paying",3
+30,"I need to talk to someone about my case","waiting-support-parent-receiving",3
+30,"I need to talk to someone about my case","waiting-open-csc-location-services",3
+30,"I need to talk to someone about my case","waiting-open-csc-employer-payments",3
+30,"I need to talk to someone about my case","waiting-open-csc-full-services",3
+30,"I need to talk to someone about my case","waiting-eppi-get-card",2
+30,"I need to talk to someone about my case","waiting-eppi-replace-report",2
+30,"I need to talk to someone about my case","ticketinfo",2
+30,"I need to talk to someone about my case","waiting-eppi-activate",2
+30,"I need to talk to someone about my case","waiting-eppi-fees",2
+30,"I need to talk to someone about my case","waiting-eppi-notifications",2
+30,"I need to talk to someone about my case","waiting-caseqa-general-support-request",2
+30,"I need to talk to someone about my case","waiting-eppi-faq",2
+30,"I need to talk to someone about my case","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I need to talk to someone about my case","waiting-yes-child-support",1
+30,"I need to talk to someone about my case","waiting-support-no-phone-number",1
+30,"I need to talk to someone about my case","waiting-support-phone-number",1
+30,"I need to talk to someone about my case","waiting-support-no-email",1
+30,"I need to talk to someone about my case","waiting-support-email",1
+30,"I need to talk to someone about my case","waiting-not-child-support",1
+30,"I need to talk to someone about my case","waiting-iwo-disposable-income",1
+30,"I need to talk to someone about my case","waiting-dirdep-no-learn-more-eppicard",1
+30,"I need to talk to someone about my case","waiting-dirdep-learn-more-eppicard",1
+30,"I need to talk to someone about my case","payment-factors",1
+30,"I need to talk to someone about my case","waiting-pmt-calc-retirement-contributions",1
+30,"I need to talk to someone about my case","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I need to talk to someone about my case","iwo-factors",1
+30,"number to check my address on file is correct","waiting-restart-conversation",10
+30,"number to check my address on file is correct","waiting-feedback-root",9
+30,"number to check my address on file is correct","waiting-pmtmethods-debit-card",4
+30,"number to check my address on file is correct","waiting-support-employer",3
+30,"number to check my address on file is correct","waiting-support-parent-paying",3
+30,"number to check my address on file is correct","waiting-support-parent-receiving",3
+30,"number to check my address on file is correct","waiting-open-csc-location-services",3
+30,"number to check my address on file is correct","waiting-open-csc-employer-payments",3
+30,"number to check my address on file is correct","waiting-open-csc-full-services",3
+30,"number to check my address on file is correct","waiting-eppi-get-card",2
+30,"number to check my address on file is correct","waiting-eppi-replace-report",2
+30,"number to check my address on file is correct","ticketinfo",2
+30,"number to check my address on file is correct","waiting-eppi-activate",2
+30,"number to check my address on file is correct","waiting-eppi-fees",2
+30,"number to check my address on file is correct","waiting-eppi-notifications",2
+30,"number to check my address on file is correct","waiting-caseqa-general-support-request",2
+30,"number to check my address on file is correct","waiting-eppi-faq",2
+30,"number to check my address on file is correct","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"number to check my address on file is correct","waiting-yes-child-support",1
+30,"number to check my address on file is correct","waiting-support-no-phone-number",1
+30,"number to check my address on file is correct","waiting-support-phone-number",1
+30,"number to check my address on file is correct","waiting-support-no-email",1
+30,"number to check my address on file is correct","waiting-support-email",1
+30,"number to check my address on file is correct","waiting-not-child-support",1
+30,"number to check my address on file is correct","waiting-iwo-disposable-income",1
+30,"number to check my address on file is correct","waiting-dirdep-no-learn-more-eppicard",1
+30,"number to check my address on file is correct","waiting-dirdep-learn-more-eppicard",1
+30,"number to check my address on file is correct","payment-factors",1
+30,"number to check my address on file is correct","waiting-pmt-calc-retirement-contributions",1
+30,"number to check my address on file is correct","waiting-pmt-calc-unknown-ss-deductions",1
+30,"number to check my address on file is correct","iwo-factors",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-restart-conversation",10
+30,"I'm sorry phone # PHONE_NUMBER","waiting-feedback-root",9
+30,"I'm sorry phone # PHONE_NUMBER","waiting-pmtmethods-debit-card",4
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-employer",3
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-parent-paying",3
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-parent-receiving",3
+30,"I'm sorry phone # PHONE_NUMBER","waiting-open-csc-location-services",3
+30,"I'm sorry phone # PHONE_NUMBER","waiting-open-csc-employer-payments",3
+30,"I'm sorry phone # PHONE_NUMBER","waiting-open-csc-full-services",3
+30,"I'm sorry phone # PHONE_NUMBER","waiting-eppi-get-card",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-eppi-replace-report",2
+30,"I'm sorry phone # PHONE_NUMBER","ticketinfo",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-eppi-activate",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-eppi-fees",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-eppi-notifications",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-caseqa-general-support-request",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-eppi-faq",2
+30,"I'm sorry phone # PHONE_NUMBER","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-yes-child-support",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-no-phone-number",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-phone-number",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-no-email",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-support-email",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-not-child-support",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-iwo-disposable-income",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-dirdep-no-learn-more-eppicard",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-dirdep-learn-more-eppicard",1
+30,"I'm sorry phone # PHONE_NUMBER","payment-factors",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-pmt-calc-retirement-contributions",1
+30,"I'm sorry phone # PHONE_NUMBER","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I'm sorry phone # PHONE_NUMBER","iwo-factors",1
+30,"DIGITS month","waiting-restart-conversation",10
+30,"DIGITS month","waiting-feedback-root",9
+30,"DIGITS month","waiting-pmtmethods-debit-card",4
+30,"DIGITS month","waiting-support-employer",3
+30,"DIGITS month","waiting-support-parent-paying",3
+30,"DIGITS month","waiting-support-parent-receiving",3
+30,"DIGITS month","waiting-open-csc-location-services",3
+30,"DIGITS month","waiting-open-csc-employer-payments",3
+30,"DIGITS month","waiting-open-csc-full-services",3
+30,"DIGITS month","waiting-eppi-get-card",2
+30,"DIGITS month","waiting-eppi-replace-report",2
+30,"DIGITS month","ticketinfo",2
+30,"DIGITS month","waiting-eppi-activate",2
+30,"DIGITS month","waiting-eppi-fees",2
+30,"DIGITS month","waiting-eppi-notifications",2
+30,"DIGITS month","waiting-caseqa-general-support-request",2
+30,"DIGITS month","waiting-eppi-faq",2
+30,"DIGITS month","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"DIGITS month","waiting-yes-child-support",1
+30,"DIGITS month","waiting-support-no-phone-number",1
+30,"DIGITS month","waiting-support-phone-number",1
+30,"DIGITS month","waiting-support-no-email",1
+30,"DIGITS month","waiting-support-email",1
+30,"DIGITS month","waiting-not-child-support",1
+30,"DIGITS month","waiting-iwo-disposable-income",1
+30,"DIGITS month","waiting-dirdep-no-learn-more-eppicard",1
+30,"DIGITS month","waiting-dirdep-learn-more-eppicard",1
+30,"DIGITS month","payment-factors",1
+30,"DIGITS month","waiting-pmt-calc-retirement-contributions",1
+30,"DIGITS month","waiting-pmt-calc-unknown-ss-deductions",1
+30,"DIGITS month","iwo-factors",1
+30,"Noone answering that numberv","waiting-restart-conversation",10
+30,"Noone answering that numberv","waiting-feedback-root",9
+30,"Noone answering that numberv","waiting-pmtmethods-debit-card",4
+30,"Noone answering that numberv","waiting-support-employer",3
+30,"Noone answering that numberv","waiting-support-parent-paying",3
+30,"Noone answering that numberv","waiting-support-parent-receiving",3
+30,"Noone answering that numberv","waiting-open-csc-location-services",3
+30,"Noone answering that numberv","waiting-open-csc-employer-payments",3
+30,"Noone answering that numberv","waiting-open-csc-full-services",3
+30,"Noone answering that numberv","waiting-eppi-get-card",2
+30,"Noone answering that numberv","waiting-eppi-replace-report",2
+30,"Noone answering that numberv","ticketinfo",2
+30,"Noone answering that numberv","waiting-eppi-activate",2
+30,"Noone answering that numberv","waiting-eppi-fees",2
+30,"Noone answering that numberv","waiting-eppi-notifications",2
+30,"Noone answering that numberv","waiting-caseqa-general-support-request",2
+30,"Noone answering that numberv","waiting-eppi-faq",2
+30,"Noone answering that numberv","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Noone answering that numberv","waiting-yes-child-support",1
+30,"Noone answering that numberv","waiting-support-no-phone-number",1
+30,"Noone answering that numberv","waiting-support-phone-number",1
+30,"Noone answering that numberv","waiting-support-no-email",1
+30,"Noone answering that numberv","waiting-support-email",1
+30,"Noone answering that numberv","waiting-not-child-support",1
+30,"Noone answering that numberv","waiting-iwo-disposable-income",1
+30,"Noone answering that numberv","waiting-dirdep-no-learn-more-eppicard",1
+30,"Noone answering that numberv","waiting-dirdep-learn-more-eppicard",1
+30,"Noone answering that numberv","payment-factors",1
+30,"Noone answering that numberv","waiting-pmt-calc-retirement-contributions",1
+30,"Noone answering that numberv","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Noone answering that numberv","iwo-factors",1
+30,"I need to speak with someone","waiting-restart-conversation",10
+30,"I need to speak with someone","waiting-feedback-root",9
+30,"I need to speak with someone","waiting-pmtmethods-debit-card",4
+30,"I need to speak with someone","waiting-support-employer",3
+30,"I need to speak with someone","waiting-support-parent-paying",3
+30,"I need to speak with someone","waiting-support-parent-receiving",3
+30,"I need to speak with someone","waiting-open-csc-location-services",3
+30,"I need to speak with someone","waiting-open-csc-employer-payments",3
+30,"I need to speak with someone","waiting-open-csc-full-services",3
+30,"I need to speak with someone","waiting-eppi-get-card",2
+30,"I need to speak with someone","waiting-eppi-replace-report",2
+30,"I need to speak with someone","ticketinfo",2
+30,"I need to speak with someone","waiting-eppi-activate",2
+30,"I need to speak with someone","waiting-eppi-fees",2
+30,"I need to speak with someone","waiting-eppi-notifications",2
+30,"I need to speak with someone","waiting-caseqa-general-support-request",2
+30,"I need to speak with someone","waiting-eppi-faq",2
+30,"I need to speak with someone","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I need to speak with someone","waiting-yes-child-support",1
+30,"I need to speak with someone","waiting-support-no-phone-number",1
+30,"I need to speak with someone","waiting-support-phone-number",1
+30,"I need to speak with someone","waiting-support-no-email",1
+30,"I need to speak with someone","waiting-support-email",1
+30,"I need to speak with someone","waiting-not-child-support",1
+30,"I need to speak with someone","waiting-iwo-disposable-income",1
+30,"I need to speak with someone","waiting-dirdep-no-learn-more-eppicard",1
+30,"I need to speak with someone","waiting-dirdep-learn-more-eppicard",1
+30,"I need to speak with someone","payment-factors",1
+30,"I need to speak with someone","waiting-pmt-calc-retirement-contributions",1
+30,"I need to speak with someone","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I need to speak with someone","iwo-factors",1
+30,"How do I speak to my case worker?","waiting-restart-conversation",10
+30,"How do I speak to my case worker?","waiting-feedback-root",9
+30,"How do I speak to my case worker?","waiting-pmtmethods-debit-card",4
+30,"How do I speak to my case worker?","waiting-support-employer",3
+30,"How do I speak to my case worker?","waiting-support-parent-paying",3
+30,"How do I speak to my case worker?","waiting-support-parent-receiving",3
+30,"How do I speak to my case worker?","waiting-open-csc-location-services",3
+30,"How do I speak to my case worker?","waiting-open-csc-employer-payments",3
+30,"How do I speak to my case worker?","waiting-open-csc-full-services",3
+30,"How do I speak to my case worker?","waiting-eppi-get-card",2
+30,"How do I speak to my case worker?","waiting-eppi-replace-report",2
+30,"How do I speak to my case worker?","ticketinfo",2
+30,"How do I speak to my case worker?","waiting-eppi-activate",2
+30,"How do I speak to my case worker?","waiting-eppi-fees",2
+30,"How do I speak to my case worker?","waiting-eppi-notifications",2
+30,"How do I speak to my case worker?","waiting-caseqa-general-support-request",2
+30,"How do I speak to my case worker?","waiting-eppi-faq",2
+30,"How do I speak to my case worker?","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"How do I speak to my case worker?","waiting-yes-child-support",1
+30,"How do I speak to my case worker?","waiting-support-no-phone-number",1
+30,"How do I speak to my case worker?","waiting-support-phone-number",1
+30,"How do I speak to my case worker?","waiting-support-no-email",1
+30,"How do I speak to my case worker?","waiting-support-email",1
+30,"How do I speak to my case worker?","waiting-not-child-support",1
+30,"How do I speak to my case worker?","waiting-iwo-disposable-income",1
+30,"How do I speak to my case worker?","waiting-dirdep-no-learn-more-eppicard",1
+30,"How do I speak to my case worker?","waiting-dirdep-learn-more-eppicard",1
+30,"How do I speak to my case worker?","payment-factors",1
+30,"How do I speak to my case worker?","waiting-pmt-calc-retirement-contributions",1
+30,"How do I speak to my case worker?","waiting-pmt-calc-unknown-ss-deductions",1
+30,"How do I speak to my case worker?","iwo-factors",1
+30,"Who would I speak to to request visitations","waiting-restart-conversation",10
+30,"Who would I speak to to request visitations","waiting-feedback-root",9
+30,"Who would I speak to to request visitations","waiting-pmtmethods-debit-card",4
+30,"Who would I speak to to request visitations","waiting-support-employer",3
+30,"Who would I speak to to request visitations","waiting-support-parent-paying",3
+30,"Who would I speak to to request visitations","waiting-support-parent-receiving",3
+30,"Who would I speak to to request visitations","waiting-open-csc-location-services",3
+30,"Who would I speak to to request visitations","waiting-open-csc-employer-payments",3
+30,"Who would I speak to to request visitations","waiting-open-csc-full-services",3
+30,"Who would I speak to to request visitations","waiting-eppi-get-card",2
+30,"Who would I speak to to request visitations","waiting-eppi-replace-report",2
+30,"Who would I speak to to request visitations","ticketinfo",2
+30,"Who would I speak to to request visitations","waiting-eppi-activate",2
+30,"Who would I speak to to request visitations","waiting-eppi-fees",2
+30,"Who would I speak to to request visitations","waiting-eppi-notifications",2
+30,"Who would I speak to to request visitations","waiting-caseqa-general-support-request",2
+30,"Who would I speak to to request visitations","waiting-eppi-faq",2
+30,"Who would I speak to to request visitations","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Who would I speak to to request visitations","waiting-yes-child-support",1
+30,"Who would I speak to to request visitations","waiting-support-no-phone-number",1
+30,"Who would I speak to to request visitations","waiting-support-phone-number",1
+30,"Who would I speak to to request visitations","waiting-support-no-email",1
+30,"Who would I speak to to request visitations","waiting-support-email",1
+30,"Who would I speak to to request visitations","waiting-not-child-support",1
+30,"Who would I speak to to request visitations","waiting-iwo-disposable-income",1
+30,"Who would I speak to to request visitations","waiting-dirdep-no-learn-more-eppicard",1
+30,"Who would I speak to to request visitations","waiting-dirdep-learn-more-eppicard",1
+30,"Who would I speak to to request visitations","payment-factors",1
+30,"Who would I speak to to request visitations","waiting-pmt-calc-retirement-contributions",1
+30,"Who would I speak to to request visitations","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Who would I speak to to request visitations","iwo-factors",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-restart-conversation",10
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-feedback-root",9
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-pmtmethods-debit-card",4
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-employer",3
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-parent-paying",3
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-parent-receiving",3
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-open-csc-location-services",3
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-open-csc-employer-payments",3
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-open-csc-full-services",3
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-eppi-get-card",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-eppi-replace-report",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","ticketinfo",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-eppi-activate",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-eppi-fees",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-eppi-notifications",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-caseqa-general-support-request",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-eppi-faq",2
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-yes-child-support",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-no-phone-number",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-phone-number",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-no-email",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-support-email",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-not-child-support",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-iwo-disposable-income",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-dirdep-no-learn-more-eppicard",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-dirdep-learn-more-eppicard",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","payment-factors",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-pmt-calc-retirement-contributions",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I am a child on the case but I am 21 won’t nobody talk to me why","iwo-factors",1
+30,"I need to speak with manager ","waiting-restart-conversation",10
+30,"I need to speak with manager ","waiting-feedback-root",9
+30,"I need to speak with manager ","waiting-pmtmethods-debit-card",4
+30,"I need to speak with manager ","waiting-support-employer",3
+30,"I need to speak with manager ","waiting-support-parent-paying",3
+30,"I need to speak with manager ","waiting-support-parent-receiving",3
+30,"I need to speak with manager ","waiting-open-csc-location-services",3
+30,"I need to speak with manager ","waiting-open-csc-employer-payments",3
+30,"I need to speak with manager ","waiting-open-csc-full-services",3
+30,"I need to speak with manager ","waiting-eppi-get-card",2
+30,"I need to speak with manager ","waiting-eppi-replace-report",2
+30,"I need to speak with manager ","ticketinfo",2
+30,"I need to speak with manager ","waiting-eppi-activate",2
+30,"I need to speak with manager ","waiting-eppi-fees",2
+30,"I need to speak with manager ","waiting-eppi-notifications",2
+30,"I need to speak with manager ","waiting-caseqa-general-support-request",2
+30,"I need to speak with manager ","waiting-eppi-faq",2
+30,"I need to speak with manager ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I need to speak with manager ","waiting-yes-child-support",1
+30,"I need to speak with manager ","waiting-support-no-phone-number",1
+30,"I need to speak with manager ","waiting-support-phone-number",1
+30,"I need to speak with manager ","waiting-support-no-email",1
+30,"I need to speak with manager ","waiting-support-email",1
+30,"I need to speak with manager ","waiting-not-child-support",1
+30,"I need to speak with manager ","waiting-iwo-disposable-income",1
+30,"I need to speak with manager ","waiting-dirdep-no-learn-more-eppicard",1
+30,"I need to speak with manager ","waiting-dirdep-learn-more-eppicard",1
+30,"I need to speak with manager ","payment-factors",1
+30,"I need to speak with manager ","waiting-pmt-calc-retirement-contributions",1
+30,"I need to speak with manager ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I need to speak with manager ","iwo-factors",1
+30,"DIGITS","waiting-restart-conversation",10
+30,"DIGITS","waiting-feedback-root",9
+30,"DIGITS","waiting-pmtmethods-debit-card",4
+30,"DIGITS","waiting-support-employer",3
+30,"DIGITS","waiting-support-parent-paying",3
+30,"DIGITS","waiting-support-parent-receiving",3
+30,"DIGITS","waiting-open-csc-location-services",3
+30,"DIGITS","waiting-open-csc-employer-payments",3
+30,"DIGITS","waiting-open-csc-full-services",3
+30,"DIGITS","waiting-eppi-get-card",2
+30,"DIGITS","waiting-eppi-replace-report",2
+30,"DIGITS","ticketinfo",2
+30,"DIGITS","waiting-eppi-activate",2
+30,"DIGITS","waiting-eppi-fees",2
+30,"DIGITS","waiting-eppi-notifications",2
+30,"DIGITS","waiting-caseqa-general-support-request",2
+30,"DIGITS","waiting-eppi-faq",2
+30,"DIGITS","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"DIGITS","waiting-yes-child-support",1
+30,"DIGITS","waiting-support-no-phone-number",1
+30,"DIGITS","waiting-support-phone-number",1
+30,"DIGITS","waiting-support-no-email",1
+30,"DIGITS","waiting-support-email",1
+30,"DIGITS","waiting-not-child-support",1
+30,"DIGITS","waiting-iwo-disposable-income",1
+30,"DIGITS","waiting-dirdep-no-learn-more-eppicard",1
+30,"DIGITS","waiting-dirdep-learn-more-eppicard",1
+30,"DIGITS","payment-factors",1
+30,"DIGITS","waiting-pmt-calc-retirement-contributions",1
+30,"DIGITS","waiting-pmt-calc-unknown-ss-deductions",1
+30,"DIGITS","iwo-factors",1
+30,"Speak to someone","waiting-restart-conversation",10
+30,"Speak to someone","waiting-feedback-root",9
+30,"Speak to someone","waiting-pmtmethods-debit-card",4
+30,"Speak to someone","waiting-support-employer",3
+30,"Speak to someone","waiting-support-parent-paying",3
+30,"Speak to someone","waiting-support-parent-receiving",3
+30,"Speak to someone","waiting-open-csc-location-services",3
+30,"Speak to someone","waiting-open-csc-employer-payments",3
+30,"Speak to someone","waiting-open-csc-full-services",3
+30,"Speak to someone","waiting-eppi-get-card",2
+30,"Speak to someone","waiting-eppi-replace-report",2
+30,"Speak to someone","ticketinfo",2
+30,"Speak to someone","waiting-eppi-activate",2
+30,"Speak to someone","waiting-eppi-fees",2
+30,"Speak to someone","waiting-eppi-notifications",2
+30,"Speak to someone","waiting-caseqa-general-support-request",2
+30,"Speak to someone","waiting-eppi-faq",2
+30,"Speak to someone","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Speak to someone","waiting-yes-child-support",1
+30,"Speak to someone","waiting-support-no-phone-number",1
+30,"Speak to someone","waiting-support-phone-number",1
+30,"Speak to someone","waiting-support-no-email",1
+30,"Speak to someone","waiting-support-email",1
+30,"Speak to someone","waiting-not-child-support",1
+30,"Speak to someone","waiting-iwo-disposable-income",1
+30,"Speak to someone","waiting-dirdep-no-learn-more-eppicard",1
+30,"Speak to someone","waiting-dirdep-learn-more-eppicard",1
+30,"Speak to someone","payment-factors",1
+30,"Speak to someone","waiting-pmt-calc-retirement-contributions",1
+30,"Speak to someone","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Speak to someone","iwo-factors",1
+30,"I need to talk to someone due to child support ","waiting-restart-conversation",10
+30,"I need to talk to someone due to child support ","waiting-feedback-root",9
+30,"I need to talk to someone due to child support ","waiting-pmtmethods-debit-card",4
+30,"I need to talk to someone due to child support ","waiting-support-employer",3
+30,"I need to talk to someone due to child support ","waiting-support-parent-paying",3
+30,"I need to talk to someone due to child support ","waiting-support-parent-receiving",3
+30,"I need to talk to someone due to child support ","waiting-open-csc-location-services",3
+30,"I need to talk to someone due to child support ","waiting-open-csc-employer-payments",3
+30,"I need to talk to someone due to child support ","waiting-open-csc-full-services",3
+30,"I need to talk to someone due to child support ","waiting-eppi-get-card",2
+30,"I need to talk to someone due to child support ","waiting-eppi-replace-report",2
+30,"I need to talk to someone due to child support ","ticketinfo",2
+30,"I need to talk to someone due to child support ","waiting-eppi-activate",2
+30,"I need to talk to someone due to child support ","waiting-eppi-fees",2
+30,"I need to talk to someone due to child support ","waiting-eppi-notifications",2
+30,"I need to talk to someone due to child support ","waiting-caseqa-general-support-request",2
+30,"I need to talk to someone due to child support ","waiting-eppi-faq",2
+30,"I need to talk to someone due to child support ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I need to talk to someone due to child support ","waiting-yes-child-support",1
+30,"I need to talk to someone due to child support ","waiting-support-no-phone-number",1
+30,"I need to talk to someone due to child support ","waiting-support-phone-number",1
+30,"I need to talk to someone due to child support ","waiting-support-no-email",1
+30,"I need to talk to someone due to child support ","waiting-support-email",1
+30,"I need to talk to someone due to child support ","waiting-not-child-support",1
+30,"I need to talk to someone due to child support ","waiting-iwo-disposable-income",1
+30,"I need to talk to someone due to child support ","waiting-dirdep-no-learn-more-eppicard",1
+30,"I need to talk to someone due to child support ","waiting-dirdep-learn-more-eppicard",1
+30,"I need to talk to someone due to child support ","payment-factors",1
+30,"I need to talk to someone due to child support ","waiting-pmt-calc-retirement-contributions",1
+30,"I need to talk to someone due to child support ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I need to talk to someone due to child support ","iwo-factors",1
+30,"I need to speak with someone about that ","waiting-restart-conversation",10
+30,"I need to speak with someone about that ","waiting-feedback-root",9
+30,"I need to speak with someone about that ","waiting-pmtmethods-debit-card",4
+30,"I need to speak with someone about that ","waiting-support-employer",3
+30,"I need to speak with someone about that ","waiting-support-parent-paying",3
+30,"I need to speak with someone about that ","waiting-support-parent-receiving",3
+30,"I need to speak with someone about that ","waiting-open-csc-location-services",3
+30,"I need to speak with someone about that ","waiting-open-csc-employer-payments",3
+30,"I need to speak with someone about that ","waiting-open-csc-full-services",3
+30,"I need to speak with someone about that ","waiting-eppi-get-card",2
+30,"I need to speak with someone about that ","waiting-eppi-replace-report",2
+30,"I need to speak with someone about that ","ticketinfo",2
+30,"I need to speak with someone about that ","waiting-eppi-activate",2
+30,"I need to speak with someone about that ","waiting-eppi-fees",2
+30,"I need to speak with someone about that ","waiting-eppi-notifications",2
+30,"I need to speak with someone about that ","waiting-caseqa-general-support-request",2
+30,"I need to speak with someone about that ","waiting-eppi-faq",2
+30,"I need to speak with someone about that ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"I need to speak with someone about that ","waiting-yes-child-support",1
+30,"I need to speak with someone about that ","waiting-support-no-phone-number",1
+30,"I need to speak with someone about that ","waiting-support-phone-number",1
+30,"I need to speak with someone about that ","waiting-support-no-email",1
+30,"I need to speak with someone about that ","waiting-support-email",1
+30,"I need to speak with someone about that ","waiting-not-child-support",1
+30,"I need to speak with someone about that ","waiting-iwo-disposable-income",1
+30,"I need to speak with someone about that ","waiting-dirdep-no-learn-more-eppicard",1
+30,"I need to speak with someone about that ","waiting-dirdep-learn-more-eppicard",1
+30,"I need to speak with someone about that ","payment-factors",1
+30,"I need to speak with someone about that ","waiting-pmt-calc-retirement-contributions",1
+30,"I need to speak with someone about that ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"I need to speak with someone about that ","iwo-factors",1
+30,"No one will answer this number","waiting-restart-conversation",10
+30,"No one will answer this number","waiting-feedback-root",9
+30,"No one will answer this number","waiting-pmtmethods-debit-card",4
+30,"No one will answer this number","waiting-support-employer",3
+30,"No one will answer this number","waiting-support-parent-paying",3
+30,"No one will answer this number","waiting-support-parent-receiving",3
+30,"No one will answer this number","waiting-open-csc-location-services",3
+30,"No one will answer this number","waiting-open-csc-employer-payments",3
+30,"No one will answer this number","waiting-open-csc-full-services",3
+30,"No one will answer this number","waiting-eppi-get-card",2
+30,"No one will answer this number","waiting-eppi-replace-report",2
+30,"No one will answer this number","ticketinfo",2
+30,"No one will answer this number","waiting-eppi-activate",2
+30,"No one will answer this number","waiting-eppi-fees",2
+30,"No one will answer this number","waiting-eppi-notifications",2
+30,"No one will answer this number","waiting-caseqa-general-support-request",2
+30,"No one will answer this number","waiting-eppi-faq",2
+30,"No one will answer this number","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"No one will answer this number","waiting-yes-child-support",1
+30,"No one will answer this number","waiting-support-no-phone-number",1
+30,"No one will answer this number","waiting-support-phone-number",1
+30,"No one will answer this number","waiting-support-no-email",1
+30,"No one will answer this number","waiting-support-email",1
+30,"No one will answer this number","waiting-not-child-support",1
+30,"No one will answer this number","waiting-iwo-disposable-income",1
+30,"No one will answer this number","waiting-dirdep-no-learn-more-eppicard",1
+30,"No one will answer this number","waiting-dirdep-learn-more-eppicard",1
+30,"No one will answer this number","payment-factors",1
+30,"No one will answer this number","waiting-pmt-calc-retirement-contributions",1
+30,"No one will answer this number","waiting-pmt-calc-unknown-ss-deductions",1
+30,"No one will answer this number","iwo-factors",1
+30,"Don’t know this ","waiting-restart-conversation",10
+30,"Don’t know this ","waiting-feedback-root",9
+30,"Don’t know this ","waiting-pmtmethods-debit-card",4
+30,"Don’t know this ","waiting-support-employer",3
+30,"Don’t know this ","waiting-support-parent-paying",3
+30,"Don’t know this ","waiting-support-parent-receiving",3
+30,"Don’t know this ","waiting-open-csc-location-services",3
+30,"Don’t know this ","waiting-open-csc-employer-payments",3
+30,"Don’t know this ","waiting-open-csc-full-services",3
+30,"Don’t know this ","waiting-eppi-get-card",2
+30,"Don’t know this ","waiting-eppi-replace-report",2
+30,"Don’t know this ","ticketinfo",2
+30,"Don’t know this ","waiting-eppi-activate",2
+30,"Don’t know this ","waiting-eppi-fees",2
+30,"Don’t know this ","waiting-eppi-notifications",2
+30,"Don’t know this ","waiting-caseqa-general-support-request",2
+30,"Don’t know this ","waiting-eppi-faq",2
+30,"Don’t know this ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Don’t know this ","waiting-yes-child-support",1
+30,"Don’t know this ","waiting-support-no-phone-number",1
+30,"Don’t know this ","waiting-support-phone-number",1
+30,"Don’t know this ","waiting-support-no-email",1
+30,"Don’t know this ","waiting-support-email",1
+30,"Don’t know this ","waiting-not-child-support",1
+30,"Don’t know this ","waiting-iwo-disposable-income",1
+30,"Don’t know this ","waiting-dirdep-no-learn-more-eppicard",1
+30,"Don’t know this ","waiting-dirdep-learn-more-eppicard",1
+30,"Don’t know this ","payment-factors",1
+30,"Don’t know this ","waiting-pmt-calc-retirement-contributions",1
+30,"Don’t know this ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Don’t know this ","iwo-factors",1
+30,"Get a number ","waiting-restart-conversation",10
+30,"Get a number ","waiting-feedback-root",9
+30,"Get a number ","waiting-pmtmethods-debit-card",4
+30,"Get a number ","waiting-support-employer",3
+30,"Get a number ","waiting-support-parent-paying",3
+30,"Get a number ","waiting-support-parent-receiving",3
+30,"Get a number ","waiting-open-csc-location-services",3
+30,"Get a number ","waiting-open-csc-employer-payments",3
+30,"Get a number ","waiting-open-csc-full-services",3
+30,"Get a number ","waiting-eppi-get-card",2
+30,"Get a number ","waiting-eppi-replace-report",2
+30,"Get a number ","ticketinfo",2
+30,"Get a number ","waiting-eppi-activate",2
+30,"Get a number ","waiting-eppi-fees",2
+30,"Get a number ","waiting-eppi-notifications",2
+30,"Get a number ","waiting-caseqa-general-support-request",2
+30,"Get a number ","waiting-eppi-faq",2
+30,"Get a number ","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"Get a number ","waiting-yes-child-support",1
+30,"Get a number ","waiting-support-no-phone-number",1
+30,"Get a number ","waiting-support-phone-number",1
+30,"Get a number ","waiting-support-no-email",1
+30,"Get a number ","waiting-support-email",1
+30,"Get a number ","waiting-not-child-support",1
+30,"Get a number ","waiting-iwo-disposable-income",1
+30,"Get a number ","waiting-dirdep-no-learn-more-eppicard",1
+30,"Get a number ","waiting-dirdep-learn-more-eppicard",1
+30,"Get a number ","payment-factors",1
+30,"Get a number ","waiting-pmt-calc-retirement-contributions",1
+30,"Get a number ","waiting-pmt-calc-unknown-ss-deductions",1
+30,"Get a number ","iwo-factors",1
+30,"DIGITS","waiting-restart-conversation",10
+30,"DIGITS","waiting-feedback-root",9
+30,"DIGITS","waiting-pmtmethods-debit-card",4
+30,"DIGITS","waiting-support-employer",3
+30,"DIGITS","waiting-support-parent-paying",3
+30,"DIGITS","waiting-support-parent-receiving",3
+30,"DIGITS","waiting-open-csc-location-services",3
+30,"DIGITS","waiting-open-csc-employer-payments",3
+30,"DIGITS","waiting-open-csc-full-services",3
+30,"DIGITS","waiting-eppi-get-card",2
+30,"DIGITS","waiting-eppi-replace-report",2
+30,"DIGITS","ticketinfo",2
+30,"DIGITS","waiting-eppi-activate",2
+30,"DIGITS","waiting-eppi-fees",2
+30,"DIGITS","waiting-eppi-notifications",2
+30,"DIGITS","waiting-caseqa-general-support-request",2
+30,"DIGITS","waiting-eppi-faq",2
+30,"DIGITS","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"DIGITS","waiting-yes-child-support",1
+30,"DIGITS","waiting-support-no-phone-number",1
+30,"DIGITS","waiting-support-phone-number",1
+30,"DIGITS","waiting-support-no-email",1
+30,"DIGITS","waiting-support-email",1
+30,"DIGITS","waiting-not-child-support",1
+30,"DIGITS","waiting-iwo-disposable-income",1
+30,"DIGITS","waiting-dirdep-no-learn-more-eppicard",1
+30,"DIGITS","waiting-dirdep-learn-more-eppicard",1
+30,"DIGITS","payment-factors",1
+30,"DIGITS","waiting-pmt-calc-retirement-contributions",1
+30,"DIGITS","waiting-pmt-calc-unknown-ss-deductions",1
+30,"DIGITS","iwo-factors",1
+30,"will they answer?","waiting-restart-conversation",10
+30,"will they answer?","waiting-feedback-root",9
+30,"will they answer?","waiting-pmtmethods-debit-card",4
+30,"will they answer?","waiting-support-employer",3
+30,"will they answer?","waiting-support-parent-paying",3
+30,"will they answer?","waiting-support-parent-receiving",3
+30,"will they answer?","waiting-open-csc-location-services",3
+30,"will they answer?","waiting-open-csc-employer-payments",3
+30,"will they answer?","waiting-open-csc-full-services",3
+30,"will they answer?","waiting-eppi-get-card",2
+30,"will they answer?","waiting-eppi-replace-report",2
+30,"will they answer?","ticketinfo",2
+30,"will they answer?","waiting-eppi-activate",2
+30,"will they answer?","waiting-eppi-fees",2
+30,"will they answer?","waiting-eppi-notifications",2
+30,"will they answer?","waiting-caseqa-general-support-request",2
+30,"will they answer?","waiting-eppi-faq",2
+30,"will they answer?","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"will they answer?","waiting-yes-child-support",1
+30,"will they answer?","waiting-support-no-phone-number",1
+30,"will they answer?","waiting-support-phone-number",1
+30,"will they answer?","waiting-support-no-email",1
+30,"will they answer?","waiting-support-email",1
+30,"will they answer?","waiting-not-child-support",1
+30,"will they answer?","waiting-iwo-disposable-income",1
+30,"will they answer?","waiting-dirdep-no-learn-more-eppicard",1
+30,"will they answer?","waiting-dirdep-learn-more-eppicard",1
+30,"will they answer?","payment-factors",1
+30,"will they answer?","waiting-pmt-calc-retirement-contributions",1
+30,"will they answer?","waiting-pmt-calc-unknown-ss-deductions",1
+30,"will they answer?","iwo-factors",1
+30,"they never anser","waiting-restart-conversation",10
+30,"they never anser","waiting-feedback-root",9
+30,"they never anser","waiting-pmtmethods-debit-card",4
+30,"they never anser","waiting-support-employer",3
+30,"they never anser","waiting-support-parent-paying",3
+30,"they never anser","waiting-support-parent-receiving",3
+30,"they never anser","waiting-open-csc-location-services",3
+30,"they never anser","waiting-open-csc-employer-payments",3
+30,"they never anser","waiting-open-csc-full-services",3
+30,"they never anser","waiting-eppi-get-card",2
+30,"they never anser","waiting-eppi-replace-report",2
+30,"they never anser","ticketinfo",2
+30,"they never anser","waiting-eppi-activate",2
+30,"they never anser","waiting-eppi-fees",2
+30,"they never anser","waiting-eppi-notifications",2
+30,"they never anser","waiting-caseqa-general-support-request",2
+30,"they never anser","waiting-eppi-faq",2
+30,"they never anser","waiting-pmtqa-ncp-payment-status-submit-request",1
+30,"they never anser","waiting-yes-child-support",1
+30,"they never anser","waiting-support-no-phone-number",1
+30,"they never anser","waiting-support-phone-number",1
+30,"they never anser","waiting-support-no-email",1
+30,"they never anser","waiting-support-email",1
+30,"they never anser","waiting-not-child-support",1
+30,"they never anser","waiting-iwo-disposable-income",1
+30,"they never anser","waiting-dirdep-no-learn-more-eppicard",1
+30,"they never anser","waiting-dirdep-learn-more-eppicard",1
+30,"they never anser","payment-factors",1
+30,"they never anser","waiting-pmt-calc-retirement-contributions",1
+30,"they never anser","waiting-pmt-calc-unknown-ss-deductions",1
+30,"they never anser","iwo-factors",1

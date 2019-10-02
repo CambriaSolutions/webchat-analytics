@@ -1,0 +1,57 @@
+"occurences","queries","contexts.name","contexts.count"
+7,"A parent who wishes to put my self on child support","waiting-feedback-root",3
+7,"A parent who wishes to put my self on child support","waiting-restart-conversation",3
+7,"A parent who wishes to put my self on child support","waiting-support-type",1
+7,"A parent who wishes to put my self on child support","waiting-support-employer",1
+7,"A parent who wishes to put my self on child support","waiting-support-parent-paying",1
+7,"A parent who wishes to put my self on child support","waiting-support-parent-receiving",1
+7,"A parent who wishes to put my self on child support","waiting-maps-deliver-map",1
+7,"A parent who wishes to put my self on child support","request-type",1
+7,"I’m looking for information on how to qualify for q m b program ","waiting-feedback-root",3
+7,"I’m looking for information on how to qualify for q m b program ","waiting-restart-conversation",3
+7,"I’m looking for information on how to qualify for q m b program ","waiting-support-type",1
+7,"I’m looking for information on how to qualify for q m b program ","waiting-support-employer",1
+7,"I’m looking for information on how to qualify for q m b program ","waiting-support-parent-paying",1
+7,"I’m looking for information on how to qualify for q m b program ","waiting-support-parent-receiving",1
+7,"I’m looking for information on how to qualify for q m b program ","waiting-maps-deliver-map",1
+7,"I’m looking for information on how to qualify for q m b program ","request-type",1
+7,"How to start a child support case","waiting-feedback-root",3
+7,"How to start a child support case","waiting-restart-conversation",3
+7,"How to start a child support case","waiting-support-type",1
+7,"How to start a child support case","waiting-support-employer",1
+7,"How to start a child support case","waiting-support-parent-paying",1
+7,"How to start a child support case","waiting-support-parent-receiving",1
+7,"How to start a child support case","waiting-maps-deliver-map",1
+7,"How to start a child support case","request-type",1
+7,"How do u get MDHS full services","waiting-feedback-root",3
+7,"How do u get MDHS full services","waiting-restart-conversation",3
+7,"How do u get MDHS full services","waiting-support-type",1
+7,"How do u get MDHS full services","waiting-support-employer",1
+7,"How do u get MDHS full services","waiting-support-parent-paying",1
+7,"How do u get MDHS full services","waiting-support-parent-receiving",1
+7,"How do u get MDHS full services","waiting-maps-deliver-map",1
+7,"How do u get MDHS full services","request-type",1
+7,"How do you get MDHS services","waiting-feedback-root",3
+7,"How do you get MDHS services","waiting-restart-conversation",3
+7,"How do you get MDHS services","waiting-support-type",1
+7,"How do you get MDHS services","waiting-support-employer",1
+7,"How do you get MDHS services","waiting-support-parent-paying",1
+7,"How do you get MDHS services","waiting-support-parent-receiving",1
+7,"How do you get MDHS services","waiting-maps-deliver-map",1
+7,"How do you get MDHS services","request-type",1
+7,"How do you notify someone when their child support will begin coming in?","waiting-feedback-root",3
+7,"How do you notify someone when their child support will begin coming in?","waiting-restart-conversation",3
+7,"How do you notify someone when their child support will begin coming in?","waiting-support-type",1
+7,"How do you notify someone when their child support will begin coming in?","waiting-support-employer",1
+7,"How do you notify someone when their child support will begin coming in?","waiting-support-parent-paying",1
+7,"How do you notify someone when their child support will begin coming in?","waiting-support-parent-receiving",1
+7,"How do you notify someone when their child support will begin coming in?","waiting-maps-deliver-map",1
+7,"How do you notify someone when their child support will begin coming in?","request-type",1
+7,"Trying to get my case open...","waiting-feedback-root",3
+7,"Trying to get my case open...","waiting-restart-conversation",3
+7,"Trying to get my case open...","waiting-support-type",1
+7,"Trying to get my case open...","waiting-support-employer",1
+7,"Trying to get my case open...","waiting-support-parent-paying",1
+7,"Trying to get my case open...","waiting-support-parent-receiving",1
+7,"Trying to get my case open...","waiting-maps-deliver-map",1
+7,"Trying to get my case open...","request-type",1

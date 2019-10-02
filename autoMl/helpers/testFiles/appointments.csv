@@ -1,0 +1,43 @@
+"occurences","queries","contexts.name","contexts.count"
+6,"Number to schedule DNA appointment?","waiting-feedback-root",5
+6,"Number to schedule DNA appointment?","waiting-restart-conversation",5
+6,"Number to schedule DNA appointment?","waiting-appts-office-locations",1
+6,"Number to schedule DNA appointment?","waiting-appts-guidelines",1
+6,"Number to schedule DNA appointment?","waiting-appts-schedule",1
+6,"Number to schedule DNA appointment?","payment-factors",1
+6,"Number to schedule DNA appointment?","waiting-support-cancel-issue",1
+6,"Father doesn’t appear for appointment ","waiting-feedback-root",5
+6,"Father doesn’t appear for appointment ","waiting-restart-conversation",5
+6,"Father doesn’t appear for appointment ","waiting-appts-office-locations",1
+6,"Father doesn’t appear for appointment ","waiting-appts-guidelines",1
+6,"Father doesn’t appear for appointment ","waiting-appts-schedule",1
+6,"Father doesn’t appear for appointment ","payment-factors",1
+6,"Father doesn’t appear for appointment ","waiting-support-cancel-issue",1
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","waiting-feedback-root",5
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","waiting-restart-conversation",5
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","waiting-appts-office-locations",1
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","waiting-appts-guidelines",1
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","waiting-appts-schedule",1
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","payment-factors",1
+6,"I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ","waiting-support-cancel-issue",1
+6,"I need to schedule an appointment to provide employer information for my ex","waiting-feedback-root",5
+6,"I need to schedule an appointment to provide employer information for my ex","waiting-restart-conversation",5
+6,"I need to schedule an appointment to provide employer information for my ex","waiting-appts-office-locations",1
+6,"I need to schedule an appointment to provide employer information for my ex","waiting-appts-guidelines",1
+6,"I need to schedule an appointment to provide employer information for my ex","waiting-appts-schedule",1
+6,"I need to schedule an appointment to provide employer information for my ex","payment-factors",1
+6,"I need to schedule an appointment to provide employer information for my ex","waiting-support-cancel-issue",1
+6,"can i schudele an appointment","waiting-feedback-root",5
+6,"can i schudele an appointment","waiting-restart-conversation",5
+6,"can i schudele an appointment","waiting-appts-office-locations",1
+6,"can i schudele an appointment","waiting-appts-guidelines",1
+6,"can i schudele an appointment","waiting-appts-schedule",1
+6,"can i schudele an appointment","payment-factors",1
+6,"can i schudele an appointment","waiting-support-cancel-issue",1
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","waiting-feedback-root",5
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","waiting-restart-conversation",5
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","waiting-appts-office-locations",1
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","waiting-appts-guidelines",1
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","waiting-appts-schedule",1
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","payment-factors",1
+6,"Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ","waiting-support-cancel-issue",1

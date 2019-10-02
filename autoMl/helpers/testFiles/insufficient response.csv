@@ -1,0 +1,2495 @@
+"occurences","queries","contexts.name","contexts.count"
+58,"Somewhat","payment-factors",12
+58,"Somewhat","ticketinfo",11
+58,"Somewhat","waiting-support-cancel-issue",10
+58,"Somewhat","waiting-feedback-helpful",9
+58,"Somewhat","waiting-feedback-not-helpful",9
+58,"Somewhat","waiting-open-csc-location-services",8
+58,"Somewhat","waiting-open-csc-employer-payments",7
+58,"Somewhat","waiting-open-csc-full-services",7
+58,"Somewhat","waiting-pmtmethods-debit-card",6
+58,"Somewhat","waiting-feedback-root",4
+58,"Somewhat","waiting-pmt-calc-unknown-income",4
+58,"Somewhat","waiting-restart-conversation",4
+58,"Somewhat","waiting-support-no-phone-number",3
+58,"Somewhat","waiting-support-phone-number",3
+58,"Somewhat","waiting-support-no-case-number",3
+58,"Somewhat","waiting-support-case-number",3
+58,"Somewhat","waiting-pmt-calc-gross-income",3
+58,"Somewhat","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Somewhat","waiting-pmt-calc-ss-deductions",3
+58,"Somewhat","waiting-support-type",2
+58,"Somewhat","waiting-support-no-email",2
+58,"Somewhat","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Somewhat","waiting-pmt-calc-retirement-contributions",2
+58,"Somewhat","waiting-support-email",2
+58,"Somewhat","waiting-open-csc-select-form",2
+58,"Somewhat","waiting-open-csc-no-service",2
+58,"Somewhat","waiting-pmt-calc-tax-deductions",1
+58,"Somewhat","waiting-dirdep-change",1
+58,"Somewhat","waiting-dirdep-stop",1
+58,"Somewhat","waiting-appts-yes-contacted",1
+58,"Somewhat","waiting-caseqa-general-support-request",1
+58,"Somewhat","waiting-support-retry-email",1
+58,"Somewhat","waiting-support-retry-phone-number",1
+58,"Somewhat","waiting-pmt-calc-child-support-no-retirement",1
+58,"Somewhat","waiting-support-restart",1
+58,"Somewhat","waiting-support-revise-issue",1
+58,"Somewhat","waiting-support-submit-issue",1
+58,"Somewhat","waiting-iwo-no-assistance",1
+58,"Somewhat","waiting-iwo-faqs",1
+58,"Somewhat","waiting-iwo-wants-assistance",1
+58,"Somewhat","waiting-feedback-complete",1
+58,"Somewhat","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Somewhat","waiting-dirdep-start",1
+58,"None of the above","payment-factors",12
+58,"None of the above","ticketinfo",11
+58,"None of the above","waiting-support-cancel-issue",10
+58,"None of the above","waiting-feedback-helpful",9
+58,"None of the above","waiting-feedback-not-helpful",9
+58,"None of the above","waiting-open-csc-location-services",8
+58,"None of the above","waiting-open-csc-employer-payments",7
+58,"None of the above","waiting-open-csc-full-services",7
+58,"None of the above","waiting-pmtmethods-debit-card",6
+58,"None of the above","waiting-feedback-root",4
+58,"None of the above","waiting-pmt-calc-unknown-income",4
+58,"None of the above","waiting-restart-conversation",4
+58,"None of the above","waiting-support-no-phone-number",3
+58,"None of the above","waiting-support-phone-number",3
+58,"None of the above","waiting-support-no-case-number",3
+58,"None of the above","waiting-support-case-number",3
+58,"None of the above","waiting-pmt-calc-gross-income",3
+58,"None of the above","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None of the above","waiting-pmt-calc-ss-deductions",3
+58,"None of the above","waiting-support-type",2
+58,"None of the above","waiting-support-no-email",2
+58,"None of the above","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None of the above","waiting-pmt-calc-retirement-contributions",2
+58,"None of the above","waiting-support-email",2
+58,"None of the above","waiting-open-csc-select-form",2
+58,"None of the above","waiting-open-csc-no-service",2
+58,"None of the above","waiting-pmt-calc-tax-deductions",1
+58,"None of the above","waiting-dirdep-change",1
+58,"None of the above","waiting-dirdep-stop",1
+58,"None of the above","waiting-appts-yes-contacted",1
+58,"None of the above","waiting-caseqa-general-support-request",1
+58,"None of the above","waiting-support-retry-email",1
+58,"None of the above","waiting-support-retry-phone-number",1
+58,"None of the above","waiting-pmt-calc-child-support-no-retirement",1
+58,"None of the above","waiting-support-restart",1
+58,"None of the above","waiting-support-revise-issue",1
+58,"None of the above","waiting-support-submit-issue",1
+58,"None of the above","waiting-iwo-no-assistance",1
+58,"None of the above","waiting-iwo-faqs",1
+58,"None of the above","waiting-iwo-wants-assistance",1
+58,"None of the above","waiting-feedback-complete",1
+58,"None of the above","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None of the above","waiting-dirdep-start",1
+58,"None","payment-factors",12
+58,"None","ticketinfo",11
+58,"None","waiting-support-cancel-issue",10
+58,"None","waiting-feedback-helpful",9
+58,"None","waiting-feedback-not-helpful",9
+58,"None","waiting-open-csc-location-services",8
+58,"None","waiting-open-csc-employer-payments",7
+58,"None","waiting-open-csc-full-services",7
+58,"None","waiting-pmtmethods-debit-card",6
+58,"None","waiting-feedback-root",4
+58,"None","waiting-pmt-calc-unknown-income",4
+58,"None","waiting-restart-conversation",4
+58,"None","waiting-support-no-phone-number",3
+58,"None","waiting-support-phone-number",3
+58,"None","waiting-support-no-case-number",3
+58,"None","waiting-support-case-number",3
+58,"None","waiting-pmt-calc-gross-income",3
+58,"None","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None","waiting-pmt-calc-ss-deductions",3
+58,"None","waiting-support-type",2
+58,"None","waiting-support-no-email",2
+58,"None","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None","waiting-pmt-calc-retirement-contributions",2
+58,"None","waiting-support-email",2
+58,"None","waiting-open-csc-select-form",2
+58,"None","waiting-open-csc-no-service",2
+58,"None","waiting-pmt-calc-tax-deductions",1
+58,"None","waiting-dirdep-change",1
+58,"None","waiting-dirdep-stop",1
+58,"None","waiting-appts-yes-contacted",1
+58,"None","waiting-caseqa-general-support-request",1
+58,"None","waiting-support-retry-email",1
+58,"None","waiting-support-retry-phone-number",1
+58,"None","waiting-pmt-calc-child-support-no-retirement",1
+58,"None","waiting-support-restart",1
+58,"None","waiting-support-revise-issue",1
+58,"None","waiting-support-submit-issue",1
+58,"None","waiting-iwo-no-assistance",1
+58,"None","waiting-iwo-faqs",1
+58,"None","waiting-iwo-wants-assistance",1
+58,"None","waiting-feedback-complete",1
+58,"None","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None","waiting-dirdep-start",1
+58,"...","payment-factors",12
+58,"...","ticketinfo",11
+58,"...","waiting-support-cancel-issue",10
+58,"...","waiting-feedback-helpful",9
+58,"...","waiting-feedback-not-helpful",9
+58,"...","waiting-open-csc-location-services",8
+58,"...","waiting-open-csc-employer-payments",7
+58,"...","waiting-open-csc-full-services",7
+58,"...","waiting-pmtmethods-debit-card",6
+58,"...","waiting-feedback-root",4
+58,"...","waiting-pmt-calc-unknown-income",4
+58,"...","waiting-restart-conversation",4
+58,"...","waiting-support-no-phone-number",3
+58,"...","waiting-support-phone-number",3
+58,"...","waiting-support-no-case-number",3
+58,"...","waiting-support-case-number",3
+58,"...","waiting-pmt-calc-gross-income",3
+58,"...","waiting-pmt-calc-unknown-tax-deductions",3
+58,"...","waiting-pmt-calc-ss-deductions",3
+58,"...","waiting-support-type",2
+58,"...","waiting-support-no-email",2
+58,"...","waiting-pmt-calc-unknown-ss-deductions",2
+58,"...","waiting-pmt-calc-retirement-contributions",2
+58,"...","waiting-support-email",2
+58,"...","waiting-open-csc-select-form",2
+58,"...","waiting-open-csc-no-service",2
+58,"...","waiting-pmt-calc-tax-deductions",1
+58,"...","waiting-dirdep-change",1
+58,"...","waiting-dirdep-stop",1
+58,"...","waiting-appts-yes-contacted",1
+58,"...","waiting-caseqa-general-support-request",1
+58,"...","waiting-support-retry-email",1
+58,"...","waiting-support-retry-phone-number",1
+58,"...","waiting-pmt-calc-child-support-no-retirement",1
+58,"...","waiting-support-restart",1
+58,"...","waiting-support-revise-issue",1
+58,"...","waiting-support-submit-issue",1
+58,"...","waiting-iwo-no-assistance",1
+58,"...","waiting-iwo-faqs",1
+58,"...","waiting-iwo-wants-assistance",1
+58,"...","waiting-feedback-complete",1
+58,"...","waiting-pmt-calc-retirement-contributions-amount",1
+58,"...","waiting-dirdep-start",1
+58,"No ","payment-factors",12
+58,"No ","ticketinfo",11
+58,"No ","waiting-support-cancel-issue",10
+58,"No ","waiting-feedback-helpful",9
+58,"No ","waiting-feedback-not-helpful",9
+58,"No ","waiting-open-csc-location-services",8
+58,"No ","waiting-open-csc-employer-payments",7
+58,"No ","waiting-open-csc-full-services",7
+58,"No ","waiting-pmtmethods-debit-card",6
+58,"No ","waiting-feedback-root",4
+58,"No ","waiting-pmt-calc-unknown-income",4
+58,"No ","waiting-restart-conversation",4
+58,"No ","waiting-support-no-phone-number",3
+58,"No ","waiting-support-phone-number",3
+58,"No ","waiting-support-no-case-number",3
+58,"No ","waiting-support-case-number",3
+58,"No ","waiting-pmt-calc-gross-income",3
+58,"No ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"No ","waiting-pmt-calc-ss-deductions",3
+58,"No ","waiting-support-type",2
+58,"No ","waiting-support-no-email",2
+58,"No ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"No ","waiting-pmt-calc-retirement-contributions",2
+58,"No ","waiting-support-email",2
+58,"No ","waiting-open-csc-select-form",2
+58,"No ","waiting-open-csc-no-service",2
+58,"No ","waiting-pmt-calc-tax-deductions",1
+58,"No ","waiting-dirdep-change",1
+58,"No ","waiting-dirdep-stop",1
+58,"No ","waiting-appts-yes-contacted",1
+58,"No ","waiting-caseqa-general-support-request",1
+58,"No ","waiting-support-retry-email",1
+58,"No ","waiting-support-retry-phone-number",1
+58,"No ","waiting-pmt-calc-child-support-no-retirement",1
+58,"No ","waiting-support-restart",1
+58,"No ","waiting-support-revise-issue",1
+58,"No ","waiting-support-submit-issue",1
+58,"No ","waiting-iwo-no-assistance",1
+58,"No ","waiting-iwo-faqs",1
+58,"No ","waiting-iwo-wants-assistance",1
+58,"No ","waiting-feedback-complete",1
+58,"No ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"No ","waiting-dirdep-start",1
+58,"None","payment-factors",12
+58,"None","ticketinfo",11
+58,"None","waiting-support-cancel-issue",10
+58,"None","waiting-feedback-helpful",9
+58,"None","waiting-feedback-not-helpful",9
+58,"None","waiting-open-csc-location-services",8
+58,"None","waiting-open-csc-employer-payments",7
+58,"None","waiting-open-csc-full-services",7
+58,"None","waiting-pmtmethods-debit-card",6
+58,"None","waiting-feedback-root",4
+58,"None","waiting-pmt-calc-unknown-income",4
+58,"None","waiting-restart-conversation",4
+58,"None","waiting-support-no-phone-number",3
+58,"None","waiting-support-phone-number",3
+58,"None","waiting-support-no-case-number",3
+58,"None","waiting-support-case-number",3
+58,"None","waiting-pmt-calc-gross-income",3
+58,"None","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None","waiting-pmt-calc-ss-deductions",3
+58,"None","waiting-support-type",2
+58,"None","waiting-support-no-email",2
+58,"None","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None","waiting-pmt-calc-retirement-contributions",2
+58,"None","waiting-support-email",2
+58,"None","waiting-open-csc-select-form",2
+58,"None","waiting-open-csc-no-service",2
+58,"None","waiting-pmt-calc-tax-deductions",1
+58,"None","waiting-dirdep-change",1
+58,"None","waiting-dirdep-stop",1
+58,"None","waiting-appts-yes-contacted",1
+58,"None","waiting-caseqa-general-support-request",1
+58,"None","waiting-support-retry-email",1
+58,"None","waiting-support-retry-phone-number",1
+58,"None","waiting-pmt-calc-child-support-no-retirement",1
+58,"None","waiting-support-restart",1
+58,"None","waiting-support-revise-issue",1
+58,"None","waiting-support-submit-issue",1
+58,"None","waiting-iwo-no-assistance",1
+58,"None","waiting-iwo-faqs",1
+58,"None","waiting-iwo-wants-assistance",1
+58,"None","waiting-feedback-complete",1
+58,"None","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None","waiting-dirdep-start",1
+58,"0","payment-factors",12
+58,"0","ticketinfo",11
+58,"0","waiting-support-cancel-issue",10
+58,"0","waiting-feedback-helpful",9
+58,"0","waiting-feedback-not-helpful",9
+58,"0","waiting-open-csc-location-services",8
+58,"0","waiting-open-csc-employer-payments",7
+58,"0","waiting-open-csc-full-services",7
+58,"0","waiting-pmtmethods-debit-card",6
+58,"0","waiting-feedback-root",4
+58,"0","waiting-pmt-calc-unknown-income",4
+58,"0","waiting-restart-conversation",4
+58,"0","waiting-support-no-phone-number",3
+58,"0","waiting-support-phone-number",3
+58,"0","waiting-support-no-case-number",3
+58,"0","waiting-support-case-number",3
+58,"0","waiting-pmt-calc-gross-income",3
+58,"0","waiting-pmt-calc-unknown-tax-deductions",3
+58,"0","waiting-pmt-calc-ss-deductions",3
+58,"0","waiting-support-type",2
+58,"0","waiting-support-no-email",2
+58,"0","waiting-pmt-calc-unknown-ss-deductions",2
+58,"0","waiting-pmt-calc-retirement-contributions",2
+58,"0","waiting-support-email",2
+58,"0","waiting-open-csc-select-form",2
+58,"0","waiting-open-csc-no-service",2
+58,"0","waiting-pmt-calc-tax-deductions",1
+58,"0","waiting-dirdep-change",1
+58,"0","waiting-dirdep-stop",1
+58,"0","waiting-appts-yes-contacted",1
+58,"0","waiting-caseqa-general-support-request",1
+58,"0","waiting-support-retry-email",1
+58,"0","waiting-support-retry-phone-number",1
+58,"0","waiting-pmt-calc-child-support-no-retirement",1
+58,"0","waiting-support-restart",1
+58,"0","waiting-support-revise-issue",1
+58,"0","waiting-support-submit-issue",1
+58,"0","waiting-iwo-no-assistance",1
+58,"0","waiting-iwo-faqs",1
+58,"0","waiting-iwo-wants-assistance",1
+58,"0","waiting-feedback-complete",1
+58,"0","waiting-pmt-calc-retirement-contributions-amount",1
+58,"0","waiting-dirdep-start",1
+58,"neither","payment-factors",12
+58,"neither","ticketinfo",11
+58,"neither","waiting-support-cancel-issue",10
+58,"neither","waiting-feedback-helpful",9
+58,"neither","waiting-feedback-not-helpful",9
+58,"neither","waiting-open-csc-location-services",8
+58,"neither","waiting-open-csc-employer-payments",7
+58,"neither","waiting-open-csc-full-services",7
+58,"neither","waiting-pmtmethods-debit-card",6
+58,"neither","waiting-feedback-root",4
+58,"neither","waiting-pmt-calc-unknown-income",4
+58,"neither","waiting-restart-conversation",4
+58,"neither","waiting-support-no-phone-number",3
+58,"neither","waiting-support-phone-number",3
+58,"neither","waiting-support-no-case-number",3
+58,"neither","waiting-support-case-number",3
+58,"neither","waiting-pmt-calc-gross-income",3
+58,"neither","waiting-pmt-calc-unknown-tax-deductions",3
+58,"neither","waiting-pmt-calc-ss-deductions",3
+58,"neither","waiting-support-type",2
+58,"neither","waiting-support-no-email",2
+58,"neither","waiting-pmt-calc-unknown-ss-deductions",2
+58,"neither","waiting-pmt-calc-retirement-contributions",2
+58,"neither","waiting-support-email",2
+58,"neither","waiting-open-csc-select-form",2
+58,"neither","waiting-open-csc-no-service",2
+58,"neither","waiting-pmt-calc-tax-deductions",1
+58,"neither","waiting-dirdep-change",1
+58,"neither","waiting-dirdep-stop",1
+58,"neither","waiting-appts-yes-contacted",1
+58,"neither","waiting-caseqa-general-support-request",1
+58,"neither","waiting-support-retry-email",1
+58,"neither","waiting-support-retry-phone-number",1
+58,"neither","waiting-pmt-calc-child-support-no-retirement",1
+58,"neither","waiting-support-restart",1
+58,"neither","waiting-support-revise-issue",1
+58,"neither","waiting-support-submit-issue",1
+58,"neither","waiting-iwo-no-assistance",1
+58,"neither","waiting-iwo-faqs",1
+58,"neither","waiting-iwo-wants-assistance",1
+58,"neither","waiting-feedback-complete",1
+58,"neither","waiting-pmt-calc-retirement-contributions-amount",1
+58,"neither","waiting-dirdep-start",1
+58,"Unsure ","payment-factors",12
+58,"Unsure ","ticketinfo",11
+58,"Unsure ","waiting-support-cancel-issue",10
+58,"Unsure ","waiting-feedback-helpful",9
+58,"Unsure ","waiting-feedback-not-helpful",9
+58,"Unsure ","waiting-open-csc-location-services",8
+58,"Unsure ","waiting-open-csc-employer-payments",7
+58,"Unsure ","waiting-open-csc-full-services",7
+58,"Unsure ","waiting-pmtmethods-debit-card",6
+58,"Unsure ","waiting-feedback-root",4
+58,"Unsure ","waiting-pmt-calc-unknown-income",4
+58,"Unsure ","waiting-restart-conversation",4
+58,"Unsure ","waiting-support-no-phone-number",3
+58,"Unsure ","waiting-support-phone-number",3
+58,"Unsure ","waiting-support-no-case-number",3
+58,"Unsure ","waiting-support-case-number",3
+58,"Unsure ","waiting-pmt-calc-gross-income",3
+58,"Unsure ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Unsure ","waiting-pmt-calc-ss-deductions",3
+58,"Unsure ","waiting-support-type",2
+58,"Unsure ","waiting-support-no-email",2
+58,"Unsure ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Unsure ","waiting-pmt-calc-retirement-contributions",2
+58,"Unsure ","waiting-support-email",2
+58,"Unsure ","waiting-open-csc-select-form",2
+58,"Unsure ","waiting-open-csc-no-service",2
+58,"Unsure ","waiting-pmt-calc-tax-deductions",1
+58,"Unsure ","waiting-dirdep-change",1
+58,"Unsure ","waiting-dirdep-stop",1
+58,"Unsure ","waiting-appts-yes-contacted",1
+58,"Unsure ","waiting-caseqa-general-support-request",1
+58,"Unsure ","waiting-support-retry-email",1
+58,"Unsure ","waiting-support-retry-phone-number",1
+58,"Unsure ","waiting-pmt-calc-child-support-no-retirement",1
+58,"Unsure ","waiting-support-restart",1
+58,"Unsure ","waiting-support-revise-issue",1
+58,"Unsure ","waiting-support-submit-issue",1
+58,"Unsure ","waiting-iwo-no-assistance",1
+58,"Unsure ","waiting-iwo-faqs",1
+58,"Unsure ","waiting-iwo-wants-assistance",1
+58,"Unsure ","waiting-feedback-complete",1
+58,"Unsure ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Unsure ","waiting-dirdep-start",1
+58,"?","payment-factors",12
+58,"?","ticketinfo",11
+58,"?","waiting-support-cancel-issue",10
+58,"?","waiting-feedback-helpful",9
+58,"?","waiting-feedback-not-helpful",9
+58,"?","waiting-open-csc-location-services",8
+58,"?","waiting-open-csc-employer-payments",7
+58,"?","waiting-open-csc-full-services",7
+58,"?","waiting-pmtmethods-debit-card",6
+58,"?","waiting-feedback-root",4
+58,"?","waiting-pmt-calc-unknown-income",4
+58,"?","waiting-restart-conversation",4
+58,"?","waiting-support-no-phone-number",3
+58,"?","waiting-support-phone-number",3
+58,"?","waiting-support-no-case-number",3
+58,"?","waiting-support-case-number",3
+58,"?","waiting-pmt-calc-gross-income",3
+58,"?","waiting-pmt-calc-unknown-tax-deductions",3
+58,"?","waiting-pmt-calc-ss-deductions",3
+58,"?","waiting-support-type",2
+58,"?","waiting-support-no-email",2
+58,"?","waiting-pmt-calc-unknown-ss-deductions",2
+58,"?","waiting-pmt-calc-retirement-contributions",2
+58,"?","waiting-support-email",2
+58,"?","waiting-open-csc-select-form",2
+58,"?","waiting-open-csc-no-service",2
+58,"?","waiting-pmt-calc-tax-deductions",1
+58,"?","waiting-dirdep-change",1
+58,"?","waiting-dirdep-stop",1
+58,"?","waiting-appts-yes-contacted",1
+58,"?","waiting-caseqa-general-support-request",1
+58,"?","waiting-support-retry-email",1
+58,"?","waiting-support-retry-phone-number",1
+58,"?","waiting-pmt-calc-child-support-no-retirement",1
+58,"?","waiting-support-restart",1
+58,"?","waiting-support-revise-issue",1
+58,"?","waiting-support-submit-issue",1
+58,"?","waiting-iwo-no-assistance",1
+58,"?","waiting-iwo-faqs",1
+58,"?","waiting-iwo-wants-assistance",1
+58,"?","waiting-feedback-complete",1
+58,"?","waiting-pmt-calc-retirement-contributions-amount",1
+58,"?","waiting-dirdep-start",1
+58,"Na","payment-factors",12
+58,"Na","ticketinfo",11
+58,"Na","waiting-support-cancel-issue",10
+58,"Na","waiting-feedback-helpful",9
+58,"Na","waiting-feedback-not-helpful",9
+58,"Na","waiting-open-csc-location-services",8
+58,"Na","waiting-open-csc-employer-payments",7
+58,"Na","waiting-open-csc-full-services",7
+58,"Na","waiting-pmtmethods-debit-card",6
+58,"Na","waiting-feedback-root",4
+58,"Na","waiting-pmt-calc-unknown-income",4
+58,"Na","waiting-restart-conversation",4
+58,"Na","waiting-support-no-phone-number",3
+58,"Na","waiting-support-phone-number",3
+58,"Na","waiting-support-no-case-number",3
+58,"Na","waiting-support-case-number",3
+58,"Na","waiting-pmt-calc-gross-income",3
+58,"Na","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Na","waiting-pmt-calc-ss-deductions",3
+58,"Na","waiting-support-type",2
+58,"Na","waiting-support-no-email",2
+58,"Na","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Na","waiting-pmt-calc-retirement-contributions",2
+58,"Na","waiting-support-email",2
+58,"Na","waiting-open-csc-select-form",2
+58,"Na","waiting-open-csc-no-service",2
+58,"Na","waiting-pmt-calc-tax-deductions",1
+58,"Na","waiting-dirdep-change",1
+58,"Na","waiting-dirdep-stop",1
+58,"Na","waiting-appts-yes-contacted",1
+58,"Na","waiting-caseqa-general-support-request",1
+58,"Na","waiting-support-retry-email",1
+58,"Na","waiting-support-retry-phone-number",1
+58,"Na","waiting-pmt-calc-child-support-no-retirement",1
+58,"Na","waiting-support-restart",1
+58,"Na","waiting-support-revise-issue",1
+58,"Na","waiting-support-submit-issue",1
+58,"Na","waiting-iwo-no-assistance",1
+58,"Na","waiting-iwo-faqs",1
+58,"Na","waiting-iwo-wants-assistance",1
+58,"Na","waiting-feedback-complete",1
+58,"Na","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Na","waiting-dirdep-start",1
+58,"What","payment-factors",12
+58,"What","ticketinfo",11
+58,"What","waiting-support-cancel-issue",10
+58,"What","waiting-feedback-helpful",9
+58,"What","waiting-feedback-not-helpful",9
+58,"What","waiting-open-csc-location-services",8
+58,"What","waiting-open-csc-employer-payments",7
+58,"What","waiting-open-csc-full-services",7
+58,"What","waiting-pmtmethods-debit-card",6
+58,"What","waiting-feedback-root",4
+58,"What","waiting-pmt-calc-unknown-income",4
+58,"What","waiting-restart-conversation",4
+58,"What","waiting-support-no-phone-number",3
+58,"What","waiting-support-phone-number",3
+58,"What","waiting-support-no-case-number",3
+58,"What","waiting-support-case-number",3
+58,"What","waiting-pmt-calc-gross-income",3
+58,"What","waiting-pmt-calc-unknown-tax-deductions",3
+58,"What","waiting-pmt-calc-ss-deductions",3
+58,"What","waiting-support-type",2
+58,"What","waiting-support-no-email",2
+58,"What","waiting-pmt-calc-unknown-ss-deductions",2
+58,"What","waiting-pmt-calc-retirement-contributions",2
+58,"What","waiting-support-email",2
+58,"What","waiting-open-csc-select-form",2
+58,"What","waiting-open-csc-no-service",2
+58,"What","waiting-pmt-calc-tax-deductions",1
+58,"What","waiting-dirdep-change",1
+58,"What","waiting-dirdep-stop",1
+58,"What","waiting-appts-yes-contacted",1
+58,"What","waiting-caseqa-general-support-request",1
+58,"What","waiting-support-retry-email",1
+58,"What","waiting-support-retry-phone-number",1
+58,"What","waiting-pmt-calc-child-support-no-retirement",1
+58,"What","waiting-support-restart",1
+58,"What","waiting-support-revise-issue",1
+58,"What","waiting-support-submit-issue",1
+58,"What","waiting-iwo-no-assistance",1
+58,"What","waiting-iwo-faqs",1
+58,"What","waiting-iwo-wants-assistance",1
+58,"What","waiting-feedback-complete",1
+58,"What","waiting-pmt-calc-retirement-contributions-amount",1
+58,"What","waiting-dirdep-start",1
+58,"35,000","payment-factors",12
+58,"35,000","ticketinfo",11
+58,"35,000","waiting-support-cancel-issue",10
+58,"35,000","waiting-feedback-helpful",9
+58,"35,000","waiting-feedback-not-helpful",9
+58,"35,000","waiting-open-csc-location-services",8
+58,"35,000","waiting-open-csc-employer-payments",7
+58,"35,000","waiting-open-csc-full-services",7
+58,"35,000","waiting-pmtmethods-debit-card",6
+58,"35,000","waiting-feedback-root",4
+58,"35,000","waiting-pmt-calc-unknown-income",4
+58,"35,000","waiting-restart-conversation",4
+58,"35,000","waiting-support-no-phone-number",3
+58,"35,000","waiting-support-phone-number",3
+58,"35,000","waiting-support-no-case-number",3
+58,"35,000","waiting-support-case-number",3
+58,"35,000","waiting-pmt-calc-gross-income",3
+58,"35,000","waiting-pmt-calc-unknown-tax-deductions",3
+58,"35,000","waiting-pmt-calc-ss-deductions",3
+58,"35,000","waiting-support-type",2
+58,"35,000","waiting-support-no-email",2
+58,"35,000","waiting-pmt-calc-unknown-ss-deductions",2
+58,"35,000","waiting-pmt-calc-retirement-contributions",2
+58,"35,000","waiting-support-email",2
+58,"35,000","waiting-open-csc-select-form",2
+58,"35,000","waiting-open-csc-no-service",2
+58,"35,000","waiting-pmt-calc-tax-deductions",1
+58,"35,000","waiting-dirdep-change",1
+58,"35,000","waiting-dirdep-stop",1
+58,"35,000","waiting-appts-yes-contacted",1
+58,"35,000","waiting-caseqa-general-support-request",1
+58,"35,000","waiting-support-retry-email",1
+58,"35,000","waiting-support-retry-phone-number",1
+58,"35,000","waiting-pmt-calc-child-support-no-retirement",1
+58,"35,000","waiting-support-restart",1
+58,"35,000","waiting-support-revise-issue",1
+58,"35,000","waiting-support-submit-issue",1
+58,"35,000","waiting-iwo-no-assistance",1
+58,"35,000","waiting-iwo-faqs",1
+58,"35,000","waiting-iwo-wants-assistance",1
+58,"35,000","waiting-feedback-complete",1
+58,"35,000","waiting-pmt-calc-retirement-contributions-amount",1
+58,"35,000","waiting-dirdep-start",1
+58,"Somewhat","payment-factors",12
+58,"Somewhat","ticketinfo",11
+58,"Somewhat","waiting-support-cancel-issue",10
+58,"Somewhat","waiting-feedback-helpful",9
+58,"Somewhat","waiting-feedback-not-helpful",9
+58,"Somewhat","waiting-open-csc-location-services",8
+58,"Somewhat","waiting-open-csc-employer-payments",7
+58,"Somewhat","waiting-open-csc-full-services",7
+58,"Somewhat","waiting-pmtmethods-debit-card",6
+58,"Somewhat","waiting-feedback-root",4
+58,"Somewhat","waiting-pmt-calc-unknown-income",4
+58,"Somewhat","waiting-restart-conversation",4
+58,"Somewhat","waiting-support-no-phone-number",3
+58,"Somewhat","waiting-support-phone-number",3
+58,"Somewhat","waiting-support-no-case-number",3
+58,"Somewhat","waiting-support-case-number",3
+58,"Somewhat","waiting-pmt-calc-gross-income",3
+58,"Somewhat","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Somewhat","waiting-pmt-calc-ss-deductions",3
+58,"Somewhat","waiting-support-type",2
+58,"Somewhat","waiting-support-no-email",2
+58,"Somewhat","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Somewhat","waiting-pmt-calc-retirement-contributions",2
+58,"Somewhat","waiting-support-email",2
+58,"Somewhat","waiting-open-csc-select-form",2
+58,"Somewhat","waiting-open-csc-no-service",2
+58,"Somewhat","waiting-pmt-calc-tax-deductions",1
+58,"Somewhat","waiting-dirdep-change",1
+58,"Somewhat","waiting-dirdep-stop",1
+58,"Somewhat","waiting-appts-yes-contacted",1
+58,"Somewhat","waiting-caseqa-general-support-request",1
+58,"Somewhat","waiting-support-retry-email",1
+58,"Somewhat","waiting-support-retry-phone-number",1
+58,"Somewhat","waiting-pmt-calc-child-support-no-retirement",1
+58,"Somewhat","waiting-support-restart",1
+58,"Somewhat","waiting-support-revise-issue",1
+58,"Somewhat","waiting-support-submit-issue",1
+58,"Somewhat","waiting-iwo-no-assistance",1
+58,"Somewhat","waiting-iwo-faqs",1
+58,"Somewhat","waiting-iwo-wants-assistance",1
+58,"Somewhat","waiting-feedback-complete",1
+58,"Somewhat","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Somewhat","waiting-dirdep-start",1
+58,"Neither ","payment-factors",12
+58,"Neither ","ticketinfo",11
+58,"Neither ","waiting-support-cancel-issue",10
+58,"Neither ","waiting-feedback-helpful",9
+58,"Neither ","waiting-feedback-not-helpful",9
+58,"Neither ","waiting-open-csc-location-services",8
+58,"Neither ","waiting-open-csc-employer-payments",7
+58,"Neither ","waiting-open-csc-full-services",7
+58,"Neither ","waiting-pmtmethods-debit-card",6
+58,"Neither ","waiting-feedback-root",4
+58,"Neither ","waiting-pmt-calc-unknown-income",4
+58,"Neither ","waiting-restart-conversation",4
+58,"Neither ","waiting-support-no-phone-number",3
+58,"Neither ","waiting-support-phone-number",3
+58,"Neither ","waiting-support-no-case-number",3
+58,"Neither ","waiting-support-case-number",3
+58,"Neither ","waiting-pmt-calc-gross-income",3
+58,"Neither ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Neither ","waiting-pmt-calc-ss-deductions",3
+58,"Neither ","waiting-support-type",2
+58,"Neither ","waiting-support-no-email",2
+58,"Neither ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Neither ","waiting-pmt-calc-retirement-contributions",2
+58,"Neither ","waiting-support-email",2
+58,"Neither ","waiting-open-csc-select-form",2
+58,"Neither ","waiting-open-csc-no-service",2
+58,"Neither ","waiting-pmt-calc-tax-deductions",1
+58,"Neither ","waiting-dirdep-change",1
+58,"Neither ","waiting-dirdep-stop",1
+58,"Neither ","waiting-appts-yes-contacted",1
+58,"Neither ","waiting-caseqa-general-support-request",1
+58,"Neither ","waiting-support-retry-email",1
+58,"Neither ","waiting-support-retry-phone-number",1
+58,"Neither ","waiting-pmt-calc-child-support-no-retirement",1
+58,"Neither ","waiting-support-restart",1
+58,"Neither ","waiting-support-revise-issue",1
+58,"Neither ","waiting-support-submit-issue",1
+58,"Neither ","waiting-iwo-no-assistance",1
+58,"Neither ","waiting-iwo-faqs",1
+58,"Neither ","waiting-iwo-wants-assistance",1
+58,"Neither ","waiting-feedback-complete",1
+58,"Neither ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Neither ","waiting-dirdep-start",1
+58,"A little ","payment-factors",12
+58,"A little ","ticketinfo",11
+58,"A little ","waiting-support-cancel-issue",10
+58,"A little ","waiting-feedback-helpful",9
+58,"A little ","waiting-feedback-not-helpful",9
+58,"A little ","waiting-open-csc-location-services",8
+58,"A little ","waiting-open-csc-employer-payments",7
+58,"A little ","waiting-open-csc-full-services",7
+58,"A little ","waiting-pmtmethods-debit-card",6
+58,"A little ","waiting-feedback-root",4
+58,"A little ","waiting-pmt-calc-unknown-income",4
+58,"A little ","waiting-restart-conversation",4
+58,"A little ","waiting-support-no-phone-number",3
+58,"A little ","waiting-support-phone-number",3
+58,"A little ","waiting-support-no-case-number",3
+58,"A little ","waiting-support-case-number",3
+58,"A little ","waiting-pmt-calc-gross-income",3
+58,"A little ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"A little ","waiting-pmt-calc-ss-deductions",3
+58,"A little ","waiting-support-type",2
+58,"A little ","waiting-support-no-email",2
+58,"A little ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"A little ","waiting-pmt-calc-retirement-contributions",2
+58,"A little ","waiting-support-email",2
+58,"A little ","waiting-open-csc-select-form",2
+58,"A little ","waiting-open-csc-no-service",2
+58,"A little ","waiting-pmt-calc-tax-deductions",1
+58,"A little ","waiting-dirdep-change",1
+58,"A little ","waiting-dirdep-stop",1
+58,"A little ","waiting-appts-yes-contacted",1
+58,"A little ","waiting-caseqa-general-support-request",1
+58,"A little ","waiting-support-retry-email",1
+58,"A little ","waiting-support-retry-phone-number",1
+58,"A little ","waiting-pmt-calc-child-support-no-retirement",1
+58,"A little ","waiting-support-restart",1
+58,"A little ","waiting-support-revise-issue",1
+58,"A little ","waiting-support-submit-issue",1
+58,"A little ","waiting-iwo-no-assistance",1
+58,"A little ","waiting-iwo-faqs",1
+58,"A little ","waiting-iwo-wants-assistance",1
+58,"A little ","waiting-feedback-complete",1
+58,"A little ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"A little ","waiting-dirdep-start",1
+58,"I don't know yet","payment-factors",12
+58,"I don't know yet","ticketinfo",11
+58,"I don't know yet","waiting-support-cancel-issue",10
+58,"I don't know yet","waiting-feedback-helpful",9
+58,"I don't know yet","waiting-feedback-not-helpful",9
+58,"I don't know yet","waiting-open-csc-location-services",8
+58,"I don't know yet","waiting-open-csc-employer-payments",7
+58,"I don't know yet","waiting-open-csc-full-services",7
+58,"I don't know yet","waiting-pmtmethods-debit-card",6
+58,"I don't know yet","waiting-feedback-root",4
+58,"I don't know yet","waiting-pmt-calc-unknown-income",4
+58,"I don't know yet","waiting-restart-conversation",4
+58,"I don't know yet","waiting-support-no-phone-number",3
+58,"I don't know yet","waiting-support-phone-number",3
+58,"I don't know yet","waiting-support-no-case-number",3
+58,"I don't know yet","waiting-support-case-number",3
+58,"I don't know yet","waiting-pmt-calc-gross-income",3
+58,"I don't know yet","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I don't know yet","waiting-pmt-calc-ss-deductions",3
+58,"I don't know yet","waiting-support-type",2
+58,"I don't know yet","waiting-support-no-email",2
+58,"I don't know yet","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I don't know yet","waiting-pmt-calc-retirement-contributions",2
+58,"I don't know yet","waiting-support-email",2
+58,"I don't know yet","waiting-open-csc-select-form",2
+58,"I don't know yet","waiting-open-csc-no-service",2
+58,"I don't know yet","waiting-pmt-calc-tax-deductions",1
+58,"I don't know yet","waiting-dirdep-change",1
+58,"I don't know yet","waiting-dirdep-stop",1
+58,"I don't know yet","waiting-appts-yes-contacted",1
+58,"I don't know yet","waiting-caseqa-general-support-request",1
+58,"I don't know yet","waiting-support-retry-email",1
+58,"I don't know yet","waiting-support-retry-phone-number",1
+58,"I don't know yet","waiting-pmt-calc-child-support-no-retirement",1
+58,"I don't know yet","waiting-support-restart",1
+58,"I don't know yet","waiting-support-revise-issue",1
+58,"I don't know yet","waiting-support-submit-issue",1
+58,"I don't know yet","waiting-iwo-no-assistance",1
+58,"I don't know yet","waiting-iwo-faqs",1
+58,"I don't know yet","waiting-iwo-wants-assistance",1
+58,"I don't know yet","waiting-feedback-complete",1
+58,"I don't know yet","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I don't know yet","waiting-dirdep-start",1
+58,"Neither","payment-factors",12
+58,"Neither","ticketinfo",11
+58,"Neither","waiting-support-cancel-issue",10
+58,"Neither","waiting-feedback-helpful",9
+58,"Neither","waiting-feedback-not-helpful",9
+58,"Neither","waiting-open-csc-location-services",8
+58,"Neither","waiting-open-csc-employer-payments",7
+58,"Neither","waiting-open-csc-full-services",7
+58,"Neither","waiting-pmtmethods-debit-card",6
+58,"Neither","waiting-feedback-root",4
+58,"Neither","waiting-pmt-calc-unknown-income",4
+58,"Neither","waiting-restart-conversation",4
+58,"Neither","waiting-support-no-phone-number",3
+58,"Neither","waiting-support-phone-number",3
+58,"Neither","waiting-support-no-case-number",3
+58,"Neither","waiting-support-case-number",3
+58,"Neither","waiting-pmt-calc-gross-income",3
+58,"Neither","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Neither","waiting-pmt-calc-ss-deductions",3
+58,"Neither","waiting-support-type",2
+58,"Neither","waiting-support-no-email",2
+58,"Neither","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Neither","waiting-pmt-calc-retirement-contributions",2
+58,"Neither","waiting-support-email",2
+58,"Neither","waiting-open-csc-select-form",2
+58,"Neither","waiting-open-csc-no-service",2
+58,"Neither","waiting-pmt-calc-tax-deductions",1
+58,"Neither","waiting-dirdep-change",1
+58,"Neither","waiting-dirdep-stop",1
+58,"Neither","waiting-appts-yes-contacted",1
+58,"Neither","waiting-caseqa-general-support-request",1
+58,"Neither","waiting-support-retry-email",1
+58,"Neither","waiting-support-retry-phone-number",1
+58,"Neither","waiting-pmt-calc-child-support-no-retirement",1
+58,"Neither","waiting-support-restart",1
+58,"Neither","waiting-support-revise-issue",1
+58,"Neither","waiting-support-submit-issue",1
+58,"Neither","waiting-iwo-no-assistance",1
+58,"Neither","waiting-iwo-faqs",1
+58,"Neither","waiting-iwo-wants-assistance",1
+58,"Neither","waiting-feedback-complete",1
+58,"Neither","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Neither","waiting-dirdep-start",1
+58,"None ","payment-factors",12
+58,"None ","ticketinfo",11
+58,"None ","waiting-support-cancel-issue",10
+58,"None ","waiting-feedback-helpful",9
+58,"None ","waiting-feedback-not-helpful",9
+58,"None ","waiting-open-csc-location-services",8
+58,"None ","waiting-open-csc-employer-payments",7
+58,"None ","waiting-open-csc-full-services",7
+58,"None ","waiting-pmtmethods-debit-card",6
+58,"None ","waiting-feedback-root",4
+58,"None ","waiting-pmt-calc-unknown-income",4
+58,"None ","waiting-restart-conversation",4
+58,"None ","waiting-support-no-phone-number",3
+58,"None ","waiting-support-phone-number",3
+58,"None ","waiting-support-no-case-number",3
+58,"None ","waiting-support-case-number",3
+58,"None ","waiting-pmt-calc-gross-income",3
+58,"None ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None ","waiting-pmt-calc-ss-deductions",3
+58,"None ","waiting-support-type",2
+58,"None ","waiting-support-no-email",2
+58,"None ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None ","waiting-pmt-calc-retirement-contributions",2
+58,"None ","waiting-support-email",2
+58,"None ","waiting-open-csc-select-form",2
+58,"None ","waiting-open-csc-no-service",2
+58,"None ","waiting-pmt-calc-tax-deductions",1
+58,"None ","waiting-dirdep-change",1
+58,"None ","waiting-dirdep-stop",1
+58,"None ","waiting-appts-yes-contacted",1
+58,"None ","waiting-caseqa-general-support-request",1
+58,"None ","waiting-support-retry-email",1
+58,"None ","waiting-support-retry-phone-number",1
+58,"None ","waiting-pmt-calc-child-support-no-retirement",1
+58,"None ","waiting-support-restart",1
+58,"None ","waiting-support-revise-issue",1
+58,"None ","waiting-support-submit-issue",1
+58,"None ","waiting-iwo-no-assistance",1
+58,"None ","waiting-iwo-faqs",1
+58,"None ","waiting-iwo-wants-assistance",1
+58,"None ","waiting-feedback-complete",1
+58,"None ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None ","waiting-dirdep-start",1
+58,"??","payment-factors",12
+58,"??","ticketinfo",11
+58,"??","waiting-support-cancel-issue",10
+58,"??","waiting-feedback-helpful",9
+58,"??","waiting-feedback-not-helpful",9
+58,"??","waiting-open-csc-location-services",8
+58,"??","waiting-open-csc-employer-payments",7
+58,"??","waiting-open-csc-full-services",7
+58,"??","waiting-pmtmethods-debit-card",6
+58,"??","waiting-feedback-root",4
+58,"??","waiting-pmt-calc-unknown-income",4
+58,"??","waiting-restart-conversation",4
+58,"??","waiting-support-no-phone-number",3
+58,"??","waiting-support-phone-number",3
+58,"??","waiting-support-no-case-number",3
+58,"??","waiting-support-case-number",3
+58,"??","waiting-pmt-calc-gross-income",3
+58,"??","waiting-pmt-calc-unknown-tax-deductions",3
+58,"??","waiting-pmt-calc-ss-deductions",3
+58,"??","waiting-support-type",2
+58,"??","waiting-support-no-email",2
+58,"??","waiting-pmt-calc-unknown-ss-deductions",2
+58,"??","waiting-pmt-calc-retirement-contributions",2
+58,"??","waiting-support-email",2
+58,"??","waiting-open-csc-select-form",2
+58,"??","waiting-open-csc-no-service",2
+58,"??","waiting-pmt-calc-tax-deductions",1
+58,"??","waiting-dirdep-change",1
+58,"??","waiting-dirdep-stop",1
+58,"??","waiting-appts-yes-contacted",1
+58,"??","waiting-caseqa-general-support-request",1
+58,"??","waiting-support-retry-email",1
+58,"??","waiting-support-retry-phone-number",1
+58,"??","waiting-pmt-calc-child-support-no-retirement",1
+58,"??","waiting-support-restart",1
+58,"??","waiting-support-revise-issue",1
+58,"??","waiting-support-submit-issue",1
+58,"??","waiting-iwo-no-assistance",1
+58,"??","waiting-iwo-faqs",1
+58,"??","waiting-iwo-wants-assistance",1
+58,"??","waiting-feedback-complete",1
+58,"??","waiting-pmt-calc-retirement-contributions-amount",1
+58,"??","waiting-dirdep-start",1
+58,"what","payment-factors",12
+58,"what","ticketinfo",11
+58,"what","waiting-support-cancel-issue",10
+58,"what","waiting-feedback-helpful",9
+58,"what","waiting-feedback-not-helpful",9
+58,"what","waiting-open-csc-location-services",8
+58,"what","waiting-open-csc-employer-payments",7
+58,"what","waiting-open-csc-full-services",7
+58,"what","waiting-pmtmethods-debit-card",6
+58,"what","waiting-feedback-root",4
+58,"what","waiting-pmt-calc-unknown-income",4
+58,"what","waiting-restart-conversation",4
+58,"what","waiting-support-no-phone-number",3
+58,"what","waiting-support-phone-number",3
+58,"what","waiting-support-no-case-number",3
+58,"what","waiting-support-case-number",3
+58,"what","waiting-pmt-calc-gross-income",3
+58,"what","waiting-pmt-calc-unknown-tax-deductions",3
+58,"what","waiting-pmt-calc-ss-deductions",3
+58,"what","waiting-support-type",2
+58,"what","waiting-support-no-email",2
+58,"what","waiting-pmt-calc-unknown-ss-deductions",2
+58,"what","waiting-pmt-calc-retirement-contributions",2
+58,"what","waiting-support-email",2
+58,"what","waiting-open-csc-select-form",2
+58,"what","waiting-open-csc-no-service",2
+58,"what","waiting-pmt-calc-tax-deductions",1
+58,"what","waiting-dirdep-change",1
+58,"what","waiting-dirdep-stop",1
+58,"what","waiting-appts-yes-contacted",1
+58,"what","waiting-caseqa-general-support-request",1
+58,"what","waiting-support-retry-email",1
+58,"what","waiting-support-retry-phone-number",1
+58,"what","waiting-pmt-calc-child-support-no-retirement",1
+58,"what","waiting-support-restart",1
+58,"what","waiting-support-revise-issue",1
+58,"what","waiting-support-submit-issue",1
+58,"what","waiting-iwo-no-assistance",1
+58,"what","waiting-iwo-faqs",1
+58,"what","waiting-iwo-wants-assistance",1
+58,"what","waiting-feedback-complete",1
+58,"what","waiting-pmt-calc-retirement-contributions-amount",1
+58,"what","waiting-dirdep-start",1
+58,"Don't have one","payment-factors",12
+58,"Don't have one","ticketinfo",11
+58,"Don't have one","waiting-support-cancel-issue",10
+58,"Don't have one","waiting-feedback-helpful",9
+58,"Don't have one","waiting-feedback-not-helpful",9
+58,"Don't have one","waiting-open-csc-location-services",8
+58,"Don't have one","waiting-open-csc-employer-payments",7
+58,"Don't have one","waiting-open-csc-full-services",7
+58,"Don't have one","waiting-pmtmethods-debit-card",6
+58,"Don't have one","waiting-feedback-root",4
+58,"Don't have one","waiting-pmt-calc-unknown-income",4
+58,"Don't have one","waiting-restart-conversation",4
+58,"Don't have one","waiting-support-no-phone-number",3
+58,"Don't have one","waiting-support-phone-number",3
+58,"Don't have one","waiting-support-no-case-number",3
+58,"Don't have one","waiting-support-case-number",3
+58,"Don't have one","waiting-pmt-calc-gross-income",3
+58,"Don't have one","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Don't have one","waiting-pmt-calc-ss-deductions",3
+58,"Don't have one","waiting-support-type",2
+58,"Don't have one","waiting-support-no-email",2
+58,"Don't have one","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Don't have one","waiting-pmt-calc-retirement-contributions",2
+58,"Don't have one","waiting-support-email",2
+58,"Don't have one","waiting-open-csc-select-form",2
+58,"Don't have one","waiting-open-csc-no-service",2
+58,"Don't have one","waiting-pmt-calc-tax-deductions",1
+58,"Don't have one","waiting-dirdep-change",1
+58,"Don't have one","waiting-dirdep-stop",1
+58,"Don't have one","waiting-appts-yes-contacted",1
+58,"Don't have one","waiting-caseqa-general-support-request",1
+58,"Don't have one","waiting-support-retry-email",1
+58,"Don't have one","waiting-support-retry-phone-number",1
+58,"Don't have one","waiting-pmt-calc-child-support-no-retirement",1
+58,"Don't have one","waiting-support-restart",1
+58,"Don't have one","waiting-support-revise-issue",1
+58,"Don't have one","waiting-support-submit-issue",1
+58,"Don't have one","waiting-iwo-no-assistance",1
+58,"Don't have one","waiting-iwo-faqs",1
+58,"Don't have one","waiting-iwo-wants-assistance",1
+58,"Don't have one","waiting-feedback-complete",1
+58,"Don't have one","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Don't have one","waiting-dirdep-start",1
+58,"Not sure","payment-factors",12
+58,"Not sure","ticketinfo",11
+58,"Not sure","waiting-support-cancel-issue",10
+58,"Not sure","waiting-feedback-helpful",9
+58,"Not sure","waiting-feedback-not-helpful",9
+58,"Not sure","waiting-open-csc-location-services",8
+58,"Not sure","waiting-open-csc-employer-payments",7
+58,"Not sure","waiting-open-csc-full-services",7
+58,"Not sure","waiting-pmtmethods-debit-card",6
+58,"Not sure","waiting-feedback-root",4
+58,"Not sure","waiting-pmt-calc-unknown-income",4
+58,"Not sure","waiting-restart-conversation",4
+58,"Not sure","waiting-support-no-phone-number",3
+58,"Not sure","waiting-support-phone-number",3
+58,"Not sure","waiting-support-no-case-number",3
+58,"Not sure","waiting-support-case-number",3
+58,"Not sure","waiting-pmt-calc-gross-income",3
+58,"Not sure","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Not sure","waiting-pmt-calc-ss-deductions",3
+58,"Not sure","waiting-support-type",2
+58,"Not sure","waiting-support-no-email",2
+58,"Not sure","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Not sure","waiting-pmt-calc-retirement-contributions",2
+58,"Not sure","waiting-support-email",2
+58,"Not sure","waiting-open-csc-select-form",2
+58,"Not sure","waiting-open-csc-no-service",2
+58,"Not sure","waiting-pmt-calc-tax-deductions",1
+58,"Not sure","waiting-dirdep-change",1
+58,"Not sure","waiting-dirdep-stop",1
+58,"Not sure","waiting-appts-yes-contacted",1
+58,"Not sure","waiting-caseqa-general-support-request",1
+58,"Not sure","waiting-support-retry-email",1
+58,"Not sure","waiting-support-retry-phone-number",1
+58,"Not sure","waiting-pmt-calc-child-support-no-retirement",1
+58,"Not sure","waiting-support-restart",1
+58,"Not sure","waiting-support-revise-issue",1
+58,"Not sure","waiting-support-submit-issue",1
+58,"Not sure","waiting-iwo-no-assistance",1
+58,"Not sure","waiting-iwo-faqs",1
+58,"Not sure","waiting-iwo-wants-assistance",1
+58,"Not sure","waiting-feedback-complete",1
+58,"Not sure","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Not sure","waiting-dirdep-start",1
+58,"Not sure","payment-factors",12
+58,"Not sure","ticketinfo",11
+58,"Not sure","waiting-support-cancel-issue",10
+58,"Not sure","waiting-feedback-helpful",9
+58,"Not sure","waiting-feedback-not-helpful",9
+58,"Not sure","waiting-open-csc-location-services",8
+58,"Not sure","waiting-open-csc-employer-payments",7
+58,"Not sure","waiting-open-csc-full-services",7
+58,"Not sure","waiting-pmtmethods-debit-card",6
+58,"Not sure","waiting-feedback-root",4
+58,"Not sure","waiting-pmt-calc-unknown-income",4
+58,"Not sure","waiting-restart-conversation",4
+58,"Not sure","waiting-support-no-phone-number",3
+58,"Not sure","waiting-support-phone-number",3
+58,"Not sure","waiting-support-no-case-number",3
+58,"Not sure","waiting-support-case-number",3
+58,"Not sure","waiting-pmt-calc-gross-income",3
+58,"Not sure","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Not sure","waiting-pmt-calc-ss-deductions",3
+58,"Not sure","waiting-support-type",2
+58,"Not sure","waiting-support-no-email",2
+58,"Not sure","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Not sure","waiting-pmt-calc-retirement-contributions",2
+58,"Not sure","waiting-support-email",2
+58,"Not sure","waiting-open-csc-select-form",2
+58,"Not sure","waiting-open-csc-no-service",2
+58,"Not sure","waiting-pmt-calc-tax-deductions",1
+58,"Not sure","waiting-dirdep-change",1
+58,"Not sure","waiting-dirdep-stop",1
+58,"Not sure","waiting-appts-yes-contacted",1
+58,"Not sure","waiting-caseqa-general-support-request",1
+58,"Not sure","waiting-support-retry-email",1
+58,"Not sure","waiting-support-retry-phone-number",1
+58,"Not sure","waiting-pmt-calc-child-support-no-retirement",1
+58,"Not sure","waiting-support-restart",1
+58,"Not sure","waiting-support-revise-issue",1
+58,"Not sure","waiting-support-submit-issue",1
+58,"Not sure","waiting-iwo-no-assistance",1
+58,"Not sure","waiting-iwo-faqs",1
+58,"Not sure","waiting-iwo-wants-assistance",1
+58,"Not sure","waiting-feedback-complete",1
+58,"Not sure","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Not sure","waiting-dirdep-start",1
+58,"I’m not sure can you explain all three","payment-factors",12
+58,"I’m not sure can you explain all three","ticketinfo",11
+58,"I’m not sure can you explain all three","waiting-support-cancel-issue",10
+58,"I’m not sure can you explain all three","waiting-feedback-helpful",9
+58,"I’m not sure can you explain all three","waiting-feedback-not-helpful",9
+58,"I’m not sure can you explain all three","waiting-open-csc-location-services",8
+58,"I’m not sure can you explain all three","waiting-open-csc-employer-payments",7
+58,"I’m not sure can you explain all three","waiting-open-csc-full-services",7
+58,"I’m not sure can you explain all three","waiting-pmtmethods-debit-card",6
+58,"I’m not sure can you explain all three","waiting-feedback-root",4
+58,"I’m not sure can you explain all three","waiting-pmt-calc-unknown-income",4
+58,"I’m not sure can you explain all three","waiting-restart-conversation",4
+58,"I’m not sure can you explain all three","waiting-support-no-phone-number",3
+58,"I’m not sure can you explain all three","waiting-support-phone-number",3
+58,"I’m not sure can you explain all three","waiting-support-no-case-number",3
+58,"I’m not sure can you explain all three","waiting-support-case-number",3
+58,"I’m not sure can you explain all three","waiting-pmt-calc-gross-income",3
+58,"I’m not sure can you explain all three","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I’m not sure can you explain all three","waiting-pmt-calc-ss-deductions",3
+58,"I’m not sure can you explain all three","waiting-support-type",2
+58,"I’m not sure can you explain all three","waiting-support-no-email",2
+58,"I’m not sure can you explain all three","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I’m not sure can you explain all three","waiting-pmt-calc-retirement-contributions",2
+58,"I’m not sure can you explain all three","waiting-support-email",2
+58,"I’m not sure can you explain all three","waiting-open-csc-select-form",2
+58,"I’m not sure can you explain all three","waiting-open-csc-no-service",2
+58,"I’m not sure can you explain all three","waiting-pmt-calc-tax-deductions",1
+58,"I’m not sure can you explain all three","waiting-dirdep-change",1
+58,"I’m not sure can you explain all three","waiting-dirdep-stop",1
+58,"I’m not sure can you explain all three","waiting-appts-yes-contacted",1
+58,"I’m not sure can you explain all three","waiting-caseqa-general-support-request",1
+58,"I’m not sure can you explain all three","waiting-support-retry-email",1
+58,"I’m not sure can you explain all three","waiting-support-retry-phone-number",1
+58,"I’m not sure can you explain all three","waiting-pmt-calc-child-support-no-retirement",1
+58,"I’m not sure can you explain all three","waiting-support-restart",1
+58,"I’m not sure can you explain all three","waiting-support-revise-issue",1
+58,"I’m not sure can you explain all three","waiting-support-submit-issue",1
+58,"I’m not sure can you explain all three","waiting-iwo-no-assistance",1
+58,"I’m not sure can you explain all three","waiting-iwo-faqs",1
+58,"I’m not sure can you explain all three","waiting-iwo-wants-assistance",1
+58,"I’m not sure can you explain all three","waiting-feedback-complete",1
+58,"I’m not sure can you explain all three","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I’m not sure can you explain all three","waiting-dirdep-start",1
+58,"thats all","payment-factors",12
+58,"thats all","ticketinfo",11
+58,"thats all","waiting-support-cancel-issue",10
+58,"thats all","waiting-feedback-helpful",9
+58,"thats all","waiting-feedback-not-helpful",9
+58,"thats all","waiting-open-csc-location-services",8
+58,"thats all","waiting-open-csc-employer-payments",7
+58,"thats all","waiting-open-csc-full-services",7
+58,"thats all","waiting-pmtmethods-debit-card",6
+58,"thats all","waiting-feedback-root",4
+58,"thats all","waiting-pmt-calc-unknown-income",4
+58,"thats all","waiting-restart-conversation",4
+58,"thats all","waiting-support-no-phone-number",3
+58,"thats all","waiting-support-phone-number",3
+58,"thats all","waiting-support-no-case-number",3
+58,"thats all","waiting-support-case-number",3
+58,"thats all","waiting-pmt-calc-gross-income",3
+58,"thats all","waiting-pmt-calc-unknown-tax-deductions",3
+58,"thats all","waiting-pmt-calc-ss-deductions",3
+58,"thats all","waiting-support-type",2
+58,"thats all","waiting-support-no-email",2
+58,"thats all","waiting-pmt-calc-unknown-ss-deductions",2
+58,"thats all","waiting-pmt-calc-retirement-contributions",2
+58,"thats all","waiting-support-email",2
+58,"thats all","waiting-open-csc-select-form",2
+58,"thats all","waiting-open-csc-no-service",2
+58,"thats all","waiting-pmt-calc-tax-deductions",1
+58,"thats all","waiting-dirdep-change",1
+58,"thats all","waiting-dirdep-stop",1
+58,"thats all","waiting-appts-yes-contacted",1
+58,"thats all","waiting-caseqa-general-support-request",1
+58,"thats all","waiting-support-retry-email",1
+58,"thats all","waiting-support-retry-phone-number",1
+58,"thats all","waiting-pmt-calc-child-support-no-retirement",1
+58,"thats all","waiting-support-restart",1
+58,"thats all","waiting-support-revise-issue",1
+58,"thats all","waiting-support-submit-issue",1
+58,"thats all","waiting-iwo-no-assistance",1
+58,"thats all","waiting-iwo-faqs",1
+58,"thats all","waiting-iwo-wants-assistance",1
+58,"thats all","waiting-feedback-complete",1
+58,"thats all","waiting-pmt-calc-retirement-contributions-amount",1
+58,"thats all","waiting-dirdep-start",1
+58,"No ","payment-factors",12
+58,"No ","ticketinfo",11
+58,"No ","waiting-support-cancel-issue",10
+58,"No ","waiting-feedback-helpful",9
+58,"No ","waiting-feedback-not-helpful",9
+58,"No ","waiting-open-csc-location-services",8
+58,"No ","waiting-open-csc-employer-payments",7
+58,"No ","waiting-open-csc-full-services",7
+58,"No ","waiting-pmtmethods-debit-card",6
+58,"No ","waiting-feedback-root",4
+58,"No ","waiting-pmt-calc-unknown-income",4
+58,"No ","waiting-restart-conversation",4
+58,"No ","waiting-support-no-phone-number",3
+58,"No ","waiting-support-phone-number",3
+58,"No ","waiting-support-no-case-number",3
+58,"No ","waiting-support-case-number",3
+58,"No ","waiting-pmt-calc-gross-income",3
+58,"No ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"No ","waiting-pmt-calc-ss-deductions",3
+58,"No ","waiting-support-type",2
+58,"No ","waiting-support-no-email",2
+58,"No ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"No ","waiting-pmt-calc-retirement-contributions",2
+58,"No ","waiting-support-email",2
+58,"No ","waiting-open-csc-select-form",2
+58,"No ","waiting-open-csc-no-service",2
+58,"No ","waiting-pmt-calc-tax-deductions",1
+58,"No ","waiting-dirdep-change",1
+58,"No ","waiting-dirdep-stop",1
+58,"No ","waiting-appts-yes-contacted",1
+58,"No ","waiting-caseqa-general-support-request",1
+58,"No ","waiting-support-retry-email",1
+58,"No ","waiting-support-retry-phone-number",1
+58,"No ","waiting-pmt-calc-child-support-no-retirement",1
+58,"No ","waiting-support-restart",1
+58,"No ","waiting-support-revise-issue",1
+58,"No ","waiting-support-submit-issue",1
+58,"No ","waiting-iwo-no-assistance",1
+58,"No ","waiting-iwo-faqs",1
+58,"No ","waiting-iwo-wants-assistance",1
+58,"No ","waiting-feedback-complete",1
+58,"No ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"No ","waiting-dirdep-start",1
+58,"?","payment-factors",12
+58,"?","ticketinfo",11
+58,"?","waiting-support-cancel-issue",10
+58,"?","waiting-feedback-helpful",9
+58,"?","waiting-feedback-not-helpful",9
+58,"?","waiting-open-csc-location-services",8
+58,"?","waiting-open-csc-employer-payments",7
+58,"?","waiting-open-csc-full-services",7
+58,"?","waiting-pmtmethods-debit-card",6
+58,"?","waiting-feedback-root",4
+58,"?","waiting-pmt-calc-unknown-income",4
+58,"?","waiting-restart-conversation",4
+58,"?","waiting-support-no-phone-number",3
+58,"?","waiting-support-phone-number",3
+58,"?","waiting-support-no-case-number",3
+58,"?","waiting-support-case-number",3
+58,"?","waiting-pmt-calc-gross-income",3
+58,"?","waiting-pmt-calc-unknown-tax-deductions",3
+58,"?","waiting-pmt-calc-ss-deductions",3
+58,"?","waiting-support-type",2
+58,"?","waiting-support-no-email",2
+58,"?","waiting-pmt-calc-unknown-ss-deductions",2
+58,"?","waiting-pmt-calc-retirement-contributions",2
+58,"?","waiting-support-email",2
+58,"?","waiting-open-csc-select-form",2
+58,"?","waiting-open-csc-no-service",2
+58,"?","waiting-pmt-calc-tax-deductions",1
+58,"?","waiting-dirdep-change",1
+58,"?","waiting-dirdep-stop",1
+58,"?","waiting-appts-yes-contacted",1
+58,"?","waiting-caseqa-general-support-request",1
+58,"?","waiting-support-retry-email",1
+58,"?","waiting-support-retry-phone-number",1
+58,"?","waiting-pmt-calc-child-support-no-retirement",1
+58,"?","waiting-support-restart",1
+58,"?","waiting-support-revise-issue",1
+58,"?","waiting-support-submit-issue",1
+58,"?","waiting-iwo-no-assistance",1
+58,"?","waiting-iwo-faqs",1
+58,"?","waiting-iwo-wants-assistance",1
+58,"?","waiting-feedback-complete",1
+58,"?","waiting-pmt-calc-retirement-contributions-amount",1
+58,"?","waiting-dirdep-start",1
+58,"None of these","payment-factors",12
+58,"None of these","ticketinfo",11
+58,"None of these","waiting-support-cancel-issue",10
+58,"None of these","waiting-feedback-helpful",9
+58,"None of these","waiting-feedback-not-helpful",9
+58,"None of these","waiting-open-csc-location-services",8
+58,"None of these","waiting-open-csc-employer-payments",7
+58,"None of these","waiting-open-csc-full-services",7
+58,"None of these","waiting-pmtmethods-debit-card",6
+58,"None of these","waiting-feedback-root",4
+58,"None of these","waiting-pmt-calc-unknown-income",4
+58,"None of these","waiting-restart-conversation",4
+58,"None of these","waiting-support-no-phone-number",3
+58,"None of these","waiting-support-phone-number",3
+58,"None of these","waiting-support-no-case-number",3
+58,"None of these","waiting-support-case-number",3
+58,"None of these","waiting-pmt-calc-gross-income",3
+58,"None of these","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None of these","waiting-pmt-calc-ss-deductions",3
+58,"None of these","waiting-support-type",2
+58,"None of these","waiting-support-no-email",2
+58,"None of these","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None of these","waiting-pmt-calc-retirement-contributions",2
+58,"None of these","waiting-support-email",2
+58,"None of these","waiting-open-csc-select-form",2
+58,"None of these","waiting-open-csc-no-service",2
+58,"None of these","waiting-pmt-calc-tax-deductions",1
+58,"None of these","waiting-dirdep-change",1
+58,"None of these","waiting-dirdep-stop",1
+58,"None of these","waiting-appts-yes-contacted",1
+58,"None of these","waiting-caseqa-general-support-request",1
+58,"None of these","waiting-support-retry-email",1
+58,"None of these","waiting-support-retry-phone-number",1
+58,"None of these","waiting-pmt-calc-child-support-no-retirement",1
+58,"None of these","waiting-support-restart",1
+58,"None of these","waiting-support-revise-issue",1
+58,"None of these","waiting-support-submit-issue",1
+58,"None of these","waiting-iwo-no-assistance",1
+58,"None of these","waiting-iwo-faqs",1
+58,"None of these","waiting-iwo-wants-assistance",1
+58,"None of these","waiting-feedback-complete",1
+58,"None of these","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None of these","waiting-dirdep-start",1
+58,"I forgot it ","payment-factors",12
+58,"I forgot it ","ticketinfo",11
+58,"I forgot it ","waiting-support-cancel-issue",10
+58,"I forgot it ","waiting-feedback-helpful",9
+58,"I forgot it ","waiting-feedback-not-helpful",9
+58,"I forgot it ","waiting-open-csc-location-services",8
+58,"I forgot it ","waiting-open-csc-employer-payments",7
+58,"I forgot it ","waiting-open-csc-full-services",7
+58,"I forgot it ","waiting-pmtmethods-debit-card",6
+58,"I forgot it ","waiting-feedback-root",4
+58,"I forgot it ","waiting-pmt-calc-unknown-income",4
+58,"I forgot it ","waiting-restart-conversation",4
+58,"I forgot it ","waiting-support-no-phone-number",3
+58,"I forgot it ","waiting-support-phone-number",3
+58,"I forgot it ","waiting-support-no-case-number",3
+58,"I forgot it ","waiting-support-case-number",3
+58,"I forgot it ","waiting-pmt-calc-gross-income",3
+58,"I forgot it ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I forgot it ","waiting-pmt-calc-ss-deductions",3
+58,"I forgot it ","waiting-support-type",2
+58,"I forgot it ","waiting-support-no-email",2
+58,"I forgot it ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I forgot it ","waiting-pmt-calc-retirement-contributions",2
+58,"I forgot it ","waiting-support-email",2
+58,"I forgot it ","waiting-open-csc-select-form",2
+58,"I forgot it ","waiting-open-csc-no-service",2
+58,"I forgot it ","waiting-pmt-calc-tax-deductions",1
+58,"I forgot it ","waiting-dirdep-change",1
+58,"I forgot it ","waiting-dirdep-stop",1
+58,"I forgot it ","waiting-appts-yes-contacted",1
+58,"I forgot it ","waiting-caseqa-general-support-request",1
+58,"I forgot it ","waiting-support-retry-email",1
+58,"I forgot it ","waiting-support-retry-phone-number",1
+58,"I forgot it ","waiting-pmt-calc-child-support-no-retirement",1
+58,"I forgot it ","waiting-support-restart",1
+58,"I forgot it ","waiting-support-revise-issue",1
+58,"I forgot it ","waiting-support-submit-issue",1
+58,"I forgot it ","waiting-iwo-no-assistance",1
+58,"I forgot it ","waiting-iwo-faqs",1
+58,"I forgot it ","waiting-iwo-wants-assistance",1
+58,"I forgot it ","waiting-feedback-complete",1
+58,"I forgot it ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I forgot it ","waiting-dirdep-start",1
+58,"?","payment-factors",12
+58,"?","ticketinfo",11
+58,"?","waiting-support-cancel-issue",10
+58,"?","waiting-feedback-helpful",9
+58,"?","waiting-feedback-not-helpful",9
+58,"?","waiting-open-csc-location-services",8
+58,"?","waiting-open-csc-employer-payments",7
+58,"?","waiting-open-csc-full-services",7
+58,"?","waiting-pmtmethods-debit-card",6
+58,"?","waiting-feedback-root",4
+58,"?","waiting-pmt-calc-unknown-income",4
+58,"?","waiting-restart-conversation",4
+58,"?","waiting-support-no-phone-number",3
+58,"?","waiting-support-phone-number",3
+58,"?","waiting-support-no-case-number",3
+58,"?","waiting-support-case-number",3
+58,"?","waiting-pmt-calc-gross-income",3
+58,"?","waiting-pmt-calc-unknown-tax-deductions",3
+58,"?","waiting-pmt-calc-ss-deductions",3
+58,"?","waiting-support-type",2
+58,"?","waiting-support-no-email",2
+58,"?","waiting-pmt-calc-unknown-ss-deductions",2
+58,"?","waiting-pmt-calc-retirement-contributions",2
+58,"?","waiting-support-email",2
+58,"?","waiting-open-csc-select-form",2
+58,"?","waiting-open-csc-no-service",2
+58,"?","waiting-pmt-calc-tax-deductions",1
+58,"?","waiting-dirdep-change",1
+58,"?","waiting-dirdep-stop",1
+58,"?","waiting-appts-yes-contacted",1
+58,"?","waiting-caseqa-general-support-request",1
+58,"?","waiting-support-retry-email",1
+58,"?","waiting-support-retry-phone-number",1
+58,"?","waiting-pmt-calc-child-support-no-retirement",1
+58,"?","waiting-support-restart",1
+58,"?","waiting-support-revise-issue",1
+58,"?","waiting-support-submit-issue",1
+58,"?","waiting-iwo-no-assistance",1
+58,"?","waiting-iwo-faqs",1
+58,"?","waiting-iwo-wants-assistance",1
+58,"?","waiting-feedback-complete",1
+58,"?","waiting-pmt-calc-retirement-contributions-amount",1
+58,"?","waiting-dirdep-start",1
+58,"tes","payment-factors",12
+58,"tes","ticketinfo",11
+58,"tes","waiting-support-cancel-issue",10
+58,"tes","waiting-feedback-helpful",9
+58,"tes","waiting-feedback-not-helpful",9
+58,"tes","waiting-open-csc-location-services",8
+58,"tes","waiting-open-csc-employer-payments",7
+58,"tes","waiting-open-csc-full-services",7
+58,"tes","waiting-pmtmethods-debit-card",6
+58,"tes","waiting-feedback-root",4
+58,"tes","waiting-pmt-calc-unknown-income",4
+58,"tes","waiting-restart-conversation",4
+58,"tes","waiting-support-no-phone-number",3
+58,"tes","waiting-support-phone-number",3
+58,"tes","waiting-support-no-case-number",3
+58,"tes","waiting-support-case-number",3
+58,"tes","waiting-pmt-calc-gross-income",3
+58,"tes","waiting-pmt-calc-unknown-tax-deductions",3
+58,"tes","waiting-pmt-calc-ss-deductions",3
+58,"tes","waiting-support-type",2
+58,"tes","waiting-support-no-email",2
+58,"tes","waiting-pmt-calc-unknown-ss-deductions",2
+58,"tes","waiting-pmt-calc-retirement-contributions",2
+58,"tes","waiting-support-email",2
+58,"tes","waiting-open-csc-select-form",2
+58,"tes","waiting-open-csc-no-service",2
+58,"tes","waiting-pmt-calc-tax-deductions",1
+58,"tes","waiting-dirdep-change",1
+58,"tes","waiting-dirdep-stop",1
+58,"tes","waiting-appts-yes-contacted",1
+58,"tes","waiting-caseqa-general-support-request",1
+58,"tes","waiting-support-retry-email",1
+58,"tes","waiting-support-retry-phone-number",1
+58,"tes","waiting-pmt-calc-child-support-no-retirement",1
+58,"tes","waiting-support-restart",1
+58,"tes","waiting-support-revise-issue",1
+58,"tes","waiting-support-submit-issue",1
+58,"tes","waiting-iwo-no-assistance",1
+58,"tes","waiting-iwo-faqs",1
+58,"tes","waiting-iwo-wants-assistance",1
+58,"tes","waiting-feedback-complete",1
+58,"tes","waiting-pmt-calc-retirement-contributions-amount",1
+58,"tes","waiting-dirdep-start",1
+58,"Neither ","payment-factors",12
+58,"Neither ","ticketinfo",11
+58,"Neither ","waiting-support-cancel-issue",10
+58,"Neither ","waiting-feedback-helpful",9
+58,"Neither ","waiting-feedback-not-helpful",9
+58,"Neither ","waiting-open-csc-location-services",8
+58,"Neither ","waiting-open-csc-employer-payments",7
+58,"Neither ","waiting-open-csc-full-services",7
+58,"Neither ","waiting-pmtmethods-debit-card",6
+58,"Neither ","waiting-feedback-root",4
+58,"Neither ","waiting-pmt-calc-unknown-income",4
+58,"Neither ","waiting-restart-conversation",4
+58,"Neither ","waiting-support-no-phone-number",3
+58,"Neither ","waiting-support-phone-number",3
+58,"Neither ","waiting-support-no-case-number",3
+58,"Neither ","waiting-support-case-number",3
+58,"Neither ","waiting-pmt-calc-gross-income",3
+58,"Neither ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Neither ","waiting-pmt-calc-ss-deductions",3
+58,"Neither ","waiting-support-type",2
+58,"Neither ","waiting-support-no-email",2
+58,"Neither ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Neither ","waiting-pmt-calc-retirement-contributions",2
+58,"Neither ","waiting-support-email",2
+58,"Neither ","waiting-open-csc-select-form",2
+58,"Neither ","waiting-open-csc-no-service",2
+58,"Neither ","waiting-pmt-calc-tax-deductions",1
+58,"Neither ","waiting-dirdep-change",1
+58,"Neither ","waiting-dirdep-stop",1
+58,"Neither ","waiting-appts-yes-contacted",1
+58,"Neither ","waiting-caseqa-general-support-request",1
+58,"Neither ","waiting-support-retry-email",1
+58,"Neither ","waiting-support-retry-phone-number",1
+58,"Neither ","waiting-pmt-calc-child-support-no-retirement",1
+58,"Neither ","waiting-support-restart",1
+58,"Neither ","waiting-support-revise-issue",1
+58,"Neither ","waiting-support-submit-issue",1
+58,"Neither ","waiting-iwo-no-assistance",1
+58,"Neither ","waiting-iwo-faqs",1
+58,"Neither ","waiting-iwo-wants-assistance",1
+58,"Neither ","waiting-feedback-complete",1
+58,"Neither ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Neither ","waiting-dirdep-start",1
+58,"Neither ","payment-factors",12
+58,"Neither ","ticketinfo",11
+58,"Neither ","waiting-support-cancel-issue",10
+58,"Neither ","waiting-feedback-helpful",9
+58,"Neither ","waiting-feedback-not-helpful",9
+58,"Neither ","waiting-open-csc-location-services",8
+58,"Neither ","waiting-open-csc-employer-payments",7
+58,"Neither ","waiting-open-csc-full-services",7
+58,"Neither ","waiting-pmtmethods-debit-card",6
+58,"Neither ","waiting-feedback-root",4
+58,"Neither ","waiting-pmt-calc-unknown-income",4
+58,"Neither ","waiting-restart-conversation",4
+58,"Neither ","waiting-support-no-phone-number",3
+58,"Neither ","waiting-support-phone-number",3
+58,"Neither ","waiting-support-no-case-number",3
+58,"Neither ","waiting-support-case-number",3
+58,"Neither ","waiting-pmt-calc-gross-income",3
+58,"Neither ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Neither ","waiting-pmt-calc-ss-deductions",3
+58,"Neither ","waiting-support-type",2
+58,"Neither ","waiting-support-no-email",2
+58,"Neither ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Neither ","waiting-pmt-calc-retirement-contributions",2
+58,"Neither ","waiting-support-email",2
+58,"Neither ","waiting-open-csc-select-form",2
+58,"Neither ","waiting-open-csc-no-service",2
+58,"Neither ","waiting-pmt-calc-tax-deductions",1
+58,"Neither ","waiting-dirdep-change",1
+58,"Neither ","waiting-dirdep-stop",1
+58,"Neither ","waiting-appts-yes-contacted",1
+58,"Neither ","waiting-caseqa-general-support-request",1
+58,"Neither ","waiting-support-retry-email",1
+58,"Neither ","waiting-support-retry-phone-number",1
+58,"Neither ","waiting-pmt-calc-child-support-no-retirement",1
+58,"Neither ","waiting-support-restart",1
+58,"Neither ","waiting-support-revise-issue",1
+58,"Neither ","waiting-support-submit-issue",1
+58,"Neither ","waiting-iwo-no-assistance",1
+58,"Neither ","waiting-iwo-faqs",1
+58,"Neither ","waiting-iwo-wants-assistance",1
+58,"Neither ","waiting-feedback-complete",1
+58,"Neither ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Neither ","waiting-dirdep-start",1
+58,"?","payment-factors",12
+58,"?","ticketinfo",11
+58,"?","waiting-support-cancel-issue",10
+58,"?","waiting-feedback-helpful",9
+58,"?","waiting-feedback-not-helpful",9
+58,"?","waiting-open-csc-location-services",8
+58,"?","waiting-open-csc-employer-payments",7
+58,"?","waiting-open-csc-full-services",7
+58,"?","waiting-pmtmethods-debit-card",6
+58,"?","waiting-feedback-root",4
+58,"?","waiting-pmt-calc-unknown-income",4
+58,"?","waiting-restart-conversation",4
+58,"?","waiting-support-no-phone-number",3
+58,"?","waiting-support-phone-number",3
+58,"?","waiting-support-no-case-number",3
+58,"?","waiting-support-case-number",3
+58,"?","waiting-pmt-calc-gross-income",3
+58,"?","waiting-pmt-calc-unknown-tax-deductions",3
+58,"?","waiting-pmt-calc-ss-deductions",3
+58,"?","waiting-support-type",2
+58,"?","waiting-support-no-email",2
+58,"?","waiting-pmt-calc-unknown-ss-deductions",2
+58,"?","waiting-pmt-calc-retirement-contributions",2
+58,"?","waiting-support-email",2
+58,"?","waiting-open-csc-select-form",2
+58,"?","waiting-open-csc-no-service",2
+58,"?","waiting-pmt-calc-tax-deductions",1
+58,"?","waiting-dirdep-change",1
+58,"?","waiting-dirdep-stop",1
+58,"?","waiting-appts-yes-contacted",1
+58,"?","waiting-caseqa-general-support-request",1
+58,"?","waiting-support-retry-email",1
+58,"?","waiting-support-retry-phone-number",1
+58,"?","waiting-pmt-calc-child-support-no-retirement",1
+58,"?","waiting-support-restart",1
+58,"?","waiting-support-revise-issue",1
+58,"?","waiting-support-submit-issue",1
+58,"?","waiting-iwo-no-assistance",1
+58,"?","waiting-iwo-faqs",1
+58,"?","waiting-iwo-wants-assistance",1
+58,"?","waiting-feedback-complete",1
+58,"?","waiting-pmt-calc-retirement-contributions-amount",1
+58,"?","waiting-dirdep-start",1
+58,"I'm not sure ","payment-factors",12
+58,"I'm not sure ","ticketinfo",11
+58,"I'm not sure ","waiting-support-cancel-issue",10
+58,"I'm not sure ","waiting-feedback-helpful",9
+58,"I'm not sure ","waiting-feedback-not-helpful",9
+58,"I'm not sure ","waiting-open-csc-location-services",8
+58,"I'm not sure ","waiting-open-csc-employer-payments",7
+58,"I'm not sure ","waiting-open-csc-full-services",7
+58,"I'm not sure ","waiting-pmtmethods-debit-card",6
+58,"I'm not sure ","waiting-feedback-root",4
+58,"I'm not sure ","waiting-pmt-calc-unknown-income",4
+58,"I'm not sure ","waiting-restart-conversation",4
+58,"I'm not sure ","waiting-support-no-phone-number",3
+58,"I'm not sure ","waiting-support-phone-number",3
+58,"I'm not sure ","waiting-support-no-case-number",3
+58,"I'm not sure ","waiting-support-case-number",3
+58,"I'm not sure ","waiting-pmt-calc-gross-income",3
+58,"I'm not sure ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I'm not sure ","waiting-pmt-calc-ss-deductions",3
+58,"I'm not sure ","waiting-support-type",2
+58,"I'm not sure ","waiting-support-no-email",2
+58,"I'm not sure ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I'm not sure ","waiting-pmt-calc-retirement-contributions",2
+58,"I'm not sure ","waiting-support-email",2
+58,"I'm not sure ","waiting-open-csc-select-form",2
+58,"I'm not sure ","waiting-open-csc-no-service",2
+58,"I'm not sure ","waiting-pmt-calc-tax-deductions",1
+58,"I'm not sure ","waiting-dirdep-change",1
+58,"I'm not sure ","waiting-dirdep-stop",1
+58,"I'm not sure ","waiting-appts-yes-contacted",1
+58,"I'm not sure ","waiting-caseqa-general-support-request",1
+58,"I'm not sure ","waiting-support-retry-email",1
+58,"I'm not sure ","waiting-support-retry-phone-number",1
+58,"I'm not sure ","waiting-pmt-calc-child-support-no-retirement",1
+58,"I'm not sure ","waiting-support-restart",1
+58,"I'm not sure ","waiting-support-revise-issue",1
+58,"I'm not sure ","waiting-support-submit-issue",1
+58,"I'm not sure ","waiting-iwo-no-assistance",1
+58,"I'm not sure ","waiting-iwo-faqs",1
+58,"I'm not sure ","waiting-iwo-wants-assistance",1
+58,"I'm not sure ","waiting-feedback-complete",1
+58,"I'm not sure ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I'm not sure ","waiting-dirdep-start",1
+58,"Never mind ","payment-factors",12
+58,"Never mind ","ticketinfo",11
+58,"Never mind ","waiting-support-cancel-issue",10
+58,"Never mind ","waiting-feedback-helpful",9
+58,"Never mind ","waiting-feedback-not-helpful",9
+58,"Never mind ","waiting-open-csc-location-services",8
+58,"Never mind ","waiting-open-csc-employer-payments",7
+58,"Never mind ","waiting-open-csc-full-services",7
+58,"Never mind ","waiting-pmtmethods-debit-card",6
+58,"Never mind ","waiting-feedback-root",4
+58,"Never mind ","waiting-pmt-calc-unknown-income",4
+58,"Never mind ","waiting-restart-conversation",4
+58,"Never mind ","waiting-support-no-phone-number",3
+58,"Never mind ","waiting-support-phone-number",3
+58,"Never mind ","waiting-support-no-case-number",3
+58,"Never mind ","waiting-support-case-number",3
+58,"Never mind ","waiting-pmt-calc-gross-income",3
+58,"Never mind ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Never mind ","waiting-pmt-calc-ss-deductions",3
+58,"Never mind ","waiting-support-type",2
+58,"Never mind ","waiting-support-no-email",2
+58,"Never mind ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Never mind ","waiting-pmt-calc-retirement-contributions",2
+58,"Never mind ","waiting-support-email",2
+58,"Never mind ","waiting-open-csc-select-form",2
+58,"Never mind ","waiting-open-csc-no-service",2
+58,"Never mind ","waiting-pmt-calc-tax-deductions",1
+58,"Never mind ","waiting-dirdep-change",1
+58,"Never mind ","waiting-dirdep-stop",1
+58,"Never mind ","waiting-appts-yes-contacted",1
+58,"Never mind ","waiting-caseqa-general-support-request",1
+58,"Never mind ","waiting-support-retry-email",1
+58,"Never mind ","waiting-support-retry-phone-number",1
+58,"Never mind ","waiting-pmt-calc-child-support-no-retirement",1
+58,"Never mind ","waiting-support-restart",1
+58,"Never mind ","waiting-support-revise-issue",1
+58,"Never mind ","waiting-support-submit-issue",1
+58,"Never mind ","waiting-iwo-no-assistance",1
+58,"Never mind ","waiting-iwo-faqs",1
+58,"Never mind ","waiting-iwo-wants-assistance",1
+58,"Never mind ","waiting-feedback-complete",1
+58,"Never mind ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Never mind ","waiting-dirdep-start",1
+58,"I’m not sure ","payment-factors",12
+58,"I’m not sure ","ticketinfo",11
+58,"I’m not sure ","waiting-support-cancel-issue",10
+58,"I’m not sure ","waiting-feedback-helpful",9
+58,"I’m not sure ","waiting-feedback-not-helpful",9
+58,"I’m not sure ","waiting-open-csc-location-services",8
+58,"I’m not sure ","waiting-open-csc-employer-payments",7
+58,"I’m not sure ","waiting-open-csc-full-services",7
+58,"I’m not sure ","waiting-pmtmethods-debit-card",6
+58,"I’m not sure ","waiting-feedback-root",4
+58,"I’m not sure ","waiting-pmt-calc-unknown-income",4
+58,"I’m not sure ","waiting-restart-conversation",4
+58,"I’m not sure ","waiting-support-no-phone-number",3
+58,"I’m not sure ","waiting-support-phone-number",3
+58,"I’m not sure ","waiting-support-no-case-number",3
+58,"I’m not sure ","waiting-support-case-number",3
+58,"I’m not sure ","waiting-pmt-calc-gross-income",3
+58,"I’m not sure ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I’m not sure ","waiting-pmt-calc-ss-deductions",3
+58,"I’m not sure ","waiting-support-type",2
+58,"I’m not sure ","waiting-support-no-email",2
+58,"I’m not sure ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I’m not sure ","waiting-pmt-calc-retirement-contributions",2
+58,"I’m not sure ","waiting-support-email",2
+58,"I’m not sure ","waiting-open-csc-select-form",2
+58,"I’m not sure ","waiting-open-csc-no-service",2
+58,"I’m not sure ","waiting-pmt-calc-tax-deductions",1
+58,"I’m not sure ","waiting-dirdep-change",1
+58,"I’m not sure ","waiting-dirdep-stop",1
+58,"I’m not sure ","waiting-appts-yes-contacted",1
+58,"I’m not sure ","waiting-caseqa-general-support-request",1
+58,"I’m not sure ","waiting-support-retry-email",1
+58,"I’m not sure ","waiting-support-retry-phone-number",1
+58,"I’m not sure ","waiting-pmt-calc-child-support-no-retirement",1
+58,"I’m not sure ","waiting-support-restart",1
+58,"I’m not sure ","waiting-support-revise-issue",1
+58,"I’m not sure ","waiting-support-submit-issue",1
+58,"I’m not sure ","waiting-iwo-no-assistance",1
+58,"I’m not sure ","waiting-iwo-faqs",1
+58,"I’m not sure ","waiting-iwo-wants-assistance",1
+58,"I’m not sure ","waiting-feedback-complete",1
+58,"I’m not sure ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I’m not sure ","waiting-dirdep-start",1
+58,"I do not know ","payment-factors",12
+58,"I do not know ","ticketinfo",11
+58,"I do not know ","waiting-support-cancel-issue",10
+58,"I do not know ","waiting-feedback-helpful",9
+58,"I do not know ","waiting-feedback-not-helpful",9
+58,"I do not know ","waiting-open-csc-location-services",8
+58,"I do not know ","waiting-open-csc-employer-payments",7
+58,"I do not know ","waiting-open-csc-full-services",7
+58,"I do not know ","waiting-pmtmethods-debit-card",6
+58,"I do not know ","waiting-feedback-root",4
+58,"I do not know ","waiting-pmt-calc-unknown-income",4
+58,"I do not know ","waiting-restart-conversation",4
+58,"I do not know ","waiting-support-no-phone-number",3
+58,"I do not know ","waiting-support-phone-number",3
+58,"I do not know ","waiting-support-no-case-number",3
+58,"I do not know ","waiting-support-case-number",3
+58,"I do not know ","waiting-pmt-calc-gross-income",3
+58,"I do not know ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I do not know ","waiting-pmt-calc-ss-deductions",3
+58,"I do not know ","waiting-support-type",2
+58,"I do not know ","waiting-support-no-email",2
+58,"I do not know ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I do not know ","waiting-pmt-calc-retirement-contributions",2
+58,"I do not know ","waiting-support-email",2
+58,"I do not know ","waiting-open-csc-select-form",2
+58,"I do not know ","waiting-open-csc-no-service",2
+58,"I do not know ","waiting-pmt-calc-tax-deductions",1
+58,"I do not know ","waiting-dirdep-change",1
+58,"I do not know ","waiting-dirdep-stop",1
+58,"I do not know ","waiting-appts-yes-contacted",1
+58,"I do not know ","waiting-caseqa-general-support-request",1
+58,"I do not know ","waiting-support-retry-email",1
+58,"I do not know ","waiting-support-retry-phone-number",1
+58,"I do not know ","waiting-pmt-calc-child-support-no-retirement",1
+58,"I do not know ","waiting-support-restart",1
+58,"I do not know ","waiting-support-revise-issue",1
+58,"I do not know ","waiting-support-submit-issue",1
+58,"I do not know ","waiting-iwo-no-assistance",1
+58,"I do not know ","waiting-iwo-faqs",1
+58,"I do not know ","waiting-iwo-wants-assistance",1
+58,"I do not know ","waiting-feedback-complete",1
+58,"I do not know ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I do not know ","waiting-dirdep-start",1
+58,"Non of these ","payment-factors",12
+58,"Non of these ","ticketinfo",11
+58,"Non of these ","waiting-support-cancel-issue",10
+58,"Non of these ","waiting-feedback-helpful",9
+58,"Non of these ","waiting-feedback-not-helpful",9
+58,"Non of these ","waiting-open-csc-location-services",8
+58,"Non of these ","waiting-open-csc-employer-payments",7
+58,"Non of these ","waiting-open-csc-full-services",7
+58,"Non of these ","waiting-pmtmethods-debit-card",6
+58,"Non of these ","waiting-feedback-root",4
+58,"Non of these ","waiting-pmt-calc-unknown-income",4
+58,"Non of these ","waiting-restart-conversation",4
+58,"Non of these ","waiting-support-no-phone-number",3
+58,"Non of these ","waiting-support-phone-number",3
+58,"Non of these ","waiting-support-no-case-number",3
+58,"Non of these ","waiting-support-case-number",3
+58,"Non of these ","waiting-pmt-calc-gross-income",3
+58,"Non of these ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Non of these ","waiting-pmt-calc-ss-deductions",3
+58,"Non of these ","waiting-support-type",2
+58,"Non of these ","waiting-support-no-email",2
+58,"Non of these ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Non of these ","waiting-pmt-calc-retirement-contributions",2
+58,"Non of these ","waiting-support-email",2
+58,"Non of these ","waiting-open-csc-select-form",2
+58,"Non of these ","waiting-open-csc-no-service",2
+58,"Non of these ","waiting-pmt-calc-tax-deductions",1
+58,"Non of these ","waiting-dirdep-change",1
+58,"Non of these ","waiting-dirdep-stop",1
+58,"Non of these ","waiting-appts-yes-contacted",1
+58,"Non of these ","waiting-caseqa-general-support-request",1
+58,"Non of these ","waiting-support-retry-email",1
+58,"Non of these ","waiting-support-retry-phone-number",1
+58,"Non of these ","waiting-pmt-calc-child-support-no-retirement",1
+58,"Non of these ","waiting-support-restart",1
+58,"Non of these ","waiting-support-revise-issue",1
+58,"Non of these ","waiting-support-submit-issue",1
+58,"Non of these ","waiting-iwo-no-assistance",1
+58,"Non of these ","waiting-iwo-faqs",1
+58,"Non of these ","waiting-iwo-wants-assistance",1
+58,"Non of these ","waiting-feedback-complete",1
+58,"Non of these ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Non of these ","waiting-dirdep-start",1
+58,"What","payment-factors",12
+58,"What","ticketinfo",11
+58,"What","waiting-support-cancel-issue",10
+58,"What","waiting-feedback-helpful",9
+58,"What","waiting-feedback-not-helpful",9
+58,"What","waiting-open-csc-location-services",8
+58,"What","waiting-open-csc-employer-payments",7
+58,"What","waiting-open-csc-full-services",7
+58,"What","waiting-pmtmethods-debit-card",6
+58,"What","waiting-feedback-root",4
+58,"What","waiting-pmt-calc-unknown-income",4
+58,"What","waiting-restart-conversation",4
+58,"What","waiting-support-no-phone-number",3
+58,"What","waiting-support-phone-number",3
+58,"What","waiting-support-no-case-number",3
+58,"What","waiting-support-case-number",3
+58,"What","waiting-pmt-calc-gross-income",3
+58,"What","waiting-pmt-calc-unknown-tax-deductions",3
+58,"What","waiting-pmt-calc-ss-deductions",3
+58,"What","waiting-support-type",2
+58,"What","waiting-support-no-email",2
+58,"What","waiting-pmt-calc-unknown-ss-deductions",2
+58,"What","waiting-pmt-calc-retirement-contributions",2
+58,"What","waiting-support-email",2
+58,"What","waiting-open-csc-select-form",2
+58,"What","waiting-open-csc-no-service",2
+58,"What","waiting-pmt-calc-tax-deductions",1
+58,"What","waiting-dirdep-change",1
+58,"What","waiting-dirdep-stop",1
+58,"What","waiting-appts-yes-contacted",1
+58,"What","waiting-caseqa-general-support-request",1
+58,"What","waiting-support-retry-email",1
+58,"What","waiting-support-retry-phone-number",1
+58,"What","waiting-pmt-calc-child-support-no-retirement",1
+58,"What","waiting-support-restart",1
+58,"What","waiting-support-revise-issue",1
+58,"What","waiting-support-submit-issue",1
+58,"What","waiting-iwo-no-assistance",1
+58,"What","waiting-iwo-faqs",1
+58,"What","waiting-iwo-wants-assistance",1
+58,"What","waiting-feedback-complete",1
+58,"What","waiting-pmt-calc-retirement-contributions-amount",1
+58,"What","waiting-dirdep-start",1
+58,"I am asking ","payment-factors",12
+58,"I am asking ","ticketinfo",11
+58,"I am asking ","waiting-support-cancel-issue",10
+58,"I am asking ","waiting-feedback-helpful",9
+58,"I am asking ","waiting-feedback-not-helpful",9
+58,"I am asking ","waiting-open-csc-location-services",8
+58,"I am asking ","waiting-open-csc-employer-payments",7
+58,"I am asking ","waiting-open-csc-full-services",7
+58,"I am asking ","waiting-pmtmethods-debit-card",6
+58,"I am asking ","waiting-feedback-root",4
+58,"I am asking ","waiting-pmt-calc-unknown-income",4
+58,"I am asking ","waiting-restart-conversation",4
+58,"I am asking ","waiting-support-no-phone-number",3
+58,"I am asking ","waiting-support-phone-number",3
+58,"I am asking ","waiting-support-no-case-number",3
+58,"I am asking ","waiting-support-case-number",3
+58,"I am asking ","waiting-pmt-calc-gross-income",3
+58,"I am asking ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I am asking ","waiting-pmt-calc-ss-deductions",3
+58,"I am asking ","waiting-support-type",2
+58,"I am asking ","waiting-support-no-email",2
+58,"I am asking ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I am asking ","waiting-pmt-calc-retirement-contributions",2
+58,"I am asking ","waiting-support-email",2
+58,"I am asking ","waiting-open-csc-select-form",2
+58,"I am asking ","waiting-open-csc-no-service",2
+58,"I am asking ","waiting-pmt-calc-tax-deductions",1
+58,"I am asking ","waiting-dirdep-change",1
+58,"I am asking ","waiting-dirdep-stop",1
+58,"I am asking ","waiting-appts-yes-contacted",1
+58,"I am asking ","waiting-caseqa-general-support-request",1
+58,"I am asking ","waiting-support-retry-email",1
+58,"I am asking ","waiting-support-retry-phone-number",1
+58,"I am asking ","waiting-pmt-calc-child-support-no-retirement",1
+58,"I am asking ","waiting-support-restart",1
+58,"I am asking ","waiting-support-revise-issue",1
+58,"I am asking ","waiting-support-submit-issue",1
+58,"I am asking ","waiting-iwo-no-assistance",1
+58,"I am asking ","waiting-iwo-faqs",1
+58,"I am asking ","waiting-iwo-wants-assistance",1
+58,"I am asking ","waiting-feedback-complete",1
+58,"I am asking ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I am asking ","waiting-dirdep-start",1
+58,"somewhat","payment-factors",12
+58,"somewhat","ticketinfo",11
+58,"somewhat","waiting-support-cancel-issue",10
+58,"somewhat","waiting-feedback-helpful",9
+58,"somewhat","waiting-feedback-not-helpful",9
+58,"somewhat","waiting-open-csc-location-services",8
+58,"somewhat","waiting-open-csc-employer-payments",7
+58,"somewhat","waiting-open-csc-full-services",7
+58,"somewhat","waiting-pmtmethods-debit-card",6
+58,"somewhat","waiting-feedback-root",4
+58,"somewhat","waiting-pmt-calc-unknown-income",4
+58,"somewhat","waiting-restart-conversation",4
+58,"somewhat","waiting-support-no-phone-number",3
+58,"somewhat","waiting-support-phone-number",3
+58,"somewhat","waiting-support-no-case-number",3
+58,"somewhat","waiting-support-case-number",3
+58,"somewhat","waiting-pmt-calc-gross-income",3
+58,"somewhat","waiting-pmt-calc-unknown-tax-deductions",3
+58,"somewhat","waiting-pmt-calc-ss-deductions",3
+58,"somewhat","waiting-support-type",2
+58,"somewhat","waiting-support-no-email",2
+58,"somewhat","waiting-pmt-calc-unknown-ss-deductions",2
+58,"somewhat","waiting-pmt-calc-retirement-contributions",2
+58,"somewhat","waiting-support-email",2
+58,"somewhat","waiting-open-csc-select-form",2
+58,"somewhat","waiting-open-csc-no-service",2
+58,"somewhat","waiting-pmt-calc-tax-deductions",1
+58,"somewhat","waiting-dirdep-change",1
+58,"somewhat","waiting-dirdep-stop",1
+58,"somewhat","waiting-appts-yes-contacted",1
+58,"somewhat","waiting-caseqa-general-support-request",1
+58,"somewhat","waiting-support-retry-email",1
+58,"somewhat","waiting-support-retry-phone-number",1
+58,"somewhat","waiting-pmt-calc-child-support-no-retirement",1
+58,"somewhat","waiting-support-restart",1
+58,"somewhat","waiting-support-revise-issue",1
+58,"somewhat","waiting-support-submit-issue",1
+58,"somewhat","waiting-iwo-no-assistance",1
+58,"somewhat","waiting-iwo-faqs",1
+58,"somewhat","waiting-iwo-wants-assistance",1
+58,"somewhat","waiting-feedback-complete",1
+58,"somewhat","waiting-pmt-calc-retirement-contributions-amount",1
+58,"somewhat","waiting-dirdep-start",1
+58,"neither","payment-factors",12
+58,"neither","ticketinfo",11
+58,"neither","waiting-support-cancel-issue",10
+58,"neither","waiting-feedback-helpful",9
+58,"neither","waiting-feedback-not-helpful",9
+58,"neither","waiting-open-csc-location-services",8
+58,"neither","waiting-open-csc-employer-payments",7
+58,"neither","waiting-open-csc-full-services",7
+58,"neither","waiting-pmtmethods-debit-card",6
+58,"neither","waiting-feedback-root",4
+58,"neither","waiting-pmt-calc-unknown-income",4
+58,"neither","waiting-restart-conversation",4
+58,"neither","waiting-support-no-phone-number",3
+58,"neither","waiting-support-phone-number",3
+58,"neither","waiting-support-no-case-number",3
+58,"neither","waiting-support-case-number",3
+58,"neither","waiting-pmt-calc-gross-income",3
+58,"neither","waiting-pmt-calc-unknown-tax-deductions",3
+58,"neither","waiting-pmt-calc-ss-deductions",3
+58,"neither","waiting-support-type",2
+58,"neither","waiting-support-no-email",2
+58,"neither","waiting-pmt-calc-unknown-ss-deductions",2
+58,"neither","waiting-pmt-calc-retirement-contributions",2
+58,"neither","waiting-support-email",2
+58,"neither","waiting-open-csc-select-form",2
+58,"neither","waiting-open-csc-no-service",2
+58,"neither","waiting-pmt-calc-tax-deductions",1
+58,"neither","waiting-dirdep-change",1
+58,"neither","waiting-dirdep-stop",1
+58,"neither","waiting-appts-yes-contacted",1
+58,"neither","waiting-caseqa-general-support-request",1
+58,"neither","waiting-support-retry-email",1
+58,"neither","waiting-support-retry-phone-number",1
+58,"neither","waiting-pmt-calc-child-support-no-retirement",1
+58,"neither","waiting-support-restart",1
+58,"neither","waiting-support-revise-issue",1
+58,"neither","waiting-support-submit-issue",1
+58,"neither","waiting-iwo-no-assistance",1
+58,"neither","waiting-iwo-faqs",1
+58,"neither","waiting-iwo-wants-assistance",1
+58,"neither","waiting-feedback-complete",1
+58,"neither","waiting-pmt-calc-retirement-contributions-amount",1
+58,"neither","waiting-dirdep-start",1
+58,"Not really","payment-factors",12
+58,"Not really","ticketinfo",11
+58,"Not really","waiting-support-cancel-issue",10
+58,"Not really","waiting-feedback-helpful",9
+58,"Not really","waiting-feedback-not-helpful",9
+58,"Not really","waiting-open-csc-location-services",8
+58,"Not really","waiting-open-csc-employer-payments",7
+58,"Not really","waiting-open-csc-full-services",7
+58,"Not really","waiting-pmtmethods-debit-card",6
+58,"Not really","waiting-feedback-root",4
+58,"Not really","waiting-pmt-calc-unknown-income",4
+58,"Not really","waiting-restart-conversation",4
+58,"Not really","waiting-support-no-phone-number",3
+58,"Not really","waiting-support-phone-number",3
+58,"Not really","waiting-support-no-case-number",3
+58,"Not really","waiting-support-case-number",3
+58,"Not really","waiting-pmt-calc-gross-income",3
+58,"Not really","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Not really","waiting-pmt-calc-ss-deductions",3
+58,"Not really","waiting-support-type",2
+58,"Not really","waiting-support-no-email",2
+58,"Not really","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Not really","waiting-pmt-calc-retirement-contributions",2
+58,"Not really","waiting-support-email",2
+58,"Not really","waiting-open-csc-select-form",2
+58,"Not really","waiting-open-csc-no-service",2
+58,"Not really","waiting-pmt-calc-tax-deductions",1
+58,"Not really","waiting-dirdep-change",1
+58,"Not really","waiting-dirdep-stop",1
+58,"Not really","waiting-appts-yes-contacted",1
+58,"Not really","waiting-caseqa-general-support-request",1
+58,"Not really","waiting-support-retry-email",1
+58,"Not really","waiting-support-retry-phone-number",1
+58,"Not really","waiting-pmt-calc-child-support-no-retirement",1
+58,"Not really","waiting-support-restart",1
+58,"Not really","waiting-support-revise-issue",1
+58,"Not really","waiting-support-submit-issue",1
+58,"Not really","waiting-iwo-no-assistance",1
+58,"Not really","waiting-iwo-faqs",1
+58,"Not really","waiting-iwo-wants-assistance",1
+58,"Not really","waiting-feedback-complete",1
+58,"Not really","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Not really","waiting-dirdep-start",1
+58,"??","payment-factors",12
+58,"??","ticketinfo",11
+58,"??","waiting-support-cancel-issue",10
+58,"??","waiting-feedback-helpful",9
+58,"??","waiting-feedback-not-helpful",9
+58,"??","waiting-open-csc-location-services",8
+58,"??","waiting-open-csc-employer-payments",7
+58,"??","waiting-open-csc-full-services",7
+58,"??","waiting-pmtmethods-debit-card",6
+58,"??","waiting-feedback-root",4
+58,"??","waiting-pmt-calc-unknown-income",4
+58,"??","waiting-restart-conversation",4
+58,"??","waiting-support-no-phone-number",3
+58,"??","waiting-support-phone-number",3
+58,"??","waiting-support-no-case-number",3
+58,"??","waiting-support-case-number",3
+58,"??","waiting-pmt-calc-gross-income",3
+58,"??","waiting-pmt-calc-unknown-tax-deductions",3
+58,"??","waiting-pmt-calc-ss-deductions",3
+58,"??","waiting-support-type",2
+58,"??","waiting-support-no-email",2
+58,"??","waiting-pmt-calc-unknown-ss-deductions",2
+58,"??","waiting-pmt-calc-retirement-contributions",2
+58,"??","waiting-support-email",2
+58,"??","waiting-open-csc-select-form",2
+58,"??","waiting-open-csc-no-service",2
+58,"??","waiting-pmt-calc-tax-deductions",1
+58,"??","waiting-dirdep-change",1
+58,"??","waiting-dirdep-stop",1
+58,"??","waiting-appts-yes-contacted",1
+58,"??","waiting-caseqa-general-support-request",1
+58,"??","waiting-support-retry-email",1
+58,"??","waiting-support-retry-phone-number",1
+58,"??","waiting-pmt-calc-child-support-no-retirement",1
+58,"??","waiting-support-restart",1
+58,"??","waiting-support-revise-issue",1
+58,"??","waiting-support-submit-issue",1
+58,"??","waiting-iwo-no-assistance",1
+58,"??","waiting-iwo-faqs",1
+58,"??","waiting-iwo-wants-assistance",1
+58,"??","waiting-feedback-complete",1
+58,"??","waiting-pmt-calc-retirement-contributions-amount",1
+58,"??","waiting-dirdep-start",1
+58,"Not much","payment-factors",12
+58,"Not much","ticketinfo",11
+58,"Not much","waiting-support-cancel-issue",10
+58,"Not much","waiting-feedback-helpful",9
+58,"Not much","waiting-feedback-not-helpful",9
+58,"Not much","waiting-open-csc-location-services",8
+58,"Not much","waiting-open-csc-employer-payments",7
+58,"Not much","waiting-open-csc-full-services",7
+58,"Not much","waiting-pmtmethods-debit-card",6
+58,"Not much","waiting-feedback-root",4
+58,"Not much","waiting-pmt-calc-unknown-income",4
+58,"Not much","waiting-restart-conversation",4
+58,"Not much","waiting-support-no-phone-number",3
+58,"Not much","waiting-support-phone-number",3
+58,"Not much","waiting-support-no-case-number",3
+58,"Not much","waiting-support-case-number",3
+58,"Not much","waiting-pmt-calc-gross-income",3
+58,"Not much","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Not much","waiting-pmt-calc-ss-deductions",3
+58,"Not much","waiting-support-type",2
+58,"Not much","waiting-support-no-email",2
+58,"Not much","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Not much","waiting-pmt-calc-retirement-contributions",2
+58,"Not much","waiting-support-email",2
+58,"Not much","waiting-open-csc-select-form",2
+58,"Not much","waiting-open-csc-no-service",2
+58,"Not much","waiting-pmt-calc-tax-deductions",1
+58,"Not much","waiting-dirdep-change",1
+58,"Not much","waiting-dirdep-stop",1
+58,"Not much","waiting-appts-yes-contacted",1
+58,"Not much","waiting-caseqa-general-support-request",1
+58,"Not much","waiting-support-retry-email",1
+58,"Not much","waiting-support-retry-phone-number",1
+58,"Not much","waiting-pmt-calc-child-support-no-retirement",1
+58,"Not much","waiting-support-restart",1
+58,"Not much","waiting-support-revise-issue",1
+58,"Not much","waiting-support-submit-issue",1
+58,"Not much","waiting-iwo-no-assistance",1
+58,"Not much","waiting-iwo-faqs",1
+58,"Not much","waiting-iwo-wants-assistance",1
+58,"Not much","waiting-feedback-complete",1
+58,"Not much","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Not much","waiting-dirdep-start",1
+58,"A little ","payment-factors",12
+58,"A little ","ticketinfo",11
+58,"A little ","waiting-support-cancel-issue",10
+58,"A little ","waiting-feedback-helpful",9
+58,"A little ","waiting-feedback-not-helpful",9
+58,"A little ","waiting-open-csc-location-services",8
+58,"A little ","waiting-open-csc-employer-payments",7
+58,"A little ","waiting-open-csc-full-services",7
+58,"A little ","waiting-pmtmethods-debit-card",6
+58,"A little ","waiting-feedback-root",4
+58,"A little ","waiting-pmt-calc-unknown-income",4
+58,"A little ","waiting-restart-conversation",4
+58,"A little ","waiting-support-no-phone-number",3
+58,"A little ","waiting-support-phone-number",3
+58,"A little ","waiting-support-no-case-number",3
+58,"A little ","waiting-support-case-number",3
+58,"A little ","waiting-pmt-calc-gross-income",3
+58,"A little ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"A little ","waiting-pmt-calc-ss-deductions",3
+58,"A little ","waiting-support-type",2
+58,"A little ","waiting-support-no-email",2
+58,"A little ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"A little ","waiting-pmt-calc-retirement-contributions",2
+58,"A little ","waiting-support-email",2
+58,"A little ","waiting-open-csc-select-form",2
+58,"A little ","waiting-open-csc-no-service",2
+58,"A little ","waiting-pmt-calc-tax-deductions",1
+58,"A little ","waiting-dirdep-change",1
+58,"A little ","waiting-dirdep-stop",1
+58,"A little ","waiting-appts-yes-contacted",1
+58,"A little ","waiting-caseqa-general-support-request",1
+58,"A little ","waiting-support-retry-email",1
+58,"A little ","waiting-support-retry-phone-number",1
+58,"A little ","waiting-pmt-calc-child-support-no-retirement",1
+58,"A little ","waiting-support-restart",1
+58,"A little ","waiting-support-revise-issue",1
+58,"A little ","waiting-support-submit-issue",1
+58,"A little ","waiting-iwo-no-assistance",1
+58,"A little ","waiting-iwo-faqs",1
+58,"A little ","waiting-iwo-wants-assistance",1
+58,"A little ","waiting-feedback-complete",1
+58,"A little ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"A little ","waiting-dirdep-start",1
+58,"None of the above","payment-factors",12
+58,"None of the above","ticketinfo",11
+58,"None of the above","waiting-support-cancel-issue",10
+58,"None of the above","waiting-feedback-helpful",9
+58,"None of the above","waiting-feedback-not-helpful",9
+58,"None of the above","waiting-open-csc-location-services",8
+58,"None of the above","waiting-open-csc-employer-payments",7
+58,"None of the above","waiting-open-csc-full-services",7
+58,"None of the above","waiting-pmtmethods-debit-card",6
+58,"None of the above","waiting-feedback-root",4
+58,"None of the above","waiting-pmt-calc-unknown-income",4
+58,"None of the above","waiting-restart-conversation",4
+58,"None of the above","waiting-support-no-phone-number",3
+58,"None of the above","waiting-support-phone-number",3
+58,"None of the above","waiting-support-no-case-number",3
+58,"None of the above","waiting-support-case-number",3
+58,"None of the above","waiting-pmt-calc-gross-income",3
+58,"None of the above","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None of the above","waiting-pmt-calc-ss-deductions",3
+58,"None of the above","waiting-support-type",2
+58,"None of the above","waiting-support-no-email",2
+58,"None of the above","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None of the above","waiting-pmt-calc-retirement-contributions",2
+58,"None of the above","waiting-support-email",2
+58,"None of the above","waiting-open-csc-select-form",2
+58,"None of the above","waiting-open-csc-no-service",2
+58,"None of the above","waiting-pmt-calc-tax-deductions",1
+58,"None of the above","waiting-dirdep-change",1
+58,"None of the above","waiting-dirdep-stop",1
+58,"None of the above","waiting-appts-yes-contacted",1
+58,"None of the above","waiting-caseqa-general-support-request",1
+58,"None of the above","waiting-support-retry-email",1
+58,"None of the above","waiting-support-retry-phone-number",1
+58,"None of the above","waiting-pmt-calc-child-support-no-retirement",1
+58,"None of the above","waiting-support-restart",1
+58,"None of the above","waiting-support-revise-issue",1
+58,"None of the above","waiting-support-submit-issue",1
+58,"None of the above","waiting-iwo-no-assistance",1
+58,"None of the above","waiting-iwo-faqs",1
+58,"None of the above","waiting-iwo-wants-assistance",1
+58,"None of the above","waiting-feedback-complete",1
+58,"None of the above","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None of the above","waiting-dirdep-start",1
+58,"that is all","payment-factors",12
+58,"that is all","ticketinfo",11
+58,"that is all","waiting-support-cancel-issue",10
+58,"that is all","waiting-feedback-helpful",9
+58,"that is all","waiting-feedback-not-helpful",9
+58,"that is all","waiting-open-csc-location-services",8
+58,"that is all","waiting-open-csc-employer-payments",7
+58,"that is all","waiting-open-csc-full-services",7
+58,"that is all","waiting-pmtmethods-debit-card",6
+58,"that is all","waiting-feedback-root",4
+58,"that is all","waiting-pmt-calc-unknown-income",4
+58,"that is all","waiting-restart-conversation",4
+58,"that is all","waiting-support-no-phone-number",3
+58,"that is all","waiting-support-phone-number",3
+58,"that is all","waiting-support-no-case-number",3
+58,"that is all","waiting-support-case-number",3
+58,"that is all","waiting-pmt-calc-gross-income",3
+58,"that is all","waiting-pmt-calc-unknown-tax-deductions",3
+58,"that is all","waiting-pmt-calc-ss-deductions",3
+58,"that is all","waiting-support-type",2
+58,"that is all","waiting-support-no-email",2
+58,"that is all","waiting-pmt-calc-unknown-ss-deductions",2
+58,"that is all","waiting-pmt-calc-retirement-contributions",2
+58,"that is all","waiting-support-email",2
+58,"that is all","waiting-open-csc-select-form",2
+58,"that is all","waiting-open-csc-no-service",2
+58,"that is all","waiting-pmt-calc-tax-deductions",1
+58,"that is all","waiting-dirdep-change",1
+58,"that is all","waiting-dirdep-stop",1
+58,"that is all","waiting-appts-yes-contacted",1
+58,"that is all","waiting-caseqa-general-support-request",1
+58,"that is all","waiting-support-retry-email",1
+58,"that is all","waiting-support-retry-phone-number",1
+58,"that is all","waiting-pmt-calc-child-support-no-retirement",1
+58,"that is all","waiting-support-restart",1
+58,"that is all","waiting-support-revise-issue",1
+58,"that is all","waiting-support-submit-issue",1
+58,"that is all","waiting-iwo-no-assistance",1
+58,"that is all","waiting-iwo-faqs",1
+58,"that is all","waiting-iwo-wants-assistance",1
+58,"that is all","waiting-feedback-complete",1
+58,"that is all","waiting-pmt-calc-retirement-contributions-amount",1
+58,"that is all","waiting-dirdep-start",1
+58,"None of these","payment-factors",12
+58,"None of these","ticketinfo",11
+58,"None of these","waiting-support-cancel-issue",10
+58,"None of these","waiting-feedback-helpful",9
+58,"None of these","waiting-feedback-not-helpful",9
+58,"None of these","waiting-open-csc-location-services",8
+58,"None of these","waiting-open-csc-employer-payments",7
+58,"None of these","waiting-open-csc-full-services",7
+58,"None of these","waiting-pmtmethods-debit-card",6
+58,"None of these","waiting-feedback-root",4
+58,"None of these","waiting-pmt-calc-unknown-income",4
+58,"None of these","waiting-restart-conversation",4
+58,"None of these","waiting-support-no-phone-number",3
+58,"None of these","waiting-support-phone-number",3
+58,"None of these","waiting-support-no-case-number",3
+58,"None of these","waiting-support-case-number",3
+58,"None of these","waiting-pmt-calc-gross-income",3
+58,"None of these","waiting-pmt-calc-unknown-tax-deductions",3
+58,"None of these","waiting-pmt-calc-ss-deductions",3
+58,"None of these","waiting-support-type",2
+58,"None of these","waiting-support-no-email",2
+58,"None of these","waiting-pmt-calc-unknown-ss-deductions",2
+58,"None of these","waiting-pmt-calc-retirement-contributions",2
+58,"None of these","waiting-support-email",2
+58,"None of these","waiting-open-csc-select-form",2
+58,"None of these","waiting-open-csc-no-service",2
+58,"None of these","waiting-pmt-calc-tax-deductions",1
+58,"None of these","waiting-dirdep-change",1
+58,"None of these","waiting-dirdep-stop",1
+58,"None of these","waiting-appts-yes-contacted",1
+58,"None of these","waiting-caseqa-general-support-request",1
+58,"None of these","waiting-support-retry-email",1
+58,"None of these","waiting-support-retry-phone-number",1
+58,"None of these","waiting-pmt-calc-child-support-no-retirement",1
+58,"None of these","waiting-support-restart",1
+58,"None of these","waiting-support-revise-issue",1
+58,"None of these","waiting-support-submit-issue",1
+58,"None of these","waiting-iwo-no-assistance",1
+58,"None of these","waiting-iwo-faqs",1
+58,"None of these","waiting-iwo-wants-assistance",1
+58,"None of these","waiting-feedback-complete",1
+58,"None of these","waiting-pmt-calc-retirement-contributions-amount",1
+58,"None of these","waiting-dirdep-start",1
+58,"I dont kno","payment-factors",12
+58,"I dont kno","ticketinfo",11
+58,"I dont kno","waiting-support-cancel-issue",10
+58,"I dont kno","waiting-feedback-helpful",9
+58,"I dont kno","waiting-feedback-not-helpful",9
+58,"I dont kno","waiting-open-csc-location-services",8
+58,"I dont kno","waiting-open-csc-employer-payments",7
+58,"I dont kno","waiting-open-csc-full-services",7
+58,"I dont kno","waiting-pmtmethods-debit-card",6
+58,"I dont kno","waiting-feedback-root",4
+58,"I dont kno","waiting-pmt-calc-unknown-income",4
+58,"I dont kno","waiting-restart-conversation",4
+58,"I dont kno","waiting-support-no-phone-number",3
+58,"I dont kno","waiting-support-phone-number",3
+58,"I dont kno","waiting-support-no-case-number",3
+58,"I dont kno","waiting-support-case-number",3
+58,"I dont kno","waiting-pmt-calc-gross-income",3
+58,"I dont kno","waiting-pmt-calc-unknown-tax-deductions",3
+58,"I dont kno","waiting-pmt-calc-ss-deductions",3
+58,"I dont kno","waiting-support-type",2
+58,"I dont kno","waiting-support-no-email",2
+58,"I dont kno","waiting-pmt-calc-unknown-ss-deductions",2
+58,"I dont kno","waiting-pmt-calc-retirement-contributions",2
+58,"I dont kno","waiting-support-email",2
+58,"I dont kno","waiting-open-csc-select-form",2
+58,"I dont kno","waiting-open-csc-no-service",2
+58,"I dont kno","waiting-pmt-calc-tax-deductions",1
+58,"I dont kno","waiting-dirdep-change",1
+58,"I dont kno","waiting-dirdep-stop",1
+58,"I dont kno","waiting-appts-yes-contacted",1
+58,"I dont kno","waiting-caseqa-general-support-request",1
+58,"I dont kno","waiting-support-retry-email",1
+58,"I dont kno","waiting-support-retry-phone-number",1
+58,"I dont kno","waiting-pmt-calc-child-support-no-retirement",1
+58,"I dont kno","waiting-support-restart",1
+58,"I dont kno","waiting-support-revise-issue",1
+58,"I dont kno","waiting-support-submit-issue",1
+58,"I dont kno","waiting-iwo-no-assistance",1
+58,"I dont kno","waiting-iwo-faqs",1
+58,"I dont kno","waiting-iwo-wants-assistance",1
+58,"I dont kno","waiting-feedback-complete",1
+58,"I dont kno","waiting-pmt-calc-retirement-contributions-amount",1
+58,"I dont kno","waiting-dirdep-start",1
+58,"No I have not ","payment-factors",12
+58,"No I have not ","ticketinfo",11
+58,"No I have not ","waiting-support-cancel-issue",10
+58,"No I have not ","waiting-feedback-helpful",9
+58,"No I have not ","waiting-feedback-not-helpful",9
+58,"No I have not ","waiting-open-csc-location-services",8
+58,"No I have not ","waiting-open-csc-employer-payments",7
+58,"No I have not ","waiting-open-csc-full-services",7
+58,"No I have not ","waiting-pmtmethods-debit-card",6
+58,"No I have not ","waiting-feedback-root",4
+58,"No I have not ","waiting-pmt-calc-unknown-income",4
+58,"No I have not ","waiting-restart-conversation",4
+58,"No I have not ","waiting-support-no-phone-number",3
+58,"No I have not ","waiting-support-phone-number",3
+58,"No I have not ","waiting-support-no-case-number",3
+58,"No I have not ","waiting-support-case-number",3
+58,"No I have not ","waiting-pmt-calc-gross-income",3
+58,"No I have not ","waiting-pmt-calc-unknown-tax-deductions",3
+58,"No I have not ","waiting-pmt-calc-ss-deductions",3
+58,"No I have not ","waiting-support-type",2
+58,"No I have not ","waiting-support-no-email",2
+58,"No I have not ","waiting-pmt-calc-unknown-ss-deductions",2
+58,"No I have not ","waiting-pmt-calc-retirement-contributions",2
+58,"No I have not ","waiting-support-email",2
+58,"No I have not ","waiting-open-csc-select-form",2
+58,"No I have not ","waiting-open-csc-no-service",2
+58,"No I have not ","waiting-pmt-calc-tax-deductions",1
+58,"No I have not ","waiting-dirdep-change",1
+58,"No I have not ","waiting-dirdep-stop",1
+58,"No I have not ","waiting-appts-yes-contacted",1
+58,"No I have not ","waiting-caseqa-general-support-request",1
+58,"No I have not ","waiting-support-retry-email",1
+58,"No I have not ","waiting-support-retry-phone-number",1
+58,"No I have not ","waiting-pmt-calc-child-support-no-retirement",1
+58,"No I have not ","waiting-support-restart",1
+58,"No I have not ","waiting-support-revise-issue",1
+58,"No I have not ","waiting-support-submit-issue",1
+58,"No I have not ","waiting-iwo-no-assistance",1
+58,"No I have not ","waiting-iwo-faqs",1
+58,"No I have not ","waiting-iwo-wants-assistance",1
+58,"No I have not ","waiting-feedback-complete",1
+58,"No I have not ","waiting-pmt-calc-retirement-contributions-amount",1
+58,"No I have not ","waiting-dirdep-start",1
+58,"Something else","payment-factors",12
+58,"Something else","ticketinfo",11
+58,"Something else","waiting-support-cancel-issue",10
+58,"Something else","waiting-feedback-helpful",9
+58,"Something else","waiting-feedback-not-helpful",9
+58,"Something else","waiting-open-csc-location-services",8
+58,"Something else","waiting-open-csc-employer-payments",7
+58,"Something else","waiting-open-csc-full-services",7
+58,"Something else","waiting-pmtmethods-debit-card",6
+58,"Something else","waiting-feedback-root",4
+58,"Something else","waiting-pmt-calc-unknown-income",4
+58,"Something else","waiting-restart-conversation",4
+58,"Something else","waiting-support-no-phone-number",3
+58,"Something else","waiting-support-phone-number",3
+58,"Something else","waiting-support-no-case-number",3
+58,"Something else","waiting-support-case-number",3
+58,"Something else","waiting-pmt-calc-gross-income",3
+58,"Something else","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Something else","waiting-pmt-calc-ss-deductions",3
+58,"Something else","waiting-support-type",2
+58,"Something else","waiting-support-no-email",2
+58,"Something else","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Something else","waiting-pmt-calc-retirement-contributions",2
+58,"Something else","waiting-support-email",2
+58,"Something else","waiting-open-csc-select-form",2
+58,"Something else","waiting-open-csc-no-service",2
+58,"Something else","waiting-pmt-calc-tax-deductions",1
+58,"Something else","waiting-dirdep-change",1
+58,"Something else","waiting-dirdep-stop",1
+58,"Something else","waiting-appts-yes-contacted",1
+58,"Something else","waiting-caseqa-general-support-request",1
+58,"Something else","waiting-support-retry-email",1
+58,"Something else","waiting-support-retry-phone-number",1
+58,"Something else","waiting-pmt-calc-child-support-no-retirement",1
+58,"Something else","waiting-support-restart",1
+58,"Something else","waiting-support-revise-issue",1
+58,"Something else","waiting-support-submit-issue",1
+58,"Something else","waiting-iwo-no-assistance",1
+58,"Something else","waiting-iwo-faqs",1
+58,"Something else","waiting-iwo-wants-assistance",1
+58,"Something else","waiting-feedback-complete",1
+58,"Something else","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Something else","waiting-dirdep-start",1
+58,"none of those","payment-factors",12
+58,"none of those","ticketinfo",11
+58,"none of those","waiting-support-cancel-issue",10
+58,"none of those","waiting-feedback-helpful",9
+58,"none of those","waiting-feedback-not-helpful",9
+58,"none of those","waiting-open-csc-location-services",8
+58,"none of those","waiting-open-csc-employer-payments",7
+58,"none of those","waiting-open-csc-full-services",7
+58,"none of those","waiting-pmtmethods-debit-card",6
+58,"none of those","waiting-feedback-root",4
+58,"none of those","waiting-pmt-calc-unknown-income",4
+58,"none of those","waiting-restart-conversation",4
+58,"none of those","waiting-support-no-phone-number",3
+58,"none of those","waiting-support-phone-number",3
+58,"none of those","waiting-support-no-case-number",3
+58,"none of those","waiting-support-case-number",3
+58,"none of those","waiting-pmt-calc-gross-income",3
+58,"none of those","waiting-pmt-calc-unknown-tax-deductions",3
+58,"none of those","waiting-pmt-calc-ss-deductions",3
+58,"none of those","waiting-support-type",2
+58,"none of those","waiting-support-no-email",2
+58,"none of those","waiting-pmt-calc-unknown-ss-deductions",2
+58,"none of those","waiting-pmt-calc-retirement-contributions",2
+58,"none of those","waiting-support-email",2
+58,"none of those","waiting-open-csc-select-form",2
+58,"none of those","waiting-open-csc-no-service",2
+58,"none of those","waiting-pmt-calc-tax-deductions",1
+58,"none of those","waiting-dirdep-change",1
+58,"none of those","waiting-dirdep-stop",1
+58,"none of those","waiting-appts-yes-contacted",1
+58,"none of those","waiting-caseqa-general-support-request",1
+58,"none of those","waiting-support-retry-email",1
+58,"none of those","waiting-support-retry-phone-number",1
+58,"none of those","waiting-pmt-calc-child-support-no-retirement",1
+58,"none of those","waiting-support-restart",1
+58,"none of those","waiting-support-revise-issue",1
+58,"none of those","waiting-support-submit-issue",1
+58,"none of those","waiting-iwo-no-assistance",1
+58,"none of those","waiting-iwo-faqs",1
+58,"none of those","waiting-iwo-wants-assistance",1
+58,"none of those","waiting-feedback-complete",1
+58,"none of those","waiting-pmt-calc-retirement-contributions-amount",1
+58,"none of those","waiting-dirdep-start",1
+58,"Not sure yet","payment-factors",12
+58,"Not sure yet","ticketinfo",11
+58,"Not sure yet","waiting-support-cancel-issue",10
+58,"Not sure yet","waiting-feedback-helpful",9
+58,"Not sure yet","waiting-feedback-not-helpful",9
+58,"Not sure yet","waiting-open-csc-location-services",8
+58,"Not sure yet","waiting-open-csc-employer-payments",7
+58,"Not sure yet","waiting-open-csc-full-services",7
+58,"Not sure yet","waiting-pmtmethods-debit-card",6
+58,"Not sure yet","waiting-feedback-root",4
+58,"Not sure yet","waiting-pmt-calc-unknown-income",4
+58,"Not sure yet","waiting-restart-conversation",4
+58,"Not sure yet","waiting-support-no-phone-number",3
+58,"Not sure yet","waiting-support-phone-number",3
+58,"Not sure yet","waiting-support-no-case-number",3
+58,"Not sure yet","waiting-support-case-number",3
+58,"Not sure yet","waiting-pmt-calc-gross-income",3
+58,"Not sure yet","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Not sure yet","waiting-pmt-calc-ss-deductions",3
+58,"Not sure yet","waiting-support-type",2
+58,"Not sure yet","waiting-support-no-email",2
+58,"Not sure yet","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Not sure yet","waiting-pmt-calc-retirement-contributions",2
+58,"Not sure yet","waiting-support-email",2
+58,"Not sure yet","waiting-open-csc-select-form",2
+58,"Not sure yet","waiting-open-csc-no-service",2
+58,"Not sure yet","waiting-pmt-calc-tax-deductions",1
+58,"Not sure yet","waiting-dirdep-change",1
+58,"Not sure yet","waiting-dirdep-stop",1
+58,"Not sure yet","waiting-appts-yes-contacted",1
+58,"Not sure yet","waiting-caseqa-general-support-request",1
+58,"Not sure yet","waiting-support-retry-email",1
+58,"Not sure yet","waiting-support-retry-phone-number",1
+58,"Not sure yet","waiting-pmt-calc-child-support-no-retirement",1
+58,"Not sure yet","waiting-support-restart",1
+58,"Not sure yet","waiting-support-revise-issue",1
+58,"Not sure yet","waiting-support-submit-issue",1
+58,"Not sure yet","waiting-iwo-no-assistance",1
+58,"Not sure yet","waiting-iwo-faqs",1
+58,"Not sure yet","waiting-iwo-wants-assistance",1
+58,"Not sure yet","waiting-feedback-complete",1
+58,"Not sure yet","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Not sure yet","waiting-dirdep-start",1
+58,"Don't have one","payment-factors",12
+58,"Don't have one","ticketinfo",11
+58,"Don't have one","waiting-support-cancel-issue",10
+58,"Don't have one","waiting-feedback-helpful",9
+58,"Don't have one","waiting-feedback-not-helpful",9
+58,"Don't have one","waiting-open-csc-location-services",8
+58,"Don't have one","waiting-open-csc-employer-payments",7
+58,"Don't have one","waiting-open-csc-full-services",7
+58,"Don't have one","waiting-pmtmethods-debit-card",6
+58,"Don't have one","waiting-feedback-root",4
+58,"Don't have one","waiting-pmt-calc-unknown-income",4
+58,"Don't have one","waiting-restart-conversation",4
+58,"Don't have one","waiting-support-no-phone-number",3
+58,"Don't have one","waiting-support-phone-number",3
+58,"Don't have one","waiting-support-no-case-number",3
+58,"Don't have one","waiting-support-case-number",3
+58,"Don't have one","waiting-pmt-calc-gross-income",3
+58,"Don't have one","waiting-pmt-calc-unknown-tax-deductions",3
+58,"Don't have one","waiting-pmt-calc-ss-deductions",3
+58,"Don't have one","waiting-support-type",2
+58,"Don't have one","waiting-support-no-email",2
+58,"Don't have one","waiting-pmt-calc-unknown-ss-deductions",2
+58,"Don't have one","waiting-pmt-calc-retirement-contributions",2
+58,"Don't have one","waiting-support-email",2
+58,"Don't have one","waiting-open-csc-select-form",2
+58,"Don't have one","waiting-open-csc-no-service",2
+58,"Don't have one","waiting-pmt-calc-tax-deductions",1
+58,"Don't have one","waiting-dirdep-change",1
+58,"Don't have one","waiting-dirdep-stop",1
+58,"Don't have one","waiting-appts-yes-contacted",1
+58,"Don't have one","waiting-caseqa-general-support-request",1
+58,"Don't have one","waiting-support-retry-email",1
+58,"Don't have one","waiting-support-retry-phone-number",1
+58,"Don't have one","waiting-pmt-calc-child-support-no-retirement",1
+58,"Don't have one","waiting-support-restart",1
+58,"Don't have one","waiting-support-revise-issue",1
+58,"Don't have one","waiting-support-submit-issue",1
+58,"Don't have one","waiting-iwo-no-assistance",1
+58,"Don't have one","waiting-iwo-faqs",1
+58,"Don't have one","waiting-iwo-wants-assistance",1
+58,"Don't have one","waiting-feedback-complete",1
+58,"Don't have one","waiting-pmt-calc-retirement-contributions-amount",1
+58,"Don't have one","waiting-dirdep-start",1
+58,"?","payment-factors",12
+58,"?","ticketinfo",11
+58,"?","waiting-support-cancel-issue",10
+58,"?","waiting-feedback-helpful",9
+58,"?","waiting-feedback-not-helpful",9
+58,"?","waiting-open-csc-location-services",8
+58,"?","waiting-open-csc-employer-payments",7
+58,"?","waiting-open-csc-full-services",7
+58,"?","waiting-pmtmethods-debit-card",6
+58,"?","waiting-feedback-root",4
+58,"?","waiting-pmt-calc-unknown-income",4
+58,"?","waiting-restart-conversation",4
+58,"?","waiting-support-no-phone-number",3
+58,"?","waiting-support-phone-number",3
+58,"?","waiting-support-no-case-number",3
+58,"?","waiting-support-case-number",3
+58,"?","waiting-pmt-calc-gross-income",3
+58,"?","waiting-pmt-calc-unknown-tax-deductions",3
+58,"?","waiting-pmt-calc-ss-deductions",3
+58,"?","waiting-support-type",2
+58,"?","waiting-support-no-email",2
+58,"?","waiting-pmt-calc-unknown-ss-deductions",2
+58,"?","waiting-pmt-calc-retirement-contributions",2
+58,"?","waiting-support-email",2
+58,"?","waiting-open-csc-select-form",2
+58,"?","waiting-open-csc-no-service",2
+58,"?","waiting-pmt-calc-tax-deductions",1
+58,"?","waiting-dirdep-change",1
+58,"?","waiting-dirdep-stop",1
+58,"?","waiting-appts-yes-contacted",1
+58,"?","waiting-caseqa-general-support-request",1
+58,"?","waiting-support-retry-email",1
+58,"?","waiting-support-retry-phone-number",1
+58,"?","waiting-pmt-calc-child-support-no-retirement",1
+58,"?","waiting-support-restart",1
+58,"?","waiting-support-revise-issue",1
+58,"?","waiting-support-submit-issue",1
+58,"?","waiting-iwo-no-assistance",1
+58,"?","waiting-iwo-faqs",1
+58,"?","waiting-iwo-wants-assistance",1
+58,"?","waiting-feedback-complete",1
+58,"?","waiting-pmt-calc-retirement-contributions-amount",1
+58,"?","waiting-dirdep-start",1

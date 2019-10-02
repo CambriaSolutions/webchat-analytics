@@ -1,0 +1,169 @@
+"occurences","queries","contexts.name","contexts.count"
+12,"You where not helpful ","waiting-restart-conversation",4
+12,"You where not helpful ","waiting-feedback-root",3
+12,"You where not helpful ","waiting-support-type",1
+12,"You where not helpful ","waiting-support-parent-receiving-more",1
+12,"You where not helpful ","waiting-caseqa-general-support-request",1
+12,"You where not helpful ","waiting-feedback-helpful",1
+12,"You where not helpful ","waiting-feedback-not-helpful",1
+12,"You where not helpful ","ticketinfo",1
+12,"You where not helpful ","waiting-pmt-calc-gross-income",1
+12,"You where not helpful ","payment-factors",1
+12,"You where not helpful ","waiting-pmt-calc-unknown-income",1
+12,"You where not helpful ","waiting-support-retry-phone-number",1
+12,"You where not helpful ","waiting-support-retry-email",1
+12,"You where not helpful ","waiting-support-cancel-issue",1
+12,"you are no help!!!","waiting-restart-conversation",4
+12,"you are no help!!!","waiting-feedback-root",3
+12,"you are no help!!!","waiting-support-type",1
+12,"you are no help!!!","waiting-support-parent-receiving-more",1
+12,"you are no help!!!","waiting-caseqa-general-support-request",1
+12,"you are no help!!!","waiting-feedback-helpful",1
+12,"you are no help!!!","waiting-feedback-not-helpful",1
+12,"you are no help!!!","ticketinfo",1
+12,"you are no help!!!","waiting-pmt-calc-gross-income",1
+12,"you are no help!!!","payment-factors",1
+12,"you are no help!!!","waiting-pmt-calc-unknown-income",1
+12,"you are no help!!!","waiting-support-retry-phone-number",1
+12,"you are no help!!!","waiting-support-retry-email",1
+12,"you are no help!!!","waiting-support-cancel-issue",1
+12,"NOT HELPFUL. ","waiting-restart-conversation",4
+12,"NOT HELPFUL. ","waiting-feedback-root",3
+12,"NOT HELPFUL. ","waiting-support-type",1
+12,"NOT HELPFUL. ","waiting-support-parent-receiving-more",1
+12,"NOT HELPFUL. ","waiting-caseqa-general-support-request",1
+12,"NOT HELPFUL. ","waiting-feedback-helpful",1
+12,"NOT HELPFUL. ","waiting-feedback-not-helpful",1
+12,"NOT HELPFUL. ","ticketinfo",1
+12,"NOT HELPFUL. ","waiting-pmt-calc-gross-income",1
+12,"NOT HELPFUL. ","payment-factors",1
+12,"NOT HELPFUL. ","waiting-pmt-calc-unknown-income",1
+12,"NOT HELPFUL. ","waiting-support-retry-phone-number",1
+12,"NOT HELPFUL. ","waiting-support-retry-email",1
+12,"NOT HELPFUL. ","waiting-support-cancel-issue",1
+12,"Kiss my ass","waiting-restart-conversation",4
+12,"Kiss my ass","waiting-feedback-root",3
+12,"Kiss my ass","waiting-support-type",1
+12,"Kiss my ass","waiting-support-parent-receiving-more",1
+12,"Kiss my ass","waiting-caseqa-general-support-request",1
+12,"Kiss my ass","waiting-feedback-helpful",1
+12,"Kiss my ass","waiting-feedback-not-helpful",1
+12,"Kiss my ass","ticketinfo",1
+12,"Kiss my ass","waiting-pmt-calc-gross-income",1
+12,"Kiss my ass","payment-factors",1
+12,"Kiss my ass","waiting-pmt-calc-unknown-income",1
+12,"Kiss my ass","waiting-support-retry-phone-number",1
+12,"Kiss my ass","waiting-support-retry-email",1
+12,"Kiss my ass","waiting-support-cancel-issue",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-restart-conversation",4
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-feedback-root",3
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-support-type",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-support-parent-receiving-more",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-caseqa-general-support-request",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-feedback-helpful",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-feedback-not-helpful",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","ticketinfo",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-pmt-calc-gross-income",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","payment-factors",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-pmt-calc-unknown-income",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-support-retry-phone-number",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-support-retry-email",1
+12,"i don't know yet i haven't received any instructions on what needs to be done or what will be done","waiting-support-cancel-issue",1
+12,"FAQs","waiting-restart-conversation",4
+12,"FAQs","waiting-feedback-root",3
+12,"FAQs","waiting-support-type",1
+12,"FAQs","waiting-support-parent-receiving-more",1
+12,"FAQs","waiting-caseqa-general-support-request",1
+12,"FAQs","waiting-feedback-helpful",1
+12,"FAQs","waiting-feedback-not-helpful",1
+12,"FAQs","ticketinfo",1
+12,"FAQs","waiting-pmt-calc-gross-income",1
+12,"FAQs","payment-factors",1
+12,"FAQs","waiting-pmt-calc-unknown-income",1
+12,"FAQs","waiting-support-retry-phone-number",1
+12,"FAQs","waiting-support-retry-email",1
+12,"FAQs","waiting-support-cancel-issue",1
+12,"No help there ","waiting-restart-conversation",4
+12,"No help there ","waiting-feedback-root",3
+12,"No help there ","waiting-support-type",1
+12,"No help there ","waiting-support-parent-receiving-more",1
+12,"No help there ","waiting-caseqa-general-support-request",1
+12,"No help there ","waiting-feedback-helpful",1
+12,"No help there ","waiting-feedback-not-helpful",1
+12,"No help there ","ticketinfo",1
+12,"No help there ","waiting-pmt-calc-gross-income",1
+12,"No help there ","payment-factors",1
+12,"No help there ","waiting-pmt-calc-unknown-income",1
+12,"No help there ","waiting-support-retry-phone-number",1
+12,"No help there ","waiting-support-retry-email",1
+12,"No help there ","waiting-support-cancel-issue",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-restart-conversation",4
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-feedback-root",3
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-support-type",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-support-parent-receiving-more",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-caseqa-general-support-request",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-feedback-helpful",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-feedback-not-helpful",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","ticketinfo",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-pmt-calc-gross-income",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","payment-factors",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-pmt-calc-unknown-income",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-support-retry-phone-number",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-support-retry-email",1
+12,"Yesterday at my SNAP appointment my caseworker informed me that i was code ""DC"" for noncompliance. I have no idea what i did ( or didn't do) and need help resolving this very urgent matter","waiting-support-cancel-issue",1
+12,"Fuck you","waiting-restart-conversation",4
+12,"Fuck you","waiting-feedback-root",3
+12,"Fuck you","waiting-support-type",1
+12,"Fuck you","waiting-support-parent-receiving-more",1
+12,"Fuck you","waiting-caseqa-general-support-request",1
+12,"Fuck you","waiting-feedback-helpful",1
+12,"Fuck you","waiting-feedback-not-helpful",1
+12,"Fuck you","ticketinfo",1
+12,"Fuck you","waiting-pmt-calc-gross-income",1
+12,"Fuck you","payment-factors",1
+12,"Fuck you","waiting-pmt-calc-unknown-income",1
+12,"Fuck you","waiting-support-retry-phone-number",1
+12,"Fuck you","waiting-support-retry-email",1
+12,"Fuck you","waiting-support-cancel-issue",1
+12,"Go back","waiting-restart-conversation",4
+12,"Go back","waiting-feedback-root",3
+12,"Go back","waiting-support-type",1
+12,"Go back","waiting-support-parent-receiving-more",1
+12,"Go back","waiting-caseqa-general-support-request",1
+12,"Go back","waiting-feedback-helpful",1
+12,"Go back","waiting-feedback-not-helpful",1
+12,"Go back","ticketinfo",1
+12,"Go back","waiting-pmt-calc-gross-income",1
+12,"Go back","payment-factors",1
+12,"Go back","waiting-pmt-calc-unknown-income",1
+12,"Go back","waiting-support-retry-phone-number",1
+12,"Go back","waiting-support-retry-email",1
+12,"Go back","waiting-support-cancel-issue",1
+12,"Ok we will not continue ","waiting-restart-conversation",4
+12,"Ok we will not continue ","waiting-feedback-root",3
+12,"Ok we will not continue ","waiting-support-type",1
+12,"Ok we will not continue ","waiting-support-parent-receiving-more",1
+12,"Ok we will not continue ","waiting-caseqa-general-support-request",1
+12,"Ok we will not continue ","waiting-feedback-helpful",1
+12,"Ok we will not continue ","waiting-feedback-not-helpful",1
+12,"Ok we will not continue ","ticketinfo",1
+12,"Ok we will not continue ","waiting-pmt-calc-gross-income",1
+12,"Ok we will not continue ","payment-factors",1
+12,"Ok we will not continue ","waiting-pmt-calc-unknown-income",1
+12,"Ok we will not continue ","waiting-support-retry-phone-number",1
+12,"Ok we will not continue ","waiting-support-retry-email",1
+12,"Ok we will not continue ","waiting-support-cancel-issue",1
+12,"Fuck you","waiting-restart-conversation",4
+12,"Fuck you","waiting-feedback-root",3
+12,"Fuck you","waiting-support-type",1
+12,"Fuck you","waiting-support-parent-receiving-more",1
+12,"Fuck you","waiting-caseqa-general-support-request",1
+12,"Fuck you","waiting-feedback-helpful",1
+12,"Fuck you","waiting-feedback-not-helpful",1
+12,"Fuck you","ticketinfo",1
+12,"Fuck you","waiting-pmt-calc-gross-income",1
+12,"Fuck you","payment-factors",1
+12,"Fuck you","waiting-pmt-calc-unknown-income",1
+12,"Fuck you","waiting-support-retry-phone-number",1
+12,"Fuck you","waiting-support-retry-email",1
+12,"Fuck you","waiting-support-cancel-issue",1
