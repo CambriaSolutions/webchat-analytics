@@ -3,7 +3,8 @@
   "description": "Scripts for webchat analytics",
   "scripts": {
     "lint": "eslint .",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "createExcel": "cd helpers && node createExcelForReport.js &&  open fileAggregate.xlsx"
   },
   "dependencies": {
     "@google-cloud/automl": "^1.5.0",
