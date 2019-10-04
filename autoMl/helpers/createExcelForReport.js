@@ -3,18 +3,29 @@ const workbook = new Excel.Workbook()
 const aggregate = require('../predictions/predictionAggregate_06-01-10-01.json')
 
 const cellDictionary = {
-  occurences: 'A',
-  queries: 'B',
-  contextsName: 'C',
-  contextsCount: 'D',
+  category: 'A',
+  occurences: 'B',
+  queries: 'C',
+  contextsName: 'D',
+  contextsCount: 'E',
 }
 
-for (const key in aggregate) {
-  workbook.addWorksheet(key)
-  const currentSheet = workbook.getWorksheet(key)
+const createAndFormatHeaders = (sheet, sheetName) => {
+  const aggregateSheet = workbook.getWorksheet(sheetName)
 
   // Create columns
-  currentSheet.columns = [
+  aggregateSheet.columns = [
+    {
+      header: 'Category',
+      key: 'category',
+      width: 12,
+      style: {
+        alignment: {
+          vertical: 'middle',
+          horizontal: 'center',
+        },
+      },
+    },
     {
       header: 'Occurences',
       key: 'occurences',
@@ -48,11 +59,10 @@ for (const key in aggregate) {
       },
     },
   ]
-
   // Format header cells
   const headerCells = ['A1', 'B1', 'C1', 'D1']
   headerCells.forEach(cell => {
-    const currentCell = currentSheet.getCell(cell)
+    const currentCell = sheet.getCell(cell)
     currentCell.alignment = {
       vertical: 'middle',
       horizontal: 'center',
@@ -67,9 +77,51 @@ for (const key in aggregate) {
       bold: true,
     }
   })
+}
 
+// Create aggregate sheet
+workbook.addWorksheet('aggregate')
+const aggregateSheet = workbook.getWorksheet('aggregate')
+createAndFormatHeaders(aggregateSheet, 'aggregate')
+
+let numRows = 0
+for (const key in aggregate) {
+  // Add category and occurrences
+  aggregateSheet.addRow({
+    category: key,
+    occurences: aggregate[key].occurences,
+  })
+
+  // Add queries
+  aggregate[key].queries.forEach((query, i) => {
+    const rowNumber = numRows === 0 ? i + 2 : i + 1 + numRows
+    const queryCell = `${cellDictionary['queries']}${rowNumber}`
+    const currentCell = aggregateSheet.getCell(queryCell)
+    currentCell.alignment = { wrapText: true }
+    currentCell.value = query
+  })
+
+  // Add contexts
+  aggregate[key].contexts.forEach((context, i) => {
+    const rowNumber = numRows === 0 ? i + 2 : i + 1 + numRows
+
+    const contextNameCell = `${cellDictionary['contextsName']}${rowNumber}`
+    const contextCountCell = `${cellDictionary['contextsCount']}${rowNumber}`
+    aggregateSheet.getCell(contextNameCell).value = context.name
+    aggregateSheet.getCell(contextCountCell).value = context.count
+  })
+
+  numRows = aggregateSheet._rows.length
+}
+
+for (const key in aggregate) {
+  workbook.addWorksheet(key)
+  const currentSheet = workbook.getWorksheet(key)
+
+  createAndFormatHeaders(currentSheet, key)
   // Add occurences
   currentSheet.addRow({
+    category: key,
     occurences: aggregate[key].occurences,
   })
 
@@ -77,7 +129,7 @@ for (const key in aggregate) {
   aggregate[key].queries.forEach((query, i) => {
     const queryCell = `${cellDictionary['queries']}${i + 2}`
     const currentCell = currentSheet.getCell(queryCell)
-    currentSheet.alignment = { wrapText: true }
+    currentCell.alignment = { wrapText: true }
     currentCell.value = query
   })
 
