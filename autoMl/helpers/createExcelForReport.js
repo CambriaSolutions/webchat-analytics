@@ -11,10 +11,13 @@ const cellDictionary = {
 }
 
 const createAndFormatHeaders = (sheet, sheetName) => {
-  const aggregateSheet = workbook.getWorksheet(sheetName)
+  const currentSheet = workbook.getWorksheet(sheetName)
+
+  // Add filter button to headers
+  currentSheet.autoFilter = 'A1:E1'
 
   // Create columns
-  aggregateSheet.columns = [
+  currentSheet.columns = [
     {
       header: 'Category',
       key: 'category',
@@ -59,8 +62,9 @@ const createAndFormatHeaders = (sheet, sheetName) => {
       },
     },
   ]
+
   // Format header cells
-  const headerCells = ['A1', 'B1', 'C1', 'D1']
+  const headerCells = ['A1', 'B1', 'C1', 'D1', 'E1']
   headerCells.forEach(cell => {
     const currentCell = sheet.getCell(cell)
     currentCell.alignment = {
@@ -91,7 +95,17 @@ for (const key in aggregate) {
     category: key,
     occurences: aggregate[key].occurences,
   })
+  const numQueries = aggregate[key].queries.length
+  const numContexts = aggregate[key].contexts.length
+  const mostLines =
+    numQueries > numContexts ? aggregate[key].queries : aggregate[key].contexts
 
+  mostLines.forEach((line, i) => {
+    const rowNumber = numRows === 0 ? i + 2 : i + 1 + numRows
+    const queryCell = `${cellDictionary['category']}${rowNumber}`
+    const currentCell = aggregateSheet.getCell(queryCell)
+    currentCell.value = key
+  })
   // Add queries
   aggregate[key].queries.forEach((query, i) => {
     const rowNumber = numRows === 0 ? i + 2 : i + 1 + numRows
@@ -119,6 +133,7 @@ for (const key in aggregate) {
   const currentSheet = workbook.getWorksheet(key)
 
   createAndFormatHeaders(currentSheet, key)
+
   // Add occurences
   currentSheet.addRow({
     category: key,
