@@ -1,9 +1,0 @@
-"occurences","queries","contexts.name","contexts.count"
-4,"I was served papers for child support yesterday, do I have to go to court or can they start taking the money out of my check ","waiting-caseqa-general-support-request",2
-4,"I was served papers for child support yesterday, do I have to go to court or can they start taking the money out of my check ","waiting-restart-conversation",2
-4,"Contempt court? ","waiting-caseqa-general-support-request",2
-4,"Contempt court? ","waiting-restart-conversation",2
-4,"What is the definition of contempt court? ","waiting-caseqa-general-support-request",2
-4,"What is the definition of contempt court? ","waiting-restart-conversation",2
-4,"My ex is regularly deducting old credit card payments in my name that also had his name from my child support. Is this legal?","waiting-caseqa-general-support-request",2
-4,"My ex is regularly deducting old credit card payments in my name that also had his name from my child support. Is this legal?","waiting-restart-conversation",2

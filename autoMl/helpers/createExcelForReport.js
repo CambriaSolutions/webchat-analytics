@@ -1,6 +1,6 @@
 const Excel = require('exceljs')
 const workbook = new Excel.Workbook()
-const aggregate = require('../predictions/predictionAggregate_06-01-10-01.json')
+const aggregate = require('../predictions/predictionAggregate_06-01-07-01.json')
 
 const cellDictionary = {
   category: 'A',
@@ -21,7 +21,7 @@ const createAndFormatHeaders = (sheet, sheetName) => {
     {
       header: 'Category',
       key: 'category',
-      width: 12,
+      width: 20,
       style: {
         alignment: {
           vertical: 'middle',
@@ -106,6 +106,7 @@ for (const key in aggregate) {
     const currentCell = aggregateSheet.getCell(queryCell)
     currentCell.value = key
   })
+
   // Add queries
   aggregate[key].queries.forEach((query, i) => {
     const rowNumber = numRows === 0 ? i + 2 : i + 1 + numRows
