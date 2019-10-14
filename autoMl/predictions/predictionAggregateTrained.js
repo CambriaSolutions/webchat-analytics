@@ -1246,22 +1246,22 @@ const data = {
   card: {
     occurences: 155,
     queries: [
-      'How do I get a child support card',
-      'I haven’t received a card ',
-      'How much will I get and why did he get a card sent and will both kids be on ',
-      'No I have a card',
-      'Number on back of green PERSON_NAME card',
-      'Stolen card',
-      'Hi, how can I get another card I have misplaced the one I had',
-      'I never received a child support card',
-      'My child support card is expiring and I need a new one ',
-      'WHEN WILL I GET MY CARD',
-      'I have lost my child support debit card. How do I get it replaced?',
-      'How do I apply to get my debit card ',
-      'i havent received my card in the mail yet',
-      'I need to see what address my card was sent to',
-      'CAN A DEBIT CARD BE DEACTIVATED AND THEN RE-ACTIVATED IF HAVING PROBLEM WITH THE CARD?',
-      'When will I receive my child support card?',
+      'How do I get a child support card', // add to eppi-get-card
+      'I haven’t received a card ', // add to eppi-get-card
+      'How much will I get and why did he get a card sent and will both kids be on ', // *
+      'No I have a card', // *
+      'Number on back of green PERSON_NAME card', // *
+      'Stolen card', // add to eppi-replace-report
+      'Hi, how can I get another card I have misplaced the one I had', // add to eppi-replace-report
+      'I never received a child support card', // add to eppi-get-card
+      'My child support card is expiring and I need a new one ', // add to eppi-replace-report
+      'WHEN WILL I GET MY CARD', // add to eppi-get-card
+      'I have lost my child support debit card. How do I get it replaced?', // eppi-replace-report
+      'How do I apply to get my debit card ', // add to eppi-get-card
+      'i havent received my card in the mail yet', // eppi-replace-report
+      'I need to see what address my card was sent to', // *
+      'CAN A DEBIT CARD BE DEACTIVATED AND THEN RE-ACTIVATED IF HAVING PROBLEM WITH THE CARD?', //
+      'When will I receive my child support card?', // *
       'i am trying to find out when my child supprtwill be on my card. when icall the no.on the back of my card i get charged fifty cents with no option to speak to anyone.',
       'How long does it take to get a card in the mIl',
       'Using bank card ',
