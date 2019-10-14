@@ -44,332 +44,332 @@ const data = {
       'I dnt want the full service ', // *
       'DIGITS', // *
       'DIGITS N. Gloster Street, Suite B, Tupelo, MS ZIPCODE; I tried callin the number listed online PHONE_NUMBER. I received a message that the number was not in service.', // *
-      'I’m trying to help my son to fine out how much child support he owe and I cannot get anyone to talk to me can you please help me ', //
-      'I need a phone number for child support in ms',
-      'I HAVE I DID NOT GET A COMPLETE ANSWER FORM THEM',
-      'how long to hear from email ?',
+      'I’m trying to help my son to fine out how much child support he owe and I cannot get anyone to talk to me can you please help me ', // mislabeled, arrears?
+      'I need a phone number for child support in ms', // add to contact-qa-number
+      'I HAVE I DID NOT GET A COMPLETE ANSWER FORM THEM', // *
+      'how long to hear from email ?', // *
       'Do I need to make an appointment to talk with someone about this',
-      "U didn't answer my last question",
-      'What’s the number to check.  ',
-      'I need to set this up asap please PHONE_NUMBER',
-      'Phone number to check case status',
-      'I do not have a phone',
-      'well then what questions can you answer',
-      'Please have supervisor call me ',
-      'Please have a supervisor call me. Every person that has called me back has hung up because they are not trained to answer my question ',
-      'Looking for one ending in DIGITS',
-      'Talk to PERSON_NAME sumerall ',
-      'Call them',
-      'I need tuelo ms phone number for mdhs',
-      'Customer service number',
-      'I need the number from STREET_ADDRESS, corinth ms',
-      'Can I speak to an agent?',
-      'Customer service number?',
-      'May I have the customer service number ',
-      'Need to speak with someone.  ',
-      'Just need the DIGITS customer service number',
-      'I need the phone number for the legal department of child support ',
-      'Legal services number ',
-      'Customer service number for ms',
-      'Customer service number',
-      'Child support phone number ',
-      'what kind of questions do you answer',
-      'Do I need a call between 8 and 5 or something',
-      'what are the hours of operation for customer service?',
-      'DIGITS PHONE NUMBER',
-      'No phone number',
-      "I don't have a phone number.",
-      'How can I talk to my caseworker ',
-      'How can I talk to someone',
-      'I have a complaint about MS child support case managers and customer service ',
-      'Phone number in Vicksburg Mississippi',
-      'Customer service number ',
-      'Phone number ',
-      'Why won’t anyone answer the phone.',
-      'Phone number',
-      'Hi I have a question ',
-      'phone number',
-      'phone number for panola county',
-      'What’s a Cin Number ',
-      'DIGITS number',
-      'Talk to human',
-      'Child support phone number',
-      'Phone numbers',
-      'Is there a number to the distrbution center',
-      'I need the phone number',
-      'I already have a Eppicard, I Have a new phone an Dont hve the 1-800- Number no more',
-      'contact with my case worker',
-      'telephone number',
-      'what is the helpline phone number',
-      'Phone number',
-      'Number ',
-      'Phone number ',
-      'Coahoma county child support number from online sources is not correct. ',
-      'are you a real person first off',
-      'Is this a real person?',
-      "How fast because I'm using others device at the moment I need you to call me before 4:30 if so PHONE_NUMBER ",
-      'ask a question',
-      'Customer services ',
+      "U didn't answer my last question", // *
+      'What’s the number to check.  ', // add to contact-qa-number
+      'I need to set this up asap please PHONE_NUMBER', // add to contact-qa-number
+      'Phone number to check case status', // add to contact-qa-number, suggest
+      'I do not have a phone', // *
+      'well then what questions can you answer', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Please have supervisor call me ', // add to contact-qa-number
+      'Please have a supervisor call me. Every person that has called me back has hung up because they are not trained to answer my question ', // mislabeled, complaints?
+      'Looking for one ending in DIGITS', // *
+      'Talk to PERSON_NAME sumerall ', // *
+      'Call them', // add to contact-qa-number
+      'I need tuelo ms phone number for mdhs', // add to contact-qa-number
+      'Customer service number', // add to contact-qa-number
+      'I need the number from STREET_ADDRESS, corinth ms', // add to contact-qa-number
+      'Can I speak to an agent?', // add to contact-qa-number
+      'Customer service number?', // add to contact-qa-number
+      'May I have the customer service number ', // add to contact-qa-number
+      'Need to speak with someone.  ', // add to contact-qa-number
+      'Just need the DIGITS customer service number', // add to contact-qa-number
+      'I need the phone number for the legal department of child support ', // add to contact-qa-number
+      'Legal services number ', // add to contact-qa-number
+      'Customer service number for ms', // add to contact-qa-number
+      'Customer service number', // add to contact-qa-number
+      'Child support phone number ', // add to contact-qa-number
+      'what kind of questions do you answer', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Do I need a call between 8 and 5 or something', // * mislabeled for hours of operations, but not category for this.
+      'what are the hours of operation for customer service?', // * mislabeled for hours of operations, but not category for this.
+      'DIGITS PHONE NUMBER', // *
+      'No phone number', // *
+      "I don't have a phone number.", // *
+      'How can I talk to my caseworker ', // add to contact-qa-number
+      'How can I talk to someone', // add to contact-qa-number
+      'I have a complaint about MS child support case managers and customer service ', // mislabeld, complaints
+      'Phone number in Vicksburg Mississippi', // add to contact-qa-number
+      'Customer service number ', // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'Why won’t anyone answer the phone.', // suggest callcenter not answering
+      'Phone number', // add to contact-qa-number
+      'Hi I have a question ', // *
+      'phone number', // add to contact-qa-number
+      'phone number for panola county', // add to contact-qa-number
+      'What’s a Cin Number ', // *
+      'DIGITS number', // *
+      'Talk to human', // add to contact-qa-number
+      'Child support phone number', // add to contact-qa-number
+      'Phone numbers', // add to contact-qa-number
+      'Is there a number to the distrbution center', // add to contact-qa-number
+      'I need the phone number', // add to contact-qa-number
+      'I already have a Eppicard, I Have a new phone an Dont hve the 1-800- Number no more', // add to contact-qa-number
+      'contact with my case worker', // add to contact-qa-number
+      'telephone number', // add to contact-qa-number
+      'what is the helpline phone number', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'Number ', // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'Coahoma county child support number from online sources is not correct. ', // mislabeled, complaints
+      'are you a real person first off', // *
+      'Is this a real person?', // *
+      "How fast because I'm using others device at the moment I need you to call me before 4:30 if so PHONE_NUMBER ", // *
+      'ask a question', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Customer services ', // add to contact-qa-number
       "i'm looking to get help with a statement letter",
-      'I need Mrs lay number she at county Drive ',
+      'I need Mrs lay number she at county Drive ', // *
       'Customer service number ',
       'I need the number to check on all my cases. ',
-      'Contact ',
-      'Need to talk to caseworker about my pay ment',
-      'r u dumb listen to me',
-      'How do I get I touch with dhs',
-      'are you a real person',
-      'Do you have the number ',
-      'Phone ',
-      'yes what number do i call to cancel a child support case',
-      'I want to talk to a agent',
-      '1-800 number',
-      'phone number',
-      'Who can I call',
-      'Could you have someone call me on PHONE_NUMBER',
-      'What’s the direct number ',
-      'Phone number ',
-      'new number',
-      'Phone number',
-      'Simply ask a question',
-      'ask a question',
-      'What is the number',
-      'phone number for Pascagoula ',
-      'Speak to a representative ',
-      'Need to talk to someone about a continuance on court date asap',
-      'Phone number',
-      'representative',
-      'DIGITS',
-      'Number',
-      'Can I ask a General question',
-      'U guys sent me a letter was trying to get a understanding',
-      'what doyou know',
-      'Phone number ',
-      'customer service',
-      'I need the 1-800 numbers so I can check my card not the number that be change the other number',
-      'Whats the number to call you all',
-      'Hey I have a question ',
-      'What is there phone number ',
-      'DIGITS',
-      "I don't want my local office. It's in pascagoula. I need a supervisor ",
-      'I’m tryna get the contact number',
-      'I NEED THE PHONE NUMBER',
-      '1-601/674/DIGITS',
-      'Phone number ',
-      'Contact number',
-      'Hello why I am',
-      'Can I get a phone number for this address?',
-      'Phone number:PHONE_NUMBER',
-      'I need to speak to someone. Do you have a direct phone number?',
-      'DIGITS',
-      'Speak with someone ',
-      '1 800 number so I can check on my cases',
-      'What is a number I can call to talk to someone ',
-      'local number',
-      'the phone number',
-      'Phone number ',
-      'ask question',
-      'What is the phone number?',
-      'How do I speak to someone',
-      'I was supposed to get a call and never received one',
-      'i have called so many times my case worker hasnt called me or any thing',
-      'I want to speak with a representative ',
-      'i need a direct phone number ',
-      'i cant get to a person when i call that number',
-      'speak with someone on phone',
-      "What's the automated phone number",
-      'Speak with a representative ',
-      'PHone number',
-      'Customer service ',
-      'Trying to contact someone about child support',
-      'who called me.',
-      'Also I want to speak to caseworker ',
-      'ask a question',
-      'any i can talk to',
-      ' fireman a being to due to business my handle to unable am I because Griffin PERSON_NAME mother My with consult can You PHONE_NUMBER',
-      'What is the phone number in PERSON_NAME, Ms ',
-      'Their phone number',
-      'Get a contact number ',
-      'contact phone number',
-      'Contact number',
-      'No one is available to take my call',
-      'I cannot reach a representative by the number provided',
-      'Are u a computer',
-      'I do have a few questions actually',
-      'Answer my first question',
-      'How can I speak with a case worker?',
-      'Hello i need the DIGITS number to check my CS payment',
-      "I have been calling trying to get in touch with someone to find out some information. If my child  has a child and is with child again and has a job I'm wondering why am I still having to pay child support?",
-      'Do you know how long will it take before someone contact me?',
+      'Contact ', // add to contact-qa-number
+      'Need to talk to caseworker about my pay ment', // add to contact-qa-number
+      'r u dumb listen to me', // *
+      'How do I get I touch with dhs', // add to contact-qa-number
+      'are you a real person', // *
+      'Do you have the number ', // add to contact-qa-number
+      'Phone ', // add to contact-qa-number
+      'yes what number do i call to cancel a child support case', // add to contact-qa-number
+      'I want to talk to a agent', // add to contact-qa-number
+      '1-800 number', // add to contact-qa-number
+      'phone number', // add to contact-qa-number
+      'Who can I call', // add to contact-qa-number
+      'Could you have someone call me on PHONE_NUMBER', // add to contact-qa-number
+      'What’s the direct number ', // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'new number', // *
+      'Phone number', // add to contact-qa-number
+      'Simply ask a question', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'ask a question', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'What is the number', // add to contact-qa-number
+      'phone number for Pascagoula ', // add to contact-qa-number
+      'Speak to a representative ', // add to contact-qa-number
+      'Need to talk to someone about a continuance on court date asap', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'representative', // add to contact-qa-number
+      'DIGITS', // *
+      'Number', // *
+      'Can I ask a General question', // *
+      'U guys sent me a letter was trying to get a understanding', // *
+      'what doyou know', // *
+      'Phone number ', // add to contact-qa-number
+      'customer service', // add to contact-qa-number
+      'I need the 1-800 numbers so I can check my card not the number that be change the other number', // add to contact-qa-number
+      'Whats the number to call you all', // add to contact-qa-number
+      'Hey I have a question ', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'What is there phone number ', // add to contact-qa-number
+      'DIGITS', // *
+      "I don't want my local office. It's in pascagoula. I need a supervisor ", // *
+      'I’m tryna get the contact number', // add to contact-qa-number
+      'I NEED THE PHONE NUMBER', // add to contact-qa-number
+      '1-601/674/DIGITS', // *
+      'Phone number ', // add to contact-qa-number
+      'Contact number', // add to contact-qa-number
+      'Hello why I am', // *
+      'Can I get a phone number for this address?', // add to contact-qa-number
+      'Phone number:PHONE_NUMBER', // *
+      'I need to speak to someone. Do you have a direct phone number?', // add to contact-qa-number
+      'DIGITS', // *
+      'Speak with someone ', // add to contact-qa-number
+      '1 800 number so I can check on my cases', // add to contact-qa-number
+      'What is a number I can call to talk to someone ', // add to contact-qa-number
+      'local number', // add to contact-qa-number
+      'the phone number', // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'ask question', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'What is the phone number?', // add to contact-qa-number
+      'How do I speak to someone', // add to contact-qa-number
+      'I was supposed to get a call and never received one', // add to contact-qa-number
+      'i have called so many times my case worker hasnt called me or any thing', // suggest callcenter not answering
+      'I want to speak with a representative ', // add to contact-qa-number
+      'i need a direct phone number ', // add to contact-qa-number
+      'i cant get to a person when i call that number', // suggest callcenter not answering
+      'speak with someone on phone', // add to contact-qa-number
+      "What's the automated phone number", // add to contact-qa-number
+      'Speak with a representative ', // add to contact-qa-number
+      'PHone number', // add to contact-qa-number
+      'Customer service ', // add to contact-qa-number
+      'Trying to contact someone about child support', // add to contact-qa-number
+      'who called me.', // *
+      'Also I want to speak to caseworker ', // add to contact-qa-number
+      'ask a question', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'any i can talk to', // *
+      ' fireman a being to due to business my handle to unable am I because Griffin PERSON_NAME mother My with consult can You PHONE_NUMBER', // *
+      'What is the phone number in PERSON_NAME, Ms ', // add to contact-qa-number
+      'Their phone number', // add to contact-qa-number
+      'Get a contact number ', // add to contact-qa-number
+      'contact phone number', // add to contact-qa-number
+      'Contact number', // add to contact-qa-number
+      'No one is available to take my call', // suggest callcenter not answering
+      'I cannot reach a representative by the number provided', // suggest callcenter not answering
+      'Are u a computer', // *
+      'I do have a few questions actually', // *
+      'Answer my first question', // *
+      'How can I speak with a case worker?', // add to contact-qa-number
+      'Hello i need the DIGITS number to check my CS payment', // add to contact-qa-number
+      "I have been calling trying to get in touch with someone to find out some information. If my child  has a child and is with child again and has a job I'm wondering why am I still having to pay child support?", // suggest callcenter not answering
+      'Do you know how long will it take before someone contact me?', // *
       'PERSON_NAME , MS whats the telephone numbers?',
-      'whats the phone number',
-      'THEY NEVER REACH OUT OR ANSWER THE PHONE',
-      'They will not answer the phone',
-      "How can I talk to someone each time I call the number PHONE_NUMBER the will not answer the call.  I can only get the music in the background.  I really need to speak to someone and I have been trying for about a month can't get a person to answer. HELP!!",
-      'Hello? are you pushing me off to the call center with no explanation?',
-      'are you a human or robot',
-      "PERSON_NAME's phone #PHONE_NUMBER",
-      'are you a person',
-      'Assistant',
-      'I need the number to talk to someone about my case ',
-      'Phone number ',
-      'Speak with a representative ',
-      'Customer service ',
-      "what is the child support division's phone number",
-      'The phone number ',
-      'need my iv-d number or docket number',
-      'How do I contact my case worker ',
-      'I want the phone number to call to see is there a pending amount that suppose to come to me I received a letter I’m not sure what it means ',
-      " what's the toll free number",
-      'Will you call or email so I know how to look ',
-      'i have already called that number, i would like a number to the starkville ms mdms branch where i can speak to someone ',
-      'im the custodial',
-      'phone numbe',
-      'I need to talk to someone',
-      'I need to know how long does it take to process the information to the Mississippi Department of  Transportation?',
-      'What is the phone number ',
-      'Y’all to a representative ',
-      'Phone number?',
-      'I need a live person to talk to',
-      "I'm here to see how can in get in touch with someone about my case. ",
-      'Can you let me talk with someone else that would be able to assist me?',
-      'and DIGITS',
-      'Do I have to do anything else or will they call me',
-      'Do you answer arrears questions',
-      'How can I speak with you',
-      'phone number?',
-      'whats the toll free number',
-      'What the hot line number  to check  your bal',
-      'Can you send me their number ',
-      'I need a number to contact to get my DNA results ',
-      'speaking with a live rep',
-      'Phone number',
-      'I need the phone number ',
-      'I’m trying to see how to contact my caseworker directly ',
-      'Phone number for county line',
-      'Talk to customer service agent',
-      'Phone bumber',
-      'What phone number can I call ',
-      'Are you answer questions today',
-      'Can I ask you a question?',
-      'Phone. Number',
-      'Wat the number ',
-      'Phone number ',
-      'phone',
-      'I need contact number',
-      'Speak with someone',
-      'Phone Humber ',
-      'I was trying to find out the number to see if there was a payment made recently',
-      'are you a real person?',
-      'Actually idk I was looking on here to see if it can help me find Social worker that’s working on my family case',
-      'Speak with someone ',
-      'I don’t want to talk to the call center',
-      'Case number and address to send it to.',
+      'whats the phone number', // add to contact-qa-number
+      'THEY NEVER REACH OUT OR ANSWER THE PHONE', // suggest callcenter not answering
+      'They will not answer the phone', // suggest callcenter not answering
+      "How can I talk to someone each time I call the number PHONE_NUMBER the will not answer the call.  I can only get the music in the background.  I really need to speak to someone and I have been trying for about a month can't get a person to answer. HELP!!", // suggest callcenter not answering
+      'Hello? are you pushing me off to the call center with no explanation?', // *
+      'are you a human or robot', // *
+      "PERSON_NAME's phone #PHONE_NUMBER", // *
+      'are you a person', // *
+      'Assistant', // *
+      'I need the number to talk to someone about my case ', // *
+      'Phone number ', // *
+      'Speak with a representative ', // add to contact-qa-number
+      'Customer service ', // add to contact-qa-number
+      "what is the child support division's phone number", // add to contact-qa-number
+      'The phone number ', // add to contact-qa-number
+      'need my iv-d number or docket number', // *
+      'How do I contact my case worker ', // add to contact-qa-number
+      'I want the phone number to call to see is there a pending amount that suppose to come to me I received a letter I’m not sure what it means ', // add to contact-qa-number
+      " what's the toll free number", // add to contact-qa-number
+      'Will you call or email so I know how to look ', // *
+      'i have already called that number, i would like a number to the starkville ms mdms branch where i can speak to someone ', // add to contact-qa-number
+      'im the custodial', // *
+      'phone numbe', // add to contact-qa-number
+      'I need to talk to someone', // add to contact-qa-number
+      'I need to know how long does it take to process the information to the Mississippi Department of  Transportation?', // *
+      'What is the phone number ', // add to contact-qa-number
+      'Y’all to a representative ', // add to contact-qa-number
+      'Phone number?', // add to contact-qa-number
+      'I need a live person to talk to', // add to contact-qa-number
+      "I'm here to see how can in get in touch with someone about my case. ", // add to contact-qa-number
+      'Can you let me talk with someone else that would be able to assist me?', // add to contact-qa-number
+      'and DIGITS', // *
+      'Do I have to do anything else or will they call me', // *
+      'Do you answer arrears questions', // mislabeled, arrears?
+      'How can I speak with you', // add to contact-qa-number
+      'phone number?', // add to contact-qa-number
+      'whats the toll free number', // add to contact-qa-number
+      'What the hot line number  to check  your bal', // add to contact-qa-number
+      'Can you send me their number ', // add to contact-qa-number
+      'I need a number to contact to get my DNA results ', // add to contact-qa-number
+      'speaking with a live rep', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'I need the phone number ', // add to contact-qa-number
+      'I’m trying to see how to contact my caseworker directly ', // add to contact-qa-number
+      'Phone number for county line', // add to contact-qa-number
+      'Talk to customer service agent', // add to contact-qa-number
+      'Phone bumber', // add to contact-qa-number
+      'What phone number can I call ', // add to contact-qa-number
+      'Are you answer questions today', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Can I ask you a question?', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Phone. Number', // add to contact-qa-number
+      'Wat the number ', // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'phone', // add to contact-qa-number
+      'I need contact number', // add to contact-qa-number
+      'Speak with someone', // add to contact-qa-number
+      'Phone Humber ', // add to contact-qa-number
+      'I was trying to find out the number to see if there was a payment made recently', // *
+      'are you a real person?', // *
+      'Actually idk I was looking on here to see if it can help me find Social worker that’s working on my family case', // *
+      'Speak with someone ', // add to contact-qa-number
+      'I don’t want to talk to the call center', // *
+      'Case number and address to send it to.', // mislabeled, case number
       'I have not received all of my June child support and I need the number to the director, not the automated line, for Mississippi',
-      'Do i need to contact a higher person over yall head this been 16years',
-      'I’m looking for the 1-877 number',
-      'Automatic number',
-      "ive been to the local office and they haven't contacted me back. They wont give me a case worker ",
-      'rep',
-      'Phone number',
-      'Customer service ',
-      'have someone call me ',
-      'please advise a phone number where a payment can be made on rearage  for ms ',
-      'are you a fun time gal?',
-      'are you a human',
-      'Phone number ',
-      'I call that number and they had me to call this number PHONE_NUMBER but I cant reach anyone',
-      'I have called customer service but I want to talk to a live person but keep getting automatic system.',
-      'the phone to correct the issue.',
-      'What is the wed site to put on yur phone ',
-      'Phone number ',
-      'Customer service',
-      'phone number ',
-      'Can I speak with a real person?',
-      'I need to talk to someone about my case',
-      'Speak to a agent ',
-      'Ask a question ',
-      'What questions they ask at child support hearing?',
-      'Customer service',
-      'Phone number',
-      "What's the child support phone number ",
-      'Phone number ',
-      'Phone number',
-      'I have questions to ask ',
-      "I'm trying to talk to a worker",
-      'Customer service number',
-      "What's the number to the one in county line road",
-      'Phone number',
-      'Phone number phone num',
-      'Do you have an automated phone payment line',
-      'Customer Service number',
-      'What is the best way to stay up to date and/or communicate with my case worker when I have concerns/questions?',
-      'Phone number',
-      'What is the number to call for the automated system to check what I am currently owed?',
-      'I don’t have time to call anyone',
-      'Phone number for vicksburg ',
-      'Getting in touch with my case worker',
-      'Trying to see how to contact child support to receive unpaid payments ',
-      'What number do I call to check on the status of my case',
-      'Talk to someone ',
-      'speak to a person',
-      'can I speak to a representative?',
-      'What is the number to call to speak with someone about child support received?',
-      'Can I speak to a representative ',
-      'I want to talk to a real person',
-      'Can I talk to someone, they been cutting the absent parent check and I need to find out about how to receive them payments',
-      'full service',
-      'what is customer service',
-      'Phone number ',
-      'Is on file and every time I call them no one helps me no one',
-      'Can you please call me ',
-      'yes im trying to see the number for tunica county child support office since its been move',
-      'nobody answers that number',
-      'Do you know who this family contacts for assistance temporarily',
-      "I'm at the child support officr in Indiana and they need to speak with a customer service rep",
-      'How can I speak to a respresentive ',
-      'I received a letter with a case #. I need to know who to speak to via voice? Do you have a phone number ',
-      "What's the DIGITS number to child support",
-      'need to speak to representative',
-      'I need to know what number do I call to c if any payments have been made',
-      'The local phone number',
-      'phone number',
-      'im gonna call',
-      'phone numberr',
-      'Phone number',
-      'Phone number',
-      'Don’t know',
-      'Contact info ',
-      'contact number',
-      'Representative',
-      'is there a phone # i can call in PERSON_NAME ms to talk with someone about our case ?',
-      'Speak with a representative ',
-      'Can  I get the 1 877 number',
-      'What’s the DIGITS number ',
-      'What is the number to call to find out if a payment had been made',
-      'PHONE NUMBER',
-      'Number',
-      'What number do I call if I have questions about child support papers I have filed?',
-      'Text please ',
-      'What is their number ',
-      'What’s the number ',
-      'I was looking for a direct line to the Pascagoula office located on STREET_ADDRESS',
-      'Can I have the child support hotline direct number?',
-      'number to call',
-      'who can I directly speak to about my case? ',
-      'who do i get in touch with to figure out what’s taking so long for my case ',
-      "What's the DIGITS number where I can talk to someone",
-      "Why can't I just talk to a human",
-      "What's the number where I can talk to a representative ",
-      'what is the contact information to call someone in regards to this matter?',
-      'customer service rep',
-      'Real person',
-      'How do I talk with a real person?',
-      'Can i speak to a customer service rep',
-      'Number to talk to worker',
-      'Who else can be contacted',
-      'That number has no information',
-      'Yes I’m looking for a customer service phone number ',
+      'Do i need to contact a higher person over yall head this been 16years', // add to contact-qa-number
+      'I’m looking for the 1-877 number', // add to contact-qa-number
+      'Automatic number', // add to contact-qa-number
+      "ive been to the local office and they haven't contacted me back. They wont give me a case worker ", // add to contact-qa-number
+      'rep', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'Customer service ', // add to contact-qa-number
+      'have someone call me ', // add to contact-qa-number
+      'please advise a phone number where a payment can be made on rearage  for ms ', // add to contact-qa-number
+      'are you a fun time gal?', // *
+      'are you a human', // *
+      'Phone number ', // add to contact-qa-number
+      'I call that number and they had me to call this number PHONE_NUMBER but I cant reach anyone', // suggest callcenter not answering
+      'I have called customer service but I want to talk to a live person but keep getting automatic system.', // suggest callcenter not answering
+      'the phone to correct the issue.', // add to contact-qa-number
+      'What is the wed site to put on yur phone ', // *
+      'Phone number ', // add to contact-qa-number
+      'Customer service', // add to contact-qa-number
+      'phone number ', // add to contact-qa-number
+      'Can I speak with a real person?', // add to contact-qa-number
+      'I need to talk to someone about my case', // add to contact-qa-number
+      'Speak to a agent ', // add to contact-qa-number
+      'Ask a question ', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'What questions they ask at child support hearing?', // *
+      'Customer service', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      "What's the child support phone number ", // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'I have questions to ask ', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      "I'm trying to talk to a worker", // add to contact-qa-number
+      'Customer service number', // add to contact-qa-number
+      "What's the number to the one in county line road", // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'Phone number phone num', // add to contact-qa-number
+      'Do you have an automated phone payment line', // add to contact-qa-number
+      'Customer Service number', // add to contact-qa-number
+      'What is the best way to stay up to date and/or communicate with my case worker when I have concerns/questions?', // *
+      'Phone number', // add to contact-qa-number
+      'What is the number to call for the automated system to check what I am currently owed?', // add to contact-qa-number
+      'I don’t have time to call anyone', // *
+      'Phone number for vicksburg ', // add to contact-qa-number
+      'Getting in touch with my case worker', // add to contact-qa-number
+      'Trying to see how to contact child support to receive unpaid payments ', // add to contact-qa-number
+      'What number do I call to check on the status of my case', // add to contact-qa-number
+      'Talk to someone ', // add to contact-qa-number
+      'speak to a person', // add to contact-qa-number
+      'can I speak to a representative?', // add to contact-qa-number
+      'What is the number to call to speak with someone about child support received?', // add to contact-qa-number
+      'Can I speak to a representative ', // add to contact-qa-number
+      'I want to talk to a real person', // add to contact-qa-number
+      'Can I talk to someone, they been cutting the absent parent check and I need to find out about how to receive them payments', // add to contact-qa-number
+      'full service', // *
+      'what is customer service', // add to contact-qa-number
+      'Phone number ', // add to contact-qa-number
+      'Is on file and every time I call them no one helps me no one', // mislabeled, complaints
+      'Can you please call me ', // add to contact-qa-number
+      'yes im trying to see the number for tunica county child support office since its been move', // add to contact-qa-number
+      'nobody answers that number', // suggest callcenter not answering
+      'Do you know who this family contacts for assistance temporarily', // add to contact-qa-number
+      "I'm at the child support officr in Indiana and they need to speak with a customer service rep", // add to contact-qa-number
+      'How can I speak to a respresentive ', // add to contact-qa-number
+      'I received a letter with a case #. I need to know who to speak to via voice? Do you have a phone number ', // add to contact-qa-number
+      "What's the DIGITS number to child support", // add to contact-qa-number
+      'need to speak to representative', // add to contact-qa-number
+      'I need to know what number do I call to c if any payments have been made', // add to contact-qa-number
+      'The local phone number', // add to contact-qa-number
+      'phone number', // add to contact-qa-number
+      'im gonna call', // *
+      'phone numberr', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'Phone number', // add to contact-qa-number
+      'Don’t know', // *
+      'Contact info ', // add to contact-qa-number
+      'contact number', // add to contact-qa-number
+      'Representative', // add to contact-qa-number
+      'is there a phone # i can call in PERSON_NAME ms to talk with someone about our case ?', // add to contact-qa-number
+      'Speak with a representative ', // add to contact-qa-number
+      'Can  I get the 1 877 number', // add to contact-qa-number
+      'What’s the DIGITS number ', // add to contact-qa-number
+      'What is the number to call to find out if a payment had been made', // add to contact-qa-number
+      'PHONE NUMBER', // add to contact-qa-number
+      'Number', // add to contact-qa-number
+      'What number do I call if I have questions about child support papers I have filed?', // add to contact-qa-number
+      'Text please ', // *
+      'What is their number ', // add to contact-qa-number
+      'What’s the number ', // add to contact-qa-number
+      'I was looking for a direct line to the Pascagoula office located on STREET_ADDRESS', // add to contact-qa-number
+      'Can I have the child support hotline direct number?', // add to contact-qa-number
+      'number to call', // add to contact-qa-number
+      'who can I directly speak to about my case? ', // add to contact-qa-number
+      'who do i get in touch with to figure out what’s taking so long for my case ', // add to contact-qa-number
+      "What's the DIGITS number where I can talk to someone", // add to contact-qa-number
+      "Why can't I just talk to a human", // add to contact-qa-number
+      "What's the number where I can talk to a representative ", // add to contact-qa-number
+      'what is the contact information to call someone in regards to this matter?', // add to contact-qa-number
+      'customer service rep', // add to contact-qa-number
+      'Real person', // add to contact-qa-number
+      'How do I talk with a real person?', // add to contact-qa-number
+      'Can i speak to a customer service rep', // add to contact-qa-number
+      'Number to talk to worker', // add to contact-qa-number
+      'Who else can be contacted', // add to contact-qa-number
+      'That number has no information', // mislabeled, complaints
+      'Yes I’m looking for a customer service phone number ', // add to contact-qa-number
     ],
     contexts: [
       { name: 'waiting-feedback-root', count: 81 },
@@ -445,248 +445,248 @@ const data = {
   'not received payment': {
     occurences: 242,
     queries: [
-      "I don't know the differnces",
-      "I want to know why I haven't received any child support for the last 2 and a half weeks ",
-      'Is there any reason I havent gotten my payments in two months?',
-      "My child's father is not paying his child support and i was told he is fixing to get a large check from a car accident any way that can pay his child support up ",
-      'Why am I not receiving my child support this month but I did last month ',
-      'What if the child mother keep saying she not receive child support how do I find out if it’s true or not they take it out my check',
-      'Hi my name is PERSON_NAME.. I haven’t received my support check for this month always get it on the 12th each month.. how can I find out the problem..',
-      "I have not received child support in two months and I can't reach anyone who can help me with this. I have information to help assist my child support case",
-      'Did not receive last month ',
-      "I've always had my child, since the moment she was born till now.   It's been 6 years and nomatter what I'm still getting sued for child support.  Why?",
-      'She’s been told not to do it we did it was Social Services that came out to the house and said that The house that the lady is in is not fit for',
-      'Why is my payments not being hibernate to me ',
-      'I haven’t received my child support ',
-      'Have not received child support in a month',
-      'I have a current child support case, but I have not received my payment this month. How can I check on that? ',
-      'yes, I did not receive my child support for August and would like to have this investigated.',
-      'Why is child support taking medical and child support payment out my check',
-      "I haven't received child support",
-      'He owes back child support. He’s a year behind ',
-      'I have not received my child support for the month of Aug. and I need to know why?',
-      'My child’s father paid last week and I still haven’t received my pay',
-      'Why am I not receiving child support even though it is being withdrawn from other parents checks',
-      'No I do not give permission for dcse to take my payments and deposit direct',
-      'I have not received payment for this week ',
-      'What if the month is almost over and u still haven’t received but the money is on hold as if he’s behind and he’s not then how do you get your money ',
-      "No I need to know I'm not getting child support there is 900 dollars that been taking out the father's check",
-      'Why I’m not receiving my child support',
-      'why am I not getting my child support',
-      'Why am I not getting my child supoort',
-      "I haven't received a payment",
-      'I would like to know when my payments will start again. He has been employed for 3 months now. ',
-      'I am owed 9 months of child support',
-      'Just wanted to see how much behind the other parent is',
-      "My ex wife says she hasn't got her child support",
-      'I haven’t received child support payments in 2 months ',
-      'my last 3 payments have not been sent to my kids',
-      'Where do I go to see why I have not received my child support ',
-      'My son’s father’s tax’s were offset due owing child support. Is there any way to check if the state has received money on my behalf? ',
-      'I haven’t received my payment this month ',
-      "Haven't got child support in 7 months ",
-      'Can I still collect unpaid support from my court ordered from my divorce.I did not receive any payments after DIGITS  ',
-      'What can be done if you have not received any payments since last year and you know that the noncustodial parent is working?',
-      "I haven't  recieved child support payment for this month",
-      'The money is coming out of my check but not being processed to the card ',
-      'My PERSON_NAME mother put child support on the card last week and we have yet received any money',
-      'They are taking 600 a month from the absent father but I haven’t receive any money ',
-      'I haven’t received my child support. Normally I receive it no later than the 5th of every month. My name is PERSON_NAME Morris. Last 4 of social are DIGITS',
-      'problem with having child support taken out of check when we do not owe child support to anyone ',
-      'i need to know why im not getting child support',
-      'I haven’t received a payment in a. Year',
-      'I dont owe child support and have sent and called several times and thet told me it would be took ca tre e of and still has not ',
-      'Tax return took child support out in February but it’s August and still not posted to the mothers account',
-      'I am not receiving child support from my child’s father and it is court ordered. ',
-      'I have not recieved payment for this month it was due on today',
-      'Have not received one',
-      "I haven't received anything in a long time... ",
-      'To check child support pending payments',
-      'The mother is using child support to pay her bills and not helping the baby ',
-      'I have not received payment in years',
-      'My payments were suppose to start in June and I haven’t received anything for June. Only July payments ',
-      'I got approved for Child support but is not getting the amount award for my children. What can I do to get the full amount award to them ',
-      "I have the eppicard,  but I'm not getting the payments i was ordered by the court and he states that he's paying ",
-      'No payments ',
-      'I’m not receiving payments from other parent ',
-      'My payment is due today but I will not have it until next week on the 7th.',
-      'Payment not recieved ',
-      "Already have eppicard. Trying to find out where a payment is I haven't received ",
-      'Why is there an fee to recieve child support',
-      "I've never received anything and I filed a year ago ",
-      "I have not been receiving my child support payments as i am supposed to. They are coming straight out of the other parents checks and he is still getting them, so there should be no reason I'm b not getting mine",
-      'I need to know why I haven’t received my payments ',
-      'I have a eppi card. But i switch states from Mississippi back to NY,  where both fathers live and i originally recieved payments. I tried switching back 4 months ago and havent recieved payments thru either state in that time. Where are my payments going?',
-      'Why haven’t I received payments ',
-      'Why am I not receiving payment ',
-      "My son haven't got child support in 2 years. He's 21 now. His father missed his 11th and 12th grade year in school. Will he received that back money",
-      'money',
-      'NOT RECEIVING PAYMENTS',
-      'No I am not receiving my scheduled payments ',
-      'I have applied for child support and my daughter is 4 years old now and I still haven’t received any for her. What can I do?',
-      'I am having trouble receiving the correct amount of child support. I have been through lawyer and it was suppose to start being drafted but that has never happened. I have contacted my lawyer office three times and have not gotten a call back from her.',
-      'I’ve had a case open for 13 years and still not a penny',
-      'He’s not paying but will be getting married next month ',
-      'IM TRYING TO SEE WHY I HAVENT HAD PAYMENT SINCE OCTOBER DIGITS',
-      "My child's father filed taxes in April. Why haven't I received anything when he's behind $DIGITS+?",
-      'where is my money',
-      "I'm trying to update my information and see why I'm not getting my child support",
-      'Why am I not receiving child support payments? My child’s non custodial parent is currently on Workman’s Compensation. ',
-      'Trying to find out why my sons mother hasnt had to start paying on any of her back child support and why Its still not been adjusted to her income? ',
-      "I haven't received any payment ",
-      'I have the eppicard but haven’t received my payment ',
-      '19 years old and pregnant and not receiving benefits from the guardian over my Childsupport case',
-      'Why haven’t I been getting my child support payments? ',
-      'missed child support payment',
-      'I need a number to speak with someone in PERSON_NAME Co Mississippi about why I am not getting any CS, and they have taken over 8,000 from him for it ',
-      'I have been giving money to my babymother and my daughter through cash app with payment info and what the money was for but she sued me for my arrears which was DIGITS.00  I have the receipts that total I’ve sent  her DIGITS.00. Do I get refunded for this ',
-      'Hi....my name is PERSON_NAME Hunt....I haven’t receive child support since June 11, DIGITS ',
-      'I haven’t been getting the full amount like I should ',
-      'Why am I not receiving Child support from certain parents?',
-      'i am trying to find out if i even have anything to collect  im 26 and never recieved anything but my father still gets his checks garnished for back child support',
-      "Actually it's a lot me and the children's father have not been paying child support on account of I have two and he has one we have been splitting payments for years now I'm being put on child support with no income ",
-      'I have not received payment for this month ',
-      'Why am I only receiving 7 dollars in child support ',
-      'My ex husband has been working for several months and I have not had any child support payments from him. I have his employment information.',
-      'I thought I would be getting something in the mail. ',
-      'PHONE_NUMBER i got a letter about a decrease but never received anything else and that was like 3 month ago',
-      'I have the card but haven’t received child support in almost 2 months ',
-      'Hey I’m a child who is on child support but I’m not getting any money from my mom',
-      'I sent information in May DIGITS to give father credit for child support payments made directly to me and it has not showed as credit. What should I do?',
-      'Haven’t received ',
-      'i have a card already! i have not gotten child support since May. i have called the hotline every week. He is working but nothing has been done',
-      'I currently go through DHS to receive child support payments.  He is now in arrearage of about $10,000.  Our sons are older now and I have agreed with their father to close our case with DHS under the circumstances that I get paid what is currently owed.',
-      'I keep getting notices about arrears when I know I am NOT behind',
-      'Why am I not receiving any child support from PERSON_NAME D Brown?',
-      "The last payment I received was in May and it wasn't my full amount. I haven't been getting my payments since then and I'm trying to figure out why because I need it for bills ASAP. Thank you",
-      'I received one in the mail but I am not sure for the reason. ',
-      'Where is my money for this month why is it not on my card?',
-      "I haven't received child support payment in over a month now. ",
-      'I didnt receive my payment this month. Could you tell me why?',
-      'Why am I not receiving payment if they’re taking it from my baby’s father check? ',
-      'I don’t owe any child support I’m the custodian ',
+      "I don't know the differnces", // *
+      "I want to know why I haven't received any child support for the last 2 and a half weeks ", // add to pmtQA-havent-received
+      'Is there any reason I havent gotten my payments in two months?', // add to pmtQA-NCP-payment-status
+      "My child's father is not paying his child support and i was told he is fixing to get a large check from a car accident any way that can pay his child support up ", // *
+      'Why am I not receiving my child support this month but I did last month ', // add to pmtQA-havent-received
+      'What if the child mother keep saying she not receive child support how do I find out if it’s true or not they take it out my check', // *
+      'Hi my name is PERSON_NAME.. I haven’t received my support check for this month always get it on the 12th each month.. how can I find out the problem..', // *
+      "I have not received child support in two months and I can't reach anyone who can help me with this. I have information to help assist my child support case", // *
+      'Did not receive last month ', // add to pmtQA-havent-received
+      "I've always had my child, since the moment she was born till now.   It's been 6 years and nomatter what I'm still getting sued for child support.  Why?", // *
+      'She’s been told not to do it we did it was Social Services that came out to the house and said that The house that the lady is in is not fit for', // *
+      'Why is my payments not being hibernate to me ', // add to pmtQA-havent-received
+      'I haven’t received my child support ', // add to pmtQA-havent-received
+      'Have not received child support in a month', // add to pmtQA-havent-received
+      'I have a current child support case, but I have not received my payment this month. How can I check on that? ', // add to pmtQA-havent-received
+      'yes, I did not receive my child support for August and would like to have this investigated.', // add to pmtQA-havent-received
+      'Why is child support taking medical and child support payment out my check', // *
+      "I haven't received child support", // add to pmtQA-havent-received
+      'He owes back child support. He’s a year behind ', // mislabeled, enforcements?
+      'I have not received my child support for the month of Aug. and I need to know why?', // add to pmtQA-havent-received
+      'My child’s father paid last week and I still haven’t received my pay', // add to pmtQA-NCP-payment-status
+      'Why am I not receiving child support even though it is being withdrawn from other parents checks', // add to pmtQA-NCP-payment-status
+      'No I do not give permission for dcse to take my payments and deposit direct', // *
+      'I have not received payment for this week ', // add to pmtQA-havent-received
+      'What if the month is almost over and u still haven’t received but the money is on hold as if he’s behind and he’s not then how do you get your money ', // *
+      "No I need to know I'm not getting child support there is 900 dollars that been taking out the father's check", // add to pmtQA-NCP-payment-status
+      'Why I’m not receiving my child support', // add to pmtQA-havent-received
+      'why am I not getting my child support', // add to pmtQA-havent-received
+      'Why am I not getting my child supoort', // add to pmtQA-havent-received
+      "I haven't received a payment", // add to pmtQA-havent-received
+      'I would like to know when my payments will start again. He has been employed for 3 months now. ', // add to pmtQA-havent-received
+      'I am owed 9 months of child support', // mislabeled, enforcements?
+      'Just wanted to see how much behind the other parent is', // add to pmtQA-havent-received
+      "My ex wife says she hasn't got her child support", // add to pmtQA-havent-received
+      'I haven’t received child support payments in 2 months ', // add to pmtQA-NCP-payment-status
+      'my last 3 payments have not been sent to my kids', // add to pmtQA-NCP-payment-status
+      'Where do I go to see why I have not received my child support ', // add to pmtQA-havent-received
+      'My son’s father’s tax’s were offset due owing child support. Is there any way to check if the state has received money on my behalf? ', // add to pmtQA-NCP-payment-status
+      'I haven’t received my payment this month ', // add to pmtQA-havent-received
+      "Haven't got child support in 7 months ", // add to pmtQA-NCP-payment-status
+      'Can I still collect unpaid support from my court ordered from my divorce.I did not receive any payments after DIGITS  ', // add to pmtQA-NCP-payment-status
+      'What can be done if you have not received any payments since last year and you know that the noncustodial parent is working?', // mislabeled, enforcements?
+      "I haven't  recieved child support payment for this month", // add to pmtQA-havent-received
+      'The money is coming out of my check but not being processed to the card ', // add to pmtQA-NCP-payment-status
+      'My PERSON_NAME mother put child support on the card last week and we have yet received any money', // add to pmtQA-havent-received
+      'They are taking 600 a month from the absent father but I haven’t receive any money ', // add to pmtQA-NCP-payment-status
+      'I haven’t received my child support. Normally I receive it no later than the 5th of every month. My name is PERSON_NAME Morris. Last 4 of social are DIGITS', // add to pmtQA-NCP-payment-status
+      'problem with having child support taken out of check when we do not owe child support to anyone ', // mislabeled
+      'i need to know why im not getting child support', // add to pmtQA-havent-received
+      'I haven’t received a payment in a. Year', // add to pmtQA-NCP-payment-status
+      'I dont owe child support and have sent and called several times and thet told me it would be took ca tre e of and still has not ', // add to pmtQA-NCP-payment-status
+      'Tax return took child support out in February but it’s August and still not posted to the mothers account', // add to pmtQA-NCP-payment-status
+      'I am not receiving child support from my child’s father and it is court ordered. ', // add to pmtQA-havent-received
+      'I have not recieved payment for this month it was due on today', // add to pmtQA-havent-received
+      'Have not received one', // add to pmtQA-havent-received
+      "I haven't received anything in a long time... ", // add to pmtQA-NCP-payment-status
+      'To check child support pending payments', // add to pmtQA-NCP-payment-status
+      'The mother is using child support to pay her bills and not helping the baby ', // *
+      'I have not received payment in years', // add to pmtQA-NCP-payment-status
+      'My payments were suppose to start in June and I haven’t received anything for June. Only July payments ', // add to pmtQA-NCP-payment-status
+      'I got approved for Child support but is not getting the amount award for my children. What can I do to get the full amount award to them ', // add to pmtQA-havent-received
+      "I have the eppicard,  but I'm not getting the payments i was ordered by the court and he states that he's paying ", // add to pmtQA-havent-received
+      'No payments ', // add to pmtQA-NCP-payment-status
+      'I’m not receiving payments from other parent ', // add to pmtQA-NCP-payment-status
+      'My payment is due today but I will not have it until next week on the 7th.', // mislabeled, can't make payments
+      'Payment not recieved ', // add to pmtQA-NCP-payment-status
+      "Already have eppicard. Trying to find out where a payment is I haven't received ", // add to pmtQA-NCP-payment-status
+      'Why is there an fee to recieve child support', // mislabeled, fees?
+      "I've never received anything and I filed a year ago ", // mislabeled, case status?
+      "I have not been receiving my child support payments as i am supposed to. They are coming straight out of the other parents checks and he is still getting them, so there should be no reason I'm b not getting mine", // *
+      'I need to know why I haven’t received my payments ', // add to pmtQA-havent-received
+      'I have a eppi card. But i switch states from Mississippi back to NY,  where both fathers live and i originally recieved payments. I tried switching back 4 months ago and havent recieved payments thru either state in that time. Where are my payments going?', // *
+      'Why haven’t I received payments ', // add to pmtQA-havent-received
+      'Why am I not receiving payment ', // add to pmtQA-havent-received
+      "My son haven't got child support in 2 years. He's 21 now. His father missed his 11th and 12th grade year in school. Will he received that back money", // mislabeled, arrears
+      'money', // *
+      'NOT RECEIVING PAYMENTS', // add to pmtQA-havent-received
+      'No I am not receiving my scheduled payments ', // add to pmtQA-havent-received
+      'I have applied for child support and my daughter is 4 years old now and I still haven’t received any for her. What can I do?', // mislabeled, case status?
+      'I am having trouble receiving the correct amount of child support. I have been through lawyer and it was suppose to start being drafted but that has never happened. I have contacted my lawyer office three times and have not gotten a call back from her.', // *
+      'I’ve had a case open for 13 years and still not a penny', // mislabeled, case status?
+      'He’s not paying but will be getting married next month ', // add to pmtQA-havent-received
+      'IM TRYING TO SEE WHY I HAVENT HAD PAYMENT SINCE OCTOBER DIGITS', // add to pmtQA-NCP-payment-status
+      "My child's father filed taxes in April. Why haven't I received anything when he's behind $DIGITS+?", // add to pmtQA-NCP-payment-status
+      'where is my money', // add to pmtQA-havent-received
+      "I'm trying to update my information and see why I'm not getting my child support", // add to pmtQA-havent-received
+      'Why am I not receiving child support payments? My child’s non custodial parent is currently on Workman’s Compensation. ', // add to pmtQA-havent-received
+      'Trying to find out why my sons mother hasnt had to start paying on any of her back child support and why Its still not been adjusted to her income? ', // add to pmtQA-havent-received
+      "I haven't received any payment ", // add to pmtQA-havent-received
+      'I have the eppicard but haven’t received my payment ', // add to pmtQA-havent-received
+      '19 years old and pregnant and not receiving benefits from the guardian over my Childsupport case', // add to pmtQA-havent-received
+      'Why haven’t I been getting my child support payments? ', // add to pmtQA-havent-received
+      'missed child support payment', // add to pmtQA-havent-received
+      'I need a number to speak with someone in PERSON_NAME Co Mississippi about why I am not getting any CS, and they have taken over 8,000 from him for it ', // mislabeled, contact human
+      'I have been giving money to my babymother and my daughter through cash app with payment info and what the money was for but she sued me for my arrears which was DIGITS.00  I have the receipts that total I’ve sent  her DIGITS.00. Do I get refunded for this ', // *
+      'Hi....my name is PERSON_NAME Hunt....I haven’t receive child support since June 11, DIGITS ', // add to pmtQA-NCP-payment-status
+      'I haven’t been getting the full amount like I should ', // add to pmtQA-havent-received
+      'Why am I not receiving Child support from certain parents?', // add to pmtQA-havent-received
+      'i am trying to find out if i even have anything to collect  im 26 and never recieved anything but my father still gets his checks garnished for back child support', // add to pmtQA-NCP-payment-status
+      "Actually it's a lot me and the children's father have not been paying child support on account of I have two and he has one we have been splitting payments for years now I'm being put on child support with no income ", // *
+      'I have not received payment for this month ', // add to pmtQA-havent-received
+      'Why am I only receiving 7 dollars in child support ', // add to pmtQA-havent-received
+      'My ex husband has been working for several months and I have not had any child support payments from him. I have his employment information.', // add to pmtQA-NCP-payment-status
+      'I thought I would be getting something in the mail. ', // *
+      'PHONE_NUMBER i got a letter about a decrease but never received anything else and that was like 3 month ago', // *
+      'I have the card but haven’t received child support in almost 2 months ', // add to pmtQA-havent-received
+      'Hey I’m a child who is on child support but I’m not getting any money from my mom', // add to pmtQA-havent-received
+      'I sent information in May DIGITS to give father credit for child support payments made directly to me and it has not showed as credit. What should I do?', // add to pmtQA-NCP-payment-status
+      'Haven’t received ', // add to pmtQA-havent-received
+      'i have a card already! i have not gotten child support since May. i have called the hotline every week. He is working but nothing has been done', // mislabeled, enforcements?
+      'I currently go through DHS to receive child support payments.  He is now in arrearage of about $10,000.  Our sons are older now and I have agreed with their father to close our case with DHS under the circumstances that I get paid what is currently owed.', // *
+      'I keep getting notices about arrears when I know I am NOT behind', // *
+      'Why am I not receiving any child support from PERSON_NAME D Brown?', // add to pmtQA-havent-received
+      "The last payment I received was in May and it wasn't my full amount. I haven't been getting my payments since then and I'm trying to figure out why because I need it for bills ASAP. Thank you", // *
+      'I received one in the mail but I am not sure for the reason. ', // *
+      'Where is my money for this month why is it not on my card?', // add to pmtQA-havent-received
+      "I haven't received child support payment in over a month now. ", // add to pmtQA-NCP-payment-status
+      'I didnt receive my payment this month. Could you tell me why?', // add to pmtQA-havent-received
+      'Why am I not receiving payment if they’re taking it from my baby’s father check? ', // add to pmtQA-havent-received
+      'I don’t owe any child support I’m the custodian ', // *
       'I have been trying to contact via phone but I do not have a pin.  Also, child support has been taken from my earnings but my children have not received anything in months',
-      'My child’s father paid his back child support with his income tax this year and I still haven’t recieved  it. ',
-      'I have the eppicard, I haven’t received my July payment ',
-      'I have not receive none of the payments that the father has paid. How can I check and see that he has been paying?',
-      "Why haven't I received any payment since April 3 ",
-      'I mailed my child support payment in',
-      'I am not getting all of my child support ',
-      'I want to know why I haven’t received a payment in over a year ',
-      "I'm making payments and my child is not recieving them",
-      'No payment today',
-      "I have a open case but haven't got payment ",
-      'Im trying to see why i havent received any child support this month ',
-      'I want to know why I have not received a child support payment this month',
-      'I haven’t received a payment this month ',
-      "My exwife is receiving child support for our 20yr old daughter. My daughter has moved out of state for 3 months now. She's not even giving my daughter any monies that she's receiving ",
-      'I need to know about my case I’m confused every week for 6 weeks they are taking it out his checks he says they haven’t taking about 700 hundred and I only get 55 here and there ',
-      'Out of my check. How can I get this stopped',
-      'no payment',
-      "haven't received payment",
-      "didn't get my child support last month or this month",
-      "But I'm not recieving anything right now",
-      'Sending in checks to pay my child support. Checks for June and July were sent into together. Neither check has been cashed. ',
-      'NO PAYMENT',
+      'My child’s father paid his back child support with his income tax this year and I still haven’t recieved  it. ', // add to pmtQA-NCP-payment-status
+      'I have the eppicard, I haven’t received my July payment ', // add to pmtQA-NCP-payment-status
+      'I have not receive none of the payments that the father has paid. How can I check and see that he has been paying?', // add to pmtQA-NCP-payment-status
+      "Why haven't I received any payment since April 3 ", // add to pmtQA-NCP-payment-status
+      'I mailed my child support payment in', // *
+      'I am not getting all of my child support ', // add to pmtQA-havent-received
+      'I want to know why I haven’t received a payment in over a year ', // add to pmtQA-NCP-payment-status
+      "I'm making payments and my child is not recieving them", // add to pmtQA-NCP-payment-status
+      'No payment today', // add to pmtQA-havent-received
+      "I have a open case but haven't got payment ", // add to pmtQA-havent-received
+      'Im trying to see why i havent received any child support this month ', // add to pmtQA-havent-received
+      'I want to know why I have not received a child support payment this month', // add to pmtQA-havent-received
+      'I haven’t received a payment this month ', // add to pmtQA-havent-received
+      "My exwife is receiving child support for our 20yr old daughter. My daughter has moved out of state for 3 months now. She's not even giving my daughter any monies that she's receiving ", // *
+      'I need to know about my case I’m confused every week for 6 weeks they are taking it out his checks he says they haven’t taking about 700 hundred and I only get 55 here and there ', // *
+      'Out of my check. How can I get this stopped', // *
+      'no payment', // add to pmtQA-havent-received
+      "haven't received payment", // add to pmtQA-havent-received
+      "didn't get my child support last month or this month", // add to pmtQA-NCP-payment-status
+      "But I'm not recieving anything right now", // *
+      'Sending in checks to pay my child support. Checks for June and July were sent into together. Neither check has been cashed. ', // *
+      'NO PAYMENT', // add to pmtQA-havent-received
       'My ex-husbands payments have been infrequent and sporadic. He did not pay any amount in DIGITS, and has only made two deposits so far in DIGITS. He states that he has contacted the department about this and that the deposits should be happening. ',
-      'Need to KNOW why i only received a payment of. 21',
-      'I’m asking is there a problem with you all system because she suppose to been received her child support payment on yesterday ',
-      'I was trying to see why haven’t I received my daughter’s child support for the month of July ',
-      'My child’s father has paid child support but it has not came to my card so I’m trying to see where are the funds ',
-      'What to do if you are not getting child support for your children when it was court ordered?',
-      'I have not received child support in over six months what can i do',
-      'I would like to stop child support because I am not getting the amount they are taking from his check ',
-      "I haven't received any payments ",
-      "Im trying to find out how fat behind the payments are since i haven't recieved any since april",
-      'ex is not making child support payments',
-      'i need to see how much arrearage child support of still have left to pay i did not received my letter with that information that i get each year',
-      'my name is PERSON_NAME Waits 04/22/DIGITS why have i not received my child support payment on my debit card yet? ',
+      'Need to KNOW why i only received a payment of. 21', // add to pmtQA-NCP-payment-status
+      'I’m asking is there a problem with you all system because she suppose to been received her child support payment on yesterday ', // add to pmtQA-havent-received
+      'I was trying to see why haven’t I received my daughter’s child support for the month of July ', // add to pmtQA-NCP-payment-status
+      'My child’s father has paid child support but it has not came to my card so I’m trying to see where are the funds ', // add to pmtQA-NCP-payment-status
+      'What to do if you are not getting child support for your children when it was court ordered?', // add to pmtQA-havent-received
+      'I have not received child support in over six months what can i do', // add to pmtQA-NCP-payment-status
+      'I would like to stop child support because I am not getting the amount they are taking from his check ', // mislabeled, termination
+      "I haven't received any payments ", // add to pmtQA-havent-received
+      "Im trying to find out how fat behind the payments are since i haven't recieved any since april", // add to pmtQA-NCP-payment-status
+      'ex is not making child support payments', // mislabeled, enforcements?
+      'i need to see how much arrearage child support of still have left to pay i did not received my letter with that information that i get each year', // mislabeled, arrears
+      'my name is PERSON_NAME Waits 04/22/DIGITS why have i not received my child support payment on my debit card yet? ', // add to pmtQA-havent-received
       'I am the non-custodial parent.  I overpaid my account and it was closed on May 31st.  I sent in a form to recover the overpayment.  I called last Wednesday and was informed that the check was mailed out on the day before.  It has not been received yet',
-      "I havent recieved my child support for last week and it's almost time for this weeks payment as well",
-      'Report not receiving payment',
-      'I never received my child support card nor my paper work in the mail. I have been getting the run around since Last year when this case first opened',
-      'My ex didn’t pay child support last month and I have yet to receive it this month. What action(s) can I take?',
-      'trying to see when i will receive any child support',
-      'Why my child’s father is not paying and nothing is being done',
-      'Child support payment made but not received ',
-      'Havent received payments',
-      'I already got the card usually the will take the money out his check on the first of every month but haven’t for this month',
-      'None, I already receive child support ',
-      'What do I do if I do not receive child support payments',
-      'I need to know why I haven’t gotten my child support this month',
-      'I have not received any child support in months and the father is behind $6,300, what can I do? ',
-      "I haven't been receiving any payments ",
-      'Hello, I have a divorce decree from PERSON_NAME and my ex-husband is not paying his child support.  How do I take these teeth garnish his check?',
-      'I already Have the card but I didnt receive full payment last year ',
-      'My kids mom haven’t got child support in 2 months but they Takin from my check',
-      'Why haven’t I received payments in two months',
-      "I already have a card I haven't received any payments from my child's father",
-      'I just checked and my child support put on my card is 1/2 of what I have been getting. Has the amount changed and I was not notified?',
-      'Neither, I already have one, im just not getting my payments every month',
-      'I receive child support? Even though I am not ',
-      "My children's mother is on child's up port and hasn't ever paid and has a job and still isn't paying ",
-      "I haven't received it",
-      'I  All ready get child support But hes not paying and his very behind ',
-      'Unfortunately I was not able to cash it time. ',
+      "I havent recieved my child support for last week and it's almost time for this weeks payment as well", // add to pmtQA-havent-received
+      'Report not receiving payment', // add to pmtQA-havent-received
+      'I never received my child support card nor my paper work in the mail. I have been getting the run around since Last year when this case first opened', // add to pmtQA-havent-received
+      'My ex didn’t pay child support last month and I have yet to receive it this month. What action(s) can I take?', // mislabeled, enforcements?
+      'trying to see when i will receive any child support', // mislabeled, payment timelines?
+      'Why my child’s father is not paying and nothing is being done', // mislabeled, enforcements?
+      'Child support payment made but not received ', // add to pmtQA-NCP-payment-status
+      'Havent received payments', // add to pmtQA-havent-received
+      'I already got the card usually the will take the money out his check on the first of every month but haven’t for this month', // add to pmtQA-havent-received
+      'None, I already receive child support ', // *
+      'What do I do if I do not receive child support payments', // add to pmtQA-havent-received
+      'I need to know why I haven’t gotten my child support this month', // add to pmtQA-havent-received
+      'I have not received any child support in months and the father is behind $6,300, what can I do? ', // mislabeled, enforcements?
+      "I haven't been receiving any payments ", // add to pmtQA-havent-received
+      'Hello, I have a divorce decree from PERSON_NAME and my ex-husband is not paying his child support.  How do I take these teeth garnish his check?', // *
+      'I already Have the card but I didnt receive full payment last year ', // add to pmtQA-NCP-payment-status
+      'My kids mom haven’t got child support in 2 months but they Takin from my check', // add to pmtQA-NCP-payment-status
+      'Why haven’t I received payments in two months', // add to pmtQA-NCP-payment-status
+      "I already have a card I haven't received any payments from my child's father", // add to pmtQA-havent-received
+      'I just checked and my child support put on my card is 1/2 of what I have been getting. Has the amount changed and I was not notified?', // *
+      'Neither, I already have one, im just not getting my payments every month', // add to pmtQA-NCP-payment-status
+      'I receive child support? Even though I am not ', // *
+      "My children's mother is on child's up port and hasn't ever paid and has a job and still isn't paying ", // mislabeled, enforcements?
+      "I haven't received it", // *
+      'I  All ready get child support But hes not paying and his very behind ', // mislabeled, enforcements?
+      'Unfortunately I was not able to cash it time. ', // *
       "I'm trying to figure out why I haven't gotten my child support money yet",
-      'I need to speak with someone on why I have not received payment in almost two months',
+      'I need to speak with someone on why I have not received payment in almost two months', // add to pmtQA-NCP-payment-status
       'What can I do if I’m not receiving child support when the court ordered it',
-      'My child’s mother is saying she didn’t receive child support but I paid through the iPay online',
-      'Hi, I submitted an IWO with the court when i divorced. I have not been receiving child support from my ex. I called the court and they informed me the IWO form is just a document showed whats owed, not an order for the court to withdraw the money.',
-      'I haven’t received anything ',
-      'I wanted to find out why I haven’t received my payment this month ',
+      'My child’s mother is saying she didn’t receive child support but I paid through the iPay online', // add to pmtQA-NCP-payment-status
+      'Hi, I submitted an IWO with the court when i divorced. I have not been receiving child support from my ex. I called the court and they informed me the IWO form is just a document showed whats owed, not an order for the court to withdraw the money.', // *
+      'I haven’t received anything ', // add to pmtQA-havent-received
+      'I wanted to find out why I haven’t received my payment this month ', // add to pmtQA-havent-received
       'Neither I want to check on the balance on my account and report no payment in over a month',
-      "I'm paying child support but have no idea where my child is",
-      "No. I'm not getting payments ",
+      "I'm paying child support but have no idea where my child is", // *
+      "No. I'm not getting payments ", // add to pmtQA-havent-received
       "I currently get some payments but my ex said he made a lump sum payment and I didn't receive on my debit card.",
       'I’m not receiving child support anymore and I would like to know what I need to do about it ',
-      'i am not getting my child support payments',
+      'i am not getting my child support payments', // add to pmtQA-havent-received
       'Haven’t gotten any child support since January ',
-      'Still not receiving my child support and not getting any help. Please assist',
+      'Still not receiving my child support and not getting any help. Please assist', // add to pmtQA-havent-received
       'Whem will i get my payment o have gotten one they are taling it out I hi checl but no money',
-      "I'm trying see who I need to talk to about child support. I have put him on child support but I haven't heard anything. I did this 3 years ago. He done got married and moved to bigger house and will not help nor see his kids. Everytime they call ",
+      "I'm trying see who I need to talk to about child support. I have put him on child support but I haven't heard anything. I did this 3 years ago. He done got married and moved to bigger house and will not help nor see his kids. Everytime they call ", // *
       'I have receiveing child support through DHS but I  have not received a payment in several months',
-      'Where my money at',
-      "Haven't got June payment",
-      'Hello my name is Tiarrah PERSON_NAME. I haven’t receive child support money since June 1st.',
-      'Why am I not getting all my kids child support',
-      'I haven’t received my child support in 5 months ',
-      'Researching for a relative in Mississippi who has not received support for a long time. She is owed over $4K. Looking for options and advise. She does not have $ for attorneys',
-      'thats not wht i need im trin to find out why i have not receivedany payments whn childsupport took his income taxes which was a lil over ZIPCODE and then after that his wife mailed in DIGITS and yall r taking childsupport out of his check every wk',
-      'Trying see why I haven’t receive my child support ',
-      'My child been full military for 2yrs , why I still had to pay support ',
-      "my ex has a large amount in back child support owed to me and was supposed to have it taken from his taxes and sent to me through the state. I haven't recieved anything or any word on the matter",
-      "So, kid's dad is behind on Child support.  He is currently working and has been since last year, but nothing is coming to my card.  What can be done about that?",
-      'Yes i am supposed to receive child support and I have been told before that my child’s father does have an employer on file but I’m trying to see why don’t I receive monthly child support payments. I have been dealing with this for almost 2 years now',
-      'why have i not received my payment',
-      'Why is child support being held out if my check I send a bank check by mail every month ',
-      'I receive child support ',
-      'I have a 7,000 dollar balance on my case my last payment was made on April 18th he has been working and MDHS just stopped taking it out of his checks he has called and even asked them to take it I am supposed to receive 700$ monthly by court order which',
-      "I already have it set for direct deposit, I haven't received payment in 4 months",
-      'nonpayment of court ordered child support',
-      'Hi glen I want to know why am I still receiving partial payments a month',
-      'I have been receiving child support, but it’s not consistent. So what can I do?',
-      'HAVE NOT RECEIVED MY CHILD SUPPORT PAYMENT FOR JUNE YET',
-      'I AM TRYING TO SEE WHY MY MONTHLY PAYMENT HAS NOT REACHED MY EPPI CARD YET',
-      'My payment is not showing ',
-      "I'm just trying to figure out why child support payments are not taken from the absent parents check",
-      "I receive payments through a Debit Card but haven' t received any in a while. How can I check on that?",
-      'I have not received child support for my children yet. Their father has told me that child support was taken out of his check twice but I have not received it thru the card. ',
-      'My card balance is 0 and I haven’t received child support since April 5. ',
-      'I got 70 dollar from child support ',
-      'we already receive child support, but do not accually get the money. wanted to see if there was a balance due to us?',
-      'How do I find out if I received a payment for back child support? My ex husband called and said that money was taken from his SSI.',
-      'My child support got raised on court last month an child’s father job sent y’all one the payments an I haven’t got it ',
-      "my taxes were taken for child support and the other person involved hasn't received any payment yet",
-      'Trying to see why I haven’t receive my support',
-      'I haven’t received a child support payment since April 24',
-      "why would dhs put my child on er father's health insurance when I do not recieve child support",
-      'I have not received payments on my eppicard ',
-      "I am trying to see why i haven't received any updates on my case of payment. my son is about to 10 ad has had an ongoing case since he was 1 year old. ",
-      'Trying to see why I’m not getting anything anymore??',
-      "I'm looking to see why I could find out why my ex husband owes me over DIGITS dollars but nothing is getting done about it.  He is a 1 1/2 years behind but they started taking from his check past two months but nothing this month?? And nothing has been post",
-      "I haven't received child support in close to two years.",
-      'I jave a case i was suppose to get deposited today but i dont know where',
+      'Where my money at', // add to pmtQA-havent-received
+      "Haven't got June payment", // add to pmtQA-havent-received
+      'Hello my name is Tiarrah PERSON_NAME. I haven’t receive child support money since June 1st.', // add to pmtQA-havent-received
+      'Why am I not getting all my kids child support', // add to pmtQA-havent-received
+      'I haven’t received my child support in 5 months ', //
+      'Researching for a relative in Mississippi who has not received support for a long time. She is owed over $4K. Looking for options and advise. She does not have $ for attorneys', // *
+      'thats not wht i need im trin to find out why i have not receivedany payments whn childsupport took his income taxes which was a lil over ZIPCODE and then after that his wife mailed in DIGITS and yall r taking childsupport out of his check every wk', // *
+      'Trying see why I haven’t receive my child support ', // add to pmtQA-havent-received
+      'My child been full military for 2yrs , why I still had to pay support ', // mislabeled, emancipation?
+      "my ex has a large amount in back child support owed to me and was supposed to have it taken from his taxes and sent to me through the state. I haven't recieved anything or any word on the matter", // *
+      "So, kid's dad is behind on Child support.  He is currently working and has been since last year, but nothing is coming to my card.  What can be done about that?", // *
+      'Yes i am supposed to receive child support and I have been told before that my child’s father does have an employer on file but I’m trying to see why don’t I receive monthly child support payments. I have been dealing with this for almost 2 years now', // *
+      'why have i not received my payment', // add to pmtQA-havent-received
+      'Why is child support being held out if my check I send a bank check by mail every month ', // *
+      'I receive child support ', // add to pmtQA-havent-received
+      'I have a 7,000 dollar balance on my case my last payment was made on April 18th he has been working and MDHS just stopped taking it out of his checks he has called and even asked them to take it I am supposed to receive 700$ monthly by court order which', // *
+      "I already have it set for direct deposit, I haven't received payment in 4 months", // mislabeled, enforcements?
+      'nonpayment of court ordered child support', // mislabeled, enforcements?
+      'Hi glen I want to know why am I still receiving partial payments a month', // add to pmtQA-havent-received
+      'I have been receiving child support, but it’s not consistent. So what can I do?', // add to pmtQA-havent-received
+      'HAVE NOT RECEIVED MY CHILD SUPPORT PAYMENT FOR JUNE YET', // add to pmtQA-havent-received
+      'I AM TRYING TO SEE WHY MY MONTHLY PAYMENT HAS NOT REACHED MY EPPI CARD YET', // add to pmtQA-havent-received
+      'My payment is not showing ', // add to pmtQA-NCP-payment-status
+      "I'm just trying to figure out why child support payments are not taken from the absent parents check", // add to pmtQA-havent-received
+      "I receive payments through a Debit Card but haven' t received any in a while. How can I check on that?", // add to pmtQA-NCP-payment-status
+      'I have not received child support for my children yet. Their father has told me that child support was taken out of his check twice but I have not received it thru the card. ', // *
+      'My card balance is 0 and I haven’t received child support since April 5. ', // add to pmtQA-NCP-payment-status
+      'I got 70 dollar from child support ', // *
+      'we already receive child support, but do not accually get the money. wanted to see if there was a balance due to us?', // *
+      'How do I find out if I received a payment for back child support? My ex husband called and said that money was taken from his SSI.', // add to pmtQA-NCP-payment-status
+      'My child support got raised on court last month an child’s father job sent y’all one the payments an I haven’t got it ', // add to pmtQA-NCP-payment-status
+      "my taxes were taken for child support and the other person involved hasn't received any payment yet", // add to pmtQA-NCP-payment-status
+      'Trying to see why I haven’t receive my support', // add to pmtQA-havent-received
+      'I haven’t received a child support payment since April 24', // mislabeled, enforcements?
+      "why would dhs put my child on er father's health insurance when I do not recieve child support", // add to pmtQA-havent-received
+      'I have not received payments on my eppicard ', // add to pmtQA-havent-received
+      "I am trying to see why i haven't received any updates on my case of payment. my son is about to 10 ad has had an ongoing case since he was 1 year old. ", // mislabeled, enforcements?
+      'Trying to see why I’m not getting anything anymore??', // add to pmtQA-havent-received
+      "I'm looking to see why I could find out why my ex husband owes me over DIGITS dollars but nothing is getting done about it.  He is a 1 1/2 years behind but they started taking from his check past two months but nothing this month?? And nothing has been post", // *
+      "I haven't received child support in close to two years.", // mislabeled, enforcements?
+      'I jave a case i was suppose to get deposited today but i dont know where', // add to pmtQA-havent-received
     ],
     contexts: [
       { name: 'waiting-pmtmethods-debit-card', count: 49 },
