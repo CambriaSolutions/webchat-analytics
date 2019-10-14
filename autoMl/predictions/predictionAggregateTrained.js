@@ -37,7 +37,7 @@ const data = {
       //// CUTOFF Training ////
 
       "dont worry about it i'll call when i get off", // *
-      'Can you please have someone from the Kosciusko, Attala County Child Support to call me concerning one of my employees Child Support payments. Thank you. PERSON_NAME, J. C. Cheek Contractors, Inc. PHONE_NUMBER', // added to contact-qa-number
+      'Can you please have someone from the Kosciusko, Attala County Child Support to call me concerning one of my employees Child Support payments. Thank you. PERSON_NAME, J. C. Cheek Contractors, Inc. PHONE_NUMBER', // *
       'When you find out let me know so I can send check.', // *
       'Can I speak with someone', // added to contact-qa-number
       'Yes contact PERSON_NAME Angellete PHONE_NUMBER', // *
@@ -52,7 +52,7 @@ const data = {
       "U didn't answer my last question", // *
       'What’s the number to check.  ', // add to contact-qa-number
       'I need to set this up asap please PHONE_NUMBER', // add to contact-qa-number
-      'Phone number to check case status', // add to contact-qa-number, suggest
+      'Phone number to check case status', // add to contact-qa-number
       'I do not have a phone', // *
       'well then what questions can you answer', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
       'Please have supervisor call me ', // add to contact-qa-number
@@ -104,7 +104,7 @@ const data = {
       'Phone number', // add to contact-qa-number
       'Number ', // add to contact-qa-number
       'Phone number ', // add to contact-qa-number
-      'Coahoma county child support number from online sources is not correct. ', // mislabeled, complaints
+      'Coahoma county child support number from online sources is not correct.', // mislabeled, complaints
       'are you a real person first off', // *
       'Is this a real person?', // *
       "How fast because I'm using others device at the moment I need you to call me before 4:30 if so PHONE_NUMBER ", // *
@@ -447,7 +447,7 @@ const data = {
     queries: [
       "I don't know the differnces", // *
       "I want to know why I haven't received any child support for the last 2 and a half weeks ", // add to pmtQA-havent-received
-      'Is there any reason I havent gotten my payments in two months?', // add to pmtQA-NCP-payment-status
+      'Is there any reason I havent gotten my payments in two months?', // add to pmtQA-havent-received
       "My child's father is not paying his child support and i was told he is fixing to get a large check from a car accident any way that can pay his child support up ", // *
       'Why am I not receiving my child support this month but I did last month ', // add to pmtQA-havent-received
       'What if the child mother keep saying she not receive child support how do I find out if it’s true or not they take it out my check', // *
@@ -465,12 +465,12 @@ const data = {
       "I haven't received child support", // add to pmtQA-havent-received
       'He owes back child support. He’s a year behind ', // mislabeled, enforcements?
       'I have not received my child support for the month of Aug. and I need to know why?', // add to pmtQA-havent-received
-      'My child’s father paid last week and I still haven’t received my pay', // add to pmtQA-NCP-payment-status
-      'Why am I not receiving child support even though it is being withdrawn from other parents checks', // add to pmtQA-NCP-payment-status
+      'My child’s father paid last week and I still haven’t received my pay', // suggest paid but not received
+      'Why am I not receiving child support even though it is being withdrawn from other parents checks', // suggest paid but not received
       'No I do not give permission for dcse to take my payments and deposit direct', // *
       'I have not received payment for this week ', // add to pmtQA-havent-received
       'What if the month is almost over and u still haven’t received but the money is on hold as if he’s behind and he’s not then how do you get your money ', // *
-      "No I need to know I'm not getting child support there is 900 dollars that been taking out the father's check", // add to pmtQA-NCP-payment-status
+      "No I need to know I'm not getting child support there is 900 dollars that been taking out the father's check", // suggest paid but not received
       'Why I’m not receiving my child support', // add to pmtQA-havent-received
       'why am I not getting my child support', // add to pmtQA-havent-received
       'Why am I not getting my child supoort', // add to pmtQA-havent-received
@@ -479,39 +479,39 @@ const data = {
       'I am owed 9 months of child support', // mislabeled, enforcements?
       'Just wanted to see how much behind the other parent is', // add to pmtQA-havent-received
       "My ex wife says she hasn't got her child support", // add to pmtQA-havent-received
-      'I haven’t received child support payments in 2 months ', // add to pmtQA-NCP-payment-status
-      'my last 3 payments have not been sent to my kids', // add to pmtQA-NCP-payment-status
+      'I haven’t received child support payments in 2 months ', // suggest > 1 month intent
+      'my last 3 payments have not been sent to my kids', // suggest paid but not received
       'Where do I go to see why I have not received my child support ', // add to pmtQA-havent-received
-      'My son’s father’s tax’s were offset due owing child support. Is there any way to check if the state has received money on my behalf? ', // add to pmtQA-NCP-payment-status
+      'My son’s father’s tax’s were offset due owing child support. Is there any way to check if the state has received money on my behalf? ', // mislabled, timelines
       'I haven’t received my payment this month ', // add to pmtQA-havent-received
-      "Haven't got child support in 7 months ", // add to pmtQA-NCP-payment-status
-      'Can I still collect unpaid support from my court ordered from my divorce.I did not receive any payments after DIGITS  ', // add to pmtQA-NCP-payment-status
+      "Haven't got child support in 7 months ", // suggest > 1 month intent
+      'Can I still collect unpaid support from my court ordered from my divorce.I did not receive any payments after DIGITS  ', // *
       'What can be done if you have not received any payments since last year and you know that the noncustodial parent is working?', // mislabeled, enforcements?
       "I haven't  recieved child support payment for this month", // add to pmtQA-havent-received
-      'The money is coming out of my check but not being processed to the card ', // add to pmtQA-NCP-payment-status
+      'The money is coming out of my check but not being processed to the card ', // suggest paid but not received
       'My PERSON_NAME mother put child support on the card last week and we have yet received any money', // add to pmtQA-havent-received
-      'They are taking 600 a month from the absent father but I haven’t receive any money ', // add to pmtQA-NCP-payment-status
-      'I haven’t received my child support. Normally I receive it no later than the 5th of every month. My name is PERSON_NAME Morris. Last 4 of social are DIGITS', // add to pmtQA-NCP-payment-status
+      'They are taking 600 a month from the absent father but I haven’t receive any money ', // suggest paid but not received
+      'I haven’t received my child support. Normally I receive it no later than the 5th of every month. My name is PERSON_NAME Morris. Last 4 of social are DIGITS', // add to pmtQA-havent-received
       'problem with having child support taken out of check when we do not owe child support to anyone ', // mislabeled
       'i need to know why im not getting child support', // add to pmtQA-havent-received
-      'I haven’t received a payment in a. Year', // add to pmtQA-NCP-payment-status
-      'I dont owe child support and have sent and called several times and thet told me it would be took ca tre e of and still has not ', // add to pmtQA-NCP-payment-status
-      'Tax return took child support out in February but it’s August and still not posted to the mothers account', // add to pmtQA-NCP-payment-status
+      'I haven’t received a payment in a. Year', // suggest > 1 month intent
+      'I dont owe child support and have sent and called several times and thet told me it would be took ca tre e of and still has not ', // *
+      'Tax return took child support out in February but it’s August and still not posted to the mothers account', // suggest paid but not received
       'I am not receiving child support from my child’s father and it is court ordered. ', // add to pmtQA-havent-received
       'I have not recieved payment for this month it was due on today', // add to pmtQA-havent-received
       'Have not received one', // add to pmtQA-havent-received
-      "I haven't received anything in a long time... ", // add to pmtQA-NCP-payment-status
-      'To check child support pending payments', // add to pmtQA-NCP-payment-status
+      "I haven't received anything in a long time... ", // add to suggest > 1 month intent
+      'To check child support pending payments', // add to pmtQA-havent-received
       'The mother is using child support to pay her bills and not helping the baby ', // *
-      'I have not received payment in years', // add to pmtQA-NCP-payment-status
-      'My payments were suppose to start in June and I haven’t received anything for June. Only July payments ', // add to pmtQA-NCP-payment-status
+      'I have not received payment in years', // add to suggest > 1 month intent
+      'My payments were suppose to start in June and I haven’t received anything for June. Only July payments ', // *
       'I got approved for Child support but is not getting the amount award for my children. What can I do to get the full amount award to them ', // add to pmtQA-havent-received
       "I have the eppicard,  but I'm not getting the payments i was ordered by the court and he states that he's paying ", // add to pmtQA-havent-received
-      'No payments ', // add to pmtQA-NCP-payment-status
-      'I’m not receiving payments from other parent ', // add to pmtQA-NCP-payment-status
+      'No payments ', // add to pmtQA-havent-received
+      'I’m not receiving payments from other parent ', // add to pmtQA-havent-received
       'My payment is due today but I will not have it until next week on the 7th.', // mislabeled, can't make payments
-      'Payment not recieved ', // add to pmtQA-NCP-payment-status
-      "Already have eppicard. Trying to find out where a payment is I haven't received ", // add to pmtQA-NCP-payment-status
+      'Payment not recieved ', // add to pmtQA-havent-received
+      "Already have eppicard. Trying to find out where a payment is I haven't received ", // add to pmtQA-havent-received
       'Why is there an fee to recieve child support', // mislabeled, fees?
       "I've never received anything and I filed a year ago ", // mislabeled, case status?
       "I have not been receiving my child support payments as i am supposed to. They are coming straight out of the other parents checks and he is still getting them, so there should be no reason I'm b not getting mine", // *
@@ -527,8 +527,8 @@ const data = {
       'I am having trouble receiving the correct amount of child support. I have been through lawyer and it was suppose to start being drafted but that has never happened. I have contacted my lawyer office three times and have not gotten a call back from her.', // *
       'I’ve had a case open for 13 years and still not a penny', // mislabeled, case status?
       'He’s not paying but will be getting married next month ', // add to pmtQA-havent-received
-      'IM TRYING TO SEE WHY I HAVENT HAD PAYMENT SINCE OCTOBER DIGITS', // add to pmtQA-NCP-payment-status
-      "My child's father filed taxes in April. Why haven't I received anything when he's behind $DIGITS+?", // add to pmtQA-NCP-payment-status
+      'IM TRYING TO SEE WHY I HAVENT HAD PAYMENT SINCE OCTOBER DIGITS', // add to suggest > 1 month intent
+      "My child's father filed taxes in April. Why haven't I received anything when he's behind $DIGITS+?", // *
       'where is my money', // add to pmtQA-havent-received
       "I'm trying to update my information and see why I'm not getting my child support", // add to pmtQA-havent-received
       'Why am I not receiving child support payments? My child’s non custodial parent is currently on Workman’s Compensation. ', // add to pmtQA-havent-received
@@ -540,19 +540,19 @@ const data = {
       'missed child support payment', // add to pmtQA-havent-received
       'I need a number to speak with someone in PERSON_NAME Co Mississippi about why I am not getting any CS, and they have taken over 8,000 from him for it ', // mislabeled, contact human
       'I have been giving money to my babymother and my daughter through cash app with payment info and what the money was for but she sued me for my arrears which was DIGITS.00  I have the receipts that total I’ve sent  her DIGITS.00. Do I get refunded for this ', // *
-      'Hi....my name is PERSON_NAME Hunt....I haven’t receive child support since June 11, DIGITS ', // add to pmtQA-NCP-payment-status
+      'Hi....my name is PERSON_NAME Hunt....I haven’t receive child support since June 11, DIGITS ', // add to suggest > 1 month intent
       'I haven’t been getting the full amount like I should ', // add to pmtQA-havent-received
       'Why am I not receiving Child support from certain parents?', // add to pmtQA-havent-received
-      'i am trying to find out if i even have anything to collect  im 26 and never recieved anything but my father still gets his checks garnished for back child support', // add to pmtQA-NCP-payment-status
+      'i am trying to find out if i even have anything to collect  im 26 and never recieved anything but my father still gets his checks garnished for back child support', // *
       "Actually it's a lot me and the children's father have not been paying child support on account of I have two and he has one we have been splitting payments for years now I'm being put on child support with no income ", // *
       'I have not received payment for this month ', // add to pmtQA-havent-received
       'Why am I only receiving 7 dollars in child support ', // add to pmtQA-havent-received
-      'My ex husband has been working for several months and I have not had any child support payments from him. I have his employment information.', // add to pmtQA-NCP-payment-status
+      'My ex husband has been working for several months and I have not had any child support payments from him. I have his employment information.', // mislabled, add to info about parent
       'I thought I would be getting something in the mail. ', // *
       'PHONE_NUMBER i got a letter about a decrease but never received anything else and that was like 3 month ago', // *
       'I have the card but haven’t received child support in almost 2 months ', // add to pmtQA-havent-received
       'Hey I’m a child who is on child support but I’m not getting any money from my mom', // add to pmtQA-havent-received
-      'I sent information in May DIGITS to give father credit for child support payments made directly to me and it has not showed as credit. What should I do?', // add to pmtQA-NCP-payment-status
+      'I sent information in May DIGITS to give father credit for child support payments made directly to me and it has not showed as credit. What should I do?', // *
       'Haven’t received ', // add to pmtQA-havent-received
       'i have a card already! i have not gotten child support since May. i have called the hotline every week. He is working but nothing has been done', // mislabeled, enforcements?
       'I currently go through DHS to receive child support payments.  He is now in arrearage of about $10,000.  Our sons are older now and I have agreed with their father to close our case with DHS under the circumstances that I get paid what is currently owed.', // *
@@ -561,19 +561,19 @@ const data = {
       "The last payment I received was in May and it wasn't my full amount. I haven't been getting my payments since then and I'm trying to figure out why because I need it for bills ASAP. Thank you", // *
       'I received one in the mail but I am not sure for the reason. ', // *
       'Where is my money for this month why is it not on my card?', // add to pmtQA-havent-received
-      "I haven't received child support payment in over a month now. ", // add to pmtQA-NCP-payment-status
+      "I haven't received child support payment in over a month now. ", // suggest > 1 month
       'I didnt receive my payment this month. Could you tell me why?', // add to pmtQA-havent-received
       'Why am I not receiving payment if they’re taking it from my baby’s father check? ', // add to pmtQA-havent-received
       'I don’t owe any child support I’m the custodian ', // *
       'I have been trying to contact via phone but I do not have a pin.  Also, child support has been taken from my earnings but my children have not received anything in months',
-      'My child’s father paid his back child support with his income tax this year and I still haven’t recieved  it. ', // add to pmtQA-NCP-payment-status
-      'I have the eppicard, I haven’t received my July payment ', // add to pmtQA-NCP-payment-status
-      'I have not receive none of the payments that the father has paid. How can I check and see that he has been paying?', // add to pmtQA-NCP-payment-status
-      "Why haven't I received any payment since April 3 ", // add to pmtQA-NCP-payment-status
+      'My child’s father paid his back child support with his income tax this year and I still haven’t recieved  it. ', // suggest paid but not received
+      'I have the eppicard, I haven’t received my July payment ', // add to pmtQA-havent-received
+      'I have not receive none of the payments that the father has paid. How can I check and see that he has been paying?', // suggest paid but not received
+      "Why haven't I received any payment since April 3 ", // add to > 1 month
       'I mailed my child support payment in', // *
       'I am not getting all of my child support ', // add to pmtQA-havent-received
-      'I want to know why I haven’t received a payment in over a year ', // add to pmtQA-NCP-payment-status
-      "I'm making payments and my child is not recieving them", // add to pmtQA-NCP-payment-status
+      'I want to know why I haven’t received a payment in over a year ', // suggest > 1 month
+      "I'm making payments and my child is not recieving them", // add paid but not received
       'No payment today', // add to pmtQA-havent-received
       "I have a open case but haven't got payment ", // add to pmtQA-havent-received
       'Im trying to see why i havent received any child support this month ', // add to pmtQA-havent-received
@@ -584,20 +584,20 @@ const data = {
       'Out of my check. How can I get this stopped', // *
       'no payment', // add to pmtQA-havent-received
       "haven't received payment", // add to pmtQA-havent-received
-      "didn't get my child support last month or this month", // add to pmtQA-NCP-payment-status
+      "didn't get my child support last month or this month", // suggest > 1 month
       "But I'm not recieving anything right now", // *
       'Sending in checks to pay my child support. Checks for June and July were sent into together. Neither check has been cashed. ', // *
       'NO PAYMENT', // add to pmtQA-havent-received
       'My ex-husbands payments have been infrequent and sporadic. He did not pay any amount in DIGITS, and has only made two deposits so far in DIGITS. He states that he has contacted the department about this and that the deposits should be happening. ',
-      'Need to KNOW why i only received a payment of. 21', // add to pmtQA-NCP-payment-status
+      'Need to KNOW why i only received a payment of. 21', // add to pmtQA-havent-received
       'I’m asking is there a problem with you all system because she suppose to been received her child support payment on yesterday ', // add to pmtQA-havent-received
-      'I was trying to see why haven’t I received my daughter’s child support for the month of July ', // add to pmtQA-NCP-payment-status
-      'My child’s father has paid child support but it has not came to my card so I’m trying to see where are the funds ', // add to pmtQA-NCP-payment-status
+      'I was trying to see why haven’t I received my daughter’s child support for the month of July ', // add to pmtQA-havent-received
+      'My child’s father has paid child support but it has not came to my card so I’m trying to see where are the funds ', // add to pmtQA-havent-received
       'What to do if you are not getting child support for your children when it was court ordered?', // add to pmtQA-havent-received
-      'I have not received child support in over six months what can i do', // add to pmtQA-NCP-payment-status
+      'I have not received child support in over six months what can i do', // suggest > 1 month
       'I would like to stop child support because I am not getting the amount they are taking from his check ', // mislabeled, termination
       "I haven't received any payments ", // add to pmtQA-havent-received
-      "Im trying to find out how fat behind the payments are since i haven't recieved any since april", // add to pmtQA-NCP-payment-status
+      "Im trying to find out how fat behind the payments are since i haven't recieved any since april", // suggest > 1 month
       'ex is not making child support payments', // mislabeled, enforcements?
       'i need to see how much arrearage child support of still have left to pay i did not received my letter with that information that i get each year', // mislabeled, arrears
       'my name is PERSON_NAME Waits 04/22/DIGITS why have i not received my child support payment on my debit card yet? ', // add to pmtQA-havent-received
@@ -608,7 +608,7 @@ const data = {
       'My ex didn’t pay child support last month and I have yet to receive it this month. What action(s) can I take?', // mislabeled, enforcements?
       'trying to see when i will receive any child support', // mislabeled, payment timelines?
       'Why my child’s father is not paying and nothing is being done', // mislabeled, enforcements?
-      'Child support payment made but not received ', // add to pmtQA-NCP-payment-status
+      'Child support payment made but not received ', // suggest paid but not received
       'Havent received payments', // add to pmtQA-havent-received
       'I already got the card usually the will take the money out his check on the first of every month but haven’t for this month', // add to pmtQA-havent-received
       'None, I already receive child support ', // *
@@ -617,35 +617,35 @@ const data = {
       'I have not received any child support in months and the father is behind $6,300, what can I do? ', // mislabeled, enforcements?
       "I haven't been receiving any payments ", // add to pmtQA-havent-received
       'Hello, I have a divorce decree from PERSON_NAME and my ex-husband is not paying his child support.  How do I take these teeth garnish his check?', // *
-      'I already Have the card but I didnt receive full payment last year ', // add to pmtQA-NCP-payment-status
-      'My kids mom haven’t got child support in 2 months but they Takin from my check', // add to pmtQA-NCP-payment-status
-      'Why haven’t I received payments in two months', // add to pmtQA-NCP-payment-status
+      'I already Have the card but I didnt receive full payment last year ', // suggest > 1 month
+      'My kids mom haven’t got child support in 2 months but they Takin from my check', // suggest paid but not received
+      'Why haven’t I received payments in two months', // suggest > 1 month
       "I already have a card I haven't received any payments from my child's father", // add to pmtQA-havent-received
       'I just checked and my child support put on my card is 1/2 of what I have been getting. Has the amount changed and I was not notified?', // *
-      'Neither, I already have one, im just not getting my payments every month', // add to pmtQA-NCP-payment-status
+      'Neither, I already have one, im just not getting my payments every month', // suggest > 1 month
       'I receive child support? Even though I am not ', // *
       "My children's mother is on child's up port and hasn't ever paid and has a job and still isn't paying ", // mislabeled, enforcements?
       "I haven't received it", // *
       'I  All ready get child support But hes not paying and his very behind ', // mislabeled, enforcements?
       'Unfortunately I was not able to cash it time. ', // *
       "I'm trying to figure out why I haven't gotten my child support money yet",
-      'I need to speak with someone on why I have not received payment in almost two months', // add to pmtQA-NCP-payment-status
+      'I need to speak with someone on why I have not received payment in almost two months', // suggest > 1 month
       'What can I do if I’m not receiving child support when the court ordered it',
-      'My child’s mother is saying she didn’t receive child support but I paid through the iPay online', // add to pmtQA-NCP-payment-status
+      'My child’s mother is saying she didn’t receive child support but I paid through the iPay online', // suggest paid but not received
       'Hi, I submitted an IWO with the court when i divorced. I have not been receiving child support from my ex. I called the court and they informed me the IWO form is just a document showed whats owed, not an order for the court to withdraw the money.', // *
       'I haven’t received anything ', // add to pmtQA-havent-received
       'I wanted to find out why I haven’t received my payment this month ', // add to pmtQA-havent-received
-      'Neither I want to check on the balance on my account and report no payment in over a month',
+      'Neither I want to check on the balance on my account and report no payment in over a month', // suggest > 1 month
       "I'm paying child support but have no idea where my child is", // *
       "No. I'm not getting payments ", // add to pmtQA-havent-received
       "I currently get some payments but my ex said he made a lump sum payment and I didn't receive on my debit card.",
       'I’m not receiving child support anymore and I would like to know what I need to do about it ',
       'i am not getting my child support payments', // add to pmtQA-havent-received
-      'Haven’t gotten any child support since January ',
-      'Still not receiving my child support and not getting any help. Please assist', // add to pmtQA-havent-received
-      'Whem will i get my payment o have gotten one they are taling it out I hi checl but no money',
+      'Haven’t gotten any child support since January ', // suggest > 1 month
+      'Still not receiving my child support and not getting any help. Please assist', // suggest > 1 month
+      'Whem will i get my payment o have gotten one they are taling it out I hi checl but no money', // suggest paid but not received
       "I'm trying see who I need to talk to about child support. I have put him on child support but I haven't heard anything. I did this 3 years ago. He done got married and moved to bigger house and will not help nor see his kids. Everytime they call ", // *
-      'I have receiveing child support through DHS but I  have not received a payment in several months',
+      'I have receiveing child support through DHS but I  have not received a payment in several months', // suggest > 1 month
       'Where my money at', // add to pmtQA-havent-received
       "Haven't got June payment", // add to pmtQA-havent-received
       'Hello my name is Tiarrah PERSON_NAME. I haven’t receive child support money since June 1st.', // add to pmtQA-havent-received
@@ -668,24 +668,24 @@ const data = {
       'I have been receiving child support, but it’s not consistent. So what can I do?', // add to pmtQA-havent-received
       'HAVE NOT RECEIVED MY CHILD SUPPORT PAYMENT FOR JUNE YET', // add to pmtQA-havent-received
       'I AM TRYING TO SEE WHY MY MONTHLY PAYMENT HAS NOT REACHED MY EPPI CARD YET', // add to pmtQA-havent-received
-      'My payment is not showing ', // add to pmtQA-NCP-payment-status
+      'My payment is not showing ', // add to pmtQA-havent-received
       "I'm just trying to figure out why child support payments are not taken from the absent parents check", // add to pmtQA-havent-received
-      "I receive payments through a Debit Card but haven' t received any in a while. How can I check on that?", // add to pmtQA-NCP-payment-status
+      "I receive payments through a Debit Card but haven' t received any in a while. How can I check on that?", // suggest > 1 month
       'I have not received child support for my children yet. Their father has told me that child support was taken out of his check twice but I have not received it thru the card. ', // *
-      'My card balance is 0 and I haven’t received child support since April 5. ', // add to pmtQA-NCP-payment-status
+      'My card balance is 0 and I haven’t received child support since April 5. ', // suggest > 1 month
       'I got 70 dollar from child support ', // *
       'we already receive child support, but do not accually get the money. wanted to see if there was a balance due to us?', // *
-      'How do I find out if I received a payment for back child support? My ex husband called and said that money was taken from his SSI.', // add to pmtQA-NCP-payment-status
-      'My child support got raised on court last month an child’s father job sent y’all one the payments an I haven’t got it ', // add to pmtQA-NCP-payment-status
-      "my taxes were taken for child support and the other person involved hasn't received any payment yet", // add to pmtQA-NCP-payment-status
+      'How do I find out if I received a payment for back child support? My ex husband called and said that money was taken from his SSI.', // *
+      'My child support got raised on court last month an child’s father job sent y’all one the payments an I haven’t got it ', // *
+      "my taxes were taken for child support and the other person involved hasn't received any payment yet", // suggest paid but not received
       'Trying to see why I haven’t receive my support', // add to pmtQA-havent-received
-      'I haven’t received a child support payment since April 24', // mislabeled, enforcements?
+      'I haven’t received a child support payment since April 24', // suggest > 1 month
       "why would dhs put my child on er father's health insurance when I do not recieve child support", // add to pmtQA-havent-received
       'I have not received payments on my eppicard ', // add to pmtQA-havent-received
       "I am trying to see why i haven't received any updates on my case of payment. my son is about to 10 ad has had an ongoing case since he was 1 year old. ", // mislabeled, enforcements?
       'Trying to see why I’m not getting anything anymore??', // add to pmtQA-havent-received
       "I'm looking to see why I could find out why my ex husband owes me over DIGITS dollars but nothing is getting done about it.  He is a 1 1/2 years behind but they started taking from his check past two months but nothing this month?? And nothing has been post", // *
-      "I haven't received child support in close to two years.", // mislabeled, enforcements?
+      "I haven't received child support in close to two years.", // suggest > 1 month
       'I jave a case i was suppose to get deposited today but i dont know where', // add to pmtQA-havent-received
     ],
     contexts: [
