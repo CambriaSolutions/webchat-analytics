@@ -1109,96 +1109,96 @@ const data = {
       'Can I check the status of my case', // add to caseQA-general
       'I’m trying to get the status of my child support case', // add to caseQA-general
       "I done dealt with 4 supervisors for the month of July n still haven't received my payments yet ...my email still the same...wat is really goin on ", // *
-      "How do I find out if I'm getting  a refund",
-      "How do.i find out if I'm getting a refund",
-      'I have 2 cases with the same issue.',
-      'Look up a case',
-      'Looking up a case against me saying I have a child in Mississippi',
-      'I’m waiting for a review ',
-      'Yes. I would also like to check on another case.',
-      'Status',
-      'check on my case',
-      'I am trying to see if i have a pending case or court date coming up ',
-      'Check case online',
-      'I want to check the status of my case',
-      'How can I check the status of my case?',
-      'Filed 4 months ago still waiting for an answer',
-      'I need to find out if my application has been received',
-      'I have a question about my case.',
-      "I'm checking on child support paymey",
-      'Can you check on my case ',
-      'I am trying to see where my case stands ',
-      'Can you tell me if I have a case',
-      'Check the status of my case',
-      'I would like to check on the status of my case.',
-      'Trying to see is my case being worked up.',
-      'I’m just wondering about my case ',
-      'When will I receive an court date for my case? ',
-      'Here to check on one of my cases',
-      'I’m done ',
-      'Status on my case',
-      'yes i sent in an application for processing last month and have no received an update on it yet\n\n',
-      'I am trying to find out the status of my child support case.i am the custodial parent ',
-      'case numbewr',
-      'Im trying to check the status of my case.',
-      'Would like to know the status of my cases',
-      'Close a case',
-      'I would like to check the status of my review ',
-      'status on my case',
+      "How do I find out if I'm getting  a refund", // mislabeled, categorized as refund
+      "How do.i find out if I'm getting a refund", // mislabeled, categorized as refund
+      'I have 2 cases with the same issue.', // add to caseQA-general
+      'Look up a case', // add to caseQA-general
+      'Looking up a case against me saying I have a child in Mississippi', // add to caseQA-general
+      'I’m waiting for a review ', // add to caseQA-general
+      'Yes. I would also like to check on another case.', // add to caseQA-general
+      'Status', // add to caseQA-general
+      'check on my case', // add to caseQA-general
+      'I am trying to see if i have a pending case or court date coming up ', // add to caseQA-general
+      'Check case online', // add to caseQA-general
+      'I want to check the status of my case', // add to caseQA-general
+      'How can I check the status of my case?', // add to caseQA-general
+      'Filed 4 months ago still waiting for an answer', // add to caseQA-general
+      'I need to find out if my application has been received', // add to caseQA-general
+      'I have a question about my case.', // add to caseQA-general
+      "I'm checking on child support paymey", // add to caseQA-general
+      'Can you check on my case ', // add to caseQA-general
+      'I am trying to see where my case stands ', // add to caseQA-general
+      'Can you tell me if I have a case', // add to caseQA-general
+      'Check the status of my case', // add to caseQA-general
+      'I would like to check on the status of my case.', // add to caseQA-general
+      'Trying to see is my case being worked up.', // add to caseQA-general
+      'I’m just wondering about my case ', // add to caseQA-general
+      'When will I receive an court date for my case? ', // add to caseQA-general
+      'Here to check on one of my cases', // add to caseQA-general
+      'I’m done ', // *
+      'Status on my case', // add to caseQA-general
+      'yes i sent in an application for processing last month and have no received an update on it yet\n\n', // add to caseQA-general
+      'I am trying to find out the status of my child support case.i am the custodial parent ', // add to caseQA-general
+      'case numbewr', // add to caseQA-general
+      'Im trying to check the status of my case.', // add to caseQA-general
+      'Would like to know the status of my cases', // add to caseQA-general
+      'Close a case', // mislabeled, added to termination
+      'I would like to check the status of my review ', // add to caseQA-general
+      'status on my case', // add to caseQA-general
       'My child support normally come today but will it be delayed because of 4th of July ',
-      'i received a refund check but i cannot remember if i cash it. can you tell me if it has been drawn down?',
-      'Information on my case it seems to be at a standstill',
-      'Status',
-      'Can I check a case',
-      'I have questions about my child support case',
-      'My case was being reviewed-- my daughter got married and I am still having child support taken out.',
-      "Just wanting to know if there's a case with my name on it",
-      'i was checking to see if i have unclaimed child support',
-      "I'm wanting to check on my case",
-      'close a case',
-      'I want to check on my case',
-      'I have an open case but no response',
-      'Status of my case',
-      'Status of my case?',
-      'I have 2 cases',
-      'Case status ',
-      'Current case status',
-      'Check the status of my case',
-      'Status',
-      'Judge changed my child support order 6 weeks ago when will it change?',
-      'Question about my case ',
-      'im checking on my case',
-      'Checking on child support ',
-      'Check the status of my case ',
-      'On my case what is the going on as now ',
-      'i have had a case open since last year. ',
-      'I was trying to check on my case',
-      'Just checking on updates ',
-      'Case',
-      "I'm looking into a case I havent heard back from in 9 months",
-      'Case',
-      'I was trying to see when I receive my child support and will I get a card',
-      'Results of court case',
-      'has a case been open ',
-      'Trying to check status of my case',
-      'How can I check ',
-      'Is there a case against PERSON_NAME cole?',
-      "I'm trying to find out what is going on with my benefits ",
-      "I want to check and see what is going on with my case. There was a lien put on my children's father's workers comp and I was checking to see when a payment would be made.",
-      'Case!?',
-      'I have a case',
-      'good afternoon',
-      'Questions about a case that has been sitting for 3 yrs now',
-      'How can i check notices online',
-      'Checking to see if I was sent a certified letter ',
-      'Check the status of my case ',
-      'I have requested a review on my case and checking the status ',
-      'is my case still active',
-      'Yes. Trying to find out about my case. It’s been over 6 months and I still haven’t gotten a court date ',
-      'I have a child support case and it has been years since anything has been done on it.',
-      'I am trying to get the results of my court date on the 5/30/19',
-      'I have my daughter on child support and I just had a baby so if I put her on how does that works like does more comes out of his check.',
-      'notices',
+      'i received a refund check but i cannot remember if i cash it. can you tell me if it has been drawn down?', // add to caseQA-general
+      'Information on my case it seems to be at a standstill', // add to caseQA-general
+      'Status', // add to caseQA-general
+      'Can I check a case', // add to caseQA-general
+      'I have questions about my child support case', // add to caseQA-general
+      'My case was being reviewed-- my daughter got married and I am still having child support taken out.', // add to caseQA-general
+      "Just wanting to know if there's a case with my name on it", // add to caseQA-general
+      'i was checking to see if i have unclaimed child support', // add to caseQA-general
+      "I'm wanting to check on my case", // add to caseQA-general
+      'close a case', // add to caseQA-general
+      'I want to check on my case', // add to caseQA-general
+      'I have an open case but no response', // add to caseQA-general
+      'Status of my case', // add to caseQA-general
+      'Status of my case?', // add to caseQA-general
+      'I have 2 cases', // add to caseQA-general
+      'Case status ', // add to caseQA-general
+      'Current case status', // add to caseQA-general
+      'Check the status of my case', // add to caseQA-general
+      'Status', // add to caseQA-general
+      'Judge changed my child support order 6 weeks ago when will it change?', // *
+      'Question about my case ', // add to caseQA-general
+      'im checking on my case', // add to caseQA-general
+      'Checking on child support ', // add to caseQA-general
+      'Check the status of my case ', // add to caseQA-general
+      'On my case what is the going on as now ', // add to caseQA-general
+      'i have had a case open since last year. ', // add to caseQA-general
+      'I was trying to check on my case', // add to caseQA-general
+      'Just checking on updates ', // add to caseQA-general
+      'Case', // add to caseQA-general
+      "I'm looking into a case I havent heard back from in 9 months", // add to caseQA-general
+      'Case', // add to caseQA-general
+      'I was trying to see when I receive my child support and will I get a card', // add to caseQA-general
+      'Results of court case', // add to caseQA-general
+      'has a case been open ', // add to caseQA-general
+      'Trying to check status of my case', // add to caseQA-general
+      'How can I check ', // add to caseQA-general
+      'Is there a case against PERSON_NAME cole?', // add to caseQA-general
+      "I'm trying to find out what is going on with my benefits ", // add to caseQA-general
+      "I want to check and see what is going on with my case. There was a lien put on my children's father's workers comp and I was checking to see when a payment would be made.", // *
+      'Case!?', // add to caseQA-general
+      'I have a case', // add to caseQA-general
+      'good afternoon', // add welcome intent
+      'Questions about a case that has been sitting for 3 yrs now', // add to caseQA-general
+      'How can i check notices online', // add to caseQA-general
+      'Checking to see if I was sent a certified letter ', // add to caseQA-general
+      'Check the status of my case ', // add to caseQA-general
+      'I have requested a review on my case and checking the status ', // add to caseQA-general
+      'is my case still active', // add to caseQA-general
+      'Yes. Trying to find out about my case. It’s been over 6 months and I still haven’t gotten a court date ', // add to caseQA-general
+      'I have a child support case and it has been years since anything has been done on it.', // add to caseQA-general
+      'I am trying to get the results of my court date on the 5/30/19', // add to caseQA-general
+      'I have my daughter on child support and I just had a baby so if I put her on how does that works like does more comes out of his check.', // *
+      'notices', // mislabeled, added to documentation
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 32 },
