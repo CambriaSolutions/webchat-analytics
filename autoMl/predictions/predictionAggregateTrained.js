@@ -1029,86 +1029,86 @@ const data = {
   'case status': {
     occurences: 170,
     queries: [
-      "i haven't received them & it's been 3 weeks",
-      "I'm trying to check on one of my child support cases",
-      'How can I check on that',
-      'My case ',
-      'Check case',
-      'I want to check on my case ',
-      'Action on a case',
-      'Getting information on my case',
-      'Checking a child support case',
-      'how can I find out if i owe child support',
-      'Checking status online',
-      'How to I check the status of my case',
-      'How can I check my child support case',
-      'how can i check the status of my case',
-      'Check a case',
-      'I want to check my case ',
-      'I have questions about my case',
-      'can you check the progress of my case',
-      'Check case status',
-      'My case',
-      'Yes 2 weeks ago',
-      'It’s been a year since I opened my case',
-      'It’s been 3 months ',
-      'I want to find out what’s going on with my case',
-      'Check status ',
-      'Checking case status ',
-      'check my case',
-      'Check status ',
-      'Follow up',
-      ' I am sanctioned ',
-      'Hi i got a letter sayong i was approved and now ota got xxx next to me being sanctioned',
-      'Trying to find out if i have a open case ',
-      'i have submitted all of my information to start my case and i have not received any information about my case',
-      'My dad passed and hes not on my birth certificate and I was trying to get info showing he was on child support ',
-      'Checking my case',
-      "I'm PERSON_NAME I was wanting to check on a case I have with PERSON_NAME?",
-      'My case was accidentally closed because I did know I had an appointment. I need my case reopened.',
-      'Check the status of my child care ',
-      'Check status of case',
-      'Case',
-      'Looking to check on my case to see if they have found out anything',
-      'About 3 weeks ago I sent a letter in on one of cases requesting a review and i still havent heard anything yet',
-      "HI my name is PERSON_NAME. I'm trying to get a update on my case of Hattiesburg ms",
-      'I would like to find out more about 2 cases open with the same child on the case',
-      'How often is my case updated',
-      'my case is two weeks old and i havent heard anything about case',
-      'I wanted to check the status of my account ',
-      ' Check on status of case',
-      'look up my case',
-      'Checking on my case ',
-      'Check status of contempt packet ',
-      'Wanted to check a order of support',
-      'Know much info on my case',
-      'Can you tell me when my next dispersement date ?',
-      'I want to know how a child support case gets established. I’ve made payments directly to the cp for 10 years now a case is open. ',
-      'i have a question about my child support case ',
-      "I want to check my case to see what's the problem",
-      'How can i check arrearage ',
-      'Check status',
-      'The status of my case',
-      "I'm trying to get updates on my child support case",
-      'Hello, I would like to ask a question about my own case.',
-      'I applied for an increase and checking the status',
-      'It’s been about 3 weeks since I put in an action',
-      'Follow up on my case',
-      'Can you tell me anything about my case I have not heard back on the decision that was made',
-      'Would like to know the status of my case',
-      'Yes, I would like to get the status of my case',
-      'I need to check on my case',
-      'I received a refund check and I was checking the validity',
-      'Status of case',
-      'I’m just trying to follow up in regards to my case',
-      'I want to know has anything changed with my case',
-      'I just asked',
-      'How can I check the status of a review for child support?',
-      'I want to talk about my case',
-      'I am check on child supprt',
-      'Can I check the status of my case',
-      'I’m trying to get the status of my child support case',
-      "I done dealt with 4 supervisors for the month of July n still haven't received my payments yet ...my email still the same...wat is really goin on ",
+      "i haven't received them & it's been 3 weeks", // add to caseQA-general
+      "I'm trying to check on one of my child support cases", // add to caseQA-general
+      'How can I check on that', // add to caseQA-general
+      'My case ', // add to caseQA-general
+      'Check case', // add to caseQA-general
+      'I want to check on my case ', // add to caseQA-general
+      'Action on a case', // add to caseQA-general
+      'Getting information on my case', // add to caseQA-general
+      'Checking a child support case', // add to caseQA-general
+      'how can I find out if i owe child support', // add to caseQA-general
+      'Checking status online', // add to caseQA-general
+      'How to I check the status of my case', // add to caseQA-general
+      'How can I check my child support case', // add to caseQA-general
+      'how can i check the status of my case', // add to caseQA-general
+      'Check a case', // add to caseQA-general
+      'I want to check my case ', // add to caseQA-general
+      'I have questions about my case', // add to caseQA-general
+      'can you check the progress of my case', // add to caseQA-general
+      'Check case status', // add to caseQA-general
+      'My case', // add to caseQA-general
+      'Yes 2 weeks ago', // *
+      'It’s been a year since I opened my case', // *
+      'It’s been 3 months ', // *
+      'I want to find out what’s going on with my case', // add to caseQA-general
+      'Check status ', // add to caseQA-general
+      'Checking case status ', // add to caseQA-general
+      'check my case', // add to caseQA-general
+      'Check status ', // add to caseQA-general
+      'Follow up', // add to caseQA-general
+      ' I am sanctioned ', // *
+      'Hi i got a letter sayong i was approved and now ota got xxx next to me being sanctioned', // *
+      'Trying to find out if i have a open case ', // add to caseQA-general
+      'i have submitted all of my information to start my case and i have not received any information about my case', // *
+      'My dad passed and hes not on my birth certificate and I was trying to get info showing he was on child support ', // *
+      'Checking my case', // add to caseQA-general
+      "I'm PERSON_NAME I was wanting to check on a case I have with PERSON_NAME?", // add to caseQA-general
+      'My case was accidentally closed because I did know I had an appointment. I need my case reopened.', // *
+      'Check the status of my child care ', // mislabled, add to child care
+      'Check status of case', // add to caseQA-general
+      'Case', // add to caseQA-general
+      'Looking to check on my case to see if they have found out anything', // add to caseQA-general
+      'About 3 weeks ago I sent a letter in on one of cases requesting a review and i still havent heard anything yet', // add to caseQA-general
+      "HI my name is PERSON_NAME. I'm trying to get a update on my case of Hattiesburg ms", // add to caseQA-general
+      'I would like to find out more about 2 cases open with the same child on the case', // add to caseQA-general
+      'How often is my case updated', // add to caseQA-general
+      'my case is two weeks old and i havent heard anything about case', // add to caseQA-general
+      'I wanted to check the status of my account ', // add to caseQA-general
+      ' Check on status of case', // add to caseQA-general
+      'look up my case', // add to caseQA-general
+      'Checking on my case ', // add to caseQA-general
+      'Check status of contempt packet ', // add to caseQA-general
+      'Wanted to check a order of support', // add to caseQA-general
+      'Know much info on my case', // add to caseQA-general
+      'Can you tell me when my next dispersement date ?', // add to caseQA-general
+      'I want to know how a child support case gets established. I’ve made payments directly to the cp for 10 years now a case is open. ', // add to caseQA-general
+      'i have a question about my child support case ', // add to caseQA-general
+      "I want to check my case to see what's the problem", // add to caseQA-general
+      'How can i check arrearage ', // add to caseQA-general
+      'Check status', // add to caseQA-general
+      'The status of my case', // add to caseQA-general
+      "I'm trying to get updates on my child support case", // add to caseQA-general
+      'Hello, I would like to ask a question about my own case.', // add to caseQA-general
+      'I applied for an increase and checking the status', // add to caseQA-general
+      'It’s been about 3 weeks since I put in an action', // add to caseQA-general
+      'Follow up on my case', // add to caseQA-general
+      'Can you tell me anything about my case I have not heard back on the decision that was made', // add to caseQA-general
+      'Would like to know the status of my case', // add to caseQA-general
+      'Yes, I would like to get the status of my case', // add to caseQA-general
+      'I need to check on my case', // add to caseQA-general
+      'I received a refund check and I was checking the validity', // *
+      'Status of case', // add to caseQA-general
+      'I’m just trying to follow up in regards to my case', // add to caseQA-general
+      'I want to know has anything changed with my case', // add to caseQA-general
+      'I just asked', // *
+      'How can I check the status of a review for child support?', // add to caseQA-general
+      'I want to talk about my case', // add to caseQA-general
+      'I am check on child supprt', // add to caseQA-general
+      'Can I check the status of my case', // add to caseQA-general
+      'I’m trying to get the status of my child support case', // add to caseQA-general
+      "I done dealt with 4 supervisors for the month of July n still haven't received my payments yet ...my email still the same...wat is really goin on ", // *
       "How do I find out if I'm getting  a refund",
       "How do.i find out if I'm getting a refund",
       'I have 2 cases with the same issue.',
