@@ -1,6 +1,6 @@
-request visitations, visitations
+request visitations, visitation
 Who do I talk to check the status of that, case status
-Who would I speak to to request visitations, visitations
+Who would I speak to to request visitations, visitation
 Why my child’s father is not paying and nothing is being done, enforcement
 I have his employment information, info about parent
 My ex husband has been working for several months and I have not had any child support payments from him. I have his employment information, info about parent
@@ -70,28 +70,28 @@ My child’s mother is saying she didn’t receive child support but I paid thro
 Whem will i get my payment o have gotten one they are taling it out I hi checl but no money, paid but not received
 my taxes were taken for child support and the other person involved hasn't received any payment yet, paid but not received
 
-I haven’t received child support payments in 2 months, > 1 month
-Haven't got child support in 7 months, > 1 month
-I haven’t received a payment in a. Year> 1 month
-I haven't received anything in a long time..., > 1 month
-I have not received payment in years, > 1 month
-IM TRYING TO SEE WHY I HAVENT HAD PAYMENT SINCE OCTOBER DIGITS, > 1 month
-My child's father filed taxes in April. Why haven't I received anything when he's behind, > 1 month
-I haven't received child support payment in over a month now, > 1 month
-Why haven't I received any payment since April 3, > 1 month
-I want to know why I haven’t received a payment in over a year, > 1 month
-didn't get my child support last month or this month, > 1 month
-I have not received child support in over six months what can i do, > 1 month
-Im trying to find out how fat behind the payments are since i haven't recieved any since april, > 1 month
-I already Have the card but I didnt receive full payment last year, > 1 month
-Why haven’t I received payments in two months, > 1 month
-Neither, I already have one, im just not getting my payments every month, > 1 month
-I need to speak with someone on why I have not received payment in almost two months, > 1 month
-Neither I want to check on the balance on my account and report no payment in over a month, > 1 month
-Haven’t gotten any child support since January, > 1 month
-My card balance is 0 and I haven’t received child support since April 5, > 1 month
-I haven’t received a child support payment since April 24, > 1 month
-I haven't received child support in close to two years., > 1 month
+I haven’t received child support payments in 2 months, greater_than 1 month
+Haven't got child support in 7 months, greater_than 1 month
+I haven’t received a payment in a. Yeargreater_than 1 month
+I haven't received anything in a long time..., greater_than 1 month
+I have not received payment in years, greater_than 1 month
+IM TRYING TO SEE WHY I HAVENT HAD PAYMENT SINCE OCTOBER DIGITS, greater_than 1 month
+My child's father filed taxes in April. Why haven't I received anything when he's behind, greater_than 1 month
+I haven't received child support payment in over a month now, greater_than 1 month
+Why haven't I received any payment since April 3, greater_than 1 month
+I want to know why I haven’t received a payment in over a year, greater_than 1 month
+didn't get my child support last month or this month, greater_than 1 month
+I have not received child support in over six months what can i do, greater_than 1 month
+Im trying to find out how fat behind the payments are since i haven't recieved any since april, greater_than 1 month
+I already Have the card but I didnt receive full payment last year, greater_than 1 month
+Why haven’t I received payments in two months, greater_than 1 month
+Neither, I already have one, im just not getting my payments every month, greater_than 1 month
+I need to speak with someone on why I have not received payment in almost two months, greater_than 1 month
+Neither I want to check on the balance on my account and report no payment in over a month, greater_than 1 month
+Haven’t gotten any child support since January, greater_than 1 month
+My card balance is 0 and I haven’t received child support since April 5, greater_than 1 month
+I haven’t received a child support payment since April 24, greater_than 1 month
+I haven't received child support in close to two years., greater_than 1 month
 
 Check the status of my child care, child care
 
@@ -101,7 +101,7 @@ I am currently receiving payments on a card however haven’t received any back 
 
 Are there any changes taking effect July DIGITS regarding child support, case status
 
-When can legal action take place for non child support payment, enforcements
+When can legal action take place for non child support payment, enforcement
 I’m wondering when my child support will go through into my account and why I’m not getting the full amount on one of them?, not received payment
 When was my last payment made, payment history
 I was awarded child support over a month ago and have yet to receive a payment, not received payment
