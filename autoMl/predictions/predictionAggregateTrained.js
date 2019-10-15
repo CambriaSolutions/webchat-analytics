@@ -2905,85 +2905,85 @@ const data = {
   enforcement: {
     occurences: 79,
     queries: [
-      'It says on divorce paper he is supposed to pay but I have no idea where he is ',
-      "I need a copy of my child support from Court my oldest son father hasn't made a payment on 18 years",
-      'Contempt',
-      'Yes, I only have the state where my kids father stay no address, I know where he works and social security number, I need help ASAP',
-      'What happened if you are 3 months behind on child support ',
-      'contempt',
-      'contempt of childsupport',
-      'sorry the weekly is 555.60',
-      "I'm taking care of my 5 children and neither dad does for them financially or even physically consistent",
-      'contempt',
-      'contempt request',
-      'Contempt order',
-      "The non-custodial parent is supposed to have a hold on him until a payment has been made on the case, he's being released from prison and I'm trying to find out if this order will be enforced?",
-      "the non-custodial parent didn't pay the full child support amount last month. what will MDHS do about that?",
-      'Today (several years later), he continues to have the minimum payment which he has failed to pay over the past several months. In the meantime of his financial absence of $150.00, he and his wife have been able to move from state to state ',
-      'How do I go about getting child support through MDHS instead of the non custodial parent? He is always late and gives me a very hard time.',
-      'My ex-wife is fixing to be 3 months behind on child support how are you going to enforce this',
-      'On sept 3, DIGITS will make 1 year that I have hhhad my daughter PERSON_NAME Parker back in my care yet her father Tim Parker is keeping her child support and food stamp benifits',
-      "My twins' father is ordered to pay around $215 per month but he keeps missing months and won't pay. He usually stays around 700-900 or more delinquent at all times and that doesnt even include the entire first 2 years of their lives that he provided ",
-      "I have a child support order from my twin's father for $215 a month. Its not much but it would help me a lot. He keeps missing payments for months at a time and is always 700-900 or more delinquent. What can I do?",
-      "I have a child support order from my twins' father that he js suppose to pay $215 a month, which isnt much at all, but he keeps skipping months at a time and is behind around 700-900 or more at all times. Not",
-      'How can I get the father to pay child support',
-      'How can some not follow through with a garnishment ',
-      'How can my ex after not paying for 4 yrs make 3 pmts and stop again?',
-      'Trying to figure out how to get my ex to pay since he is not after divorce',
-      'How can I get the "absent parent" to pay child support?  It has been almost 3 years.',
-      'Non custodial parent has not paid child support in 3 months is there any updates i need to know about',
-      'I have a question if a father is over 15,000 dollars behind in Child support will another be open if he is assisting with the second child',
-      'My ex is over $4,000 behind.  What can I do?',
-      'none, i have not received child support since Oct of DIGITS. He was ordered to start paying in March or DIGITS and I have only gotten 3 or 4  payment since that date. from July to Oct of DIGITS. How can i find out if anything is being done to try to collect',
-      'Termination of parental rights of a parent who hasn’t paid child support or seen there child in almost 5 years ',
-      "My son's father pays rent lights water but I'm being denied food stamps because I have to put him on child support. I'm worried he will stop paying the bills if I do this and the support won't be enough",
-      'My wife is late on child support and not answering my calls',
-      'My daughter recently turned 18 and her father stopped paying support ',
-      'How do I go about getting an eforcement?',
-      'Enforce!',
-      'How can I help get my ex to pay child support?',
-      'How long can he go without paying? ',
-      'My ex husband hasnt paid me in tears and I know he works why havent child support found him',
-      'How can i go after a dad for not paying his child support? ',
-      'Who to talk to about non payment in over a year ',
-      'My ex husband is not paying the correct amout of child support i got a review eligibility in the mail and need help he owes over 50,000.00',
-      'My ex-husband stopped paying child support in January of this year and has not made any contact with me to correct this problem.  ',
-      'My ex was paying 100 a week for child support for 3 kids. Well 3 weeks ago we signed and filed divorce papers. Since then he hasn’t paid anything. He said he isn’t going to pay until the papers are final and he has to.   Can he do that? ',
-      'i am asking for a friend, her husband left her with two kids and does not want to pay child support',
-      'Dnt know what to do next can’t get other parent to pay child support. I need help with my kids asap',
-      'My ex is 2 months behind on child support. how can i get his wages garnished or press charges',
-      'What if ex is not paying?',
-      'my husband owes a lot on his child support. I would like him to start paying every month through yall. would you be able to collect the past due amount?',
-      'My ex is habitually late on child support payments. Like 2 months behind. What can i do?',
-      'What if my exhusband hasn’t paid child support in 3 months ',
+      'It says on divorce paper he is supposed to pay but I have no idea where he is ', // add to enforcement-root
+      "I need a copy of my child support from Court my oldest son father hasn't made a payment on 18 years", // add to enforcement-root
+      'Contempt', // add to support-parent-receiving
+      'Yes, I only have the state where my kids father stay no address, I know where he works and social security number, I need help ASAP', // add to enforcement-root
+      'What happened if you are 3 months behind on child support ', // add to enforcement-root
+      'contempt', // add to support-parent-receiving
+      'contempt of childsupport', // add to support-parent-receiving
+      'sorry the weekly is 555.60', // *
+      "I'm taking care of my 5 children and neither dad does for them financially or even physically consistent", // add to enforcement-root
+      'contempt', // add to support-parent-receiving
+      'contempt request', // add to support-parent-receiving
+      'Contempt order', // add to support-parent-receiving
+      "The non-custodial parent is supposed to have a hold on him until a payment has been made on the case, he's being released from prison and I'm trying to find out if this order will be enforced?", // *
+      "the non-custodial parent didn't pay the full child support amount last month. what will MDHS do about that?", // add to enforcement-root
+      'Today (several years later), he continues to have the minimum payment which he has failed to pay over the past several months. In the meantime of his financial absence of $150.00, he and his wife have been able to move from state to state ', // *
+      'How do I go about getting child support through MDHS instead of the non custodial parent? He is always late and gives me a very hard time.', // add to enforcement-root
+      'My ex-wife is fixing to be 3 months behind on child support how are you going to enforce this', // add to enforcement-root
+      'On sept 3, DIGITS will make 1 year that I have hhhad my daughter PERSON_NAME Parker back in my care yet her father Tim Parker is keeping her child support and food stamp benifits', // add to enforcement-root
+      "My twins' father is ordered to pay around $215 per month but he keeps missing months and won't pay. He usually stays around 700-900 or more delinquent at all times and that doesnt even include the entire first 2 years of their lives that he provided ", // *
+      "I have a child support order from my twin's father for $215 a month. Its not much but it would help me a lot. He keeps missing payments for months at a time and is always 700-900 or more delinquent. What can I do?", // *
+      "I have a child support order from my twins' father that he js suppose to pay $215 a month, which isnt much at all, but he keeps skipping months at a time and is behind around 700-900 or more at all times. Not", // *
+      'How can I get the father to pay child support', // add to enforcement-root
+      'How can some not follow through with a garnishment ', // add to enforcement-root
+      'How can my ex after not paying for 4 yrs make 3 pmts and stop again?', // add to enforcement-root
+      'Trying to figure out how to get my ex to pay since he is not after divorce', // add to enforcement-root
+      'How can I get the "absent parent" to pay child support?  It has been almost 3 years.', // add to enforcement-root
+      'Non custodial parent has not paid child support in 3 months is there any updates i need to know about', // add to enforcement-root
+      'I have a question if a father is over 15,000 dollars behind in Child support will another be open if he is assisting with the second child', // *
+      'My ex is over $4,000 behind.  What can I do?', // add to enforcement-root
+      'none, i have not received child support since Oct of DIGITS. He was ordered to start paying in March or DIGITS and I have only gotten 3 or 4  payment since that date. from July to Oct of DIGITS. How can i find out if anything is being done to try to collect', // *
+      'Termination of parental rights of a parent who hasn’t paid child support or seen there child in almost 5 years ', // add to enforcement-root
+      "My son's father pays rent lights water but I'm being denied food stamps because I have to put him on child support. I'm worried he will stop paying the bills if I do this and the support won't be enough", // *
+      'My wife is late on child support and not answering my calls', // add to enforcement-root
+      'My daughter recently turned 18 and her father stopped paying support ', // add to enforcement-root
+      'How do I go about getting an eforcement?', // add to enforcement-root
+      'Enforce!', // add to enforcement-root
+      'How can I help get my ex to pay child support?', // add to enforcement-root
+      'How long can he go without paying? ', // add to enforcement-root
+      'My ex husband hasnt paid me in tears and I know he works why havent child support found him', // add to enforcement-root
+      'How can i go after a dad for not paying his child support? ', // add to enforcement-root
+      'Who to talk to about non payment in over a year ', // add to enforcement-root
+      'My ex husband is not paying the correct amout of child support i got a review eligibility in the mail and need help he owes over 50,000.00', // add to enforcement-root
+      'My ex-husband stopped paying child support in January of this year and has not made any contact with me to correct this problem.  ', // add to enforcement-root
+      'My ex was paying 100 a week for child support for 3 kids. Well 3 weeks ago we signed and filed divorce papers. Since then he hasn’t paid anything. He said he isn’t going to pay until the papers are final and he has to.   Can he do that? ', // *
+      'i am asking for a friend, her husband left her with two kids and does not want to pay child support', // add to enforcement-root
+      'Dnt know what to do next can’t get other parent to pay child support. I need help with my kids asap', // add to enforcement-root
+      'My ex is 2 months behind on child support. how can i get his wages garnished or press charges', // add to enforcement-root
+      'What if ex is not paying?', // add to enforcement-root
+      'my husband owes a lot on his child support. I would like him to start paying every month through yall. would you be able to collect the past due amount?', // add to enforcement-root
+      'My ex is habitually late on child support payments. Like 2 months behind. What can i do?', // add to enforcement-root
+      'What if my exhusband hasn’t paid child support in 3 months ', // add to enforcement-root
       'what happens if the other parent has missed his monthly child support payment',
-      "I'm trying to get incompliant with child support foodstamps",
-      'I requested the non custodial parent be in contempt but once 3 payments were made it was dismissed and he stop making payments. What can I do to enforce my case',
-      'How to get my child mom to pay',
-      "my friend has to pay child support, about ZIPCODE, and doesn't have a lawyer or anyone who can pay, he is currently incarcerated and is wondering how to pay or work out plans with out a lawyer ",
-      'My ex husband has not paid child support more than 3 months',
-      "He's past due $2,000.00",
-      'What can be done about a non custodial parent working and not paying ',
-      "The other parent hasn't been making payments since March 6 DIGITS",
-      "I have had my son 4-5 years and I'm still paying child support. What can I do",
-      "This is the father's 5th or so contempt charge he chould have, all of them by keeping my baby from his mother, the one who raised him. It is sad because it is for no reason at all, I could see if he had a reason",
-      'I need to get the amount owed',
-      'My baby daddy has never paid support and I was trying to figure out how to get it started ',
-      'I would like to know how I can get my case on the docket. The noncustodial parent is almost $50K delinquent in payments and has not attempted to make any payments since DIGITS. ',
-      'I am trying to see who I need to contact about my PERSON_NAME father.  He has not paid child support since May DIGITS',
-      'How do I get my child support caught up ',
-      'I am the custodial parent but the father resides in Mississippi and is behind on payments. What can I do?',
-      'Contempt order',
-      'contempt packet',
-      'Contempt order',
-      "My baby's father has not paid child support since DIGITS. My baby was born in DIGITS. He only made like 3 payments and now he is getting paid under the table. His balance is over $DIGITS. What do I need to do?",
-      'Well I was trying to see how to get action taken on my case because my child support is about 9 months behind ',
-      'My son is PERSON_NAME ho he has gone to court sign all papers and child support got him in debit for DIGITS dollars what can I do ',
-      'My sons father only pays child support when he feels and he need to be consistent. I need to know what I can do about this situation',
-      'Trying to see why I haven’t received a payment since 2/22/18 and non custodial parent has 2 jobs',
-      'I was just wondering if child support pauses when the other parent has 1 month with my child for the summer?',
-      'Is there anything that ca be done about this as long as he is being paid cash on purpose ',
-      "How can I enforce child support on my child's father ",
+      "I'm trying to get incompliant with child support foodstamps", // add to enforcement-root
+      'I requested the non custodial parent be in contempt but once 3 payments were made it was dismissed and he stop making payments. What can I do to enforce my case', // add to enforcement-root
+      'How to get my child mom to pay', // add to enforcement-root
+      "my friend has to pay child support, about ZIPCODE, and doesn't have a lawyer or anyone who can pay, he is currently incarcerated and is wondering how to pay or work out plans with out a lawyer ", // *
+      'My ex husband has not paid child support more than 3 months', // add to enforcement-root
+      "He's past due $2,000.00", // add to enforcement-root
+      'What can be done about a non custodial parent working and not paying ', // add to enforcement-root
+      "The other parent hasn't been making payments since March 6 DIGITS", // add to enforcement-root
+      "I have had my son 4-5 years and I'm still paying child support. What can I do", // *
+      "This is the father's 5th or so contempt charge he chould have, all of them by keeping my baby from his mother, the one who raised him. It is sad because it is for no reason at all, I could see if he had a reason", // *
+      'I need to get the amount owed', // add to enforcement-root
+      'My baby daddy has never paid support and I was trying to figure out how to get it started ', // add to enforcement-root
+      'I would like to know how I can get my case on the docket. The noncustodial parent is almost $50K delinquent in payments and has not attempted to make any payments since DIGITS. ', // *
+      'I am trying to see who I need to contact about my PERSON_NAME father.  He has not paid child support since May DIGITS', // add to enforcement-root
+      'How do I get my child support caught up ', // add to enforcement-root
+      'I am the custodial parent but the father resides in Mississippi and is behind on payments. What can I do?', // add to enforcement-root
+      'Contempt order', // add to support-parent-receiving
+      'contempt packet', // add to support-parent-receiving
+      'Contempt order', // add to support-parent-receiving
+      "My baby's father has not paid child support since DIGITS. My baby was born in DIGITS. He only made like 3 payments and now he is getting paid under the table. His balance is over $DIGITS. What do I need to do?", // *
+      'Well I was trying to see how to get action taken on my case because my child support is about 9 months behind ', // add to enforcement-root
+      'My son is PERSON_NAME ho he has gone to court sign all papers and child support got him in debit for DIGITS dollars what can I do ', // add to enforcement-root
+      'My sons father only pays child support when he feels and he need to be consistent. I need to know what I can do about this situation', // add to enforcement-root
+      'Trying to see why I haven’t received a payment since 2/22/18 and non custodial parent has 2 jobs', // add to enforcement-root
+      'I was just wondering if child support pauses when the other parent has 1 month with my child for the summer?', // add to enforcement-root
+      'Is there anything that ca be done about this as long as he is being paid cash on purpose ', // add to enforcement-root
+      "How can I enforce child support on my child's father ", // add to enforcement-root
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 11 },
