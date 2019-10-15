@@ -1663,126 +1663,126 @@ const data = {
   gratitude: {
     occurences: 120,
     queries: [
-      'no thank you for your help',
-      'No thaks',
-      'Ok',
-      'Ok',
-      'Thank you',
-      'Okay ',
-      'Thanks ',
-      'Thank you ',
-      'Ok',
-      'Thank you',
-      'That’s all thank you ',
-      'No that’s all thank you!',
-      'not right now thanks',
-      'welcome',
-      'Thank u ',
-      'Thank you',
-      'Not at this time',
-      'thank you ',
-      'thank you ',
-      'Great. ',
-      'Thank you',
-      'Yes ',
-      'Yes ',
-      'No , but thank you🙂',
-      'Okay',
-      'Yes. Very.',
-      'thank you',
-      'thank you',
-      'Lol ok thanks',
-      'thank you',
-      'Ok',
-      'Ok',
-      'Ok',
-      'gardianship',
-      'ok',
-      'Yes! This service saves me so much time!',
-      'I will try that thank you ',
-      'Yes , very thankful ',
-      'okay , thank you!!',
-      'Ok',
-      'Thanks ',
-      'Ok',
-      'No that answers my question ',
-      'Ok ',
-      'Ok',
-      'ok thank you',
-      'Not yet I don’t. Thanks',
-      'No thanks I will call ',
-      'No ty ',
-      "That's all and thanks in advance",
-      'ok',
-      'No, I think this is what I needed. Thank you ',
-      'No ty ',
-      'Thanks',
-      'thanks',
-      'I know that part',
-      'Ok',
-      'No that’s it thanks',
-      'Thank you',
-      'thank you ',
-      'Thank you ',
-      'Okay',
-      'Thanks 4 nuthn',
-      'YEA',
-      'Welcome',
-      'Welcome',
-      'Welcome',
-      'Thank you',
-      'Wow ',
-      'Gen was helpful ',
-      'LOVE U',
-      'Thank you ',
-      'Thank you ',
-      'OK THANKS',
-      'Thanks ',
-      'Thanks',
-      'no my question',
-      "You aren't helpful. I can find that on my own.",
-      'thank you.Itisnotan emergencty.I willcallinthe morning.',
-      'thanks',
-      'Welcome',
-      'Welcome',
-      'Welcome',
-      'Thank you so much ',
-      'WOW',
-      'I am well, thank you!',
-      "i'm just doing my research for the time being..thanks ",
-      'No further questions. Thanks',
-      'Ok',
-      'The message I just wrote up top ',
-      'No thank you are not helping me.',
-      'Thanks',
-      'Thank you!',
-      'Bless and you ',
-      'Ok',
-      'Thank you ',
-      'Thanks.',
-      'Okay thanks ',
-      'Thank you',
-      'Ok thank you',
-      'Thank you ',
-      'Ok thank u ',
-      'Ok',
-      'Ok',
-      'That’s it, ty',
-      'Ok, thank you ',
-      'Thanks for help!',
-      'i hope so',
-      'THANKS ',
-      'Yes sorr',
-      'thank you',
-      'Very',
-      'Ok',
-      'Thanks ',
-      'okay',
-      'Yes I do',
-      'ok',
-      'done',
-      'no more questions',
-      'Yes, afternoon Gen',
+      'no thank you for your help', // Suggest gratitude intent intent
+      'No thaks', // Suggest gratitude intent intent
+      'Ok', // *
+      'Ok', // *
+      'Thank you', // Suggest gratitude intent intent
+      'Okay ', // *
+      'Thanks ', // Suggest gratitude intent intent
+      'Thank you ', // Suggest gratitude intent intent
+      'Ok', // *
+      'Thank you', // Suggest gratitude intent intent
+      'That’s all thank you ', // Suggest gratitude intent intent
+      'No that’s all thank you!', // Suggest gratitude intent intent
+      'not right now thanks', // Suggest gratitude intent intent
+      'welcome', // Suggest gratitude intent intent
+      'Thank u ', // Suggest gratitude intent intent
+      'Thank you', // Suggest gratitude intent intent
+      'Not at this time', // Suggest gratitude intent intent
+      'thank you ', // Suggest gratitude intent intent
+      'thank you ', // Suggest gratitude intent intent
+      'Great. ', // Suggest gratitude intent intent
+      'Thank you', // Suggest gratitude intent intent
+      'Yes ', // *
+      'Yes ', // *
+      'No , but thank you🙂', // Suggest gratitude intent intent
+      'Okay', // *
+      'Yes. Very.', // add to helpful feedback
+      'thank you', // Suggest gratitude intent intent
+      'thank you', // Suggest gratitude intent intent
+      'Lol ok thanks', // Suggest gratitude intent intent
+      'thank you', // Suggest gratitude intent intent
+      'Ok', // *
+      'Ok', // *
+      'Ok', // *
+      'gardianship', // mislabeled
+      'ok', // *
+      'Yes! This service saves me so much time!', // add to helpful feedback
+      'I will try that thank you ', // add to helpful feedback
+      'Yes , very thankful ', // add to helpful feedback
+      'okay , thank you!!', // add to helpful feedback
+      'Ok', // *
+      'Thanks ', // Suggest gratitude intent intent
+      'Ok', // *
+      'No that answers my question ', // Suggest gratitude intent intent
+      'Ok ', // *
+      'Ok', // *
+      'ok thank you', // Suggest gratitude intent intent
+      'Not yet I don’t. Thanks', // Suggest gratitude intent intent
+      'No thanks I will call ', // Suggest gratitude intent intent
+      'No ty ', // Suggest gratitude intent intent
+      "That's all and thanks in advance", // Suggest gratitude intent intent
+      'ok', // *
+      'No, I think this is what I needed. Thank you ', // Suggest gratitude intent intent
+      'No ty ', // Suggest gratitude intent intent
+      'Thanks', // Suggest gratitude intent intent
+      'thanks', // Suggest gratitude intent intent
+      'I know that part', // mislabeled, added to insufficient response
+      'Ok', // *
+      'No that’s it thanks', // Suggest gratitude intent intent
+      'Thank you', // Suggest gratitude intent intent
+      'thank you ', // Suggest gratitude intent intent
+      'Thank you ', // Suggest gratitude intent intent
+      'Okay', // Suggest gratitude intent intent
+      'Thanks 4 nuthn', // mislabeled, added to complaints
+      'YEA', // *
+      'Welcome', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Welcome', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Welcome', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Thank you', // Suggest gratitude intent intent
+      'Wow ', // mislabeled, added to complaints
+      'Gen was helpful ', // add to helpful feedback intent
+      'LOVE U', // Suggest gratitude intent intent
+      'Thank you ', // Suggest gratitude intent intent
+      'Thank you ', // Suggest gratitude intent intent
+      'OK THANKS', // Suggest gratitude intent intent
+      'Thanks ', // Suggest gratitude intent intent
+      'Thanks', // Suggest gratitude intent intent
+      'no my question', // mislabeled, added to insufficient response
+      "You aren't helpful. I can find that on my own.", // mislabeled, added to complaints
+      'thank you.Itisnotan emergencty.I willcallinthe morning.', // Suggest gratitude intent intent
+      'thanks', // Suggest gratitude intent intent
+      'Welcome', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Welcome', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Welcome', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'Thank you so much ', // Suggest gratitude intent intent
+      'WOW', // mislabeled, added to complaints
+      'I am well, thank you!', // Suggest gratitude intent intent
+      "i'm just doing my research for the time being..thanks ", // Suggest gratitude intent intent
+      'No further questions. Thanks', // Suggest gratitude intent intent
+      'Ok', // *
+      'The message I just wrote up top ', // mislabeled, added to insufficient response
+      'No thank you are not helping me.', // mislabeled, added to complaints
+      'Thanks', // Suggest gratitude intent intent
+      'Thank you!', // Suggest gratitude intent intent
+      'Bless and you ', // Suggest gratitude intent intent
+      'Ok', // *
+      'Thank you ', // Suggest gratitude intent intent
+      'Thanks.', // Suggest gratitude intent intent
+      'Okay thanks ', // Suggest gratitude intent intent
+      'Thank you', // Suggest gratitude intent intent
+      'Ok thank you', // Suggest gratitude intent intent
+      'Thank you ', // Suggest gratitude intent intent
+      'Ok thank u ', // Suggest gratitude intent intent
+      'Ok', // *
+      'Ok', // *
+      'That’s it, ty', // Suggest gratitude intent intent
+      'Ok, thank you ', // Suggest gratitude intent intent
+      'Thanks for help!', // Suggest gratitude intent intent
+      'i hope so', // *
+      'THANKS ', // Suggest gratitude intent intent
+      'Yes sorr', // *
+      'thank you', // Suggest gratitude intent intent
+      'Very', // add to helpful feedback
+      'Ok', // *
+      'Thanks ', // Suggest gratitude intent intent
+      'okay', // *
+      'Yes I do', // *
+      'ok', // *
+      'done', // *
+      'no more questions', // *
+      'Yes, afternoon Gen', // mislabeled suggest to use this a training phrase for Home ("I can help with the following topics..etc")
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 32 },
