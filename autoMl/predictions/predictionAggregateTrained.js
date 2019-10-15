@@ -2163,124 +2163,124 @@ const data = {
   'make payment': {
     occurences: 118,
     queries: [
-      'Check',
-      'making an online child support payment',
-      'Can I pay payments with a debit card?',
-      'I need to pay payments online ',
-      'Can i make child support payment online by debit card?',
-      'paynearme',
-      'I do not have an account set up so I do not have a pin number',
-      "Sign up to pay it won't let me con plete",
-      'Can i send money gram ',
-      'Payment methods to pay child support in Mississippi that’s acceptable ',
-      "I'm the parent making payments.",
-      'What is cash medical?',
-      'Form to pay ',
-      'How do you make child support payments online',
-      'how to make payments',
-      'How to set up payment for child support it gives me error code',
-      'can you pay with debit card',
-      'How to do a moneygram',
-      'I need to get a new submission form to send with payment',
-      'Can’t make payment',
-      'Can’t make payments',
-      'using epay',
-      "I'm new to this",
-      'how does the custodial parent receive the money?',
-      'It’s the $93 fee I’m trying to pay',
-      'I’m trying to make a payment through money gram but I need the information ',
-      'Money gram info',
-      'It isn’t me I’m the parent who it’s supposed to b paid to',
-      'Payable to',
-      'The non-custodial parent is not making the full amount of payment. What can I do?',
-      'I already get payment',
-      'Can this service be used with out of country child support (european account)',
-      'change payment method',
-      'but wanted to change the method of payment',
-      'Can i be late making a payment?',
-      'i will be on std for a few months and would like to pay my payments online until i gt back to work',
-      'DIGITS banks ton in tunica ms ',
-      'estatus de pago',
-      'What is the Bank Plan child support',
-      'Can NCP make payment without court order being sign',
-      'can non-custodial parents pay by credit card',
-      'Can I make a payment with a debit card?',
-      'Cashiers check',
-      'Cashier check made out to whom',
-      'Make child support payments',
-      'I recently lost my job. My child support payments were deducted from my paychecks. How and where do I make my child support payments now?',
-      'Hiw do I set up a non custodial parent account to make payments',
-      'if i pay with a debit card will it be charge every month. reason im asking cuz it isnt my account',
-      'First payment ',
-      'does the custodial parents get paid any late fees for non payment? ',
-      'I am trying to find out if I can submit a child support payment online ?',
-      'My company name is Southwest Distributors and it is the monthly form that we use to remit payment with',
-      'payable to',
-      'How can I make a payment with my debit card ',
-      'I’m trying to make a child support payment online, as the non custodial parent. I don’t see an option to use my debit or credit card',
-      'Can I pay childsupport with cash',
-      'Tell me about paynearme',
-      'What will I need to use money gram?',
-      'would western union be a faster way for the money to get on the card for the person receiving it',
-      'payment forms',
-      'I’m making a payment so it takes 7 days here in ms',
-      'Payment types',
-      'Do payment location accept cash? ',
-      'Change payment method',
-      'I would like to change my current payment method',
-      'Am I to make payment to the other parent or child',
-      'If a child support account is opened will it draft from his work check or will he be able to pay it through an app',
-      'Submit',
-      'I need to make a payment. i cant make the full payment but i was gonna send what i can . can i send it online and it go straight to the mother debit card?',
-      "we don't have direct deposit",
-      'I am trying to set up my bank account to pay child support',
-      'Then I want to set up a monthly withdrawal of $250.00.',
-      'Making',
-      'it has alreasy been set up but he isnt paying ',
-      'I have EFT set up through my payroll company.  Can I add the $5 month fee to that.',
-      'Can i make my child support payment online?',
-      'I have a question about a deposit ',
-      'Can he make the payment cash? ',
-      'Money gram payment',
-      'When paying mdhs with money gram how is the account number entered?',
-      'Need to send payment by money gram and I neee the receive code',
-      'Can MDHS deduct monies directly from my bank account without notifying me?',
-      'What do  red to make cash payments?',
-      'Im trying to make a payment ',
-      "I'm trying to make a payment on line. ",
-      'Trying to get bar code to Pay childsupport',
-      'I’m trying to setup automatic payment out of my account ',
-      'Making a child support payment ',
-      'Can i change it to deposit ',
-      'Is there a physical address to overnight a payment to?',
-      'He got paid on the 14 th I got it on the 25th',
-      'How do you submit a payment besides PERSON_NAME it in?',
-      'Submit',
-      'What is paynearme',
-      'Can I send payments through moneygram',
-      'How does paying rearrange works',
-      'Check',
-      'Can u send in some money to keep from liscence suspended',
-      'He',
-      'What is the receive code for money gram?',
-      'What info do I need to send payment through money gram?',
-      'I would like to know if child support can be withdrawn from bank account for payment ',
-      'Make a child support payment ',
-      'here to make a child support payment online',
-      'This doesn’t help me nor my child if my money is going to the non custodial parent ',
-      'Sorry I hit the wrong thing...I will be making a payment',
-      'Can I make my child support payments online',
-      'Can my child gets it support directly paid to them',
-      'Are money gram payments processed in same day',
-      '❓',
-      "Western Union payment's",
-      "when i hover over the payment options as an employer  it doesn't take me anywhere to set up the payments...",
-      'Ipay',
-      'I’m looking for something called ipay',
-      'What’s goes on money order when sending off a child support payment ',
-      'I am trying to make a payment with a debit card',
-      'Ipay',
-      'How do Ik a payment ',
+      'Check', // add to pmts-general-make-payments
+      'making an online child support payment', // add to pmts-general-make-payments
+      'Can I pay payments with a debit card?', // add to pmts-general-make-payments
+      'I need to pay payments online ', // add to pmts-general-make-payments
+      'Can i make child support payment online by debit card?', // add to pmts-general-make-payments
+      'paynearme', // add to pmtMethods-paynearme
+      'I do not have an account set up so I do not have a pin number', // *
+      "Sign up to pay it won't let me con plete", // *
+      'Can i send money gram ', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'Payment methods to pay child support in Mississippi that’s acceptable ', // add to pmts-general-make-payments
+      "I'm the parent making payments.", // add to pmts-general-non-custodial
+      'What is cash medical?', // *
+      'Form to pay ', // add to pmts-general-make-payments
+      'How do you make child support payments online', // add to pmts-general-make-payments
+      'how to make payments', // add to pmts-general-make-payments
+      'How to set up payment for child support it gives me error code', // add to pmts-general-make-payments
+      'can you pay with debit card', // add to pmts-general-make-payments
+      'How to do a moneygram', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'I need to get a new submission form to send with payment', // add to pmts-general-make-payments
+      'Can’t make payment', // add to pmtMethods-cant-make
+      'Can’t make payments', // add to pmtMethods-cant-make
+      'using epay', // add to pmts-general-make-payments
+      "I'm new to this", // mislabled, suggest to add to welcome intent
+      'how does the custodial parent receive the money?', // add to pmts-general-receive-payments
+      'It’s the $93 fee I’m trying to pay', // *
+      'I’m trying to make a payment through money gram but I need the information ', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'Money gram info', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'It isn’t me I’m the parent who it’s supposed to b paid to', // add to pmts-general-receive-payments
+      'Payable to', // add to pmts-general-make-payments
+      'The non-custodial parent is not making the full amount of payment. What can I do?', // mislabeled, added to enforcement
+      'I already get payment', // *
+      'Can this service be used with out of country child support (european account)', // *
+      'change payment method', // add to pmts-general-make-payments
+      'but wanted to change the method of payment', // add to pmts-general-make-payments
+      'Can i be late making a payment?', // *
+      'i will be on std for a few months and would like to pay my payments online until i gt back to work', // *
+      'DIGITS banks ton in tunica ms ', //*
+      'estatus de pago', // *
+      'What is the Bank Plan child support', // *
+      'Can NCP make payment without court order being sign', // add to pmts-general-make-payments
+      'can non-custodial parents pay by credit card', // add to pmts-general-make-payments
+      'Can I make a payment with a debit card?', // add to pmts-general-make-payments
+      'Cashiers check', // add to pmts-general-make-payments
+      'Cashier check made out to whom', // add to pmts-general-make-payments
+      'Make child support payments', // add to pmts-general-make-payments
+      'I recently lost my job. My child support payments were deducted from my paychecks. How and where do I make my child support payments now?', //*
+      'Hiw do I set up a non custodial parent account to make payments', // add to pmts-general-make-payments
+      'if i pay with a debit card will it be charge every month. reason im asking cuz it isnt my account', // add to pmts-general-make-payments
+      'First payment ', // add to pmts-general-make-payments
+      'does the custodial parents get paid any late fees for non payment? ', // *
+      'I am trying to find out if I can submit a child support payment online ?', // add to pmts-general-make-payments
+      'My company name is Southwest Distributors and it is the monthly form that we use to remit payment with', // add to iwo-where-to-submit
+      'payable to', // add to pmts-general-make-payments
+      'How can I make a payment with my debit card ', // add to pmts-general-make-payments
+      'I’m trying to make a child support payment online, as the non custodial parent. I don’t see an option to use my debit or credit card', // add to pmts-general-make-payments
+      'Can I pay childsupport with cash', // add to pmts-general-make-payments
+      'Tell me about paynearme', // add to pmts-general-make-payments
+      'What will I need to use money gram?', // add to pmts-general-make-payments
+      'would western union be a faster way for the money to get on the card for the person receiving it', // add to pmts-general-make-payments
+      'payment forms', // add to pmts-general-make-payments
+      'I’m making a payment so it takes 7 days here in ms', // *
+      'Payment types', // add to pmts-general-make-payments
+      'Do payment location accept cash? ', // add to pmts-general-make-payments
+      'Change payment method', // add to pmts-general-make-payments
+      'I would like to change my current payment method', // add to pmts-general-make-payments
+      'Am I to make payment to the other parent or child', // *
+      'If a child support account is opened will it draft from his work check or will he be able to pay it through an app', // add to pmts-general-make-payments
+      'Submit', // *
+      'I need to make a payment. i cant make the full payment but i was gonna send what i can . can i send it online and it go straight to the mother debit card?', // *
+      "we don't have direct deposit", // add to pmts-general-make-payments
+      'I am trying to set up my bank account to pay child support', // add to pmts-general-make-payments
+      'Then I want to set up a monthly withdrawal of $250.00.', // add to pmts-general-make-payments
+      'Making', // add to pmts-general-make-payments
+      'it has alreasy been set up but he isnt paying ', // mislabeled added to enforcement
+      'I have EFT set up through my payroll company.  Can I add the $5 month fee to that.', // *
+      'Can i make my child support payment online?', // add to pmts-general-make-payments
+      'I have a question about a deposit ', // add to pmtQA-NCP-payment-status
+      'Can he make the payment cash? ', // add to pmts-general-make-payments
+      'Money gram payment', // add to pmts-general-make-payments
+      'When paying mdhs with money gram how is the account number entered?', // *
+      'Need to send payment by money gram and I neee the receive code', // *
+      'Can MDHS deduct monies directly from my bank account without notifying me?', // *
+      'What do  red to make cash payments?', // add to pmts-general-make-payments
+      'Im trying to make a payment ', // add to pmts-general-make-payments
+      "I'm trying to make a payment on line. ", // add to pmts-general-make-payments
+      'Trying to get bar code to Pay childsupport', // add to pmts-general-make-payments
+      'I’m trying to setup automatic payment out of my account ', // add to pmts-general-make-payments
+      'Making a child support payment ', // add to pmts-general-make-payments
+      'Can i change it to deposit ', // add to pmts-general-make-payments
+      'Is there a physical address to overnight a payment to?', // add to pmts-general-make-payments
+      'He got paid on the 14 th I got it on the 25th', // recommend payment timelines
+      'How do you submit a payment besides PERSON_NAME it in?', // add to pmts-general-make-payments
+      'Submit', // *
+      'What is paynearme', // add to pmts-general-make-payments
+      'Can I send payments through moneygram', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'How does paying rearrange works', // mislabeled added to arrears
+      'Check', // add to pmts-general-make-payments
+      'Can u send in some money to keep from liscence suspended', // add to enforcement-license-suspension
+      'He', // *
+      'What is the receive code for money gram?', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'What info do I need to send payment through money gram?', // add to pmts-general-make-payments or pmtMethods-moneygram
+      'I would like to know if child support can be withdrawn from bank account for payment ', // add to pmts-general-make-payments
+      'Make a child support payment ', // add to pmts-general-make-payments
+      'here to make a child support payment online', // add to pmts-general-make-payments
+      'This doesn’t help me nor my child if my money is going to the non custodial parent ', // *
+      'Sorry I hit the wrong thing...I will be making a payment', // go back button
+      'Can I make my child support payments online', // go back button
+      'Can my child gets it support directly paid to them', // *
+      'Are money gram payments processed in same day', // add to pmts-general-make-payments or pmtMethods-moneygram
+      '❓', // mislabeled, added to insufficient response
+      "Western Union payment's", // add to pmts-general-make-payments
+      "when i hover over the payment options as an employer  it doesn't take me anywhere to set up the payments...", // *
+      'Ipay', // add to pmts-general-make-payments
+      'I’m looking for something called ipay', // add to pmts-general-make-payments
+      'What’s goes on money order when sending off a child support payment ', // add to pmts-general-make-payments
+      'I am trying to make a payment with a debit card', // add to pmts-general-make-payments
+      'Ipay', // add to pmts-general-make-payments
+      'How do Ik a payment ', // add to pmts-general-make-payments
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 29 },
