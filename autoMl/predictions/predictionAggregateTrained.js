@@ -2780,96 +2780,96 @@ const data = {
   'change of information': {
     occurences: 90,
     queries: [
-      'Address change',
+      'Address change', // add to caseQA-change-personal-info
       'I need to change where my ex husband works',
-      'I’m needing to have my address in the system changed',
-      'I want to change my PERSON_NAME address',
-      'Address Change',
-      'EMAIL_ADDRESS but need to change to EMAIL_ADDRESS',
-      'address change',
-      'Address change',
-      'Need to submit my address',
-      'I was asking bout my PERSON_NAME address ',
-      'Email address for change of residence ',
-      'address change',
-      'I need to change my name',
-      'change name',
-      'name change',
-      'how to complete a change of address',
-      'Address change',
-      'I moved, and I had my address change and updated at the post office, so will child support know my address is change or do I have to call? Because I should’ve receiving child support soon and don’t want them to send it to my old address ',
-      'address change',
-      'I need a change of address on my child support case',
-      'Change of address ',
-      'Change of address for child support card renewal',
-      'change of address form',
-      'Change of address ',
-      'How can i change my child support address and get a new card',
-      'How do I change my address on my child support case',
-      'Address change',
-      'Change of address',
-      'Changing my Address',
-      'Address change ',
-      'I am needing to update my address so that I can get a new EPPI card sent to me.',
-      'I am trying to figure out how to get my case information updated properly.',
-      'Change of address',
-      'Change of address',
-      'Change of address',
-      'I’m looking for the change of address form ',
-      'Change of address for child support',
-      'Yes. I need to know where to go to change my address so that I can get a new card. The epicard people cannot help me. ',
-      'Address change',
-      'Need to also change the address as well ',
-      'I need the email address to change my address I have a case opened',
-      'yes trying to change my address to get a replacement card',
-      'Need to change address',
-      'change of address',
-      'Change address ',
-      'Change personal information ',
-      'CHANGE ADDRESS',
-      'i MOVED BACK TO MISSISSIPPI FROM ALABAMA.. DONT KNOW HOW TO CHANGE MY ADDRESS',
-      'Change address',
-      'A change of address',
-      "If I recently got married and I wanted to  change my son's last name. How do I go about trying to get my son last name changed?",
-      'How do I change my address to receive a new debit card?',
-      'How do I change my address with child support?  I haven’t gotten my new card and forgot to change my address. ',
-      'Change of address',
-      'How can I change my address so that I can receive my new card',
-      'Changing address ',
-      'Address change ',
-      'need to change adress',
-      'Change of address',
-      'Change in address ',
-      'Address change, my card is about to expire.',
-      'How do I change my address. I need a new epic card ',
-      'Change address',
-      'Change of custodial parent ',
-      'As an obligator, how do I go about getting my drivers license reinstated?',
-      'thats not my name. i chose the wrong option',
-      'Change address',
-      'How to change my address on order for me to receive my debit card',
-      'Change my home address',
-      'Change of name and address',
-      'Change of address',
-      'Trying to get my address changed',
-      'I need to kno how can i change my address online',
-      'I will like to change my address',
-      'I have gotten married and have moved, what do I need to do to change my address and name on my case??',
-      'Change my address',
-      'How to change my address?',
-      'Change of Address ',
-      'Change of address',
-      'Change of address',
-      'change of address',
-      'Change of address',
-      'change of address',
-      'Address change ',
-      'I have a change of address ',
-      'Updated a address with child support',
-      'Change of address',
-      'Trying to see how to change my address so I can get a card sent because I never received one 3 yrs ago when I filed and I just moved and finally have received a payment ',
-      'Is there a way to change my address online? ',
-      'change last name of child',
+      'I’m needing to have my address in the system changed', // add to caseQA-change-personal-info
+      'I want to change my PERSON_NAME address', // add to caseQA-change-personal-info
+      'Address Change', // add to caseQA-change-personal-info
+      'EMAIL_ADDRESS but need to change to EMAIL_ADDRESS', // add to caseQA-change-personal-info
+      'address change', // add to caseQA-change-personal-info
+      'Address change', // add to caseQA-change-personal-info
+      'Need to submit my address', // add to caseQA-change-personal-info
+      'I was asking bout my PERSON_NAME address ', // add to caseQA-change-personal-info
+      'Email address for change of residence ', // add to caseQA-change-personal-info
+      'address change', // add to caseQA-change-personal-info
+      'I need to change my name', // add to caseQA-change-personal-info
+      'change name', // add to caseQA-change-personal-info
+      'name change', // add to caseQA-change-personal-info
+      'how to complete a change of address', // add to caseQA-change-personal-info
+      'Address change', // add to caseQA-change-personal-info
+      'I moved, and I had my address change and updated at the post office, so will child support know my address is change or do I have to call? Because I should’ve receiving child support soon and don’t want them to send it to my old address ', // *
+      'address change', // add to caseQA-change-personal-info
+      'I need a change of address on my child support case', // add to caseQA-change-personal-info
+      'Change of address ', // add to caseQA-change-personal-info
+      'Change of address for child support card renewal', // add to caseQA-change-personal-info
+      'change of address form', // add to caseQA-change-personal-info
+      'Change of address ', // add to caseQA-change-personal-info
+      'How can i change my child support address and get a new card', // add to caseQA-change-personal-info
+      'How do I change my address on my child support case', // add to caseQA-change-personal-info
+      'Address change', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Changing my Address', // add to caseQA-change-personal-info
+      'Address change ', // add to caseQA-change-personal-info
+      'I am needing to update my address so that I can get a new EPPI card sent to me.', // add to caseQA-change-personal-info
+      'I am trying to figure out how to get my case information updated properly.', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'I’m looking for the change of address form ', // add to caseQA-change-personal-info
+      'Change of address for child support', // add to caseQA-change-personal-info
+      'Yes. I need to know where to go to change my address so that I can get a new card. The epicard people cannot help me. ', // add to caseQA-change-personal-info
+      'Address change', // add to caseQA-change-personal-info
+      'Need to also change the address as well ', // add to caseQA-change-personal-info
+      'I need the email address to change my address I have a case opened', // add to caseQA-change-personal-info
+      'yes trying to change my address to get a replacement card', // add to caseQA-change-personal-info
+      'Need to change address', // add to caseQA-change-personal-info
+      'change of address', // add to caseQA-change-personal-info
+      'Change address ', // add to caseQA-change-personal-info
+      'Change personal information ', // add to caseQA-change-personal-info
+      'CHANGE ADDRESS', // add to caseQA-change-personal-info
+      'i MOVED BACK TO MISSISSIPPI FROM ALABAMA.. DONT KNOW HOW TO CHANGE MY ADDRESS', // add to caseQA-change-personal-info
+      'Change address', // add to caseQA-change-personal-info
+      'A change of address', // add to caseQA-change-personal-info
+      "If I recently got married and I wanted to  change my son's last name. How do I go about trying to get my son last name changed?", // add to caseQA-change-personal-info
+      'How do I change my address to receive a new debit card?', // add to caseQA-change-personal-info
+      'How do I change my address with child support?  I haven’t gotten my new card and forgot to change my address. ', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'How can I change my address so that I can receive my new card', // add to caseQA-change-personal-info
+      'Changing address ', // add to caseQA-change-personal-info
+      'Address change ', // add to caseQA-change-personal-info
+      'need to change adress', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Change in address ', // add to caseQA-change-personal-info
+      'Address change, my card is about to expire.', // add to caseQA-change-personal-info
+      'How do I change my address. I need a new epic card ', // add to caseQA-change-personal-info
+      'Change address', // add to caseQA-change-personal-info
+      'Change of custodial parent ', // add to caseQA-change-personal-info
+      'As an obligator, how do I go about getting my drivers license reinstated?', // add to enforcement-license-suspension
+      'thats not my name. i chose the wrong option', // go back button
+      'Change address', // add to caseQA-change-personal-info
+      'How to change my address on order for me to receive my debit card', // add to caseQA-change-personal-info
+      'Change my home address', // add to caseQA-change-personal-info
+      'Change of name and address', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Trying to get my address changed', // add to caseQA-change-personal-info
+      'I need to kno how can i change my address online', // add to caseQA-change-personal-info
+      'I will like to change my address', // add to caseQA-change-personal-info
+      'I have gotten married and have moved, what do I need to do to change my address and name on my case??', // add to caseQA-change-personal-info
+      'Change my address', // add to caseQA-change-personal-info
+      'How to change my address?', // add to caseQA-change-personal-info
+      'Change of Address ', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'change of address', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'change of address', // add to caseQA-change-personal-info
+      'Address change ', // add to caseQA-change-personal-info
+      'I have a change of address ', // add to caseQA-change-personal-info
+      'Updated a address with child support', // add to caseQA-change-personal-info
+      'Change of address', // add to caseQA-change-personal-info
+      'Trying to see how to change my address so I can get a card sent because I never received one 3 yrs ago when I filed and I just moved and finally have received a payment ', // *
+      'Is there a way to change my address online? ', // add to caseQA-change-personal-info
+      'change last name of child', // add to caseQA-change-personal-info
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 20 },
