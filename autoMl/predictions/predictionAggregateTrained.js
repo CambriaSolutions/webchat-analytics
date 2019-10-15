@@ -1256,151 +1256,151 @@ const data = {
       'I never received a child support card', // add to eppi-get-card
       'My child support card is expiring and I need a new one ', // add to eppi-replace-report
       'WHEN WILL I GET MY CARD', // add to eppi-get-card
-      'I have lost my child support debit card. How do I get it replaced?', // eppi-replace-report
+      'I have lost my child support debit card. How do I get it replaced?', // add to eppi-replace-report
       'How do I apply to get my debit card ', // add to eppi-get-card
-      'i havent received my card in the mail yet', // eppi-replace-report
+      'i havent received my card in the mail yet', // add to eppi-replace-report
       'I need to see what address my card was sent to', // *
-      'CAN A DEBIT CARD BE DEACTIVATED AND THEN RE-ACTIVATED IF HAVING PROBLEM WITH THE CARD?', //
+      'CAN A DEBIT CARD BE DEACTIVATED AND THEN RE-ACTIVATED IF HAVING PROBLEM WITH THE CARD?', // *
       'When will I receive my child support card?', // *
-      'i am trying to find out when my child supprtwill be on my card. when icall the no.on the back of my card i get charged fifty cents with no option to speak to anyone.',
-      'How long does it take to get a card in the mIl',
-      'Using bank card ',
-      'Lost Mississippi epicard',
-      'My card is old can I get another one',
-      "Yes it's been years zinc my last it came in February I was just wondering is my card so good cuz I haven't heard that is all this money we're owed to try to help take care of her and I thought getting it just my car now or do I need a new card",
-      'I cannot remember the address connected to my card. i can verify previous addresses but i cannot remember what i changed it to and can’t use it for what i need it for without it. ',
-      'Need a replacement card',
-      'When will I receive my eppicard ',
-      'Child support card has expired, and i need to get a new one',
-      'How do I get a card?',
-      'I lost my child support card',
-      'Learn about Eppicard',
-      'How could I get eppicard',
-      'I had lost my card and called for a replacement weeks ago and I have not received the new card.',
-      'When will i receive my child support card?',
-      'Yes whats the debit card ',
-      'need a new card',
-      'I need a new child support debit card',
-      'frying hmaburgers',
-      'I haven’t received a child support card ',
-      'How do I get my PIN number ',
+      'i am trying to find out when my child supprtwill be on my card. when icall the no.on the back of my card i get charged fifty cents with no option to speak to anyone.', // *
+      'How long does it take to get a card in the mIl', // add to eppi-root
+      'Using bank card ', // add to eppi-root
+      'Lost Mississippi epicard', // add to eppi-replace-report
+      'My card is old can I get another one', // add to eppi-replace-report
+      "Yes it's been years zinc my last it came in February I was just wondering is my card so good cuz I haven't heard that is all this money we're owed to try to help take care of her and I thought getting it just my car now or do I need a new card", // *
+      'I cannot remember the address connected to my card. i can verify previous addresses but i cannot remember what i changed it to and can’t use it for what i need it for without it. ', // *
+      'Need a replacement card', // add to eppi-replace-report
+      'When will I receive my eppicard ', // add to eppi-root
+      'Child support card has expired, and i need to get a new one', // add to eppi-replace-report
+      'How do I get a card?', // add to eppi-get-card
+      'I lost my child support card', // add to eppi-replace-report
+      'Learn about Eppicard', // add to eppi-root
+      'How could I get eppicard', // add to eppi-get-card
+      'I had lost my card and called for a replacement weeks ago and I have not received the new card.', // add to eppi-replace-report
+      'When will i receive my child support card?', // add to eppi-root
+      'Yes whats the debit card ', // add to eppi-root
+      'need a new card', // add to eppi-replace-report
+      'I need a new child support debit card', // add to eppi-replace-report
+      'frying hmaburgers', // *
+      'I haven’t received a child support card ', // add to eppi-root
+      'How do I get my PIN number ', // add to eppi-activate-card
       'How could he get his own child support card',
-      'I just need a new card sent ',
-      'Phone number to mdhs child support number to the card',
-      'Why did i get a card when my child support is closed?',
-      'Epicard',
-      'Order a new card',
-      'How do I get a PIN number?',
-      'I need a new child support debt card my old one got stolen ',
+      'I just need a new card sent ', // add to eppi-replace-report
+      'Phone number to mdhs child support number to the card', // add to eppi-root
+      'Why did i get a card when my child support is closed?', // add to eppi-root
+      'Epicard', // add to eppi-root
+      'Order a new card', // add to eppi-replace-report
+      'How do I get a PIN number?', // add to eppi-activate-card
+      'I need a new child support debt card my old one got stolen ', // add to eppi-replace-report
       'New card',
-      'I haven’t received my child support card',
-      'No just need help,applying for bridge card',
-      'new card',
-      'Passport ',
-      'I have received my new card but  the website will not let me log on and I changed password and all and I have three kids and a while and currently unemployed and cannot get anyone on the phone to help thanks',
-      'How do i get my four digit PIN',
-      "I lost my card and don't know the card number. How can I get a new card",
-      'I have a Mississippi card that was issued I need to know about pending deposit ',
-      'Replacement card',
-      'Card',
-      'How long does it take a child support card to come in after you receive judgement',
-      'i am having trouble getting my card',
-      'I have got 3 deposits on August 1st & it’s not on my card ',
-      'I have not received my replacement card',
-      'Just trying to check my card ',
-      'Yes ..how I get started paying with a debit card?',
-      'If I have no money on Ms child support card can I still get gas',
-      'It’s saying my card number is invalid ',
-      'Replacement card ',
-      "I need help. My card isn't working...and I cant get in touch with anyone. ",
-      'Have not child support debit card',
-      'My child support card expires at the end of this month and I have not received a new one',
-      'how do i get a MS debit card for child support payments',
+      'I haven’t received my child support card', // add to eppi-root
+      'No just need help,applying for bridge card', // add to eppi-root
+      'new card', // add to eppi-replace-report
+      'Passport ', // *
+      'I have received my new card but  the website will not let me log on and I changed password and all and I have three kids and a while and currently unemployed and cannot get anyone on the phone to help thanks', // *
+      'How do i get my four digit PIN', // add to eppi-activate-card
+      "I lost my card and don't know the card number. How can I get a new card", // add to eppi-replace-report
+      'I have a Mississippi card that was issued I need to know about pending deposit ', // add to eppi-root
+      'Replacement card', // add to eppi-replace-report
+      'Card', // add to eppi-root
+      'How long does it take a child support card to come in after you receive judgement', // add to eppi-root
+      'i am having trouble getting my card', // add to eppi-root
+      'I have got 3 deposits on August 1st & it’s not on my card ', // add to eppi-payment-history
+      'I have not received my replacement card', // add to eppi-replace-report
+      'Just trying to check my card ', // add to eppi-root
+      'Yes ..how I get started paying with a debit card?', // mislabled, make payments
+      'If I have no money on Ms child support card can I still get gas', // *
+      'It’s saying my card number is invalid ', // add to eppi-root
+      'Replacement card ', // add to eppi-replace-report
+      "I need help. My card isn't working...and I cant get in touch with anyone. ", // add to eppi-root
+      'Have not child support debit card', // add to eppi-root
+      'My child support card expires at the end of this month and I have not received a new one', // add to eppi-replace-report
+      'how do i get a MS debit card for child support payments', // add to eppi-get-card
       'Hi, my card is reading card error at every store I go to, but it has funds available. ',
-      'To order a replacement card.',
+      'To order a replacement card.', // add to eppi-replace-report
       'my grandma daughter stay with me and her mother get the child support card and i don’t feel like thats right',
-      'Haven’t receive child support card for my second case ',
-      'i get i ton the eppi card ',
-      'Getting a new child support card',
-      'I haven’t got a card yet for child support and it have been a month',
-      'Hey my name is PERSON_NAME I was trying to see how much was posted on my card from this month',
-      'I need to get a new card mines about expire this month',
-      'I need to get a new card mine is expiring ',
-      'Debit card ',
+      'Haven’t receive child support card for my second case ', // add to eppi-root
+      'i get i ton the eppi card ', // add to eppi-root
+      'Getting a new child support card', // add to eppi-replace-report
+      'I haven’t got a card yet for child support and it have been a month', // add to eppi-root
+      'Hey my name is PERSON_NAME I was trying to see how much was posted on my card from this month', // add to eppi-payment-history
+      'I need to get a new card mines about expire this month', // add to eppi-replace-report
+      'I need to get a new card mine is expiring ', // add to eppi-replace-report
+      'Debit card ', // add to eppi-root
       'Call center is asking for a PIN number ',
-      'I need new card',
-      'I have not received my child support card and it’s been pass 10 business days',
-      'Trying to see when I will receive a card with my child support ',
-      'My card is suspended and I would like to know why, it has never done this before',
-      'need a new card ',
-      'Maybe send me a new card that works ',
-      'Hi I’m trying to report a card lost and order another one how can I do that',
-      'How do I find out my pin #',
-      'how to order a child supprt card',
-      'Why my card says fraud suspended ',
-      'How can I talk to about a child support case my father been paying child support I have never received a card ',
-      'In August, I will be going to college and I’m wondering if I can get my own child support card since I’m not in my mother’s house hold ',
-      'how do I get a new child support debit card sent to another address?',
-      'I would like to receive my separate child support cases on separate debit cards rather than all cases on one card. ',
-      'it ain’t common',
-      'Well my question is I suppose to receive a payment on the 7/5 but it has not crossed over to card yet',
-      'When will I receive the eppi card?',
-      'I need a number to talk to someone about a freeze on my card',
-      'New card',
-      'I need to update my address and get a new card shipped to me because my current card has expired',
-      'How do I request a debit card',
-      'I have not received my debit mastercard',
-      'Need to pay right at DIGITS to get my license back. I’m using a credit card how do I go about it? Thank you ',
-      "I am trying to see when my child support will be put on my card. I usually get it on wednesdays but it wasn't put on there last wednesday",
-      'I lost my debit card',
-      'how can i set up a pin # to get the inforation i need',
-      'I need a new replacement caard',
-      'I need to report my brother’s child support card stolen.',
-      'I was looking for the green support card',
-      'Need a new card',
-      'I have not received my child support on my Smione Card. Is there something wrong?',
-      'New card',
-      'How long does it take to receive a debit card',
-      'I need to reorder a new card ',
-      'Do you have a 4 digit pin number ',
-      "My case numbers do t match and I can't make payments a Kroger ",
-      'what ? how can i cancel my lost card and order a new',
-      'i need to cancel my card and order another one',
-      'Yes I have questions about how my card is being loaded ',
-      'Im trying to found out if i have a payment pending on my card.',
-      'I have lost my debit card',
-      'When will they issue me a debit card to get my funds',
-      'I’m trying to see why my child support isn’t on my card yet , I’m missing two payments ',
-      'My EPPICard for child support was stolen so I cancelled it and got a new one. When I had my old card I ordered something and recently received a refund but it went back to the cancelled card. How do I go about getting my money ? ',
-      'I was wondering how can I find out where my card has all been swiped at?',
-      'How long does it take to receive a child support card',
-      'Im 19 now i was trying to see how to get my own child support card from my mother',
-      'Where do I find my pin number?',
-      'My card I’ve expired and I’m still having money paid but can’t get it',
-      'I’m trying to order a new card mine expired ',
-      'Hey I’m makayla PERSON_NAME and I lost my child support card and I want to know how can I get another ',
-      'New',
-      'Just a quick question. How long does it take to receive a new card?',
-      'I need to get him set up I already have a eppi card',
-      'Haven’t received a card ',
-      'Replacement card',
-      'Child support card replacement ',
-      'What time do payments be post to card',
-      'How long funds on card',
-      'Can child support be paid be debit card/ credit card?',
-      'I am currently receiving payments on a card however haven’t received any back support but the non custodial parent has paid it',
-      'I have not received a new one',
-      'When do you receive the 1st card?',
-      'my card is expiring I do not have a new one',
-      'I need to speak to someone about my eppicard.  It expires this month and I have not received a new one',
-      'How can you know if you have child support if you have no card ',
-      'Cell number to card ',
-      'I have a case but havent received a new card. Can u tell me why?',
-      'New card',
+      'I need new card', // add to eppi-replace-report
+      'I have not received my child support card and it’s been pass 10 business days', // add to eppi-root
+      'Trying to see when I will receive a card with my child support ', // add to eppi-root
+      'My card is suspended and I would like to know why, it has never done this before', // add to eppi-root
+      'need a new card ', // add to eppi-replace-report
+      'Maybe send me a new card that works ', // add to eppi-replace-report
+      'Hi I’m trying to report a card lost and order another one how can I do that', // add to eppi-replace-report
+      'How do I find out my pin #', // add to eppi-activate-card
+      'how to order a child supprt card', // add to eppi-get-card
+      'Why my card says fraud suspended ', // add to eppi-replace-report
+      'How can I talk to about a child support case my father been paying child support I have never received a card ', // add to eppi-root
+      'In August, I will be going to college and I’m wondering if I can get my own child support card since I’m not in my mother’s house hold ', // *
+      'how do I get a new child support debit card sent to another address?', // add to eppi-replace-report
+      'I would like to receive my separate child support cases on separate debit cards rather than all cases on one card. ', // add to eppi-root
+      'it ain’t common', // *
+      'Well my question is I suppose to receive a payment on the 7/5 but it has not crossed over to card yet', // mislabeled, not received payment
+      'When will I receive the eppi card?', // add to eppi-root
+      'I need a number to talk to someone about a freeze on my card', // add to eppi-root
+      'New card', // add to eppi-get-card
+      'I need to update my address and get a new card shipped to me because my current card has expired', // add to eppi-replace-report
+      'How do I request a debit card', // add to eppi-get-card
+      'I have not received my debit mastercard', // add to eppi-root
+      'Need to pay right at DIGITS to get my license back. I’m using a credit card how do I go about it? Thank you ', // *
+      "I am trying to see when my child support will be put on my card. I usually get it on wednesdays but it wasn't put on there last wednesday", // add to eppi-payment-history
+      'I lost my debit card', // add to eppi-replace-report
+      'how can i set up a pin # to get the inforation i need', // add to eppi-activate-card
+      'I need a new replacement caard', // add to eppi-replace-report
+      'I need to report my brother’s child support card stolen.', // add to eppi-replace-report
+      'I was looking for the green support card', // add to eppi-root
+      'Need a new card', // add to eppi-replace-report
+      'I have not received my child support on my Smione Card. Is there something wrong?', // add to eppi-root?
+      'New card', // add to eppi-replace-report
+      'How long does it take to receive a debit card', // add to eppi-root
+      'I need to reorder a new card ', // add to eppi-replace-report
+      'Do you have a 4 digit pin number ', // add to eppi-activate-card
+      "My case numbers do t match and I can't make payments a Kroger ", // mislabeled, can't make payments
+      'what ? how can i cancel my lost card and order a new', // add to eppi-replace-report
+      'i need to cancel my card and order another one', // add to eppi-replace-report
+      'Yes I have questions about how my card is being loaded ', // add to eppi-root
+      'Im trying to found out if i have a payment pending on my card.', // add to eppi-payment-history
+      'I have lost my debit card', // add to eppi-replace-report
+      'When will they issue me a debit card to get my funds', // add to eppi-get-card
+      'I’m trying to see why my child support isn’t on my card yet , I’m missing two payments ', // add to eppi-payment-history
+      'My EPPICard for child support was stolen so I cancelled it and got a new one. When I had my old card I ordered something and recently received a refund but it went back to the cancelled card. How do I go about getting my money ? ', // *
+      'I was wondering how can I find out where my card has all been swiped at?', // add to eppi-root
+      'How long does it take to receive a child support card', // add to eppi-root
+      'Im 19 now i was trying to see how to get my own child support card from my mother', // add to eppi-get-card
+      'Where do I find my pin number?', // add to eppi-activate-card
+      'My card I’ve expired and I’m still having money paid but can’t get it', // add to eppi-replace-report
+      'I’m trying to order a new card mine expired ', // add to eppi-replace-report
+      'Hey I’m makayla PERSON_NAME and I lost my child support card and I want to know how can I get another ', // add to eppi-replace-report
+      'New', // *
+      'Just a quick question. How long does it take to receive a new card?', // add to eppi-root
+      'I need to get him set up I already have a eppi card', // add to eppi-root
+      'Haven’t received a card ', // add to eppi-root
+      'Replacement card', // add to eppi-replace-report
+      'Child support card replacement ', // add to eppi-replace-report
+      'What time do payments be post to card', // *
+      'How long funds on card', // *
+      'Can child support be paid be debit card/ credit card?', // add to eppi-root
+      'I am currently receiving payments on a card however haven’t received any back support but the non custodial parent has paid it', // mislabeled, not received payment
+      'I have not received a new one', // add to eppi-replace-report
+      'When do you receive the 1st card?', // add to eppi-root
+      'my card is expiring I do not have a new one', // add to eppi-replace-report
+      'I need to speak to someone about my eppicard.  It expires this month and I have not received a new one', // add to eppi-replace-report
+      'How can you know if you have child support if you have no card ', // *
+      'Cell number to card ', // add to eppi-root
+      'I have a case but havent received a new card. Can u tell me why?', // add to eppi-get-card
+      'New card', // add to eppi-get-card
       'I have not received my card yet. I was trying to see was it on its way? ',
-      'Why is my money posted but not posted on my card',
-      'yes. i need a card',
-      'How can i sighn up to recieve a card to recieve payment',
+      'Why is my money posted but not posted on my card', // add to eppi-payment-history
+      'yes. i need a card', // add to eppi-get-card
+      'How can i sighn up to recieve a card to recieve payment', // add to eppi-get-card
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 35 },
