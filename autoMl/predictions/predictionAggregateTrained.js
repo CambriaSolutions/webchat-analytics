@@ -2325,121 +2325,121 @@ const data = {
   'payment timelines': {
     occurences: 115,
     queries: [
-      'I wanted to know the dates that funds will be available for the month of October 2019',
-      'How do child support payments are receive ',
-      'How long it takes for a payment to post if you mailed it to Jackson,  MS a couple days ago',
-      'I need to know when I am going to receive my child support.',
-      'How long do it take to receive my first payment from the noncustodial parent?',
-      'A payment was deposit on PERSON_NAME when will I receive on Eppicard',
-      'yes. Will my payment be received immediately if I make it online with a debit card',
-      'I wanted to know how long does a person wait to have their passport hold remove after they pay their back amount owed in child support?',
-      'When is child support due each month',
-      'Wanted to know when do the child support payment post on debit card ',
-      'If my child support was pain Thursday when will it post on card',
-      'my child support is paid in full how long until it stops',
-      'How long it take to receive the money on the card',
-      'How do I find out if there is a payment pending release from the IRS?',
-      'I’m trying to figure out why my deposits have yet to be put onto my card this month. I usually receive my payment twice a month and it’s always been before this time of month. There have been 2 pay periods go by and no payment to my card yet ',
-      "If you already receiving child support and you're going to start receiving child support for your child, how will you get the payments? On the same card or different?",
-      "I'm the mother and wanting to know when will we receive Sept. Child support ",
-      'How long does it take to receive the child support after it is being paid?',
-      'I just need to know what time in the morning does credits usually become available ',
-      'How long does it take for the custodial parent to receive payment',
-      'When should I expect my child support to be direct deposited into my checking account?',
-      'How long does it take to receive a child support payment ',
-      'I will be receiving child support. The non custodial parent is ordered to pay by the 10th of September and I want to know how long it will take for me to receive that payment ',
-      'Will we receive our deposit on holidays like today',
-      'I have two childsupport pay ing pedi g one came on the 29 and one came on the 30 PERSON_NAME is a holiday will I get it',
-      'How long does it take to receive child support after noncustodial parent starts paying',
-      'If the 1st of the month is a Sunday when will I receive my child support payment',
-      'Child support debit draft every month ?',
-      'I need to know when I will receive a payment ',
-      'How long does it take to receive the money?',
-      'How long does it take to receive funds after applying for child support',
-      'How does it take when I apply to receive benefits ',
-      'After payment is received, how long will it take for custodial parent to get funds',
-      'How long does it take to receive a payment ',
-      'When will I receive payments after judge signs child support order',
-      'How long does it take to receive child support?',
-      'When will payment post to debit card after payment done online?',
-      'does it always take 45 days for someone to receive a payment?',
-      'On the 5 week of a month do child support come out',
-      'I need to know when I’ll receive my child support payment ',
-      'When can legal action take place for non child support payment',
-      'What day of the week do payments post?',
-      'I need to know how I will be receiving the payments that started August 1st',
-      'When will i receive my payment',
-      'When do they give out child support money each month',
-      'what date of the month does the custodial parent receive payment ',
-      'how long do it take for child support order to be process once you have been to court on 20 of June',
-      'how long does this process take',
-      'When i called the  number to checl the arrears balance and payments made . The was a new updated balance made for this month however the card says there isnt any money on the card. How long does it take for the money to be added to the card .',
-      'what do I do next after I get done with the application',
-      'I’m wondering when my child support will go through into my account and why I’m not getting the full amount on one of them?',
-      'When are deposits made to the custodial parents debit card after they are garnished from the non custodial parent? ',
-      'How long does it take to get my child support eppicard?',
-      'How do I find out if a payment has been made?',
-      "If my children's father sent his payment off from Popularville on the 19th of this month, how long will it take for me to receive it?",
-      'When was my last payment made',
-      'what time does it deposits ',
-      'Im currently getting child support payments. And i was trying to see when is the next deposit to my card',
-      'When will I begin getting payments',
-      '1 I received a lump some back pay last month should I start getting payment  every month ',
-      'How long does it take before I get garnished taxes for childsupport from my ex?',
-      'how long does it take to receive child support from.an income tax',
-      'I was awarded child support over a month ago and have yet to receive a payment ',
-      'How long will it take the parent to receive the payment once I mail in the money order ',
-      'if i pay online how fast will my ex wife get the money?  i did this online years ago when you all first started doing it and it took like 3 weeks for her to get her money.  ',
-      'How many days do you have to wait for funds to post after child support receive the payment ',
-      'What day do my benefits hit card this month',
-      'I spoke with child support customer service and she told my payment in the amount of 115 with be deposited on my card july 16 and it isnt on there yet',
-      'I was looking for information regarding a recent payment that I have not received. How long does it require before I receive a payment that was submitted on the 12th?',
-      'When am I going to get my payment ',
-      'How long does it take the state to process a payment on an account that is in arrearage?',
-      'Have a question when do it end',
-      'When will I receive child support ',
-      'My case # is 616536621A, My name is PERSON_NAME. I was hoping to get an update on payments. I was told the request was sent to the non custodial parent on the 14th of June. How long does this process usually take?',
-      'How long does it take before it starts?',
-      'How long does it usually take to get an answer about the increase',
-      'When I called the toll free number a payment was made on the 3rd but I have to receive it.. When will I receive it ',
-      '\nI wanted to know after the person who is on child support pay TANF back does the parent receive the child support payements after the TANF is paid back to state?',
-      'When will I receive my back time child support?',
-      'Just want to know if my payment will be late this week',
-      'will payment be made on 4th of july',
-      'How long does it take to inform me of the amount child support is going up after the review. We received the letter saying it will be changing ',
-      "Hi,my name is clay savage and I've over paid in child support and I was trying to see how long does it takes for me to receive my money?",
-      'When is the money deposited on the Eppi card. This is first time to get it',
-      'When will I receive my payment for July if it is scheduled to post on July 3 ',
-      'I need to know when my payment will decrease',
-      'Receive payments',
-      "I have a couple questions on how child support is paid out.   It doesn't appear that I am receiving all the payments that are being made from the other parent.   ",
-      'How long do a child receive child support?',
-      'When should I receive my payment this month ',
-      'how long does it take to start getting child support?',
-      'When will the deposit be posted on my card and what time zone are y’all in',
-      'I have a debit card already. My question is how long does it take for the parent to receive the money ',
-      'when do you stop paying child support?',
-      'I made a purchase then a return how long does it take for the return to credit to account ',
-      'How long does it take to be withheld after recieving the letter?',
-      'How long does it takw',
-      'How long does it take for me to receive first payment ',
-      'I was trying to see if yall take child surport out a check how long will it to receive it',
-      'Who can i call to ask what is going on with my payments ',
-      'How long is the process after filling out your application ',
-      'When is my child support payment due?',
-      'I’m wondering how long do parents have to be separated before filing for child support ',
-      'If a support payment is made to dhs on a Thursday. What banking day can the custodial parent expect to receive it',
-      'When do you receive the initial debit card?',
+      'I wanted to know the dates that funds will be available for the month of October 2019', // Suggest payment timelines intent
+      'How do child support payments are receive ', // Suggest payment timelines intent
+      'How long it takes for a payment to post if you mailed it to Jackson,  MS a couple days ago', // Suggest payment timelines intent
+      'I need to know when I am going to receive my child support.', // Suggest payment timelines intent
+      'How long do it take to receive my first payment from the noncustodial parent?', // Suggest payment timelines intent
+      'A payment was deposit on PERSON_NAME when will I receive on Eppicard', // Suggest payment timelines intent
+      'yes. Will my payment be received immediately if I make it online with a debit card', // Suggest payment timelines intent
+      'I wanted to know how long does a person wait to have their passport hold remove after they pay their back amount owed in child support?', // Suggest payment timelines intent
+      'When is child support due each month', // Suggest payment timelines intent
+      'Wanted to know when do the child support payment post on debit card ', // Suggest payment timelines intent
+      'If my child support was pain Thursday when will it post on card', // Suggest payment timelines intent
+      'my child support is paid in full how long until it stops', // Suggest payment timelines intent
+      'How long it take to receive the money on the card', // Suggest payment timelines intent
+      'How do I find out if there is a payment pending release from the IRS?', // Suggest payment timelines intent
+      'I’m trying to figure out why my deposits have yet to be put onto my card this month. I usually receive my payment twice a month and it’s always been before this time of month. There have been 2 pay periods go by and no payment to my card yet ', // *
+      "If you already receiving child support and you're going to start receiving child support for your child, how will you get the payments? On the same card or different?", // *
+      "I'm the mother and wanting to know when will we receive Sept. Child support ", // Suggest payment timelines intent
+      'How long does it take to receive the child support after it is being paid?', // Suggest payment timelines intent
+      'I just need to know what time in the morning does credits usually become available ', // Suggest payment timelines intent
+      'How long does it take for the custodial parent to receive payment', // Suggest payment timelines intent
+      'When should I expect my child support to be direct deposited into my checking account?', // Suggest payment timelines intent
+      'How long does it take to receive a child support payment ', // Suggest payment timelines intent
+      'I will be receiving child support. The non custodial parent is ordered to pay by the 10th of September and I want to know how long it will take for me to receive that payment ', // *
+      'Will we receive our deposit on holidays like today', // Suggest payment timelines intent
+      'I have two childsupport pay ing pedi g one came on the 29 and one came on the 30 PERSON_NAME is a holiday will I get it', // Suggest payment timelines intent
+      'How long does it take to receive child support after noncustodial parent starts paying', // Suggest payment timelines intent
+      'If the 1st of the month is a Sunday when will I receive my child support payment', // Suggest payment timelines intent
+      'Child support debit draft every month ?', // Suggest payment timelines intent
+      'I need to know when I will receive a payment ', // Suggest payment timelines intent
+      'How long does it take to receive the money?', // Suggest payment timelines intent
+      'How long does it take to receive funds after applying for child support', // Suggest payment timelines intent
+      'How does it take when I apply to receive benefits ', // Suggest payment timelines intent
+      'After payment is received, how long will it take for custodial parent to get funds', // Suggest payment timelines intent
+      'How long does it take to receive a payment ', // Suggest payment timelines intent
+      'When will I receive payments after judge signs child support order', // Suggest payment timelines intent
+      'How long does it take to receive child support?', // Suggest payment timelines intent
+      'When will payment post to debit card after payment done online?', // Suggest payment timelines intent
+      'does it always take 45 days for someone to receive a payment?', // Suggest payment timelines intent
+      'On the 5 week of a month do child support come out', // Suggest payment timelines intent
+      'I need to know when I’ll receive my child support payment ', // Suggest payment timelines intent
+      'When can legal action take place for non child support payment', // mislabeled, enforcements
+      'What day of the week do payments post?', // Suggest payment timelines intent
+      'I need to know how I will be receiving the payments that started August 1st', // Suggest payment timelines intent
+      'When will i receive my payment', // Suggest payment timelines intent
+      'When do they give out child support money each month', // Suggest payment timelines intent
+      'what date of the month does the custodial parent receive payment ', // Suggest payment timelines intent
+      'how long do it take for child support order to be process once you have been to court on 20 of June', // Suggest payment timelines intent
+      'how long does this process take', // Suggest payment timelines intent
+      'When i called the  number to checl the arrears balance and payments made . The was a new updated balance made for this month however the card says there isnt any money on the card. How long does it take for the money to be added to the card .', // *
+      'what do I do next after I get done with the application', // *
+      'I’m wondering when my child support will go through into my account and why I’m not getting the full amount on one of them?', // mislabeled, not received payment
+      'When are deposits made to the custodial parents debit card after they are garnished from the non custodial parent? ', // Suggest payment timelines intent
+      'How long does it take to get my child support eppicard?', // Suggest payment timelines intent
+      'How do I find out if a payment has been made?', // Suggest payment timelines intent
+      "If my children's father sent his payment off from Popularville on the 19th of this month, how long will it take for me to receive it?", // Suggest payment timelines intent
+      'When was my last payment made', // mislabeled, payment history
+      'what time does it deposits ', // Suggest payment timelines intent
+      'Im currently getting child support payments. And i was trying to see when is the next deposit to my card', // Suggest payment timelines intent
+      'When will I begin getting payments', // Suggest payment timelines intent
+      '1 I received a lump some back pay last month should I start getting payment  every month ', // Suggest payment timelines intent
+      'How long does it take before I get garnished taxes for childsupport from my ex?', // Suggest payment timelines intent
+      'how long does it take to receive child support from.an income tax', // Suggest payment timelines intent
+      'I was awarded child support over a month ago and have yet to receive a payment ', // mislabeled, not received payment
+      'How long will it take the parent to receive the payment once I mail in the money order ', // Suggest payment timelines intent
+      'if i pay online how fast will my ex wife get the money?  i did this online years ago when you all first started doing it and it took like 3 weeks for her to get her money.  ', // *
+      'How many days do you have to wait for funds to post after child support receive the payment ', // Suggest payment timelines intent
+      'What day do my benefits hit card this month', // Suggest payment timelines intent
+      'I spoke with child support customer service and she told my payment in the amount of 115 with be deposited on my card july 16 and it isnt on there yet', // *
+      'I was looking for information regarding a recent payment that I have not received. How long does it require before I receive a payment that was submitted on the 12th?', // *
+      'When am I going to get my payment ', // Suggest payment timelines intent
+      'How long does it take the state to process a payment on an account that is in arrearage?', // Suggest payment timelines intent
+      'Have a question when do it end', // Suggest payment timelines intent
+      'When will I receive child support ', // Suggest payment timelines intent
+      'My case # is 616536621A, My name is PERSON_NAME. I was hoping to get an update on payments. I was told the request was sent to the non custodial parent on the 14th of June. How long does this process usually take?', // *
+      'How long does it take before it starts?', // Suggest payment timelines intent
+      'How long does it usually take to get an answer about the increase', // *
+      'When I called the toll free number a payment was made on the 3rd but I have to receive it.. When will I receive it ', // Suggest payment timelines intent
+      '\nI wanted to know after the person who is on child support pay TANF back does the parent receive the child support payements after the TANF is paid back to state?', // *
+      'When will I receive my back time child support?', // Suggest payment timelines intent
+      'Just want to know if my payment will be late this week', // Suggest payment timelines intent
+      'will payment be made on 4th of july', // Suggest payment timelines intent
+      'How long does it take to inform me of the amount child support is going up after the review. We received the letter saying it will be changing ', // *
+      "Hi,my name is clay savage and I've over paid in child support and I was trying to see how long does it takes for me to receive my money?", // Suggest payment timelines intent
+      'When is the money deposited on the Eppi card. This is first time to get it', // Suggest payment timelines intent
+      'When will I receive my payment for July if it is scheduled to post on July 3 ', // Suggest payment timelines intent
+      'I need to know when my payment will decrease', // Suggest payment timelines intent
+      'Receive payments', // Suggest payment timelines intent
+      "I have a couple questions on how child support is paid out.   It doesn't appear that I am receiving all the payments that are being made from the other parent.   ", // *
+      'How long do a child receive child support?', // Suggest payment timelines intent
+      'When should I receive my payment this month ', // Suggest payment timelines intent
+      'how long does it take to start getting child support?', // Suggest payment timelines intent
+      'When will the deposit be posted on my card and what time zone are y’all in', // Suggest payment timelines intent
+      'I have a debit card already. My question is how long does it take for the parent to receive the money ', // Suggest payment timelines intent
+      'when do you stop paying child support?', // Suggest payment timelines intent
+      'I made a purchase then a return how long does it take for the return to credit to account ', // Suggest payment timelines intent
+      'How long does it take to be withheld after recieving the letter?', // Suggest payment timelines intent
+      'How long does it takw', // Suggest payment timelines intent
+      'How long does it take for me to receive first payment ', // Suggest payment timelines intent
+      'I was trying to see if yall take child surport out a check how long will it to receive it', // Suggest payment timelines intent
+      'Who can i call to ask what is going on with my payments ', // mislabeled, paid but not received
+      'How long is the process after filling out your application ', // *
+      'When is my child support payment due?', // Suggest payment timelines intent
+      'I’m wondering how long do parents have to be separated before filing for child support ', // *
+      'If a support payment is made to dhs on a Thursday. What banking day can the custodial parent expect to receive it', // Suggest payment timelines intent
+      'When do you receive the initial debit card?', // Suggest payment timelines intent
+      'Hi PERSON_NAME. What is the normal time frame that payments received from income tax to be deposited on your card?', // Suggest payment timelines intent
       'Hi PERSON_NAME. What is the normal time frame that payments received from income tax to be deposited on your card?',
-      'Hi PERSON_NAME. What is the normal time frame that payments received from income tax to be deposited on your card?',
-      'What day of month is support due ',
-      "I'm cleared with my back pay, trying to see how can I get the money that's owed to me",
-      'when do may child support payment stop',
-      'Yes I was just wondering when are child support payments available on the EPPICard? ',
-      'How long do offsets takes',
-      'My sons stepmother submitted a payment online yesterday and I was trying to figure out how long it would take for me to actually receive the payment. ',
-      'My court hearing is this Thursday to determine support/visitation.  How long after that can I expect to receive child support?',
-      'When is payment disbursed',
+      'What day of month is support due ', // Suggest payment timelines intent
+      "I'm cleared with my back pay, trying to see how can I get the money that's owed to me", // Suggest payment timelines intent
+      'when do may child support payment stop', // Suggest payment timelines intent
+      'Yes I was just wondering when are child support payments available on the EPPICard? ', // Suggest payment timelines intent
+      'How long do offsets takes', // Suggest payment timelines intent
+      'My sons stepmother submitted a payment online yesterday and I was trying to figure out how long it would take for me to actually receive the payment. ', // *
+      'My court hearing is this Thursday to determine support/visitation.  How long after that can I expect to receive child support?', // Suggest payment timelines intent
+      'When is payment disbursed', // Suggest payment timelines intent
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 17 },
