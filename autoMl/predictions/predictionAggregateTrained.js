@@ -2645,106 +2645,106 @@ const data = {
   emancipation: {
     occurences: 100,
     queries: [
-      '21 yearsold',
-      'Do children get child support while in college?',
-      'children',
-      'I wanna know if the child still in college as they reach 21 of age, can they still receive child support ',
-      'What happens if my son is grown and his mother dies',
-      'so even if he is in college i quit at 21',
-      'no 18 but dropped out of high school',
-      '21 years old ',
-      'The child is 21 years of age ',
-      'My son father is in the Navy, and I do not have a social on him will I still be able to receive child support?',
-      'How long does a child receive child support?',
-      'My child is about to be 18 but he is special needs and will be in school until he is 21. Will he continue to receive child support until he is 21?',
-      'When an 18 y/o ',
-      'My son is 19 and no longer in school do he still get child support ',
-      'Must pay child support until 21 years old no matter what.',
-      'What age do children stop receiving support?',
-      'Does child support stop when my child turns 18?',
-      'when does child support stop?',
-      'When does child support stop? When my child is 18 or graduates from high school? ',
-      'When can I stop paying child support?',
-      'What is the emancipation age in MS?',
-      'emancipation age in MS?',
-      "what's the emancipation age?",
-      'My son turns 21 in August. When does my payroll deduction end for support for him?',
-      'What is the age you should stop making payments',
-      'The current order is for the children until they are 21.  One of the children will soon be 21.  What do I have to do to get her removed from this case?',
-      'My child turns 21 on the 8th of August. At what point will my court order for child support be vacated?',
-      'Yes.  When did the age of emancipation change from 18 to 21?',
-      'Age a child can receive child support ',
-      'Does child support payments end when child reaches 21 years of age?',
-      'Why does father still pay child support for a child at is 18 years old?',
-      'What ages does child support stop',
-      'When does child support payments stop',
-      'Can you give me information on receiving child support after kids turn 19 years',
-      'My son dropped out of school.  Has turned 18. When will my payments stop',
-      'Trying to determine if my 18 year old moves, does child support stop',
-      'My divorce papers say that my exhusband only has to pay support until my child is 18.  However, someone told me in the State of MS, age 21 is the age he has to support her through... ',
-      'Once my child reaches 21, then what?',
-      'When can i stop paying child support ',
-      'My child is turning 21 in sept. What do I need to do to stop the automatic withdrawal ',
-      'My daughter turned 21 and has lived with me for the past 2 years. Will the child support turn off now?',
-      'When does child support end?',
-      'My child will be 18 tomorrow. It is my understanding that I should give the child the support that the mother has been receiving, is that correct?',
-      'Yes, my daughter turned 21 last month and they are still taking out support on my payrool',
-      'When did the child support age go up?',
-      'what if my children grown',
-      'At what age does child support stops in Mississippi?',
-      'MY PAYMENT SHOULD BE OVER WITH  MY CHILD IS 21',
-      'At what age does child support end',
-      'What age do you stop paying child support for a child',
-      'My son turned 21 last month so when will I no longer have to pay support?',
-      'When does child support end',
-      'What age do stop paying child support',
-      'Paying child support for a child about to turn 18 , does the money still come out of my check after he is 18',
-      'A can',
-      'How far behind is the other parent',
-      'Can wife sue if child is 21',
+      '21 yearsold', // add to emancipation-qa-age
+      'Do children get child support while in college?', // add to emancipation-qa-age
+      'children', // *
+      'I wanna know if the child still in college as they reach 21 of age, can they still receive child support ', // add to emancipation-qa-age
+      'What happens if my son is grown and his mother dies', // add to emancipation-qa-age
+      'so even if he is in college i quit at 21', // add to emancipation-qa-age
+      'no 18 but dropped out of high school', // add to emancipation-qa-age
+      '21 years old ', // add to emancipation-qa-age
+      'The child is 21 years of age ', // add to emancipation-qa-age
+      'My son father is in the Navy, and I do not have a social on him will I still be able to receive child support?', // add to emancipation-qa-age
+      'How long does a child receive child support?', // add to emancipation-qa-age
+      'My child is about to be 18 but he is special needs and will be in school until he is 21. Will he continue to receive child support until he is 21?', // add to emancipation-qa-age
+      'When an 18 y/o ', // add to emancipation-qa-age
+      'My son is 19 and no longer in school do he still get child support ', // add to emancipation-qa-age
+      'Must pay child support until 21 years old no matter what.', // add to emancipation-qa-age
+      'What age do children stop receiving support?', // add to emancipation-qa-age
+      'Does child support stop when my child turns 18?', // add to emancipation-qa-age
+      'when does child support stop?', // add to emancipation-qa-age
+      'When does child support stop? When my child is 18 or graduates from high school? ', // add to emancipation-qa-age
+      'When can I stop paying child support?', // add to emancipation-qa-age
+      'What is the emancipation age in MS?', // add to emancipation-qa-age
+      'emancipation age in MS?', // add to emancipation-qa-age
+      "what's the emancipation age?", // add to emancipation-qa-age
+      'My son turns 21 in August. When does my payroll deduction end for support for him?', // add to emancipation-qa-age
+      'What is the age you should stop making payments', // add to emancipation-qa-age
+      'The current order is for the children until they are 21.  One of the children will soon be 21.  What do I have to do to get her removed from this case?', // add to emancipation-qa-age
+      'My child turns 21 on the 8th of August. At what point will my court order for child support be vacated?', // add to emancipation-qa-age
+      'Yes.  When did the age of emancipation change from 18 to 21?', // add to emancipation-qa-age
+      'Age a child can receive child support ', // add to emancipation-qa-age
+      'Does child support payments end when child reaches 21 years of age?', // add to emancipation-qa-age
+      'Why does father still pay child support for a child at is 18 years old?', // add to emancipation-qa-age
+      'What ages does child support stop', // add to emancipation-qa-age
+      'When does child support payments stop', // add to emancipation-qa-age
+      'Can you give me information on receiving child support after kids turn 19 years', // add to emancipation-qa-age
+      'My son dropped out of school.  Has turned 18. When will my payments stop', // add to emancipation-qa-age
+      'Trying to determine if my 18 year old moves, does child support stop', // add to emancipation-qa-age
+      'My divorce papers say that my exhusband only has to pay support until my child is 18.  However, someone told me in the State of MS, age 21 is the age he has to support her through... ', // *
+      'Once my child reaches 21, then what?', // add to emancipation-qa-age
+      'When can i stop paying child support ', // add to emancipation-qa-age
+      'My child is turning 21 in sept. What do I need to do to stop the automatic withdrawal ', // add to emancipation-qa-age
+      'My daughter turned 21 and has lived with me for the past 2 years. Will the child support turn off now?', // add to emancipation-qa-age
+      'When does child support end?', // add to emancipation-qa-age
+      'My child will be 18 tomorrow. It is my understanding that I should give the child the support that the mother has been receiving, is that correct?', // add to emancipation-qa-age
+      'Yes, my daughter turned 21 last month and they are still taking out support on my payrool', // add to emancipation-qa-age
+      'When did the child support age go up?', // add to emancipation-qa-age
+      'what if my children grown', // add to emancipation-qa-age
+      'At what age does child support stops in Mississippi?', // add to emancipation-qa-age
+      'MY PAYMENT SHOULD BE OVER WITH  MY CHILD IS 21', // add to emancipation-qa-age
+      'At what age does child support end', // add to emancipation-qa-age
+      'What age do you stop paying child support for a child', // add to emancipation-qa-age
+      'My son turned 21 last month so when will I no longer have to pay support?', // add to emancipation-qa-age
+      'When does child support end', // add to emancipation-qa-age
+      'What age do stop paying child support', // add to emancipation-qa-age
+      'Paying child support for a child about to turn 18 , does the money still come out of my check after he is 18', // add to emancipation-qa-age
+      'A can', // *
+      'How far behind is the other parent', // add to emancipation-qa-age
+      'Can wife sue if child is 21', // add to emancipation-qa-age
       'When my kids turns 21 how do I stop the child support ',
-      'At what age is child support terminated ',
-      'The child whom the child support order is for will be 21 years of age in November.  Does the parent have to notify DHS that the Child Support garnishment should end?',
-      'Multiple children on one case and one child is 21 years of age and doesn’t attend college.  Should I still be paying for that child?',
-      'If insurance was court ordered, what is the age that a child is removed ',
-      'What do I how to when your child done move out of your house',
-      'I have a question. Can a person be taken off child support or is it permanent? ',
-      'My child is 19 years old can I His mother pursue child support for him',
-      'What is the cut off age in Mississippi ',
-      'I need to know when my payments end my son turns 21 in august',
-      'When do you stop paying child support in Mississippi?',
-      'I would like to know when can one stop paying child support ',
-      'Does it end at 18',
-      'What is the age of majority ',
-      'what age does child support stop',
-      'my child turns 21 in a few months...will you stop collecting child support from me at that time?',
-      'How old does a child have to be to stop receiving child support',
-      'Can a parent receive child support for a child where the child does not reside .The child lives with grandparents who have custody',
-      'What if I get married ',
-      'when can i stop paying child support',
-      'My daughter is 14 can I still get support for her',
-      'What is the legal age that a non custodial parent pay child support in MS',
-      'Can my child still receive assistance after she turns 21? ',
-      'My son is 21 and incarcerated should i still be paying child support',
-      'how long after all children have turned 18 do the support continue ',
-      'what if they child is over 21',
-      'My son turned 21 on 5/6/19. Yet the support is still being taken from my paycheck. ',
-      'Yes I have a question.. wouldn’t I be required to pay child support until my child is 18 UNLESS he’s in school all the way to 21 ? Is that correct ? ',
-      'whats the the law for the emancipation ',
-      'What is the age for emancipation for MS?',
-      'what is the emancipation age for the state of ms?',
-      'what is the emancipation age for the state of mississippi?',
-      'What is the age for emancipation for MS?',
-      'when can i stop paying child support?',
-      'when does child support terminate?',
-      'when does child support stop in ms?',
-      'My is 20 and no longer living with their gaudian',
-      'What is the age for emancipation for MS?',
-      'my child is 18 years old',
-      'my child is 18 when does child support stop',
-      'what is the age of emancipation?',
-      'emancipation age',
-      'How old can a child receive child support legally',
+      'At what age is child support terminated ', // add to emancipation-qa-age
+      'The child whom the child support order is for will be 21 years of age in November.  Does the parent have to notify DHS that the Child Support garnishment should end?', // *
+      'Multiple children on one case and one child is 21 years of age and doesn’t attend college.  Should I still be paying for that child?', // add to emancipation-qa-age
+      'If insurance was court ordered, what is the age that a child is removed ', // add to emancipation-qa-age
+      'What do I how to when your child done move out of your house', // add to emancipation-qa-age
+      'I have a question. Can a person be taken off child support or is it permanent? ', // add to emancipation-qa-age
+      'My child is 19 years old can I His mother pursue child support for him', // add to emancipation-qa-age
+      'What is the cut off age in Mississippi ', // add to emancipation-qa-age
+      'I need to know when my payments end my son turns 21 in august', // add to emancipation-qa-age
+      'When do you stop paying child support in Mississippi?', // add to emancipation-qa-age
+      'I would like to know when can one stop paying child support ', // add to emancipation-qa-age
+      'Does it end at 18', // add to emancipation-qa-age
+      'What is the age of majority ', // add to emancipation-qa-age
+      'what age does child support stop', // add to emancipation-qa-age
+      'my child turns 21 in a few months...will you stop collecting child support from me at that time?', // add to emancipation-qa-age
+      'How old does a child have to be to stop receiving child support', // add to emancipation-qa-age
+      'Can a parent receive child support for a child where the child does not reside .The child lives with grandparents who have custody', // *
+      'What if I get married ', // *
+      'when can i stop paying child support', // add to emancipation-qa-age
+      'My daughter is 14 can I still get support for her', // add to emancipation-qa-age
+      'What is the legal age that a non custodial parent pay child support in MS', // add to emancipation-qa-age
+      'Can my child still receive assistance after she turns 21? ', // add to emancipation-qa-age
+      'My son is 21 and incarcerated should i still be paying child support', // add to emancipation-qa-age
+      'how long after all children have turned 18 do the support continue ', // add to emancipation-qa-age
+      'what if they child is over 21', // add to emancipation-qa-age
+      'My son turned 21 on 5/6/19. Yet the support is still being taken from my paycheck. ', // add to emancipation-qa-age
+      'Yes I have a question.. wouldn’t I be required to pay child support until my child is 18 UNLESS he’s in school all the way to 21 ? Is that correct ? ', // *
+      'whats the the law for the emancipation ', // add to emancipation-qa-age
+      'What is the age for emancipation for MS?', // add to emancipation-qa-age
+      'what is the emancipation age for the state of ms?', // add to emancipation-qa-age
+      'what is the emancipation age for the state of mississippi?', // add to emancipation-qa-age
+      'What is the age for emancipation for MS?', // add to emancipation-qa-age
+      'when can i stop paying child support?', // add to emancipation-qa-age
+      'when does child support terminate?', // add to emancipation-qa-age
+      'when does child support stop in ms?', // add to emancipation-qa-age
+      'My is 20 and no longer living with their gaudian', // add to emancipation-qa-age
+      'What is the age for emancipation for MS?', // add to emancipation-qa-age
+      'my child is 18 years old', // add to emancipation-qa-age
+      'my child is 18 when does child support stop', // add to emancipation-qa-age
+      'what is the age of emancipation?', // add to emancipation-qa-age
+      'emancipation age', // add to emancipation-qa-age
+      'How old can a child receive child support legally', // add to emancipation-qa-age
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 22 },
