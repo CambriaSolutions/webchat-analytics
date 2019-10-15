@@ -2490,111 +2490,111 @@ const data = {
   'account balance': {
     occurences: 105,
     queries: [
-      'Check balance ',
-      'How can I check my balance on this site? It does not show this',
-      'I need to check my payment ',
-      'Number to check child support balance',
-      'to check status of payment ',
-      'I’m trying to find out if I have had a check deposited ',
-      'Find balance owef',
-      'Just trying to check my balance',
-      'Checking balance online',
-      'How can I set up an account to check my balance online?',
-      'Check my account ',
-      'Check my balance ',
-      'i want to check my child support payments',
-      'How can i check on a pending payment ',
-      'How to find out my balance on child support ',
-      'Check my account',
-      "I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on",
-      'I need to know the amount that was collected on my child support account ',
-      'How can I find out when my money is on my card',
-      'Check balance online',
-      'How do I find out how much money I owe in child support?',
-      'I’m trying to check the arrearage on my account',
-      'What is the website to check my card balance ',
-      'Check balance ',
-      'Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf',
-      "I'm trying to see what my balance is for my child support it suppose to be over with this month",
-      'Check child support balance ',
-      'Checking my balance',
-      'need to check my balance on my card',
-      'can i get my final balance ',
-      'get a statement of account',
-      'How do I find out my current balance ',
-      'How can I find out the balance I owe on back child support',
-      'Where do i check account balances',
-      'Is there an app to check my balance',
-      'Check my card balance ',
-      'I want to check my online account ',
-      'Checking my account ',
-      'I want to check annoys case to see if there is money available ',
-      'how do i check if a balance is owed to me on my account',
-      'Can u check  my account',
-      'How do I find out my balance?',
-      'How do I check my child support balance using my social or account number',
-      'Is there a way I can check payment online? ',
-      'Checking my balance',
-      'Trying to check and see about a payment ',
-      'What is the DIGITS to check  balance ',
-      "I can't check my balance it send me to customer service",
-      'Need to check balance',
-      'I need to check my payment',
-      'Is there an online website to check child support balance owed',
-      'Is there a way to check owed balance ',
-      'check balance',
-      "I'm trying to check my child support balance.",
-      'Just want to check on deposit',
-      "I'm trying to find the balance of my account",
-      'How can I check my daughter”s SSI online ',
-      'How can I check child support payments online',
-      'How can I check payments',
-      'Check balance ',
-      'how can i check the balance of child support my child is due ',
-      'How Do I Find Out How Much Money Is Available ',
-      'Get balance',
-      'How can I check my child support payments',
-      'How to check payment online ',
-      'How do I check my balance online ',
-      'How can I get my funds deposited into my own account ',
-      'what is the number to call to get my balance owed',
-      'need to check on my child support payment',
-      'trying to see is it render blance on my case ',
-      'Balance check',
-      'Trying to check balance online',
-      'Checking my rear balances',
-      'I’m here trying to check on my funds',
-      'How do I get my balance on my child support ',
-      'Yes how can i check on the balance of my child support ',
-      'How do I get a statement of balance due',
-      'I am trying to find out how to log on to check my child support',
-      'can i check my balance online',
-      'Check on my child support ',
-      'I need to check if payment has been made',
-      'checking if my payment have been recieved',
-      'The number to check my balance ',
-      'When I call to try to change my balance  it says we have an important message about your account ',
-      'is there anyway i can check my balance online',
-      'How can I check on my payments ',
-      'I’m trying to get an online acct to check my payments and activity ',
-      'How can I check my account balance',
-      'Trying to be able to check my balance on line',
-      'Can I check my child support payments online ',
-      'Money PERSON_NAME ',
-      'to see if a payment been made on my case',
-      'I’m trying to see if July 4 will affect when I get my money PERSON_NAME? ',
-      'I want to know how much i have paid',
-      'How can I have a partial payment deducted from my bank account ',
-      'Money PERSON_NAME ',
-      "How do I check to see if I've received a payment?",
-      'How to check balance ',
-      'How can i check on accout ',
-      'Checking my balance',
-      'I’m trying to  find out if money has been deposited  ',
-      'Where my DIGITS dollars ',
-      'Tryn to see about my existing account with my funds',
-      'How can I retrieve my payment?',
-      'Check my balance',
+      'Check balance ', // add to pmtMethods-eCheckDebit
+      'How can I check my balance on this site? It does not show this', // add to pmtMethods-eCheckDebit
+      'I need to check my payment ', // add to pmtMethods-eCheckDebit
+      'Number to check child support balance', // add to pmtMethods-eCheckDebit
+      'to check status of payment ', // add to pmtMethods-eCheckDebit
+      'I’m trying to find out if I have had a check deposited ', // add to pmtMethods-eCheckDebit
+      'Find balance owef', // add to pmtMethods-eCheckDebit
+      'Just trying to check my balance', // add to pmtMethods-eCheckDebit
+      'Checking balance online', // add to pmtMethods-eCheckDebit
+      'How can I set up an account to check my balance online?', // add to pmtMethods-eCheckDebit
+      'Check my account ', // add to pmtMethods-eCheckDebit
+      'Check my balance ', // add to pmtMethods-eCheckDebit
+      'i want to check my child support payments', // add to pmtMethods-eCheckDebit
+      'How can i check on a pending payment ', // add to pmtMethods-eCheckDebit
+      'How to find out my balance on child support ', // add to pmtMethods-eCheckDebit
+      'Check my account', // add to pmtMethods-eCheckDebit
+      "I'll call the one eight hundred number, and it says that I have got 98 dollars deposited in my account, but every time I called the line, it says that I don't have nothing in my account, so I'm trying to see what is really going on", // *
+      'I need to know the amount that was collected on my child support account ', // add to pmtMethods-eCheckDebit
+      'How can I find out when my money is on my card', // add to pmtMethods-eCheckDebit
+      'Check balance online', // add to pmtMethods-eCheckDebit
+      'How do I find out how much money I owe in child support?', // mislabeled, added to arrears
+      'I’m trying to check the arrearage on my account', // mislabeled, added to arrears
+      'What is the website to check my card balance ', // add to pmtMethods-eCheckDebit
+      'Check balance ', // add to pmtMethods-eCheckDebit
+      'Why cant I see my full amount all I see is only one deposit I cant see the savings account for tanf', // *
+      "I'm trying to see what my balance is for my child support it suppose to be over with this month", // add to pmtMethods-eCheckDebit
+      'Check child support balance ', // add to pmtMethods-eCheckDebit
+      'Checking my balance', // add to pmtMethods-eCheckDebit
+      'need to check my balance on my card', // add to pmtMethods-eCheckDebit
+      'can i get my final balance ', // add to pmtMethods-eCheckDebit
+      'get a statement of account', // mislabeled, added to documentation
+      'How do I find out my current balance ', // add to pmtMethods-eCheckDebit
+      'How can I find out the balance I owe on back child support', // add to pmtMethods-eCheckDebit
+      'Where do i check account balances', // add to pmtMethods-eCheckDebit
+      'Is there an app to check my balance', // add to pmtMethods-eCheckDebit
+      'Check my card balance ', // add to pmtMethods-eCheckDebit
+      'I want to check my online account ', // add to pmtMethods-eCheckDebit
+      'Checking my account ', // add to pmtMethods-eCheckDebit
+      'I want to check annoys case to see if there is money available ', // add to pmtMethods-eCheckDebit
+      'how do i check if a balance is owed to me on my account', // add to pmtMethods-eCheckDebit
+      'Can u check  my account', // add to pmtMethods-eCheckDebit
+      'How do I find out my balance?', // add to pmtMethods-eCheckDebit
+      'How do I check my child support balance using my social or account number', // add to pmtMethods-eCheckDebit
+      'Is there a way I can check payment online? ', // add to pmtMethods-eCheckDebit
+      'Checking my balance', // add to pmtMethods-eCheckDebit
+      'Trying to check and see about a payment ', // add to pmtMethods-eCheckDebit
+      'What is the DIGITS to check  balance ', // add to pmtMethods-eCheckDebit
+      "I can't check my balance it send me to customer service", // add to pmtMethods-eCheckDebit
+      'Need to check balance', // add to pmtMethods-eCheckDebit
+      'I need to check my payment', // add to pmtMethods-eCheckDebit
+      'Is there an online website to check child support balance owed', // add to pmtMethods-eCheckDebit
+      'Is there a way to check owed balance ', // add to pmtMethods-eCheckDebit
+      'check balance', // add to pmtMethods-eCheckDebit
+      "I'm trying to check my child support balance.", // add to pmtMethods-eCheckDebit
+      'Just want to check on deposit', // add to pmtMethods-eCheckDebit
+      "I'm trying to find the balance of my account", // add to pmtMethods-eCheckDebit
+      'How can I check my daughter”s SSI online ', // *
+      'How can I check child support payments online', // add to pmtMethods-eCheckDebit
+      'How can I check payments', // add to pmtMethods-eCheckDebit
+      'Check balance ', // add to pmtMethods-eCheckDebit
+      'how can i check the balance of child support my child is due ', // add to pmtMethods-eCheckDebit
+      'How Do I Find Out How Much Money Is Available ', // add to pmtMethods-eCheckDebit
+      'Get balance', // add to pmtMethods-eCheckDebit
+      'How can I check my child support payments', // add to pmtMethods-eCheckDebit
+      'How to check payment online ', // add to pmtMethods-eCheckDebit
+      'How do I check my balance online ', // add to pmtMethods-eCheckDebit
+      'How can I get my funds deposited into my own account ', // add to pmtMethods-eCheckDebit
+      'what is the number to call to get my balance owed', // add to pmtMethods-eCheckDebit
+      'need to check on my child support payment', // add to pmtMethods-eCheckDebit
+      'trying to see is it render blance on my case ', // add to pmtMethods-eCheckDebit
+      'Balance check', // add to pmtMethods-eCheckDebit
+      'Trying to check balance online', // add to pmtMethods-eCheckDebit
+      'Checking my rear balances', // mislabeled, added to arrears
+      'I’m here trying to check on my funds', // add to pmtMethods-eCheckDebit
+      'How do I get my balance on my child support ', // add to pmtMethods-eCheckDebit
+      'Yes how can i check on the balance of my child support ', // add to pmtMethods-eCheckDebit
+      'How do I get a statement of balance due', // add to pmtMethods-eCheckDebit
+      'I am trying to find out how to log on to check my child support', // add to pmtMethods-eCheckDebit
+      'can i check my balance online', // add to pmtMethods-eCheckDebit
+      'Check on my child support ', // add to pmtMethods-eCheckDebit
+      'I need to check if payment has been made', // add to pmtMethods-eCheckDebit
+      'checking if my payment have been recieved', // add to pmtMethods-eCheckDebit
+      'The number to check my balance ', // add to pmtMethods-eCheckDebit
+      'When I call to try to change my balance  it says we have an important message about your account ', // add to pmtMethods-eCheckDebit
+      'is there anyway i can check my balance online', // add to pmtMethods-eCheckDebit
+      'How can I check on my payments ', // add to pmtMethods-eCheckDebit
+      'I’m trying to get an online acct to check my payments and activity ', // add to pmtMethods-eCheckDebit
+      'How can I check my account balance', // add to pmtMethods-eCheckDebit
+      'Trying to be able to check my balance on line', // add to pmtMethods-eCheckDebit
+      'Can I check my child support payments online ', // add to pmtMethods-eCheckDebit
+      'Money PERSON_NAME ', // *
+      'to see if a payment been made on my case', // add to pmtMethods-eCheckDebit
+      'I’m trying to see if July 4 will affect when I get my money PERSON_NAME? ', // *
+      'I want to know how much i have paid', // add to pmtMethods-eCheckDebit
+      'How can I have a partial payment deducted from my bank account ', // mislabeled, added to payment modification
+      'Money PERSON_NAME ', // *
+      "How do I check to see if I've received a payment?", // add to pmtMethods-eCheckDebit
+      'How to check balance ', // add to pmtMethods-eCheckDebit
+      'How can i check on accout ', // add to pmtMethods-eCheckDebit
+      'Checking my balance', // add to pmtMethods-eCheckDebit
+      'I’m trying to  find out if money has been deposited  ', // add to pmtMethods-eCheckDebit
+      'Where my DIGITS dollars ', // add to pmtMethods-eCheckDebit
+      'Tryn to see about my existing account with my funds', // add to pmtMethods-eCheckDebit
+      'How can I retrieve my payment?', // add to pmts-general-root
+      'Check my balance', // add to pmtMethods-eCheckDebit
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 24 },
