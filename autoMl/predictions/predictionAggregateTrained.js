@@ -4737,29 +4737,29 @@ const data = {
   fee: {
     occurences: 23,
     queries: [
-      'What am i paying 25 dollars for? ',
-      'do I pay 25 dollars if I reciev',
-      'The “coupons” state that you have to pay fees. What exactly are the fees ',
-      'What does the fees mean on the child support payments ',
-      'What is the purpose of the fee',
-      'What is the annual fee',
-      'Where do i submit the fee',
-      'How much is the  Application fee',
-      'How much is the fee',
-      'Do I have to pay 25 for an application fee',
-      'If i only recieve 50 dollars a month is there still a fee',
-      'Will I have to pay a fee there?',
-      'is there a fee for paying child support through the state?',
-      'Retain fee',
-      'Is there a fee',
-      'annual fee',
-      'Is the custodial or non-custodial parent responsible for the $35 annual fee?',
-      'Also, can I pay for the application fee on line with a debit card?',
-      'Does the state charge a processing fee to collect payment.',
-      'I have a charge of $120 on my credit score and all 3 of my sons are over 18 the youngest one is 23  how do I owe you this',
-      "I've never heard of paying money to start a case",
-      'I’ve already paid my $25 fee',
-      'Yes Can the $25 fee be paid in cash',
+      'What am i paying 25 dollars for? ', // suggest general fees intent
+      'do I pay 25 dollars if I reciev', // suggest general fees intent
+      'The “coupons” state that you have to pay fees. What exactly are the fees ', // suggest general fees intent
+      'What does the fees mean on the child support payments ', // suggest general fees intent
+      'What is the purpose of the fee', // suggest general fees intent
+      'What is the annual fee', // suggest general fees intent
+      'Where do i submit the fee', // suggest general fees intent
+      'How much is the  Application fee', // suggest general fees intent
+      'How much is the fee', // suggest general fees intent
+      'Do I have to pay 25 for an application fee', // suggest general fees intent
+      'If i only recieve 50 dollars a month is there still a fee', // suggest general fees intent
+      'Will I have to pay a fee there?', // suggest general fees intent
+      'is there a fee for paying child support through the state?', // suggest general fees intent
+      'Retain fee', // suggest general fees intent
+      'Is there a fee', // suggest general fees intent
+      'annual fee', // suggest general fees intent
+      'Is the custodial or non-custodial parent responsible for the $35 annual fee?', // suggest general fees intent
+      'Also, can I pay for the application fee on line with a debit card?', // suggest general fees intent
+      'Does the state charge a processing fee to collect payment.', // suggest general fees intent
+      'I have a charge of $120 on my credit score and all 3 of my sons are over 18 the youngest one is 23  how do I owe you this', // *
+      "I've never heard of paying money to start a case", // suggest general fees intent
+      'I’ve already paid my $25 fee', // suggest general fees intent
+      'Yes Can the $25 fee be paid in cash', // suggest general fees intent
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 6 },
