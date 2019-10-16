@@ -3,6 +3,10 @@ const fs = require('fs')
 const automl = require('@google-cloud/automl')
 const client = new automl.v1beta1.PredictionServiceClient({})
 
+// // Helpers
+// const formatContexts = require('./helpers/formatContexts')
+// const createExcelForReport = require('./helpers/createExcelForReport')
+
 const admin = require('firebase-admin')
 const { format } = require('date-fns')
 const serviceAccount = require('./analyticsKey.json')
@@ -15,7 +19,7 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
-const start = new Date('Jun 1 2019  00:00:00 GMT-0700 (Pacific Daylight Time)')
+const start = new Date('Sept 1 2019  00:00:00 GMT-0700 (Pacific Daylight Time)')
 const end = new Date('Oct 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 const intent = {
@@ -165,7 +169,10 @@ const performQuery = (start, end, intent) => {
     .then(intentDetails => {
       // Save full intent data
       fs.writeFile(
-        `./dataFiles_raw/fallbackFullDetails_${start}_${end}.json`,
+        `./dataFiles_raw/fallbackFullDetails_${format(start, 'MM-DD')}-${format(
+          end,
+          'MM-DD'
+        )}.json`,
         JSON.stringify(intentDetails),
         err => {
           if (err) throw err
@@ -174,6 +181,13 @@ const performQuery = (start, end, intent) => {
       )
       predict(intentDetails)
     })
+    // .then(() => {
+    //   console.log(`${format(start, 'MM-DD')}-${format(end, 'MM-DD')}`)
+    //   formatContexts(`${format(start, 'MM-DD')}-${format(end, 'MM-DD')}`)
+    // })
+    // .then(() => {
+    //   createExcelForReport(`${format(start, 'MM-DD')}-${format(end, 'MM-DD')}`)
+    // })
     .catch(err => console.log(err))
 }
 

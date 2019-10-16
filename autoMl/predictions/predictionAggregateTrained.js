@@ -3017,10 +3017,10 @@ const data = {
   paternity: {
     occurences: 78,
     queries: [
-      'Paternity test form',
-      "What are the next step when the father didn't come to his appointment to take DNA?",
-      'trying to see if i can change my child last name in the divorce court with my dna paper',
-      'Yes I have another child to put on child support ',
+      'Paternity test form', // add to geneticTesting-request
+      "What are the next step when the father didn't come to his appointment to take DNA?", // *
+      'trying to see if i can change my child last name in the divorce court with my dna paper', // *
+      'Yes I have another child to put on child support ', //
       'Paternity test ',
       'blood test ',
       ' Do they do paternity test ?',

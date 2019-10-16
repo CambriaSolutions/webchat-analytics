@@ -1,6 +1,6 @@
 const Excel = require('exceljs')
 const workbook = new Excel.Workbook()
-const aggregate = require('../predictions/predictionAggregate_06-01-07-01.json')
+const aggregate = require('../predictions/predictionAggregate_06-01-10-01.json')
 
 const cellDictionary = {
   category: 'A',
@@ -158,4 +158,4 @@ for (const key in aggregate) {
   })
 }
 
-workbook.xlsx.writeFile('./fileAggregate.xlsx')
+workbook.xlsx.writeFile('./fileAggregate_06-01-10-01.xlsx')
