@@ -4480,45 +4480,45 @@ const data = {
   fax: {
     occurences: 39,
     queries: [
-      'i just need a fax or email ',
-      'I need a fax number to fax information to regarding the info requested to receive another card',
-      'Hi I need a fax number for child support services in PERSON_NAME mississippi',
-      'do I mail a letter? ',
-      'can i fax the apllication in',
-      'Please send information via fax to: PHONE_NUMBER ATTN: PERSON_NAME Terlouw - Payroll',
-      'Where can I fax in a document ',
-      'So can i have the fax number',
-      'i Know the one by me i only need a fax number',
-      "I'm simply looking for a fax number.",
-      'fax number',
-      'What is the fax number ',
-      'i need a fax number to send in forms',
-      'fax number',
-      'fax',
-      'Fax number ',
-      'I am an employer trying to fax Child Support data that was requested and the number on the fax PHONE_NUMBER is not working.  Is there another number I can use?',
-      'fax number',
-      'Need a fax number to send in my written notice',
-      'fax number',
-      'can you give me the fax to where to send medical support form ',
-      'need fax number',
-      'Fax Number',
-      'I would like an email or fax to send this to. The case worker is PERSON_NAME Garner. Case PHONE_NUMBER',
-      "what's the fax number for Hernando ms",
-      'Fax number ',
-      'What is the fax number',
-      'I just need the Email or Fax Number to send you the letter. ',
-      'Fax number for Panola County DHS',
-      'What is the fax number for employer information request forms?',
-      'WHAT IS YOUR FAX',
-      'FAX NUMBER',
-      'PHONE_NUMBER IS THIS YOUR FAX FOR EMPLOYERS',
-      'Fax # please',
-      'may I have the fax number to submit a change of address',
-      'Looking for a local fax number in Greenville ms',
-      'i am looking for a fax or email to submit a medical insurance support orders for one of my employees.',
-      'what is the fax number to send a child support verification form to from a goverment agency',
-      'is there a fax number to send information to',
+      'i just need a fax or email ', // suggest fax intent
+      'I need a fax number to fax information to regarding the info requested to receive another card', // suggest fax intent
+      'Hi I need a fax number for child support services in PERSON_NAME mississippi', // suggest fax intent
+      'do I mail a letter? ', // *
+      'can i fax the apllication in', // suggest fax intent
+      'Please send information via fax to: PHONE_NUMBER ATTN: PERSON_NAME Terlouw - Payroll', // suggest fax intent
+      'Where can I fax in a document ', // suggest fax intent
+      'So can i have the fax number', // suggest fax intent
+      'i Know the one by me i only need a fax number', // suggest fax intent
+      "I'm simply looking for a fax number.", // suggest fax intent
+      'fax number', // suggest fax intent
+      'What is the fax number ', // suggest fax intent
+      'i need a fax number to send in forms', // suggest fax intent
+      'fax number', // suggest fax intent
+      'fax', // suggest fax intent
+      'Fax number ', // suggest fax intent
+      'I am an employer trying to fax Child Support data that was requested and the number on the fax PHONE_NUMBER is not working.  Is there another number I can use?', // *
+      'fax number', // suggest fax intent
+      'Need a fax number to send in my written notice', // suggest fax intent
+      'fax number', // suggest fax intent
+      'can you give me the fax to where to send medical support form ', // suggest fax intent
+      'need fax number', // suggest fax intent
+      'Fax Number', // suggest fax intent
+      'I would like an email or fax to send this to. The case worker is PERSON_NAME Garner. Case PHONE_NUMBER', // suggest fax intent
+      "what's the fax number for Hernando ms", // suggest fax intent
+      'Fax number ', // suggest fax intent
+      'What is the fax number', // suggest fax intent
+      'I just need the Email or Fax Number to send you the letter. ', // suggest fax intent
+      'Fax number for Panola County DHS', // suggest fax intent
+      'What is the fax number for employer information request forms?', // suggest fax intent
+      'WHAT IS YOUR FAX', // suggest fax intent
+      'FAX NUMBER', // suggest fax intent
+      'PHONE_NUMBER IS THIS YOUR FAX FOR EMPLOYERS', // suggest fax intent
+      'Fax # please', // suggest fax intent
+      'may I have the fax number to submit a change of address', // suggest fax intent
+      'Looking for a local fax number in Greenville ms', // suggest fax intent
+      'i am looking for a fax or email to submit a medical insurance support orders for one of my employees.', // suggest fax intent
+      'what is the fax number to send a child support verification form to from a goverment agency', // suggest fax intent
+      'is there a fax number to send information to', // suggest fax intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 12 },
