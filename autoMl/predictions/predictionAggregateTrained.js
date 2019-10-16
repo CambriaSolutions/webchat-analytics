@@ -3973,64 +3973,64 @@ const data = {
   'account information': {
     occurences: 58,
     queries: [
-      "i don't have a username",
-      'Is there anyway you can Have somebody come out here her name is PERSON_NAME',
-      'I dont have my account number',
-      'Can you tell me how to set up an online account',
-      "It's not set up on neither of my accounts ",
-      'I said SSN',
-      'What’s the name of the app I can download to see when I get payments ',
-      'My name is tierrus Parker ',
-      'I dont have his ssn',
-      'I would like to know what app name for child support pay online ?',
-      'Look up current account ',
-      'Whats the number to check your post date of your funds in ms',
-      'when was the last deposit posted to my account',
-      'How can I check my online information ',
-      'How to login to my case',
-      'who are you',
-      "What is the child support number that I can use to see if anything is posted on my son's account when there are multiple children on one case ",
-      'I need to know if I’m done with making payments to child support ',
-      'Where do I find my next payment amount and date',
-      'I already get direct deposit... I was trying to see was there a way to check online to see when was my last payment made',
-      'Is the family group number the same thing as case number?',
-      'What address is on file ',
-      'Are they canceling bank plan for child support in the PERSON_NAME county in PERSON_NAME Mississippi',
-      'my name is elvin leahman III  ss# DIGITS',
-      'How to view statements onlibe',
-      'How can I view letters that were sent from my case worker',
-      'how do i get info about my case',
-      'How do I close my case',
-      'I had the case number to my account how can I check it ',
-      'I want to know when was the last payment made on my case ',
-      'I wanted to see if there was an online account that I could look at for my case',
-      'How to view bill',
-      'how can I  close my case?',
-      "I'm trying to see if my account is up to date",
-      'How can I locate my account number',
-      'how can I the routing number to pay my child support with out having to set up a garnishment and how  will the account number be the case number',
-      'Is there a website to view my case?',
-      'What time do you post it on the account ',
-      'I need to know my in arrears balance and when the last payment was made and my case workers name',
-      'Do you have to have a case number for the eCheck/bank account debit?',
-      'How do I see my case file, where do I go?',
-      'need to know were yo pull up my cases',
-      'I am the person that will receive the payments',
-      'How much do I get in child support',
-      'how much should i get in child support  ',
-      'How do I log in to see my childsuport case?',
-      'What is my caseworker name ',
-      'I am inquiring about my case ',
-      'My name is PERSON_NAME and my son name PERSON_NAME and the father name PERSON_NAME. I need to talk to some one because I have found out we’re my son dad is working. And I what to know what going on with my case. My number isPHONE_NUMBER ',
-      'who is my caseworker',
-      'How can I see my case?',
-      "I have a question about my case but don't know how to directly get in contact with my case worker ",
-      'Is there anything pending to my account ',
-      'How can I see my case online',
-      "How do I find out if my child's father is on child support for my child?",
-      'Can you tell me when that last payment was made?',
-      'By giving you the case number, can I find out which child the money is for? My husband isn’t here and I need if this is the right one ',
-      'Can u tell me if i have anything  pending ',
+      "i don't have a username", // suggest account information
+      'Is there anyway you can Have somebody come out here her name is PERSON_NAME', // suggest account information
+      'I dont have my account number', // suggest account information
+      'Can you tell me how to set up an online account', // mislabeled, online action
+      "It's not set up on neither of my accounts ", // suggest account information
+      'I said SSN', // *
+      'What’s the name of the app I can download to see when I get payments ', // mislabeled, online action
+      'My name is tierrus Parker ', // *
+      'I dont have his ssn', // *
+      'I would like to know what app name for child support pay online ?', // suggest account information
+      'Look up current account ', // suggest account information
+      'Whats the number to check your post date of your funds in ms', // suggest account information
+      'when was the last deposit posted to my account', // suggest account information
+      'How can I check my online information ', // mislabled, online action
+      'How to login to my case', // mislabeled, online action
+      'who are you', // *
+      "What is the child support number that I can use to see if anything is posted on my son's account when there are multiple children on one case ", // *
+      'I need to know if I’m done with making payments to child support ', // mislabeled, payment timelines
+      'Where do I find my next payment amount and date', // add to pmtQA-NCP-payment-status
+      'I already get direct deposit... I was trying to see was there a way to check online to see when was my last payment made', // add to pmtQA-NCP-payment-status
+      'Is the family group number the same thing as case number?', // *
+      'What address is on file ', // suggest account information
+      'Are they canceling bank plan for child support in the PERSON_NAME county in PERSON_NAME Mississippi', // *
+      'my name is elvin leahman III  ss# DIGITS', // *
+      'How to view statements onlibe', // add to pmtQA-NCP-payment-status
+      'How can I view letters that were sent from my case worker', // *
+      'how do i get info about my case', // mislabeled, online action
+      'How do I close my case', // mislabeled, terminate
+      'I had the case number to my account how can I check it ', // suggest account information
+      'I want to know when was the last payment made on my case ', // add to pmtQA-NCP-payment-status
+      'I wanted to see if there was an online account that I could look at for my case', // suggest account information
+      'How to view bill', // suggest account information
+      'how can I  close my case?', // mislabeled, terminate
+      "I'm trying to see if my account is up to date", // suggest account information
+      'How can I locate my account number', // suggest account information
+      'how can I the routing number to pay my child support with out having to set up a garnishment and how  will the account number be the case number', // *
+      'Is there a website to view my case?', // suggest account information
+      'What time do you post it on the account ', // *
+      'I need to know my in arrears balance and when the last payment was made and my case workers name', // suggest account information
+      'Do you have to have a case number for the eCheck/bank account debit?', // suggest account information
+      'How do I see my case file, where do I go?', // suggest account information
+      'need to know were yo pull up my cases', // suggest account information
+      'I am the person that will receive the payments', // *
+      'How much do I get in child support', // suggest account information
+      'how much should i get in child support  ', // suggest account information
+      'How do I log in to see my childsuport case?', // mislabeled, online action
+      'What is my caseworker name ', // suggest account information
+      'I am inquiring about my case ', // suggest account information
+      'My name is PERSON_NAME and my son name PERSON_NAME and the father name PERSON_NAME. I need to talk to some one because I have found out we’re my son dad is working. And I what to know what going on with my case. My number isPHONE_NUMBER ', // *
+      'who is my caseworker', // suggest account information
+      'How can I see my case?', // suggest account information
+      "I have a question about my case but don't know how to directly get in contact with my case worker ", // suggest account information
+      'Is there anything pending to my account ', // add to pmtQA-NCP-payment-status
+      'How can I see my case online', // suggest account information
+      "How do I find out if my child's father is on child support for my child?", // suggest account information
+      'Can you tell me when that last payment was made?', // add to pmtQA-NCP-payment-status
+      'By giving you the case number, can I find out which child the money is for? My husband isn’t here and I need if this is the right one ', // *
+      'Can u tell me if i have anything  pending ', // suggest account information
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 12 },
