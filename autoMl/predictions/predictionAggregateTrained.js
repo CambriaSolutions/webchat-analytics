@@ -4983,19 +4983,19 @@ const data = {
   incarceration: {
     occurences: 13,
     queries: [
-      'When send out locator for non custodial parent will he go to jail',
-      'Can I make child support payments for someone who is in Desoto county ms jail for failure to pay child supports may I send in payments',
-      'My sons dad just got out of jail. He hasn’t paid since April. What’s the next step?',
-      'My children dad is in jail',
-      'What if the noncustodial parent is incarcerated ',
-      'I need talk to someone bout my daughter father got out of prison ',
-      'If he is in jail or prison, how do I get my child support?',
-      'I got a letter in the mail about my child’s father being an absent parent he’s not an absent parent his just in prison for a few years',
-      'Hello - I am a mom of two children that their father is incarcerated since March. He is my ex husband and will get life or death penalty in prison. I am currently homeless as well as jobless. No child support. Is there any help ',
-      'family violence',
-      'Yes! Who do I talk to about getting the non custodial parent arrested?',
-      'Can I put my child’s father on child support even though he’s in prison ',
-      'My sons dad is in prison so I won’t receive anything from him but I need my son on my stamp case and I don’t want my son to have his Medicaid cut so how do I handle this',
+      'When send out locator for non custodial parent will he go to jail', // *
+      'Can I make child support payments for someone who is in Desoto county ms jail for failure to pay child supports may I send in payments', // add to support-qa-ncp-prison
+      'My sons dad just got out of jail. He hasn’t paid since April. What’s the next step?', // add to support-qa-ncp-prison
+      'My children dad is in jail', // add to support-qa-ncp-prison
+      'What if the noncustodial parent is incarcerated ', // add to support-qa-ncp-prison
+      'I need talk to someone bout my daughter father got out of prison ', // add to support-qa-ncp-prison
+      'If he is in jail or prison, how do I get my child support?', // add to support-qa-ncp-prison
+      'I got a letter in the mail about my child’s father being an absent parent he’s not an absent parent his just in prison for a few years', // add to support-qa-ncp-prison
+      'Hello - I am a mom of two children that their father is incarcerated since March. He is my ex husband and will get life or death penalty in prison. I am currently homeless as well as jobless. No child support. Is there any help ', // *
+      'family violence', // *
+      'Yes! Who do I talk to about getting the non custodial parent arrested?', // *
+      'Can I put my child’s father on child support even though he’s in prison ', // add to support-qa-ncp-prison
+      'My sons dad is in prison so I won’t receive anything from him but I need my son on my stamp case and I don’t want my son to have his Medicaid cut so how do I handle this', // *
     ],
     contexts: [
       { name: 'waiting-feedback-root', count: 3 },
@@ -5018,19 +5018,19 @@ const data = {
   appointments: {
     occurences: 13,
     queries: [
-      'Number to schedule DNA appointment?',
-      'Father doesn’t appear for appointment ',
-      'I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ',
-      'I need to schedule an appointment to provide employer information for my ex',
-      'can i schudele an appointment',
-      'Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ',
-      'Need an appt',
-      'I need help scheduling an appointment for the first time',
-      'When can you help me get appointment',
-      'schedule an appointment',
-      'Schedule an appointment ',
-      'do I schedule appointments or walk in? ',
-      'Who can I call to schedule an appointment in tupelo ms',
+      'Number to schedule DNA appointment?', // mislabeled, added to paternity
+      'Father doesn’t appear for appointment ', // add to appts-root
+      'I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ', // add to appts-root
+      'I need to schedule an appointment to provide employer information for my ex', // add to appts-root
+      'can i schudele an appointment', // add to appts-root
+      'Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ', // *
+      'Need an appt', // add to appts-root
+      'I need help scheduling an appointment for the first time', // add to appts-root
+      'When can you help me get appointment', // add to appts-root
+      'schedule an appointment', // add to appts-root
+      'Schedule an appointment ', // add to appts-root
+      'do I schedule appointments or walk in? ', // add to appts-root
+      'Who can I call to schedule an appointment in tupelo ms', // add to appts-root
     ],
     contexts: [
       { name: 'waiting-feedback-root', count: 9 },
@@ -5054,19 +5054,19 @@ const data = {
   refund: {
     occurences: 13,
     queries: [
-      'refund',
-      'Im trying to see how much ive over paid on my childsupport case because i recieveda letter stating i had over paid.',
-      'Can I get money back if I have an order from the court to stop taking money the you still did for over a year',
-      'I have a question about a specific order and a refund that was returned to employer',
-      'Refund of overpayments',
-      'Refund of overpayments',
-      'Im done making payments when will i get my reimbursement check',
-      'Overpaid ',
-      'Overpaid yearly',
-      'My is way behind on child support... I have already been told that if he pays something every 3 months that there is nothing y’all will do.  Is there not a way to get his it’s refund when he filed taxes?',
-      'Refund on overpayment',
-      'Over paid ',
-      "I'm looking for an over payment i made few months back i never was entitled to. ",
+      'refund', // suggest refund intent
+      'Im trying to see how much ive over paid on my childsupport case because i recieveda letter stating i had over paid.', // suggest refund intent
+      'Can I get money back if I have an order from the court to stop taking money the you still did for over a year', // suggest refund intent
+      'I have a question about a specific order and a refund that was returned to employer', // suggest refund intent
+      'Refund of overpayments', // suggest refund intent
+      'Refund of overpayments', // suggest refund intent
+      'Im done making payments when will i get my reimbursement check', // suggest refund intent
+      'Overpaid ', // suggest refund intent
+      'Overpaid yearly', // suggest refund intent
+      'My is way behind on child support... I have already been told that if he pays something every 3 months that there is nothing y’all will do.  Is there not a way to get his it’s refund when he filed taxes?', // *
+      'Refund on overpayment', // suggest refund intent
+      'Over paid ', // suggest refund intent
+      "I'm looking for an over payment i made few months back i never was entitled to. ", // suggest refund intent
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 4 },
@@ -5086,18 +5086,18 @@ const data = {
   'cant make payments': {
     occurences: 12,
     queries: [
-      'career opportunities',
-      'I need a job ',
-      "I'm unemployed ",
-      'Lost a job',
-      'Lost of job',
-      'Career opportunities ',
-      'lost a job',
-      "I can't afford to but my kids school uniforms what do i do is there any help",
-      'No job',
-      'Unemployed ',
-      'Payment continues to increase but my income is decreasing. ',
-      'He works but he gets paid cash ',
+      'career opportunities', // add to pmtMethods-cant-make
+      'I need a job ', // add to pmtMethods-cant-make
+      "I'm unemployed ", // add to pmtMethods-cant-make
+      'Lost a job', // add to pmtMethods-cant-make
+      'Lost of job', // add to pmtMethods-cant-make
+      'Career opportunities ', // add to pmtMethods-cant-make
+      'lost a job', // add to pmtMethods-cant-make
+      "I can't afford to but my kids school uniforms what do i do is there any help", // *
+      'No job', // add to pmtMethods-cant-make
+      'Unemployed ', // add to pmtMethods-cant-make
+      'Payment continues to increase but my income is decreasing. ', // add to pmtMethods-cant-make
+      'He works but he gets paid cash ', // add to pmtMethods-cant-make
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 3 },
