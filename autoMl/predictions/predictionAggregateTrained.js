@@ -3020,81 +3020,81 @@ const data = {
       'Paternity test form', // add to geneticTesting-request
       "What are the next step when the father didn't come to his appointment to take DNA?", // *
       'trying to see if i can change my child last name in the divorce court with my dna paper', // *
-      'Yes I have another child to put on child support ', //
-      'Paternity test ',
-      'blood test ',
-      ' Do they do paternity test ?',
-      'paternity test',
-      'Adoption',
-      'I am looking for a Voluntary Acknowledgement Of Paternity Form',
-      'I am trying to figure out who is the father of metss no. 617420627A',
-      'Paternity',
-      'Paternity test ',
-      'My name is PERSON_NAME and I was placed on child support by PERSON_NAME of Hazlehurst, Ms. for a child who is 32 years, PERSON_NAME and I would like to have a blood test.',
-      'I was placed on child support for a child who is 32 years old, who she told me was somebody else’s child.',
-      'How do I get a blood test',
-      'Does Mississippi offer free paternity test by going through DHS?',
-      'Paternity test',
-      'I am the custodial parent',
-      'There was a DNA test done and I was wanting to know if the results were in',
-      "I'm trying to get a DNA on 2",
-      'establish paternity',
-      'i am the custodial parent',
-      'I’m trying to petition a paternity test I’m not the child’s father and I’m on child support and paying for a child that isn’t mine',
-      'Dna test',
-      'I want to get a blood test for a child ',
-      'I’m inquiring about my dna results. I haven’t received them yet. ',
-      'im trying to establish paternity to get my name removed from a birth certificate',
-      'Do y’all do free DNA test ',
-      'If one guy is on child support for a child and you get legal documentation that another guy is the father. will the first guy be taking off child support ',
-      'paternity',
-      'That the child belongs to another man , how do I get that information',
-      "I'm trying to see how to get records of a mother and a guy who had a paternity test saying",
-      'How much for paternity test',
-      'paternity test',
-      'DNA testing ',
-      "I'm trying to get a DNA test for my child. ",
-      'My son has been told that his ex-girlfriend is pregnant with his baby.  He would like to get help on getting a dna test so if the child is his he can support the child',
-      'Paternity test ',
-      'Establish paternity ',
-      'DNA testing ',
-      'Paternity testing ',
-      'My son is trying to get his child’s name changed to his name on her birth certificate. Currently the baby just has moms name. Does he have to hire an attorney in Mississippi to do this or can he just fill out some paperwork or get a dna test',
-      'I am trying to check on paternity results.',
-      'acknowledgement of paternity',
-      'DNA test',
-      'I was wondering the status of my case, the father of my child said he took the DNA test but no one has reached out to me to test my son.',
-      'Proof of Paternity Test Results',
-      'How do I establish paternity of a Girl they say is my Husbands',
-      'Is dna testing free ',
-      'How to get a paternity test',
-      'How do the non custodian parent go about getting a paternity test done and visitation rights',
-      'I want to know how long do it take to get DNA RESULTS',
-      'How do i get a dna test ',
-      'I am the custodial parent. ',
-      'I need to see how I can get a copy of DNA results proving paternity',
-      'Neither i am the child ',
-      'I want to know where to go in PERSON_NAME MS to get a free DNA test',
-      'How do I set up a paternity test',
-      'Question is this: after being confirmed the father through DNA swab, what rights does the father have with that child (visiting, time with the child... etc.)?',
-      'Paternity test',
-      'Trying find out about doing a DNA TEST ',
-      "How long is the child support process. I filed in April and received paternity results, but haven't heard anything yet.",
-      'I was trying to see if I could request a blood test even though I’m the mother ?',
-      'adoption',
-      'My child father hasn’t token the dna test how do I get that done ',
-      'My son was just told to go get tested for DNA for child if he is the father will this bother his baseball scholarship ',
-      'There is no father on the birth certificate and there is no DNA test stating who the father is of my youngest, so there is no one to collect child support from',
-      'I’m trying to see get a DNA TEST done on my baby father ',
-      'DNA testing ',
-      'Genetic testing ',
-      'Can child support order paternity test for a unwedded mother',
-      'DNA Testing',
-      'My fiancé was married to a woman who cheated on him and had a baby. She had her boyfriend sign the birth certificate. She is now receiving food stamps and is married to the boyfriend. Can he request a paternity test?',
-      'Procedures to get blood test',
+      'Yes I have another child to put on child support ', // mislabeled, added to open case
+      'Paternity test ', // add to geneticTesting-request
+      'blood test ', // add to geneticTesting-request
+      ' Do they do paternity test ?', // add to geneticTesting-request
+      'paternity test', // add to geneticTesting-request
+      'Adoption', // *
+      'I am looking for a Voluntary Acknowledgement Of Paternity Form', // add to geneticTesting-request
+      'I am trying to figure out who is the father of metss no. 617420627A', // *
+      'Paternity', // add to geneticTesting-request
+      'Paternity test ', // add to geneticTesting-request
+      'My name is PERSON_NAME and I was placed on child support by PERSON_NAME of Hazlehurst, Ms. for a child who is 32 years, PERSON_NAME and I would like to have a blood test.', // *
+      'I was placed on child support for a child who is 32 years old, who she told me was somebody else’s child.', // add to geneticTesting-request
+      'How do I get a blood test', // add to geneticTesting-request
+      'Does Mississippi offer free paternity test by going through DHS?', // add to geneticTesting-request
+      'Paternity test', // add to geneticTesting-request
+      'I am the custodial parent', // *
+      'There was a DNA test done and I was wanting to know if the results were in', // add to geneticTesting-request
+      "I'm trying to get a DNA on 2", // add to geneticTesting-request
+      'establish paternity', // add to geneticTesting-request
+      'i am the custodial parent', // *
+      'I’m trying to petition a paternity test I’m not the child’s father and I’m on child support and paying for a child that isn’t mine', // *
+      'Dna test', // add to geneticTesting-request
+      'I want to get a blood test for a child ', // add to geneticTesting-request
+      'I’m inquiring about my dna results. I haven’t received them yet. ', // add to geneticTesting-request
+      'im trying to establish paternity to get my name removed from a birth certificate', // add to geneticTesting-request
+      'Do y’all do free DNA test ', // add to geneticTesting-request
+      'If one guy is on child support for a child and you get legal documentation that another guy is the father. will the first guy be taking off child support ', // *
+      'paternity', // add to geneticTesting-request
+      'That the child belongs to another man , how do I get that information', // add to geneticTesting-request
+      "I'm trying to see how to get records of a mother and a guy who had a paternity test saying", // add to geneticTesting-request
+      'How much for paternity test', // add to geneticTesting-request
+      'paternity test', // add to geneticTesting-request
+      'DNA testing ', // add to geneticTesting-request
+      "I'm trying to get a DNA test for my child. ", // add to geneticTesting-request
+      'My son has been told that his ex-girlfriend is pregnant with his baby.  He would like to get help on getting a dna test so if the child is his he can support the child', // *
+      'Paternity test ', // add to geneticTesting-request
+      'Establish paternity ', // add to geneticTesting-request
+      'DNA testing ', // add to geneticTesting-request
+      'Paternity testing ', // add to geneticTesting-request
+      'My son is trying to get his child’s name changed to his name on her birth certificate. Currently the baby just has moms name. Does he have to hire an attorney in Mississippi to do this or can he just fill out some paperwork or get a dna test', // *
+      'I am trying to check on paternity results.', // add to geneticTesting-request
+      'acknowledgement of paternity', // add to geneticTesting-request
+      'DNA test', // add to geneticTesting-request
+      'I was wondering the status of my case, the father of my child said he took the DNA test but no one has reached out to me to test my son.', // *
+      'Proof of Paternity Test Results', // add to geneticTesting-request
+      'How do I establish paternity of a Girl they say is my Husbands', // add to geneticTesting-request
+      'Is dna testing free ', // add to geneticTesting-request
+      'How to get a paternity test', // add to geneticTesting-request
+      'How do the non custodian parent go about getting a paternity test done and visitation rights', // *
+      'I want to know how long do it take to get DNA RESULTS', // add to geneticTesting-request
+      'How do i get a dna test ', // add to geneticTesting-request
+      'I am the custodial parent. ', // add to geneticTesting-request
+      'I need to see how I can get a copy of DNA results proving paternity', // add to geneticTesting-request
+      'Neither i am the child ', // *
+      'I want to know where to go in PERSON_NAME MS to get a free DNA test', // *
+      'How do I set up a paternity test', // add to geneticTesting-request
+      'Question is this: after being confirmed the father through DNA swab, what rights does the father have with that child (visiting, time with the child... etc.)?', // *
+      'Paternity test', // add to geneticTesting-request
+      'Trying find out about doing a DNA TEST ', // add to geneticTesting-request
+      "How long is the child support process. I filed in April and received paternity results, but haven't heard anything yet.", // *
+      'I was trying to see if I could request a blood test even though I’m the mother ?', // add to geneticTesting-request
+      'adoption', // *
+      'My child father hasn’t token the dna test how do I get that done ', // add to geneticTesting-request
+      'My son was just told to go get tested for DNA for child if he is the father will this bother his baseball scholarship ', // *
+      'There is no father on the birth certificate and there is no DNA test stating who the father is of my youngest, so there is no one to collect child support from', // *
+      'I’m trying to see get a DNA TEST done on my baby father ', // *
+      'DNA testing ', // add to geneticTesting-request
+      'Genetic testing ', // add to geneticTesting-request
+      'Can child support order paternity test for a unwedded mother', // add to geneticTesting-request
+      'DNA Testing', // add to geneticTesting-request
+      'My fiancé was married to a woman who cheated on him and had a baby. She had her boyfriend sign the birth certificate. She is now receiving food stamps and is married to the boyfriend. Can he request a paternity test?', // *
+      'Procedures to get blood test', // add to geneticTesting-request
       'My child father wants to get a DNA test after 2 years of my son being born! He is already on child support. How much will he have to pay? And who do we need to contact?',
-      'I need help with establishing paternity questions ',
-      'Trying to get a DNA test',
+      'I need help with establishing paternity questions ', // *
+      'Trying to get a DNA test', // *
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 15 },
