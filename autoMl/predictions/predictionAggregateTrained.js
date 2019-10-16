@@ -87,7 +87,7 @@ const data = {
       'Phone number ', // add to contact-qa-number
       'Why won’t anyone answer the phone.', // suggest callcenter not answering
       'Phone number', // add to contact-qa-number
-      'Hi I have a question ', // *
+      'Hi I have a question ', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
       'phone number', // add to contact-qa-number
       'phone number for panola county', // add to contact-qa-number
       'What’s a Cin Number ', // *
@@ -1546,7 +1546,7 @@ const data = {
       'Forms', // Suggest general documentation intent
       'Need printout emailed to me showing what I’ve received for the past 6 months ', // add to payment history
       'How to get a print out online', // add to payment history
-      'Drivers license reinstatement  clearance form', // add to payment history
+      'Drivers license reinstatement  clearance form', // mislabeled, added to license suspension ** trained **
       'I was trying to see if I have to go get print out from the last year or could it be mailed to me ', // add to payment history
       'can i get copies of payments', // add to payment history
       'After i print it off then whats the next step ', // *
@@ -1876,7 +1876,7 @@ const data = {
       'modification', // add to caseQA-increase-review
       'Forms to request a modification', // add to caseQA-increase-review
       'I would like to know if my child support can be increased without a notice', // add to caseQA-increase-review
-      "How can I make payments arrangements. so I can get my license. I'm a truck driver ", // *
+      "How can I make payments arrangements. so I can get my license. I'm a truck driver ", // mislabeled, added to license suspension ** trained **
       'I want to request a increase ', // add to caseQA-increase-review
       'Hi gen what do I have to do to get my child support raised', // add to caseQA-increase-review
       '1.  I just want to see if he can pay me more than $200 a month for his 16 year old son. ', // add to caseQA-increase-review
@@ -2260,7 +2260,7 @@ const data = {
       'Can I send payments through moneygram', // add to pmts-general-make-payments or pmtMethods-moneygram
       'How does paying rearrange works', // mislabeled added to arrears
       'Check', // add to pmts-general-make-payments
-      'Can u send in some money to keep from liscence suspended', // add to enforcement-license-suspension
+      'Can u send in some money to keep from liscence suspended', // add to enforcement-license-suspension ** trained **
       'He', // *
       'What is the receive code for money gram?', // add to pmts-general-make-payments or pmtMethods-moneygram
       'What info do I need to send payment through money gram?', // add to pmts-general-make-payments or pmtMethods-moneygram
@@ -3020,81 +3020,81 @@ const data = {
       'Paternity test form', // add to geneticTesting-request
       "What are the next step when the father didn't come to his appointment to take DNA?", // *
       'trying to see if i can change my child last name in the divorce court with my dna paper', // *
-      'Yes I have another child to put on child support ', //
-      'Paternity test ',
-      'blood test ',
-      ' Do they do paternity test ?',
-      'paternity test',
-      'Adoption',
-      'I am looking for a Voluntary Acknowledgement Of Paternity Form',
-      'I am trying to figure out who is the father of metss no. 617420627A',
-      'Paternity',
-      'Paternity test ',
-      'My name is PERSON_NAME and I was placed on child support by PERSON_NAME of Hazlehurst, Ms. for a child who is 32 years, PERSON_NAME and I would like to have a blood test.',
-      'I was placed on child support for a child who is 32 years old, who she told me was somebody else’s child.',
-      'How do I get a blood test',
-      'Does Mississippi offer free paternity test by going through DHS?',
-      'Paternity test',
-      'I am the custodial parent',
-      'There was a DNA test done and I was wanting to know if the results were in',
-      "I'm trying to get a DNA on 2",
-      'establish paternity',
-      'i am the custodial parent',
-      'I’m trying to petition a paternity test I’m not the child’s father and I’m on child support and paying for a child that isn’t mine',
-      'Dna test',
-      'I want to get a blood test for a child ',
-      'I’m inquiring about my dna results. I haven’t received them yet. ',
-      'im trying to establish paternity to get my name removed from a birth certificate',
-      'Do y’all do free DNA test ',
-      'If one guy is on child support for a child and you get legal documentation that another guy is the father. will the first guy be taking off child support ',
-      'paternity',
-      'That the child belongs to another man , how do I get that information',
-      "I'm trying to see how to get records of a mother and a guy who had a paternity test saying",
-      'How much for paternity test',
-      'paternity test',
-      'DNA testing ',
-      "I'm trying to get a DNA test for my child. ",
-      'My son has been told that his ex-girlfriend is pregnant with his baby.  He would like to get help on getting a dna test so if the child is his he can support the child',
-      'Paternity test ',
-      'Establish paternity ',
-      'DNA testing ',
-      'Paternity testing ',
-      'My son is trying to get his child’s name changed to his name on her birth certificate. Currently the baby just has moms name. Does he have to hire an attorney in Mississippi to do this or can he just fill out some paperwork or get a dna test',
-      'I am trying to check on paternity results.',
-      'acknowledgement of paternity',
-      'DNA test',
-      'I was wondering the status of my case, the father of my child said he took the DNA test but no one has reached out to me to test my son.',
-      'Proof of Paternity Test Results',
-      'How do I establish paternity of a Girl they say is my Husbands',
-      'Is dna testing free ',
-      'How to get a paternity test',
-      'How do the non custodian parent go about getting a paternity test done and visitation rights',
-      'I want to know how long do it take to get DNA RESULTS',
-      'How do i get a dna test ',
-      'I am the custodial parent. ',
-      'I need to see how I can get a copy of DNA results proving paternity',
-      'Neither i am the child ',
-      'I want to know where to go in PERSON_NAME MS to get a free DNA test',
-      'How do I set up a paternity test',
-      'Question is this: after being confirmed the father through DNA swab, what rights does the father have with that child (visiting, time with the child... etc.)?',
-      'Paternity test',
-      'Trying find out about doing a DNA TEST ',
-      "How long is the child support process. I filed in April and received paternity results, but haven't heard anything yet.",
-      'I was trying to see if I could request a blood test even though I’m the mother ?',
-      'adoption',
-      'My child father hasn’t token the dna test how do I get that done ',
-      'My son was just told to go get tested for DNA for child if he is the father will this bother his baseball scholarship ',
-      'There is no father on the birth certificate and there is no DNA test stating who the father is of my youngest, so there is no one to collect child support from',
-      'I’m trying to see get a DNA TEST done on my baby father ',
-      'DNA testing ',
-      'Genetic testing ',
-      'Can child support order paternity test for a unwedded mother',
-      'DNA Testing',
-      'My fiancé was married to a woman who cheated on him and had a baby. She had her boyfriend sign the birth certificate. She is now receiving food stamps and is married to the boyfriend. Can he request a paternity test?',
-      'Procedures to get blood test',
+      'Yes I have another child to put on child support ', // mislabeled, added to open case
+      'Paternity test ', // add to geneticTesting-request
+      'blood test ', // add to geneticTesting-request
+      ' Do they do paternity test ?', // add to geneticTesting-request
+      'paternity test', // add to geneticTesting-request
+      'Adoption', // *
+      'I am looking for a Voluntary Acknowledgement Of Paternity Form', // add to geneticTesting-request
+      'I am trying to figure out who is the father of metss no. 617420627A', // *
+      'Paternity', // add to geneticTesting-request
+      'Paternity test ', // add to geneticTesting-request
+      'My name is PERSON_NAME and I was placed on child support by PERSON_NAME of Hazlehurst, Ms. for a child who is 32 years, PERSON_NAME and I would like to have a blood test.', // *
+      'I was placed on child support for a child who is 32 years old, who she told me was somebody else’s child.', // add to geneticTesting-request
+      'How do I get a blood test', // add to geneticTesting-request
+      'Does Mississippi offer free paternity test by going through DHS?', // add to geneticTesting-request
+      'Paternity test', // add to geneticTesting-request
+      'I am the custodial parent', // *
+      'There was a DNA test done and I was wanting to know if the results were in', // add to geneticTesting-request
+      "I'm trying to get a DNA on 2", // add to geneticTesting-request
+      'establish paternity', // add to geneticTesting-request
+      'i am the custodial parent', // *
+      'I’m trying to petition a paternity test I’m not the child’s father and I’m on child support and paying for a child that isn’t mine', // *
+      'Dna test', // add to geneticTesting-request
+      'I want to get a blood test for a child ', // add to geneticTesting-request
+      'I’m inquiring about my dna results. I haven’t received them yet. ', // add to geneticTesting-request
+      'im trying to establish paternity to get my name removed from a birth certificate', // add to geneticTesting-request
+      'Do y’all do free DNA test ', // add to geneticTesting-request
+      'If one guy is on child support for a child and you get legal documentation that another guy is the father. will the first guy be taking off child support ', // *
+      'paternity', // add to geneticTesting-request
+      'That the child belongs to another man , how do I get that information', // add to geneticTesting-request
+      "I'm trying to see how to get records of a mother and a guy who had a paternity test saying", // add to geneticTesting-request
+      'How much for paternity test', // add to geneticTesting-request
+      'paternity test', // add to geneticTesting-request
+      'DNA testing ', // add to geneticTesting-request
+      "I'm trying to get a DNA test for my child. ", // add to geneticTesting-request
+      'My son has been told that his ex-girlfriend is pregnant with his baby.  He would like to get help on getting a dna test so if the child is his he can support the child', // *
+      'Paternity test ', // add to geneticTesting-request
+      'Establish paternity ', // add to geneticTesting-request
+      'DNA testing ', // add to geneticTesting-request
+      'Paternity testing ', // add to geneticTesting-request
+      'My son is trying to get his child’s name changed to his name on her birth certificate. Currently the baby just has moms name. Does he have to hire an attorney in Mississippi to do this or can he just fill out some paperwork or get a dna test', // *
+      'I am trying to check on paternity results.', // add to geneticTesting-request
+      'acknowledgement of paternity', // add to geneticTesting-request
+      'DNA test', // add to geneticTesting-request
+      'I was wondering the status of my case, the father of my child said he took the DNA test but no one has reached out to me to test my son.', // *
+      'Proof of Paternity Test Results', // add to geneticTesting-request
+      'How do I establish paternity of a Girl they say is my Husbands', // add to geneticTesting-request
+      'Is dna testing free ', // add to geneticTesting-request
+      'How to get a paternity test', // add to geneticTesting-request
+      'How do the non custodian parent go about getting a paternity test done and visitation rights', // *
+      'I want to know how long do it take to get DNA RESULTS', // add to geneticTesting-request
+      'How do i get a dna test ', // add to geneticTesting-request
+      'I am the custodial parent. ', // add to geneticTesting-request
+      'I need to see how I can get a copy of DNA results proving paternity', // add to geneticTesting-request
+      'Neither i am the child ', // *
+      'I want to know where to go in PERSON_NAME MS to get a free DNA test', // *
+      'How do I set up a paternity test', // add to geneticTesting-request
+      'Question is this: after being confirmed the father through DNA swab, what rights does the father have with that child (visiting, time with the child... etc.)?', // *
+      'Paternity test', // add to geneticTesting-request
+      'Trying find out about doing a DNA TEST ', // add to geneticTesting-request
+      "How long is the child support process. I filed in April and received paternity results, but haven't heard anything yet.", // *
+      'I was trying to see if I could request a blood test even though I’m the mother ?', // add to geneticTesting-request
+      'adoption', // *
+      'My child father hasn’t token the dna test how do I get that done ', // add to geneticTesting-request
+      'My son was just told to go get tested for DNA for child if he is the father will this bother his baseball scholarship ', // *
+      'There is no father on the birth certificate and there is no DNA test stating who the father is of my youngest, so there is no one to collect child support from', // *
+      'I’m trying to see get a DNA TEST done on my baby father ', // *
+      'DNA testing ', // add to geneticTesting-request
+      'Genetic testing ', // add to geneticTesting-request
+      'Can child support order paternity test for a unwedded mother', // add to geneticTesting-request
+      'DNA Testing', // add to geneticTesting-request
+      'My fiancé was married to a woman who cheated on him and had a baby. She had her boyfriend sign the birth certificate. She is now receiving food stamps and is married to the boyfriend. Can he request a paternity test?', // *
+      'Procedures to get blood test', // add to geneticTesting-request
       'My child father wants to get a DNA test after 2 years of my son being born! He is already on child support. How much will he have to pay? And who do we need to contact?',
-      'I need help with establishing paternity questions ',
-      'Trying to get a DNA test',
+      'I need help with establishing paternity questions ', // *
+      'Trying to get a DNA test', // *
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 15 },
@@ -4079,63 +4079,63 @@ const data = {
   verification: {
     occurences: 57,
     queries: [
-      'child support verification form',
-      'Verification ',
-      'i need a MS verification form',
-      'I am receiving child support for 3 kids and I need proof of how much the payment is',
-      'How do I get a Mississippi Verification for Child Support Services form.',
-      'Verification letter',
-      'Income verification ',
-      'Who do i need to notify to obtain a MS verification of child support service form. ',
-      'Providing proof',
-      'How do I get my childrens father to verify income',
-      'Verification Letter',
-      'What is a Mississippi child support verification form',
-      'a Mississippi Verification for Child Support Services form',
-      'Where do I get a Mississippi verification for child support form?',
-      'Statement ',
-      'Request form that says the parent receive payments',
-      'I am trying to get my payments for the last two months for verification for SNAP',
-      'Child support verification forms ',
-      'I need Mississippi Verification of Child Support Form ',
-      'Houseing income verification',
-      'Child support enforcement cooperation verification request form',
-      'Mississippi verification for child support services form',
-      'Verification letter ',
-      'Is there a way I can see some that states what I recieve for child support',
-      'Mississippi child support verification form',
-      'verification form',
-      'Mississippi verification for child support services form',
-      'Could I get a verification form from either location ',
-      'I need a form to verify that I receive child support for my child.',
-      'I need to get a print out of my child support case and verification for the past 3 months   ',
-      'I need a Child Suport Verification Dorm for daycare',
-      'How do i get a Mississippi Verification for Child Support Services form.\n',
-      "I need verification that I don't receive any child support ",
-      'Just need verification that I am receiving child support ',
-      'How do I go about getting a verification of child support form?',
-      'Child support verification form ',
-      'I need a MS Child Support Verification form',
-      'I print out for verification ',
-      'Verification of income ',
-      'I need a child support verification form',
-      'Statement',
-      'Statement ',
-      'Mississippi verification form',
-      'verification print off',
-      'Verification of service paper ',
-      "I'm trying to get some kind of verification",
-      'how can i get proof of child support being received',
-      'proof of childsupport',
-      'Verification that I don’t have an open case',
-      'how do i get verification of child support',
-      'I need a ms verification of child support enforcement form',
-      'Proof of payment ',
-      ' How do I know if the other parent has paid?',
-      'How do I get proof of compliance with child ',
-      'This is PERSON_NAME an am trying to get print out of my childsuppurt. Cause i need that information for a house am trying to get PHONE_NUMBER i been call back to back an can not get any one onlie ',
-      'Can I get a form stating how much child support I should be getting ',
-      'statement',
+      'child support verification form', // suggest verification form intent
+      'Verification ', // suggest verification form intent
+      'i need a MS verification form', // suggest verification form intent
+      'I am receiving child support for 3 kids and I need proof of how much the payment is', // suggest verification form intent
+      'How do I get a Mississippi Verification for Child Support Services form.', // suggest verification form intent
+      'Verification letter', // suggest verification form intent
+      'Income verification ', // suggest verification form intent
+      'Who do i need to notify to obtain a MS verification of child support service form. ', // suggest verification form intent
+      'Providing proof', // suggest verification form intent
+      'How do I get my childrens father to verify income', // suggest verification form intent
+      'Verification Letter', // suggest verification form intent
+      'What is a Mississippi child support verification form', // suggest verification form intent
+      'a Mississippi Verification for Child Support Services form', // suggest verification form intent
+      'Where do I get a Mississippi verification for child support form?', // suggest verification form intent
+      'Statement ', // Add to eppi-payment-history
+      'Request form that says the parent receive payments', // suggest verification form intent
+      'I am trying to get my payments for the last two months for verification for SNAP', // suggest verification form intent
+      'Child support verification forms ', // suggest verification form intent
+      'I need Mississippi Verification of Child Support Form ', // suggest verification form intent
+      'Houseing income verification', // suggest verification form intent
+      'Child support enforcement cooperation verification request form', // suggest verification form intent
+      'Mississippi verification for child support services form', // suggest verification form intent
+      'Verification letter ', // suggest verification form intent
+      'Is there a way I can see some that states what I recieve for child support', // suggest verification form intent
+      'Mississippi child support verification form', // suggest verification form intent
+      'verification form', // suggest verification form intent
+      'Mississippi verification for child support services form', // suggest verification form intent
+      'Could I get a verification form from either location ', // suggest verification form intent
+      'I need a form to verify that I receive child support for my child.', // suggest verification form intent
+      'I need to get a print out of my child support case and verification for the past 3 months   ', // suggest verification form intent
+      'I need a Child Suport Verification Dorm for daycare', // suggest verification form intent
+      'How do i get a Mississippi Verification for Child Support Services form.', // suggest verification form intent
+      "I need verification that I don't receive any child support ", // suggest verification form intent
+      'Just need verification that I am receiving child support ', // suggest verification form intent
+      'How do I go about getting a verification of child support form?', // suggest verification form intent
+      'Child support verification form ', // suggest verification form intent
+      'I need a MS Child Support Verification form', // suggest verification form intent
+      'I print out for verification ', // suggest verification form intent
+      'Verification of income ', // suggest verification form intent
+      'I need a child support verification form', // suggest verification form intent
+      'Statement', // Add to eppi-payment-history
+      'Statement ', // Add to eppi-payment-history
+      'Mississippi verification form', // suggest verification form intent
+      'verification print off', // suggest verification form intent
+      'Verification of service paper ', // suggest verification form intent
+      "I'm trying to get some kind of verification", // suggest verification form intent
+      'how can i get proof of child support being received', // suggest verification form intent
+      'proof of childsupport', // suggest verification form intent
+      'Verification that I don’t have an open case', // suggest verification form intent
+      'how do i get verification of child support', // suggest verification form intent
+      'I need a ms verification of child support enforcement form', // suggest verification form intent
+      'Proof of payment ', // suggest verification form intent
+      ' How do I know if the other parent has paid?', // suggest verification form intent
+      'How do I get proof of compliance with child ', // suggest verification form intent
+      'This is PERSON_NAME an am trying to get print out of my childsuppurt. Cause i need that information for a house am trying to get PHONE_NUMBER i been call back to back an can not get any one onlie ', // *
+      'Can I get a form stating how much child support I should be getting ', // suggest verification form intent
+      'statement', // Add to eppi-payment-history
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 18 },
@@ -4173,56 +4173,56 @@ const data = {
   'case number': {
     occurences: 50,
     queries: [
-      'How do can I find my case number?',
-      'How to contact your case manager',
-      'How to get case number',
-      'How can I find out my case id',
-      'case #',
-      'find my case',
-      'yes i need my case numbetr',
-      'Case number ',
-      'How do I found out my case number',
-      'How to find my cas e number\n',
-      'Trying to find case # so can make payment',
-      'Case numbers ',
-      'case ID',
-      'How do i obtain my case number?',
-      'Another case DIGITS',
-      'Case number: 619937341A',
-      'Case number ',
-      'Case # DIGITS',
-      'Find case number',
-      'Case number# 619876970A',
-      'where do i find the case number',
-      'Can I have my case number ',
-      'How to locate case number ',
-      'Case number DIGITS',
-      'Case ID',
-      'Case number ',
-      'How can I find my case number ',
-      'i am needing to get ahold of case worker PERSON_NAME garner',
-      'How can I find my case number',
-      'Case #DIGITS ',
-      'case number DIGITS',
-      'How can I get the case number ',
-      'Case number ',
-      'case # DIGITS',
-      'Trying to find my case number ',
-      "I cant find my case number'",
-      'How do I find my case number',
-      'Need my case number',
-      'Case number ',
-      'Case number ',
-      'How do I find my case number ',
-      'child support case number DIGITS ',
-      'case # BZ62990R1',
-      'How do I get my case number',
-      'Find case',
-      'How do I get my case number?',
-      'Im trying to pay child support i dont know my mets id case number',
-      'Where can I find my case number to register online?',
-      'I have a case against PERSON_NAME but do not know the case number',
-      'I’m trying to figure out what my case number is!',
+      'How do can I find my case number?', // add to caseQA-general
+      'How to contact your case manager', // mislabeled, add to contact human
+      'How to get case number', // add to caseQA-general
+      'How can I find out my case id', // add to caseQA-general
+      'case #', // add to caseQA-general
+      'find my case', // add to caseQA-general
+      'yes i need my case numbetr', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'How do I found out my case number', // add to caseQA-general
+      'How to find my cas e number\n', // add to caseQA-general
+      'Trying to find case # so can make payment', // add to caseQA-general
+      'Case numbers ', // add to caseQA-general
+      'case ID', // add to caseQA-general
+      'How do i obtain my case number?', // add to caseQA-general
+      'Another case DIGITS', // add to caseQA-general
+      'Case number: 619937341A', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'Case # DIGITS', // add to caseQA-general
+      'Find case number', // add to caseQA-general
+      'Case number# 619876970A', // add to caseQA-general
+      'where do i find the case number', // add to caseQA-general
+      'Can I have my case number ', // add to caseQA-general
+      'How to locate case number ', // add to caseQA-general
+      'Case number DIGITS', // add to caseQA-general
+      'Case ID', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'How can I find my case number ', // add to caseQA-general
+      'i am needing to get ahold of case worker PERSON_NAME garner', // add to caseQA-general
+      'How can I find my case number', // add to caseQA-general
+      'Case #DIGITS ', // add to caseQA-general
+      'case number DIGITS', // add to caseQA-general
+      'How can I get the case number ', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'case # DIGITS', // add to caseQA-general
+      'Trying to find my case number ', // add to caseQA-general
+      "I cant find my case number'", // add to caseQA-general
+      'How do I find my case number', // add to caseQA-general
+      'Need my case number', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'How do I find my case number ', // add to caseQA-general
+      'child support case number DIGITS ', // add to caseQA-general
+      'case # BZ62990R1', // add to caseQA-general
+      'How do I get my case number', // add to caseQA-general
+      'Find case', // add to caseQA-general
+      'How do I get my case number?', // add to caseQA-general
+      'Im trying to pay child support i dont know my mets id case number', // add to caseQA-general
+      'Where can I find my case number to register online?', // add to caseQA-general
+      'I have a case against PERSON_NAME but do not know the case number', // add to caseQA-general
+      'I’m trying to figure out what my case number is!', // add to caseQA-general
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 12 },
@@ -4256,56 +4256,56 @@ const data = {
   'support inquiries': {
     occurences: 50,
     queries: [
-      'My kids father moved out of town and dont help me at all',
-      'I want to review my case information and I am being told by the father that I have to be in court in Mississippi.',
-      'I am a Housing provider and need the email address to verify benifits for a Resident at my property',
-      'General request ',
-      'Child support is coming out of my civilian employers check. Why is MDHS trying to also take it out of my national guard check?',
-      'how do I check if I have overpaid ',
-      'Who can ask for an review',
-      'can you add my wife to case in case im unable to talk at that time?',
-      "I haven't had a raised since DIGITS and I only gets 236 a month and the dad has a good job. What do I do I've already requested a raise and the dad said that he have a letter so what does that means ",
-      'My ex husband has been fired and I need to know if/how many funds are remaining to be dispersed to me. ',
-      'How do I pursue further action on my case?',
-      'No.  I need an account statement mailed to me.',
-      "Why are y'all taking so much out of my check",
-      'My case was terminated but you all still talking money out my check why.',
-      'Removing an item off my credit file',
-      '103 PERSON_NAME a  bland ed',
-      'How to I report a change in the childcare amount? ',
-      "I can not understand why was my driver's license was suspended when I am not behind",
-      'When should I update my income increase with child support ',
-      'income withhold',
-      'If me and my child’s father aren’t married, does he still go on child support?',
-      'you can also speak with my wife PERSON_NAME',
-      'I WAS TRYING TO SEE HOW CAN A REMOVE A NAME OFF MY CHILD SUPPORT CASE. THE GUY GAVE ME THE WRONG NOW AND NOW I HAVE THE CORRECT NAME',
-      'Can you confirm whether checks from Absolute Fire Control for CASE#DIGITS dated 4/26/19 and 6/7/19 were ever received? I suspect that they were lost in the mail.',
-      "My husband owes child support in the rears we are working out a deal to clear that can I do that one-on-one with him or do we have to go through y'all",
-      'I applied for food stamps and the office said I was not compliant with child support so I would not be able to receive benefits but my kids still could. Is there anyway to change my status of compliance with child support ',
-      "I found out today that my son's father recieved cs papers.   I was working on the papers, but hadn't finished them.   Could my snap caseworker have done the papers maybe? ",
-      'Who do we contact to inquire about lump sum payments',
-      'if I’m making payments why were my license suspended?',
-      'Suspended license',
-      'I was wondering if child support is adjusted if i have another child with my now wife?',
-      'Can the agency debit my husband checking account for back support without letting him know in writing',
-      'My license have been suspended',
-      'I was wondering how far behind does an absent parent have to be before license are suspended and passport revoked? ',
-      'How do I get an official audit review of my case',
-      'THIRD PARTY CREDIT REPORTING AGENCY',
-      'Getting in compliance with child support ',
-      'who has custody when no papers are signed and parents are not married?',
-      'I have a question concerning child support',
-      'How is child support figured if I have two children in my household and my son lives with his mom? Would that hurt my two children that live in my home with a large amount of income being taken out of my check or would they be taken into consideration ',
-      'Trying to see why am I only getting $30 a week when I am suppose to be receiving $250 a month',
-      'I got a letter sayin that I was complying with Cs but I am n they have threatened to take my kids benefits . I can only give them what I have . ',
-      'How can I start getting payments if my spouse is working',
-      'Has my driver license been suspended?',
-      'well i am legally married; however, my spouse and I have been separated for 2 years',
-      'i have a question i am getting paid less than what i used to get paid do i have to take my other party to court or can i just send copy of my paychecks and you can take care of the resertification',
-      'Ive been signed up to put my partner on child support but i never heard anything since and its been 4 years',
-      'I started a case a few months ago and never heard anything back',
-      'I have a notice of income withholding on a man that is no longer working for us.',
-      'Is there a faster way to report employee terminations such as email, etc?',
+      'My kids father moved out of town and dont help me at all', // *
+      'I want to review my case information and I am being told by the father that I have to be in court in Mississippi.', // *
+      'I am a Housing provider and need the email address to verify benifits for a Resident at my property', // *
+      'General request ', // add to support-root
+      'Child support is coming out of my civilian employers check. Why is MDHS trying to also take it out of my national guard check?', // *
+      'how do I check if I have overpaid ', // add to support-root
+      'Who can ask for an review', // add to support-root
+      'can you add my wife to case in case im unable to talk at that time?', // add to support-root
+      "I haven't had a raised since DIGITS and I only gets 236 a month and the dad has a good job. What do I do I've already requested a raise and the dad said that he have a letter so what does that means ", // *
+      'My ex husband has been fired and I need to know if/how many funds are remaining to be dispersed to me. ', // add to support-root
+      'How do I pursue further action on my case?', // add to support-root
+      'No.  I need an account statement mailed to me.', // add to support-root
+      "Why are y'all taking so much out of my check", // add to support-root
+      'My case was terminated but you all still talking money out my check why.', // add to support-root
+      'Removing an item off my credit file', // add to support-root
+      '103 PERSON_NAME a  bland ed', // *
+      'How to I report a change in the childcare amount? ', // add to support-root
+      "I can not understand why was my driver's license was suspended when I am not behind", // add to enforcement-license-suspension-non-compliance ** trained **
+      'When should I update my income increase with child support ', // add to support-root
+      'income withhold', // add to support-root
+      'If me and my child’s father aren’t married, does he still go on child support?', // add to support-root
+      'you can also speak with my wife PERSON_NAME', // add to support-root
+      'I WAS TRYING TO SEE HOW CAN A REMOVE A NAME OFF MY CHILD SUPPORT CASE. THE GUY GAVE ME THE WRONG NOW AND NOW I HAVE THE CORRECT NAME', // *
+      'Can you confirm whether checks from Absolute Fire Control for CASE#DIGITS dated 4/26/19 and 6/7/19 were ever received? I suspect that they were lost in the mail.', // *
+      "My husband owes child support in the rears we are working out a deal to clear that can I do that one-on-one with him or do we have to go through y'all", // *
+      'I applied for food stamps and the office said I was not compliant with child support so I would not be able to receive benefits but my kids still could. Is there anyway to change my status of compliance with child support ', // *
+      "I found out today that my son's father recieved cs papers.   I was working on the papers, but hadn't finished them.   Could my snap caseworker have done the papers maybe? ", // *
+      'Who do we contact to inquire about lump sum payments', // add to support-root
+      'if I’m making payments why were my license suspended?', // add to enforcement-license-suspension-non-compliance
+      'Suspended license', // add to enforcement-license-suspension-non-compliance
+      'I was wondering if child support is adjusted if i have another child with my now wife?', // add to support-root
+      'Can the agency debit my husband checking account for back support without letting him know in writing', // add to support-root
+      'My license have been suspended', // add to enforcement-license-suspension-non-compliance
+      'I was wondering how far behind does an absent parent have to be before license are suspended and passport revoked? ', // add to enforcement-license-suspension-non-compliance
+      'How do I get an official audit review of my case', // add to support-root
+      'THIRD PARTY CREDIT REPORTING AGENCY', // *
+      'Getting in compliance with child support ', // add to support-root
+      'who has custody when no papers are signed and parents are not married?', // *
+      'I have a question concerning child support', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'How is child support figured if I have two children in my household and my son lives with his mom? Would that hurt my two children that live in my home with a large amount of income being taken out of my check or would they be taken into consideration ', // *
+      'Trying to see why am I only getting $30 a week when I am suppose to be receiving $250 a month', // mislabeled, added to not received payments
+      'I got a letter sayin that I was complying with Cs but I am n they have threatened to take my kids benefits . I can only give them what I have . ', // *
+      'How can I start getting payments if my spouse is working', // add to support-root
+      'Has my driver license been suspended?', // add to enforcement-license-suspension
+      'well i am legally married; however, my spouse and I have been separated for 2 years', // *
+      'i have a question i am getting paid less than what i used to get paid do i have to take my other party to court or can i just send copy of my paychecks and you can take care of the resertification', // *
+      'Ive been signed up to put my partner on child support but i never heard anything since and its been 4 years', // add to support-root
+      'I started a case a few months ago and never heard anything back', // add to support-root
+      'I have a notice of income withholding on a man that is no longer working for us.', // add to support-root
+      'Is there a faster way to report employee terminations such as email, etc?', // add to support-root
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 10 },
@@ -4340,52 +4340,52 @@ const data = {
   snap: {
     occurences: 46,
     queries: [
-      'food safety',
-      'how do i recertify for snap',
-      'Food stamps ',
-      'Trying to get the code removed from my name so I can get food stamps ',
-      'Food Stamps',
-      'Food stamp app',
-      'snap',
-      'Snap app',
-      'Snap recertify ',
-      'Emergency foodstamp',
-      'food stamps',
-      'Need my snap benefit printout',
-      'How do I know if I’m approved for food stamps ',
-      'I want to know if I was approved for food stamps ',
-      'Wal-Mart Distribution ',
-      ' snap as the cp',
-      "I'm try to set up my email for snap ",
-      "I'm tryna to renew my snap",
-      'Food stamps ',
-      'Food stamp',
-      'I. trying to reapply for snap benefits',
-      'How to reapply for snap online',
-      'recertification form for snap',
-      'Mdhs food steamps  My app. ',
-      'Find the form for food stamps',
-      'how do i go by getting my snap benefits back on',
-      'Renew food stamps',
-      'How do I take me and my child off another food stamps case',
-      'Sorry this is about food stamps ',
-      'Snap Benifits ?',
-      'Foodstamps',
-      'i want to also receive food stamps and medicaid ',
-      'Food stamp',
-      'Foodstamps',
-      'Food stamps ',
-      'snap requirements',
-      'What if I have medicaid or snap',
-      'Snap ',
-      'I receive food stamps.',
-      'Snap benefits ',
-      'food stamps',
-      'Food stamps',
-      'If I receive snap the non custodial parent automatically goes on child support? ',
-      'I’m trying to apply for food stamps and tanf',
-      'Don i have to put my child’s father on child support to receive food stamps ?',
-      'I HAVE THE APPLIACTION BUT I RECIEVE EBT SO HOW DO I GO ABOUT THAT ',
+      'food safety', // recommend Snap intent
+      'how do i recertify for snap', // recommend Snap intent
+      'Food stamps ', // recommend Snap intent
+      'Trying to get the code removed from my name so I can get food stamps ', // recommend Snap intent
+      'Food Stamps', // recommend Snap intent
+      'Food stamp app', // recommend Snap intent
+      'snap', // recommend Snap intent
+      'Snap app', // recommend Snap intent
+      'Snap recertify ', // recommend Snap intent
+      'Emergency foodstamp', // recommend Snap intent
+      'food stamps', // recommend Snap intent
+      'Need my snap benefit printout', // recommend Snap intent
+      'How do I know if I’m approved for food stamps ', // recommend Snap intent
+      'I want to know if I was approved for food stamps ', // recommend Snap intent
+      'Wal-Mart Distribution ', // *
+      ' snap as the cp', // recommend Snap intent
+      "I'm try to set up my email for snap ", // recommend Snap intent
+      "I'm tryna to renew my snap", // recommend Snap intent
+      'Food stamps ', // recommend Snap intent
+      'Food stamp', // recommend Snap intent
+      'I. trying to reapply for snap benefits', // recommend Snap intent
+      'How to reapply for snap online', // recommend Snap intent
+      'recertification form for snap', // recommend Snap intent
+      'Mdhs food steamps  My app. ', // recommend Snap intent
+      'Find the form for food stamps', // recommend Snap intent
+      'how do i go by getting my snap benefits back on', // recommend Snap intent
+      'Renew food stamps', // recommend Snap intent
+      'How do I take me and my child off another food stamps case', // recommend Snap intent
+      'Sorry this is about food stamps ', // recommend Snap intent
+      'Snap Benifits ?', // recommend Snap intent
+      'Foodstamps', // recommend Snap intent
+      'i want to also receive food stamps and medicaid ', // recommend Snap intent
+      'Food stamp', // recommend Snap intent
+      'Foodstamps', // recommend Snap intent
+      'Food stamps ', // recommend Snap intent
+      'snap requirements', // recommend Snap intent
+      'What if I have medicaid or snap', // recommend Snap intent
+      'Snap ', // recommend Snap intent
+      'I receive food stamps.', // recommend Snap intent
+      'Snap benefits ', // recommend Snap intent
+      'food stamps', // recommend Snap intent
+      'Food stamps', // recommend Snap intent
+      'If I receive snap the non custodial parent automatically goes on child support? ', // recommend Snap intent
+      'I’m trying to apply for food stamps and tanf', // recommend Snap intent
+      'Don i have to put my child’s father on child support to receive food stamps ?', // recommend Snap intent
+      'I HAVE THE APPLIACTION BUT I RECIEVE EBT SO HOW DO I GO ABOUT THAT ', // *
     ],
     contexts: [
       { name: 'waiting-support-employer', count: 10 },
@@ -4409,51 +4409,51 @@ const data = {
   legal: {
     occurences: 45,
     queries: [
-      'I was served papers for child support yesterday, do I have to go to court or can they start taking the money out of my check ',
-      'Contempt court? ',
-      'What is the definition of contempt court? ',
-      'My ex is regularly deducting old credit card payments in my name that also had his name from my child support. Is this legal?',
-      'attorney',
-      'i wanted to know if the parents are not able to make court for redetermination will courts proceed or leave the order as is',
-      'Legal guardian ',
-      'Legal guardian ',
-      'I was wanting to know if I had to appear with my kids father to court',
-      'laws',
-      'Is my ex cooperating with dhs?',
-      'My license suspended ',
-      'Court ',
-      'Hello PERSON_NAME, I have a question about a case after a custodial parent is deceased.',
-      'Driver license clearance form ',
-      'I have an insurance confusion. My child has two insurances. I need to know if MDHS put in a court order for her dad to carry insurance ',
-      "I'm trying to find the building were court is held",
-      'attorney general',
-      'Court order ',
-      'Enforcement ',
-      'I have a question about my case dealing with court',
-      'court order required? ',
-      'Law',
-      'I am the custodial parent. Do I have to be in court for my child support hearing?',
-      "Do y'all still suspended driver license",
-      'When the dhs lawyer said $120.00 did she mean monthly or weekly?',
-      'Does child support include chairs care after school? Clothes, extracurricular activities etc?',
-      'Enforcement ',
-      'How is child support paid through a court order? Does it go through DHS?',
-      'I would like to know if a non-custodial parent does not have a court order for visitation, can they use MAV-P services?',
-      'dhs court order',
-      "i need to pay court cost, i can't find it",
-      'Do I have to go to court?',
-      'Do I or the non custodial parent have to attend court?',
-      'did the attoney get back about my case',
-      'Can you tell me how it works when my child’s mother goes thru DHS to collect child support. Will I get served with paperwork when the court order is made?',
-      'Do I have to use a private attorney',
-      "Will DHS go by what's in our Court Order? As in, will my payment amounts and due dates stay the same?",
-      'I have full legal and physical custody, issued by a Court Order. This Order also has a set amount and due date for child support to be paid to me by the noncustodial parent. ',
-      'I want to know how I go by getting my court order paper that the father was agreed to pay',
-      'If I have a court order from my divorce do I have to change it over to DHS to collect child support?',
-      'How can you get sole custody?',
-      'Getting sole custody ',
-      'finding out a court date',
-      'Legal department',
+      'I was served papers for child support yesterday, do I have to go to court or can they start taking the money out of my check ', // suggest court intent
+      'Contempt court? ', // suggest court intent
+      'What is the definition of contempt court? ', // suggest court intent
+      'My ex is regularly deducting old credit card payments in my name that also had his name from my child support. Is this legal?', // *
+      'attorney', // suggest court intent
+      'i wanted to know if the parents are not able to make court for redetermination will courts proceed or leave the order as is', // *
+      'Legal guardian ', // add to parent types entity
+      'Legal guardian ', // add to parent types entity
+      'I was wanting to know if I had to appear with my kids father to court', // suggest court intent
+      'laws', // add to casey intent
+      'Is my ex cooperating with dhs?', // add to caseQA-general
+      'My license suspended ', // mislabeled, added to license suspension
+      'Court ', // suggest court intent
+      'Hello PERSON_NAME, I have a question about a case after a custodial parent is deceased.', // add to caseQA-general
+      'Driver license clearance form ', // mislabeled, added to license suspension
+      'I have an insurance confusion. My child has two insurances. I need to know if MDHS put in a court order for her dad to carry insurance ', // *
+      "I'm trying to find the building were court is held", // suggest court intent
+      'attorney general', // suggest court intent
+      'Court order ', // suggest court intent
+      'Enforcement ', // mislabeled, added to enforcement
+      'I have a question about my case dealing with court', // suggest court intent
+      'court order required? ', // suggest court intent
+      'Law', // suggest court intent
+      'I am the custodial parent. Do I have to be in court for my child support hearing?', // suggest court intent
+      "Do y'all still suspended driver license", // mislabeled, added to license suspension
+      'When the dhs lawyer said $120.00 did she mean monthly or weekly?', // *
+      'Does child support include chairs care after school? Clothes, extracurricular activities etc?', // *
+      'Enforcement ', // mislabeled, added to enforcement
+      'How is child support paid through a court order? Does it go through DHS?', // *
+      'I would like to know if a non-custodial parent does not have a court order for visitation, can they use MAV-P services?', // *
+      'dhs court order', // suggest court intent
+      "i need to pay court cost, i can't find it", // suggest court intent
+      'Do I have to go to court?', // suggest court intent
+      'Do I or the non custodial parent have to attend court?', // suggest court intent
+      'did the attoney get back about my case', // add to caseQA-general
+      'Can you tell me how it works when my child’s mother goes thru DHS to collect child support. Will I get served with paperwork when the court order is made?', // *
+      'Do I have to use a private attorney', // suggest court intent
+      "Will DHS go by what's in our Court Order? As in, will my payment amounts and due dates stay the same?", // suggest court intent
+      'I have full legal and physical custody, issued by a Court Order. This Order also has a set amount and due date for child support to be paid to me by the noncustodial parent. ', // *
+      'I want to know how I go by getting my court order paper that the father was agreed to pay', // suggest court intent
+      'If I have a court order from my divorce do I have to change it over to DHS to collect child support?', // suggest court intent
+      'How can you get sole custody?', // *
+      'Getting sole custody ', // *
+      'finding out a court date', // suggest court intent
+      'Legal department', // suggest court intent
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 8 },
@@ -4480,45 +4480,45 @@ const data = {
   fax: {
     occurences: 39,
     queries: [
-      'i just need a fax or email ',
-      'I need a fax number to fax information to regarding the info requested to receive another card',
-      'Hi I need a fax number for child support services in PERSON_NAME mississippi',
-      'do I mail a letter? ',
-      'can i fax the apllication in',
-      'Please send information via fax to: PHONE_NUMBER ATTN: PERSON_NAME Terlouw - Payroll',
-      'Where can I fax in a document ',
-      'So can i have the fax number',
-      'i Know the one by me i only need a fax number',
-      "I'm simply looking for a fax number.",
-      'fax number',
-      'What is the fax number ',
-      'i need a fax number to send in forms',
-      'fax number',
-      'fax',
-      'Fax number ',
-      'I am an employer trying to fax Child Support data that was requested and the number on the fax PHONE_NUMBER is not working.  Is there another number I can use?',
-      'fax number',
-      'Need a fax number to send in my written notice',
-      'fax number',
-      'can you give me the fax to where to send medical support form ',
-      'need fax number',
-      'Fax Number',
-      'I would like an email or fax to send this to. The case worker is PERSON_NAME Garner. Case PHONE_NUMBER',
-      "what's the fax number for Hernando ms",
-      'Fax number ',
-      'What is the fax number',
-      'I just need the Email or Fax Number to send you the letter. ',
-      'Fax number for Panola County DHS',
-      'What is the fax number for employer information request forms?',
-      'WHAT IS YOUR FAX',
-      'FAX NUMBER',
-      'PHONE_NUMBER IS THIS YOUR FAX FOR EMPLOYERS',
-      'Fax # please',
-      'may I have the fax number to submit a change of address',
-      'Looking for a local fax number in Greenville ms',
-      'i am looking for a fax or email to submit a medical insurance support orders for one of my employees.',
-      'what is the fax number to send a child support verification form to from a goverment agency',
-      'is there a fax number to send information to',
+      'i just need a fax or email ', // suggest fax intent
+      'I need a fax number to fax information to regarding the info requested to receive another card', // suggest fax intent
+      'Hi I need a fax number for child support services in PERSON_NAME mississippi', // suggest fax intent
+      'do I mail a letter? ', // *
+      'can i fax the apllication in', // suggest fax intent
+      'Please send information via fax to: PHONE_NUMBER ATTN: PERSON_NAME Terlouw - Payroll', // suggest fax intent
+      'Where can I fax in a document ', // suggest fax intent
+      'So can i have the fax number', // suggest fax intent
+      'i Know the one by me i only need a fax number', // suggest fax intent
+      "I'm simply looking for a fax number.", // suggest fax intent
+      'fax number', // suggest fax intent
+      'What is the fax number ', // suggest fax intent
+      'i need a fax number to send in forms', // suggest fax intent
+      'fax number', // suggest fax intent
+      'fax', // suggest fax intent
+      'Fax number ', // suggest fax intent
+      'I am an employer trying to fax Child Support data that was requested and the number on the fax PHONE_NUMBER is not working.  Is there another number I can use?', // *
+      'fax number', // suggest fax intent
+      'Need a fax number to send in my written notice', // suggest fax intent
+      'fax number', // suggest fax intent
+      'can you give me the fax to where to send medical support form ', // suggest fax intent
+      'need fax number', // suggest fax intent
+      'Fax Number', // suggest fax intent
+      'I would like an email or fax to send this to. The case worker is PERSON_NAME Garner. Case PHONE_NUMBER', // suggest fax intent
+      "what's the fax number for Hernando ms", // suggest fax intent
+      'Fax number ', // suggest fax intent
+      'What is the fax number', // suggest fax intent
+      'I just need the Email or Fax Number to send you the letter. ', // suggest fax intent
+      'Fax number for Panola County DHS', // suggest fax intent
+      'What is the fax number for employer information request forms?', // suggest fax intent
+      'WHAT IS YOUR FAX', // suggest fax intent
+      'FAX NUMBER', // suggest fax intent
+      'PHONE_NUMBER IS THIS YOUR FAX FOR EMPLOYERS', // suggest fax intent
+      'Fax # please', // suggest fax intent
+      'may I have the fax number to submit a change of address', // suggest fax intent
+      'Looking for a local fax number in Greenville ms', // suggest fax intent
+      'i am looking for a fax or email to submit a medical insurance support orders for one of my employees.', // suggest fax intent
+      'what is the fax number to send a child support verification form to from a goverment agency', // suggest fax intent
+      'is there a fax number to send information to', // suggest fax intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 12 },
@@ -4548,39 +4548,39 @@ const data = {
   login: {
     occurences: 33,
     queries: [
-      'Log in',
-      'forgot log in ingormation',
-      'Login',
-      'Re activate my account',
-      'I can’t log into my account. There is a charge in my card that takes place every month that I don’t know anything about.',
-      'login',
-      'Online site to login',
-      'How to go online and access my account ',
-      'I receive child support is there any way I can review my account online?',
-      'I forgot my mdhs login information',
-      "No can't access 😢",
-      'Is there a parent portal where I can login to view activity on my case?',
-      'How can i get my account information ',
-      'I cannot get the payment portal to load...',
-      "I'm trying to get in my account online but I've been lock out",
-      'Online - link broken',
-      'Why is my account over draft ? ',
-      'Log in',
-      'Online login ',
-      'Login',
-      'log in ',
-      'Where do I find it?  Apparently my email add and password have expired.',
-      'Neither. How do I access my account? ',
-      'How can I get into my account? ',
-      'trying to look up my  account',
-      'How can I get help with login information on the EppiCard website?',
-      'I have the EppiCard and am unable to get help with the website and logging in to look at my balance and transactions.  When I try to set up the login the information it keeps rejecting everything.  ',
-      'Is there not a site i can access child support info ',
-      "I can't access the ipay",
-      'I am just trying to see why I cannot log into my account to pay child support',
-      'Sign in to check my account ',
-      'How to log in ipay',
-      'Cant log in',
+      'Log in', // suggest login intent
+      'forgot log in ingormation', // suggest login intent
+      'Login', // suggest login intent
+      'Re activate my account', // suggest login intent
+      'I can’t log into my account. There is a charge in my card that takes place every month that I don’t know anything about.', // suggest login intent
+      'login', // suggest login intent
+      'Online site to login', // suggest login intent
+      'How to go online and access my account ', // suggest login intent
+      'I receive child support is there any way I can review my account online?', // suggest login intent
+      'I forgot my mdhs login information', // suggest login intent
+      "No can't access 😢", // suggest login intent
+      'Is there a parent portal where I can login to view activity on my case?', // suggest login intent
+      'How can i get my account information ', // suggest login intent
+      'I cannot get the payment portal to load...', // suggest login intent
+      "I'm trying to get in my account online but I've been lock out", // suggest login intent
+      'Online - link broken', // *
+      'Why is my account over draft ? ', // *
+      'Log in', // suggest login intent
+      'Online login ', // suggest login intent
+      'Login', // suggest login intent
+      'log in ', // suggest login intent
+      'Where do I find it?  Apparently my email add and password have expired.', // suggest login intent
+      'Neither. How do I access my account? ', // suggest login intent
+      'How can I get into my account? ', // suggest login intent
+      'trying to look up my  account', // suggest login intent
+      'How can I get help with login information on the EppiCard website?', // suggest login intent
+      'I have the EppiCard and am unable to get help with the website and logging in to look at my balance and transactions.  When I try to set up the login the information it keeps rejecting everything.  ', // *
+      'Is there not a site i can access child support info ', // suggest login intent
+      "I can't access the ipay", // suggest login intent
+      'I am just trying to see why I cannot log into my account to pay child support', // suggest login intent
+      'Sign in to check my account ', // suggest login intent
+      'How to log in ipay', // suggest login intent
+      'Cant log in', // suggest login intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 10 },
@@ -4597,37 +4597,37 @@ const data = {
   'online action': {
     occurences: 31,
     queries: [
-      'Can I submit this online',
-      'Can I fill out child support paperwork online ',
-      'online',
-      'can i submit documents on the website',
-      'Can I view this online',
-      'Thank you. Is there any way that I may be able to review the information online, ',
-      'Website ',
-      'can i have the link to do it online',
-      'Online child support service',
-      'Do you have a way for a person to access that information online',
-      'can i set up an account online?',
-      'how do i get this shit with you off the screen so i can look at the site?',
-      'Can i check it online',
-      'Information',
-      'Online status',
-      'Information ',
-      'Can I view my case online?',
-      'website for childsupport',
-      'Online',
-      'close page',
-      'where do I send completed documents?',
-      'Log on ',
-      'Website assistance ',
-      'Website is not working to process bank withdrawal information ',
-      "I am already registered and set up on ipayonline. I had to do a reset password but I don't see where I can change the password to something I can remember",
-      'how do I acquire information via online concerning my case?',
-      "NOW I HAVE AN EPPICARD ACCOUNT. ISN'T THERE A WAY TO LOOK FROM MDHS'S SITE?",
-      'View child support order online ',
-      'Trying to setup online account',
-      'Child support web-based bills',
-      "I'm trying to get to where I can view my child support letters online.",
+      'Can I submit this online', // suggest online action intent
+      'Can I fill out child support paperwork online ', // suggest online action intent
+      'online', // suggest online action intent
+      'can i submit documents on the website', // suggest online action intent
+      'Can I view this online', // suggest online action intent
+      'Thank you. Is there any way that I may be able to review the information online, ', // suggest online action intent
+      'Website ', // *
+      'can i have the link to do it online', // suggest online action intent
+      'Online child support service', // suggest online action intent
+      'Do you have a way for a person to access that information online', // suggest online action intent
+      'can i set up an account online?', // suggest online action intent
+      'how do i get this shit with you off the screen so i can look at the site?', // suggest online action intent
+      'Can i check it online', // suggest online action intent
+      'Information', // *
+      'Online status', // suggest online action intent
+      'Information ', // *
+      'Can I view my case online?', // suggest online action intent
+      'website for childsupport', // suggest online action intent
+      'Online', // suggest online action intent
+      'close page', // *
+      'where do I send completed documents?', // add to pmts-general-make-payments
+      'Log on ', // mislabeled, added to login
+      'Website assistance ', // suggest online action intent
+      'Website is not working to process bank withdrawal information ', // suggest online action intent
+      "I am already registered and set up on ipayonline. I had to do a reset password but I don't see where I can change the password to something I can remember", // *
+      'how do I acquire information via online concerning my case?', // add to caseQA-general
+      "NOW I HAVE AN EPPICARD ACCOUNT. ISN'T THERE A WAY TO LOOK FROM MDHS'S SITE?", // suggest online action intent
+      'View child support order online ', // suggest online action intent
+      'Trying to setup online account', // suggest online action intent
+      'Child support web-based bills', // suggest online action intent
+      "I'm trying to get to where I can view my child support letters online.", // suggest online action intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 9 },
@@ -4648,31 +4648,31 @@ const data = {
   'change employment information': {
     occurences: 25,
     queries: [
-      'How do you report change of job for paying parent?',
-      'I lost my job',
-      'What if employer is not taking out check',
-      'I need to update place of employment ',
-      'I need to add an employer address and contact number to a case',
-      'change jobs',
-      'I need to put in my job information ',
-      'Notify of employment change',
-      'Changed jobs',
-      'I need to turn in a new job for the mother who I have filed against',
-      '1 he just got a new job when will I see payments ',
-      'i lost my job and was trying to get in contact with my case worker',
-      'Can I get the form needed online to take to may employer to have child support deducted from my paycheck. I have started a new job.',
-      'Got a new job and need withholding  order for new job',
-      'I lost my job.',
-      'i lost my job',
-      'give you my employer name and address',
-      'I’m trying to get wages garnished from his new job',
-      'Trying to set up child support to be taken out of my check at my new job',
-      'how can i reach a person to give them my new empoler information?',
-      'I need to switch my job on my case to the new one ',
-      'Report change of employment ',
-      'I would like to find out if my ex-husbands newest paycheck information from East PERSON_NAME University has been received.',
-      'Yes I just got switched to every two weeks pay and I need to get new paperwork sent to me so I can adjust that coming out of my paycheck',
-      'Change of Employment Status',
+      'How do you report change of job for paying parent?', // add to support root
+      'I lost my job', // add to support root
+      'What if employer is not taking out check', // *
+      'I need to update place of employment ', // add to support root
+      'I need to add an employer address and contact number to a case', // add to support root
+      'change jobs', // add to support root
+      'I need to put in my job information ', // add to support root
+      'Notify of employment change', // add to support root
+      'Changed jobs', // add to support root
+      'I need to turn in a new job for the mother who I have filed against', // add to support root
+      '1 he just got a new job when will I see payments ', // *
+      'i lost my job and was trying to get in contact with my case worker', // add to support root
+      'Can I get the form needed online to take to may employer to have child support deducted from my paycheck. I have started a new job.', // add to support root
+      'Got a new job and need withholding  order for new job', // add to support root
+      'I lost my job.', // add to support root
+      'i lost my job', // add to support root
+      'give you my employer name and address', // add to support root
+      'I’m trying to get wages garnished from his new job', // add to support root
+      'Trying to set up child support to be taken out of my check at my new job', // add to support root
+      'how can i reach a person to give them my new empoler information?', // add to support root
+      'I need to switch my job on my case to the new one ', // add to support root
+      'Report change of employment ', // add to support root
+      'I would like to find out if my ex-husbands newest paycheck information from East PERSON_NAME University has been received.', // *
+      'Yes I just got switched to every two weeks pay and I need to get new paperwork sent to me so I can adjust that coming out of my paycheck', // add to support root
+      'Change of Employment Status', // add to support root
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 5 },
@@ -4698,29 +4698,29 @@ const data = {
   'info about parent': {
     occurences: 23,
     queries: [
-      'Other parent changed jobs',
-      'My kids father switched jobs. How do i report his current job now',
-      'When the dad change jobs who to report it to ',
-      'In my system they have the same custodial parent but different case numbers, Please advise',
-      'How do you report a child in danger, annoymously?',
-      'My sons Father has informed me that he no longer is employed. I didn’t know if I should notify you all or what?',
-      'Report income of non custodial parent ',
-      'How do I report income for a non-custodial parent?',
-      'No, my child’s father got a new job about a month ago. I just wondered how long will it take for child support to start back. He has notified them about his job change. ',
-      "Okay! My child's father will be receiving more than his monthly salary starting this month. How can I report that? ",
-      'I haven’t received any payments, since absent parent moved from another state and has started a new job.',
-      'How can get new information to my case worker on the absent father',
-      ' I have the name of where the other parent is employed at',
-      'Major changes in the father, ',
-      "I got custody of my grandson 8 yrs ago and major changes have been made with the father. He's had 2 other children, married and making more money, ",
-      'I am the non custodial parent ',
-      'Job information about the non custodial parent',
-      'How do I report a new job for noncustodial parent',
-      'Trying to update my case worker with the non-custodial parents new employment. ',
-      'I am the non custodial parent',
-      'Yes I’m here to report an employmer for my kids father',
-      'My husband started a new job and I need to know where to tell his employer to mail the child support payments that he deducts from his payroll check',
-      'How do I report where my ex-husband is working so the process can get started on child support going again?',
+      'Other parent changed jobs', // add to support root
+      'My kids father switched jobs. How do i report his current job now', // add to support root
+      'When the dad change jobs who to report it to ', // add to support root
+      'In my system they have the same custodial parent but different case numbers, Please advise', // add to support root
+      'How do you report a child in danger, annoymously?', // *
+      'My sons Father has informed me that he no longer is employed. I didn’t know if I should notify you all or what?', // add to support root
+      'Report income of non custodial parent ', // add to support root
+      'How do I report income for a non-custodial parent?', // add to support root
+      'No, my child’s father got a new job about a month ago. I just wondered how long will it take for child support to start back. He has notified them about his job change. ', // *
+      "Okay! My child's father will be receiving more than his monthly salary starting this month. How can I report that? ", // add to support root
+      'I haven’t received any payments, since absent parent moved from another state and has started a new job.', // add to support root
+      'How can get new information to my case worker on the absent father', // add to support root
+      ' I have the name of where the other parent is employed at', // add to support root
+      'Major changes in the father, ', // add to support root
+      "I got custody of my grandson 8 yrs ago and major changes have been made with the father. He's had 2 other children, married and making more money, ", // add to support root
+      'I am the non custodial parent ', // *
+      'Job information about the non custodial parent', // add to support root
+      'How do I report a new job for noncustodial parent', // add to support root
+      'Trying to update my case worker with the non-custodial parents new employment. ', // add to support root
+      'I am the non custodial parent', // *
+      'Yes I’m here to report an employmer for my kids father', // add to support root
+      'My husband started a new job and I need to know where to tell his employer to mail the child support payments that he deducts from his payroll check', // *
+      'How do I report where my ex-husband is working so the process can get started on child support going again?', // add to support root
     ],
     contexts: [
       { name: 'waiting-pmtmethods-debit-card', count: 5 },
@@ -4737,29 +4737,29 @@ const data = {
   fee: {
     occurences: 23,
     queries: [
-      'What am i paying 25 dollars for? ',
-      'do I pay 25 dollars if I reciev',
-      'The “coupons” state that you have to pay fees. What exactly are the fees ',
-      'What does the fees mean on the child support payments ',
-      'What is the purpose of the fee',
-      'What is the annual fee',
-      'Where do i submit the fee',
-      'How much is the  Application fee',
-      'How much is the fee',
-      'Do I have to pay 25 for an application fee',
-      'If i only recieve 50 dollars a month is there still a fee',
-      'Will I have to pay a fee there?',
-      'is there a fee for paying child support through the state?',
-      'Retain fee',
-      'Is there a fee',
-      'annual fee',
-      'Is the custodial or non-custodial parent responsible for the $35 annual fee?',
-      'Also, can I pay for the application fee on line with a debit card?',
-      'Does the state charge a processing fee to collect payment.',
-      'I have a charge of $120 on my credit score and all 3 of my sons are over 18 the youngest one is 23  how do I owe you this',
-      "I've never heard of paying money to start a case",
-      'I’ve already paid my $25 fee',
-      'Yes Can the $25 fee be paid in cash',
+      'What am i paying 25 dollars for? ', // suggest general fees intent
+      'do I pay 25 dollars if I reciev', // suggest general fees intent
+      'The “coupons” state that you have to pay fees. What exactly are the fees ', // suggest general fees intent
+      'What does the fees mean on the child support payments ', // suggest general fees intent
+      'What is the purpose of the fee', // suggest general fees intent
+      'What is the annual fee', // suggest general fees intent
+      'Where do i submit the fee', // suggest general fees intent
+      'How much is the  Application fee', // suggest general fees intent
+      'How much is the fee', // suggest general fees intent
+      'Do I have to pay 25 for an application fee', // suggest general fees intent
+      'If i only recieve 50 dollars a month is there still a fee', // suggest general fees intent
+      'Will I have to pay a fee there?', // suggest general fees intent
+      'is there a fee for paying child support through the state?', // suggest general fees intent
+      'Retain fee', // suggest general fees intent
+      'Is there a fee', // suggest general fees intent
+      'annual fee', // suggest general fees intent
+      'Is the custodial or non-custodial parent responsible for the $35 annual fee?', // suggest general fees intent
+      'Also, can I pay for the application fee on line with a debit card?', // suggest general fees intent
+      'Does the state charge a processing fee to collect payment.', // suggest general fees intent
+      'I have a charge of $120 on my credit score and all 3 of my sons are over 18 the youngest one is 23  how do I owe you this', // *
+      "I've never heard of paying money to start a case", // suggest general fees intent
+      'I’ve already paid my $25 fee', // suggest general fees intent
+      'Yes Can the $25 fee be paid in cash', // suggest general fees intent
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 6 },
@@ -4778,29 +4778,29 @@ const data = {
   'addressing check': {
     occurences: 23,
     queries: [
-      'How do I fill out a money order for child support ',
-      "What's the address to mail in payments in Mississippi for the absent parent?",
-      'How to fill out money order',
-      'Who to make check payable to',
-      'What name do I put on money order? Sdu?',
-      'Who name do I put on check for child support?',
-      'Who do I make the check payable to?',
-      'Who do I write the check out to',
-      'Who do I make the money order out to in Hernando Ms',
-      'Who do you make the check out too',
-      'I’m filling out a money order who do I make it out too',
-      'Who do you make checks payable to?!',
-      'Who do i make check to where do i send',
-      'Who do I make the money order out to',
-      'To what address should I mail a Judgment Terminating Child Support?',
-      'Trying to find the address to send my child support',
-      'Whew do I mail a child support payment to',
-      'i am the parent who is sending money',
-      'What just looking for address on where to send payment as well as how to make out money order',
-      'When sending money gram do you send to mothers name',
-      'Where do I mail a child support payment to?',
-      'What is the PO box address in PERSON_NAME to send child support payment?',
-      'Where can I mail my child support payment',
+      'How do I fill out a money order for child support ', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      "What's the address to mail in payments in Mississippi for the absent parent?", // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'How to fill out money order', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who to make check payable to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'What name do I put on money order? Sdu?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who name do I put on check for child support?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I make the check payable to?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I write the check out to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I make the money order out to in Hernando Ms', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do you make the check out too', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'I’m filling out a money order who do I make it out too', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do you make checks payable to?!', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do i make check to where do i send', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I make the money order out to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'To what address should I mail a Judgment Terminating Child Support?', // *
+      'Trying to find the address to send my child support', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Whew do I mail a child support payment to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'i am the parent who is sending money', // add to type of parent entity
+      'What just looking for address on where to send payment as well as how to make out money order', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'When sending money gram do you send to mothers name', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Where do I mail a child support payment to?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'What is the PO box address in PERSON_NAME to send child support payment?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Where can I mail my child support payment', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 10 },
@@ -4825,26 +4825,26 @@ const data = {
   taxes: {
     occurences: 20,
     queries: [
-      'i dont owe any child support but you all took my tax refund',
-      'How do I find out if I will receive a payment from tax offset of non custodial parent ',
-      'Tax offset payment ',
-      'tax',
-      " I need to know where my taxes hadn't been took off my back child support",
-      'Tax interception ',
+      'i dont owe any child support but you all took my tax refund', // added to enforcement-tax-offset
+      'How do I find out if I will receive a payment from tax offset of non custodial parent ', // added to enforcement-tax-offset
+      'Tax offset payment ', // added to enforcement-tax-offset
+      'tax', // added to enforcement-tax-offset
+      " I need to know where my taxes hadn't been took off my back child support", // added to enforcement-tax-offset
+      'Tax interception ', // added to enforcement-tax-offset
       'I have a release for my tax refund ',
-      'social security',
-      'tax refund',
-      'I would like my child’s support Payment’s to run through the state and be taken out of my payroll check each week',
-      'How long before income tax is applied.',
-      'tax ID number ',
-      "I'm looking for your tax ID number to issue a child support withholding for a non-custodial parent.",
-      'tax offset',
-      'Why are they holding child support received from taxes ',
-      'If my ex-husband is in arrears, does this agency participate in the collection of funds from the IRS; seize his refund?',
-      'Getting income tax',
-      'I have asked for the past three years about getting his income tax. ',
-      "I'm trying to figure out the child in reference to my federal tax return they kept for child support that I wasn't aware I was supposed to be paying",
-      'It has income tax/social security/retirement/childsupport',
+      'social security', // *
+      'tax refund', // added to enforcement-tax-offset
+      'I would like my child’s support Payment’s to run through the state and be taken out of my payroll check each week', // *
+      'How long before income tax is applied.', // added to enforcement-tax-offset
+      'tax ID number ', // *
+      "I'm looking for your tax ID number to issue a child support withholding for a non-custodial parent.", // *
+      'tax offset', // added to enforcement-tax-offset
+      'Why are they holding child support received from taxes ', // added to enforcement-tax-offset
+      'If my ex-husband is in arrears, does this agency participate in the collection of funds from the IRS; seize his refund?', // *
+      'Getting income tax', // added to enforcement-tax-offset
+      'I have asked for the past three years about getting his income tax. ', // added to enforcement-tax-offsets
+      "I'm trying to figure out the child in reference to my federal tax return they kept for child support that I wasn't aware I was supposed to be paying", // added to enforcement-tax-offset
+      'It has income tax/social security/retirement/childsupport', // added to enforcement-tax-offset
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 5 },
@@ -4869,23 +4869,23 @@ const data = {
   tanf: {
     occurences: 17,
     queries: [
-      'Tanf',
-      'Tanf ',
-      '604532213c',
-      'TANF',
-      'Ellisquivalent ',
-      'Tanf benfits',
-      'dcse',
-      'non-tanf',
-      'Nekole PERSON_NAME ',
-      '🖕🏿',
-      '🖕🏿',
-      '          KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
-      'Childsupport',
-      'Amccord14 @icloud.com',
-      'Mclarty ',
-      'Childsupport',
-      'Deion PERSON_NAME',
+      'Tanf', // hold off until more departments
+      'Tanf ', // hold off until more departments
+      '604532213c', // *
+      'TANF', // hold off until more departments
+      'Ellisquivalent ', // *
+      'Tanf benfits', // hold off until more departments
+      'dcse', // hold off until more departments
+      'non-tanf', // hold off until more departments
+      'Nekole PERSON_NAME ', // *
+      '🖕🏿', // *
+      '🖕🏿', // *
+      '          KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK', // *
+      'Childsupport', // mislabled, add to home intent
+      'Amccord14 @icloud.com', // *
+      'Mclarty ', // *
+      'Childsupport', // mislabled, add to home intent
+      'Deion PERSON_NAME', // *
     ],
     contexts: [
       { name: 'ticketinfo', count: 6 },
@@ -4912,22 +4912,22 @@ const data = {
   'child care': {
     occurences: 16,
     queries: [
-      'I need daycare assistance ',
-      'trying to check on child care',
-      'Daycare ',
-      'Daycare ',
-      'i am trying to get help with child care',
-      'Daycare vouchers ',
-      'How would I check up on a daycare?',
-      'I need to get my daughter on medicare',
-      'I am trying to get a child care voucher',
-      'Trying to get my child on the early child care program',
-      'Child care assistance ',
-      'im searching for a childcare form ',
-      'I was trying to get a child care voucher for my son but im',
-      'Getting help with childcare',
-      'Childcare',
-      'Child care voucher ',
+      'I need daycare assistance ', // suggest child care intent
+      'trying to check on child care', // suggest child care intent
+      'Daycare ', // suggest child care intent
+      'Daycare ', // suggest child care intent
+      'i am trying to get help with child care', // suggest child care intent
+      'Daycare vouchers ', // suggest child care intent
+      'How would I check up on a daycare?', // suggest child care intent
+      'I need to get my daughter on medicare', // suggest child care intent
+      'I am trying to get a child care voucher', // suggest child care intent
+      'Trying to get my child on the early child care program', // suggest child care intent
+      'Child care assistance ', // suggest child care intent
+      'im searching for a childcare form ', // suggest child care intent
+      'I was trying to get a child care voucher for my son but im', // suggest child care intent
+      'Getting help with childcare', // suggest child care intent
+      'Childcare', // suggest child care intent
+      'Child care voucher ', // suggest child care intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 3 },
@@ -4948,22 +4948,22 @@ const data = {
   'payment history': {
     occurences: 16,
     queries: [
-      'notice of monthly paymnet',
-      'I need my last 3 months of my transactions from child support',
-      'Can you help me find a record of payments made?',
-      'Find a record of payments I made',
-      'Can you show me any recent activity on my account?',
-      'Checking payment I have made',
-      'I need to get a copy of what I received for child support in the past 6 months.',
-      '3-13-17 last payment 51.47 and 11-9-15',
-      'How can I get a record of payments made to me for child support',
-      'I am the non custodial parent and what to know how I can find out the payments I made',
-      'Request Payment History or Record',
-      'How can I get a list of payments made?',
-      'Yes I’m trying to check my payments ',
-      'My name is PERSON_NAME and I was wanted to know how much do I owe and how much I have paid',
-      'copy of payment history',
-      'I’m needing support obtaining payment history can you help',
+      'notice of monthly paymnet', // add to support-root
+      'I need my last 3 months of my transactions from child support', // add to support-root
+      'Can you help me find a record of payments made?', // add to support-root
+      'Find a record of payments I made', // add to support-root
+      'Can you show me any recent activity on my account?', // add to support-root
+      'Checking payment I have made', // add to support-root
+      'I need to get a copy of what I received for child support in the past 6 months.', // add to support-root
+      '3-13-17 last payment 51.47 and 11-9-15', // *
+      'How can I get a record of payments made to me for child support', // add to support-root
+      'I am the non custodial parent and what to know how I can find out the payments I made', // add to support-root
+      'Request Payment History or Record', // add to support-root
+      'How can I get a list of payments made?', // add to support-root
+      'Yes I’m trying to check my payments ', // add to support-root
+      'My name is PERSON_NAME and I was wanted to know how much do I owe and how much I have paid', // add to support-root
+      'copy of payment history', // add to support-root
+      'I’m needing support obtaining payment history can you help', // add to support-root
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 5 },
@@ -4983,19 +4983,19 @@ const data = {
   incarceration: {
     occurences: 13,
     queries: [
-      'When send out locator for non custodial parent will he go to jail',
-      'Can I make child support payments for someone who is in Desoto county ms jail for failure to pay child supports may I send in payments',
-      'My sons dad just got out of jail. He hasn’t paid since April. What’s the next step?',
-      'My children dad is in jail',
-      'What if the noncustodial parent is incarcerated ',
-      'I need talk to someone bout my daughter father got out of prison ',
-      'If he is in jail or prison, how do I get my child support?',
-      'I got a letter in the mail about my child’s father being an absent parent he’s not an absent parent his just in prison for a few years',
-      'Hello - I am a mom of two children that their father is incarcerated since March. He is my ex husband and will get life or death penalty in prison. I am currently homeless as well as jobless. No child support. Is there any help ',
-      'family violence',
-      'Yes! Who do I talk to about getting the non custodial parent arrested?',
-      'Can I put my child’s father on child support even though he’s in prison ',
-      'My sons dad is in prison so I won’t receive anything from him but I need my son on my stamp case and I don’t want my son to have his Medicaid cut so how do I handle this',
+      'When send out locator for non custodial parent will he go to jail', // *
+      'Can I make child support payments for someone who is in Desoto county ms jail for failure to pay child supports may I send in payments', // add to support-qa-ncp-prison
+      'My sons dad just got out of jail. He hasn’t paid since April. What’s the next step?', // add to support-qa-ncp-prison
+      'My children dad is in jail', // add to support-qa-ncp-prison
+      'What if the noncustodial parent is incarcerated ', // add to support-qa-ncp-prison
+      'I need talk to someone bout my daughter father got out of prison ', // add to support-qa-ncp-prison
+      'If he is in jail or prison, how do I get my child support?', // add to support-qa-ncp-prison
+      'I got a letter in the mail about my child’s father being an absent parent he’s not an absent parent his just in prison for a few years', // add to support-qa-ncp-prison
+      'Hello - I am a mom of two children that their father is incarcerated since March. He is my ex husband and will get life or death penalty in prison. I am currently homeless as well as jobless. No child support. Is there any help ', // *
+      'family violence', // *
+      'Yes! Who do I talk to about getting the non custodial parent arrested?', // *
+      'Can I put my child’s father on child support even though he’s in prison ', // add to support-qa-ncp-prison
+      'My sons dad is in prison so I won’t receive anything from him but I need my son on my stamp case and I don’t want my son to have his Medicaid cut so how do I handle this', // *
     ],
     contexts: [
       { name: 'waiting-feedback-root', count: 3 },
@@ -5018,19 +5018,19 @@ const data = {
   appointments: {
     occurences: 13,
     queries: [
-      'Number to schedule DNA appointment?',
-      'Father doesn’t appear for appointment ',
-      'I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ',
-      'I need to schedule an appointment to provide employer information for my ex',
-      'can i schudele an appointment',
-      'Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ',
-      'Need an appt',
-      'I need help scheduling an appointment for the first time',
-      'When can you help me get appointment',
-      'schedule an appointment',
-      'Schedule an appointment ',
-      'do I schedule appointments or walk in? ',
-      'Who can I call to schedule an appointment in tupelo ms',
+      'Number to schedule DNA appointment?', // mislabeled, added to paternity
+      'Father doesn’t appear for appointment ', // add to appts-root
+      'I need to have an appointment 30 sept with my caseworker.  My name is PERSON_NAME ', // add to appts-root
+      'I need to schedule an appointment to provide employer information for my ex', // add to appts-root
+      'can i schudele an appointment', // add to appts-root
+      'Want to make an appointment for my husband PERSON_NAME Holland Marich an appointment to speak with a case worker. He wants to sign his rights away to PERSON_NAME. ', // *
+      'Need an appt', // add to appts-root
+      'I need help scheduling an appointment for the first time', // add to appts-root
+      'When can you help me get appointment', // add to appts-root
+      'schedule an appointment', // add to appts-root
+      'Schedule an appointment ', // add to appts-root
+      'do I schedule appointments or walk in? ', // add to appts-root
+      'Who can I call to schedule an appointment in tupelo ms', // add to appts-root
     ],
     contexts: [
       { name: 'waiting-feedback-root', count: 9 },
@@ -5054,19 +5054,19 @@ const data = {
   refund: {
     occurences: 13,
     queries: [
-      'refund',
-      'Im trying to see how much ive over paid on my childsupport case because i recieveda letter stating i had over paid.',
-      'Can I get money back if I have an order from the court to stop taking money the you still did for over a year',
-      'I have a question about a specific order and a refund that was returned to employer',
-      'Refund of overpayments',
-      'Refund of overpayments',
-      'Im done making payments when will i get my reimbursement check',
-      'Overpaid ',
-      'Overpaid yearly',
-      'My is way behind on child support... I have already been told that if he pays something every 3 months that there is nothing y’all will do.  Is there not a way to get his it’s refund when he filed taxes?',
-      'Refund on overpayment',
-      'Over paid ',
-      "I'm looking for an over payment i made few months back i never was entitled to. ",
+      'refund', // suggest refund intent
+      'Im trying to see how much ive over paid on my childsupport case because i recieveda letter stating i had over paid.', // suggest refund intent
+      'Can I get money back if I have an order from the court to stop taking money the you still did for over a year', // suggest refund intent
+      'I have a question about a specific order and a refund that was returned to employer', // suggest refund intent
+      'Refund of overpayments', // suggest refund intent
+      'Refund of overpayments', // suggest refund intent
+      'Im done making payments when will i get my reimbursement check', // suggest refund intent
+      'Overpaid ', // suggest refund intent
+      'Overpaid yearly', // suggest refund intent
+      'My is way behind on child support... I have already been told that if he pays something every 3 months that there is nothing y’all will do.  Is there not a way to get his it’s refund when he filed taxes?', // *
+      'Refund on overpayment', // suggest refund intent
+      'Over paid ', // suggest refund intent
+      "I'm looking for an over payment i made few months back i never was entitled to. ", // suggest refund intent
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 4 },
@@ -5086,18 +5086,18 @@ const data = {
   'cant make payments': {
     occurences: 12,
     queries: [
-      'career opportunities',
-      'I need a job ',
-      "I'm unemployed ",
-      'Lost a job',
-      'Lost of job',
-      'Career opportunities ',
-      'lost a job',
-      "I can't afford to but my kids school uniforms what do i do is there any help",
-      'No job',
-      'Unemployed ',
-      'Payment continues to increase but my income is decreasing. ',
-      'He works but he gets paid cash ',
+      'career opportunities', // add to pmtMethods-cant-make
+      'I need a job ', // add to pmtMethods-cant-make
+      "I'm unemployed ", // add to pmtMethods-cant-make
+      'Lost a job', // add to pmtMethods-cant-make
+      'Lost of job', // add to pmtMethods-cant-make
+      'Career opportunities ', // add to pmtMethods-cant-make
+      'lost a job', // add to pmtMethods-cant-make
+      "I can't afford to but my kids school uniforms what do i do is there any help", // *
+      'No job', // add to pmtMethods-cant-make
+      'Unemployed ', // add to pmtMethods-cant-make
+      'Payment continues to increase but my income is decreasing. ', // add to pmtMethods-cant-make
+      'He works but he gets paid cash ', // add to pmtMethods-cant-make
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 3 },
