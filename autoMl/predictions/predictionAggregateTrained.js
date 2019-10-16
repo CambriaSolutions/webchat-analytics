@@ -4548,39 +4548,39 @@ const data = {
   login: {
     occurences: 33,
     queries: [
-      'Log in',
-      'forgot log in ingormation',
-      'Login',
-      'Re activate my account',
-      'I can’t log into my account. There is a charge in my card that takes place every month that I don’t know anything about.',
-      'login',
-      'Online site to login',
-      'How to go online and access my account ',
-      'I receive child support is there any way I can review my account online?',
-      'I forgot my mdhs login information',
-      "No can't access 😢",
-      'Is there a parent portal where I can login to view activity on my case?',
-      'How can i get my account information ',
-      'I cannot get the payment portal to load...',
-      "I'm trying to get in my account online but I've been lock out",
-      'Online - link broken',
-      'Why is my account over draft ? ',
-      'Log in',
-      'Online login ',
-      'Login',
-      'log in ',
-      'Where do I find it?  Apparently my email add and password have expired.',
-      'Neither. How do I access my account? ',
-      'How can I get into my account? ',
-      'trying to look up my  account',
-      'How can I get help with login information on the EppiCard website?',
-      'I have the EppiCard and am unable to get help with the website and logging in to look at my balance and transactions.  When I try to set up the login the information it keeps rejecting everything.  ',
-      'Is there not a site i can access child support info ',
-      "I can't access the ipay",
-      'I am just trying to see why I cannot log into my account to pay child support',
-      'Sign in to check my account ',
-      'How to log in ipay',
-      'Cant log in',
+      'Log in', // suggest login intent
+      'forgot log in ingormation', // suggest login intent
+      'Login', // suggest login intent
+      'Re activate my account', // suggest login intent
+      'I can’t log into my account. There is a charge in my card that takes place every month that I don’t know anything about.', // suggest login intent
+      'login', // suggest login intent
+      'Online site to login', // suggest login intent
+      'How to go online and access my account ', // suggest login intent
+      'I receive child support is there any way I can review my account online?', // suggest login intent
+      'I forgot my mdhs login information', // suggest login intent
+      "No can't access 😢", // suggest login intent
+      'Is there a parent portal where I can login to view activity on my case?', // suggest login intent
+      'How can i get my account information ', // suggest login intent
+      'I cannot get the payment portal to load...', // suggest login intent
+      "I'm trying to get in my account online but I've been lock out", // suggest login intent
+      'Online - link broken', // *
+      'Why is my account over draft ? ', // *
+      'Log in', // suggest login intent
+      'Online login ', // suggest login intent
+      'Login', // suggest login intent
+      'log in ', // suggest login intent
+      'Where do I find it?  Apparently my email add and password have expired.', // suggest login intent
+      'Neither. How do I access my account? ', // suggest login intent
+      'How can I get into my account? ', // suggest login intent
+      'trying to look up my  account', // suggest login intent
+      'How can I get help with login information on the EppiCard website?', // suggest login intent
+      'I have the EppiCard and am unable to get help with the website and logging in to look at my balance and transactions.  When I try to set up the login the information it keeps rejecting everything.  ', // *
+      'Is there not a site i can access child support info ', // suggest login intent
+      "I can't access the ipay", // suggest login intent
+      'I am just trying to see why I cannot log into my account to pay child support', // suggest login intent
+      'Sign in to check my account ', // suggest login intent
+      'How to log in ipay', // suggest login intent
+      'Cant log in', // suggest login intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 10 },
