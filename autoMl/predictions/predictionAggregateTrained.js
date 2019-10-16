@@ -4869,23 +4869,23 @@ const data = {
   tanf: {
     occurences: 17,
     queries: [
-      'Tanf',
-      'Tanf ',
-      '604532213c',
-      'TANF',
-      'Ellisquivalent ',
-      'Tanf benfits',
-      'dcse',
-      'non-tanf',
-      'Nekole PERSON_NAME ',
-      '🖕🏿',
-      '🖕🏿',
-      '          KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
-      'Childsupport',
-      'Amccord14 @icloud.com',
-      'Mclarty ',
-      'Childsupport',
-      'Deion PERSON_NAME',
+      'Tanf', // hold off until more departments
+      'Tanf ', // hold off until more departments
+      '604532213c', // *
+      'TANF', // hold off until more departments
+      'Ellisquivalent ', // *
+      'Tanf benfits', // hold off until more departments
+      'dcse', // hold off until more departments
+      'non-tanf', // hold off until more departments
+      'Nekole PERSON_NAME ', // *
+      '🖕🏿', // *
+      '🖕🏿', // *
+      '          KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK', // *
+      'Childsupport', // mislabled, add to home intent
+      'Amccord14 @icloud.com', // *
+      'Mclarty ', // *
+      'Childsupport', // mislabled, add to home intent
+      'Deion PERSON_NAME', // *
     ],
     contexts: [
       { name: 'ticketinfo', count: 6 },
@@ -4912,22 +4912,22 @@ const data = {
   'child care': {
     occurences: 16,
     queries: [
-      'I need daycare assistance ',
-      'trying to check on child care',
-      'Daycare ',
-      'Daycare ',
-      'i am trying to get help with child care',
-      'Daycare vouchers ',
-      'How would I check up on a daycare?',
-      'I need to get my daughter on medicare',
-      'I am trying to get a child care voucher',
-      'Trying to get my child on the early child care program',
-      'Child care assistance ',
-      'im searching for a childcare form ',
-      'I was trying to get a child care voucher for my son but im',
-      'Getting help with childcare',
-      'Childcare',
-      'Child care voucher ',
+      'I need daycare assistance ', // suggest child care intent
+      'trying to check on child care', // suggest child care intent
+      'Daycare ', // suggest child care intent
+      'Daycare ', // suggest child care intent
+      'i am trying to get help with child care', // suggest child care intent
+      'Daycare vouchers ', // suggest child care intent
+      'How would I check up on a daycare?', // suggest child care intent
+      'I need to get my daughter on medicare', // suggest child care intent
+      'I am trying to get a child care voucher', // suggest child care intent
+      'Trying to get my child on the early child care program', // suggest child care intent
+      'Child care assistance ', // suggest child care intent
+      'im searching for a childcare form ', // suggest child care intent
+      'I was trying to get a child care voucher for my son but im', // suggest child care intent
+      'Getting help with childcare', // suggest child care intent
+      'Childcare', // suggest child care intent
+      'Child care voucher ', // suggest child care intent
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 3 },
@@ -4948,22 +4948,22 @@ const data = {
   'payment history': {
     occurences: 16,
     queries: [
-      'notice of monthly paymnet',
-      'I need my last 3 months of my transactions from child support',
-      'Can you help me find a record of payments made?',
-      'Find a record of payments I made',
-      'Can you show me any recent activity on my account?',
-      'Checking payment I have made',
-      'I need to get a copy of what I received for child support in the past 6 months.',
-      '3-13-17 last payment 51.47 and 11-9-15',
-      'How can I get a record of payments made to me for child support',
-      'I am the non custodial parent and what to know how I can find out the payments I made',
-      'Request Payment History or Record',
-      'How can I get a list of payments made?',
-      'Yes I’m trying to check my payments ',
-      'My name is PERSON_NAME and I was wanted to know how much do I owe and how much I have paid',
-      'copy of payment history',
-      'I’m needing support obtaining payment history can you help',
+      'notice of monthly paymnet', // add to support-root
+      'I need my last 3 months of my transactions from child support', // add to support-root
+      'Can you help me find a record of payments made?', // add to support-root
+      'Find a record of payments I made', // add to support-root
+      'Can you show me any recent activity on my account?', // add to support-root
+      'Checking payment I have made', // add to support-root
+      'I need to get a copy of what I received for child support in the past 6 months.', // add to support-root
+      '3-13-17 last payment 51.47 and 11-9-15', // *
+      'How can I get a record of payments made to me for child support', // add to support-root
+      'I am the non custodial parent and what to know how I can find out the payments I made', // add to support-root
+      'Request Payment History or Record', // add to support-root
+      'How can I get a list of payments made?', // add to support-root
+      'Yes I’m trying to check my payments ', // add to support-root
+      'My name is PERSON_NAME and I was wanted to know how much do I owe and how much I have paid', // add to support-root
+      'copy of payment history', // add to support-root
+      'I’m needing support obtaining payment history can you help', // add to support-root
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 5 },
