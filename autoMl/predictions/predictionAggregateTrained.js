@@ -3456,74 +3456,74 @@ const data = {
   arrears: {
     occurences: 68,
     queries: [
-      '339 cr DIGITS mooreville ms ZIPCODE',
-      'back',
-      'How far is jermaine tellis behind',
-      'how can I find out how far behind someone is in child support ',
-      'what do i do about back child support owed',
-      'How do I find out how much I owe in child support',
-      'Back child support balance ',
-      'How far behind do you get in trouble ',
-      'Back child support',
-      'How much is owed on my back child support?',
-      'DIGITS cornet pl',
-      'how to check back child support',
-      'DIGITS PERSON_NAME Blv PERSON_NAME, MS',
-      'how do you find names of people that owe child support?',
-      'Is there a number I can call to check child support balance owed',
-      'I need to know how much back time is being owe to me ',
-      '238 cr DIGITS guntown ms',
-      'Wht time does it close',
-      'I am a non custodial parent.  Is there anyway online that i can see what i owe on child support/back child support?',
-      'I recently had a back payment of DIGITS dollars.i have recently sent a payment of DIGITS .can i get my liscense back',
-      'How can I track my back time money from child support?',
-      'How do I find out how much back child support I owe?',
-      'Check the arrears',
-      'Is there anywhere to check to see how far behind my ex husband is?',
-      'How much am i behind ',
-      'How much am still behind on it',
-      'How many years of back time child support can you get',
-      'I want to know how i can get my past due child support from over the years',
-      '769-666_6697',
-      'Arrears overcharges',
-      'I would like to know how am I behind ',
-      'How do I go about trying to get support owed to me for the past 8 years? The father is now working',
-      'I’m just wondering how behind is my oldest daughters father. The dollar amount along with how many months arrearage ',
-      'I received a letter saying to with hold for arrears for an employee that says he is caught up. can I get an updated letter?',
-      'Retainer',
-      'lower',
-      'Arrears',
-      'Back',
-      'Have questions about arrears',
-      'Longino',
-      'When a man finds out after 15 years he fathered a child and has not been requested to pay support until now, how far back does he pay support in arrears? ',
-      'Can child support garnish a VA check for back time child support?',
-      'What are arears',
-      'I have had a open case since June of last year and it says I have a arrears balance or 0.00. Why? I have received 80 dollars from the father of my child since December 9,DIGITS when he was born. He has only seen him 1 time since last june',
-      'Needing help getting court order and arrears balance transfer from TN to ms',
-      'How to get arrears? ',
-      'How much am I behind ',
-      'Ricara PERSON_NAME',
-      'Want to know my arrearage amount',
-      'Arrears ',
-      'How long does it take to receive child support arrears once the irs.takes my kuds father taxex',
-      'lowering arrears',
-      'My husband owe childsupport and he owe DIGITS back child support mississippi is taking my husband check',
-      'add arrears',
-      'arrears',
-      'WHERE CAN I GET MY COURT ORDER FROM CHILD SUPPORT FROM DIGITS',
-      'back',
-      'My child support is coming out of my paycheck and I have a payment plan for arrears can I get a passport',
-      'Need to know how much im behind',
-      'Back time child support from a parent in PERSON_NAME ',
-      'Back',
-      'Just need the DIGITS to check rears and all ',
-      "And all I would need is something showing that my arrears is caught up to close because that's what the VA requires but none seems to be able to help me get this done. This is the only time I have to get this done before leaving.",
-      "I'm trying to see how far behind I'm in child support cause they took the time gettin it set up",
-      'Checking on back time child support payment',
-      'is there a place to see back child support owed',
-      'is there a way to look online to see what amount of back child support is owed',
-      'No payment on arrearage order in 12 months',
+      '339 cr DIGITS mooreville ms ZIPCODE', // *
+      'back', // *
+      'How far is jermaine tellis behind', // add to iwoQA-arrears-balance
+      'how can I find out how far behind someone is in child support ', // add to iwoQA-arrears-balance
+      'what do i do about back child support owed', // add to iwoQA-arrears-balance
+      'How do I find out how much I owe in child support', // add to iwoQA-arrears-balance
+      'Back child support balance ', // add to iwoQA-arrears-balance
+      'How far behind do you get in trouble ', // mislabeled, enforcements
+      'Back child support', // add to iwoQA-arrears-balance
+      'How much is owed on my back child support?', // add to iwoQA-arrears-balance
+      'DIGITS cornet pl', // *
+      'how to check back child support', // add to iwoQA-arrears-balance
+      'DIGITS PERSON_NAME Blv PERSON_NAME, MS', // *
+      'how do you find names of people that owe child support?', // *
+      'Is there a number I can call to check child support balance owed', // add to iwoQA-arrears-balance
+      'I need to know how much back time is being owe to me ', // add to iwoQA-arrears-balance
+      '238 cr DIGITS guntown ms', // *
+      'Wht time does it close', // mislabeled, office hours
+      'I am a non custodial parent.  Is there anyway online that i can see what i owe on child support/back child support?', // add to iwoQA-arrears-balance
+      'I recently had a back payment of DIGITS dollars.i have recently sent a payment of DIGITS .can i get my liscense back', // *
+      'How can I track my back time money from child support?', // add to iwoQA-arrears-balance
+      'How do I find out how much back child support I owe?', // add to iwoQA-arrears-balance
+      'Check the arrears', // add to iwoQA-arrears-balance
+      'Is there anywhere to check to see how far behind my ex husband is?', // add to iwoQA-arrears-balance
+      'How much am i behind ', // add to iwoQA-arrears-balance
+      'How much am still behind on it', // add to iwoQA-arrears-balance
+      'How many years of back time child support can you get', // add to iwoQA-arrears-balance
+      'I want to know how i can get my past due child support from over the years', // add to iwoQA-arrears-balance
+      '769-666_6697', // *
+      'Arrears overcharges', // add to iwoQA-arrears-balance
+      'I would like to know how am I behind ', // add to iwoQA-arrears-balance
+      'How do I go about trying to get support owed to me for the past 8 years? The father is now working', // add to iwoQA-arrears-balance
+      'I’m just wondering how behind is my oldest daughters father. The dollar amount along with how many months arrearage ', // add to iwoQA-arrears-balance
+      'I received a letter saying to with hold for arrears for an employee that says he is caught up. can I get an updated letter?', // *
+      'Retainer', // *
+      'lower', // *
+      'Arrears', // add to iwoQA-arrears-balance
+      'Back', // *
+      'Have questions about arrears', // add to iwoQA-arrears-balance
+      'Longino', // *
+      'When a man finds out after 15 years he fathered a child and has not been requested to pay support until now, how far back does he pay support in arrears? ', // add to iwoQA-arrears-balance
+      'Can child support garnish a VA check for back time child support?', // add to iwoQA-arrears-balance
+      'What are arears', // *
+      'I have had a open case since June of last year and it says I have a arrears balance or 0.00. Why? I have received 80 dollars from the father of my child since December 9,DIGITS when he was born. He has only seen him 1 time since last june', // *
+      'Needing help getting court order and arrears balance transfer from TN to ms', // mislabeled, interstate
+      'How to get arrears? ', // add to iwoQA-arrears-balance
+      'How much am I behind ', // add to iwoQA-arrears-balance
+      'Ricara PERSON_NAME', // *
+      'Want to know my arrearage amount', // add to iwoQA-arrears-balance
+      'Arrears ', // add to iwoQA-arrears-balance
+      'How long does it take to receive child support arrears once the irs.takes my kuds father taxex', // mislabeled, payment timelines
+      'lowering arrears', // add to iwoQA-arrears-balance
+      'My husband owe childsupport and he owe DIGITS back child support mississippi is taking my husband check', // add to iwoQA-arrears-balance
+      'add arrears', // add to iwoQA-arrears-balance
+      'arrears', // add to iwoQA-arrears-balance
+      'WHERE CAN I GET MY COURT ORDER FROM CHILD SUPPORT FROM DIGITS', // add to iwoQA-arrears-balance
+      'back', // *
+      'My child support is coming out of my paycheck and I have a payment plan for arrears can I get a passport', // *
+      'Need to know how much im behind', // add to iwoQA-arrears-balance
+      'Back time child support from a parent in PERSON_NAME ', // add to iwoQA-arrears-balance
+      'Back', // *
+      'Just need the DIGITS to check rears and all ', // add to iwoQA-arrears-balance
+      "And all I would need is something showing that my arrears is caught up to close because that's what the VA requires but none seems to be able to help me get this done. This is the only time I have to get this done before leaving.", // *
+      "I'm trying to see how far behind I'm in child support cause they took the time gettin it set up", // add to iwoQA-arrears-balance
+      'Checking on back time child support payment', // add to iwoQA-arrears-balance
+      'is there a place to see back child support owed', // add to iwoQA-arrears-balance
+      'is there a way to look online to see what amount of back child support is owed', // add to iwoQA-arrears-balance
+      'No payment on arrearage order in 12 months', // add to iwoQA-arrears-balance
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 12 },
@@ -3567,74 +3567,74 @@ const data = {
   complaints: {
     occurences: 68,
     queries: [
-      'You where not helpful ',
-      'you are no help!!!',
-      'NOT HELPFUL. ',
-      'Kiss my ass',
-      "i don't know yet i haven't received any instructions on what needs to be done or what will be done",
-      'FAQs',
-      'No help there ',
-      'Yesterday at my SNAP appointment my caseworker informed me that i was code "DC" for noncompliance. I have no idea what i did ( or didn\'t do) and need help resolving this very urgent matter',
-      'Fuck you',
-      'Go back',
-      'Ok we will not continue ',
-      'Fuck you',
-      'really you dont know anything then why com on here as if you can help. as soon as i hit enter thats your respnose. pitiful',
-      'that was no help',
-      'No information provided ',
-      'useless',
-      'you are not helpful at all',
-      'you are useless',
-      'This is a farce. I call that number and no one picks up. I get the same runaround I am automated system that you were giving me now.',
-      "You're not answering the question that I asked",
-      "This isn't working",
-      'leave me alone',
-      'Horrible',
-      'Ur stupid computer ',
-      'so why have a chat if you are unable to answer any questions',
-      'i do not want to call them they were absolutely no help',
-      'i tried calling. I was on hold for 15 minutes before being disconnected how can i get an audience with a case worker?',
-      'thats not answering my question',
-      'Bye.  This is a stupid interface.  ',
-      "Why y'all dont do your job",
-      'this has not been helpful to my questions.',
-      'why wont the ipay page load?',
-      'Talk to someone about DHS ... I ran into someone that she has 4 kids and all of the kids don’t have anything to eat just a loaf of bread and that’s it while the mother goes out and get drunk and high',
-      'what is taking so long with the process ',
-      'ive been on hold for 25 min',
-      'this so stupid',
-      'Your response is not at all related to the subject',
-      'so why are you on here if you cannot assist?',
-      'Is there anyway to get a letter stating the amount I receive each month? I’ve tried calling twice and have gotten disconnected each time.',
-      'It would be nice if any of them would answer the phone!!!!!!',
-      'i have already contacted that center and wasted my time ',
-      'Get a statement',
-      'No answer ',
-      'My baby father has been on chold',
-      'Go back',
-      'nevermind i can see this is an auto system and you will not be able to help me with anything- i have contact mdhs child support several times through out many years (my child is 7 now) and still no one will seems to be able to help ever',
-      'I am calling PHONE_NUMBER form tank and #4 extention will NOT PICK & ANSWER .',
-      "Finding the deadbeat...local caseworker won't do her job so I am trying to do it.",
-      'please remove this box',
-      'The lady in the office here in Hernando ms laughed at me after I had been there two times prior n still no results I didn’t get to speak to anyone n the info that I did have she gave it back ',
-      'Shut up',
-      'Do you know anything ',
-      'fuck you',
-      'please add more faqs',
-      'This will not put me behind will it ',
-      'The wait time is too damn long.',
-      'What can I do when the Child support dept. that is supposed to be collecting my support is not doing their job & staying on top of it , & I am giving them all the Information & they are not following through?',
-      'this site sucks',
-      'Go Back',
-      'i can never get anyone on the phone or an update on my case. i have given the employment info and all of my exhusband several times since oct. DIGITS still nothing.',
-      "I need a replacement debit card, I no longer have the one that was sent last time.  I've been on hold forever several times trying to talk to someone.",
-      "I need a replacement card, I no longer have the debit card that was sent last time.  I've been on hold forever several times to talk to someone and still can't get anyone.",
-      'Still not picking the phone up ',
-      'disregard... i thought i would have a solution today',
-      'yes why are you even offering this service if you cannot answer the ?',
-      'All automated no answers',
-      'I have done a snap shot of this chat so others can see how nothing will be done',
-      'was not able to get license suspension information',
+      'You where not helpful ', // suggest complaints intent
+      'you are no help!!!', // suggest complaints intent
+      'NOT HELPFUL. ', // suggest complaints intent
+      'Kiss my ass', // suggest complaints intent
+      "i don't know yet i haven't received any instructions on what needs to be done or what will be done", // suggest complaints intent
+      'FAQs', // *
+      'No help there ', // suggest complaints intent
+      'Yesterday at my SNAP appointment my caseworker informed me that i was code "DC" for noncompliance. I have no idea what i did ( or didn\'t do) and need help resolving this very urgent matter', // *
+      'Fuck you', // suggest complaints intent
+      'Go back', // *
+      'Ok we will not continue ', // *
+      'Fuck you', // suggest complaints intent
+      'really you dont know anything then why com on here as if you can help. as soon as i hit enter thats your respnose. pitiful', // *
+      'that was no help', // suggest complaints intent
+      'No information provided ', // suggest complaints intent
+      'useless', // suggest complaints intent
+      'you are not helpful at all', // suggest complaints intent
+      'you are useless', // suggest complaints intent
+      'This is a farce. I call that number and no one picks up. I get the same runaround I am automated system that you were giving me now.', // *
+      "You're not answering the question that I asked", // suggest complaints intent
+      "This isn't working", // suggest complaints intent
+      'leave me alone', // suggest complaints intent
+      'Horrible', // suggest complaints intent
+      'Ur stupid computer ', // suggest complaints intent
+      'so why have a chat if you are unable to answer any questions', // suggest complaints intent
+      'i do not want to call them they were absolutely no help', // suggest complaints intent
+      'i tried calling. I was on hold for 15 minutes before being disconnected how can i get an audience with a case worker?', // suggest call center not answering
+      'thats not answering my question', // suggest complaints intent
+      'Bye.  This is a stupid interface.  ', // suggest complaints intent
+      "Why y'all dont do your job", // suggest complaints intent
+      'this has not been helpful to my questions.', // suggest complaints intent
+      'why wont the ipay page load?', // *
+      'Talk to someone about DHS ... I ran into someone that she has 4 kids and all of the kids don’t have anything to eat just a loaf of bread and that’s it while the mother goes out and get drunk and high', // *
+      'what is taking so long with the process ', // suggest complaints intent
+      'ive been on hold for 25 min', // suggest callcenter not answering
+      'this so stupid', // suggest complaints intent
+      'Your response is not at all related to the subject', // suggest complaints intent
+      'so why are you on here if you cannot assist?', // suggest complaints intent
+      'Is there anyway to get a letter stating the amount I receive each month? I’ve tried calling twice and have gotten disconnected each time.', // suggest call center not answering
+      'It would be nice if any of them would answer the phone!!!!!!', // suggest call center not answering
+      'i have already contacted that center and wasted my time ', // suggest complaints intent
+      'Get a statement', // mislabeled, payment history
+      'No answer ', // suggest complaints intent
+      'My baby father has been on chold', // suggest complaints intent
+      'Go back', // *
+      'nevermind i can see this is an auto system and you will not be able to help me with anything- i have contact mdhs child support several times through out many years (my child is 7 now) and still no one will seems to be able to help ever', // *
+      'I am calling PHONE_NUMBER form tank and #4 extention will NOT PICK & ANSWER .', // suggst call center not answering
+      "Finding the deadbeat...local caseworker won't do her job so I am trying to do it.", // *
+      'please remove this box', // suggest complaints intent
+      'The lady in the office here in Hernando ms laughed at me after I had been there two times prior n still no results I didn’t get to speak to anyone n the info that I did have she gave it back ', // *
+      'Shut up', // suggest complaints intent
+      'Do you know anything ', // suggest complaints intent
+      'fuck you', // suggest complaints intent
+      'please add more faqs', // suggest complaints intent
+      'This will not put me behind will it ', // *
+      'The wait time is too damn long.', // suggest call center not answering
+      'What can I do when the Child support dept. that is supposed to be collecting my support is not doing their job & staying on top of it , & I am giving them all the Information & they are not following through?', // *
+      'this site sucks', // suggest complaints intent
+      'Go Back', // *
+      'i can never get anyone on the phone or an update on my case. i have given the employment info and all of my exhusband several times since oct. DIGITS still nothing.', // *
+      "I need a replacement debit card, I no longer have the one that was sent last time.  I've been on hold forever several times trying to talk to someone.", // *
+      "I need a replacement card, I no longer have the debit card that was sent last time.  I've been on hold forever several times to talk to someone and still can't get anyone.", // *
+      'Still not picking the phone up ', // suggest call center not answering
+      'disregard... i thought i would have a solution today', // *
+      'yes why are you even offering this service if you cannot answer the ?', // suggest complaints intent
+      'All automated no answers', // suggest complaints intent
+      'I have done a snap shot of this chat so others can see how nothing will be done', // suggest complaints intent
+      'was not able to get license suspension information', // suggest complaints intent
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 16 },
