@@ -3123,83 +3123,83 @@ const data = {
   terminate: {
     occurences: 77,
     queries: [
-      'Cancel child support',
-      'I need childcare I just had a baby but the dad help me with her and I don’t want to put him on child support what do I do',
-      'bye',
-      'I am a father and I want to know what can I do to be able to see my children .. the mother is giving me a hard time... I pay child support ',
-      'how to terminate or appeal payments',
-      'how to terminate or appeal payments or reevaluting ',
-      'Bye',
-      'Goodbye ',
-      'Bye',
-      'Goodbye ',
-      'stop child support',
-      'Stop child support ',
-      'I need to know the steps to take to terminate a child support order',
-      'Me and the mother are try to get our child support case cancel ',
-      'they quit',
-      'stop child support',
+      'Cancel child support', // Suggest terminate intent
+      'I need childcare I just had a baby but the dad help me with her and I don’t want to put him on child support what do I do', // *
+      'bye', // *
+      'I am a father and I want to know what can I do to be able to see my children .. the mother is giving me a hard time... I pay child support ', // *
+      'how to terminate or appeal payments', // Suggest terminate intent
+      'how to terminate or appeal payments or reevaluting ', // Suggest terminate intent
+      'Bye', // *
+      'Goodbye ', // *
+      'Bye', // *
+      'Goodbye ', // *
+      'stop child support', // Suggest terminate intent
+      'Stop child support ', // Suggest terminate intent
+      'I need to know the steps to take to terminate a child support order', // Suggest terminate intent
+      'Me and the mother are try to get our child support case cancel ', // Suggest terminate intent
+      'they quit', // *
+      'stop child support', // Suggest terminate intent
       'My child is 20, not in school and has a full time job. How do I stop child support.',
-      'stop',
-      "Now she says she can't stop the child support because it was court ordered. How can he get the child support stopped without having to go thru an attorney.",
-      "My son has two children and pays child support. His ex could not handle their oldest, so she gave him to my son (who's the father) last Oct. She has continued to collect full child support. She agreed (in a text) to stop the child support.",
-      'Cancel child support ',
-      'stop collection',
-      'Child support stop',
-      'How can they stop pmts after only making 4',
-      "How do I stop my daughter's father from receiving her child support if I have her",
-      'How can I stop child support ',
-      'my son is about to be 19 and have a job and do not live with his mom. how can I stop paying child support ',
-      'I need to stop child support payment to me. One of my  child is going to live with his father ',
-      'How to stop child support ',
+      'stop', // *
+      "Now she says she can't stop the child support because it was court ordered. How can he get the child support stopped without having to go thru an attorney.", // Suggest terminate intent
+      "My son has two children and pays child support. His ex could not handle their oldest, so she gave him to my son (who's the father) last Oct. She has continued to collect full child support. She agreed (in a text) to stop the child support.", // *
+      'Cancel child support ', // Suggest terminate intent
+      'stop collection', // Suggest terminate intent
+      'Child support stop', // Suggest terminate intent
+      'How can they stop pmts after only making 4', // Suggest terminate intent
+      "How do I stop my daughter's father from receiving her child support if I have her", // Suggest terminate intent
+      'How can I stop child support ', // Suggest terminate intent
+      'my son is about to be 19 and have a job and do not live with his mom. how can I stop paying child support ', // Suggest terminate intent
+      'I need to stop child support payment to me. One of my  child is going to live with his father ', // Suggest terminate intent
+      'How to stop child support ', // Suggest terminate intent
       'My fiance kids are 17 and 20. They have decided to live with there dad. How does he stop child support to their mother?',
-      'I wish to stop paying because he now lives with me',
-      'How can I get child support stopped when child is married and moved out on their own?',
-      'How to stop payments',
-      'How to get off childsupport',
-      'If child live with me how do i get off childsupport',
-      'How do I stop child support on children who live with me now',
-      'I now have my daughter full time and the mother who I pay child support is willing to sign a letter saying so. How do I stop my payment request from the state',
-      'So how do I go about taking him off ? ',
-      'Disable',
-      'I need to cancel my case',
-      'How to stop child support ',
-      'Stop all childsupport',
-      'Terminate',
-      'How to stop payments',
-      'how to stop child support deductions',
-      'Yes I have another child and his father was put on child support..  we decided to come to an agreement that he was going start helping out..  how do I go about canceling the case?',
-      'how do i terminate child support',
-      'How can I stop child support when I have the kids more than the other parent?',
-      'How do it work with Taking my child father of child support ',
-      'Stop garnishments',
-      'Terminate child support ',
-      "My sister's grandson lives with her. She is financially responsible for him.  However, her daughter does not live with her or take care of her son. How can my sister get the child support redirected to her .",
-      'Want to cancel it',
-      'I would like to cancel my case',
-      "I'm trying to put child support on my kids dad",
-      'Cancel',
-      'Stopping child support order',
-      'can I terminate my rights?',
-      'How do I stop child support payment? ',
-      'Bye',
-      'Terminate child support',
-      'Can I terminate child support payments since my sons father and I are back together?',
-      'I’m trying to take my children kids off child support . How do I go about doing that . ',
-      'Stop',
-      'Cancel',
-      'I want to know how to cancel a child support order',
-      'Stopping payment ',
-      'Stop child support',
-      'How do I stop child support collections now that my son is living with his father?',
-      'I want to stop getting child support from an absent parent ',
-      'Yes my daughters father stop paying child support and has another job ',
-      'The court just gave primary custody of my daughter to me. Who do I send the court notice to cancel my child support?',
-      'I need to know how to stop the reaccuring payments.  I have had an employee quit and it is going to continue to take out for him.',
-      "I'm just trying to take him off child support and he just pay me in cash",
-      'How can I take my son father off child support ',
-      'I was trying to see how can i get child support removed',
-      'Termination ',
+      'I wish to stop paying because he now lives with me', // Suggest terminate intent
+      'How can I get child support stopped when child is married and moved out on their own?', // Suggest terminate intent
+      'How to stop payments', // Suggest terminate intent
+      'How to get off childsupport', // Suggest terminate intent
+      'If child live with me how do i get off childsupport', // Suggest terminate intent
+      'How do I stop child support on children who live with me now', // Suggest terminate intent
+      'I now have my daughter full time and the mother who I pay child support is willing to sign a letter saying so. How do I stop my payment request from the state', // *
+      'So how do I go about taking him off ? ', // Suggest terminate intent
+      'Disable', // *
+      'I need to cancel my case', // Suggest terminate intent
+      'How to stop child support ', // Suggest terminate intent
+      'Stop all childsupport', // Suggest terminate intent
+      'Terminate', // Suggest terminate intent
+      'How to stop payments', // Suggest terminate intent
+      'how to stop child support deductions', // Suggest terminate intent
+      'Yes I have another child and his father was put on child support..  we decided to come to an agreement that he was going start helping out..  how do I go about canceling the case?', // *
+      'how do i terminate child support', // Suggest terminate intent
+      'How can I stop child support when I have the kids more than the other parent?', // Suggest terminate intent
+      'How do it work with Taking my child father of child support ', // Suggest terminate intent
+      'Stop garnishments', // Suggest terminate intent
+      'Terminate child support ', // Suggest terminate intent
+      "My sister's grandson lives with her. She is financially responsible for him.  However, her daughter does not live with her or take care of her son. How can my sister get the child support redirected to her .", // *
+      'Want to cancel it', // Suggest terminate intent
+      'I would like to cancel my case', // Suggest terminate intent
+      "I'm trying to put child support on my kids dad", // mislabeled, open case
+      'Cancel', // Suggest terminate intent
+      'Stopping child support order', // Suggest terminate intent
+      'can I terminate my rights?', // Suggest terminate intent
+      'How do I stop child support payment? ', // Suggest terminate intent
+      'Bye', // *
+      'Terminate child support', // Suggest terminate intent
+      'Can I terminate child support payments since my sons father and I are back together?', // Suggest terminate intent
+      'I’m trying to take my children kids off child support . How do I go about doing that . ', // Suggest terminate intent
+      'Stop', // Suggest terminate intent
+      'Cancel', // Suggest terminate intent
+      'I want to know how to cancel a child support order', // Suggest terminate intent
+      'Stopping payment ', // Suggest terminate intent
+      'Stop child support', // Suggest terminate intent
+      'How do I stop child support collections now that my son is living with his father?', // Suggest terminate intent
+      'I want to stop getting child support from an absent parent ', // Suggest terminate intent
+      'Yes my daughters father stop paying child support and has another job ', // Suggest terminate intent
+      'Who do I send the court notice to cancel my child support?', // Suggest terminate intent
+      'I need to know how to stop the reaccuring payments.', // Suggest terminate intent
+      "I'm just trying to take him off child support and he just pay me in cash", // Suggest terminate intent
+      'How can I take my son father off child support ', // Suggest terminate intent
+      'I was trying to see how can i get child support removed', // Suggest terminate intent
+      'Termination ', // Suggest terminate intent
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 22 },
