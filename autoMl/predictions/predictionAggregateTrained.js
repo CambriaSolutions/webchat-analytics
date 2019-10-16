@@ -3243,81 +3243,81 @@ const data = {
   visitation: {
     occurences: 75,
     queries: [
-      'Roderick',
-      'Roderick',
-      'EMAIL_ADDRESS',
-      '618232492A',
-      'I want to know about adopting',
-      'access and visitation program',
-      'visitation',
-      'Visitation',
-      'PERSON_NAME farm',
-      'Vistition',
-      'EMAIL_ADDRESS',
-      'visits',
-      'visits',
-      'visitation',
-      '619355024A',
-      'Fucj ',
-      'I would like to know, can a guardian visit friends and other family if they are to be supervised ',
-      'jkljkljlj',
-      'casey_deer',
-      'How to apply for custody and establish visitation guidelines',
-      'visitation rights',
-      '616736175A',
-      'Will it still come to parent? ',
-      'I would like to put myself on child support payments and schedule a visitation schedule with my child ',
-      'Guardian',
-      'Custody',
-      'visit',
-      'visition ',
-      'visitation rights',
-      'visitation rights',
-      'Mississippi’s Access and Visitation Program (MAV-P',
-      'EMAIL_ADDRESS',
-      'EMAIL_ADDRESS',
+      'Roderick', // *
+      'Roderick', // *
+      'EMAIL_ADDRESS', // *
+      '618232492A', // *
+      'I want to know about adopting', // *
+      'access and visitation program', // suggest visitation intent
+      'visitation', // suggest visitation intent
+      'Visitation', // suggest visitation intent
+      'PERSON_NAME farm', // *
+      'Vistition', // suggest visitation intent
+      'EMAIL_ADDRESS', // *
+      'visits', // suggest visitation intent
+      'visits', // suggest visitation intent
+      'visitation', // suggest visitation intent
+      '619355024A', // *
+      'Fucj ', // *
+      'I would like to know, can a guardian visit friends and other family if they are to be supervised ', // suggest visitation intent
+      'jkljkljlj', // *
+      'casey_deer', // *
+      'How to apply for custody and establish visitation guidelines', // suggest visitation intent
+      'visitation rights', // suggest visitation intent
+      '616736175A', // *
+      'Will it still come to parent? ', // suggest visitation intent
+      'I would like to put myself on child support payments and schedule a visitation schedule with my child ', // suggest visitation intent
+      'Guardian', // suggest visitation intent
+      'Custody', // suggest visitation intent
+      'visit', // suggest visitation intent
+      'visition ', // suggest visitation intent
+      'visitation rights', // suggest visitation intent
+      'visitation rights', // suggest visitation intent
+      'Mississippi’s Access and Visitation Program (MAV-P', // suggest visitation intent
+      'EMAIL_ADDRESS', // *
+      'EMAIL_ADDRESS', // *
       'Mother',
-      '610061400A',
-      'EMAIL_ADDRESS',
-      'EMAIL_ADDRESS ',
+      '610061400A', // *
+      'EMAIL_ADDRESS', // *
+      'EMAIL_ADDRESS ', // *
       'Visitation info ',
-      'EMAIL_ADDRESS',
-      '617855224A',
+      'EMAIL_ADDRESS', // *
+      '617855224A', // *
       ' non-custodial parent',
-      'What law show the responsibility of the custodial parent as it relates to visitation rights',
-      'This is for my nephew',
-      'How to file for visitation',
-      'Ranora Medders',
-      'establish visitation rights',
-      'visitation',
-      'custody issues',
-      'dad',
-      'Visitation',
-      'child visitation forms',
-      'EMAIL_ADDRESS',
-      'EMAIL_ADDRESS',
-      '618917991A',
-      'Visition right',
-      'access and visitation',
-      'Inquiring o. The Mississippi access and visitation',
-      'EMAIL_ADDRESS',
-      'File for custody ',
-      'EMAIL_ADDRESS',
+      'What law show the responsibility of the custodial parent as it relates to visitation rights', // suggest visitation intent
+      'This is for my nephew', // *
+      'How to file for visitation', // suggest visitation intent
+      'Ranora Medders', // *
+      'establish visitation rights', // suggest visitation intent
+      'visitation', // suggest visitation intent
+      'custody issues', // suggest visitation intent
+      'dad', // *
+      'Visitation', // suggest visitation intent
+      'child visitation forms', // suggest visitation intent
+      'EMAIL_ADDRESS', // *
+      'EMAIL_ADDRESS', // *
+      '618917991A', // *
+      'Visition right', // suggest visitation intent
+      'access and visitation', // suggest visitation intent
+      'Inquiring o. The Mississippi access and visitation', // suggest visitation intent
+      'EMAIL_ADDRESS', // *
+      'File for custody ', // suggest visitation intent
+      'EMAIL_ADDRESS', // *
       'Custody papers',
-      'w9',
-      'EMAIL_ADDRESS',
-      'EMAIL_ADDRESS',
-      'The grandparent',
-      'Shhd',
-      'Grandparent seeking visitation',
-      'Visitation',
-      'PERSON_NAME POPE',
-      'I dont get to see my son what should I do',
-      'What should or can I do with issues about seeing my son or spending time with him he live there and I live in PERSON_NAME and travel as of right now  ',
-      'The child ',
-      'Parenting time',
-      'EMAIL_ADDRESS',
-      '619202333a',
+      'w9', // *
+      'EMAIL_ADDRESS', // *
+      'EMAIL_ADDRESS', // *
+      'The grandparent', // *
+      'Shhd', // *
+      'Grandparent seeking visitation', // suggest visitation intent
+      'Visitation', // suggest visitation intent
+      'PERSON_NAME POPE', // *
+      'I dont get to see my son what should I do', // suggest visitation intent
+      'What should or can I do with issues about seeing my son or spending time with him he live there and I live in PERSON_NAME and travel as of right now  ', // *
+      'The child ', // *
+      'Parenting time', // suggest visitation intent
+      'EMAIL_ADDRESS', // *
+      '619202333a', // *
     ],
     contexts: [
       { name: 'ticketinfo', count: 20 },
