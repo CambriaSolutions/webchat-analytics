@@ -3875,65 +3875,65 @@ const data = {
   'open case': {
     occurences: 59,
     queries: [
-      'A parent who wishes to put my self on child support',
-      'I’m looking for information on how to qualify for q m b program ',
-      'How to start a child support case',
-      'How do u get MDHS full services',
-      'How do you get MDHS services',
-      'How do you notify someone when their child support will begin coming in?',
-      'Trying to get my case open...',
-      'How to I start the process',
-      'I would just like to know how to receive information on helping this parent begin the process of receiving child support.',
-      'How to start a child support case?',
-      'Trying to put someone on child support',
-      'If the birth certificate was signed by the father, do I still need full services? ',
-      'Start new child support case ',
-      'Looking for the form I need to fill out to open a case.',
-      'Do you have to go to the office to apply or can it be done online?',
-      'how to set up an account to recieve child support from my spouse',
-      'can i file for a case online?',
-      'What can be done if so filed child support but never received court date',
-      'i want to start a case to put my PERSON_NAME father on child support',
-      'I’m trying to get a case switch over ',
-      'What services can i get if my PERSON_NAME fatheris4',
-      'Can an application be done online?',
-      'reopening an old case',
-      'how can i get a child support service form',
-      'I’m trying to get child support for my 12 year old daughter.',
-      'Do I have to wait until my baby gets here to file a case',
-      'file a new case',
-      'Sing up for Childsupport ',
-      'I want to start getting child support on my baby from her father ',
-      'How old does the child have to be in order to apply?',
-      'open new case',
-      'I would like to know how can I start a new child support case? ',
-      "I'm tryna to figure out how to get child vistation rights",
-      'Can you get child support if you are married ',
-      'Trying to get my passport is this possible',
-      'How do I get child support',
-      'How to get child support',
-      'Can I get Child support if the father and I live together?',
-      'Can I get child support if t',
-      'How do I set this up? I have a divorce decree that states he has to pay me on the first but did not say he had to go through MDHS',
-      'How long does it take to start a case',
-      'how do I add an infant',
-      'I have a case open on my daughter. I just had my done 6/3/19. Can I add him to that’s case or do I need to fill out a new application for him ',
-      "I'm trying to see how can I get my case reopened so I can apply for medicaid",
-      'Can I file online',
-      'I need to open a case against my ex husband and need to know how ',
-      'Setup a case',
-      'Yes how fast does it take to get the process started',
-      'Do both parents have to be present to take the father off of child support or can the mother do it by herself? ',
-      'how to apply',
-      'can grandparents get child support',
-      'can anyone get child support',
-      'how do i get child support',
-      'How much is it to start a case',
-      'How long after opening a case does it usually take to hear something regarding the case?',
-      'Can you receive child support if yourarried',
-      'I’m trying to get information in absent parents ',
-      'How do I start a case and what is needed ',
-      'can you apply online?',
+      'A parent who wishes to put my self on child support', // add to open-csc-root
+      'I’m looking for information on how to qualify for q m b program ', // *
+      'How to start a child support case', // add to open-csc-root
+      'How do u get MDHS full services', // add to open-csc-root
+      'How do you get MDHS services', // add to open-csc-root
+      'How do you notify someone when their child support will begin coming in?', // *
+      'Trying to get my case open...', // add to open-csc-root
+      'How to I start the process', // add to open-csc-root
+      'I would just like to know how to receive information on helping this parent begin the process of receiving child support.', // add to open-csc-root
+      'How to start a child support case?', // add to open-csc-root
+      'Trying to put someone on child support', // add to open-csc-root
+      'If the birth certificate was signed by the father, do I still need full services? ', // *
+      'Start new child support case ', // add to open-csc-root
+      'Looking for the form I need to fill out to open a case.', // add to open-csc-root
+      'Do you have to go to the office to apply or can it be done online?', // add to open-csc-root
+      'how to set up an account to recieve child support from my spouse', // add to open-csc-root
+      'can i file for a case online?', // add to open-csc-root
+      'What can be done if so filed child support but never received court date', // *
+      'i want to start a case to put my PERSON_NAME father on child support', // add to open-csc-root
+      'I’m trying to get a case switch over ', // add to open-csc-root
+      'What services can i get if my PERSON_NAME fatheris4', // add to open-csc-root
+      'Can an application be done online?', // add to open-csc-root
+      'reopening an old case', // *
+      'how can i get a child support service form', // add to open-csc-root
+      'I’m trying to get child support for my 12 year old daughter.', // add to open-csc-root
+      'Do I have to wait until my baby gets here to file a case', // *
+      'file a new case', // add to open-csc-root
+      'Sing up for Childsupport ', // add to open-csc-root
+      'I want to start getting child support on my baby from her father ', // add to open-csc-root
+      'How old does the child have to be in order to apply?', // *
+      'open new case', // add to open-csc-root
+      'I would like to know how can I start a new child support case? ', // add to open-csc-root
+      "I'm tryna to figure out how to get child vistation rights", // mislabeled, added to visitation
+      'Can you get child support if you are married ', // *
+      'Trying to get my passport is this possible', // *
+      'How do I get child support', // add to open-csc-root
+      'How to get child support', // add to open-csc-root
+      'Can I get Child support if the father and I live together?', // add to open-csc-root
+      'Can I get child support if t', // add to open-csc-root
+      'How do I set this up? I have a divorce decree that states he has to pay me on the first but did not say he had to go through MDHS', // *
+      'How long does it take to start a case', // add to open-csc-root
+      'how do I add an infant', // add to open-csc-root
+      'I have a case open on my daughter. I just had my done 6/3/19. Can I add him to that’s case or do I need to fill out a new application for him ', // *
+      "I'm trying to see how can I get my case reopened so I can apply for medicaid", // add to open-csc-root
+      'Can I file online', // add to open-csc-root
+      'I need to open a case against my ex husband and need to know how ', // add to open-csc-root
+      'Setup a case', // add to open-csc-root
+      'Yes how fast does it take to get the process started', // add to open-csc-root
+      'Do both parents have to be present to take the father off of child support or can the mother do it by herself? ', // *
+      'how to apply', // add to open-csc-root
+      'can grandparents get child support', // add to open-csc-root
+      'can anyone get child support', // add to open-csc-root
+      'how do i get child support', // add to open-csc-root
+      'How much is it to start a case', // add to open-csc-root
+      'How long after opening a case does it usually take to hear something regarding the case?', // add to open-csc-root
+      'Can you receive child support if yourarried', // add to open-csc-root
+      'I’m trying to get information in absent parents ', // add to open-csc-root
+      'How do I start a case and what is needed ', // add to open-csc-root
+      'can you apply online?', // add to open-csc-root
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 14 },
