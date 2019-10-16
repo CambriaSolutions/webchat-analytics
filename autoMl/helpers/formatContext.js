@@ -1,5 +1,5 @@
 const fs = require('fs')
-const predictionAggregate = require('./predictions/predictionAggregate_06-01-10-01.json')
+const predictionAggregate = require('../predictions/predictionAggregate_09-01-10-01.json')
 
 // Save predictions
 for (const prediction in predictionAggregate) {
@@ -21,7 +21,7 @@ for (const prediction in predictionAggregate) {
 }
 
 fs.writeFile(
-  `./predictions/predictionAggregate_06-01-10-01.json`,
+  `../predictions/predictionAggregate_09-01-10-01.json`,
   JSON.stringify(predictionAggregate),
   err => {
     if (err) throw err
