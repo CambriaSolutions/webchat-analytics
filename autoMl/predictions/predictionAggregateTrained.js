@@ -87,7 +87,7 @@ const data = {
       'Phone number ', // add to contact-qa-number
       'Why won’t anyone answer the phone.', // suggest callcenter not answering
       'Phone number', // add to contact-qa-number
-      'Hi I have a question ', // *
+      'Hi I have a question ', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
       'phone number', // add to contact-qa-number
       'phone number for panola county', // add to contact-qa-number
       'What’s a Cin Number ', // *
@@ -4256,56 +4256,56 @@ const data = {
   'support inquiries': {
     occurences: 50,
     queries: [
-      'My kids father moved out of town and dont help me at all',
-      'I want to review my case information and I am being told by the father that I have to be in court in Mississippi.',
-      'I am a Housing provider and need the email address to verify benifits for a Resident at my property',
-      'General request ',
-      'Child support is coming out of my civilian employers check. Why is MDHS trying to also take it out of my national guard check?',
-      'how do I check if I have overpaid ',
-      'Who can ask for an review',
-      'can you add my wife to case in case im unable to talk at that time?',
-      "I haven't had a raised since DIGITS and I only gets 236 a month and the dad has a good job. What do I do I've already requested a raise and the dad said that he have a letter so what does that means ",
-      'My ex husband has been fired and I need to know if/how many funds are remaining to be dispersed to me. ',
-      'How do I pursue further action on my case?',
-      'No.  I need an account statement mailed to me.',
-      "Why are y'all taking so much out of my check",
-      'My case was terminated but you all still talking money out my check why.',
-      'Removing an item off my credit file',
-      '103 PERSON_NAME a  bland ed',
-      'How to I report a change in the childcare amount? ',
-      "I can not understand why was my driver's license was suspended when I am not behind",
-      'When should I update my income increase with child support ',
-      'income withhold',
-      'If me and my child’s father aren’t married, does he still go on child support?',
-      'you can also speak with my wife PERSON_NAME',
-      'I WAS TRYING TO SEE HOW CAN A REMOVE A NAME OFF MY CHILD SUPPORT CASE. THE GUY GAVE ME THE WRONG NOW AND NOW I HAVE THE CORRECT NAME',
-      'Can you confirm whether checks from Absolute Fire Control for CASE#DIGITS dated 4/26/19 and 6/7/19 were ever received? I suspect that they were lost in the mail.',
-      "My husband owes child support in the rears we are working out a deal to clear that can I do that one-on-one with him or do we have to go through y'all",
-      'I applied for food stamps and the office said I was not compliant with child support so I would not be able to receive benefits but my kids still could. Is there anyway to change my status of compliance with child support ',
-      "I found out today that my son's father recieved cs papers.   I was working on the papers, but hadn't finished them.   Could my snap caseworker have done the papers maybe? ",
-      'Who do we contact to inquire about lump sum payments',
-      'if I’m making payments why were my license suspended?',
-      'Suspended license',
-      'I was wondering if child support is adjusted if i have another child with my now wife?',
-      'Can the agency debit my husband checking account for back support without letting him know in writing',
-      'My license have been suspended',
-      'I was wondering how far behind does an absent parent have to be before license are suspended and passport revoked? ',
-      'How do I get an official audit review of my case',
-      'THIRD PARTY CREDIT REPORTING AGENCY',
-      'Getting in compliance with child support ',
-      'who has custody when no papers are signed and parents are not married?',
-      'I have a question concerning child support',
-      'How is child support figured if I have two children in my household and my son lives with his mom? Would that hurt my two children that live in my home with a large amount of income being taken out of my check or would they be taken into consideration ',
-      'Trying to see why am I only getting $30 a week when I am suppose to be receiving $250 a month',
-      'I got a letter sayin that I was complying with Cs but I am n they have threatened to take my kids benefits . I can only give them what I have . ',
-      'How can I start getting payments if my spouse is working',
-      'Has my driver license been suspended?',
-      'well i am legally married; however, my spouse and I have been separated for 2 years',
-      'i have a question i am getting paid less than what i used to get paid do i have to take my other party to court or can i just send copy of my paychecks and you can take care of the resertification',
-      'Ive been signed up to put my partner on child support but i never heard anything since and its been 4 years',
-      'I started a case a few months ago and never heard anything back',
-      'I have a notice of income withholding on a man that is no longer working for us.',
-      'Is there a faster way to report employee terminations such as email, etc?',
+      'My kids father moved out of town and dont help me at all', // *
+      'I want to review my case information and I am being told by the father that I have to be in court in Mississippi.', // *
+      'I am a Housing provider and need the email address to verify benifits for a Resident at my property', // *
+      'General request ', // add to support-root
+      'Child support is coming out of my civilian employers check. Why is MDHS trying to also take it out of my national guard check?', // *
+      'how do I check if I have overpaid ', // add to support-root
+      'Who can ask for an review', // add to support-root
+      'can you add my wife to case in case im unable to talk at that time?', // add to support-root
+      "I haven't had a raised since DIGITS and I only gets 236 a month and the dad has a good job. What do I do I've already requested a raise and the dad said that he have a letter so what does that means ", // *
+      'My ex husband has been fired and I need to know if/how many funds are remaining to be dispersed to me. ', // add to support-root
+      'How do I pursue further action on my case?', // add to support-root
+      'No.  I need an account statement mailed to me.', // add to support-root
+      "Why are y'all taking so much out of my check", // add to support-root
+      'My case was terminated but you all still talking money out my check why.', // add to support-root
+      'Removing an item off my credit file', // add to support-root
+      '103 PERSON_NAME a  bland ed', // *
+      'How to I report a change in the childcare amount? ', // add to support-root
+      "I can not understand why was my driver's license was suspended when I am not behind", // add to support-root
+      'When should I update my income increase with child support ', // add to support-root
+      'income withhold', // add to support-root
+      'If me and my child’s father aren’t married, does he still go on child support?', // add to support-root
+      'you can also speak with my wife PERSON_NAME', // add to support-root
+      'I WAS TRYING TO SEE HOW CAN A REMOVE A NAME OFF MY CHILD SUPPORT CASE. THE GUY GAVE ME THE WRONG NOW AND NOW I HAVE THE CORRECT NAME', // *
+      'Can you confirm whether checks from Absolute Fire Control for CASE#DIGITS dated 4/26/19 and 6/7/19 were ever received? I suspect that they were lost in the mail.', // *
+      "My husband owes child support in the rears we are working out a deal to clear that can I do that one-on-one with him or do we have to go through y'all", // *
+      'I applied for food stamps and the office said I was not compliant with child support so I would not be able to receive benefits but my kids still could. Is there anyway to change my status of compliance with child support ', // *
+      "I found out today that my son's father recieved cs papers.   I was working on the papers, but hadn't finished them.   Could my snap caseworker have done the papers maybe? ", // *
+      'Who do we contact to inquire about lump sum payments', // add to support-root
+      'if I’m making payments why were my license suspended?', // add to support-root
+      'Suspended license', // add to enforcement-license-suspension-non-compliance
+      'I was wondering if child support is adjusted if i have another child with my now wife?', // add to support-root
+      'Can the agency debit my husband checking account for back support without letting him know in writing', // add to support-root
+      'My license have been suspended', // add to enforcement-license-suspension-non-compliance
+      'I was wondering how far behind does an absent parent have to be before license are suspended and passport revoked? ', // add to enforcement-license-suspension-non-compliance
+      'How do I get an official audit review of my case', // add to support-root
+      'THIRD PARTY CREDIT REPORTING AGENCY', // *
+      'Getting in compliance with child support ', // add to support-root
+      'who has custody when no papers are signed and parents are not married?', // *
+      'I have a question concerning child support', // mislabeled, suggest to use this a training phrase for Home ("I can help with the following topics..etc")
+      'How is child support figured if I have two children in my household and my son lives with his mom? Would that hurt my two children that live in my home with a large amount of income being taken out of my check or would they be taken into consideration ', // *
+      'Trying to see why am I only getting $30 a week when I am suppose to be receiving $250 a month', // mislabeled, added to not received payments
+      'I got a letter sayin that I was complying with Cs but I am n they have threatened to take my kids benefits . I can only give them what I have . ', // *
+      'How can I start getting payments if my spouse is working', // add to support-root
+      'Has my driver license been suspended?', // add to enforcement-license-suspension
+      'well i am legally married; however, my spouse and I have been separated for 2 years', // *
+      'i have a question i am getting paid less than what i used to get paid do i have to take my other party to court or can i just send copy of my paychecks and you can take care of the resertification', // *
+      'Ive been signed up to put my partner on child support but i never heard anything since and its been 4 years', // add to support-root
+      'I started a case a few months ago and never heard anything back', // add to support-root
+      'I have a notice of income withholding on a man that is no longer working for us.', // add to support-root
+      'Is there a faster way to report employee terminations such as email, etc?', // add to support-root
     ],
     contexts: [
       { name: 'waiting-yes-child-support', count: 10 },
@@ -4340,52 +4340,52 @@ const data = {
   snap: {
     occurences: 46,
     queries: [
-      'food safety',
-      'how do i recertify for snap',
-      'Food stamps ',
-      'Trying to get the code removed from my name so I can get food stamps ',
-      'Food Stamps',
-      'Food stamp app',
-      'snap',
-      'Snap app',
-      'Snap recertify ',
-      'Emergency foodstamp',
-      'food stamps',
-      'Need my snap benefit printout',
-      'How do I know if I’m approved for food stamps ',
-      'I want to know if I was approved for food stamps ',
-      'Wal-Mart Distribution ',
-      ' snap as the cp',
-      "I'm try to set up my email for snap ",
-      "I'm tryna to renew my snap",
-      'Food stamps ',
-      'Food stamp',
-      'I. trying to reapply for snap benefits',
-      'How to reapply for snap online',
-      'recertification form for snap',
-      'Mdhs food steamps  My app. ',
-      'Find the form for food stamps',
-      'how do i go by getting my snap benefits back on',
-      'Renew food stamps',
-      'How do I take me and my child off another food stamps case',
-      'Sorry this is about food stamps ',
-      'Snap Benifits ?',
-      'Foodstamps',
-      'i want to also receive food stamps and medicaid ',
-      'Food stamp',
-      'Foodstamps',
-      'Food stamps ',
-      'snap requirements',
-      'What if I have medicaid or snap',
-      'Snap ',
-      'I receive food stamps.',
-      'Snap benefits ',
-      'food stamps',
-      'Food stamps',
-      'If I receive snap the non custodial parent automatically goes on child support? ',
-      'I’m trying to apply for food stamps and tanf',
-      'Don i have to put my child’s father on child support to receive food stamps ?',
-      'I HAVE THE APPLIACTION BUT I RECIEVE EBT SO HOW DO I GO ABOUT THAT ',
+      'food safety', // recommend Snap intent
+      'how do i recertify for snap', // recommend Snap intent
+      'Food stamps ', // recommend Snap intent
+      'Trying to get the code removed from my name so I can get food stamps ', // recommend Snap intent
+      'Food Stamps', // recommend Snap intent
+      'Food stamp app', // recommend Snap intent
+      'snap', // recommend Snap intent
+      'Snap app', // recommend Snap intent
+      'Snap recertify ', // recommend Snap intent
+      'Emergency foodstamp', // recommend Snap intent
+      'food stamps', // recommend Snap intent
+      'Need my snap benefit printout', // recommend Snap intent
+      'How do I know if I’m approved for food stamps ', // recommend Snap intent
+      'I want to know if I was approved for food stamps ', // recommend Snap intent
+      'Wal-Mart Distribution ', // *
+      ' snap as the cp', // recommend Snap intent
+      "I'm try to set up my email for snap ", // recommend Snap intent
+      "I'm tryna to renew my snap", // recommend Snap intent
+      'Food stamps ', // recommend Snap intent
+      'Food stamp', // recommend Snap intent
+      'I. trying to reapply for snap benefits', // recommend Snap intent
+      'How to reapply for snap online', // recommend Snap intent
+      'recertification form for snap', // recommend Snap intent
+      'Mdhs food steamps  My app. ', // recommend Snap intent
+      'Find the form for food stamps', // recommend Snap intent
+      'how do i go by getting my snap benefits back on', // recommend Snap intent
+      'Renew food stamps', // recommend Snap intent
+      'How do I take me and my child off another food stamps case', // recommend Snap intent
+      'Sorry this is about food stamps ', // recommend Snap intent
+      'Snap Benifits ?', // recommend Snap intent
+      'Foodstamps', // recommend Snap intent
+      'i want to also receive food stamps and medicaid ', // recommend Snap intent
+      'Food stamp', // recommend Snap intent
+      'Foodstamps', // recommend Snap intent
+      'Food stamps ', // recommend Snap intent
+      'snap requirements', // recommend Snap intent
+      'What if I have medicaid or snap', // recommend Snap intent
+      'Snap ', // recommend Snap intent
+      'I receive food stamps.', // recommend Snap intent
+      'Snap benefits ', // recommend Snap intent
+      'food stamps', // recommend Snap intent
+      'Food stamps', // recommend Snap intent
+      'If I receive snap the non custodial parent automatically goes on child support? ', // recommend Snap intent
+      'I’m trying to apply for food stamps and tanf', // recommend Snap intent
+      'Don i have to put my child’s father on child support to receive food stamps ?', // recommend Snap intent
+      'I HAVE THE APPLIACTION BUT I RECIEVE EBT SO HOW DO I GO ABOUT THAT ', // *
     ],
     contexts: [
       { name: 'waiting-support-employer', count: 10 },
