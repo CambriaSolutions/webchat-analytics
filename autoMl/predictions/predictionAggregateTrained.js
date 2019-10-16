@@ -4778,29 +4778,29 @@ const data = {
   'addressing check': {
     occurences: 23,
     queries: [
-      'How do I fill out a money order for child support ',
-      "What's the address to mail in payments in Mississippi for the absent parent?",
-      'How to fill out money order',
-      'Who to make check payable to',
-      'What name do I put on money order? Sdu?',
-      'Who name do I put on check for child support?',
-      'Who do I make the check payable to?',
-      'Who do I write the check out to',
-      'Who do I make the money order out to in Hernando Ms',
-      'Who do you make the check out too',
-      'I’m filling out a money order who do I make it out too',
-      'Who do you make checks payable to?!',
-      'Who do i make check to where do i send',
-      'Who do I make the money order out to',
-      'To what address should I mail a Judgment Terminating Child Support?',
-      'Trying to find the address to send my child support',
-      'Whew do I mail a child support payment to',
-      'i am the parent who is sending money',
-      'What just looking for address on where to send payment as well as how to make out money order',
-      'When sending money gram do you send to mothers name',
-      'Where do I mail a child support payment to?',
-      'What is the PO box address in PERSON_NAME to send child support payment?',
-      'Where can I mail my child support payment',
+      'How do I fill out a money order for child support ', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      "What's the address to mail in payments in Mississippi for the absent parent?", // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'How to fill out money order', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who to make check payable to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'What name do I put on money order? Sdu?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who name do I put on check for child support?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I make the check payable to?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I write the check out to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I make the money order out to in Hernando Ms', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do you make the check out too', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'I’m filling out a money order who do I make it out too', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do you make checks payable to?!', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do i make check to where do i send', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Who do I make the money order out to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'To what address should I mail a Judgment Terminating Child Support?', // *
+      'Trying to find the address to send my child support', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Whew do I mail a child support payment to', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'i am the parent who is sending money', // add to type of parent entity
+      'What just looking for address on where to send payment as well as how to make out money order', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'When sending money gram do you send to mothers name', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Where do I mail a child support payment to?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'What is the PO box address in PERSON_NAME to send child support payment?', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
+      'Where can I mail my child support payment', // add to pmts-general-make-payments or remove context on pmtMethods-checkOrMoneyOrder and add there
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 10 },
