@@ -3350,77 +3350,77 @@ const data = {
   'estimate payments': {
     occurences: 71,
     queries: [
-      'how much ',
-      'I need current income transmittal for employers',
-      'does the child support go by the amount the father makes and how many kids he has ',
-      'Medicaid',
-      'Medicaid cooperation',
-      'Can pregnant women get tanf ',
-      'not the same amount each month',
-      'withholding amount for 1 individual with 6 kids',
-      'what are the withholding limits',
-      'What is the percent for child support in Mississippi ',
-      'I have to children and my net pay is DIGITS every two weeks how much support would I have to pay ',
-      'Medicaid',
-      'Medicaid',
-      'How much is 3 kids ',
-      'percentage of income',
-      'How much does someone making $49,000 a year pay in child support?',
-      '540.00 a week',
-      'Determining income ',
-      'The father is self employed. How would you determine his income? ',
-      'I dont know how much my child father make',
-      'How is net income calculated?',
-      'Net income calculation ',
-      "I want to find how much I'm supposed to receive every month",
-      'how much',
-      'What percent of my income is used to provide medical support?',
-      'My children are 4;6;8 I had the benefit before I just unfortunately need again',
-      'What happens when they owe more than $1,000.',
-      'How much per month ',
-      'should employee health insurance be deducted before figuring disposable income?',
-      'What percent of non custodial parents income is ordered to be paid to custodial parent ',
-      'Can you tell me the weekly amount if I give you the monthly amount?',
-      'Does the amount cap off? If the non custodial parent makes 160,000 a year does the child support cap off at 100,000? He saying I can only get a percentage up to 100,000',
-      'How much is for 2 child',
-      'Does the child support go down if the father has two other children after he had the first one',
-      'What is the state minimum per child?',
-      '$0',
-      'If the father receive ssi can the child still get support ',
-      'What is the percentage of child support for 2 children ',
+      'how much ', // add to pmt-calc-root
+      'I need current income transmittal for employers', // *
+      'does the child support go by the amount the father makes and how many kids he has ', // add to pmt-calc-root
+      'Medicaid', // *
+      'Medicaid cooperation', // *
+      'Can pregnant women get tanf ', // mislabeled, tanf
+      'not the same amount each month', // add to pmt-calc-root
+      'withholding amount for 1 individual with 6 kids', // add to pmt-calc-root
+      'what are the withholding limits', // add to pmt-calc-root
+      'What is the percent for child support in Mississippi ', // add to pmt-calc-root
+      'I have to children and my net pay is DIGITS every two weeks how much support would I have to pay ', // add to pmt-calc-root
+      'Medicaid', // *
+      'Medicaid', // *
+      'How much is 3 kids ', // add to pmt-calc-root
+      'percentage of income', // add to pmt-calc-root
+      'How much does someone making $49,000 a year pay in child support?', // add to pmt-calc-root
+      '540.00 a week', // *
+      'Determining income ', // add to pmt-calc-root
+      'The father is self employed. How would you determine his income? ', // *
+      'I dont know how much my child father make', // mislabeled, info about parent
+      'How is net income calculated?', // add to pmt-calc-root
+      'Net income calculation ', // add to pmt-calc-root
+      "I want to find how much I'm supposed to receive every month", // add to pmt-calc-root
+      'how much', // add to pmt-calc-root
+      'What percent of my income is used to provide medical support?', // add to pmt-calc-root
+      'My children are 4;6;8 I had the benefit before I just unfortunately need again', // *
+      'What happens when they owe more than $1,000.', // mislabeled, not received payment
+      'How much per month ', // add to pmt-calc-root
+      'should employee health insurance be deducted before figuring disposable income?', // add to pmt-calc-root
+      'What percent of non custodial parents income is ordered to be paid to custodial parent ', // add to pmt-calc-root
+      'Can you tell me the weekly amount if I give you the monthly amount?', // add to pmt-calc-root
+      'Does the amount cap off? If the non custodial parent makes 160,000 a year does the child support cap off at 100,000? He saying I can only get a percentage up to 100,000', // *
+      'How much is for 2 child', // add to pmt-calc-root
+      'Does the child support go down if the father has two other children after he had the first one', // *
+      'What is the state minimum per child?', // *
+      '$0', // *
+      'If the father receive ssi can the child still get support ', // *
+      'What is the percentage of child support for 2 children ', // add to pmt-calc-root
       'I have two children what would I have to pay in child support in the state of MS',
-      'medicaid',
-      'Percentage of income paid by non-custodial parent.',
-      'What is the minimum amount of child support and percentage of income required by the non/custodial parent?',
-      'two children by two different mothers. What percent would I be obligated to pay? ',
-      'I need see how much children soupprot be get every month',
-      'How much is the minimum child support per month for one child in PERSON_NAME county MS',
-      'percentage',
-      'can you tell me the percentage of income for 2 children child support is?',
-      'just  2 children that has emanicipated',
-      'How is the amount determined',
-      'What is the maximum percentage of disposable income that can be withheld for child support?',
-      'what can you assist with?',
-      'How can I see how much child support we receive each month?',
-      'If I make DIGITS a month how much is 14% of my child support',
-      'My husband works he gets paid bi weekly DIGITS a month',
-      'My payments are based on how much I make and hours I work correct?',
-      'What do you calculate for Income Tax and Retirement for an employees form.',
-      'I have a question about allocation of child support garnishments when there are multiple garnishments for multiple children.  Which method does MS use?',
-      'What are the hours ',
-      'how much',
-      'I need to find out if I can get a hardship licesense to work so I can pay more on child support ',
-      'What is 20% of $DIGITS monthly income',
-      'If I have two children of two different fathers, do I get 14% of each fathers income or 19% of their combined income? ',
-      'In addition to the payroll deduction for child support, what other expenses is the non-custodial parent responsible for?',
-      'Yes. What percentage of child support does a parent get for two children? ',
-      'calculator did not work',
-      'what is the rate',
-      "If the child's father does not work what is the amount he would have to pay?",
-      'How much am I getting ',
-      'Do I get 20 percent  with 2 kids',
-      'does the social security amount include medicare',
-      'does the social security amount include medicare',
+      'medicaid', // *
+      'Percentage of income paid by non-custodial parent.', // add to pmt-calc-root
+      'What is the minimum amount of child support and percentage of income required by the non/custodial parent?', // add to pmt-calc-root
+      'two children by two different mothers. What percent would I be obligated to pay? ', // add to pmt-calc-root
+      'I need see how much children soupprot be get every month', // add to pmt-calc-root
+      'How much is the minimum child support per month for one child in PERSON_NAME county MS', // add to pmt-calc-root
+      'percentage', // *
+      'can you tell me the percentage of income for 2 children child support is?', // add to pmt-calc-root
+      'just  2 children that has emanicipated', // *
+      'How is the amount determined', // add to pmt-calc-root
+      'What is the maximum percentage of disposable income that can be withheld for child support?', // add to pmt-calc-root
+      'what can you assist with?', // *
+      'How can I see how much child support we receive each month?', // add to pmt-calc-root
+      'If I make DIGITS a month how much is 14% of my child support', // add to pmt-calc-root
+      'My husband works he gets paid bi weekly DIGITS a month', // add to pmt-calc-root
+      'My payments are based on how much I make and hours I work correct?', // add to pmt-calc-root
+      'What do you calculate for Income Tax and Retirement for an employees form.', // *
+      'I have a question about allocation of child support garnishments when there are multiple garnishments for multiple children.  Which method does MS use?', // *
+      'What are the hours ', // mislabeled, office locations
+      'how much', // add to pmt-calc-root
+      'I need to find out if I can get a hardship licesense to work so I can pay more on child support ', // *
+      'What is 20% of $DIGITS monthly income', // add to pmt-calc-root
+      'If I have two children of two different fathers, do I get 14% of each fathers income or 19% of their combined income? ', // add to pmt-calc-root
+      'In addition to the payroll deduction for child support, what other expenses is the non-custodial parent responsible for?', // *
+      'Yes. What percentage of child support does a parent get for two children? ', // add to pmt-calc-root
+      'calculator did not work', // *
+      'what is the rate', // add to pmt-calc-root
+      "If the child's father does not work what is the amount he would have to pay?", // add to pmt-calc-root
+      'How much am I getting ', // add to pmt-calc-root
+      'Do I get 20 percent  with 2 kids', // add to pmt-calc-root
+      'does the social security amount include medicare', // *
+      'does the social security amount include medicare', // *
     ],
     contexts: [
       { name: 'waiting-restart-conversation', count: 16 },
