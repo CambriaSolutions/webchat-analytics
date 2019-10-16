@@ -3763,68 +3763,68 @@ const data = {
   email: {
     occurences: 62,
     queries: [
-      "I've tried to change my email address and it wont accept it.  The email I had on the account I'm not using anymore.  It wont accept my new one., please help",
-      'What is the email address for the call center?',
-      'No email ',
-      'Email address ',
-      'Looking for contact information of the director of MS Child Support',
-      'Im trying to send my new address and stuff through email',
-      'Can you give me the email address for the call center? ',
-      'may i have a email address to send over my court order. i keep sending it this one and since march no one will call EMAIL_ADDRESS',
-      'No email',
-      'No email',
-      'Email',
-      'Need to provide information via email',
-      'email address for hinds county dhs',
-      'no email',
-      'no email ',
-      'I need an email address ',
-      'What format does email need to be in on forms',
-      'where can I email the Request for information?',
-      'What is the email address for withholding forms',
-      'Need email for submitting new address. ',
-      'Email documents',
-      'Email for call center ',
-      'Child Support Center email',
-      'Email address?',
-      'What email address do I need to upload documents. To prove my identity ',
-      'Do you have their email address? ',
-      'No email',
-      'Is there a way I can email my caseworker ',
-      'Email',
-      'Can I get the information sent to my email address',
-      'PHONE_NUMBER or you can email me',
-      'Email',
-      'I need the email address ',
-      'Email real person',
-      'Got a letter in mail',
-      'Could you please give me the email address that I need to use to email in a change of address?',
-      'I need to email something to the child support department. No one specific. What is the email address. I have EMAIL_ADDRESS but it rejects.',
-      'send an e-mail',
-      'email contacts',
-      'Email address ',
-      'Hi I need an email address to send my drivers license n current address to receive my child support payment',
-      'PERSON_NAME Straight Jr Phone number PHONE_NUMBER Case number  613673539A email EMAIL_ADDRESS',
-      'WHAT IS THE EMAIL ADDRESS TO CHANGE ADDRESS INFORMATION',
-      'I need the call center email address so I can change my home address ',
-      'email',
-      'is there an email address',
-      'Email address for the call center ',
-      'Wrong email address they gave me',
-      'Email address to mdhs',
+      "I've tried to change my email address and it wont accept it.  The email I had on the account I'm not using anymore.  It wont accept my new one., please help", // *
+      'What is the email address for the call center?', // suggest email intent
+      'No email ', // suggest email intent
+      'Email address ', // suggest email intent
+      'Looking for contact information of the director of MS Child Support', // suggest email intent
+      'Im trying to send my new address and stuff through email', // suggest email intent
+      'Can you give me the email address for the call center? ', // suggest email intent
+      'may i have a email address to send over my court order. i keep sending it this one and since march no one will call EMAIL_ADDRESS', // *
+      'No email', // *
+      'No email', // *
+      'Email', // suggest email intent
+      'Need to provide information via email', // suggest email intent
+      'email address for hinds county dhs', // suggest email intent
+      'no email', // *
+      'no email ', // *
+      'I need an email address ', // suggest email intent
+      'What format does email need to be in on forms', // suggest email intent
+      'where can I email the Request for information?', // suggest email intent
+      'What is the email address for withholding forms', // suggest email intent
+      'Need email for submitting new address. ', // suggest email intent
+      'Email documents', // suggest email intent
+      'Email for call center ', // suggest email intent
+      'Child Support Center email', // suggest email intent
+      'Email address?', // suggest email intent
+      'What email address do I need to upload documents. To prove my identity ', // *
+      'Do you have their email address? ', // suggest email intent
+      'No email', // suggest email intent
+      'Is there a way I can email my caseworker ', // suggest email intent
+      'Email', // suggest email intent
+      'Can I get the information sent to my email address', // suggest email intent
+      'PHONE_NUMBER or you can email me', // suggest email intent
+      'Email', // suggest email intent
+      'I need the email address ', // suggest email intent
+      'Email real person', // suggest email intent
+      'Got a letter in mail', // *
+      'Could you please give me the email address that I need to use to email in a change of address?', // suggest email intent
+      'I need to email something to the child support department. No one specific. What is the email address. I have EMAIL_ADDRESS but it rejects.', // *
+      'send an e-mail', // suggest email intent
+      'email contacts', // suggest email intent
+      'Email address ', // suggest email intent
+      'Hi I need an email address to send my drivers license n current address to receive my child support payment', // suggest email intent
+      'PERSON_NAME Straight Jr Phone number PHONE_NUMBER Case number  613673539A email EMAIL_ADDRESS', // *
+      'WHAT IS THE EMAIL ADDRESS TO CHANGE ADDRESS INFORMATION', // suggest email intent
+      'I need the call center email address so I can change my home address ', // suggest email intent
+      'email', // suggest email intent
+      'is there an email address', // suggest email intent
+      'Email address for the call center ', // suggest email intent
+      'Wrong email address they gave me', // suggest email intent
+      'Email address to mdhs', // suggest email intent
       'please email a form for petition to reduce child support ',
-      'Need an email for K PERSON_NAME ',
-      'IS there an email address I can send application form to ? ',
-      'What is the email for child support change address ',
-      'My email is better to reach me',
-      'Where do I send it when it’s done ',
-      'email address to send a change of address too?',
-      'Hello can i get the msds call center email im trying to send a email of my up to date address',
-      'is there an email address?',
-      'email for disbursement unit in PERSON_NAME, MS?',
-      'Can you email it to me',
-      'do I apply by email or what',
-      'My email',
+      'Need an email for K PERSON_NAME ', // suggest email intent
+      'IS there an email address I can send application form to ? ', // suggest email intent
+      'What is the email for child support change address ', // suggest email intent
+      'My email is better to reach me', // *
+      'Where do I send it when it’s done ', // suggest email intent
+      'email address to send a change of address too?', // suggest email intent
+      'Hello can i get the msds call center email im trying to send a email of my up to date address', // suggest email intent
+      'is there an email address?', // suggest email intent
+      'email for disbursement unit in PERSON_NAME, MS?', // suggest email intent
+      'Can you email it to me', // *
+      'do I apply by email or what', // suggest email intent
+      'My email', // *
     ],
     contexts: [
       { name: 'ticketinfo', count: 12 },
