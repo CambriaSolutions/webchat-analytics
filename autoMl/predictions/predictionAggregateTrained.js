@@ -4648,31 +4648,31 @@ const data = {
   'change employment information': {
     occurences: 25,
     queries: [
-      'How do you report change of job for paying parent?',
-      'I lost my job',
-      'What if employer is not taking out check',
-      'I need to update place of employment ',
-      'I need to add an employer address and contact number to a case',
-      'change jobs',
-      'I need to put in my job information ',
-      'Notify of employment change',
-      'Changed jobs',
-      'I need to turn in a new job for the mother who I have filed against',
-      '1 he just got a new job when will I see payments ',
-      'i lost my job and was trying to get in contact with my case worker',
-      'Can I get the form needed online to take to may employer to have child support deducted from my paycheck. I have started a new job.',
-      'Got a new job and need withholding  order for new job',
-      'I lost my job.',
-      'i lost my job',
-      'give you my employer name and address',
-      'I’m trying to get wages garnished from his new job',
-      'Trying to set up child support to be taken out of my check at my new job',
-      'how can i reach a person to give them my new empoler information?',
-      'I need to switch my job on my case to the new one ',
-      'Report change of employment ',
-      'I would like to find out if my ex-husbands newest paycheck information from East PERSON_NAME University has been received.',
-      'Yes I just got switched to every two weeks pay and I need to get new paperwork sent to me so I can adjust that coming out of my paycheck',
-      'Change of Employment Status',
+      'How do you report change of job for paying parent?', // add to support root
+      'I lost my job', // add to support root
+      'What if employer is not taking out check', // *
+      'I need to update place of employment ', // add to support root
+      'I need to add an employer address and contact number to a case', // add to support root
+      'change jobs', // add to support root
+      'I need to put in my job information ', // add to support root
+      'Notify of employment change', // add to support root
+      'Changed jobs', // add to support root
+      'I need to turn in a new job for the mother who I have filed against', // add to support root
+      '1 he just got a new job when will I see payments ', // *
+      'i lost my job and was trying to get in contact with my case worker', // add to support root
+      'Can I get the form needed online to take to may employer to have child support deducted from my paycheck. I have started a new job.', // add to support root
+      'Got a new job and need withholding  order for new job', // add to support root
+      'I lost my job.', // add to support root
+      'i lost my job', // add to support root
+      'give you my employer name and address', // add to support root
+      'I’m trying to get wages garnished from his new job', // add to support root
+      'Trying to set up child support to be taken out of my check at my new job', // add to support root
+      'how can i reach a person to give them my new empoler information?', // add to support root
+      'I need to switch my job on my case to the new one ', // add to support root
+      'Report change of employment ', // add to support root
+      'I would like to find out if my ex-husbands newest paycheck information from East PERSON_NAME University has been received.', // *
+      'Yes I just got switched to every two weeks pay and I need to get new paperwork sent to me so I can adjust that coming out of my paycheck', // add to support root
+      'Change of Employment Status', // add to support root
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 5 },
@@ -4698,29 +4698,29 @@ const data = {
   'info about parent': {
     occurences: 23,
     queries: [
-      'Other parent changed jobs',
-      'My kids father switched jobs. How do i report his current job now',
-      'When the dad change jobs who to report it to ',
-      'In my system they have the same custodial parent but different case numbers, Please advise',
-      'How do you report a child in danger, annoymously?',
-      'My sons Father has informed me that he no longer is employed. I didn’t know if I should notify you all or what?',
-      'Report income of non custodial parent ',
-      'How do I report income for a non-custodial parent?',
-      'No, my child’s father got a new job about a month ago. I just wondered how long will it take for child support to start back. He has notified them about his job change. ',
-      "Okay! My child's father will be receiving more than his monthly salary starting this month. How can I report that? ",
-      'I haven’t received any payments, since absent parent moved from another state and has started a new job.',
-      'How can get new information to my case worker on the absent father',
-      ' I have the name of where the other parent is employed at',
-      'Major changes in the father, ',
-      "I got custody of my grandson 8 yrs ago and major changes have been made with the father. He's had 2 other children, married and making more money, ",
-      'I am the non custodial parent ',
-      'Job information about the non custodial parent',
-      'How do I report a new job for noncustodial parent',
-      'Trying to update my case worker with the non-custodial parents new employment. ',
-      'I am the non custodial parent',
-      'Yes I’m here to report an employmer for my kids father',
-      'My husband started a new job and I need to know where to tell his employer to mail the child support payments that he deducts from his payroll check',
-      'How do I report where my ex-husband is working so the process can get started on child support going again?',
+      'Other parent changed jobs', // add to support root
+      'My kids father switched jobs. How do i report his current job now', // add to support root
+      'When the dad change jobs who to report it to ', // add to support root
+      'In my system they have the same custodial parent but different case numbers, Please advise', // add to support root
+      'How do you report a child in danger, annoymously?', // *
+      'My sons Father has informed me that he no longer is employed. I didn’t know if I should notify you all or what?', // add to support root
+      'Report income of non custodial parent ', // add to support root
+      'How do I report income for a non-custodial parent?', // add to support root
+      'No, my child’s father got a new job about a month ago. I just wondered how long will it take for child support to start back. He has notified them about his job change. ', // *
+      "Okay! My child's father will be receiving more than his monthly salary starting this month. How can I report that? ", // add to support root
+      'I haven’t received any payments, since absent parent moved from another state and has started a new job.', // add to support root
+      'How can get new information to my case worker on the absent father', // add to support root
+      ' I have the name of where the other parent is employed at', // add to support root
+      'Major changes in the father, ', // add to support root
+      "I got custody of my grandson 8 yrs ago and major changes have been made with the father. He's had 2 other children, married and making more money, ", // add to support root
+      'I am the non custodial parent ', // *
+      'Job information about the non custodial parent', // add to support root
+      'How do I report a new job for noncustodial parent', // add to support root
+      'Trying to update my case worker with the non-custodial parents new employment. ', // add to support root
+      'I am the non custodial parent', // *
+      'Yes I’m here to report an employmer for my kids father', // add to support root
+      'My husband started a new job and I need to know where to tell his employer to mail the child support payments that he deducts from his payroll check', // *
+      'How do I report where my ex-husband is working so the process can get started on child support going again?', // add to support root
     ],
     contexts: [
       { name: 'waiting-pmtmethods-debit-card', count: 5 },
