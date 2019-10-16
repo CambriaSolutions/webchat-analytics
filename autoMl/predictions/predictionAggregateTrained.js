@@ -1546,7 +1546,7 @@ const data = {
       'Forms', // Suggest general documentation intent
       'Need printout emailed to me showing what I’ve received for the past 6 months ', // add to payment history
       'How to get a print out online', // add to payment history
-      'Drivers license reinstatement  clearance form', // add to payment history
+      'Drivers license reinstatement  clearance form', // mislabeled, added to license suspension
       'I was trying to see if I have to go get print out from the last year or could it be mailed to me ', // add to payment history
       'can i get copies of payments', // add to payment history
       'After i print it off then whats the next step ', // *
@@ -1876,7 +1876,7 @@ const data = {
       'modification', // add to caseQA-increase-review
       'Forms to request a modification', // add to caseQA-increase-review
       'I would like to know if my child support can be increased without a notice', // add to caseQA-increase-review
-      "How can I make payments arrangements. so I can get my license. I'm a truck driver ", // *
+      "How can I make payments arrangements. so I can get my license. I'm a truck driver ", // mislabeled, added to license suspension
       'I want to request a increase ', // add to caseQA-increase-review
       'Hi gen what do I have to do to get my child support raised', // add to caseQA-increase-review
       '1.  I just want to see if he can pay me more than $200 a month for his 16 year old son. ', // add to caseQA-increase-review
@@ -4273,7 +4273,7 @@ const data = {
       'Removing an item off my credit file', // add to support-root
       '103 PERSON_NAME a  bland ed', // *
       'How to I report a change in the childcare amount? ', // add to support-root
-      "I can not understand why was my driver's license was suspended when I am not behind", // add to support-root
+      "I can not understand why was my driver's license was suspended when I am not behind", // add to enforcement-license-suspension-non-compliance
       'When should I update my income increase with child support ', // add to support-root
       'income withhold', // add to support-root
       'If me and my child’s father aren’t married, does he still go on child support?', // add to support-root
@@ -4284,7 +4284,7 @@ const data = {
       'I applied for food stamps and the office said I was not compliant with child support so I would not be able to receive benefits but my kids still could. Is there anyway to change my status of compliance with child support ', // *
       "I found out today that my son's father recieved cs papers.   I was working on the papers, but hadn't finished them.   Could my snap caseworker have done the papers maybe? ", // *
       'Who do we contact to inquire about lump sum payments', // add to support-root
-      'if I’m making payments why were my license suspended?', // add to support-root
+      'if I’m making payments why were my license suspended?', // add to enforcement-license-suspension-non-compliance
       'Suspended license', // add to enforcement-license-suspension-non-compliance
       'I was wondering if child support is adjusted if i have another child with my now wife?', // add to support-root
       'Can the agency debit my husband checking account for back support without letting him know in writing', // add to support-root
@@ -4409,51 +4409,51 @@ const data = {
   legal: {
     occurences: 45,
     queries: [
-      'I was served papers for child support yesterday, do I have to go to court or can they start taking the money out of my check ',
-      'Contempt court? ',
-      'What is the definition of contempt court? ',
-      'My ex is regularly deducting old credit card payments in my name that also had his name from my child support. Is this legal?',
-      'attorney',
-      'i wanted to know if the parents are not able to make court for redetermination will courts proceed or leave the order as is',
-      'Legal guardian ',
-      'Legal guardian ',
-      'I was wanting to know if I had to appear with my kids father to court',
-      'laws',
-      'Is my ex cooperating with dhs?',
-      'My license suspended ',
-      'Court ',
-      'Hello PERSON_NAME, I have a question about a case after a custodial parent is deceased.',
-      'Driver license clearance form ',
-      'I have an insurance confusion. My child has two insurances. I need to know if MDHS put in a court order for her dad to carry insurance ',
-      "I'm trying to find the building were court is held",
-      'attorney general',
-      'Court order ',
-      'Enforcement ',
-      'I have a question about my case dealing with court',
-      'court order required? ',
-      'Law',
-      'I am the custodial parent. Do I have to be in court for my child support hearing?',
-      "Do y'all still suspended driver license",
-      'When the dhs lawyer said $120.00 did she mean monthly or weekly?',
-      'Does child support include chairs care after school? Clothes, extracurricular activities etc?',
-      'Enforcement ',
-      'How is child support paid through a court order? Does it go through DHS?',
-      'I would like to know if a non-custodial parent does not have a court order for visitation, can they use MAV-P services?',
-      'dhs court order',
-      "i need to pay court cost, i can't find it",
-      'Do I have to go to court?',
-      'Do I or the non custodial parent have to attend court?',
-      'did the attoney get back about my case',
-      'Can you tell me how it works when my child’s mother goes thru DHS to collect child support. Will I get served with paperwork when the court order is made?',
-      'Do I have to use a private attorney',
-      "Will DHS go by what's in our Court Order? As in, will my payment amounts and due dates stay the same?",
-      'I have full legal and physical custody, issued by a Court Order. This Order also has a set amount and due date for child support to be paid to me by the noncustodial parent. ',
-      'I want to know how I go by getting my court order paper that the father was agreed to pay',
-      'If I have a court order from my divorce do I have to change it over to DHS to collect child support?',
-      'How can you get sole custody?',
-      'Getting sole custody ',
-      'finding out a court date',
-      'Legal department',
+      'I was served papers for child support yesterday, do I have to go to court or can they start taking the money out of my check ', // suggest court intent
+      'Contempt court? ', // suggest court intent
+      'What is the definition of contempt court? ', // suggest court intent
+      'My ex is regularly deducting old credit card payments in my name that also had his name from my child support. Is this legal?', // *
+      'attorney', // suggest court intent
+      'i wanted to know if the parents are not able to make court for redetermination will courts proceed or leave the order as is', // *
+      'Legal guardian ', // add to parent types entity
+      'Legal guardian ', // add to parent types entity
+      'I was wanting to know if I had to appear with my kids father to court', // suggest court intent
+      'laws', // add to casey intent
+      'Is my ex cooperating with dhs?', // add to caseQA-general
+      'My license suspended ', // mislabeled, added to license suspension
+      'Court ', // suggest court intent
+      'Hello PERSON_NAME, I have a question about a case after a custodial parent is deceased.', // add to caseQA-general
+      'Driver license clearance form ', // mislabeled, added to license suspension
+      'I have an insurance confusion. My child has two insurances. I need to know if MDHS put in a court order for her dad to carry insurance ', // *
+      "I'm trying to find the building were court is held", // suggest court intent
+      'attorney general', // suggest court intent
+      'Court order ', // suggest court intent
+      'Enforcement ', // mislabeled, added to enforcement
+      'I have a question about my case dealing with court', // suggest court intent
+      'court order required? ', // suggest court intent
+      'Law', // suggest court intent
+      'I am the custodial parent. Do I have to be in court for my child support hearing?', // suggest court intent
+      "Do y'all still suspended driver license", // mislabeled, added to license suspension
+      'When the dhs lawyer said $120.00 did she mean monthly or weekly?', // *
+      'Does child support include chairs care after school? Clothes, extracurricular activities etc?', // *
+      'Enforcement ', // mislabeled, added to enforcement
+      'How is child support paid through a court order? Does it go through DHS?', // *
+      'I would like to know if a non-custodial parent does not have a court order for visitation, can they use MAV-P services?', // *
+      'dhs court order', // suggest court intent
+      "i need to pay court cost, i can't find it", // suggest court intent
+      'Do I have to go to court?', // suggest court intent
+      'Do I or the non custodial parent have to attend court?', // suggest court intent
+      'did the attoney get back about my case', // add to caseQA-general
+      'Can you tell me how it works when my child’s mother goes thru DHS to collect child support. Will I get served with paperwork when the court order is made?', // *
+      'Do I have to use a private attorney', // suggest court intent
+      "Will DHS go by what's in our Court Order? As in, will my payment amounts and due dates stay the same?", // suggest court intent
+      'I have full legal and physical custody, issued by a Court Order. This Order also has a set amount and due date for child support to be paid to me by the noncustodial parent. ', // *
+      'I want to know how I go by getting my court order paper that the father was agreed to pay', // suggest court intent
+      'If I have a court order from my divorce do I have to change it over to DHS to collect child support?', // suggest court intent
+      'How can you get sole custody?', // *
+      'Getting sole custody ', // *
+      'finding out a court date', // suggest court intent
+      'Legal department', // suggest court intent
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 8 },
