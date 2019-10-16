@@ -4173,56 +4173,56 @@ const data = {
   'case number': {
     occurences: 50,
     queries: [
-      'How do can I find my case number?',
-      'How to contact your case manager',
-      'How to get case number',
-      'How can I find out my case id',
-      'case #',
-      'find my case',
-      'yes i need my case numbetr',
-      'Case number ',
-      'How do I found out my case number',
-      'How to find my cas e number\n',
-      'Trying to find case # so can make payment',
-      'Case numbers ',
-      'case ID',
-      'How do i obtain my case number?',
-      'Another case DIGITS',
-      'Case number: 619937341A',
-      'Case number ',
-      'Case # DIGITS',
-      'Find case number',
-      'Case number# 619876970A',
-      'where do i find the case number',
-      'Can I have my case number ',
-      'How to locate case number ',
-      'Case number DIGITS',
-      'Case ID',
-      'Case number ',
-      'How can I find my case number ',
-      'i am needing to get ahold of case worker PERSON_NAME garner',
-      'How can I find my case number',
-      'Case #DIGITS ',
-      'case number DIGITS',
-      'How can I get the case number ',
-      'Case number ',
-      'case # DIGITS',
-      'Trying to find my case number ',
-      "I cant find my case number'",
-      'How do I find my case number',
-      'Need my case number',
-      'Case number ',
-      'Case number ',
-      'How do I find my case number ',
-      'child support case number DIGITS ',
-      'case # BZ62990R1',
-      'How do I get my case number',
-      'Find case',
-      'How do I get my case number?',
-      'Im trying to pay child support i dont know my mets id case number',
-      'Where can I find my case number to register online?',
-      'I have a case against PERSON_NAME but do not know the case number',
-      'I’m trying to figure out what my case number is!',
+      'How do can I find my case number?', // add to caseQA-general
+      'How to contact your case manager', // mislabeled, add to contact human
+      'How to get case number', // add to caseQA-general
+      'How can I find out my case id', // add to caseQA-general
+      'case #', // add to caseQA-general
+      'find my case', // add to caseQA-general
+      'yes i need my case numbetr', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'How do I found out my case number', // add to caseQA-general
+      'How to find my cas e number\n', // add to caseQA-general
+      'Trying to find case # so can make payment', // add to caseQA-general
+      'Case numbers ', // add to caseQA-general
+      'case ID', // add to caseQA-general
+      'How do i obtain my case number?', // add to caseQA-general
+      'Another case DIGITS', // add to caseQA-general
+      'Case number: 619937341A', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'Case # DIGITS', // add to caseQA-general
+      'Find case number', // add to caseQA-general
+      'Case number# 619876970A', // add to caseQA-general
+      'where do i find the case number', // add to caseQA-general
+      'Can I have my case number ', // add to caseQA-general
+      'How to locate case number ', // add to caseQA-general
+      'Case number DIGITS', // add to caseQA-general
+      'Case ID', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'How can I find my case number ', // add to caseQA-general
+      'i am needing to get ahold of case worker PERSON_NAME garner', // add to caseQA-general
+      'How can I find my case number', // add to caseQA-general
+      'Case #DIGITS ', // add to caseQA-general
+      'case number DIGITS', // add to caseQA-general
+      'How can I get the case number ', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'case # DIGITS', // add to caseQA-general
+      'Trying to find my case number ', // add to caseQA-general
+      "I cant find my case number'", // add to caseQA-general
+      'How do I find my case number', // add to caseQA-general
+      'Need my case number', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'Case number ', // add to caseQA-general
+      'How do I find my case number ', // add to caseQA-general
+      'child support case number DIGITS ', // add to caseQA-general
+      'case # BZ62990R1', // add to caseQA-general
+      'How do I get my case number', // add to caseQA-general
+      'Find case', // add to caseQA-general
+      'How do I get my case number?', // add to caseQA-general
+      'Im trying to pay child support i dont know my mets id case number', // add to caseQA-general
+      'Where can I find my case number to register online?', // add to caseQA-general
+      'I have a case against PERSON_NAME but do not know the case number', // add to caseQA-general
+      'I’m trying to figure out what my case number is!', // add to caseQA-general
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 12 },
