@@ -1546,7 +1546,7 @@ const data = {
       'Forms', // Suggest general documentation intent
       'Need printout emailed to me showing what I’ve received for the past 6 months ', // add to payment history
       'How to get a print out online', // add to payment history
-      'Drivers license reinstatement  clearance form', // mislabeled, added to license suspension
+      'Drivers license reinstatement  clearance form', // mislabeled, added to license suspension ** trained **
       'I was trying to see if I have to go get print out from the last year or could it be mailed to me ', // add to payment history
       'can i get copies of payments', // add to payment history
       'After i print it off then whats the next step ', // *
@@ -1876,7 +1876,7 @@ const data = {
       'modification', // add to caseQA-increase-review
       'Forms to request a modification', // add to caseQA-increase-review
       'I would like to know if my child support can be increased without a notice', // add to caseQA-increase-review
-      "How can I make payments arrangements. so I can get my license. I'm a truck driver ", // mislabeled, added to license suspension
+      "How can I make payments arrangements. so I can get my license. I'm a truck driver ", // mislabeled, added to license suspension ** trained **
       'I want to request a increase ', // add to caseQA-increase-review
       'Hi gen what do I have to do to get my child support raised', // add to caseQA-increase-review
       '1.  I just want to see if he can pay me more than $200 a month for his 16 year old son. ', // add to caseQA-increase-review
@@ -2260,7 +2260,7 @@ const data = {
       'Can I send payments through moneygram', // add to pmts-general-make-payments or pmtMethods-moneygram
       'How does paying rearrange works', // mislabeled added to arrears
       'Check', // add to pmts-general-make-payments
-      'Can u send in some money to keep from liscence suspended', // add to enforcement-license-suspension
+      'Can u send in some money to keep from liscence suspended', // add to enforcement-license-suspension ** trained **
       'He', // *
       'What is the receive code for money gram?', // add to pmts-general-make-payments or pmtMethods-moneygram
       'What info do I need to send payment through money gram?', // add to pmts-general-make-payments or pmtMethods-moneygram
@@ -4273,7 +4273,7 @@ const data = {
       'Removing an item off my credit file', // add to support-root
       '103 PERSON_NAME a  bland ed', // *
       'How to I report a change in the childcare amount? ', // add to support-root
-      "I can not understand why was my driver's license was suspended when I am not behind", // add to enforcement-license-suspension-non-compliance
+      "I can not understand why was my driver's license was suspended when I am not behind", // add to enforcement-license-suspension-non-compliance ** trained **
       'When should I update my income increase with child support ', // add to support-root
       'income withhold', // add to support-root
       'If me and my child’s father aren’t married, does he still go on child support?', // add to support-root
@@ -4825,26 +4825,26 @@ const data = {
   taxes: {
     occurences: 20,
     queries: [
-      'i dont owe any child support but you all took my tax refund',
-      'How do I find out if I will receive a payment from tax offset of non custodial parent ',
-      'Tax offset payment ',
-      'tax',
-      " I need to know where my taxes hadn't been took off my back child support",
-      'Tax interception ',
+      'i dont owe any child support but you all took my tax refund', // added to enforcement-tax-offset
+      'How do I find out if I will receive a payment from tax offset of non custodial parent ', // added to enforcement-tax-offset
+      'Tax offset payment ', // added to enforcement-tax-offset
+      'tax', // added to enforcement-tax-offset
+      " I need to know where my taxes hadn't been took off my back child support", // added to enforcement-tax-offset
+      'Tax interception ', // added to enforcement-tax-offset
       'I have a release for my tax refund ',
-      'social security',
-      'tax refund',
-      'I would like my child’s support Payment’s to run through the state and be taken out of my payroll check each week',
-      'How long before income tax is applied.',
-      'tax ID number ',
-      "I'm looking for your tax ID number to issue a child support withholding for a non-custodial parent.",
-      'tax offset',
-      'Why are they holding child support received from taxes ',
-      'If my ex-husband is in arrears, does this agency participate in the collection of funds from the IRS; seize his refund?',
-      'Getting income tax',
-      'I have asked for the past three years about getting his income tax. ',
-      "I'm trying to figure out the child in reference to my federal tax return they kept for child support that I wasn't aware I was supposed to be paying",
-      'It has income tax/social security/retirement/childsupport',
+      'social security', // *
+      'tax refund', // added to enforcement-tax-offset
+      'I would like my child’s support Payment’s to run through the state and be taken out of my payroll check each week', // *
+      'How long before income tax is applied.', // added to enforcement-tax-offset
+      'tax ID number ', // *
+      "I'm looking for your tax ID number to issue a child support withholding for a non-custodial parent.", // *
+      'tax offset', // added to enforcement-tax-offset
+      'Why are they holding child support received from taxes ', // added to enforcement-tax-offset
+      'If my ex-husband is in arrears, does this agency participate in the collection of funds from the IRS; seize his refund?', // *
+      'Getting income tax', // added to enforcement-tax-offset
+      'I have asked for the past three years about getting his income tax. ', // added to enforcement-tax-offsets
+      "I'm trying to figure out the child in reference to my federal tax return they kept for child support that I wasn't aware I was supposed to be paying", // added to enforcement-tax-offset
+      'It has income tax/social security/retirement/childsupport', // added to enforcement-tax-offset
     ],
     contexts: [
       { name: 'waiting-not-child-support', count: 5 },
