@@ -81,6 +81,4 @@ const makeBothPredictions = async query => {
   }
 }
 
-makeBothPredictions(
-  'i need to talk to someone about my ding dang child support'
-).then(results => console.log(JSON.stringify(results)))
+module.exports = makeBothPredictions
