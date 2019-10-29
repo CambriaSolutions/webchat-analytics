@@ -19,8 +19,8 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
-const start = new Date('Sept 1 2019  00:00:00 GMT-0700 (Pacific Daylight Time)')
-const end = new Date('Oct 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
+const start = new Date('Oct 1 2019  00:00:00 GMT-0700 (Pacific Daylight Time)')
+const end = new Date('Oct 29 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
 const intent = {
   name: 'Default Fallback Intent',
@@ -30,7 +30,7 @@ const intent = {
 const formattedName = client.modelPath(
   process.env.AUTOML_PROJECT,
   process.env.AUTOML_LOCATION,
-  process.env.AUTOML_MODEL
+  process.env.AUTOML_CAT_MODEL
 )
 
 const predict = async intentDetails => {
@@ -55,6 +55,7 @@ const predict = async intentDetails => {
         name: formattedName,
         payload: payload,
       }
+
       const responses = await client.predict(request)
       const topCategory = responses[0].payload[0]
 
