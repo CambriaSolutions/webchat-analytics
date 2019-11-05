@@ -1,6 +1,6 @@
 require('dotenv').config()
 const admin = require('firebase-admin')
-const { format, getMonth, getDate } = require('date-fns')
+const { format } = require('date-fns')
 const fs = require('fs')
 const analyzeQueries = require('./analyzeQueries')
 const serviceAccount = require('./analyticsKey.json')
@@ -14,6 +14,8 @@ admin.initializeApp({
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
 const db = admin.firestore()
+
+// Include your own start and end date
 const start = new Date('Aug 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 const end = new Date('Sept 1 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
@@ -30,8 +32,8 @@ const performQuery = (start, end, intent) => {
     .orderBy('createdAt', 'desc')
     .get()
     .then(querySnapshot => {
-      let intentDetails = []
-      let intentQueries = []
+      const intentDetails = []
+      const intentQueries = []
       querySnapshot.forEach(doc => {
         let tempData = doc.data()
         intentDetails.push({

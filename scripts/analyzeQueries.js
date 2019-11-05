@@ -1,17 +1,15 @@
 require('dotenv').config()
-// const queries = require('./fallbackFullDetails_06-01_09-01')
+
+// require fallback data from start date to end date
 const queries = require('./dataFiles/fallbackFullDetails_08-01_09-01')
-// const queries = require('./fallbackQueries_06-01_07-01')
-// const queries = require('./fallbackQueries_07-01_08-01')
-// const queries = require('./fallbackQueries_08-01_09-01')
-// const queries = require('./fallbackQueries_06-01_09-01')
+
 const fs = require('fs')
 const language = require('@google-cloud/language')
 const client = new language.LanguageServiceClient()
 
 // Get entities
 const getEntities = async query => {
-  let entitiesArray = []
+  const entitiesArray = []
   if (query.messageText && query.messageText.toLowerCase() !== 'no') {
     // Instantiates a client
     const individualDoc = {
@@ -26,33 +24,14 @@ const getEntities = async query => {
     })
   }
 
-  console.log(entitiesArray, query.messageText)
   return { entitiesArray, message: query.messageText }
 }
 
-// // Annotate Text provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.
-// // https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/annotateText
-// async function annotateText() {
-//   const individualDoc = {
-//     content: query.messageText,
-//     type: 'PLAIN_TEXT',
-//   }
-//   const features = {
-//     extractSyntax: true,
-//     extractEntities: true,
-//     extractDocumentSentiment: true,
-//     extractEntitySentiment: true,
-//     classifyText: true,
-//   }
-//   const request = { document: individualDoc, features }
-//   const [result] = await client.annotateText(request)
-// }
-
 const analyzeQueries = () => {
-  let queryDictionary = {}
+  const queryDictionary = {}
   queries.forEach(query => {
     // Store the available contexts if available
-    let contexts = []
+    const contexts = []
     query.outputContexts.forEach(context => {
       if (context) {
         contexts.push(context.context)
@@ -89,7 +68,7 @@ const analyzeQueries = () => {
 
   // Save full intent data
   fs.writeFile(
-    `./dataFiles/mildlySorted.json`,
+    `./dataFiles/fullIntentData.json`,
     JSON.stringify(sortableArray),
     err => {
       if (err) throw err
@@ -98,7 +77,7 @@ const analyzeQueries = () => {
   )
 
   // Detects entities in the document
-  let entitiesCollection = {}
+  const entitiesCollection = {}
 
   // Loop through the invididual queries to extract entities
   queries.forEach(async (query, i) => {
@@ -129,7 +108,6 @@ const analyzeQueries = () => {
     entitiesToSort.sort((a, b) => {
       return b[1].occurences - a[1].occurences
     })
-    console.log(entitiesToSort)
     // Save full intent data
     fs.writeFile(
       `./dataFiles/sortedEntities.json`,
@@ -141,17 +119,6 @@ const analyzeQueries = () => {
     )
   })
   return entitiesCollection
-}
-
-const thing = async () => {
-  try {
-    const thingy = await analyzeQueries()
-    if (thingy) {
-      console.log(thingy)
-    }
-  } catch (err) {
-    console.log(err)
-  }
 }
 
 module.exports = analyzeQueries
