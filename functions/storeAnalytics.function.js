@@ -16,6 +16,35 @@ const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
+const inspectForMl = (query, intent, context) => {
+  const suggestions = context.parameters.suggestions
+  const queryMatchingSuggestions = suggestions.filter(suggestion => {
+    return suggestion.suggestionText === query
+  })
+
+  if (queryMatchingSuggestions.length > 0) {
+    const document = {
+      phrase: query,
+      occurrences: 1,
+      smModelTrained: false,
+      categoryModelTrained: false,
+      agentTrained: false,
+      intent: intent,
+      selectedSuggestion: queryMatchingSuggestions[0].suggestionText,
+      category: queryMatchingSuggestions[0].mlCategory,
+    }
+
+    const queriesForTrainingRef = store.collection(
+      `/projects/mdhs-csa-dev-beta/queriesForTraining`
+    )
+    queriesForTrainingRef.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.data())
+      })
+    })
+  }
+}
+
 // Calculate metrics based on requests
 exports = module.exports = functions.https.onRequest(async (req, res) => {
   const reqData = req.body
@@ -48,6 +77,14 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const settings = await getProjectSettings(projectName)
   const timezoneOffset = settings.timezone.offset
 
+  // Check if the querie has the should-inspect-for-ml parameter
+  if (reqData.queryResult.outputContexts) {
+    for (const context of reqData.queryResult.outputContexts) {
+      if (getIdFromPath(context.name) === 'should-inspect-for-ml') {
+        inspectForMl(reqData.queryResult.queryText, intent, context)
+      }
+    }
+  }
   // Check if conversation has a support request
   const hasSupportRequest = intent.name.startsWith('support')
   // Get support type
