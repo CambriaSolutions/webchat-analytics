@@ -18,30 +18,47 @@ const isSameDay = require('date-fns/is_same_day')
 
 const inspectForMl = (query, intent, context) => {
   const suggestions = context.parameters.suggestions
+  const userQuery = context.parameters.originalQuery
   const queryMatchingSuggestions = suggestions.filter(suggestion => {
-    return suggestion.suggestionText === query
+    return suggestion.suggestionText.toLowerCase() === query
   })
 
   if (queryMatchingSuggestions.length > 0) {
+    const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
     const document = {
-      phrase: query,
+      phrase: userQuery,
       occurrences: 1,
       smModelTrained: false,
       categoryModelTrained: false,
       agentTrained: false,
       intent: intent,
-      selectedSuggestion: queryMatchingSuggestions[0].suggestionText,
-      category: queryMatchingSuggestions[0].mlCategory,
+      selectedSuggestion: suggestionText,
+      category: mlCategory,
     }
 
     const queriesForTrainingRef = store.collection(
       `/projects/mdhs-csa-dev-beta/queriesForTraining`
     )
-    queriesForTrainingRef.get().then(snapshot => {
-      snapshot.forEach(doc => {
-        console.log(doc.data())
+    queriesForTrainingRef
+      .where('phrase', '==', userQuery)
+      .where('selectedSuggestion', '==', suggestionText)
+      .get()
+      .then(snap => {
+        if (snap.empty) {
+          console.log('its not in there')
+          queriesForTrainingRef.add(document)
+        } else {
+          snap.forEach(doc => {
+            const { occurrences } = doc.data()
+            console.log(doc.data())
+            queriesForTrainingRef.doc(doc.id).update({
+              occurrences: occurrences + 1,
+            })
+            console.log(doc.id)
+            console.log('its in there')
+          })
+        }
       })
-    })
   }
 }
 
@@ -81,7 +98,11 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   if (reqData.queryResult.outputContexts) {
     for (const context of reqData.queryResult.outputContexts) {
       if (getIdFromPath(context.name) === 'should-inspect-for-ml') {
-        inspectForMl(reqData.queryResult.queryText, intent, context)
+        inspectForMl(
+          reqData.queryResult.queryText.toLowerCase(),
+          intent,
+          context
+        )
       }
     }
   }
