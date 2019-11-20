@@ -1,13 +1,14 @@
+require('dotenv').config()
 const functions = require('firebase-functions')
 const cors = require('cors')({ origin: true })
 
 // Google Cloud Storage Setup
 const { Storage } = require('@google-cloud/storage')
 const storage = new Storage({
-  projectId: functions.config().gcs.project_id,
+  projectId: process.env.GCS_PROJECT_ID,
   credentials: {
-    private_key: functions.config().gcs.private_key.replace(/\\n/g, '\n'),
-    client_email: functions.config().gcs.client_email,
+    private_key: process.env.GCS_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    client_email: process.env.GCS_CLIENT_EMAIL,
   },
 })
 const bucketName = 'daily-json-exports'
