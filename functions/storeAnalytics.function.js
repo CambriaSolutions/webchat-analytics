@@ -105,7 +105,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const settings = await getProjectSettings(projectName)
   const timezoneOffset = settings.timezone.offset
 
-  // Check if the querie has the should-inspect-for-ml parameter
+  // Check if the query has the should-inspect-for-ml parameter
   if (reqData.queryResult.outputContexts) {
     for (const dfContext of reqData.queryResult.outputContexts) {
       if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
