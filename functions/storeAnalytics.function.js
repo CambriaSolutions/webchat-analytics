@@ -16,9 +16,9 @@ const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
-const inspectForMl = (query, intent, context) => {
-  const suggestions = context.parameters.suggestions
-  const userQuery = context.parameters.originalQuery
+const inspectForMl = (query, intent, dfContext, context) => {
+  const suggestions = dfContext.parameters.suggestions
+  const userQuery = dfContext.parameters.originalQuery
   const queryMatchingSuggestions = suggestions.filter(suggestion => {
     return suggestion.suggestionText.toLowerCase() === query
   })
@@ -37,8 +37,10 @@ const inspectForMl = (query, intent, context) => {
     }
 
     const queriesForTrainingRef = store.collection(
-      `/projects/mdhs-csa-dev-beta/queriesForTraining`
+      `${context}/queriesForTraining`
     )
+    console.log(queriesForTrainingRef)
+
     queriesForTrainingRef
       .where('phrase', '==', userQuery)
       .where('selectedSuggestion', '==', suggestionText)
@@ -96,11 +98,12 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
 
   // Check if the querie has the should-inspect-for-ml parameter
   if (reqData.queryResult.outputContexts) {
-    for (const context of reqData.queryResult.outputContexts) {
-      if (getIdFromPath(context.name) === 'should-inspect-for-ml') {
+    for (const dfContext of reqData.queryResult.outputContexts) {
+      if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
         inspectForMl(
           reqData.queryResult.queryText.toLowerCase(),
           intent,
+          dfContext,
           context
         )
       }
