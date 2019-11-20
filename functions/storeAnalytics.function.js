@@ -39,15 +39,14 @@ const inspectForMl = (query, intent, dfContext, context) => {
     const queriesForTrainingRef = store.collection(
       `${context}/queriesForTraining`
     )
-    console.log(queriesForTrainingRef)
 
+    // Attempt to find a document where the userQuery and suggestion text matches the
     queriesForTrainingRef
       .where('phrase', '==', userQuery)
       .where('selectedSuggestion', '==', suggestionText)
       .get()
       .then(snap => {
         if (snap.empty) {
-          console.log('its not in there')
           queriesForTrainingRef.add(document)
         } else {
           snap.forEach(doc => {
