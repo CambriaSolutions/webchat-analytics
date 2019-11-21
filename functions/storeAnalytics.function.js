@@ -16,6 +16,63 @@ const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
+// Inspect the query against suggestions in context to determine whether or
+// not the agent and ml models should be updated
+const inspectForMl = (query, intent, dfContext, context) => {
+  const suggestions = dfContext.parameters.suggestions
+  const userQuery = dfContext.parameters.originalQuery
+
+  // Check to see if any of the presented selections match the current query
+  const queryMatchingSuggestions = suggestions.filter(suggestion => {
+    return suggestion.suggestionText.toLowerCase() === query
+  })
+
+  if (queryMatchingSuggestions.length > 0) {
+    // The user has selected one of the presented suggestions
+    const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
+
+    // Create a reference depending on the current project
+    const queriesForTrainingRef = store.collection(
+      `${context}/queriesForTraining`
+    )
+
+    // Attempt to find a document where the userQuery and suggestion text match
+    queriesForTrainingRef
+      .where('phrase', '==', userQuery)
+      .where('selectedSuggestion', '==', suggestionText)
+      .get()
+      .then(snap => {
+        if (snap.empty) {
+          // The combination of the userQuery and the suggestion text has not occurred
+          // so we create a document
+          const document = {
+            phrase: userQuery,
+            occurrences: 1,
+            smModelTrained: false,
+            categoryModelTrained: false,
+            agentTrained: false,
+            intent: intent,
+            selectedSuggestion: suggestionText,
+            category: mlCategory,
+          }
+          queriesForTrainingRef.add(document)
+        } else {
+          // This combination has occurred before, so we increment the occurrences
+          snap.forEach(doc => {
+            const { occurrences } = doc.data()
+            queriesForTrainingRef.doc(doc.id).update({
+              occurrences: occurrences + 1,
+            })
+          })
+        }
+        return
+      })
+      .catch(e => {
+        console.error(e)
+      })
+  }
+}
+
 // Calculate metrics based on requests
 exports = module.exports = functions.https.onRequest(async (req, res) => {
   const reqData = req.body
@@ -47,6 +104,20 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   // Get project settings
   const settings = await getProjectSettings(projectName)
   const timezoneOffset = settings.timezone.offset
+
+  // Check if the query has the should-inspect-for-ml parameter
+  if (reqData.queryResult.outputContexts) {
+    for (const dfContext of reqData.queryResult.outputContexts) {
+      if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
+        inspectForMl(
+          reqData.queryResult.queryText.toLowerCase(),
+          intent,
+          dfContext,
+          context
+        )
+      }
+    }
+  }
 
   // Check if conversation has a support request
   const hasSupportRequest = intent.name.startsWith('support')
