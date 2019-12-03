@@ -6,8 +6,7 @@ const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
-
-const serviceAccount = require('./keys/analyticsKey-dev.json.js')
+const serviceAccount = require('./keys/analyticsKey-dev.json')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -47,36 +46,38 @@ async function main() {
     phraseCategory.push({ phrase, category, docId })
   }
 
-  try {
-    const date = format(new Date(), 'MM-dd-yyyy')
-    const fileName = `${date}-category-training.csv`
-    const tempFilePath = path.join(os.tmpdir(), fileName)
-    let f = fs.openSync(tempFilePath, 'w')
-    phraseCategory.map(function(element) {
-      fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
-    })
-    fs.close(f, async function() {
-      console.log('File completed writing')
-      // Uploads csv file to bucket
-      const bucket = storage.bucket('gs://webchat-analytics-dev.appspot.com/')
+  if (phraseCategory.length > 0) {
+    try {
+      const date = format(new Date(), 'MM-dd-yyyy')
+      const fileName = `${date}-category-training.csv`
+      const tempFilePath = path.join(os.tmpdir(), fileName)
+      let f = fs.openSync(tempFilePath, 'w')
+      phraseCategory.map(function(element) {
+        fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
+      })
+      fs.close(f, async function() {
+        console.log('File completed writing')
+        // Uploads csv file to bucket
+        const bucket = storage.bucket('gs://webchat-analytics-dev.appspot.com/')
 
-      const results = await bucket.upload(
-        tempFilePath,
-        {
-          destination: bucket.file(fileName),
-        },
-        async (err, file) => {
-          if (err) {
-            return console.log(err)
+        const results = await bucket.upload(
+          tempFilePath,
+          {
+            destination: bucket.file(fileName),
+          },
+          async (err, file) => {
+            if (err) {
+              return console.log(err)
+            }
+            console.log('Uploaded successfully', phraseCategory)
+            // import phrases and categories to category dataset
+            await updateCategoryModel(fileName, phraseCategory)
           }
-          console.log('Uploaded successfully', phraseCategory)
-          // import phrases and categories to category dataset
-          await updateCategoryModel(fileName, phraseCategory)
-        }
-      )
-    })
-  } catch (err) {
-    console.error(err)
+        )
+      })
+    } catch (err) {
+      console.error(err)
+    }
   }
 }
 
@@ -127,7 +128,7 @@ async function updateCategoryModel(fileName, phraseCategory) {
     console.error(err)
   }
 }
-exports.trainModels = async (event, context, callback) => {
+exports.importDataset = async (event, context, callback) => {
   try {
     await main()
     callback(null, 'Success!')
