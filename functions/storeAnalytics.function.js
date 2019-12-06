@@ -40,6 +40,7 @@ const inspectForMl = (query, intent, dfContext, context) => {
     queriesForTrainingRef
       .where('phrase', '==', userQuery)
       .where('selectedSuggestion', '==', suggestionText)
+      .where('category', '==', mlCategory)
       .get()
       .then(snap => {
         if (snap.empty) {
@@ -65,11 +66,18 @@ const inspectForMl = (query, intent, dfContext, context) => {
             })
           })
         }
-        return
       })
       .catch(e => {
         console.error(e)
       })
+  } else {
+    // The user did not select any of our suggestions, so add the suggestions and
+    // query to a collection for human inspection
+    const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
+
+    queriesForLabeling.add({ suggestions, userQuery }).catch(error => {
+      res.send(500, `Error storing data: ${error}`)
+    })
   }
 }
 
