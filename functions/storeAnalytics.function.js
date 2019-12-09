@@ -26,10 +26,11 @@ const inspectForMl = (query, intent, dfContext, context) => {
   const queryMatchingSuggestions = suggestions.filter(suggestion => {
     return suggestion.suggestionText.toLowerCase() === query
   })
+  const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
 
+  console.log(JSON.stringify(queryMatchingSuggestions))
   if (queryMatchingSuggestions.length > 0) {
     // The user has selected one of the presented suggestions
-    const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
 
     // Create a reference depending on the current project
     const queriesForTrainingRef = store.collection(
@@ -44,6 +45,9 @@ const inspectForMl = (query, intent, dfContext, context) => {
       .get()
       .then(snap => {
         if (snap.empty) {
+          console.log(
+            `Doesn't exist: ${userQuery} + ${suggestionText} + ${mlCategory}`
+          )
           // The combination of the userQuery and the suggestion text has not occurred
           // so we create a document
           const document = {
@@ -58,9 +62,13 @@ const inspectForMl = (query, intent, dfContext, context) => {
           }
           queriesForTrainingRef.add(document)
         } else {
+          console.log(
+            `Does exist: ${userQuery} + ${suggestionText} + ${mlCategory}`
+          )
           // This combination has occurred before, so we increment the occurrences
           snap.forEach(doc => {
             const { occurrences } = doc.data()
+            console.log(occurrences)
             queriesForTrainingRef.doc(doc.id).update({
               occurrences: occurrences + 1,
             })
@@ -71,12 +79,13 @@ const inspectForMl = (query, intent, dfContext, context) => {
         console.error(e)
       })
   } else {
+    console.log(`Didn't match suggestion: ${userQuery}`)
     // The user did not select any of our suggestions, so add the suggestions and
     // query to a collection for human inspection
     const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
 
     queriesForLabeling.add({ suggestions, userQuery }).catch(error => {
-      res.send(500, `Error storing data: ${error}`)
+      res.status(500).send(`Error storing data: ${error}`)
     })
   }
 }
@@ -85,19 +94,19 @@ const inspectForMl = (query, intent, dfContext, context) => {
 exports = module.exports = functions.https.onRequest(async (req, res) => {
   const reqData = req.body
   if (!reqData) {
-    res.send(500, "The request body doesn't contain expected parameters")
+    res.status(500).send("The request body doesn't contain expected parameters")
   }
   const currTimestamp = new Date()
 
   // Check that conversation data exists on the request
   if (!reqData.session || !reqData.queryResult) {
-    res.send(500, 'Missing conversation parameters')
+    res.status(500).send('Missing conversation parameters')
   }
 
   // Check that session ID is valid: projects/project_name/agent/sessions/session_id
   const projectName = reqData.session.split('/')[1]
   if (!projectName) {
-    res.send(500, 'Invalid session ID')
+    res.status(500).send('Invalid session ID')
   }
   const context = `projects/${projectName}`
 
@@ -117,6 +126,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   if (reqData.queryResult.outputContexts) {
     for (const dfContext of reqData.queryResult.outputContexts) {
       if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
+        console.log('should inspect')
         inspectForMl(
           reqData.queryResult.queryText.toLowerCase(),
           intent,
@@ -152,7 +162,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     .collection(`${context}/requests`)
     .add(reqData)
     .catch(error => {
-      res.send(500, `Error storing data: ${error}`)
+      res.status(500).send(`Error storing data: ${error}`)
     })
 
   // Store aggregate used on export: conversations with requests
@@ -273,10 +283,10 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         shouldCalculateDuration
       )
 
-      return res.send(200, 'Analytics stored successfully')
+      return res.status(200).send('Analytics stored successfully')
     })
     .catch(error => {
-      res.send(500, `Error storing conversation document: ${error}`)
+      res.status(500).send(`Error storing conversation document: ${error}`)
     })
 })
 
