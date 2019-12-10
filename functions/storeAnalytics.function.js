@@ -26,11 +26,10 @@ const inspectForMl = (query, intent, dfContext, context) => {
   const queryMatchingSuggestions = suggestions.filter(suggestion => {
     return suggestion.suggestionText.toLowerCase() === query
   })
-  const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
 
-  console.log(JSON.stringify(queryMatchingSuggestions))
   if (queryMatchingSuggestions.length > 0) {
     // The user has selected one of the presented suggestions
+    const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
 
     // Create a reference depending on the current project
     const queriesForTrainingRef = store.collection(
