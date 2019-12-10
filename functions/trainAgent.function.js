@@ -67,7 +67,9 @@ async function trainAgent(phrase, intentId, docId, intentName) {
           intent: intentName,
           learnedPhrase: phrase,
         })
-        .then(() => console.log(`${docId} learned ${phrase}`))
+        .then(() =>
+          console.log(`${intentName} learned ${phrase} as a training phrase`)
+        )
     } catch (e) {
       console.log('Unable to train intent', e)
     }
