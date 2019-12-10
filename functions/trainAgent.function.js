@@ -20,9 +20,10 @@ exports = module.exports = functions.firestore
     const occurrences = afterUpdateFields.occurrences
     const phrase = afterUpdateFields.phrase
     const intentId = afterUpdateFields.intent.id
+    const intentName = afterUpdateFields.intent.name
     // If occurrences reaches 10 and agent is not trained
     if (occurrences === 10 && agentTrained === false) {
-      await trainAgent(phrase, intentId, docId)
+      await trainAgent(phrase, intentId, docId, intentName)
     }
     return afterUpdateFields
   })
@@ -33,7 +34,7 @@ exports = module.exports = functions.firestore
  * @param {*} intentId matched intent id
  * @param {*} docId document id in firebase
  */
-async function trainAgent(phrase, intentId, docId) {
+async function trainAgent(phrase, intentId, docId, intentName) {
   try {
     let intent = await getIntent(
       `projects/${process.env.AGENT_PROJECT}/agent/intents/${intentId}`
@@ -58,6 +59,15 @@ async function trainAgent(phrase, intentId, docId) {
         )
         .doc(docId)
         .update({ agentTrained: true })
+
+      // save the phrase to the collection of auto trained phrases
+      await store
+        .collection(`/projects/${process.env.AGENT_PROJECT}/autoTrainedPhrases`)
+        .add({
+          intent: intentName,
+          learnedPhrase: phrase,
+        })
+        .then(() => console.log(`${docId} learned ${phrase}`))
     } catch (e) {
       console.log('Unable to train intent', e)
     }

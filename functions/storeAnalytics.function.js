@@ -66,10 +66,8 @@ const inspectForMl = (query, intent, dfContext, context) => {
           )
           // This combination has occurred before, so we increment the occurrences
           snap.forEach(doc => {
-            const { occurrences } = doc.data()
-            console.log(occurrences)
             queriesForTrainingRef.doc(doc.id).update({
-              occurrences: occurrences + 1,
+              occurrences: admin.firestore.FieldValue.increment(1),
             })
           })
         }
