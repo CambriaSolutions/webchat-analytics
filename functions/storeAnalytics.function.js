@@ -44,9 +44,6 @@ const inspectForMl = (query, intent, dfContext, context) => {
       .get()
       .then(snap => {
         if (snap.empty) {
-          console.log(
-            `Doesn't exist: ${userQuery} + ${suggestionText} + ${mlCategory}`
-          )
           // The combination of the userQuery and the suggestion text has not occurred
           // so we create a document
           const document = {
@@ -61,9 +58,6 @@ const inspectForMl = (query, intent, dfContext, context) => {
           }
           queriesForTrainingRef.add(document)
         } else {
-          console.log(
-            `Does exist: ${userQuery} + ${suggestionText} + ${mlCategory}`
-          )
           // This combination has occurred before, so we increment the occurrences
           snap.forEach(doc => {
             queriesForTrainingRef.doc(doc.id).update({
@@ -76,7 +70,6 @@ const inspectForMl = (query, intent, dfContext, context) => {
         console.error(e)
       })
   } else {
-    console.log(`Didn't match suggestion: ${userQuery}`)
     // The user did not select any of our suggestions, so add the suggestions and
     // query to a collection for human inspection
     const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
@@ -123,7 +116,6 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   if (reqData.queryResult.outputContexts) {
     for (const dfContext of reqData.queryResult.outputContexts) {
       if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
-        console.log('should inspect')
         inspectForMl(
           reqData.queryResult.queryText.toLowerCase(),
           intent,
