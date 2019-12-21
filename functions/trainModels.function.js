@@ -142,5 +142,11 @@ async function trainCategoryModel() {
     console.log(`Model deployment state: ${deploymentState}`)
   } catch (err) {
     console.log(err)
+    await store
+      .collection(`/projects/`)
+      .doc(`${process.env.AGENT_PROJECT}`)
+      .update({
+        isTrainingProcessing: false,
+      })
   }
 }
