@@ -6,7 +6,7 @@ const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
-const serviceAccount = require('./keys/analyticsKey-dev.json')
+const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
