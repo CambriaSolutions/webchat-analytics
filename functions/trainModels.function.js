@@ -85,7 +85,7 @@ exports = module.exports = functions.firestore
  */
 
 async function trainCategoryModel() {
-  const projectId = `${process.env.GS_PROJECT_ID}`
+  const projectId = `${process.env.GCS_PROJECT_ID}`
   const computeRegion = `${process.env.AUTOML_LOCATION}`
   const datasetId = `${process.env.AUTOML_DATASET}`
   const date = format(new Date(), 'MM_DD_YYYY')
