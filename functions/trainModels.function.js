@@ -6,9 +6,8 @@ const format = require('date-fns/format')
 const differenceInWeeks = require('date-fns/difference_in_weeks')
 const store = admin.firestore()
 
-//Instantiate autoML client
+// Instantiate autoML client
 const client = new automl.v1beta1.AutoMlClient({
-  // optional auth parameters
   client_email: `${process.env.AUTOML_CLIENT_EMAIL}`,
   private_key: `${process.env.AUTOML_PRIVATE_KEY.replace(/\\n/g, '\n')}`,
 })
@@ -30,7 +29,7 @@ exports = module.exports = functions.firestore
     const mlStatus = await projectRef.get()
     let canTrainModel = false
 
-    // get date last trained, if more than a week, train it.
+    // Get date last trained, if more than a week, train it.
     mlStatus.forEach(doc => {
       const data = doc.data()
       if (!data.isImportProcessing && !data.isTrainingProcessing) {
@@ -90,7 +89,7 @@ async function trainCategoryModel() {
   const computeRegion = `${process.env.AUTOML_LOCATION}`
   const datasetId = `${process.env.AUTOML_DATASET}`
   const date = format(new Date(), 'MM_DD_YYYY')
-  const modelName = `mdhs_csa_analytics_v6_${date}`
+  const modelName = `mdhs_csa_analytics_${date}`
 
   const projectLocation = client.locationPath(projectId, computeRegion)
 
@@ -109,7 +108,7 @@ async function trainCategoryModel() {
     })
     console.log(`Training operation name: ${initialApiResponse.name}`)
     console.log(`Training started...`)
-    // Updating training status in db
+    // Update training status in db
     await store
       .collection(`/projects/`)
       .doc(`${process.env.AGENT_PROJECT}`)
@@ -133,7 +132,7 @@ async function trainCategoryModel() {
       deploymentState = `undeployed`
     }
 
-    // Display the model information
+    // Display model information
     console.log(`Model name: ${model.name}`)
     console.log(`Model id: ${model.name.split(`/`).pop(-1)}`)
     console.log(`Model display name: ${model.displayName}`)
