@@ -6,8 +6,7 @@ const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
-
-const serviceAccount = require('./keys/analyticsKey-dev.json.js')
+const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -26,20 +25,23 @@ const client = new automl.v1beta1.AutoMlClient({
   private_key: `${process.env.AUTOML_PRIVATE_KEY.replace(/\\n/g, '\n')}`,
 })
 
+/***
+ * Retrieve new query and category pairs if occurences >10
+ * and import dataset into category model
+ */
 async function main() {
-  console.log('retrieving data...')
+  console.log('retrieving query data...')
   const storeRef = store.collection(
     `/projects/${process.env.AGENT_PROJECT}/queriesForTraining`
   )
-  const activeRef = await storeRef
+  const queriesToImport = await storeRef
     .where('occurrences', '>=', 10)
     .where('categoryModelTrained', '==', false)
     .where('smModelTrained', '==', false)
     .get()
-
-  console.log('retrieved category phrase data')
   const phraseCategory = []
-  for (let query of activeRef.docs) {
+  // add new phrase category pairs to phraseCategory array
+  for (let query of queriesToImport.docs) {
     let queryDoc = query.data()
     const docId = query.id
     const category = queryDoc.category
@@ -47,39 +49,47 @@ async function main() {
     phraseCategory.push({ phrase, category, docId })
   }
 
-  try {
-    const date = format(new Date(), 'MM-dd-yyyy')
-    const fileName = `${date}-category-training.csv`
-    const tempFilePath = path.join(os.tmpdir(), fileName)
-    let f = fs.openSync(tempFilePath, 'w')
-    phraseCategory.map(function(element) {
-      fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
-    })
-    fs.close(f, async function() {
-      console.log('File completed writing')
-      // Uploads csv file to bucket
-      const bucket = storage.bucket('gs://webchat-analytics-dev.appspot.com/')
-
-      const results = await bucket.upload(
-        tempFilePath,
-        {
-          destination: bucket.file(fileName),
-        },
-        async (err, file) => {
-          if (err) {
-            return console.log(err)
+  if (phraseCategory.length > 0) {
+    try {
+      const date = format(new Date(), 'MM-dd-yyyy')
+      const fileName = `${date}-category-training.csv`
+      const tempFilePath = path.join(os.tmpdir(), fileName)
+      let f = fs.openSync(tempFilePath, 'w')
+      phraseCategory.map(function(element) {
+        fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
+      })
+      fs.close(f, async function() {
+        console.log('File completed writing in GS bucket')
+        // Uploads csv file to bucket for AutoML dataset import
+        const bucket = storage.bucket('gs://webchat-analytics-dev.appspot.com/')
+        const results = await bucket.upload(
+          tempFilePath,
+          {
+            destination: bucket.file(fileName),
+          },
+          async (err, file) => {
+            if (err) {
+              return console.log(err)
+            }
+            console.log('File uploaded successfully', phraseCategory)
+            // import phrases and categories to AutoML category dataset
+            await updateCategoryModel(fileName, phraseCategory)
           }
-          console.log('Uploaded successfully', phraseCategory)
-          // import phrases and categories to category dataset
-          await updateCategoryModel(fileName, phraseCategory)
-        }
-      )
-    })
-  } catch (err) {
-    console.error(err)
+        )
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  } else {
+    console.log('No new data to import.')
   }
 }
 
+/**
+ * Import dataset into AutoML Category Model
+ * @param {*} fileName
+ * @param {*} phraseCategory
+ */
 async function updateCategoryModel(fileName, phraseCategory) {
   const datasetFullId = client.datasetPath(
     process.env.AUTOML_PROJECT,
@@ -93,41 +103,63 @@ async function updateCategoryModel(fileName, phraseCategory) {
         inputUris: [`gs://webchat-analytics-dev.appspot.com/${fileName}`],
       },
     }
-    // Import the dataset from input config
-    client
-      .importData({ name: datasetFullId, inputConfig: inputConfig })
-      .then(responses => {
-        console.log('responses', responses)
-        const operation = responses[0]
-        console.log(`Processing import...`)
-        return operation.promise()
-      })
-      .then(async responses => {
-        // The final result of the operation.
-        const operationDetails = responses[2]
+    // Build AutoML request object
+    const request = {
+      name: datasetFullId,
+      inputConfig: inputConfig,
+    }
 
-        console.log(`\t\tName: ${operationDetails.name}`)
-        console.log(`\t\tDone: ${operationDetails.done}`)
+    // Import dataset from input config
+    const [operation] = await client.importData(request)
 
-        return Promise.all(
-          phraseCategory.map(async function(element) {
-            await store
-              .collection(
-                `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
-              )
-              .doc(element.docId)
-              .update({ categoryModelTrained: true })
-          })
-        )
+    console.log(`Processing Category dataset import...`)
+
+    await store
+      .collection(`/projects/`)
+      .doc(`${process.env.AGENT_PROJECT}`)
+      .update({
+        isImportProcessing: true,
       })
-      .catch(err => {
-        console.error(err)
-      })
+
+    const [operationResponses] = await operation.promise()
+
+    // The final result of the operation.
+    if (operationResponses) {
+      console.log(operationResponses)
+      console.log(`Data imported.`)
+      // Save import status in db
+      await store
+        .collection(`/projects/`)
+        .doc(`${process.env.AGENT_PROJECT}`)
+        .update({
+          isImportProcessing: false,
+          lastImported: admin.firestore.Timestamp.now(),
+        })
+      // Update import status in individual queries
+      return Promise.all(
+        phraseCategory.map(async function(element) {
+          await store
+            .collection(
+              `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
+            )
+            .doc(element.docId)
+            .update({ categoryModelImported: true })
+        })
+      )
+    }
   } catch (err) {
+    // Save import status in db
+    await store
+      .collection(`/projects/`)
+      .doc(`${process.env.AGENT_PROJECT}`)
+      .update({
+        isImportProcessing: false,
+      })
     console.error(err)
   }
 }
-exports.trainModels = async (event, context, callback) => {
+
+exports.importDataset = async (event, context, callback) => {
   try {
     await main()
     callback(null, 'Success!')
