@@ -22,6 +22,9 @@ const inspectForMl = (query, intent, dfContext, context) => {
   const suggestions = dfContext.parameters.suggestions
   const userQuery = dfContext.parameters.originalQuery
 
+  // Ignore "go back" queries
+  if (userQuery.toLowerCase() === 'go back') return
+
   // Check to see if any of the presented selections match the current query
   const queryMatchingSuggestions = suggestions.filter(suggestion => {
     return suggestion.suggestionText.toLowerCase() === query
