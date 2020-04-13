@@ -40,6 +40,7 @@ const inspectForMl = (query, intent, dfContext, context) => {
     queriesForTrainingRef
       .where('phrase', '==', userQuery)
       .where('selectedSuggestion', '==', suggestionText)
+      .where('category', '==', mlCategory)
       .get()
       .then(snap => {
         if (snap.empty) {
@@ -59,17 +60,23 @@ const inspectForMl = (query, intent, dfContext, context) => {
         } else {
           // This combination has occurred before, so we increment the occurrences
           snap.forEach(doc => {
-            const { occurrences } = doc.data()
             queriesForTrainingRef.doc(doc.id).update({
-              occurrences: occurrences + 1,
+              occurrences: admin.firestore.FieldValue.increment(1),
             })
           })
         }
-        return
       })
       .catch(e => {
         console.error(e)
       })
+  } else {
+    // The user did not select any of our suggestions, so add the suggestions and
+    // query to a collection for human inspection
+    const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
+
+    queriesForLabeling.add({ suggestions, userQuery }).catch(error => {
+      res.status(500).send(`Error storing data: ${error}`)
+    })
   }
 }
 
@@ -77,19 +84,19 @@ const inspectForMl = (query, intent, dfContext, context) => {
 exports = module.exports = functions.https.onRequest(async (req, res) => {
   const reqData = req.body
   if (!reqData) {
-    res.send(500, "The request body doesn't contain expected parameters")
+    res.status(500).send("The request body doesn't contain expected parameters")
   }
   const currTimestamp = new Date()
 
   // Check that conversation data exists on the request
   if (!reqData.session || !reqData.queryResult) {
-    res.send(500, 'Missing conversation parameters')
+    res.status(500).send('Missing conversation parameters')
   }
 
   // Check that session ID is valid: projects/project_name/agent/sessions/session_id
   const projectName = reqData.session.split('/')[1]
   if (!projectName) {
-    res.send(500, 'Invalid session ID')
+    res.status(500).send('Invalid session ID')
   }
   const context = `projects/${projectName}`
 
@@ -144,7 +151,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     .collection(`${context}/requests`)
     .add(reqData)
     .catch(error => {
-      res.send(500, `Error storing data: ${error}`)
+      res.status(500).send(`Error storing data: ${error}`)
     })
 
   // Store aggregate used on export: conversations with requests
@@ -265,10 +272,10 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         shouldCalculateDuration
       )
 
-      return res.send(200, 'Analytics stored successfully')
+      return res.status(200).send('Analytics stored successfully')
     })
     .catch(error => {
-      res.send(500, `Error storing conversation document: ${error}`)
+      res.status(500).send(`Error storing conversation document: ${error}`)
     })
 })
 
