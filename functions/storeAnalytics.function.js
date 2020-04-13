@@ -68,6 +68,7 @@ const inspectForMl = (query, intent, dfContext, context) => {
             })
           })
         }
+        return;
       })
       .catch(e => {
         console.error(e)
