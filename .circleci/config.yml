@@ -105,28 +105,25 @@ jobs:
             AUTOML_PRIVATE_KEY=${DEV_AUTOML_PRIVATE_KEY}
 
             AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL}" > .env
+
       - run:
           name: 'Confirm environment variables are correctly injected'
           command: echo
-            "GCS_PROJECT_ID=${DEV_GCS_PROJECT_ID: -4}
+            "GCS_PROJECT_ID=${DEV_GCS_PROJECT_ID}
 
-            GCS_CLIENT_EMAIL=${DEV_GCS_CLIENT_EMAIL: -4}
+            GCS_CLIENT_EMAIL=${DEV_GCS_CLIENT_EMAIL}
 
-            GCS_PRIVATE_KEY=${DEV_GCS_PRIVATE_KEY: -4}
+            AGENT_PROJECT=${DEV_AGENT_PROJECT}
 
-            AGENT_PROJECT=${DEV_AGENT_PROJECT: -4}
+            AUTOML_PROJECT=${DEV_AUTOML_PROJECT}
 
-            AUTOML_PROJECT=${DEV_AUTOML_PROJECT: -4}
+            AUTOML_LOCATION=${DEV_AUTOML_LOCATION}
 
-            AUTOML_LOCATION=${DEV_AUTOML_LOCATION: -4}
+            AUTOML_CAT_MODEL=${DEV_AUTOML_CAT_MODEL}
 
-            AUTOML_CAT_MODEL=${DEV_AUTOML_CAT_MODEL: -4}
+            AUTOML_DATASET=${DEV_AUTOML_DATASET}
 
-            AUTOML_DATASET=${DEV_AUTOML_DATASET: -4}
-
-            AUTOML_PRIVATE_KEY=${DEV_AUTOML_PRIVATE_KEY: -4}
-
-            AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL: -4}"
+            AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL}"
       - run: sudo npm install -g firebase-tools
       - run: firebase deploy -P $DEV_FIREBASE_PROJECT_ID --only functions --token $DEV_FIREBASE_DEPLOY_TOKEN
 workflows:
