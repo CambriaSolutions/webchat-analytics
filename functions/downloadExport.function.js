@@ -7,7 +7,7 @@ const { Storage } = require('@google-cloud/storage')
 const storage = new Storage({
   projectId: process.env.GCS_PROJECT_ID,
   credentials: {
-    private_key: process.env.GCS_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    private_key: process.env.GCS_PRIVATE_KEY.replace('/\\n/g', '\n'),
     client_email: process.env.GCS_CLIENT_EMAIL,
   },
 })
