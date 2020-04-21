@@ -104,7 +104,7 @@ jobs:
 
             AUTOML_PRIVATE_KEY=${DEV_AUTOML_PRIVATE_KEY}
 
-            AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL}" > .env
+            AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL}" > env
 
       - run: ls -a
 
@@ -124,7 +124,7 @@ workflows:
                 - master
       - deploy_dev_analytics:
           requires:
-            - test_analytics
+            #- test_analytics
           filters:
             branches:
               only:
