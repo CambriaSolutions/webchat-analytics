@@ -7,10 +7,7 @@ const differenceInWeeks = require('date-fns/difference_in_weeks')
 const store = admin.firestore()
 
 // Instantiate autoML client
-const client = new automl.v1beta1.AutoMlClient({
-  client_email: `${process.env.AUTOML_CLIENT_EMAIL}`,
-  private_key: (process.env.AUTOML_PRIVATE_KEY || "").replace('/\\n/g', '\n'),
-})
+const client = new automl.v1beta1.AutoMlClient()
 
 /**
  * Trigger function on 'queriesForTraining' collection updates
