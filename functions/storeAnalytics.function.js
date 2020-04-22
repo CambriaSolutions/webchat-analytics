@@ -551,11 +551,11 @@ const storeMetrics = (
           numConversationsWithSupportRequests: 0,
           supportRequests: supportRequestType
             ? [
-                {
-                  name: supportRequestType,
-                  occurrences: 1,
-                },
-              ]
+              {
+                name: supportRequestType,
+                occurrences: 1,
+              },
+            ]
             : [],
           conversationsWithSupportRequests: supportRequestType
             ? [conversationId]
