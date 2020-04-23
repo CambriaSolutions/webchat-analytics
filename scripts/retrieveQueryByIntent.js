@@ -3,12 +3,8 @@ const admin = require('firebase-admin')
 const { format } = require('date-fns')
 const fs = require('fs')
 const analyzeQueries = require('./analyzeQueries')
-const serviceAccount = require('./analyticsKey.json')
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
-})
+admin.initializeApp()
 
 // Regex to retrieve text after last "/" on a path
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
@@ -42,16 +38,16 @@ const performQuery = (start, end, intent) => {
           messageText: tempData.queryResult.queryText,
           outputContexts: tempData.queryResult.outputContexts
             ? tempData.queryResult.outputContexts.map(o => ({
-                ...o,
-                context: getIdFromPath(o.name),
-              }))
+              ...o,
+              context: getIdFromPath(o.name),
+            }))
             : [],
           conversationId: getIdFromPath(tempData.session),
           createdAt: format(tempData.createdAt.toDate(), 'MM-DD-YYYY'),
         })
         intentQueries.push(tempData.queryResult.queryText)
       })
-      return (intentData = { intentDetails, intentQueries })
+      return ({ intentDetails, intentQueries })
     })
     .then(intentData => {
       const startDate = format(start, 'MM-DD')
