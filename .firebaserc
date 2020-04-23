@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "webchat-analytics",
-    "dev": "webchat-analytics-dev"
+    "dev": "webchat-analytics-dev",
+    "stage": "webchat-analytics-stage",
+    "prod": "webchat-analytics"
   }
 }

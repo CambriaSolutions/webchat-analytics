@@ -6,10 +6,7 @@ const os = require('os')
 
 const { Storage } = require('@google-cloud/storage')
 // Creates a client
-const storage = new Storage({
-  projectId: 'webchat-analytics-234317',
-  keyFilename: './keys/firestore-key.json',
-})
+const storage = new Storage()
 const bucketName = 'daily-json-exports'
 
 // Date FNS imports
@@ -19,10 +16,7 @@ const startOfDay = require('date-fns/start_of_day')
 const endOfDay = require('date-fns/end_of_day')
 const subDays = require('date-fns/sub_days')
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  storageBucket: 'gs://webchat-analytics-dev.appspot.com/',
-})
+admin.initializeApp()
 
 const today = subDays(new Date(), 1)
 const startTime = startOfDay(today)
@@ -131,7 +125,7 @@ const retrieveData = async () => {
 
     fs.writeSync(f, ']}')
 
-    fs.close(f, function() {
+    fs.close(f, function () {
       console.log('File completed')
       uploadToBucket(tempFilePath)
     })
