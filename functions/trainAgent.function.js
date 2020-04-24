@@ -5,9 +5,20 @@ const dialogflow = require('dialogflow')
 
 const store = admin.firestore()
 
-const intentsClient = new dialogflow.IntentsClient()
-
+/*
+  TODO - The Firebase CLI does not allow for .env variables to be loaded during the deployment
+  Temporarily hardcode to the target DF Agent project name 
+  and specify corresponding service account values in the environment variables
+*/
 const agentProject = 'mdhs-csa-dev'
+const dfConfig = {
+  credentials: {
+    private_key: process.env.AGENT_PRIVATE_KEY,
+    client_email: process.env.AGENT_CLIENT_EMAIL
+  }
+}
+
+const intentsClient = new dialogflow.IntentsClient(dfConfig)
 
 /**
  * Trigger function on 'queriesForTraining' collection updates
