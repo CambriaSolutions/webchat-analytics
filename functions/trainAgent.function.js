@@ -6,7 +6,7 @@ const dialogflow = require('dialogflow')
 const store = admin.firestore()
 
 /*
-  TODO - The Firebase CLI does not allow for .env variables to be loaded during the deployment
+  TODO The Firebase CLI does not allow for .env variables to be loaded during the deployment
   Temporarily hardcode to the target DF Agent project name 
   and specify corresponding service account values in the environment variables
 */
@@ -104,6 +104,7 @@ async function getIntent(intentId) {
     const response = responses[0]
     return response
   } catch (err) {
+    console.log('Unable to query intent', err)
     return err
   }
 }
