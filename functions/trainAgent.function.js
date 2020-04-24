@@ -14,8 +14,9 @@ const agentProject = 'mdhs-csa-dev'
 const dfConfig = {
   credentials: {
     private_key: process.env.AGENT_PRIVATE_KEY,
-    client_email: process.env.AGENT_CLIENT_EMAIL
-  }
+    client_email: `${(process.env.AGENT_CLIENT_EMAIL || '').replace(/\\n/g, '\n')}`
+  },
+  projectId: agentProject,
 }
 
 const intentsClient = new dialogflow.IntentsClient(dfConfig)
@@ -104,7 +105,7 @@ async function getIntent(intentId) {
     const response = responses[0]
     return response
   } catch (err) {
-    console.log('Unable to query intent', err)
+    console.log(`Unable to retrieve intent [${intentId}] from DialogFlow [${agentProject}]`, err)
     return err
   }
 }
@@ -120,6 +121,7 @@ async function updateIntent(intent) {
   try {
     return (responses = await intentsClient.updateIntent(request))
   } catch (err) {
+    console.log(`Unable to update intent [${intentId}] from DialogFlow [${agentProject}]`, err)
     return err
   }
 }
