@@ -53,7 +53,7 @@ async function main() {
         console.log('File completed writing in GS bucket')
         // Uploads csv file to bucket for AutoML dataset import
 
-        const bucket = storage.bucket(process.env.GOOGLE_STORAGE_URI)
+        const bucket = storage.bucket('gs://' + process.env.GCS_URI)
         const results = await bucket.upload(
           tempFilePath,
           {
@@ -92,7 +92,7 @@ async function updateCategoryModel(fileName, phraseCategory) {
     // Get Google Cloud Storage URI
     const inputConfig = {
       gcsSource: {
-        inputUris: [process.env.GOOGLE_STORAGE_URI + fileName],
+        inputUris: [`gs://${process.env.GCS_URI}/${fileName}`],
       },
     }
     // Build AutoML request object
