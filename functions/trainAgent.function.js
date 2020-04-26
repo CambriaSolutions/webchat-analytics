@@ -13,7 +13,7 @@ const store = admin.firestore()
 const agentProject = 'mdhs-csa-dev'
 const dfConfig = {
   credentials: {
-    private_key: `${(process.env.AGENT_PRIVATE_KEY|| '').replace(/\\n/g, '\n')}`,
+    private_key: `${(process.env.AGENT_PRIVATE_KEY || '').replace(/\\n/g, '\n')}`,
     client_email: `${process.env.AGENT_CLIENT_EMAIL}`
   },
   projectId: agentProject,

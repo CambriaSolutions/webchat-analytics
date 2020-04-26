@@ -1,32 +1,23 @@
 require('dotenv').config()
 const admin = require('firebase-admin')
 const automl = require('@google-cloud/automl')
+const functions = require('firebase-functions')
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
-const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-})
 const store = admin.firestore()
 
 // Google Cloud Storage Setup
-const storage = new Storage({
-  keyFilename: './keys/analyticsKey-dev.json',
-})
+const storage = new Storage()
 
 //Instantiate autoML client
-const client = new automl.v1beta1.AutoMlClient({
-  // optional auth parameters
-  client_email: `${process.env.AUTOML_CLIENT_EMAIL}`,
-  private_key: `${process.env.AUTOML_PRIVATE_KEY.replace(/\\n/g, '\n')}`,
-})
+const client = new automl.v1beta1.AutoMlClient()
 
 /***
- * Retrieve new query and category pairs if occurences >10
+ * Retrieve new query and category pairs if occurrences >10
  * and import dataset into category model
  */
 async function main() {
@@ -55,13 +46,14 @@ async function main() {
       const fileName = `${date}-category-training.csv`
       const tempFilePath = path.join(os.tmpdir(), fileName)
       let f = fs.openSync(tempFilePath, 'w')
-      phraseCategory.map(function(element) {
+      phraseCategory.forEach((element) => {
         fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
       })
-      fs.close(f, async function() {
+      fs.close(f, async () => {
         console.log('File completed writing in GS bucket')
         // Uploads csv file to bucket for AutoML dataset import
-        const bucket = storage.bucket('gs://webchat-analytics-dev.appspot.com/')
+
+        const bucket = storage.bucket(process.env.GOOGLE_STORAGE_URI)
         const results = await bucket.upload(
           tempFilePath,
           {
@@ -100,7 +92,7 @@ async function updateCategoryModel(fileName, phraseCategory) {
     // Get Google Cloud Storage URI
     const inputConfig = {
       gcsSource: {
-        inputUris: [`gs://webchat-analytics-dev.appspot.com/${fileName}`],
+        inputUris: [process.env.GOOGLE_STORAGE_URI + fileName],
       },
     }
     // Build AutoML request object
@@ -137,7 +129,7 @@ async function updateCategoryModel(fileName, phraseCategory) {
         })
       // Update import status in individual queries
       return Promise.all(
-        phraseCategory.map(async function(element) {
+        phraseCategory.map(async (element) => {
           await store
             .collection(
               `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
@@ -159,11 +151,10 @@ async function updateCategoryModel(fileName, phraseCategory) {
   }
 }
 
-exports.importDataset = async (event, context, callback) => {
+exports = module.exports = functions.pubsub.schedule('0 0 * * *').onRun(async (context) => {
   try {
     await main()
-    callback(null, 'Success!')
   } catch (err) {
-    callback(err, 'Error retrieving data')
+    console.log(err)
   }
-}
+})
