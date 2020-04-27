@@ -8,13 +8,14 @@ const store = admin.firestore()
 
 // Instantiate autoML client
 const client = new automl.v1beta1.AutoMlClient()
+const agentProject = 'mdhs-csa-stage'
 
 /**
  * Trigger function on 'queriesForTraining' collection updates
  * to determine if we should train the Category Model
  **/
 exports = module.exports = functions.firestore
-  .document(`/projects/${process.env.AGENT_PROJECT}/queriesForTraining/{id}`)
+  .document(`/projects/${agentProject}/queriesForTraining/{id}`)
   .onUpdate(async (change, context) => {
     const afterUpdateFields = change.after.data()
     const agentTrained = afterUpdateFields.agentTrained
