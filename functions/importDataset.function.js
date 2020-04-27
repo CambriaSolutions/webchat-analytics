@@ -42,7 +42,7 @@ async function main() {
 
   if (phraseCategory.length > 0) {
     try {
-      const date = format(new Date(), 'MM-dd-yyyy')
+      const date = format(new Date(), 'MM-DD-YYYY')
       const fileName = `${date}-category-training.csv`
       const tempFilePath = path.join(os.tmpdir(), fileName)
       let f = fs.openSync(tempFilePath, 'w')
