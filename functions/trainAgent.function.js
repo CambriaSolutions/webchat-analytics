@@ -10,7 +10,7 @@ const store = admin.firestore()
   Temporarily hardcode to the target DF Agent project name 
   and specify corresponding service account values in the environment variables
 */
-const agentProject = 'mdhs-csa-dev'
+const agentProject = 'mdhs-csa-stage'
 const dfConfig = {
   credentials: {
     private_key: `${(process.env.AGENT_PRIVATE_KEY || '').replace(/\\n/g, '\n')}`,
