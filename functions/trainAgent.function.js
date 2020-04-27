@@ -5,14 +5,28 @@ const dialogflow = require('dialogflow')
 
 const store = admin.firestore()
 
-const intentsClient = new dialogflow.IntentsClient()
+/*
+  TODO The Firebase CLI does not allow for .env variables to be loaded during the deployment
+  Temporarily hardcode to the target DF Agent project name 
+  and specify corresponding service account values in the environment variables
+*/
+const agentProject = 'mdhs-csa-dev'
+const dfConfig = {
+  credentials: {
+    private_key: `${(process.env.AGENT_PRIVATE_KEY || '').replace(/\\n/g, '\n')}`,
+    client_email: `${process.env.AGENT_CLIENT_EMAIL}`
+  },
+  projectId: agentProject,
+}
+
+const intentsClient = new dialogflow.IntentsClient(dfConfig)
 
 /**
  * Trigger function on 'queriesForTraining' collection updates
  * to determine occurrence threshold for DF agent training
  */
 exports = module.exports = functions.firestore
-  .document(`/projects/${process.env.AGENT_PROJECT}/queriesForTraining/{id}`)
+  .document(`/projects/${agentProject}/queriesForTraining/{id}`)
   .onUpdate(async (change, context) => {
     const docId = context.params.id
     const afterUpdateFields = change.after.data()
@@ -22,7 +36,7 @@ exports = module.exports = functions.firestore
     const intentId = afterUpdateFields.intent.id
     const intentName = afterUpdateFields.intent.name
     // If occurrences reaches 10 and agent is not trained
-    if (occurrences === 10 && agentTrained === false) {
+    if (occurrences >= 10 && agentTrained === false) {
       await trainAgent(phrase, intentId, docId, intentName)
     }
     return afterUpdateFields
@@ -37,7 +51,7 @@ exports = module.exports = functions.firestore
 async function trainAgent(phrase, intentId, docId, intentName) {
   try {
     let intent = await getIntent(
-      `projects/${process.env.AGENT_PROJECT}/agent/intents/${intentId}`
+      `projects/${agentProject}/agent/intents/${intentId}`
     )
     let trainingPhrase = {
       parts: [
@@ -55,14 +69,14 @@ async function trainAgent(phrase, intentId, docId, intentName) {
       // set agentTrained to true after we updated the intent
       await store
         .collection(
-          `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
+          `/projects/${agentProject}/queriesForTraining/`
         )
         .doc(docId)
         .update({ agentTrained: true })
 
       // save the phrase to the collection of auto trained phrases
       await store
-        .collection(`/projects/${process.env.AGENT_PROJECT}/autoTrainedPhrases`)
+        .collection(`/projects/${agentProject}/autoTrainedPhrases`)
         .add({
           intent: intentName,
           learnedPhrase: phrase,
@@ -91,6 +105,7 @@ async function getIntent(intentId) {
     const response = responses[0]
     return response
   } catch (err) {
+    console.log(`Unable to retrieve intent [${intentId}] from DialogFlow [${agentProject}]`, err)
     return err
   }
 }
@@ -106,6 +121,7 @@ async function updateIntent(intent) {
   try {
     return (responses = await intentsClient.updateIntent(request))
   } catch (err) {
+    console.log(`Unable to update intent [${intentId}] from DialogFlow [${agentProject}]`, err)
     return err
   }
 }
