@@ -91,6 +91,8 @@ jobs:
 
             GCS_PRIVATE_KEY=${STAGE_GCS_PRIVATE_KEY}
 
+            GCS_URI=${STAGE_GCS_URI}
+
             AGENT_PROJECT=${STAGE_AGENT_PROJECT}
 
             AGENT_PRIVATE_KEY=${STAGE_AGENT_PRIVATE_KEY}
@@ -139,6 +141,8 @@ jobs:
             GCS_CLIENT_EMAIL=${DEV_GCS_CLIENT_EMAIL}
 
             GCS_PRIVATE_KEY=${DEV_GCS_PRIVATE_KEY}
+
+            GCS_URI=${DEV_GCS_URI}
 
             AGENT_PROJECT=${DEV_AGENT_PROJECT}
 
