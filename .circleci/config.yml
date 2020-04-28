@@ -162,8 +162,8 @@ jobs:
 
             AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL}" > .env
 
-      - run: cd functions && wc -l .env && wc -w .env && wc -c .env
       - run: sudo npm install -g firebase-tools
+      # Must run the deploy command inside the functions directory in order to use .env file while deploying and binding function endpoint URLs
       - run: cd functions && firebase deploy -P $DEV_FIREBASE_PROJECT_ID --only functions --token $DEV_FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 2
