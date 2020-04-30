@@ -25,7 +25,7 @@ exports = module.exports = functions
         .where('occurrences', '>=', 10)
         .where('categoryModelTrained', '==', false)
         .get()
-        .then((snap) => {
+        .then(async (snap) => {
           const queriesToTrain = snap.size;
           console.log(`Identified ${queriesToTrain} queries to train.`);
           
