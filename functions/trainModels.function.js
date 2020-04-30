@@ -45,6 +45,8 @@ exports = module.exports = functions
           } else {
             console.log("Training was skipped.")
           }
+
+          return
         })
     } catch (err) {
       console.log(err)
