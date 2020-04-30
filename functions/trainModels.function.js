@@ -14,7 +14,8 @@ const client = new automl.v1beta1.AutoMlClient()
  **/
 exports = module.exports = functions
   .pubsub
-  .schedule('0 1 * * 1') // Every Monday at 1 AM CST
+  .schedule('0 21 * * 1') // Every Monday at 1 AM CST
+  .timeZone('America/Los_Angeles')
   .onRun(async (context) => {
     try {
       await store
