@@ -9,10 +9,16 @@ const store = admin.firestore()
 // Instantiate autoML client
 const client = new automl.v1beta1.AutoMlClient()
 
+const runtimeOpts = {
+  timeoutSeconds: 60 * 60 * 12, // Set a 12 hour timeout
+  memory: '256MB',
+}
+
 /**
  * Trigger training weekly
  **/
 exports = module.exports = functions
+.runWith(runtimeOpts)
   .pubsub
   .schedule('0 21 * * 1') // Every Monday at 1 AM CST
   .timeZone('America/Los_Angeles')
