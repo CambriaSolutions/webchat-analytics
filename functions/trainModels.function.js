@@ -10,7 +10,7 @@ const store = admin.firestore()
 const client = new automl.v1beta1.AutoMlClient()
 
 const runtimeOpts = {
-  timeoutSeconds: 60 * 60 * 12, // Set a 12 hour timeout
+  timeoutSeconds: 60, 
   memory: '256MB',
 }
 
