@@ -8,6 +8,7 @@ const store = admin.firestore()
 
 // Instantiate autoML client
 const client = new automl.v1beta1.AutoMlClient()
+const agentProject = 'mdhs-csa-stage'
 
 const runtimeOpts = {
   timeoutSeconds: 60, 
