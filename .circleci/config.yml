@@ -112,7 +112,8 @@ jobs:
             AUTOML_CLIENT_EMAIL=${STAGE_AUTOML_CLIENT_EMAIL}" > .env
 
       - run: sudo npm install -g firebase-tools
-      - run: firebase deploy -P $STAGE_FIREBASE_PROJECT_ID --only functions --token $STAGE_FIREBASE_DEPLOY_TOKEN
+      # Must run the deploy command inside the functions directory in order to use .env file while deploying and binding function endpoint URLs
+      - run: cd functions && firebase deploy -P $STAGE_FIREBASE_PROJECT_ID --only functions --token $STAGE_FIREBASE_DEPLOY_TOKEN
   deploy_dev_analytics:
     docker:
       - image: circleci/node:10.15.0
@@ -163,7 +164,8 @@ jobs:
             AUTOML_CLIENT_EMAIL=${DEV_AUTOML_CLIENT_EMAIL}" > .env
 
       - run: sudo npm install -g firebase-tools
-      - run: firebase deploy -P $DEV_FIREBASE_PROJECT_ID --only functions --token $DEV_FIREBASE_DEPLOY_TOKEN
+      # Must run the deploy command inside the functions directory in order to use .env file while deploying and binding function endpoint URLs
+      - run: cd functions && firebase deploy -P $DEV_FIREBASE_PROJECT_ID --only functions --token $DEV_FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 2
   build_deploy:

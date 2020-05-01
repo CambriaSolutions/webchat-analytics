@@ -10,69 +10,54 @@ const store = admin.firestore()
 const client = new automl.v1beta1.AutoMlClient()
 const agentProject = 'mdhs-csa-stage'
 
+const runtimeOpts = {
+  timeoutSeconds: 60, 
+  memory: '256MB',
+}
+
 /**
- * Trigger function on 'queriesForTraining' collection updates
- * to determine if we should train the Category Model
+ * Trigger training weekly
  **/
-exports = module.exports = functions.firestore
-  .document(`/projects/${agentProject}/queriesForTraining/{id}`)
-  .onUpdate(async (change, context) => {
-    const afterUpdateFields = change.after.data()
-    const agentTrained = afterUpdateFields.agentTrained
-    const categoryModelImported = afterUpdateFields.categoryModelImported
-    const categoryModelTrained = afterUpdateFields.categoryModelTrained
-    const occurrences = afterUpdateFields.occurrences
+exports = module.exports = functions
+.runWith(runtimeOpts)
+  .pubsub
+  .schedule('0 21 * * 1') // Every Monday at 1 AM CST
+  .timeZone('America/Los_Angeles')
+  .onRun(async (context) => {
+    try {
+      await store
+        .collection(
+          `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
+        )
+        .where('occurrences', '>=', 10)
+        .where('categoryModelTrained', '==', false)
+        .get()
+        .then(async (snap) => {
+          const queriesToTrain = snap.size;
+          console.log(`Identified ${queriesToTrain} queries to train.`);
+          
+          if (queriesToTrain > 0) {
+            // Train the model
+            await trainCategoryModel()
 
-    const projectRef = store.collection(`/projects/`)
-    const mlStatus = await projectRef.get()
-    let canTrainModel = false
-
-    // Get date last trained, if more than a week, train it.
-    mlStatus.forEach(doc => {
-      const data = doc.data()
-      if (!data.isImportProcessing && !data.isTrainingProcessing) {
-        if (data.lastTrained) {
-          const weekDiff = differenceInWeeks(
-            data.lastTrained.toDate(),
-            new Date()
-          )
-          if (weekDiff > 0) {
-            canTrainModel = true
+            // Update training status in individual queries
+            snap.forEach(async doc => {
+              const query = await store
+                .collection(
+                  `/projects/${process.env.AGENT_PROJECT}/queriesForTraining`
+                )
+                .doc(doc.id)
+                .set({ categoryModelTrained: true }, { merge: true })
+            })
+          } else {
+            console.log("Training was skipped.")
           }
-        }
-      }
-    })
-    if (
-      canTrainModel &&
-      agentTrained &&
-      categoryModelImported &&
-      !categoryModelTrained &&
-      occurrences >= 10
-    ) {
-      try {
-        await trainCategoryModel()
-        const queriesToUpdate = await store
-          .collection(
-            `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
-          )
-          .where('occurrences', '>=', 10)
-          .where('categoryModelTrained', '==', false)
-          .get()
-        // Update training status in individual queries
-        queriesToUpdate.forEach(async doc => {
-          const data = doc.data()
-          const query = await store
-            .collection(
-              `/projects/${process.env.AGENT_PROJECT}/queriesForTraining`
-            )
-            .doc(doc.id)
-            .set({ categoryModelTrained: true }, { merge: true })
+
+          return
         })
-      } catch (err) {
-        console.log(err)
-      }
+    } catch (err) {
+      console.log(err)
     }
-    return afterUpdateFields
   })
 
 // --------------------------------  TRAIN CATEGORY MODEL  --------------------------------
@@ -81,7 +66,6 @@ exports = module.exports = functions.firestore
  * Train Category Model
  * @param {*} intent
  */
-
 async function trainCategoryModel() {
   const projectId = `${process.env.GCS_PROJECT_ID}`
   const computeRegion = `${process.env.AUTOML_LOCATION}`
@@ -130,13 +114,8 @@ async function trainCategoryModel() {
       deploymentState = `undeployed`
     }
 
-    // Display model information
+    // Model information needed to review details in the GCP console
     console.log(`Model name: ${model.name}`)
-    console.log(`Model id: ${model.name.split(`/`).pop(-1)}`)
-    console.log(`Model display name: ${model.displayName}`)
-    console.log(`Model create time:`)
-    console.log(`\tseconds: ${model.createTime.seconds}`)
-    console.log(`\tnanos: ${model.createTime.nanos}`)
     console.log(`Model deployment state: ${deploymentState}`)
   } catch (err) {
     console.log(err)

@@ -151,7 +151,11 @@ async function updateCategoryModel(fileName, phraseCategory) {
   }
 }
 
-exports = module.exports = functions.pubsub.schedule('0 0 * * *').onRun(async (context) => {
+exports = module.exports = functions
+.pubsub
+.schedule('0 20 * * *')
+.timeZone('America/Los_Angeles')
+.onRun(async (context) => {
   try {
     await main()
   } catch (err) {
