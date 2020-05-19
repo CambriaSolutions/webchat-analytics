@@ -8,11 +8,11 @@ i.e.
 - What is my balance?,account balance
 - Do I get TANF?,tanf
 
-If the category is new be sure to update the **mlCategories** in the MDHS-CSA project to correctly map to a suggesstion (and thereby an intent.)
+If the category is new be sure to update the **mlCategories** in the MDHS-CSA project to correctly map to a suggestion (and thereby an intent.)
 
 *Duplicate values are not allowed in the training data.* This means generic phrases such as "Yes" can not be trained to multiple categories.
 
-*Add the date the training data was applied to the name of the file so that training can be applied in the correct chronolical order.* This will play an import part if phrases are updated across iterations. i.e. **YearMonthDay - Description.csv**
+*Add the date the training data was applied to the name of the file so that training can be applied in the correct chronological order.* This will play an import part if phrases are updated across iterations. i.e. **YearMonthDay - Description.csv**
 
 ## Purpose
 
