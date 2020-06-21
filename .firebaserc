@@ -2,6 +2,7 @@
   "projects": {
     "dev": "webchat-analytics-dev",
     "stage": "webchat-analytics-stage",
-    "prod": "webchat-analytics"
+    "prod": "webchat-analytics",
+    "isd": "webchat-analytics-isd-273819"
   }
 }

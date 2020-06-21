@@ -98,7 +98,7 @@ async function getIntent(intentId) {
     const response = responses[0]
     return response
   } catch (err) {
-    console.log(`Unable to retrieve intent [${intentId}] from DialogFlow [${process.env.AGENT_PROJECT}]`, err)
+    console.log(`Unable to retrieve intent [${intentId}] from Dialogflow [${process.env.AGENT_PROJECT}]`, err)
     return err
   }
 }
@@ -114,7 +114,7 @@ async function updateIntent(intent) {
   try {
     return (responses = await intentsClient.updateIntent(request))
   } catch (err) {
-    console.log(`Unable to update intent [${intentId}] from DialogFlow [${process.env.AGENT_PROJECT}]`, err)
+    console.log(`Unable to update intent [${intentId}] from Dialogflow [${process.env.AGENT_PROJECT}]`, err)
     return err
   }
 }

@@ -9,6 +9,7 @@
     "deploy-dev": "firebase deploy --only functions --project dev",
     "deploy-stage": "firebase deploy --only functions --project stage",
     "deploy-prod": "firebase deploy --only functions --project prod",
+    "deploy-isd": "firebase deploy --only functions --project isd",
     "logs": "firebase functions:log"
   },
   "dependencies": {
