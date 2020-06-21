@@ -4,12 +4,7 @@ const format = require('date-fns/format')
 const parse = require('date-fns/parse')
 const fs = require('fs')
 
-const serviceAccount = require('./analyticsKey.json')
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
-})
+admin.initializeApp()
 
 const db = admin.firestore()
 
@@ -122,7 +117,7 @@ const end = new Date('Aug 28 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 // Perform a query with start and end
 performQuery(start, end).then(metric => {
   // Create a reference for the metrics
-  const metricsRef = db.collection(`projects/mdhs-csa-dev/metrics`)
+  const metricsRef = db.collection(`projects/mdhs-csa-isd/metrics`)
   // Strip conversations from intents
   for (const day in metric) {
     const dayMetric = metricsRef.doc(day)
