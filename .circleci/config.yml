@@ -2,7 +2,7 @@ version: 2
 jobs:
   test_analytics:
     docker:
-      - image: circleci/node:10.15.0
+      - image: circleci/node
     working_directory: ~/repo/
     steps:
       - checkout
@@ -18,7 +18,7 @@ jobs:
             - node_modules
             - functions/node_modules
       - run:
-          name: 'Add env variables & test'
+          name: "Add env variables & test"
           command: |
             export REACT_APP_FIREBASE_API_KEY=$FIREBASE_API_KEY
             export REACT_APP_FIREBASE_AUTH_DOMAIN=$FIREBASE_AUTH_DOMAIN
@@ -30,14 +30,14 @@ jobs:
 
   deploy_analytics:
     docker:
-      - image: circleci/node:10.15.0
+      - image: circleci/node
     working_directory: ~/repo/
     steps:
       - checkout
       - restore_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: 'Add env variables & build'
+          name: "Add env variables & build"
           command: |
             export REACT_APP_FIREBASE_API_KEY=$FIREBASE_API_KEY
             export REACT_APP_FIREBASE_AUTH_DOMAIN=$FIREBASE_AUTH_DOMAIN
@@ -49,7 +49,7 @@ jobs:
             export REACT_APP_DOWNLOAD_EXPORT_FUNCTION_URL=$DOWNLOAD_EXPORT_FUNCTION_URL
             CI=false npm run build
       - run:
-          name: 'Create env file for functions'
+          name: "Create env file for functions"
           command: cd functions && echo
             "GCS_PROJECT_ID=${GCS_PROJECT_ID}
 
@@ -64,14 +64,14 @@ jobs:
       - run: firebase deploy -P $FIREBASE_PROJECT_ID --only functions,hosting --token $FIREBASE_DEPLOY_TOKEN
   deploy_stage_analytics:
     docker:
-      - image: circleci/node:10.15.0
+      - image: circleci/node
     working_directory: ~/repo/
     steps:
       - checkout
       - restore_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: 'Add env variables & build'
+          name: "Add env variables & build"
           command: |
             export REACT_APP_FIREBASE_API_KEY=$FIREBASE_API_KEY
             export REACT_APP_FIREBASE_AUTH_DOMAIN=$FIREBASE_AUTH_DOMAIN
@@ -83,7 +83,7 @@ jobs:
             export REACT_APP_DOWNLOAD_EXPORT_FUNCTION_URL=$DOWNLOAD_EXPORT_FUNCTION_URL
             CI=false npm run build
       - run:
-          name: 'Create env file for functions'
+          name: "Create env file for functions"
           command: cd functions && echo
             "GCS_PROJECT_ID=${STAGE_GCS_PROJECT_ID}
 
@@ -116,14 +116,14 @@ jobs:
       - run: cd functions && firebase deploy -P $STAGE_FIREBASE_PROJECT_ID --only functions --token $STAGE_FIREBASE_DEPLOY_TOKEN
   deploy_dev_analytics:
     docker:
-      - image: circleci/node:10.15.0
+      - image: circleci/node
     working_directory: ~/repo/
     steps:
       - checkout
       - restore_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: 'Add env variables & build'
+          name: "Add env variables & build"
           command: |
             export REACT_APP_FIREBASE_API_KEY=$FIREBASE_API_KEY
             export REACT_APP_FIREBASE_AUTH_DOMAIN=$FIREBASE_AUTH_DOMAIN
@@ -135,7 +135,7 @@ jobs:
             export REACT_APP_DOWNLOAD_EXPORT_FUNCTION_URL=$DOWNLOAD_EXPORT_FUNCTION_URL
             CI=false npm run build
       - run:
-          name: 'Create env file for functions'
+          name: "Create env file for functions"
           command: cd functions && echo
             "GCS_PROJECT_ID=${DEV_GCS_PROJECT_ID}
 
@@ -191,4 +191,4 @@ workflows:
           filters:
             branches:
               only:
-                - development      
+                - development
