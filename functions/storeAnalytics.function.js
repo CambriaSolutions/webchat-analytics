@@ -133,8 +133,12 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   // Check if conversation has a support request
   const hasSupportRequest = intent.name.startsWith('cse-support')
 
+  console.log('hasSupportRequest: ', hasSupportRequest)
+  console.log('reqData.queryResult.outputContexts: ', hasSupportRequest)
+
   // Get support type
   let supportType = ''
+
   if (hasSupportRequest && reqData.queryResult.outputContexts) {
     // Loop through request output contexts array to find the ticket information
     for (let context of reqData.queryResult.outputContexts) {
