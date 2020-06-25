@@ -11,7 +11,6 @@ const bucketName = 'daily-json-exports'
 
 // Date FNS imports
 const format = require('date-fns/format')
-const parse = require('date-fns/parse')
 const startOfDay = require('date-fns/start_of_day')
 const endOfDay = require('date-fns/end_of_day')
 const subDays = require('date-fns/sub_days')
