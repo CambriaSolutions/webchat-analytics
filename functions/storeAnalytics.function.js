@@ -131,7 +131,8 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   }
 
   // Check if conversation has a support request
-  const hasSupportRequest = intent.name.startsWith('support')
+  const hasSupportRequest = intent.name.startsWith('cse-support')
+
   // Get support type
   let supportType = ''
   if (hasSupportRequest && reqData.queryResult.outputContexts) {
@@ -357,6 +358,7 @@ const storeMetrics = (
   const dateKey = format(currentDate, 'MM-DD-YYYY')
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
+
   metricsRef
     .get()
     .then(doc => {
