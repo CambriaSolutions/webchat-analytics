@@ -2,7 +2,7 @@ version: 2
 jobs:
   test_analytics:
     docker:
-      - image: circleci/node
+      - image: circleci/node:12.16.1
     working_directory: ~/repo/
     steps:
       - checkout
@@ -30,7 +30,7 @@ jobs:
 
   deploy_analytics:
     docker:
-      - image: circleci/node
+      - image: circleci/node:12.16.1
     working_directory: ~/repo/
     steps:
       - checkout
@@ -64,7 +64,7 @@ jobs:
       - run: firebase deploy -P $FIREBASE_PROJECT_ID --only functions,hosting --token $FIREBASE_DEPLOY_TOKEN
   deploy_stage_analytics:
     docker:
-      - image: circleci/node
+      - image: circleci/node:12.16.1
     working_directory: ~/repo/
     steps:
       - checkout
@@ -116,7 +116,7 @@ jobs:
       - run: cd functions && firebase deploy -P $STAGE_FIREBASE_PROJECT_ID --only functions --token $STAGE_FIREBASE_DEPLOY_TOKEN
   deploy_dev_analytics:
     docker:
-      - image: circleci/node
+      - image: circleci/node:12.16.1
     working_directory: ~/repo/
     steps:
       - checkout
