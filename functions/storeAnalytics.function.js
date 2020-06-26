@@ -86,6 +86,10 @@ const inspectForMl = (query, intent, dfContext, context) => {
 
 // Calculate metrics based on requests
 exports = module.exports = functions.https.onRequest(async (req, res) => {
+  console.log('storeAnalytics.function.js req, req: ')
+  console.log(JSON.stringify(req))
+  console.log(JSON.stringify(res))
+
   const reqData = req.body
   if (!reqData) {
     res.status(500).send("The request body doesn't contain expected parameters")
