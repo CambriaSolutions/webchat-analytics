@@ -86,10 +86,6 @@ const inspectForMl = (query, intent, dfContext, context) => {
 
 // Calculate metrics based on requests
 exports = module.exports = functions.https.onRequest(async (req, res) => {
-  console.log('storeAnalytics.function.js req, req: ')
-  console.log(JSON.stringify(req))
-  console.log(JSON.stringify(res))
-
   const reqData = req.body
   if (!reqData) {
     res.status(500).send("The request body doesn't contain expected parameters")
@@ -139,7 +135,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
 
   console.log('hasSupportRequest: ', hasSupportRequest)
   console.log('reqData.queryResult.outputContexts: ', hasSupportRequest)
-
+ 
   // Get support type
   let supportType = ''
 
@@ -215,7 +211,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
       let shouldCalculateDuration = true
 
       // The conversation has a support request only if it has been submitted
-      const supportRequestSubmitted = intent.name === 'support-submit-issue'
+      const supportRequestSubmitted = intent.name === 'cse-support-submit-issue'
       if (doc.exists) {
         const currConversation = doc.data()
         // Calculate conversation duration (compare creation time with current)
@@ -367,6 +363,10 @@ const storeMetrics = (
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
 
+  console.log('storeMetrics.js, newConversationDuration: ', newConversationDuration)
+  console.log('storeMetrics.js, previousConversationDuration: ', previousConversationDuration)
+  console.log('storeMetrics.js, newConversationFirstDuration: ', newConversationFirstDuration)
+
   metricsRef
     .get()
     .then(doc => {
@@ -377,20 +377,30 @@ const storeMetrics = (
         // Update number of conversations and number of
         // conversations with durations
         let numConversations = currMetric.numConversations
+
+        console.log('numConversations:', numConversations)
+
         let numConversationsWithDuration =
           currMetric.numConversationsWithDuration
         const oldNumConversations = currMetric.numConversationsWithDuration
+
+        console.log('numConversationsWithDuration:', numConversationsWithDuration)
+        console.log('oldNumConversations:', oldNumConversations)
 
         if (newConversationFirstDuration) {
           // The conversation contains a duration
           numConversationsWithDuration += 1
           updatedMetrics.numConversationsWithDuration = numConversationsWithDuration
         }
+
         if (newConversation && !newConversationDuration) {
           // This is a new conversation, but doesn't have a duration yet
           numConversations += 1
           updatedMetrics.numConversations = numConversations
         }
+
+        console.log('numConversations:', numConversations)
+        console.log('updatedMetrics.numConversations:', updatedMetrics.numConversations)
 
         // Update average conversation duration
         // A conversation has a duration i.e. more than one request per conversationId
@@ -419,6 +429,8 @@ const storeMetrics = (
           // Update the average conversations of the day
           updatedMetrics.averageConversationDuration = newAverageDuration
         }
+
+        console.log('updatedMetric:', updatedMetrics)
 
         // Record support request only if it's been submitted
         if (supportRequestType) {
@@ -501,11 +513,12 @@ const storeMetrics = (
         const intentMetric = currMetric.intents.filter(
           intent => intent.id === currIntent.id
         )[0]
+
         // Update intent metric counters
         if (intentMetric) {
           intentMetric.occurrences++
 
-          // Check if current conversation is already included in intent metric, if not increse the sessions counter
+          // Check if current conversation is already included in intent metric, if not increase the sessions counter
           if (!intentMetric.conversations.includes(conversationId)) {
             intentMetric.sessions++
             intentMetric.conversations.push(conversationId)
@@ -524,6 +537,8 @@ const storeMetrics = (
             newIntent
           )
         }
+
+        console.log('updatedMetric:', updatedMetrics)
 
         // Update the metrics collection for this request
         metricsRef.update(updatedMetrics)

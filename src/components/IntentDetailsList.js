@@ -34,7 +34,7 @@ const beautifyContext = context => {
   return newName.charAt(0).toUpperCase() + newName.slice(1)
 }
 
-const intentDetailsList = props => {
+const IntentDetailsList = props => {
   const items = props.data.map((row, index) => {
     let itemStyles =
       index % 2
@@ -48,8 +48,8 @@ const intentDetailsList = props => {
           {row.outputContexts.map(c => beautifyContext(c.context)).join(' - ')}
         </div>
       ) : (
-        ''
-      )
+          ''
+        )
 
     // Convert server time to project's timezone
     const SERVER_TIMEZONE_OFFSET = -7
@@ -95,4 +95,4 @@ const intentDetailsList = props => {
   )
 }
 
-export default intentDetailsList
+export default IntentDetailsList
