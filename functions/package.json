@@ -6,6 +6,8 @@
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
+    "emulator-dev": "firebase emulators:start --only functions --project dev",
+    "emulator-dev-debug": "firebase emulators:start --inspect-functions",
     "deploy-dev": "firebase deploy --only functions --project dev",
     "deploy-stage": "firebase deploy --only functions --project stage",
     "deploy-prod": "firebase deploy --only functions --project prod",
