@@ -1,16 +1,16 @@
 import * as actionTypes from '../actions/actionTypes'
 import { authRef } from '../../Firebase'
 import { toggleSettings } from './configActions'
-import { fetchProjects, showSnackbar } from './configActions'
+import { fetchSubjectMatters, showSnackbar } from './configActions'
 
 export const fetchUser = () => dispatch => {
   authRef.onAuthStateChanged(user => {
     if (user) {
-       dispatch({
+      dispatch({
         type: actionTypes.UPDATE_USER_STATUS,
       })
-      // Retrieve projects & permissions attached to this user
-      dispatch(fetchProjects(user))
+      // Retrieve metrics & permissions attached to this user
+      dispatch(fetchSubjectMatters(user))
     } else {
       // If no user, reset auth state
       dispatch({
@@ -28,8 +28,8 @@ export const signIn = (username, pwd) => {
     authRef
       .signInWithEmailAndPassword(username, pwd)
       .then(result => {
-        // Retrieve projects & permissions attached to this user
-        dispatch(fetchProjects(result.user))
+        // Retrieve metrics & permissions attached to this user
+        dispatch(fetchSubjectMatters(result.user))
       })
       .catch(error => {
         dispatch({

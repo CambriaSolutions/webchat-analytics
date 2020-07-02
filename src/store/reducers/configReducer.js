@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes'
 import { subDays } from 'date-fns'
 
 const initialState = {
-  projects: [],
+  subjectMatters: [],
   loading: false,
   downloadExportDate: subDays(new Date(), 1),
   showSettings: false,
@@ -15,19 +15,19 @@ const initialState = {
   updateRealtime: true,
 }
 
-const fetchProjectsStart = (state) => {
+const fetchSubjectMattersStart = (state) => {
   return { ...state, loading: true }
 }
 
-const fetchProjectsSuccess = (state, action) => {
+const fetchSubjectMattersSuccess = (state, action) => {
   return {
     ...state,
-    projects: action.projects,
+    subjectMatters: action.subjectMatters,
     loading: false,
   }
 }
 
-const fetchProjectsFail = (state) => {
+const fetchSubjectMattersFail = (state) => {
   return { ...state, loading: false }
 }
 
@@ -49,13 +49,13 @@ const fetchIntentDetailsFail = (state) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // Projects
-    case actionTypes.FETCH_PROJECTS_START:
-      return fetchProjectsStart(state)
-    case actionTypes.FETCH_PROJECTS_SUCCESS:
-      return fetchProjectsSuccess(state, action)
-    case actionTypes.FETCH_PROJECTS_FAIL:
-      return fetchProjectsFail(state)
+    // Metrics
+    case actionTypes.FETCH_SUBJECT_MATTERS_START:
+      return fetchSubjectMattersStart(state)
+    case actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS:
+      return fetchSubjectMattersSuccess(state, action)
+    case actionTypes.FETCH_SUBJECT_MATTERS_FAIL:
+      return fetchSubjectMattersFail(state)
     // Intent Details
     case actionTypes.FETCH_INTENT_DETAILS_START:
       return fetchIntentDetailsStart(state)

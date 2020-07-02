@@ -21,7 +21,7 @@ const intent = {
 }
 
 const performQuery = (start, end, intent) => {
-  db.collection(`projects/${process.env.FIREBASE_PROJECT_ID}/requests`)
+  db.collection(`subjectMatters/cse/requests`)
     .where('createdAt', '>', start)
     .where('createdAt', '<', end)
     .where('intentId', '==', intent.id)

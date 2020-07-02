@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
   updateFilters,
-  updateContext,
+  updateSubjectMatter,
   updateEngagedUserToggle,
 } from '../store/actions/filterActions'
 import { toggleSettings } from '../store/actions/configActions'
@@ -51,18 +51,18 @@ const getNameFromContext = context => /[^/]*$/.exec(context)[0]
 
 class Header extends Component {
   render() {
-    let projectDropdown = ''
-    if (this.props.projects.length > 1) {
-      projectDropdown = (
+    let subjectMatterDropdown = ''
+    if (this.props.subjectMatters.length > 1) {
+      subjectMatterDropdown = (
         <Hidden xsDown>
           <Dropdown
-            value={this.props.projectName}
-            onChange={event => this.props.onProjectChange(event.target.value)}
-            name='context'
+            value={this.props.subjectMatterName}
+            onChange={event => this.props.onSubjectMatterChange(event.target.value, this.props.subjectMatters)}
+            name='subjectMatter'
           >
-            {this.props.projects.map(project => (
-              <MenuItem value={project.name} key={project.name}>
-                {project.name}
+            {this.props.subjectMatters.map(subjectMatter => (
+              <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
+                {subjectMatter.name}
               </MenuItem>
             ))}
           </Dropdown>
@@ -74,7 +74,7 @@ class Header extends Component {
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-          {projectDropdown}
+          {subjectMatterDropdown}
           <ToolbarTitle variant='h5' color='inherit'>
             Analytics
           </ToolbarTitle>
@@ -116,15 +116,15 @@ const mapStateToProps = state => {
     filterLabel: state.filters.filterLabel,
     showEngagedUser: state.filters.showEngagedUser,
     mainColor: state.filters.mainColor,
-    projects: state.config.projects,
-    projectName: getNameFromContext(state.filters.context),
+    subjectMatters: state.config.subjectMatters,
+    subjectMatterName: getNameFromContext(state.filters.context),
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
-    onProjectChange: newContext => dispatch(updateContext(newContext)),
+    onSubjectMatterChange: (newSubjectMatter, subjectMatters) => dispatch(updateSubjectMatter(newSubjectMatter, subjectMatters)),
     onEngagedUserToggle: showEngagedUser =>
       dispatch(updateEngagedUserToggle(showEngagedUser)),
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
