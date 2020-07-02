@@ -8,11 +8,7 @@ admin.initializeApp()
 
 const db = admin.firestore()
 
-let conversationsRef = db.collection(
-  `projects/${process.env.FIREBASE_PROJECT_ID}/conversations/`
-)
-
-const performQuery = async (startDate, endDate) => {
+const performQuery = async (conversationsRef, startDate, endDate) => {
   let dailyMetric = {}
   let daysToInspect = []
 
@@ -114,10 +110,9 @@ const performQuery = async (startDate, endDate) => {
 const start = new Date('Jun 10 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 const end = new Date('Aug 28 2019 00:00:00 GMT-0700 (Pacific Daylight Time)')
 
-// Perform a query with start and end
-performQuery(start, end).then(metric => {
+const performQuerySuccessHandler = (metric, subjectMatter) => {
   // Create a reference for the metrics
-  const metricsRef = db.collection(`projects/mdhs-csa-isd/metrics`)
+  const metricsRef = db.collection(`subjectMatters/${subjectMatter}/metrics`)
   // Strip conversations from intents
   for (const day in metric) {
     const dayMetric = metricsRef.doc(day)
@@ -182,4 +177,11 @@ performQuery(start, end).then(metric => {
         })
       })
   }
-})
+}
+
+// TODO needs to be more generic to handle different subject matters. 
+// Avoid hardcoding subject matters 
+let conversationsRefCSE = db.collection(`subjectMatters/cse/conversations/`)
+
+// Perform a query with start and end
+performQuery(conversationsRefCSE, start, end).then(metric => performQuerySuccessHandler(metric, 'cse'))

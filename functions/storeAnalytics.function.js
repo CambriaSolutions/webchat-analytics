@@ -3,9 +3,9 @@ const admin = require('firebase-admin')
 
 // Connect to DB
 const store = admin.firestore()
-// Project Default Settings
-const PROJECT_DEFAULT_PRIMARY_COLOR = '#6497AD'
-const PROJECT_DEFAULT_TIMEZONE = {
+// Subject Matter Default Settings
+const SUBJECT_MATTER_DEFAULT_PRIMARY_COLOR = '#6497AD'
+const SUBJECT_MATTER_DEFAULT_TIMEZONE = {
   name: '(UTC-07:00) Pacific Time (US & Canada)',
   offset: -7,
 }
@@ -34,7 +34,7 @@ const inspectForMl = (query, intent, dfContext, context) => {
     // The user has selected one of the presented suggestions
     const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
 
-    // Create a reference depending on the current project
+    // Create a reference depending on the current subject matter
     const queriesForTrainingRef = store.collection(
       `${context}/queriesForTraining`
     )
@@ -97,12 +97,34 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     res.status(500).send('Missing conversation parameters')
   }
 
-  // Check that session ID is valid: projects/project_name/agent/sessions/session_id
-  const projectName = reqData.session.split('/')[1]
-  if (!projectName) {
-    res.status(500).send('Invalid session ID')
+  // If one of the context's name contains 'subject-matter' then this is the context 
+  // used to identify the subject matter. But name field has full format
+  // e.g. "projects/mdhs-csa-dev/agent/sessions/3c007146-2b0c-99e8-2806-563698d992d4/contexts/cse-subject-matter"
+  const outputContextObject = reqData.queryResult.outputContexts.find(x => x.name.indexOf('subject-matter') >= 0)
+
+  let subjectMatter = ''
+
+  // If no subject matter was found, then one has not been picked by user yet, or user is at SM root.
+  if (outputContextObject === undefined) {
+    const intentNameSplit = reqData.queryResult.intent.displayName.split('-')
+
+    // Check if the intent name has the format "[subjectMatter]-root"
+    // If true, and there is no "[subjectMatter]-subject-matter" context, then this is a sm root.
+    if (intentNameSplit.length === 2 && intentNameSplit[1] === 'root') {
+      subjectMatter = intentNameSplit[0]
+    } else {
+      subjectMatter = 'none'
+    }
+  } else {
+    const outputContextObjectNameSplit = outputContextObject.name.split('/')
+    const subjectMatterContext = outputContextObjectNameSplit[outputContextObjectNameSplit.length - 1]
+
+    // Take the first portion of the context name as the subject matter. e.g. for 'cse-account-balance', we use 'cse' 
+    subjectMatter = subjectMatterContext.split('-')[0]
   }
-  const context = `projects/${projectName}`
+
+  // const context = `projects/${projectName}`
+  const context = `subjectMatters/${subjectMatter}`
 
   // Get ID's from conversation (session) & intent
   const conversationId = getIdFromPath(reqData.session)
@@ -112,8 +134,8 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     name: currIntent.displayName,
   }
 
-  // Get project settings
-  const settings = await getProjectSettings(projectName)
+  // Get subject matter settings
+  const settings = await getSubjectMatterSettings(subjectMatter)
   const timezoneOffset = settings.timezone.offset
 
   // Check if the query has the should-inspect-for-ml parameter
@@ -133,9 +155,6 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   // Check if conversation has a support request
   const hasSupportRequest = intent.name.startsWith('cse-support')
 
-  console.log('hasSupportRequest: ', hasSupportRequest)
-  console.log('reqData.queryResult.outputContexts: ', hasSupportRequest)
- 
   // Get support type
   let supportType = ''
 
@@ -196,6 +215,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const conversationRef = store
     .collection(`${context}/conversations`)
     .doc(conversationId)
+
   conversationRef
     .get()
     .then(doc => {
@@ -291,7 +311,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
 // Regex to retrieve text after last "/" on a path
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
-const getDateWithProjectTimezone = timezoneOffset => {
+const getDateWithSubjectMatterTimezone = timezoneOffset => {
   const currDate = new Date()
   // Get the timezone offset from local time in minutes
   const tzDifference = timezoneOffset * 60 + currDate.getTimezoneOffset()
@@ -299,17 +319,16 @@ const getDateWithProjectTimezone = timezoneOffset => {
   return new Date(currDate.getTime() + tzDifference * 60 * 1000)
 }
 
-const getProjectSettings = async projectName => {
-  const settingsRef = store.collection('settings').doc(projectName)
+const getSubjectMatterSettings = async subjectMatterName => {
+  const settingsRef = store.collection('settings').doc(subjectMatterName)
   return await settingsRef
     .get()
     .then(doc => {
-      // If setting doesn't exist, add new project setting with default values
+      // If setting doesn't exist, add new subject matter setting with default values
       if (!doc.exists) {
         const defaultSettings = {
-          name: projectName,
-          primaryColor: PROJECT_DEFAULT_PRIMARY_COLOR,
-          timezone: PROJECT_DEFAULT_TIMEZONE,
+          primaryColor: SUBJECT_MATTER_DEFAULT_PRIMARY_COLOR,
+          timezone: SUBJECT_MATTER_DEFAULT_TIMEZONE,
         }
         settingsRef.set(defaultSettings)
         return defaultSettings
@@ -318,7 +337,7 @@ const getProjectSettings = async projectName => {
       }
     })
     .catch(error => {
-      console.log(`Error getting settings for project ${projectName}:`, error)
+      console.log(`Error getting settings for subject matter:` + error)
       return -7
     })
 }
@@ -358,14 +377,10 @@ const storeMetrics = (
   newConversationFirstDuration,
   shouldCalculateDuration
 ) => {
-  const currentDate = getDateWithProjectTimezone(timezoneOffset)
+  const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
   const dateKey = format(currentDate, 'MM-DD-YYYY')
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
-
-  console.log('storeMetrics.js, newConversationDuration: ', newConversationDuration)
-  console.log('storeMetrics.js, previousConversationDuration: ', previousConversationDuration)
-  console.log('storeMetrics.js, newConversationFirstDuration: ', newConversationFirstDuration)
 
   metricsRef
     .get()
@@ -378,14 +393,9 @@ const storeMetrics = (
         // conversations with durations
         let numConversations = currMetric.numConversations
 
-        console.log('numConversations:', numConversations)
-
         let numConversationsWithDuration =
           currMetric.numConversationsWithDuration
         const oldNumConversations = currMetric.numConversationsWithDuration
-
-        console.log('numConversationsWithDuration:', numConversationsWithDuration)
-        console.log('oldNumConversations:', oldNumConversations)
 
         if (newConversationFirstDuration) {
           // The conversation contains a duration
@@ -398,9 +408,6 @@ const storeMetrics = (
           numConversations += 1
           updatedMetrics.numConversations = numConversations
         }
-
-        console.log('numConversations:', numConversations)
-        console.log('updatedMetrics.numConversations:', updatedMetrics.numConversations)
 
         // Update average conversation duration
         // A conversation has a duration i.e. more than one request per conversationId
@@ -429,8 +436,6 @@ const storeMetrics = (
           // Update the average conversations of the day
           updatedMetrics.averageConversationDuration = newAverageDuration
         }
-
-        console.log('updatedMetric:', updatedMetrics)
 
         // Record support request only if it's been submitted
         if (supportRequestType) {
@@ -538,8 +543,6 @@ const storeMetrics = (
           )
         }
 
-        console.log('updatedMetric:', updatedMetrics)
-
         // Update the metrics collection for this request
         metricsRef.update(updatedMetrics)
       } else {
@@ -590,6 +593,6 @@ const storeMetrics = (
       return
     })
     .catch(error => {
-      console.log(`Error getting metric document with key ${dateKey}:`, error)
+      console.log(`Error getting metric document with key ${dateKey}:` + error)
     })
 }

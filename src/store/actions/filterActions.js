@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import { fetchMetrics } from './metricActions'
-import { updateProjectColor } from './configActions'
+import { updateSubjectMatterColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
 import {
@@ -183,7 +183,7 @@ export const updateMainColor = (newColor, updateDB = false) => {
       colors: COLORS,
     })
     if (updateDB) {
-      dispatch(updateProjectColor(newColor))
+      dispatch(updateSubjectMatterColor(newColor))
     }
   }
 }
@@ -197,37 +197,41 @@ export const updateEngagedUserToggle = showEngagedUser => {
   }
 }
 
-// Change project/context and retrieve new metrics & conversations
-export const updateContext = (projectName, projects = []) => {
-  const context = `projects/${projectName}`
+// Change subjectMatter/context and retrieve new metrics & conversations
+export const updateSubjectMatter = (subjectMatter, subjectMatters = []) => {
+  const context = `subjectMatters/${subjectMatter}`
 
   return (dispatch, getState) => {
     dispatch(clearSubscriptions())
-    // Get projects settings based on the given context
-    if (projects.length === 0) {
-      projects = getState().config.projects
+
+    // Get subjectMatter's settings based on the given context
+    if (!subjectMatters.length === 0) {
+      subjectMatters = getState().config.subjectMatters
     }
 
-    const currProject = projects.filter(p => p.name === projectName)[0]
-    if (currProject) {
+
+    const currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatter)[0]
+    if (currSubjectMatter) {
       const dateFilters = getDateFilters(
         getState().filters.filterLabel,
-        currProject.timezone.offset
+        currSubjectMatter.timezone.offset
       )
 
       dispatch(fetchMetrics(dateFilters, context))
 
       const COLORS = randomColor({
         count: 10,
-        hue: currProject.primaryColor,
+        hue: currSubjectMatter.primaryColor,
       })
+
+      console.log('COLORS', COLORS)
 
       dispatch({
         type: actionTypes.UPDATE_CONTEXT,
         context: context,
-        mainColor: currProject.primaryColor,
+        mainColor: currSubjectMatter.primaryColor,
         colors: COLORS,
-        timezoneOffset: currProject.timezone.offset,
+        timezoneOffset: currSubjectMatter.timezone.offset,
         dateFilters: dateFilters,
       })
     } else {

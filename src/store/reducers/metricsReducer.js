@@ -15,7 +15,7 @@ const initialState = {
   exitIntents: [],
 }
 
-const fetchMetricsStart = (state, action) => {
+const fetchMetricsStart = (state) => {
   return { ...state, loading: true }
 }
 

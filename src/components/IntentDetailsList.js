@@ -51,7 +51,7 @@ const IntentDetailsList = props => {
           ''
         )
 
-    // Convert server time to project's timezone
+    // Convert server time to subject matter's timezone
     const SERVER_TIMEZONE_OFFSET = -7
     const timeDiffOffset =
       SERVER_TIMEZONE_OFFSET >= props.timezoneOffset

@@ -7,9 +7,15 @@ import { format } from 'date-fns'
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
     const useRealtimeUpdates = getState().config.updateRealtime
-    if (typeof dateRange === 'undefined')
+
+    if (typeof dateRange === 'undefined') {
       dateRange = getState().filters.dateFilters
-    if (typeof context === 'undefined') context = getState().filters.context
+    }
+
+    if (typeof context === 'undefined') {
+      context = getState().filters.context
+    }
+
     const timezoneOffset = getState().filters.timezoneOffset
     const metricsRef = db.collection(`${context}/metrics`)
     const startDate = new Date(dateRange.start)
@@ -19,6 +25,7 @@ export const fetchMetrics = (dateRange, context) => {
     const isToday = today.startsWith(dateRange.start.slice(0, 10))
 
     dispatch(fetchMetricsStart())
+
     metricsRef
       .where('date', '>=', startDate)
       .where('date', '<=', endDate)
@@ -33,8 +40,8 @@ export const fetchMetrics = (dateRange, context) => {
 
         // Only subscribe to real time updates and its the same day view
         if (useRealtimeUpdates && isToday) {
-          const dateWithProjectTimezone = getUTCDate(new Date(), timezoneOffset)
-          const dateKey = format(dateWithProjectTimezone, 'MM-dd-yyyy')
+          const dateWithSubjectMatterTimezone = getUTCDate(new Date(), timezoneOffset)
+          const dateKey = format(dateWithSubjectMatterTimezone, 'MM-dd-yyyy')
 
           // Load data from today and continue listening for changes
           const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
@@ -66,7 +73,7 @@ export const fetchMetricsSuccess = metrics => {
 
     // Loop through metrics per day
     for (let metric of metrics) {
-      avgConvoDuration += metric.averageConversationDuration
+      avgConvoDuration += metric.averageConversationDuration * metric.numConversationsWithDuration
       numConversations += metric.numConversations
       numConversationsWithDuration += metric.numConversationsWithDuration
       numConversationsWithSupportRequests +=

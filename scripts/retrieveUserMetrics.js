@@ -5,8 +5,8 @@ const fs = require('fs')
 admin.initializeApp()
 
 const db = admin.firestore()
-const projectName = 'mdhs-csa'
-const context = `projects/${projectName}`
+const subjectMatterName = 'cse'
+const context = `subjectMatter/${subjectMatterName}`
 const metricsRef = db.collection(`${context}/metrics`)
 const dailyUserMetrics = []
 
@@ -35,7 +35,8 @@ const retrieveUserMetrics = async () => {
       console.log('File completed')
     })
 
-    console.log('dailyUserMetrics', dailyUserMetrics)
+    console.log('dailyUserMetrics')
+    console.log(dailyUserMetrics)
   } catch (e) {
     console.error(e)
   }
