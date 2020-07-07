@@ -162,7 +162,6 @@ workflows:
               only:
                 - stage
       - deploy_analytics:
-          displayName: development
           gcsProjectId: DEV_GCS_PROJECT_ID
           gcsClientEmail: DEV_GCS_CLIENT_EMAIL
           gcsPrivateKey: DEV_GCS_PRIVATE_KEY
