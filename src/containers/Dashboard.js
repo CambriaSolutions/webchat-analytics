@@ -27,6 +27,8 @@ import IntentDetails from '../components/IntentDetails'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import SupportRequestsTile from '../components/SupportRequestsTile'
 
+import SupportRequestChart from './SupportRequestChart'
+
 // Helpers
 import { colorShades } from '../common/helper'
 
@@ -94,7 +96,7 @@ class Dashboard extends Component {
         color: ${this.props.mainColor};
       }
     `
-
+    
     let dashboardUI = (
       <CenterDiv>
         <h2>Loading Metrics...</h2>
@@ -175,6 +177,11 @@ class Dashboard extends Component {
                 icon='speaker_notes'
                 tooltip='Count of the number of times a user clicks any button, including "Yes" and "Acknowledge."'
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <SupportRequestChart colors={this.props.colors} />
+              </GraphWrap>
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
@@ -263,8 +270,7 @@ class Dashboard extends Component {
         <Drawer
           anchor='right'
           open={this.props.showSettings}
-          onClose={this.props.onSettingsToggle}
-        >
+          onClose={this.props.onSettingsToggle}>
           <Settings />
         </Drawer>
         {dashboardUI}
@@ -273,8 +279,7 @@ class Dashboard extends Component {
           onClose={this.props.onIntentsModalClose}
           maxWidth={'md'}
           fullWidth={true}
-          aria-labelledby='intent_details_title'
-        >
+          aria-labelledby='intent_details_title'>
           <IntentDetails
             loading={this.props.loadingIntentDetails}
             data={this.props.intentDetails}
@@ -333,9 +338,11 @@ const mapStateToProps = state => {
   let allIntents = beautifyIntents(state.metrics.intents)
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
   const allExitIntents = beautifyIntents(state.metrics.exitIntents)
+
   // Sort arrays by exits & occurrences
   allExitIntents.sort(compareValues('exits', 'desc'))
   allSupportRequests.sort(compareValues('occurrences', 'desc'))
+
   if (!state.metrics.loading) {
     // Merge exit intents with intents array
     allIntents = allIntents.map(intent =>
@@ -352,6 +359,7 @@ const mapStateToProps = state => {
   }
 
   return {
+    dailyMetrics: state.metrics.dailyMetrics,
     showEngagedUser: state.filters.showEngagedUser,
     loadingConversations: state.metrics.loading,
     loadingIntents: state.metrics.loading,
@@ -359,13 +367,13 @@ const mapStateToProps = state => {
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
       (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
-        100,
+      100,
       1
     ),
     supportEngagedRequestsPercentage: round(
       (state.metrics.supportRequestTotal /
         state.metrics.conversationsDurationTotal) *
-        100,
+      100,
       1
     ),
     supportRequestTotal: state.metrics.supportRequestTotal,
