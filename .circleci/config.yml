@@ -1,4 +1,4 @@
-version: 3
+version: 2
 jobs:
   deploy_analytics:
     docker:
@@ -97,7 +97,7 @@ jobs:
       - run: sudo npm install -g firebase-tools
       - run: firebase deploy -P ${<< parameters.firebaseProjectId >>} --only functions,hosting --token ${<< parameters.firebaseDeployToken >>}
 workflows:
-  version: 3
+  version: 2
   build_deploy:
     jobs:
       - deploy_analytics:
