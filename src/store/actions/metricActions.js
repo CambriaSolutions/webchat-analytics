@@ -128,6 +128,7 @@ export const fetchMetricsSuccess = metrics => {
             }
         }
       }
+
       // Feedback
       const feedbackEntry = metric.feedback
       if (feedbackEntry) {
@@ -174,11 +175,14 @@ export const fetchMetricsSuccess = metrics => {
       ...intents[key],
       id: key,
     }))
+
     supportRequests = Object.keys(supportRequests).map(key => ({
       ...supportRequests[key],
     }))
+
     dispatch({
       type: actionTypes.FETCH_METRICS_SUCCESS,
+      dailyMetrics: metrics,
       intents: intents,
       supportRequests: supportRequests,
       supportRequestTotal: numConversationsWithSupportRequests,
@@ -279,8 +283,10 @@ export const updateMetrics = metric => {
 
     const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
     const updatedExitIntents = formatExitIntents(metric.exitIntents)
+
     dispatch({
       type: actionTypes.UPDATE_METRICS,
+      dailyMetrics: metric,
       intents: metric.intents,
       supportRequests: metric.supportRequests,
       feedback: metricFeedback,

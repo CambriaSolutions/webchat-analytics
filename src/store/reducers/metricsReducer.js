@@ -22,6 +22,7 @@ const fetchMetricsStart = (state) => {
 const fetchMetricsSuccess = (state, action) => {
   return {
     ...state,
+    dailyMetrics: action.dailyMetrics,
     intents: action.intents,
     supportRequests: action.supportRequests,
     supportRequestTotal: action.supportRequestTotal,

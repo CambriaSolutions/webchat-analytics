@@ -38,7 +38,6 @@ export const fetchSubjectMatters = user => {
             .then(querySnapshot => {
               let fetchedSubjectMatters = []
               querySnapshot.forEach(doc => {
-                console.log('fetchedSettings:', doc.data())
                 // If user is admin add all the subject matters
                 const subjectMatterData = doc.data()
                 if (
