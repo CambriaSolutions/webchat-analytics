@@ -13,6 +13,9 @@ import Drawer from '@material-ui/core/Drawer'
 import Dialog from '@material-ui/core/Dialog'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Tooltip from '@material-ui/core/Tooltip'
+import Zoom from '@material-ui/core/Zoom';
 
 // Components
 import Card from '../components/Card'
@@ -129,6 +132,7 @@ class Dashboard extends Component {
                 label='Total Users'
                 notes=''
                 icon='account_circle'
+                tooltip='Count of number of times Gen opens (automatic open or user click)'
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -142,6 +146,7 @@ class Dashboard extends Component {
                 label='Avg. Conv Duration'
                 notes=''
                 icon='schedule'
+                tooltip='Average time of each session - between when Gen opens and closes or users leave the webpage. Each session can be a maximum time of 20 minutes, data is not collected after that.'
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -159,6 +164,7 @@ class Dashboard extends Component {
                     : ''
                 }
                 icon='contact_support'
+                tooltip="% of users submitting support tickets"
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -169,6 +175,7 @@ class Dashboard extends Component {
                 notes={`${this.props.conversationsTotal -
                   this.props.conversationsDurationTotal} immediate exits`}
                 icon='speaker_notes'
+                tooltip='Count of the number of times a user clicks any button, including "Yes" and "Acknowledge."'
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -178,6 +185,9 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title='Intents being triggered the most number of times' arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <h3>Frequently used intents</h3>
                 <PieChart
                   data={frequentIntents}
@@ -188,6 +198,9 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title='Intents after which users exit Gen' arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <h3>Top exit intents on conversations</h3>
                 <BarChart
                   data={exitIntents}
