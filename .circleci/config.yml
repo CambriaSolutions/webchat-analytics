@@ -17,7 +17,9 @@ jobs:
         type: string
       agentPrivateKey:
         type: string
-      agentClientEmail:
+      cseAutoMlPrivateKey:
+        type: string
+      cseAgentClientEmail:
         type: string
       autoMlProject:
         type: string
@@ -26,8 +28,6 @@ jobs:
       autoMlCatModel:
         type: string
       autoMlDataset:
-        type: string
-      autoMlPrivateKey:
         type: string
       autoMlEmail:
         type: string
@@ -85,9 +85,9 @@ jobs:
 
             AGENT_PROJECT=${<< parameters.agentProject >>}
 
-            AGENT_PRIVATE_KEY=${<< parameters.agentPrivateKey >>}
+            CSE_AGENT_PRIVATE_KEY=${<< parameters.cseAgentPrivateKey >>}
 
-            AGENT_CLIENT_EMAIL=${<< parameters.agentClientEmail >>}
+            CSE_AGENT_CLIENT_EMAIL=${<< parameters.cseAgentClientEmail >>}
 
             AUTOML_PROJECT=${<< parameters.autoMlProject >>}
 
@@ -113,8 +113,8 @@ workflows:
           gcsPrivateKey: PROD_GCS_PRIVATE_KEY
           gcsUri: PROD_GCS_URI
           agentProject: PROD_AGENT_PROJECT
-          agentPrivateKey: PROD_AGENT_PRIVATE_KEY
-          agentClientEmail: PROD_AGENT_CLIENT_EMAIL
+          cseAgentPrivateKey: PROD_CSE_AGENT_PRIVATE_KEY
+          cseAgentClientEmail: PROD_CSE_AGENT_CLIENT_EMAIL
           autoMlProject: PROD_AUTOML_PROJECT
           autoMlLocation: PROD_AUTOML_LOCATION
           autoMlCatModel: PROD_AUTOML_CAT_MODEL
@@ -140,8 +140,8 @@ workflows:
           gcsPrivateKey: STAGE_GCS_PRIVATE_KEY
           gcsUri: STAGE_GCS_URI
           agentProject: STAGE_AGENT_PROJECT
-          agentPrivateKey: STAGE_AGENT_PRIVATE_KEY
-          agentClientEmail: STAGE_AGENT_CLIENT_EMAIL
+          cseAgentPrivateKey: STAGE_CSE_AGENT_PRIVATE_KEY
+          cseAgentClientEmail: STAGE_CSE_AGENT_CLIENT_EMAIL
           autoMlProject: STAGE_AUTOML_PROJECT
           autoMlLocation: STAGE_AUTOML_LOCATION
           autoMlCatModel: STAGE_AUTOML_CAT_MODEL
@@ -167,8 +167,8 @@ workflows:
           gcsPrivateKey: DEV_GCS_PRIVATE_KEY
           gcsUri: DEV_GCS_URI
           agentProject: DEV_AGENT_PROJECT
-          agentPrivateKey: DEV_AGENT_PRIVATE_KEY
-          agentClientEmail: DEV_AGENT_CLIENT_EMAIL
+          cseAgentPrivateKey: DEV_CSE_AGENT_PRIVATE_KEY
+          cseAgentClientEmail: DEV_CSE_AGENT_CLIENT_EMAIL
           autoMlProject: DEV_AUTOML_PROJECT
           autoMlLocation: DEV_AUTOML_LOCATION
           autoMlCatModel: DEV_AUTOML_CAT_MODEL

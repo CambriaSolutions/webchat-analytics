@@ -1,13 +1,9 @@
 require('dotenv').config()
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
-const automl = require('@google-cloud/automl')
 const format = require('date-fns/format')
 const store = admin.firestore()
-
-// Instantiate autoML client
-// TODO - Need to instantiate this for different models
-const client = new automl.v1beta1.AutoMlClient()
+const createAutoMLClientForSubjectMatter = require('./clients/autoMLClient')
 
 const runtimeOpts = {
   timeoutSeconds: 60,
@@ -22,39 +18,48 @@ exports = module.exports = functions
   .pubsub
   .schedule('0 21 * * 1') // Every Monday at 1 AM CST
   .timeZone('America/Los_Angeles')
-  .onRun(async (context) => {
+  .onRun(async () => {
     try {
-      const subjectMatter = 'cse'
-      await store
-        .collection(
-          `/subjectMatters/${subjectMatter}/queriesForTraining/`
-        )
-        .where('occurrences', '>=', 10)
-        .where('categoryModelTrained', '==', false)
-        .get()
-        .then(async (snap) => {
-          const queriesToTrain = snap.size;
-          console.log(`Identified ${queriesToTrain} queries to train.`);
+      const subjectMatters = ['cse']
 
-          if (queriesToTrain > 0) {
-            // Train the model
-            await trainCategoryModel(subjectMatter)
+      for (const subjectMatterIndex in subjectMatters) {
+        const subjectMatter = subjectMatters[subjectMatterIndex]
 
-            // Update training status in individual queries
-            snap.forEach(async doc => {
-              await store
-                .collection(
-                  `/subjectMatters/${subjectMatter}/queriesForTraining`
-                )
-                .doc(doc.id)
-                .set({ categoryModelTrained: true }, { merge: true })
-            })
-          } else {
-            console.log("Training was skipped.")
-          }
+        store
+          .collection(
+            `/subjectMatters/${subjectMatter}/queriesForTraining/`
+          )
+          .where('occurrences', '>=', 10)
+          .where('categoryModelTrained', '==', false)
+          .get()
+          .then(async (snap) => {
+            const queriesToTrain = snap.size;
+            console.log(`Identified ${queriesToTrain} queries to train in subject matter ${subjectMatter}.`);
 
-          return
-        })
+            if (queriesToTrain > 0) {
+              // Instantiate autoML client
+              const client = createAutoMLClientForSubjectMatter(subjectMatter)
+
+              // Train the model
+              await trainCategoryModel(subjectMatter, client)
+
+              // Update training status in individual queries
+              snap.forEach(async doc => {
+                await store
+                  .collection(
+                    `/subjectMatters/${subjectMatter}/queriesForTraining`
+                  )
+                  .doc(doc.id)
+                  .set({ categoryModelTrained: true }, { merge: true })
+              })
+            } else {
+              console.log(`Training model was skipped for subject matter: ${subjectMatter}.`)
+            }
+            return
+          }).catch(e => {
+            console.log(`Training model failed for subject matter (${subjectMatter}): ${e}`)
+          })
+      }
     } catch (err) {
       console.log(err)
     }
@@ -66,14 +71,14 @@ exports = module.exports = functions
  * Train Category Model
  * @param {*} intent
  */
-async function trainCategoryModel(subjectMatter) {
+async function trainCategoryModel(subjectMatter, modelClient) {
   const projectId = `${process.env.GCS_PROJECT_ID}`
   const computeRegion = `${process.env.AUTOML_LOCATION}`
   const datasetId = `${process.env.AUTOML_DATASET}`
   const date = format(new Date(), 'MM_DD_YYYY')
-  const modelName = `mdhs_csa_analytics_${date}`
+  const modelName = `mdhs_${subjectMatter}_analytics_${date}`
 
-  const projectLocation = client.locationPath(projectId, computeRegion)
+  const projectLocation = modelClient.locationPath(projectId, computeRegion)
 
   // Set model name and model metadata for the dataset.
   const modelData = {
@@ -84,12 +89,14 @@ async function trainCategoryModel(subjectMatter) {
 
   // Create a model with the model metadata in the region.
   try {
-    const [operation, initialApiResponse] = await client.createModel({
+    const [operation, initialApiResponse] = await modelClient.createModel({
       parent: projectLocation,
       model: modelData,
     })
+
     console.log(`Training operation name: ${initialApiResponse.name}`)
     console.log(`Training started...`)
+
     // Update training status in db
     await store
       .collection(`/subjectMatters/`)
@@ -97,7 +104,9 @@ async function trainCategoryModel(subjectMatter) {
       .update({
         isTrainingProcessing: true,
       })
+
     const [model] = await operation.promise()
+
     // Retrieve deployment state.
     let deploymentState = ``
     if (model.deploymentState === 1) {

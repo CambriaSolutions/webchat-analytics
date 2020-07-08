@@ -66,7 +66,7 @@ async function trainAgent(phrase, intentId, docId, intentName, subjectMatter) {
       // set agentTrained to true after we updated the intent
       await store
         .collection(
-          `/subjectMatters/cse/queriesForTraining/`
+          `/subjectMatters/${subjectMatter}/queriesForTraining/`
         )
         .doc(docId)
         .update({ agentTrained: true })
@@ -82,10 +82,10 @@ async function trainAgent(phrase, intentId, docId, intentName, subjectMatter) {
           console.log(`${intentName} learned ${phrase} as a training phrase`)
         )
     } catch (e) {
-      console.log('Unable to train intent' + e)
+      console.log('Unable to train intent: ' + e)
     }
   } catch (err) {
-    console.log('Unable to get intent' + err)
+    console.log('Unable to get intent: ' + err)
   }
 }
 
@@ -102,10 +102,11 @@ async function getIntent(intentId) {
     const response = responses[0]
     return response
   } catch (err) {
-    console.log(`Unable to retrieve intent [${intentId}] from Dialogflow [cse]` + err)
-    return err
+    console.log(`Unable to retrieve intent [${intentId}] from Dialogflow [cse]: ` + err)
+    throw err
   }
 }
+
 /**
  * Update DF agent
  * @param {*} intent
@@ -118,7 +119,7 @@ async function updateIntent(intent) {
   try {
     return (responses = await intentsClient.updateIntent(request))
   } catch (err) {
-    console.log(`Unable to update intent [${intentId}] from Dialogflow [cse]` + err)
-    return err
+    console.log(`Unable to update intent [${intentId}] from Dialogflow [cse]: ` + err)
+    throw err
   }
 }
