@@ -175,6 +175,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
   reqData.intentId = intent.id
+
   store
     .collection(`${context}/requests`)
     .add(reqData)
@@ -186,6 +187,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const aggregateRef = store
     .collection(`${context}/aggregate`)
     .doc(conversationId)
+
   aggregateRef
     .get()
     .then(doc => {
