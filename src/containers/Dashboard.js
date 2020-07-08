@@ -27,6 +27,7 @@ import IntentDetails from '../components/IntentDetails'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import SupportRequestsTile from '../components/SupportRequestsTile'
 
+import EngagedUserChart from '../components/EngagedUserChart'
 import SupportRequestChart from './SupportRequestChart'
 
 // Helpers
@@ -177,6 +178,11 @@ class Dashboard extends Component {
                 icon='speaker_notes'
                 tooltip='Count of the number of times a user clicks any button, including "Yes" and "Acknowledge."'
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <EngagedUserChart colors={this.props.colors} />
+              </GraphWrap>
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>

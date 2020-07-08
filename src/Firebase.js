@@ -3,14 +3,14 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 var config = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID
-}
+    apiKey: "AIzaSyCZbcIWBEW7rXQP6Xy2TBCSN3IQ7ww5sPY",
+    authDomain: "webchat-analytics-dev.firebaseapp.com",
+    databaseURL: "https://webchat-analytics-dev.firebaseio.com",
+    projectId: "webchat-analytics-dev",
+    storageBucket: "webchat-analytics-dev.appspot.com",
+    messagingSenderId: "454176291577",
+    appId: "1:454176291577:web:80d9bb0066e476e90a0028"
+  };
 firebase.initializeApp(config)
 
 const db = firebase.firestore()
