@@ -12,7 +12,6 @@ import timezones from '../../common/timezones'
 export const fetchSubjectMatters = user => {
   return (dispatch) => {
     const userRef = db.collection(`users`).doc(user.uid)
-    console.log('fetching subject matters, uid:' + user.uid)
 
     dispatch(fetchSubjectMattersStart())
 
