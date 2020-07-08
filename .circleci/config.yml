@@ -27,9 +27,9 @@ jobs:
         type: string
       autoMlDataset:
         type: string
-      cseAutoMlPrivateKey:
+      autoMlPrivateKey:
         type: string
-      cseAutoMlEmail:
+      autoMlEmail:
         type: string
       firebaseApiKey:
         type: string
@@ -97,9 +97,9 @@ jobs:
 
             AUTOML_DATASET=${<< parameters.autoMlDataset >>}
 
-            CSE_AUTOML_PRIVATE_KEY=${<< parameters.cseAutoMlPrivateKey >>}
+            AUTOML_PRIVATE_KEY=${<< parameters.autoMlPrivateKey >>}
 
-            CSE_AUTOML_CLIENT_EMAIL=${<< parameters.cseAutoMlEmail >>}" > .env
+            AUTOML_CLIENT_EMAIL=${<< parameters.autoMlEmail >>}" > .env
 
       - run: sudo npm install -g firebase-tools
       - run: firebase deploy -P ${<< parameters.firebaseProjectId >>} --only functions,hosting,indexes,rules  --token ${<< parameters.firebaseDeployToken >>}
@@ -119,8 +119,8 @@ workflows:
           autoMlLocation: PROD_AUTOML_LOCATION
           autoMlCatModel: PROD_AUTOML_CAT_MODEL
           autoMlDataset: PROD_AUTOML_DATASET
-          cseAutoMlPrivateKey: PROD_CSE_AUTOML_PRIVATE_KEY
-          cseAutoMlEmail: PROD_CSE_AUTOML_CLIENT_EMAIL
+          autoMlPrivateKey: PROD_AUTOML_PRIVATE_KEY
+          autoMlEmail: PROD_AUTOML_CLIENT_EMAIL
           firebaseApiKey: PROD_FIREBASE_API_KEY
           firebaseAuthDomain: PROD_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: PROD_FIREBASE_DATABASE_URL
@@ -146,8 +146,8 @@ workflows:
           autoMlLocation: STAGE_AUTOML_LOCATION
           autoMlCatModel: STAGE_AUTOML_CAT_MODEL
           autoMlDataset: STAGE_AUTOML_DATASET
-          cseAutoMlPrivateKey: STAGE_CSE_AUTOML_PRIVATE_KEY
-          cseAutoMlEmail: STAGE_CSE_AUTOML_CLIENT_EMAIL
+          autoMlPrivateKey: STAGE_AUTOML_PRIVATE_KEY
+          autoMlEmail: STAGE_AUTOML_CLIENT_EMAIL
           firebaseApiKey: STAGE_FIREBASE_API_KEY
           firebaseAuthDomain: STAGE_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: STAGE_FIREBASE_DATABASE_URL
@@ -173,8 +173,8 @@ workflows:
           autoMlLocation: DEV_AUTOML_LOCATION
           autoMlCatModel: DEV_AUTOML_CAT_MODEL
           autoMlDataset: DEV_AUTOML_DATASET
-          cseAutoMlPrivateKey: DEV_CSE_AUTOML_PRIVATE_KEY
-          cseAutoMlEmail: DEV_CSE_AUTOML_CLIENT_EMAIL
+          autoMlPrivateKey: DEV_AUTOML_PRIVATE_KEY
+          autoMlEmail: DEV_AUTOML_CLIENT_EMAIL
           firebaseApiKey: DEV_FIREBASE_API_KEY
           firebaseAuthDomain: DEV_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: DEV_FIREBASE_DATABASE_URL
