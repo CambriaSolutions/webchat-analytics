@@ -22,7 +22,7 @@ const updateUserSettings = async () => {
     const { projects, defaultProject, ...dataToPersist } = doc.data()
 
     // We store the previous settings in a collection called 'oldUsersBackup' in case anything goes wrong.
-    oldUsersBackupRef.doc(doc.id).update(doc.data())
+    oldUsersBackupRef.doc(doc.id).set(doc.data())
 
     usersRef.doc(doc.id).set({
       ...dataToPersist,
