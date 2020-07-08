@@ -17,9 +17,7 @@ jobs:
         type: string
       agentPrivateKey:
         type: string
-      cseAutoMlPrivateKey:
-        type: string
-      cseAgentClientEmail:
+      agentClientEmail:
         type: string
       autoMlProject:
         type: string
@@ -29,7 +27,9 @@ jobs:
         type: string
       autoMlDataset:
         type: string
-      autoMlEmail:
+      cseAutoMlPrivateKey:
+        type: string
+      cseAutoMlEmail:
         type: string
       firebaseApiKey:
         type: string
@@ -85,9 +85,9 @@ jobs:
 
             AGENT_PROJECT=${<< parameters.agentProject >>}
 
-            CSE_AGENT_PRIVATE_KEY=${<< parameters.cseAgentPrivateKey >>}
+            AGENT_PRIVATE_KEY=${<< parameters.agentPrivateKey >>}
 
-            CSE_AGENT_CLIENT_EMAIL=${<< parameters.cseAgentClientEmail >>}
+            AGENT_CLIENT_EMAIL=${<< parameters.agentClientEmail >>}
 
             AUTOML_PROJECT=${<< parameters.autoMlProject >>}
 
@@ -97,9 +97,9 @@ jobs:
 
             AUTOML_DATASET=${<< parameters.autoMlDataset >>}
 
-            AUTOML_PRIVATE_KEY=${<< parameters.autoMlPrivateKey >>}
+            CSE_AUTOML_PRIVATE_KEY=${<< parameters.cseAutoMlPrivateKey >>}
 
-            AUTOML_CLIENT_EMAIL=${<< parameters.autoMlEmail >>}" > .env
+            CSE_AUTOML_CLIENT_EMAIL=${<< parameters.cseAutoMlEmail >>}" > .env
 
       - run: sudo npm install -g firebase-tools
       - run: firebase deploy -P ${<< parameters.firebaseProjectId >>} --only functions,hosting,indexes,rules  --token ${<< parameters.firebaseDeployToken >>}
@@ -113,14 +113,14 @@ workflows:
           gcsPrivateKey: PROD_GCS_PRIVATE_KEY
           gcsUri: PROD_GCS_URI
           agentProject: PROD_AGENT_PROJECT
-          cseAgentPrivateKey: PROD_CSE_AGENT_PRIVATE_KEY
-          cseAgentClientEmail: PROD_CSE_AGENT_CLIENT_EMAIL
+          agentPrivateKey: PROD_AGENT_PRIVATE_KEY
+          agentClientEmail: PROD_AGENT_CLIENT_EMAIL
           autoMlProject: PROD_AUTOML_PROJECT
           autoMlLocation: PROD_AUTOML_LOCATION
           autoMlCatModel: PROD_AUTOML_CAT_MODEL
           autoMlDataset: PROD_AUTOML_DATASET
-          autoMlPrivateKey: PROD_AUTOML_PRIVATE_KEY
-          autoMlEmail: PROD_AUTOML_CLIENT_EMAIL
+          cseAutoMlPrivateKey: PROD_CSE_AUTOML_PRIVATE_KEY
+          cseAutoMlEmail: PROD_CSE_AUTOML_CLIENT_EMAIL
           firebaseApiKey: PROD_FIREBASE_API_KEY
           firebaseAuthDomain: PROD_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: PROD_FIREBASE_DATABASE_URL
@@ -140,14 +140,14 @@ workflows:
           gcsPrivateKey: STAGE_GCS_PRIVATE_KEY
           gcsUri: STAGE_GCS_URI
           agentProject: STAGE_AGENT_PROJECT
-          cseAgentPrivateKey: STAGE_CSE_AGENT_PRIVATE_KEY
-          cseAgentClientEmail: STAGE_CSE_AGENT_CLIENT_EMAIL
+          agentPrivateKey: STAGE_AGENT_PRIVATE_KEY
+          agentClientEmail: STAGE_AGENT_CLIENT_EMAIL
           autoMlProject: STAGE_AUTOML_PROJECT
           autoMlLocation: STAGE_AUTOML_LOCATION
           autoMlCatModel: STAGE_AUTOML_CAT_MODEL
           autoMlDataset: STAGE_AUTOML_DATASET
-          autoMlPrivateKey: STAGE_AUTOML_PRIVATE_KEY
-          autoMlEmail: STAGE_AUTOML_CLIENT_EMAIL
+          cseAutoMlPrivateKey: STAGE_CSE_AUTOML_PRIVATE_KEY
+          cseAutoMlEmail: STAGE_CSE_AUTOML_CLIENT_EMAIL
           firebaseApiKey: STAGE_FIREBASE_API_KEY
           firebaseAuthDomain: STAGE_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: STAGE_FIREBASE_DATABASE_URL
@@ -167,14 +167,14 @@ workflows:
           gcsPrivateKey: DEV_GCS_PRIVATE_KEY
           gcsUri: DEV_GCS_URI
           agentProject: DEV_AGENT_PROJECT
-          cseAgentPrivateKey: DEV_CSE_AGENT_PRIVATE_KEY
-          cseAgentClientEmail: DEV_CSE_AGENT_CLIENT_EMAIL
+          agentPrivateKey: DEV_AGENT_PRIVATE_KEY
+          agentClientEmail: DEV_AGENT_CLIENT_EMAIL
           autoMlProject: DEV_AUTOML_PROJECT
           autoMlLocation: DEV_AUTOML_LOCATION
           autoMlCatModel: DEV_AUTOML_CAT_MODEL
           autoMlDataset: DEV_AUTOML_DATASET
-          autoMlPrivateKey: DEV_AUTOML_PRIVATE_KEY
-          autoMlEmail: DEV_AUTOML_CLIENT_EMAIL
+          cseAutoMlPrivateKey: DEV_CSE_AUTOML_PRIVATE_KEY
+          cseAutoMlEmail: DEV_CSE_AUTOML_CLIENT_EMAIL
           firebaseApiKey: DEV_FIREBASE_API_KEY
           firebaseAuthDomain: DEV_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: DEV_FIREBASE_DATABASE_URL
