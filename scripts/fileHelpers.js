@@ -1,7 +1,5 @@
 const fs = require('fs')
 
-// file = './unhandledQueries 5-4-2020.csv'
-
 exports.getQueriesFromFile = (file) => {
   fs.readFile(file, { encoding: 'utf8' }, async (err, data) => {
     const queries = data.split('\n')
@@ -12,7 +10,6 @@ exports.getQueriesFromFile = (file) => {
   })
 }
 
-// File = './unhandledQueriesCategorized 5-4-2020.csv'
 exports.writeMappedQueriesToFile = (file, mappedQueries) => {
   let mappedQueriesCSVString = ''
 
