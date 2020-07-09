@@ -1,0 +1,47 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "queriesForTraining",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "categoryModelTrained",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "occurrences",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "queriesForTraining",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "smModelTrained",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "occurrences",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "intentId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

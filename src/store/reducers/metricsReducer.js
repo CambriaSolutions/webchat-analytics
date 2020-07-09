@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject } from '../utility'
 
 const initialState = {
   intents: [], // { id: '1234', name: 'support', occurrences: 3, sessions: 9 }
@@ -16,12 +15,14 @@ const initialState = {
   exitIntents: [],
 }
 
-const fetchMetricsStart = (state, action) => {
-  return updateObject(state, { loading: true })
+const fetchMetricsStart = (state) => {
+  return { ...state, loading: true }
 }
 
 const fetchMetricsSuccess = (state, action) => {
-  return updateObject(state, {
+  return {
+    ...state,
+    dailyMetrics: action.dailyMetrics,
     intents: action.intents,
     supportRequests: action.supportRequests,
     supportRequestTotal: action.supportRequestTotal,
@@ -34,18 +35,19 @@ const fetchMetricsSuccess = (state, action) => {
     durationTotal: action.durationTotal,
     durationTotalNoExit: action.durationTotalNoExit,
     exitIntents: action.exitIntents,
-  })
+  }
 }
 
 const fetchMetricsFail = (state, action) => {
-  return updateObject(state, { loading: false })
+  return { ...state, loading: false }
 }
 
 const updateFeedbackType = (state, action) => {
-  return updateObject(state, {
+  return {
+    ...state,
     feedbackSelected: action.feedbackType,
     feedbackFiltered: action.feedbackFiltered,
-  })
+  }
 }
 
 const reducer = (state = initialState, action) => {
@@ -59,7 +61,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.UPDATE_FEEDBACK_TYPE:
       return updateFeedbackType(state, action)
     case actionTypes.UPDATE_METRICS:
-      return updateObject(state, {
+      return {
+        ...state,
         intents: action.intents,
         supportRequests: action.supportRequests,
         feedback: action.feedback,
@@ -70,7 +73,7 @@ const reducer = (state = initialState, action) => {
         durationTotalNoExit: action.durationTotalNoExit,
         exitIntents: action.exitIntents,
         durationTotal: action.durationTotal,
-      })
+      }
     default:
       return state
   }

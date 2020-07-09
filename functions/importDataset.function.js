@@ -14,16 +14,17 @@ const store = admin.firestore()
 const storage = new Storage()
 
 //Instantiate autoML client
+// TODO - need to instantiate different clients for different models.
 const client = new automl.v1beta1.AutoMlClient()
 
 /***
  * Retrieve new query and category pairs if occurrences >10
  * and import dataset into category model
  */
-async function main() {
+async function main(subjectMatter) {
   console.log('retrieving query data...')
   const storeRef = store.collection(
-    `/projects/${process.env.AGENT_PROJECT}/queriesForTraining`
+    `/subjectMatters/${subjectMatter}/queriesForTraining`
   )
   const queriesToImport = await storeRef
     .where('occurrences', '>=', 10)
@@ -46,15 +47,18 @@ async function main() {
       const fileName = `${date}-category-training.csv`
       const tempFilePath = path.join(os.tmpdir(), fileName)
       let f = fs.openSync(tempFilePath, 'w')
+
       phraseCategory.forEach((element) => {
         fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
       })
+
       fs.close(f, async () => {
         console.log('File completed writing in GS bucket')
         // Uploads csv file to bucket for AutoML dataset import
 
         const bucket = storage.bucket('gs://' + process.env.GCS_URI)
-        const results = await bucket.upload(
+
+        await bucket.upload(
           tempFilePath,
           {
             destination: bucket.file(fileName),
@@ -63,7 +67,9 @@ async function main() {
             if (err) {
               return console.log(err)
             }
+
             console.log('File uploaded successfully', phraseCategory)
+
             // import phrases and categories to AutoML category dataset
             await updateCategoryModel(fileName, phraseCategory)
           }
@@ -82,7 +88,7 @@ async function main() {
  * @param {*} fileName
  * @param {*} phraseCategory
  */
-async function updateCategoryModel(fileName, phraseCategory) {
+async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
   const datasetFullId = client.datasetPath(
     process.env.AUTOML_PROJECT,
     process.env.AUTOML_LOCATION,
@@ -106,9 +112,10 @@ async function updateCategoryModel(fileName, phraseCategory) {
 
     console.log(`Processing Category dataset import...`)
 
+    // TODO - need subject matter
     await store
-      .collection(`/projects/`)
-      .doc(`${process.env.AGENT_PROJECT}`)
+      .collection(`/subjectMatters/`)
+      .doc(subjectMatter)
       .update({
         isImportProcessing: true,
       })
@@ -121,8 +128,8 @@ async function updateCategoryModel(fileName, phraseCategory) {
       console.log(`Data imported.`)
       // Save import status in db
       await store
-        .collection(`/projects/`)
-        .doc(`${process.env.AGENT_PROJECT}`)
+        .collection(`/subjectMatters/`)
+        .doc(subjectMatter)
         .update({
           isImportProcessing: false,
           lastImported: admin.firestore.Timestamp.now(),
@@ -132,7 +139,7 @@ async function updateCategoryModel(fileName, phraseCategory) {
         phraseCategory.map(async (element) => {
           await store
             .collection(
-              `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
+              `/subjectMatters/${subjectMatter}/queriesForTraining/`
             )
             .doc(element.docId)
             .update({ categoryModelImported: true })
@@ -142,8 +149,8 @@ async function updateCategoryModel(fileName, phraseCategory) {
   } catch (err) {
     // Save import status in db
     await store
-      .collection(`/projects/`)
-      .doc(`${process.env.AGENT_PROJECT}`)
+      .collection(`/subjectMatters/`)
+      .doc(`${subjectMatter}`)
       .update({
         isImportProcessing: false,
       })
@@ -152,13 +159,15 @@ async function updateCategoryModel(fileName, phraseCategory) {
 }
 
 exports = module.exports = functions
-.pubsub
-.schedule('0 20 * * *')
-.timeZone('America/Los_Angeles')
-.onRun(async (context) => {
-  try {
-    await main()
-  } catch (err) {
-    console.log(err)
-  }
-})
+  .pubsub
+  .schedule('0 20 * * *')
+  .timeZone('America/Los_Angeles')
+  .onRun(async (context) => {
+    // TODO need to make this generic for all the different subject matters.
+    const subjectMatter = 'cse'
+    try {
+      await main(subjectMatter)
+    } catch (err) {
+      console.log(err)
+    }
+  })

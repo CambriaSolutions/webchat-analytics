@@ -1,99 +1,101 @@
 import * as actionTypes from '../actions/actionTypes'
 import db from '../../Firebase'
-import { updateContext } from './filterActions'
+import { updateSubjectMatter } from './filterActions'
 import { completeSignIn } from './authActions'
 import { format } from 'date-fns'
 import timezones from '../../common/timezones'
 
 // ------------------------------------------------------------------------
-// -------------------------- P R O J E C T S -----------------------------
+// -------------------- S U B J E C T M A T T E R S -----------------------
 // ------------------------------------------------------------------------
 
-export const fetchProjects = user => {
-  return (dispatch, getState) => {
+export const fetchSubjectMatters = user => {
+  return (dispatch) => {
     const userRef = db.collection(`users`).doc(user.uid)
 
-    dispatch(fetchProjectsStart())
+    dispatch(fetchSubjectMattersStart())
+
     userRef
       .get()
       .then(doc => {
         if (doc.exists) {
           const userData = doc.data()
           user.isAdmin = userData.admin && userData.admin === true
-          user.defaultProject = userData.defaultProject
+          user.defaultSubjectMatter = userData.defaultSubjectMatter
           user.dataExport = user.isAdmin
             ? true
             : userData.dataExport
-            ? userData.dataExport
-            : false
+              ? userData.dataExport
+              : false
 
           const settingsRef = db.collection(`settings`)
 
-          dispatch(fetchProjectsStart())
+          dispatch(fetchSubjectMattersStart())
+
           settingsRef
             .get()
             .then(querySnapshot => {
-              let fetchedProjects = []
+              let fetchedSubjectMatters = []
               querySnapshot.forEach(doc => {
-                // If user is admin add all the projects
-                const projectData = doc.data()
+                // If user is admin add all the subject matters
+                const subjectMatterData = doc.data()
                 if (
                   user.isAdmin ||
-                  userData.projects.includes(projectData.name)
+                  userData.subjectMatters.includes(subjectMatterData.name)
                 ) {
-                  fetchedProjects.push(projectData)
+                  fetchedSubjectMatters.push(subjectMatterData)
                 }
               })
 
-              // Update project settings
-              if (fetchedProjects.length > 0) {
-                const defaultProject = fetchedProjects.filter(
-                  p => p.name === user.defaultProject
+              // Update subject matter settings
+              if (fetchedSubjectMatters.length > 0) {
+                const defaultSubjectMatter = fetchedSubjectMatters.filter(
+                  p => p.name === user.defaultSubjectMatter
                 )[0]
 
                 dispatch({
-                  type: actionTypes.UPDATE_DEFAULT_PROJECT,
-                  defaultProject: defaultProject.name,
+                  type: actionTypes.UPDATE_DEFAULT_SUBJECT_MATTER,
+                  defaultSubjectMatter: defaultSubjectMatter.name,
                 })
-                dispatch(updateContext(defaultProject.name, fetchedProjects))
+                dispatch(updateSubjectMatter(defaultSubjectMatter.name, fetchedSubjectMatters))
               }
 
-              dispatch(fetchProjectsSuccess(fetchedProjects, user))
+              dispatch(fetchSubjectMattersSuccess(fetchedSubjectMatters, user))
             })
             .catch(err => {
-              dispatch(fetchProjectsFail(err))
+              dispatch(fetchSubjectMattersFail(err))
             })
         } else {
-          dispatch(fetchProjectsFail('User not found'))
+          dispatch(fetchSubjectMattersFail('User not found'))
         }
       })
       .catch(err => {
-        dispatch(fetchProjectsFail(err))
+        dispatch(fetchSubjectMattersFail(err))
       })
   }
 }
 
-export const fetchProjectsSuccess = (projects, user) => {
+export const fetchSubjectMattersSuccess = (fetchedSubjectMatters, user) => {
   return dispatch => {
     dispatch({
-      type: actionTypes.FETCH_PROJECTS_SUCCESS,
-      projects: projects,
+      type: actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS,
+      subjectMatters: fetchedSubjectMatters
     })
     dispatch(completeSignIn(user))
   }
 }
 
-export const fetchProjectsFail = error => {
+export const fetchSubjectMattersFail = error => {
   console.log(error)
   return {
-    type: actionTypes.FETCH_PROJECTS_FAIL,
+    type: actionTypes.FETCH_SUBJECT_MATTERS_FAIL,
     error: error,
   }
 }
 
-export const fetchProjectsStart = () => {
+export const fetchSubjectMattersStart = () => {
   return {
-    type: actionTypes.FETCH_PROJECTS_START,
+    type: actionTypes.FETCH_SUBJECT_MATTERS_START,
   }
 }
 
@@ -130,9 +132,9 @@ export const showIntentDetails = intent => {
             messageText: tempData.queryResult.queryText,
             outputContexts: tempData.queryResult.outputContexts
               ? tempData.queryResult.outputContexts.map(o => ({
-                  ...o,
-                  context: getIdFromPath(o.name),
-                }))
+                ...o,
+                context: getIdFromPath(o.name),
+              }))
               : [],
             conversationId: getIdFromPath(tempData.session),
             botResponse: tempData.queryResult.fulfillmentText,
@@ -202,75 +204,74 @@ export const updateExportDate = newDate => {
   }
 }
 
-export const updateDefaultProject = projectName => {
+export const updateDefaultSubjectMatter = subjectMatter => {
   return (dispatch, getState) => {
-    // Get projects settings based on the given context
+    // Get subject matter settings based on the given context
     const user = getState().auth.user
     if (user) {
       const userRef = db.collection(`users`).doc(user.uid)
-      userRef.update({ defaultProject: projectName }).then(() => {
+      userRef.update({ defaultSubjectMatter: subjectMatter }).then(() => {
         dispatch({
-          type: actionTypes.UPDATE_DEFAULT_PROJECT,
-          defaultProject: projectName,
+          type: actionTypes.UPDATE_DEFAULT_SUBJECT_MATTER,
+          defaultSubjectMatter: subjectMatter,
         })
-        dispatch(showSnackbar(`Default project updated successfully`))
+        dispatch(showSnackbar(`Default subject matter updated successfully`))
       })
     }
   }
 }
-
-export const updateProjectColor = newColor => {
+export const updateSubjectMatterColor = newColor => {
   return (dispatch, getState) => {
-    let projectName = getState().filters.context
-    let projects = getState().config.projects
+    let subjectMatterName = getState().filters.context
+    let subjectMatters = getState().config.subjectMatters
 
-    if (projectName.length > 0) {
-      projectName = projectName.replace('projects/', '')
-      const settingsRef = db.collection(`settings`).doc(projectName)
+    if (subjectMatterName.length > 0) {
+      subjectMatterName = subjectMatterName.replace('subjectMatters/', '')
+      const settingsRef = db.collection(`settings`).doc(subjectMatterName)
       settingsRef.update({ primaryColor: newColor }).then(() => {
-        dispatch(showSnackbar(`Project primary color updated successfully`))
+        dispatch(showSnackbar(`Subject matter primary color updated successfully`))
       })
 
-      // Update projects object with new primary color
-      let currProject = projects.filter(p => p.name === projectName)[0]
-      currProject.primaryColor = newColor
+      // Update subject matters object with new primary color
+      let currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatterName)[0]
+      currSubjectMatter.primaryColor = newColor
       dispatch({
-        type: actionTypes.FETCH_PROJECTS_SUCCESS,
-        projects: projects,
+        type: actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS,
+        subjectMatters: subjectMatters,
       })
     }
   }
 }
 
-export const updateProjectTimezone = newTimezone => {
+export const updateSubjectMatterTimezone = newTimezone => {
   return (dispatch, getState) => {
-    let projectName = getState().filters.context
-    let projects = getState().config.projects
-
+    let subjectMatterName = getState().filters.context
+    let subjectMatters = getState().config.subjectMatters
     console.log(newTimezone)
     const selectedTimezone = timezones.filter(
       timezone => timezone.text === newTimezone
     )[0]
+
     console.log(selectedTimezone)
-    if (projectName.length > 0 && selectedTimezone) {
+    if (subjectMatterName.length > 0 && selectedTimezone) {
       // Setup timezone value as DB expects it
-      newTimezone = {
+      const _newTimezone = {
         name: selectedTimezone.text,
         offset: selectedTimezone.offset,
       }
 
-      projectName = projectName.replace('projects/', '')
-      const settingsRef = db.collection(`settings`).doc(projectName)
-      settingsRef.update({ timezone: newTimezone }).then(() => {
-        dispatch(showSnackbar(`Project timezone updated successfully`))
+      subjectMatterName = subjectMatterName.replace('subjectMatters/', '')
+      const settingsRef = db.collection(`settings`).doc(subjectMatterName)
+      settingsRef.update({ timezone: _newTimezone }).then(() => {
+        dispatch(showSnackbar(`Subject matter timezone updated successfully`))
       })
 
-      // Update projects object with new timezone
-      let currProject = projects.filter(p => p.name === projectName)[0]
-      currProject.timezone = newTimezone
+      // Update subject matters object with new timezone
+      let currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatterName)[0]
+      currSubjectMatter.timezone = _newTimezone
       dispatch({
-        type: actionTypes.FETCH_PROJECTS_SUCCESS,
-        projects: projects,
+        type: actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS,
+        subjectMatters: subjectMatters,
       })
     }
   }

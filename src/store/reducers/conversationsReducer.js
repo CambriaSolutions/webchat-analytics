@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject } from '../utility'
 
 const initialState = {
   conversationsTotal: 0,
@@ -11,22 +10,23 @@ const initialState = {
 }
 
 const fetchConversationsStart = (state, action) => {
-  return updateObject(state, { loading: true })
+  return { ...state, loading: true }
 }
 
 const fetchConversationsSuccess = (state, action) => {
-  return updateObject(state, {
+  return {
+    ...state,
     allConversations: action.conversations,
     conversationsTotal: action.conversationsTotal,
     durationTotal: action.durationTotal,
     supportRequests: action.supportRequests,
     exitIntents: action.exitIntents,
     loading: false,
-  })
+  }
 }
 
 const fetchConversationsFail = (state, action) => {
-  return updateObject(state, { loading: false })
+  return { ...state, loading: false }
 }
 
 const reducer = (state = initialState, action) => {
@@ -38,11 +38,12 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_CONVERSATIONS_FAIL:
       return fetchConversationsFail(state, action)
     case actionTypes.UPDATE_CONVERSATION_METRICS:
-      return updateObject(state, {
+      return {
+        ...state,
         durationTotal: action.durationTotal,
         supportRequests: action.supportRequests,
         exitIntents: action.exitIntents,
-      })
+      }
     default:
       return state
   }

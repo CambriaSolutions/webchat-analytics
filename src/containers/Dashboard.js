@@ -13,6 +13,9 @@ import Drawer from '@material-ui/core/Drawer'
 import Dialog from '@material-ui/core/Dialog'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Tooltip from '@material-ui/core/Tooltip'
+import Zoom from '@material-ui/core/Zoom';
 
 // Components
 import Card from '../components/Card'
@@ -23,6 +26,9 @@ import EnhancedTable from '../components/EnhancedTable'
 import IntentDetails from '../components/IntentDetails'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import SupportRequestsTile from '../components/SupportRequestsTile'
+
+import EngagedUserChart from '../components/EngagedUserChart'
+import SupportRequestChart from './SupportRequestChart'
 
 // Helpers
 import { colorShades } from '../common/helper'
@@ -91,7 +97,7 @@ class Dashboard extends Component {
         color: ${this.props.mainColor};
       }
     `
-
+    
     let dashboardUI = (
       <CenterDiv>
         <h2>Loading Metrics...</h2>
@@ -127,6 +133,7 @@ class Dashboard extends Component {
                 label='Total Users'
                 notes=''
                 icon='account_circle'
+                tooltip='Count of number of times Gen opens (automatic open or user click)'
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -140,6 +147,7 @@ class Dashboard extends Component {
                 label='Avg. Conv Duration'
                 notes=''
                 icon='schedule'
+                tooltip='Average time of each session - between when Gen opens and closes or users leave the webpage. Each session can be a maximum time of 20 minutes, data is not collected after that.'
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -157,6 +165,7 @@ class Dashboard extends Component {
                     : ''
                 }
                 icon='contact_support'
+                tooltip="% of users submitting support tickets"
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -167,10 +176,24 @@ class Dashboard extends Component {
                 notes={`${this.props.conversationsTotal -
                   this.props.conversationsDurationTotal} immediate exits`}
                 icon='speaker_notes'
+                tooltip='Count of the number of times a user clicks any button, including "Yes" and "Acknowledge."'
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <EngagedUserChart colors={this.props.colors} />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <SupportRequestChart colors={this.props.colors} />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title='Intents being triggered the most number of times' arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <h3>Frequently used intents</h3>
                 <PieChart
                   data={frequentIntents}
@@ -181,6 +204,9 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title='Intents after which users exit Gen' arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <h3>Top exit intents on conversations</h3>
                 <BarChart
                   data={exitIntents}
@@ -250,8 +276,7 @@ class Dashboard extends Component {
         <Drawer
           anchor='right'
           open={this.props.showSettings}
-          onClose={this.props.onSettingsToggle}
-        >
+          onClose={this.props.onSettingsToggle}>
           <Settings />
         </Drawer>
         {dashboardUI}
@@ -260,8 +285,7 @@ class Dashboard extends Component {
           onClose={this.props.onIntentsModalClose}
           maxWidth={'md'}
           fullWidth={true}
-          aria-labelledby='intent_details_title'
-        >
+          aria-labelledby='intent_details_title'>
           <IntentDetails
             loading={this.props.loadingIntentDetails}
             data={this.props.intentDetails}
@@ -320,9 +344,11 @@ const mapStateToProps = state => {
   let allIntents = beautifyIntents(state.metrics.intents)
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
   const allExitIntents = beautifyIntents(state.metrics.exitIntents)
+
   // Sort arrays by exits & occurrences
   allExitIntents.sort(compareValues('exits', 'desc'))
   allSupportRequests.sort(compareValues('occurrences', 'desc'))
+
   if (!state.metrics.loading) {
     // Merge exit intents with intents array
     allIntents = allIntents.map(intent =>
@@ -339,6 +365,7 @@ const mapStateToProps = state => {
   }
 
   return {
+    dailyMetrics: state.metrics.dailyMetrics,
     showEngagedUser: state.filters.showEngagedUser,
     loadingConversations: state.metrics.loading,
     loadingIntents: state.metrics.loading,
@@ -346,13 +373,13 @@ const mapStateToProps = state => {
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
       (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
-        100,
+      100,
       1
     ),
     supportEngagedRequestsPercentage: round(
       (state.metrics.supportRequestTotal /
         state.metrics.conversationsDurationTotal) *
-        100,
+      100,
       1
     ),
     supportRequestTotal: state.metrics.supportRequestTotal,
