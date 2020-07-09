@@ -47,6 +47,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "engines": {
+    "node": "10"
+  },
   "devDependencies": {
     "firebase-tools": "^6.5.0",
     "react-test-renderer": "^16.8.4"
