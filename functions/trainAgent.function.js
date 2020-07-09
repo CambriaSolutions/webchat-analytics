@@ -82,10 +82,10 @@ async function trainAgent(phrase, intentId, docId, intentName, subjectMatter) {
           console.log(`${intentName} learned ${phrase} as a training phrase`)
         )
     } catch (e) {
-      console.log('Unable to train intent' + e)
+      console.log('Unable to train intent: ' + e)
     }
   } catch (err) {
-    console.log('Unable to get intent' + err)
+    console.log('Unable to get intent: ' + err)
   }
 }
 
@@ -102,7 +102,7 @@ async function getIntent(intentId) {
     const response = responses[0]
     return response
   } catch (err) {
-    console.log(`Unable to retrieve intent [${intentId}] from Dialogflow [cse]` + err)
+    console.log(`Unable to retrieve intent [${intentId}] from Dialogflow: ` + err)
     return err
   }
 }
@@ -118,7 +118,7 @@ async function updateIntent(intent) {
   try {
     return (responses = await intentsClient.updateIntent(request))
   } catch (err) {
-    console.log(`Unable to update intent [${intentId}] from Dialogflow [cse]` + err)
+    console.log(`Unable to update intent [${intentId}] from Dialogflow: ` + err)
     return err
   }
 }
