@@ -88,3 +88,24 @@ export const getUTCDate = (dateString = Date.now(), timezoneOffset = -7) => {
     date.getUTCSeconds()
   )
 }
+
+export const contrastingColors = colors => {
+  let darkest;
+  let darkestColorAverage = parseInt(Number('0xFF'), 10)
+  let lightest
+  let lightestColorAverage = 0
+
+  colors.forEach(color => {
+    const colorAverage = (parseInt(Number(`0x${color.slice(1, 3)}`), 10) + parseInt(Number(`0x${color.slice(3, 5)}`), 10) + parseInt(Number(`0x${color.slice(5, 7)}`), 10)) / 3
+    if (colorAverage < darkestColorAverage) {
+      darkest = color;
+      darkestColorAverage = colorAverage
+    }
+    if (colorAverage > lightestColorAverage) {
+      lightest = color;
+      lightestColorAverage = colorAverage
+    }
+  })
+
+  return [darkest, lightest]
+};
