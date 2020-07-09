@@ -48,8 +48,8 @@ const EngagedUserChart = props => {
       <ComposedChart
         data={data.reverse()}
         xKey='id'>
-        <Line type="monotone" dataKey="numConversations" stroke={darkestColor} name="Total Users" />
-        <Line type="monotone" dataKey="numConversationsWithDuration" stroke={lightestColor} name="Engaged Users" />
+        <Line type="monotone" dataKey="numConversations" stroke={lightestColor} name="Total Users" />
+        <Line type="monotone" dataKey="numConversationsWithDuration" stroke={darkestColor} name="Engaged Users" />
         <Legend />
         <Tooltip content={<CustomTooltip />} />
       </ComposedChart>
