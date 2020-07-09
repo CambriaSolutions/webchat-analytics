@@ -40,14 +40,14 @@ const EngagedUserChart = props => {
     <>
       <Header>
         <HeaderText>
-          Engaged Users
+        {props.showEngagedUser ? "Engaged" : "Total"} Users
         </HeaderText>
       </Header>
       <ComposedChart
         data={data}
         xKey='id'>
-        <Bar dataKey={props.showEngagedUser ? "numConversations" : "numConversationsWithDuration"} fill={props.colors[1]} />
-        <Line type="monotone" dataKey={props.showEngagedUser ? "numConversations" : "numConversationsWithDuration"} stroke={props.colors[0]} />
+        <Bar dataKey={props.showEngagedUser ? "numConversationsWithDuration" : "numConversations"} fill={props.colors[1]} />
+        <Line type="monotone" dataKey={props.showEngagedUser ? "numConversationsWithDuration" : "numConversations"} stroke={props.colors[0]} />
         <Tooltip content={<CustomTooltip />} />
       </ComposedChart>
     </>
