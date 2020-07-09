@@ -1,21 +1,17 @@
 require('dotenv').config()
 const admin = require('firebase-admin')
-const automl = require('@google-cloud/automl')
 const functions = require('firebase-functions')
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
+const createAutoMLClientForSubjectMatter = require('./clients/autoMLClient')
 
 const store = admin.firestore()
 
 // Google Cloud Storage Setup
 const storage = new Storage()
-
-//Instantiate autoML client
-// TODO - need to instantiate different clients for different models.
-const client = new automl.v1beta1.AutoMlClient()
 
 /***
  * Retrieve new query and category pairs if occurrences >10
@@ -89,6 +85,9 @@ async function main(subjectMatter) {
  * @param {*} phraseCategory
  */
 async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
+  // Instantiate autoML client
+  const client = createAutoMLClientForSubjectMatter(subjectMatter)
+
   const datasetFullId = client.datasetPath(
     process.env.AUTOML_PROJECT,
     process.env.AUTOML_LOCATION,
@@ -163,11 +162,14 @@ exports = module.exports = functions
   .schedule('0 20 * * *')
   .timeZone('America/Los_Angeles')
   .onRun(async (context) => {
-    // TODO need to make this generic for all the different subject matters.
-    const subjectMatter = 'cse'
-    try {
-      await main(subjectMatter)
-    } catch (err) {
-      console.log(err)
+    const subjectMatters = ['cse']
+
+    for (const subjectMatterIndex in subjectMatters) {
+      const subjectMatter = subjectMatters[subjectMatterIndex]
+      try {
+        main(subjectMatter)
+      } catch (err) {
+        console.log(err)
+      }
     }
   })
