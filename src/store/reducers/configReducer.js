@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes'
 import { subDays } from 'date-fns'
 
 const initialState = {
-  subjectMatters: [],
+  subjectMattersSettings: [],
   loading: false,
   downloadExportDate: subDays(new Date(), 1),
   showSettings: false,
@@ -15,19 +15,19 @@ const initialState = {
   updateRealtime: true,
 }
 
-const fetchSubjectMattersStart = (state) => {
+const fetchSubjectMatterSettingsStart = (state) => {
   return { ...state, loading: true }
 }
 
-const fetchSubjectMattersSuccess = (state, action) => {
+const fetchSubjectMatterSettingsSuccess = (state, action) => {
   return {
     ...state,
-    subjectMatters: action.subjectMatters,
+    subjectMattersSettings: action.subjectMattersSettings,
     loading: false,
   }
 }
 
-const fetchSubjectMattersFail = (state) => {
+const fetchSubjectMatterSettingsFail = (state) => {
   return { ...state, loading: false }
 }
 
@@ -50,12 +50,12 @@ const fetchIntentDetailsFail = (state) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     // Metrics
-    case actionTypes.FETCH_SUBJECT_MATTERS_START:
-      return fetchSubjectMattersStart(state)
-    case actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS:
-      return fetchSubjectMattersSuccess(state, action)
-    case actionTypes.FETCH_SUBJECT_MATTERS_FAIL:
-      return fetchSubjectMattersFail(state)
+    case actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_START:
+      return fetchSubjectMatterSettingsStart(state)
+    case actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_SUCCESS:
+      return fetchSubjectMatterSettingsSuccess(state, action)
+    case actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_FAIL:
+      return fetchSubjectMatterSettingsFail(state)
     // Intent Details
     case actionTypes.FETCH_INTENT_DETAILS_START:
       return fetchIntentDetailsStart(state)
@@ -64,6 +64,11 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_INTENT_DETAILS_FAIL:
       return fetchIntentDetailsFail(state)
     // Config settings
+    case actionTypes.UPDATE_DEFAULT_SUBJECT_MATTER:
+      return {
+        ...state,
+        defaultSubjectMatter: action.defaultSubjectMatter
+      }
     case actionTypes.UPDATE_EXPORT_DATE:
       return {
         ...state,

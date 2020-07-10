@@ -52,15 +52,16 @@ const getNameFromContext = context => /[^/]*$/.exec(context)[0]
 class Header extends Component {
   render() {
     let subjectMatterDropdown = ''
-    if (this.props.subjectMatters.length > 1) {
+
+    if (this.props.subjectMattersSettings.length > 1) {
       subjectMatterDropdown = (
         <Hidden xsDown>
           <Dropdown
             value={this.props.subjectMatterName}
-            onChange={event => this.props.onSubjectMatterChange(event.target.value, this.props.subjectMatters)}
+            onChange={event => this.props.onSubjectMatterChange(event.target.value, this.props.subjectMattersSettings)}
             name='subjectMatter'
           >
-            {this.props.subjectMatters.map(subjectMatter => (
+            {this.props.subjectMattersSettings.map(subjectMatter => (
               <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
                 {subjectMatter.name}
               </MenuItem>
@@ -116,7 +117,7 @@ const mapStateToProps = state => {
     filterLabel: state.filters.filterLabel,
     showEngagedUser: state.filters.showEngagedUser,
     mainColor: state.filters.mainColor,
-    subjectMatters: state.config.subjectMatters,
+    subjectMattersSettings: state.config.subjectMattersSettings,
     subjectMatterName: getNameFromContext(state.filters.context),
   }
 }
@@ -124,7 +125,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
-    onSubjectMatterChange: (newSubjectMatter, subjectMatters) => dispatch(updateSubjectMatter(newSubjectMatter, subjectMatters)),
+    onSubjectMatterChange: (newSubjectMatter, subjectMattersSettings) => dispatch(updateSubjectMatter(newSubjectMatter, subjectMattersSettings)),
     onEngagedUserToggle: showEngagedUser =>
       dispatch(updateEngagedUserToggle(showEngagedUser)),
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
