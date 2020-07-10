@@ -67,7 +67,7 @@ const SupportRequestChart = props => {
         </Select>
       </Header>
       <ComposedChart
-        data={data.reverse()}
+        data={data}
         xKey='id'>
         <Bar dataKey={filter} fill={props.colors[1]} />
         <Line type="monotone" dataKey={filter} stroke={props.colors[0]} />

@@ -46,7 +46,7 @@ const EngagedUserChart = props => {
         </HeaderText>
       </Header>
       <ComposedChart
-        data={data.reverse()}
+        data={data}
         xKey='id'>
         <Line type="monotone" dataKey="numConversations" stroke={lightestColor} name="Total Users" />
         <Line type="monotone" dataKey="numConversationsWithDuration" stroke={darkestColor} name="Engaged Users" />
