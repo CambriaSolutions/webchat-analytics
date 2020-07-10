@@ -1,8 +1,59 @@
+const fs = require('fs')
 require('dotenv').config()
 
 const admin = require('firebase-admin')
 admin.initializeApp()
 const db = admin.firestore()
+
+const getIntentNames = (agentDirectory) => {
+    const intents = []
+    fs.readdirSync(`${agentDirectory}/intents`).forEach(function (file) {
+        const filename = file.split('/').pop()
+        if (!filename.endsWith('_usersays_en.json')) {
+            intents.push(`${file.replace('.json', '')}`)
+        }
+    })
+
+    return intents
+}
+
+const createIntentMap = (intentNames) => {
+    const intentMap = new Map()
+
+    intentNames.forEach(currentIntentName => {
+        if(currentIntentName.startsWith('cse-')) {
+            const intentNameParts = currentIntentName.split('-')
+            intentNameParts.shift()
+            const originalIntentName = intentNameParts.join('-')
+            intentMap.set(originalIntentName, currentIntentName)
+        }
+    })
+
+    intentMap.delete('root')
+
+    return intentMap
+}
+
+const updateIntentNames = (intentMap, data) => {
+    let stringifedData = JSON.stringify(data);
+    let hasBeenUpdated = false;
+    [...intentMap.keys()].forEach(originalIntentName => {
+        if (stringifedData.includes(originalIntentName)) {
+            stringifedData = stringifedData.replace(originalIntentName, intentMap.get(originalIntentName))
+
+            if (!hasBeenUpdated) {
+                hasBeenUpdated = true
+            }
+        }
+    })
+    
+    if (hasBeenUpdated) {
+        // To enable migrating existing Dev / Stage data. This isn't a concern with prod data.
+        stringifedData = stringifedData.replace('cse-cse-', 'cse-')
+    }
+
+    return JSON.parse(stringifedData)
+}
 
 async function asyncForEach(array, callback) {
     for (let index = 0; index < array.length; index++) {
@@ -10,7 +61,7 @@ async function asyncForEach(array, callback) {
     }
 }
 
-const migrateCollection = async (currentCollectionPath, targetCollectionPath) => {
+const migrateCollection = async (currentCollectionPath, targetCollectionPath, intentMap) => {
     const targetCollectionRef = db.collection(targetCollectionPath);
     const snapshot = await db.collection(currentCollectionPath).get();
     if (snapshot.empty) {
@@ -18,12 +69,15 @@ const migrateCollection = async (currentCollectionPath, targetCollectionPath) =>
     } else {
         console.log(`${snapshot.docs.length} docs`);
         await asyncForEach(snapshot.docs, async doc => {
-            await targetCollectionRef.doc(doc.id).set(doc.data())
+            const updatedDoc = updateIntentNames(intentMap, doc.data())
+            await targetCollectionRef.doc(doc.id).set(updatedDoc)
         })        
     }
 }
 
 const migrateProjectToSubjectMatter = async (project, subjectMatter) => {
+    const intentMap = createIntentMap(getIntentNames('../../mdhs-csa/agent'))
+
     const snapshot = await db.collection("projects").doc(project).get();
     if (snapshot.empty || snapshot.data() === undefined) {
         console.log('No matching documents.');
@@ -34,14 +88,14 @@ const migrateProjectToSubjectMatter = async (project, subjectMatter) => {
 
     await asyncForEach(["conversations", "metrics", "queriesForLabeling", "queriesForTraining", "requests"], async subCollection => {
         console.log(`Migrating projects/${project}/${subCollection} => subjectMatters/${subjectMatter}/${subCollection}`)
-        await migrateCollection(`projects/${project}/${subCollection}`, `subjectMatters/${subjectMatter}/${subCollection}`);
+        await migrateCollection(`projects/${project}/${subCollection}`, `subjectMatters/${subjectMatter}/${subCollection}`, intentMap);
     })
 }
 
-// TODO enter the projectName and the target subject matter before running
-migrateProjectToSubjectMatter('mdhs-csa-dev', 'cse')
-// migrateProjectToSubjectMatter('mdhs-csa-isd-273818', 'cse')
-// migrateProjectToSubjectMatter('mdhs-csa-stage', 'cse')
-// migrateProjectToSubjectMatter('mdhs-csa', 'cse')
+// // TODO enter the projectName and the target subject matter before running
+migrateProjectToSubjectMatter('mdhs-csa-dev', 'test-migrate-cse')
+// // migrateProjectToSubjectMatter('mdhs-csa-isd-273818', 'cse')
+// // migrateProjectToSubjectMatter('mdhs-csa-stage', 'cse')
+// // migrateProjectToSubjectMatter('mdhs-csa', 'cse')
 
 
