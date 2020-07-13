@@ -5,6 +5,7 @@ import {
   updateExportDate,
   downloadExport,
   updateSubjectMatterTimezone,
+  updateDefaultSubjectMatter
 } from '../store/actions/configActions'
 import { updateMainColor } from '../store/actions/filterActions'
 import { signOut, resetPassword } from '../store/actions/authActions'
@@ -171,7 +172,7 @@ class Settings extends Component {
       </div>
     )
 
-    if (this.props.subjectMatters.length > 1) {
+    if (this.props.subjectMattersSettings.length > 1) {
       defaultSubjectMatterSetting = (
         <div>
           <List subheader={<ListHeader>Default Subject Matter</ListHeader>}>
@@ -179,11 +180,11 @@ class Settings extends Component {
               <Select
                 value={this.props.defaultSubjectMatter}
                 onChange={event =>
-                  this.props.onSubjectMatterChange(event.target.value)
+                  this.props.onDefaultSubjectMatterChange(event.target.value)
                 }
                 name='context'
               >
-                {this.props.subjectMatters.map(subjectMatter => (
+                {this.props.subjectMattersSettings.map(subjectMatter => (
                   <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
                     {subjectMatter.name}
                   </MenuItem>
@@ -283,14 +284,15 @@ class Settings extends Component {
 }
 
 const mapStateToProps = state => {
-  const subjectMatters = state.config.subjectMatters
+  const subjectMattersSettings = state.config.subjectMattersSettings
   const subjectMatterName = state.filters.context.replace('subjectMatters/', '')
-  let currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatterName)[0]
+  let currSubjectMatter = subjectMattersSettings.filter(p => p.name === subjectMatterName)[0]
 
   return {
     filterLabel: state.filters.filterLabel,
     mainColor: state.filters.mainColor,
-    subjectMatters: subjectMatters,
+    subjectMattersSettings: subjectMattersSettings,
+    defaultSubjectMatter: state.config.defaultSubjectMatter,
     downloadDate: state.config.downloadExportDate,
     user: state.auth.user,
     loadingDownload: state.config.loading,
@@ -303,6 +305,8 @@ const mapDispatchToProps = dispatch => {
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
     onDownloadDateChange: newDate => dispatch(updateExportDate(newDate)),
     onExportDownload: () => dispatch(downloadExport()),
+    onDefaultSubjectMatterChange: defaultSubjectMatter =>
+      dispatch(updateDefaultSubjectMatter(defaultSubjectMatter)),
     onMainColorChange: (newColor, updateDB) =>
       dispatch(updateMainColor(newColor, updateDB)),
     onTimezoneChange: newTimezone =>

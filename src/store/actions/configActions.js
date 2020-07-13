@@ -6,14 +6,14 @@ import { format } from 'date-fns'
 import timezones from '../../common/timezones'
 
 // ------------------------------------------------------------------------
-// -------------------- S U B J E C T M A T T E R S -----------------------
+// ------------------------ S M  S E T T I N G S --------------------------
 // ------------------------------------------------------------------------
 
-export const fetchSubjectMatters = user => {
+export const fetchSubjectMatterSettings = user => {
   return (dispatch) => {
     const userRef = db.collection(`users`).doc(user.uid)
 
-    dispatch(fetchSubjectMattersStart())
+    dispatch(fetchSubjectMatterSettingsStart())
 
     userRef
       .get()
@@ -30,72 +30,74 @@ export const fetchSubjectMatters = user => {
 
           const settingsRef = db.collection(`settings`)
 
-          dispatch(fetchSubjectMattersStart())
+          dispatch(fetchSubjectMatterSettingsStart())
 
           settingsRef
             .get()
             .then(querySnapshot => {
-              let fetchedSubjectMatters = []
+              let fetchedSubjectMattersSettings = []
               querySnapshot.forEach(doc => {
                 // If user is admin add all the subject matters
-                const subjectMatterData = doc.data()
+                const subjectMatterSettingsData = doc.data()
+
                 if (
                   user.isAdmin ||
-                  userData.subjectMatters.includes(subjectMatterData.name)
+                  userData.subjectMatters.includes(subjectMatterSettingsData.name)
                 ) {
-                  fetchedSubjectMatters.push(subjectMatterData)
+                  fetchedSubjectMattersSettings.push(subjectMatterSettingsData)
                 }
               })
 
               // Update subject matter settings
-              if (fetchedSubjectMatters.length > 0) {
-                const defaultSubjectMatter = fetchedSubjectMatters.filter(
+              if (fetchedSubjectMattersSettings.length > 0) {
+                const defaultSubjectMatterSettings = fetchedSubjectMattersSettings.filter(
                   p => p.name === user.defaultSubjectMatter
                 )[0]
 
                 dispatch({
                   type: actionTypes.UPDATE_DEFAULT_SUBJECT_MATTER,
-                  defaultSubjectMatter: defaultSubjectMatter.name,
+                  defaultSubjectMatter: defaultSubjectMatterSettings.name,
                 })
-                dispatch(updateSubjectMatter(defaultSubjectMatter.name, fetchedSubjectMatters))
+
+                dispatch(updateSubjectMatter(defaultSubjectMatterSettings.name, fetchedSubjectMattersSettings))
               }
 
-              dispatch(fetchSubjectMattersSuccess(fetchedSubjectMatters, user))
+              dispatch(fetchSubjectMatterSettingsSuccess(fetchedSubjectMattersSettings, user))
             })
             .catch(err => {
-              dispatch(fetchSubjectMattersFail(err))
+              dispatch(fetchSubjectMatterSettingsFail(err))
             })
         } else {
-          dispatch(fetchSubjectMattersFail('User not found'))
+          dispatch(fetchSubjectMatterSettingsFail('User not found'))
         }
       })
       .catch(err => {
-        dispatch(fetchSubjectMattersFail(err))
+        dispatch(fetchSubjectMatterSettingsFail(err))
       })
   }
 }
 
-export const fetchSubjectMattersSuccess = (fetchedSubjectMatters, user) => {
+export const fetchSubjectMatterSettingsSuccess = (fetchedSubjectMattersSettings, user) => {
   return dispatch => {
     dispatch({
-      type: actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS,
-      subjectMatters: fetchedSubjectMatters
+      type: actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_SUCCESS,
+      subjectMattersSettings: fetchedSubjectMattersSettings
     })
     dispatch(completeSignIn(user))
   }
 }
 
-export const fetchSubjectMattersFail = error => {
+export const fetchSubjectMatterSettingsFail = error => {
   console.log(error)
   return {
-    type: actionTypes.FETCH_SUBJECT_MATTERS_FAIL,
+    type: actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_FAIL,
     error: error,
   }
 }
 
-export const fetchSubjectMattersStart = () => {
+export const fetchSubjectMatterSettingsStart = () => {
   return {
-    type: actionTypes.FETCH_SUBJECT_MATTERS_START,
+    type: actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_START,
   }
 }
 
@@ -220,10 +222,11 @@ export const updateDefaultSubjectMatter = subjectMatter => {
     }
   }
 }
+
 export const updateSubjectMatterColor = newColor => {
   return (dispatch, getState) => {
     let subjectMatterName = getState().filters.context
-    let subjectMatters = getState().config.subjectMatters
+    let subjectMattersSettings = getState().config.subjectMattersSettings
 
     if (subjectMatterName.length > 0) {
       subjectMatterName = subjectMatterName.replace('subjectMatters/', '')
@@ -233,11 +236,11 @@ export const updateSubjectMatterColor = newColor => {
       })
 
       // Update subject matters object with new primary color
-      let currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatterName)[0]
+      let currSubjectMatter = subjectMattersSettings.filter(p => p.name === subjectMatterName)[0]
       currSubjectMatter.primaryColor = newColor
       dispatch({
-        type: actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS,
-        subjectMatters: subjectMatters,
+        type: actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_SUCCESS,
+        subjectMattersSettings: subjectMattersSettings,
       })
     }
   }
@@ -246,7 +249,7 @@ export const updateSubjectMatterColor = newColor => {
 export const updateSubjectMatterTimezone = newTimezone => {
   return (dispatch, getState) => {
     let subjectMatterName = getState().filters.context
-    let subjectMatters = getState().config.subjectMatters
+    let subjectMattersSettings = getState().config.subjectMattersSettings
     console.log(newTimezone)
     const selectedTimezone = timezones.filter(
       timezone => timezone.text === newTimezone
@@ -267,11 +270,11 @@ export const updateSubjectMatterTimezone = newTimezone => {
       })
 
       // Update subject matters object with new timezone
-      let currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatterName)[0]
+      let currSubjectMatter = subjectMattersSettings.filter(p => p.name === subjectMatterName)[0]
       currSubjectMatter.timezone = _newTimezone
       dispatch({
-        type: actionTypes.FETCH_SUBJECT_MATTERS_SUCCESS,
-        subjectMatters: subjectMatters,
+        type: actionTypes.FETCH_SUBJECT_MATTER_SETTINGS_SUCCESS,
+        subjectMattersSettings: subjectMattersSettings,
       })
     }
   }
