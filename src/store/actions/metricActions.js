@@ -3,6 +3,7 @@ import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
 import { getUTCDate } from '../../common/helper'
 import { format } from 'date-fns'
+import { reduce } from 'lodash'
 
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
@@ -69,8 +70,10 @@ export const fetchMetricsSuccess = metrics => {
     let numConversations = 0
     let numConversationsWithDuration = 0
     let numConversationsWithSupportRequests = 0
-    const exitIntents = []
+    let numSupportRequests = 0
 
+    const exitIntents = []
+    console.log('metrics', metrics)
     // Loop through metrics per day
     for (let metric of metrics) {
       avgConvoDuration += metric.averageConversationDuration * metric.numConversationsWithDuration
@@ -78,6 +81,13 @@ export const fetchMetricsSuccess = metrics => {
       numConversationsWithDuration += metric.numConversationsWithDuration
       numConversationsWithSupportRequests +=
         metric.numConversationsWithSupportRequests
+
+      console.log('metric.numConversationsWithSupportRequests', metric.numConversationsWithSupportRequests)
+
+      numSupportRequests += reduce(metric.supportRequests, (result, value, key) => {
+        result += value.occurrences
+        return result
+      }, 0)
 
       for (const intent in metric.exitIntents) {
         const currentIntent = metric.exitIntents[intent].name
@@ -112,6 +122,7 @@ export const fetchMetricsSuccess = metrics => {
             sessions: dateIntent.sessions,
           }
       }
+
       // Support requests
       const dateSupportRequests = metric.supportRequests
       if (dateSupportRequests) {
@@ -148,6 +159,7 @@ export const fetchMetricsSuccess = metrics => {
               occurrences: helpfulFeedback.occurrences,
             }
         }
+        
         // Count through not-helpful feedback
         for (let notHelpfulFeedback of feedbackEntry.notHelpful) {
           const notHelpfulFeedbackId = notHelpfulFeedback.name.replace(
@@ -185,7 +197,8 @@ export const fetchMetricsSuccess = metrics => {
       dailyMetrics: metrics,
       intents: intents,
       supportRequests: supportRequests,
-      supportRequestTotal: numConversationsWithSupportRequests,
+      numConversationsWithSupportRequests: numConversationsWithSupportRequests,
+      supportRequestTotal: numSupportRequests,
       feedback: feedback,
       feedbackSelected: 'positive',
       feedbackFiltered: feedbackFiltered,
@@ -270,6 +283,9 @@ const formatExitIntents = exitIntents => {
   return exitIntentsAggregate
 }
 
+// TODO - need to revise this entire thing. It is supposed to trigger
+// off of a subscription to today's data changes, but the fields changed
+// are calculated differently from when they are fetched in fetchMetrics.
 export const updateMetrics = metric => {
   return (dispatch, getState) => {
     const emptyFeedback = {
