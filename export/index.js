@@ -31,10 +31,11 @@ const cleanUpMetrics = async (context) => {
   console.log(`New Date() = ${format(new Date(), 'MM-DD-YYYY')}`)
   console.log(`Today: ${today}`)
   console.log(`startTime: ${startTime}`)
+
   // The metric's id is a formatted day
   const metricName = format(today, 'MM-DD-YYYY')
+
   // Create a reference to the previous days metrics
-  // TODO - need subject matter, not firestore project
   const metricsRef = db
     .collection(`${context}/metrics`)
     .doc(metricName)

@@ -198,19 +198,19 @@ export const updateEngagedUserToggle = showEngagedUser => {
 }
 
 // Change subjectMatter/context and retrieve new metrics & conversations
-export const updateSubjectMatter = (subjectMatter, subjectMatters = []) => {
+export const updateSubjectMatter = (subjectMatter, subjectMattersSettings = []) => {
   const context = `subjectMatters/${subjectMatter}`
 
   return (dispatch, getState) => {
     dispatch(clearSubscriptions())
 
     // Get subjectMatter's settings based on the given context
-    if (!subjectMatters.length === 0) {
-      subjectMatters = getState().config.subjectMatters
+    if (!subjectMattersSettings.length === 0) {
+      subjectMattersSettings = getState().config.subjectMattersSettings
     }
 
 
-    const currSubjectMatter = subjectMatters.filter(p => p.name === subjectMatter)[0]
+    const currSubjectMatter = subjectMattersSettings.filter(p => p.name === subjectMatter)[0]
     if (currSubjectMatter) {
       const dateFilters = getDateFilters(
         getState().filters.filterLabel,

@@ -3,7 +3,8 @@ import ComposedChart from './ComposedChart'
 import prepareDataForComposedChart from '../scripts/metricUtil'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { Line, Bar, Tooltip } from 'recharts'
+import { Line, Legend, Tooltip } from 'recharts'
+import {contrastingColors} from '../common/helper'
 
 const Header = styled.h3`
   display: flex
@@ -35,19 +36,21 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const EngagedUserChart = props => {
   const { data } = prepareDataForComposedChart(props.metrics, props.filterLabel)
+  const [ darkestColor, lightestColor ] = contrastingColors(props.colors)
 
   return (
     <>
       <Header>
         <HeaderText>
-          Engaged Users
+          Total Users vs Engaged Users
         </HeaderText>
       </Header>
       <ComposedChart
         data={data}
         xKey='id'>
-        <Bar dataKey={props.showEngagedUser ? "numConversations" : "numConversationsWithDuration"} fill={props.colors[1]} />
-        <Line type="monotone" dataKey={props.showEngagedUser ? "numConversations" : "numConversationsWithDuration"} stroke={props.colors[0]} />
+        <Line type="monotone" dataKey="numConversations" stroke={lightestColor} name="Total Users" />
+        <Line type="monotone" dataKey="numConversationsWithDuration" stroke={darkestColor} name="Engaged Users" />
+        <Legend />
         <Tooltip content={<CustomTooltip />} />
       </ComposedChart>
     </>
