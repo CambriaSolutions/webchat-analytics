@@ -82,8 +82,6 @@ export const fetchMetricsSuccess = metrics => {
       numConversationsWithSupportRequests +=
         metric.numConversationsWithSupportRequests
 
-      console.log('metric.numConversationsWithSupportRequests', metric.numConversationsWithSupportRequests)
-
       numSupportRequests += reduce(metric.supportRequests, (result, value, key) => {
         result += value.occurrences
         return result
@@ -159,7 +157,7 @@ export const fetchMetricsSuccess = metrics => {
               occurrences: helpfulFeedback.occurrences,
             }
         }
-        
+
         // Count through not-helpful feedback
         for (let notHelpfulFeedback of feedbackEntry.notHelpful) {
           const notHelpfulFeedbackId = notHelpfulFeedback.name.replace(
