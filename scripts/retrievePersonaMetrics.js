@@ -17,9 +17,8 @@ async function asyncForEach(array, callback) {
 
 const queryAndGenerateOutpuFile = async (personaIntents, filename) => {
     
-  const snapshot = await requestsRef
-    .where('queryResult.intent.displayName', 'in', personaIntents).get()
-  //.orderBy('createdAt').startAt(position).limit(increment).get()
+  const snapshot = await requestsRef.where('queryResult.intent.displayName', 'in', personaIntents).get()
+  
   if (snapshot.empty) {
     console.warn('no records found')
   }
