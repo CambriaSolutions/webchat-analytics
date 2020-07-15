@@ -23,13 +23,7 @@ jobs:
         type: string
       autoMlLocation:
         type: string
-      autoMlCatModel:
-        type: string
       autoMlDataset:
-        type: string
-      autoMlPrivateKey:
-        type: string
-      autoMlEmail:
         type: string
       firebaseApiKey:
         type: string
