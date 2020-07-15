@@ -6,6 +6,7 @@ const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
+const automl = require('@google-cloud/automl')
 
 const store = admin.firestore()
 
