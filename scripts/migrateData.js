@@ -36,21 +36,12 @@ const createIntentMap = (intentNames) => {
 
 const updateIntentNames = (intentMap, data) => {
     let stringifedData = JSON.stringify(data);
-    let hasBeenUpdated = false;
     [...intentMap.keys()].forEach(originalIntentName => {
         if (stringifedData.includes(originalIntentName)) {
             stringifedData = stringifedData.replace(originalIntentName, intentMap.get(originalIntentName))
-
-            if (!hasBeenUpdated) {
-                hasBeenUpdated = true
-            }
+            stringifedData = stringifedData.replace('cse-cse-', 'cse-')
         }
     })
-    
-    if (hasBeenUpdated) {
-        // To enable migrating existing Dev / Stage data. This isn't a concern with prod data.
-        stringifedData = stringifedData.replace('cse-cse-', 'cse-')
-    }
 
     return JSON.parse(stringifedData)
 }
