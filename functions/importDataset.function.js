@@ -6,12 +6,19 @@ const path = require('path')
 const os = require('os')
 const { Storage } = require('@google-cloud/storage')
 const format = require('date-fns/format')
-const createAutoMLClientForSubjectMatter = require('./clients/autoMLClient')
 
 const store = admin.firestore()
 
 // Google Cloud Storage Setup
-const storage = new Storage()
+const storage = new Storage({
+  projectId: process.env.AUTOML_MDHS_PROJECT_ID,
+  keyFilename: './mdhs-key.json'
+})
+
+const client = new automl.v1beta1.AutoMlClient({
+  projectId: process.env.AUTOML_MDHS_PROJECT_ID,
+  keyFilename: './mdhs-key.json'
+})
 
 /***
  * Retrieve new query and category pairs if occurrences >10
@@ -19,15 +26,19 @@ const storage = new Storage()
  */
 async function main(subjectMatter) {
   console.log('retrieving query data...')
+
   const storeRef = store.collection(
     `/subjectMatters/${subjectMatter}/queriesForTraining`
   )
+
   const queriesToImport = await storeRef
     .where('occurrences', '>=', 10)
     .where('categoryModelTrained', '==', false)
     .where('smModelTrained', '==', false)
     .get()
+
   const phraseCategory = []
+
   // add new phrase category pairs to phraseCategory array
   for (let query of queriesToImport.docs) {
     let queryDoc = query.data()
@@ -40,7 +51,7 @@ async function main(subjectMatter) {
   if (phraseCategory.length > 0) {
     try {
       const date = format(new Date(), 'MM-DD-YYYY')
-      const fileName = `${date}-category-training.csv`
+      const fileName = `${date}-${subjectMatter}-category-training.csv`
       const tempFilePath = path.join(os.tmpdir(), fileName)
       let f = fs.openSync(tempFilePath, 'w')
 
@@ -52,7 +63,7 @@ async function main(subjectMatter) {
         console.log('File completed writing in GS bucket')
         // Uploads csv file to bucket for AutoML dataset import
 
-        const bucket = storage.bucket('gs://' + process.env.GCS_URI)
+        const bucket = storage.bucket('gs://' + process.env.MDHS_GCS_URI)
 
         await bucket.upload(
           tempFilePath,
@@ -85,19 +96,17 @@ async function main(subjectMatter) {
  * @param {*} phraseCategory
  */
 async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
-  // Instantiate autoML client
-  const client = createAutoMLClientForSubjectMatter(subjectMatter)
-
   const datasetFullId = client.datasetPath(
-    process.env.AUTOML_PROJECT,
+    process.env.AUTOML_MDHS_PROJECT_ID,
     process.env.AUTOML_LOCATION,
-    process.env.AUTOML_DATASET
+    process.env.AUTOML_MDHS_DATASET_ID
   )
+
   try {
     // Get Google Cloud Storage URI
     const inputConfig = {
       gcsSource: {
-        inputUris: [`gs://${process.env.GCS_URI}/${fileName}`],
+        inputUris: [`gs://${process.env.MDHS_GCS_URI}/${fileName}`],
       },
     }
     // Build AutoML request object
@@ -111,7 +120,6 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
 
     console.log(`Processing Category dataset import...`)
 
-    // TODO - need subject matter
     await store
       .collection(`/subjectMatters/`)
       .doc(subjectMatter)
@@ -125,6 +133,7 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
     if (operationResponses) {
       console.log(operationResponses)
       console.log(`Data imported.`)
+
       // Save import status in db
       await store
         .collection(`/subjectMatters/`)
@@ -133,6 +142,7 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
           isImportProcessing: false,
           lastImported: admin.firestore.Timestamp.now(),
         })
+
       // Update import status in individual queries
       return Promise.all(
         phraseCategory.map(async (element) => {
@@ -166,6 +176,7 @@ exports = module.exports = functions
 
     for (const subjectMatterIndex in subjectMatters) {
       const subjectMatter = subjectMatters[subjectMatterIndex]
+
       try {
         main(subjectMatter)
       } catch (err) {
