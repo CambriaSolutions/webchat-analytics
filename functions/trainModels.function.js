@@ -73,7 +73,7 @@ async function trainCategoryModel(subjectMatter) {
   const date = format(new Date(), 'MM_DD_YYYY')
   const modelName = `mdhs_${subjectMatter}_${date}`
 
-  const projectLocation = client.locationPath(projectId, computeRegion)
+  const projectLocation = client.locationPath(process.env.AUTOML_MDHS_PROJECT_ID, 'us-central1')
 
   // Set model name and model metadata for the dataset.
   const modelData = {
@@ -91,7 +91,7 @@ async function trainCategoryModel(subjectMatter) {
 
     console.log(`Training operation name: ${initialApiResponse.name}`)
     console.log(`Training started...`)
-    
+
     // Update training status in db
     await store
       .collection(`/subjectMatters/`)
@@ -101,10 +101,10 @@ async function trainCategoryModel(subjectMatter) {
       })
 
     const [model] = await operation.promise()
-    
+
     // Retrieve deployment state.
     let deploymentState = ``
-    
+
     if (model.deploymentState === 1) {
       deploymentState = `deployed`
 
