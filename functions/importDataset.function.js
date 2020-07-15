@@ -51,6 +51,8 @@ async function main(subjectMatter) {
 
   if (phraseCategory.length > 0) {
     try {
+      console.log('File beginning to write in GS bucket')
+
       const date = format(new Date(), 'MM-DD-YYYY')
       const fileName = `${date}-${subjectMatter}-category-training.csv`
       const tempFilePath = path.join(os.tmpdir(), fileName)
@@ -79,7 +81,7 @@ async function main(subjectMatter) {
             console.log('File uploaded successfully', phraseCategory)
 
             // import phrases and categories to AutoML category dataset
-            await updateCategoryModel(fileName, phraseCategory)
+            await updateCategoryModel(fileName, phraseCategory, subjectMatter)
           }
         )
       })
@@ -116,10 +118,12 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
       inputConfig: inputConfig,
     }
 
+    console.log(`Processing Category dataset import`)
+
     // Import dataset from input config
     const [operation] = await client.importData(request)
 
-    console.log(`Processing Category dataset import...`)
+    console.log(`Finished Category dataset import`)
 
     await store
       .collection(`/subjectMatters/`)
@@ -132,8 +136,8 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
 
     // The final result of the operation.
     if (operationResponses) {
+      console.log(`Operation Response Below:`)
       console.log(operationResponses)
-      console.log(`Data imported.`)
 
       // Save import status in db
       await store
