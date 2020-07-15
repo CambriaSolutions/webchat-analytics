@@ -97,7 +97,7 @@ class Dashboard extends Component {
         color: ${this.props.mainColor};
       }
     `
-    
+
     let dashboardUI = (
       <CenterDiv>
         <h2>Loading Metrics...</h2>
@@ -372,12 +372,12 @@ const mapStateToProps = state => {
     loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
-      (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
+      (state.metrics.numConversationsWithSupportRequests / state.metrics.conversationsTotal) *
       100,
       1
     ),
     supportEngagedRequestsPercentage: round(
-      (state.metrics.supportRequestTotal /
+      (state.metrics.numConversationsWithSupportRequests /
         state.metrics.conversationsDurationTotal) *
       100,
       1
