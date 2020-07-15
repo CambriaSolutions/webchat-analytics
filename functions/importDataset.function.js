@@ -69,6 +69,8 @@ async function main(subjectMatter) {
         const bucket = storage.bucket('gs://' + process.env.MDHS_GCS_URI)
 
         console.log('GS bucket instantiated')
+        console.log('tempFilePath: ' + tempFilePath)
+        console.log('fileName: ' + fileName)
 
         await bucket.upload(
           tempFilePath,
