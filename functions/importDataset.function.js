@@ -1,6 +1,5 @@
 require('dotenv').config()
 const admin = require('firebase-admin')
-const automl = require('@google-cloud/automl')
 const functions = require('firebase-functions')
 const fs = require('fs')
 const path = require('path')
@@ -11,11 +10,15 @@ const format = require('date-fns/format')
 const store = admin.firestore()
 
 // Google Cloud Storage Setup
-const storage = new Storage()
+const storage = new Storage({
+  projectId: process.env.AUTOML_MDHS_PROJECT_ID,
+  keyFilename: './mdhs-key.json'
+})
 
-//Instantiate autoML client
-// TODO - need to instantiate different clients for different models.
-const client = new automl.v1beta1.AutoMlClient()
+const client = new automl.v1beta1.AutoMlClient({
+  projectId: process.env.AUTOML_MDHS_PROJECT_ID,
+  keyFilename: './mdhs-key.json'
+})
 
 /***
  * Retrieve new query and category pairs if occurrences >10
@@ -23,15 +26,19 @@ const client = new automl.v1beta1.AutoMlClient()
  */
 async function main(subjectMatter) {
   console.log('retrieving query data...')
+
   const storeRef = store.collection(
     `/subjectMatters/${subjectMatter}/queriesForTraining`
   )
+
   const queriesToImport = await storeRef
     .where('occurrences', '>=', 10)
     .where('categoryModelTrained', '==', false)
     .where('smModelTrained', '==', false)
     .get()
+
   const phraseCategory = []
+
   // add new phrase category pairs to phraseCategory array
   for (let query of queriesToImport.docs) {
     let queryDoc = query.data()
@@ -44,7 +51,7 @@ async function main(subjectMatter) {
   if (phraseCategory.length > 0) {
     try {
       const date = format(new Date(), 'MM-DD-YYYY')
-      const fileName = `${date}-category-training.csv`
+      const fileName = `${date}-${subjectMatter}-category-training.csv`
       const tempFilePath = path.join(os.tmpdir(), fileName)
       let f = fs.openSync(tempFilePath, 'w')
 
@@ -56,7 +63,7 @@ async function main(subjectMatter) {
         console.log('File completed writing in GS bucket')
         // Uploads csv file to bucket for AutoML dataset import
 
-        const bucket = storage.bucket('gs://' + process.env.GCS_URI)
+        const bucket = storage.bucket('gs://' + process.env.MDHS_GCS_URI)
 
         await bucket.upload(
           tempFilePath,
@@ -90,15 +97,16 @@ async function main(subjectMatter) {
  */
 async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
   const datasetFullId = client.datasetPath(
-    process.env.AUTOML_PROJECT,
+    process.env.AUTOML_MDHS_PROJECT_ID,
     process.env.AUTOML_LOCATION,
-    process.env.AUTOML_DATASET
+    process.env.AUTOML_MDHS_DATASET_ID
   )
+
   try {
     // Get Google Cloud Storage URI
     const inputConfig = {
       gcsSource: {
-        inputUris: [`gs://${process.env.GCS_URI}/${fileName}`],
+        inputUris: [`gs://${process.env.MDHS_GCS_URI}/${fileName}`],
       },
     }
     // Build AutoML request object
@@ -112,7 +120,6 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
 
     console.log(`Processing Category dataset import...`)
 
-    // TODO - need subject matter
     await store
       .collection(`/subjectMatters/`)
       .doc(subjectMatter)
@@ -126,6 +133,7 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
     if (operationResponses) {
       console.log(operationResponses)
       console.log(`Data imported.`)
+
       // Save import status in db
       await store
         .collection(`/subjectMatters/`)
@@ -134,6 +142,7 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
           isImportProcessing: false,
           lastImported: admin.firestore.Timestamp.now(),
         })
+
       // Update import status in individual queries
       return Promise.all(
         phraseCategory.map(async (element) => {
@@ -163,11 +172,15 @@ exports = module.exports = functions
   .schedule('0 20 * * *')
   .timeZone('America/Los_Angeles')
   .onRun(async (context) => {
-    // TODO need to make this generic for all the different subject matters.
-    const subjectMatter = 'cse'
-    try {
-      await main(subjectMatter)
-    } catch (err) {
-      console.log(err)
+    const subjectMatters = ['cse']
+
+    for (const subjectMatterIndex in subjectMatters) {
+      const subjectMatter = subjectMatters[subjectMatterIndex]
+
+      try {
+        main(subjectMatter)
+      } catch (err) {
+        console.log(err)
+      }
     }
   })

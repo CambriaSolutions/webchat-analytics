@@ -172,7 +172,7 @@ class Settings extends Component {
       </div>
     )
 
-    if (this.props.subjectMatters.length > 1) {
+    if (this.props.subjectMattersSettings.length > 1) {
       defaultSubjectMatterSetting = (
         <div>
           <List subheader={<ListHeader>Default Subject Matter</ListHeader>}>
