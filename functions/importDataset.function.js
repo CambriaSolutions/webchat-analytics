@@ -59,14 +59,16 @@ async function main(subjectMatter) {
       let f = fs.openSync(tempFilePath, 'w')
 
       phraseCategory.forEach((element) => {
-        fs.writeSync(f, `${element.phrase}, ${element.category} \n`)
+        fs.writeSync(f, `"${element.phrase}","${element.category}"\n`)
       })
 
       fs.close(f, async () => {
-        console.log('File completed writing in GS bucket')
+        console.log('Uploading file to GS bucket')
         // Uploads csv file to bucket for AutoML dataset import
 
         const bucket = storage.bucket('gs://' + process.env.MDHS_GCS_URI)
+
+        console.log('GS bucket instantiated')
 
         await bucket.upload(
           tempFilePath,
@@ -75,10 +77,11 @@ async function main(subjectMatter) {
           },
           async (err, file) => {
             if (err) {
+              console.log('Error upload file to GS bucket')
               return console.log(err)
             }
 
-            console.log('File uploaded successfully', phraseCategory)
+            console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
 
             // import phrases and categories to AutoML category dataset
             await updateCategoryModel(fileName, phraseCategory, subjectMatter)
@@ -106,6 +109,8 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
   )
 
   try {
+    console.log('Beginning updateCategoryModel')
+
     // Get Google Cloud Storage URI
     const inputConfig = {
       gcsSource: {
