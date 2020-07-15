@@ -179,13 +179,13 @@ exports = module.exports = functions
   .onRun(async (context) => {
     const subjectMatters = ['cse']
 
-    for (const subjectMatterIndex in subjectMatters) {
-      const subjectMatter = subjectMatters[subjectMatterIndex]
+    //for (const subjectMatterIndex in subjectMatters) {
+    const subjectMatter = subjectMatters[0]
 
-      try {
-        main(subjectMatter)
-      } catch (err) {
-        console.log(err)
-      }
+    try {
+      await main(subjectMatter)
+    } catch (err) {
+      console.log(err)
     }
+    //}
   })
