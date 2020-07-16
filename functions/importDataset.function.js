@@ -73,24 +73,21 @@ async function main(subjectMatter) {
       console.log('tempFilePath: ' + tempFilePath)
       console.log('fileName: ' + fileName)
 
-      const response = await bucket.upload(
+      const [file, requestResponse] = await bucket.upload(
         tempFilePath,
         {
           destination: bucket.file(fileName)
         }
       )
 
-      console.log('file: ' + JSON.stringify(response[0]))
-      console.log('requestResponse: ' + JSON.stringify(response[1]))
+      if (!file) {
+        console.error('Error upload file to GS bucket. requestResponse: ' + JSON.stringify(requestResponse))
+      } else {
+        console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
 
-      // if (requestResponse.statusCode !== 200) {
-      //   console.error('Error upload file to GS bucket: ' + JSON.stringify(err))
-      // } else {
-      console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
-
-      // import phrases and categories to AutoML category dataset
-      await updateCategoryModel(fileName, phraseCategory, subjectMatter)
-      //}
+        // import phrases and categories to AutoML category dataset
+        await updateCategoryModel(fileName, phraseCategory, subjectMatter)
+      }
     } catch (err) {
       console.error(err)
     }
@@ -187,6 +184,7 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
 
 exports = module.exports = functions
   .runWith({
+    // TODO this does not seem to be working as intended
     timeoutSeconds: 540
   })
   .pubsub
