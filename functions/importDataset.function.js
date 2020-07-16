@@ -72,23 +72,23 @@ async function main(subjectMatter) {
         console.log('tempFilePath: ' + tempFilePath)
         console.log('fileName: ' + fileName)
 
-        await bucket.upload(
+        const [file, requestResponse] = await bucket.upload(
           tempFilePath,
           {
-            destination: bucket.file(fileName),
-          },
-          async (err, file) => {
-            if (err) {
-              console.log('Error upload file to GS bucket')
-              return console.log(err)
-            }
-
-            console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
-
-            // import phrases and categories to AutoML category dataset
-            await updateCategoryModel(fileName, phraseCategory, subjectMatter)
+            destination: bucket.file(fileName)
           }
         )
+
+        console.log('requestResponse: ' + JSON.stringify(requestResponse))
+
+        if (requestResponse.statusCode !== 200) {
+          console.error('Error upload file to GS bucket: ' + JSON.stringify(err))
+        } else {
+          console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
+
+          // import phrases and categories to AutoML category dataset
+          await updateCategoryModel(fileName, phraseCategory, subjectMatter)
+        }
       })
     } catch (err) {
       console.error(err)
