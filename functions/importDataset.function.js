@@ -186,6 +186,9 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
 }
 
 exports = module.exports = functions
+  .runWith({
+    timeoutSeconds: 540
+  })
   .pubsub
   .schedule('0 20 * * *')
   .timeZone('America/Los_Angeles')
