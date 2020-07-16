@@ -104,7 +104,7 @@ async function main(subjectMatter) {
  * @param {*} phraseCategory
  */
 async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
-  const datasetFullId = client.datasetPath(
+  const datasetPath = client.datasetPath(
     process.env.AUTOML_MDHS_PROJECT_ID,
     process.env.AUTOML_LOCATION,
     process.env.AUTOML_MDHS_DATASET_ID
@@ -122,12 +122,12 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
 
     // Build AutoML request object
     const request = {
-      name: datasetFullId,
+      name: datasetPath,
       inputConfig: inputConfig,
     }
 
     console.log(`Processing Category dataset import`)
-    console.log('datasetFullId: ' + JSON.stringify(datasetFullId))
+    console.log('datasetPath: ' + JSON.stringify(datasetPath))
     console.log('inputConfig: ' + JSON.stringify(inputConfig))
     console.log('request: ' + JSON.stringify(request))
 
@@ -172,6 +172,8 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
       )
     }
   } catch (err) {
+    console.error('updateCategoryModel failed: ' + err)
+
     // Save import status in db
     await store
       .collection(`/subjectMatters/`)
@@ -179,7 +181,6 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
       .update({
         isImportProcessing: false,
       })
-    console.error(err)
   }
 }
 
