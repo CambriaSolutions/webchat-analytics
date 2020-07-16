@@ -119,6 +119,7 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
         inputUris: [`gs://${process.env.MDHS_GCS_URI}/${fileName}`],
       },
     }
+
     // Build AutoML request object
     const request = {
       name: datasetFullId,
@@ -126,6 +127,9 @@ async function updateCategoryModel(fileName, phraseCategory, subjectMatter) {
     }
 
     console.log(`Processing Category dataset import`)
+    console.log('datasetFullId: ' + JSON.stringify(datasetFullId))
+    console.log('inputConfig: ' + JSON.stringify(inputConfig))
+    console.log('request: ' + JSON.stringify(request))
 
     // Import dataset from input config
     const [operation] = await client.importData(request)
