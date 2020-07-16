@@ -80,6 +80,7 @@ async function main(subjectMatter) {
         }
       )
 
+      // TODO better way to check for fail/success here
       if (!file) {
         console.error('Error upload file to GS bucket. requestResponse: ' + JSON.stringify(requestResponse))
       } else {

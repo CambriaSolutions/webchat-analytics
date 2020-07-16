@@ -49,7 +49,7 @@ exports = module.exports = functions
                   `/subjectMatters/${subjectMatter}/queriesForTraining`
                 )
                 .doc(doc.id)
-                .set({ categoryModelTrained: true }, { merge: true })
+                .update({ categoryModelTrained: true }, { merge: true })
             })
           } else {
             console.log("Training was skipped.")
@@ -69,7 +69,7 @@ exports = module.exports = functions
  * @param {*} intent
  */
 async function trainCategoryModel(subjectMatter) {
-  const datasetId = `${process.env.AUTOML_DATASET}`
+  const datasetId = process.env.AUTOML_MDHS_DATASET_ID
   const date = format(new Date(), 'MM_DD_YYYY')
   const modelName = `mdhs_${subjectMatter}_${date}`
 
