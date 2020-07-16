@@ -62,35 +62,35 @@ async function main(subjectMatter) {
         fs.writeSync(f, `"${element.phrase}","${element.category}"\n`)
       })
 
-      fs.closeSync(f, async () => {
-        console.log('Uploading file to GS bucket')
-        // Uploads csv file to bucket for AutoML dataset import
+      fs.closeSync(f)
 
-        const bucket = storage.bucket('gs://' + process.env.MDHS_GCS_URI)
+      console.log('Uploading file to GS bucket')
+      // Uploads csv file to bucket for AutoML dataset import
 
-        console.log('GS bucket instantiated')
-        console.log('tempFilePath: ' + tempFilePath)
-        console.log('fileName: ' + fileName)
+      const bucket = storage.bucket('gs://' + process.env.MDHS_GCS_URI)
 
-        const response = await bucket.upload(
-          tempFilePath,
-          {
-            destination: bucket.file(fileName)
-          }
-        )
+      console.log('GS bucket instantiated')
+      console.log('tempFilePath: ' + tempFilePath)
+      console.log('fileName: ' + fileName)
 
-        console.log('file: ' + JSON.stringify(response[0]))
-        console.log('requestResponse: ' + JSON.stringify(response[1]))
+      const response = await bucket.upload(
+        tempFilePath,
+        {
+          destination: bucket.file(fileName)
+        }
+      )
 
-        // if (requestResponse.statusCode !== 200) {
-        //   console.error('Error upload file to GS bucket: ' + JSON.stringify(err))
-        // } else {
-        console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
+      console.log('file: ' + JSON.stringify(response[0]))
+      console.log('requestResponse: ' + JSON.stringify(response[1]))
 
-        // import phrases and categories to AutoML category dataset
-        await updateCategoryModel(fileName, phraseCategory, subjectMatter)
-        //}
-      })
+      // if (requestResponse.statusCode !== 200) {
+      //   console.error('Error upload file to GS bucket: ' + JSON.stringify(err))
+      // } else {
+      console.log('File uploaded successfully. phraseCategory[]: ' + JSON.stringify(phraseCategory))
+
+      // import phrases and categories to AutoML category dataset
+      await updateCategoryModel(fileName, phraseCategory, subjectMatter)
+      //}
     } catch (err) {
       console.error(err)
     }
