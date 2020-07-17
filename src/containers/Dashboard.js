@@ -97,7 +97,7 @@ class Dashboard extends Component {
         color: ${this.props.mainColor};
       }
     `
-    
+
     let dashboardUI = (
       <CenterDiv>
         <h2>Loading Metrics...</h2>
@@ -176,17 +176,23 @@ class Dashboard extends Component {
                 notes={`${this.props.conversationsTotal -
                   this.props.conversationsDurationTotal} immediate exits`}
                 icon='speaker_notes'
-                tooltip='Count of the number of times a user clicks any button, including "Yes" and "Acknowledge."'
+                tooltip='Total number of active(engaged) users.'
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title='The number of total users and engaged users over time.' arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <EngagedUserChart colors={this.props.colors} />
               </GraphWrap>
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
-                <SupportRequestChart colors={this.props.colors} />
+              <Tooltip TransitionComponent={Zoom} title='The number of support requests submitted over time' arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
+                <SupportRequestChart colors={this.props.colors} tooltip='The number of support requests submitted over time' />
               </GraphWrap>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -372,12 +378,12 @@ const mapStateToProps = state => {
     loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
-      (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
+      (state.metrics.numConversationsWithSupportRequests / state.metrics.conversationsTotal) *
       100,
       1
     ),
     supportEngagedRequestsPercentage: round(
-      (state.metrics.supportRequestTotal /
+      (state.metrics.numConversationsWithSupportRequests /
         state.metrics.conversationsDurationTotal) *
       100,
       1

@@ -22,19 +22,8 @@ const fetchMetricsStart = (state) => {
 const fetchMetricsSuccess = (state, action) => {
   return {
     ...state,
-    dailyMetrics: action.dailyMetrics,
-    intents: action.intents,
-    supportRequests: action.supportRequests,
-    supportRequestTotal: action.supportRequestTotal,
-    feedback: action.feedback,
-    feedbackSelected: action.feedbackSelected,
-    feedbackFiltered: action.feedbackFiltered,
-    loading: false,
-    conversationsDurationTotal: action.conversationsDurationTotal,
-    conversationsTotal: action.conversationsTotal,
-    durationTotal: action.durationTotal,
-    durationTotalNoExit: action.durationTotalNoExit,
-    exitIntents: action.exitIntents,
+    ...action,
+    loading: false
   }
 }
 

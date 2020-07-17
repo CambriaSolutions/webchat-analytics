@@ -6,8 +6,10 @@ const format = require('date-fns/format')
 const store = admin.firestore()
 
 // Instantiate autoML client
-// TODO - Need to instantiate this for different models
-const client = new automl.v1beta1.AutoMlClient()
+const client = new automl.v1beta1.AutoMlClient({
+  projectId: process.env.AUTOML_MDHS_PROJECT_ID,
+  keyFilename: './mdhs-key.json'
+})
 
 const runtimeOpts = {
   timeoutSeconds: 60,
@@ -47,7 +49,7 @@ exports = module.exports = functions
                   `/subjectMatters/${subjectMatter}/queriesForTraining`
                 )
                 .doc(doc.id)
-                .set({ categoryModelTrained: true }, { merge: true })
+                .update({ categoryModelTrained: true }, { merge: true })
             })
           } else {
             console.log("Training was skipped.")
@@ -67,13 +69,11 @@ exports = module.exports = functions
  * @param {*} intent
  */
 async function trainCategoryModel(subjectMatter) {
-  const projectId = `${process.env.GCS_PROJECT_ID}`
-  const computeRegion = `${process.env.AUTOML_LOCATION}`
-  const datasetId = `${process.env.AUTOML_DATASET}`
+  const datasetId = process.env.AUTOML_MDHS_DATASET_ID
   const date = format(new Date(), 'MM_DD_YYYY')
-  const modelName = `mdhs_csa_analytics_${date}`
+  const modelName = `mdhs_${subjectMatter}_${date}`
 
-  const projectLocation = client.locationPath(projectId, computeRegion)
+  const projectLocation = client.locationPath(process.env.AUTOML_MDHS_PROJECT_ID, 'us-central1')
 
   // Set model name and model metadata for the dataset.
   const modelData = {
@@ -88,8 +88,10 @@ async function trainCategoryModel(subjectMatter) {
       parent: projectLocation,
       model: modelData,
     })
+
     console.log(`Training operation name: ${initialApiResponse.name}`)
     console.log(`Training started...`)
+
     // Update training status in db
     await store
       .collection(`/subjectMatters/`)
@@ -97,11 +99,15 @@ async function trainCategoryModel(subjectMatter) {
       .update({
         isTrainingProcessing: true,
       })
+
     const [model] = await operation.promise()
+
     // Retrieve deployment state.
     let deploymentState = ``
+
     if (model.deploymentState === 1) {
       deploymentState = `deployed`
+
       // Update training status in db
       await store
         .collection(`/subjectMatters/`)
@@ -119,6 +125,7 @@ async function trainCategoryModel(subjectMatter) {
     console.log(`Model deployment state: ${deploymentState}`)
   } catch (err) {
     console.log(err)
+
     await store
       .collection(`/subjectMatters/`)
       .doc(`${subjectMatter}`)
