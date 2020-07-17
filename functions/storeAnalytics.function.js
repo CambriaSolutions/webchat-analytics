@@ -16,6 +16,8 @@ const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
+const fallbackIntents = ['Default Fallback Intent']
+
 // Inspect the query against suggestions in context to determine whether or
 // not the agent and ml models should be updated
 const inspectForMl = (query, intent, dfContext, context) => {
@@ -232,6 +234,8 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
       let previousConversationDuration = 0
       let shouldCalculateDuration = true
 
+      const isFallbackIntent = fallbackIntents.includes(intent.name)
+
       // The conversation has a support request only if it has been submitted
       const supportRequestSubmitted = intent.name === 'cse-support-submit-issue'
       if (doc.exists) {
@@ -272,6 +276,11 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
             conversation.supportRequests.push(supportType)
           }
         }
+
+        if (isFallbackIntent) {
+          conversation.fallbackTriggeringQuery = reqData.queryResult.queryText
+        }
+
         conversationRef.update(conversation)
       } else {
         // Conversation data doesn't exist for this id
@@ -284,6 +293,10 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         conversation.hasSupportRequest = supportRequestSubmitted
         conversation.supportRequests =
           hasSupportRequest && supportType !== '' ? [supportType] : []
+
+        if (isFallbackIntent) {
+          conversation.fallbackTriggeringQuery = reqData.queryResult.queryText
+        }
         conversationRef.set(conversation)
       }
 
@@ -300,7 +313,9 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         newConversationDuration,
         previousConversationDuration,
         newConversationFirstDuration,
-        shouldCalculateDuration
+        shouldCalculateDuration,
+        isFallbackIntent,
+        conversation.fallbackTriggeringQuery
       )
 
       return res.status(200).send('Analytics stored successfully')
@@ -377,7 +392,9 @@ const storeMetrics = (
   newConversationDuration,
   previousConversationDuration,
   newConversationFirstDuration,
-  shouldCalculateDuration
+  shouldCalculateDuration,
+  isFallbackIntent,
+  fallbackTriggeringQuery
 ) => {
   const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
   const dateKey = format(currentDate, 'MM-DD-YYYY')
@@ -545,6 +562,12 @@ const storeMetrics = (
           )
         }
 
+        if (isFallbackIntent) {
+          updatedMetrics.numFallbacks = currMetric.numFallbacks + 1
+          updatedMetrics.fallbackTriggeringQueries = currMetric.fallbackTriggeringQueries
+          updatedMetrics.fallbackTriggeringQueries.push(fallbackTriggeringQuery)          
+        }
+
         // Update the metrics collection for this request
         metricsRef.update(updatedMetrics)
       } else {
@@ -579,6 +602,8 @@ const storeMetrics = (
           numConversationsWithDuration: 0,
           averageConversationDuration: 0,
           numConversationsWithSupportRequests: 0,
+          numFallbacks: 0,
+          fallbackTriggeringQueries: [],
           supportRequests: supportRequestType
             ? [
               {
