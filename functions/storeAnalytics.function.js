@@ -565,7 +565,18 @@ const storeMetrics = (
         if (isFallbackIntent) {
           updatedMetrics.numFallbacks = currMetric.numFallbacks + 1
           updatedMetrics.fallbackTriggeringQueries = currMetric.fallbackTriggeringQueries
-          updatedMetrics.fallbackTriggeringQueries.push(fallbackTriggeringQuery)          
+          const queryOccurs = updatedMetrics.fallbackTriggeringQueries.filter(queryMetric => {
+            return queryMetric.queryText === fallbackTriggeringQuery
+          })
+
+          if(queryOccurs.length > 0) {
+            queryOccurs[0].occurrences = queryOccurs[0].occurrences + 1
+          } else {
+            updatedMetrics.fallbackTriggeringQueries.push({
+              queryText: fallbackTriggeringQuery,
+              occurrences: 1
+            })
+          }
         }
 
         // Update the metrics collection for this request
