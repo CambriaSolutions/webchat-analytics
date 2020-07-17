@@ -6,7 +6,7 @@ admin.initializeApp()
 
 const db = admin.firestore()
 const subjectMatterName = 'cse'
-const context = `subjectMatter/${subjectMatterName}`
+const context = `subjectMatters/${subjectMatterName}`
 const metricsRef = db.collection(`${context}/metrics`)
 const dailyUserMetrics = []
 
@@ -31,9 +31,8 @@ const retrieveUserMetrics = async () => {
       fs.writeSync(f, `${dayMetrics.date}, ${dayMetrics.totalUsers}, ${dayMetrics.totalEngagedUsers} \n`)
     })
 
-    fs.close(f, async () => {
-      console.log('File completed')
-    })
+    fs.closeSync(f)
+    console.log('File completed')
 
     console.log('dailyUserMetrics')
     console.log(dailyUserMetrics)

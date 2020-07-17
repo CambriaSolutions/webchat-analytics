@@ -83,8 +83,32 @@ const migrateProjectToSubjectMatter = async (project, subjectMatter) => {
     })
 }
 
+const correctDates = async (subjectMatter) => {
+    const metricsRef = db.collection(`subjectMatters/${subjectMatter}/metrics`)
+    const snapshot = await metricsRef.get();
+    if (snapshot.empty) {
+        console.log('empty')
+    } else {
+        console.log(`${snapshot.docs.length} docs`);
+        await asyncForEach(snapshot.docs, async doc => {
+            const data = doc.data()
+            if (data.date instanceof Map) {
+                 console.log(`${doc.id} Map`, data.date)
+            } else if (data.date instanceof admin.firestore.Timestamp) {
+                 console.log(`${doc.id} TS`, data.date)
+            } else {
+                data.date = admin.firestore.Timestamp.fromDate(new Date(data.date._seconds * 1000))
+                await metricsRef.doc(doc.id).set(data)
+                console.log(`Converted ${doc.id}`, admin.firestore.Timestamp.fromDate(new Date(data.date._seconds * 1000)))
+            }
+
+        })        
+    }
+}
+
 // // TODO enter the projectName and the target subject matter before running
-migrateProjectToSubjectMatter('mdhs-csa-dev', 'test-migrate-cse')
+migrateProjectToSubjectMatter('mdhs-csa-dev', 'cse')
+correctDates('cse')
 // // migrateProjectToSubjectMatter('mdhs-csa-isd-273818', 'cse')
 // // migrateProjectToSubjectMatter('mdhs-csa-stage', 'cse')
 // // migrateProjectToSubjectMatter('mdhs-csa', 'cse')
