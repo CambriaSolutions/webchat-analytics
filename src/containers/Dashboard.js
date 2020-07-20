@@ -149,7 +149,7 @@ class Dashboard extends Component {
                 label='Avg. Conv Duration'
                 notes=''
                 icon='schedule'
-                tooltip={`Average time of each session for the [${this.props.subjectMatterName}] subject matter - between when the user selects the subject matter and then closes or leaves the webpage. Each session can be a maximum time of 20 minutes, data is not collected after that.`}
+                tooltip={`Average time of each session for the [${this.props.subjectMatterName}] subject matter. A session is the time between when a user selects a subject matter and the last response Gen gives them. This does not include the time between the last response and closing their browser window or Gen.`}
               />
             </Grid>
             <Grid item xs={12} sm={3}>
