@@ -591,6 +591,7 @@ const storeMetrics = (
         }
 
         if (isNoneOfTheseIntent) {
+          console.log(`Match on ${noneOfTheseIntent} to [${currIntent.name}] --- ${fallbackTriggeringQuery} ${JSON.stringify(mlCategories)}`)
           updatedMetrics.noneOfTheseCategories = currMetric.noneOfTheseCategories
           updatedMetrics.noneOfTheseCategories.push({
             queryText: fallbackTriggeringQuery,
