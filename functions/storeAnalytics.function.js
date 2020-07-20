@@ -78,6 +78,7 @@ const inspectForMl = async (query, intent, dfContext, context, timezoneOffset) =
       
       const createdAt = admin.firestore.Timestamp.now()
       const queryForLabeling = await queriesForLabeling.add({ suggestions, userQuery, createdAt })
+      console.log(`Added`, queryForLabeling)
 
       const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
       const dateKey = format(currentDate, 'MM-DD-YYYY')
@@ -85,9 +86,12 @@ const inspectForMl = async (query, intent, dfContext, context, timezoneOffset) =
 
       // Add to a collection for querying at the metrics level
       if(metricsRef.exists) {
+        console.log(`Adding reference to ${queryForLabeling.id}`)
         await metricsRef.update({
           noneOfTheseCategories: admin.firestore.FieldValue.arrayUnion(queryForLabeling.id)
         })
+      } else {
+        console.log('Unable to find metric ref')
       }
     }
   } catch (err) {
