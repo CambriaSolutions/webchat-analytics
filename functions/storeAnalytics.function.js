@@ -84,7 +84,7 @@ const inspectForMl = async (query, intent, dfContext, context) => {
       const metricsRef = await store.collection(`${context}/metrics`).doc(dateKey);
 
       // Add to a collection for querying at the metrics level
-      if(metricsRef.exists()) {
+      if(metricsRef.exists) {
         await metricsRef.update({
           noneOfTheseCategories: admin.firestore.FieldValue.arrayUnion(queryForLabeling.id)
         })
