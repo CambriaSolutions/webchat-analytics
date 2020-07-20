@@ -281,11 +281,15 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         }
 
         if (isFallbackIntent) {
-          conversation.fallbackTriggeringQuery = reqData.queryResult.queryText
-          if(reqData.parameters !== undefined && reqData.parameters.mlCategories !== undefined) {
-            conversation.mlCategories = reqData.parameters.mlCategories
-          } else {
-            conversation.mlCategories = []
+          if (reqData.queryResult.queryText.length > 0) {
+            conversation.fallbackTriggeringQuery = reqData.queryResult.queryText
+            if (reqData.queryResult.outputContexts) {
+              for (const dfContext of reqData.queryResult.outputContexts) {
+                if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
+                  conversation.mlCategories = dfContext.parameters.suggestions
+                }
+              }
+            }
           }
         }
 
