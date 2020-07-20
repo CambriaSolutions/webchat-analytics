@@ -33,6 +33,8 @@ import SupportRequestChart from './SupportRequestChart'
 // Helpers
 import { colorShades } from '../common/helper'
 
+const getNameFromContext = context => /[^/]*$/.exec(context)[0]
+
 const rootStyles = {
   flexGrow: 1,
   margin: '2.5% 3%',
@@ -133,7 +135,7 @@ class Dashboard extends Component {
                 label='Total Users'
                 notes=''
                 icon='account_circle'
-                tooltip='Count of number of times Gen opens (automatic open or user click)'
+                tooltip={`Counts the number of times a user selected the [${this.props.subjectMatterName}] subject matter.`}
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -147,7 +149,7 @@ class Dashboard extends Component {
                 label='Avg. Conv Duration'
                 notes=''
                 icon='schedule'
-                tooltip='Average time of each session - between when Gen opens and closes or users leave the webpage. Each session can be a maximum time of 20 minutes, data is not collected after that.'
+                tooltip={`Average time of each session for the [${this.props.subjectMatterName}] subject matter. A session is the time between when a user selects a subject matter and the last response Gen gives them. This does not include the time between the last response and closing their browser window or Gen.`}
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -165,7 +167,7 @@ class Dashboard extends Component {
                     : ''
                 }
                 icon='contact_support'
-                tooltip="% of users submitting support tickets"
+                tooltip={`Percentage of users submitting support tickets for the [${this.props.subjectMatterName}] subject matter`}
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -176,12 +178,12 @@ class Dashboard extends Component {
                 notes={`${this.props.conversationsTotal -
                   this.props.conversationsDurationTotal} immediate exits`}
                 icon='speaker_notes'
-                tooltip='Total number of active(engaged) users.'
+                tooltip={`Total number of active(engaged) users for the [${this.props.subjectMatterName}] subject matter.`}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
-                <Tooltip TransitionComponent={Zoom} title='The number of total users and engaged users over time.' arrow placement='top-start'>
+                <Tooltip TransitionComponent={Zoom} title={`The number of total users and engaged users who selected the [${this.props.subjectMatterName}] subject matter over time.`} arrow placement='top-start'>
                   <HelpOutlineIcon />
                 </Tooltip>
                 <EngagedUserChart colors={this.props.colors} />
@@ -189,15 +191,15 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
-              <Tooltip TransitionComponent={Zoom} title='The number of support requests submitted over time' arrow placement='top-start'>
+              <Tooltip TransitionComponent={Zoom} title={`The number of support requests submitted for the [${this.props.subjectMatterName}] subject matter over time`} arrow placement='top-start'>
                   <HelpOutlineIcon />
                 </Tooltip>
-                <SupportRequestChart colors={this.props.colors} tooltip='The number of support requests submitted over time' />
+                <SupportRequestChart colors={this.props.colors} tooltip={`The number of support requests submitted over time for the [${this.props.subjectMatterName}] subject matter`} />
               </GraphWrap>
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
-                <Tooltip TransitionComponent={Zoom} title='Intents being triggered the most number of times' arrow placement='top-start'>
+                <Tooltip TransitionComponent={Zoom} title={`Intents being triggered the most number of times for the [${this.props.subjectMatterName}] subject matter`} arrow placement='top-start'>
                   <HelpOutlineIcon />
                 </Tooltip>
                 <h3>Frequently used intents</h3>
@@ -210,7 +212,7 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
-                <Tooltip TransitionComponent={Zoom} title='Intents after which users exit Gen' arrow placement='top-start'>
+                <Tooltip TransitionComponent={Zoom} title={`Intents specific to the [${this.props.subjectMatterName}] subject matter after which users exit Gen`} arrow placement='top-start'>
                   <HelpOutlineIcon />
                 </Tooltip>
                 <h3>Top exit intents on conversations</h3>
@@ -404,6 +406,7 @@ const mapStateToProps = state => {
     showIntentModal: state.config.showIntentModal,
     intentDetails: state.config.intentDetails,
     timezoneOffset: state.filters.timezoneOffset,
+    subjectMatterName: getNameFromContext(state.filters.context)
   }
 }
 
