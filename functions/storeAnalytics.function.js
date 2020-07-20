@@ -81,7 +81,8 @@ const inspectForMl = (query, intent, dfContext, context) => {
     // query to a collection for human inspection
     const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
 
-    queriesForLabeling.add({ suggestions, userQuery }).catch(error => {
+    const createdAt = admin.firestore.Timestamp(new Date())
+    queriesForLabeling.add({ suggestions, userQuery, createdAt }).catch(error => {
       res.status(500).send(`Error storing data: ${error}`)
     })
   }
