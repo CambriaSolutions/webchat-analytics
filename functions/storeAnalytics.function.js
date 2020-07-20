@@ -575,8 +575,8 @@ const storeMetrics = (
         }
 
         if (isFallbackIntent) {
-          updatedMetrics.numFallbacks = currMetric.numFallbacks + 1
-          updatedMetrics.fallbackTriggeringQueries = currMetric.fallbackTriggeringQueries
+          updatedMetrics.numFallbacks = (currMetric.numFallbacks || 0) + 1
+          updatedMetrics.fallbackTriggeringQueries = currMetric.fallbackTriggeringQueries || []
           const queryOccurs = updatedMetrics.fallbackTriggeringQueries.filter(queryMetric => {
             return queryMetric.queryText === fallbackTriggeringQuery
           })
