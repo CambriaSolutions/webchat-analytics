@@ -17,11 +17,10 @@ const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
 const fallbackIntents = ['Default Fallback Intent']
-const noneOfTheseIntent = 'none-of-these'
 
 // Inspect the query against suggestions in context to determine whether or
 // not the agent and ml models should be updated
-const inspectForMl = (query, intent, dfContext, context) => {
+const inspectForMl = async (query, intent, dfContext, context) => {
   const suggestions = dfContext.parameters.suggestions
   const userQuery = dfContext.parameters.originalQuery
 
@@ -33,22 +32,23 @@ const inspectForMl = (query, intent, dfContext, context) => {
     return suggestion.suggestionText.toLowerCase() === query
   })
 
-  if (queryMatchingSuggestions.length > 0) {
-    // The user has selected one of the presented suggestions
-    const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
-
-    // Create a reference depending on the current subject matter
-    const queriesForTrainingRef = store.collection(
-      `${context}/queriesForTraining`
-    )
-
-    // Attempt to find a document where the userQuery and suggestion text match
-    queriesForTrainingRef
-      .where('phrase', '==', userQuery)
-      .where('selectedSuggestion', '==', suggestionText)
-      .where('category', '==', mlCategory)
-      .get()
-      .then(snap => {
+  try {
+    if (queryMatchingSuggestions.length > 0) {
+      // The user has selected one of the presented suggestions
+      const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
+  
+      // Create a reference depending on the current subject matter
+      const queriesForTrainingRef = store.collection(
+        `${context}/queriesForTraining`
+      )
+  
+      // Attempt to find a document where the userQuery and suggestion text match
+      const snap = await queriesForTrainingRef
+        .where('phrase', '==', userQuery)
+        .where('selectedSuggestion', '==', suggestionText)
+        .where('category', '==', mlCategory)
+        .get()
+        
         if (snap.empty) {
           // The combination of the userQuery and the suggestion text has not occurred
           // so we create a document
@@ -71,25 +71,31 @@ const inspectForMl = (query, intent, dfContext, context) => {
             })
           })
         }
-        return;
-      })
-      .catch(e => {
-        console.error(e)
-      })
-  } else {
-    // The user did not select any of our suggestions, so add the suggestions and
-    // query to a collection for human inspection
-    const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
+    } else {
+      // The user did not select any of our suggestions, so add the suggestions and
+      // query to a collection for human inspection
+      const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
+      
+      const createdAt = admin.firestore.Timestamp.now()
+      const queryForLabeling = await queriesForLabeling.add({ suggestions, userQuery, createdAt })
 
-    const createdAt = admin.firestore.Timestamp.now()
-    queriesForLabeling.add({ suggestions, userQuery, createdAt })
-      .then(writeResult => { 
-        return writeResult.id 
-      })
-      .catch(error => {
-        res.status(500).send(`Error storing data: ${error}`)
-      })
+      const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
+      const dateKey = format(currentDate, 'MM-DD-YYYY')
+      const metricsRef = await store.collection(`${context}/metrics`).doc(dateKey);
+
+      // Add to a collection for querying at the metrics level
+      if(metricsRef.exists()) {
+        await metricsRef.update({
+          noneOfTheseCategories: admin.firestore.FieldValue.arrayUnion(queryForLabeling.id)
+        })
+      }
+    }
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(`Error storing data: ${error}`)
   }
+  
+  return;
 }
 
 // Calculate metrics based on requests
@@ -150,15 +156,19 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
 
   // Check if the query has the should-inspect-for-ml parameter
   if (reqData.queryResult.outputContexts) {
+    const inspections = []
     for (const dfContext of reqData.queryResult.outputContexts) {
       if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
-        queriesForLabelingId = inspectForMl(
+        inspections.push(inspectForMl(
           reqData.queryResult.queryText.toLowerCase(),
           intent,
           dfContext,
-          context
-        )
+          context))
       }
+    }
+
+    if (inspections.length > 0) {
+      await Promise.all(inspections)
     }
   }
 
@@ -243,7 +253,6 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
       let shouldCalculateDuration = true
 
       const isFallbackIntent = fallbackIntents.includes(intent.name)
-      const isNoneOfTheseIntent = noneOfTheseIntent === intent.name
 
       // The conversation has a support request only if it has been submitted
       const supportRequestSubmitted = intent.name === 'cse-support-submit-issue'
@@ -289,13 +298,6 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         if (isFallbackIntent) {
           if (reqData.queryResult.queryText.length > 0) {
             conversation.fallbackTriggeringQuery = reqData.queryResult.queryText
-            if (reqData.queryResult.outputContexts) {
-              for (const dfContext of reqData.queryResult.outputContexts) {
-                if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
-                  conversation.mlCategories = dfContext.parameters.suggestions
-                }
-              }
-            }
           }
         }
 
@@ -332,9 +334,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         newConversationFirstDuration,
         shouldCalculateDuration,
         isFallbackIntent,
-        conversation.fallbackTriggeringQuery,
-        isNoneOfTheseIntent,
-        queriesForLabelingId
+        conversation.fallbackTriggeringQuery
       )
 
       return res.status(200).send('Analytics stored successfully')
@@ -413,9 +413,7 @@ const storeMetrics = (
   newConversationFirstDuration,
   shouldCalculateDuration,
   isFallbackIntent,
-  fallbackTriggeringQuery,
-  isNoneOfTheseIntent,
-  queriesForLabelingId
+  fallbackTriggeringQuery
 ) => {
   const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
   const dateKey = format(currentDate, 'MM-DD-YYYY')
@@ -598,14 +596,6 @@ const storeMetrics = (
               occurrences: 1
             })
           }
-        }
-
-        if (isNoneOfTheseIntent) {
-          updatedMetrics.noneOfTheseCategories = currMetric.noneOfTheseCategories
-          console.log(`Queries for labeling id ${queriesForLabelingId}`)
-          if (queriesForLabelingId !== undefined) {
-            updatedMetrics.noneOfTheseCategories.push(queriesForLabelingId)
-          }          
         }
 
         // Update the metrics collection for this request
