@@ -308,7 +308,6 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         conversation.supportRequests =
           hasSupportRequest && supportType !== '' ? [supportType] : []
         conversation.fallbackTriggeringQuery = ''
-        conversation.mlCategories = []
 
         conversationRef.set(conversation)
       }
