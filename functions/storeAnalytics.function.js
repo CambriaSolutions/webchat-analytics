@@ -74,25 +74,16 @@ const inspectForMl = async (query, intent, dfContext, context, timezoneOffset) =
     } else {
       // The user did not select any of our suggestions, so add the suggestions and
       // query to a collection for human inspection
-      const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
-      
       const createdAt = admin.firestore.Timestamp.now()
-      const queryForLabeling = await queriesForLabeling.add({ suggestions, userQuery, createdAt })
-      console.log(`Added`, queryForLabeling)
+      const docRef = await store.collection(`${context}/queriesForLabeling`).add({ suggestions, userQuery, createdAt })
 
       const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
       const dateKey = format(currentDate, 'MM-DD-YYYY')
-      const metricsRef = await store.collection(`${context}/metrics`).doc(dateKey);
-
-      // Add to a collection for querying at the metrics level
-      if(metricsRef.exists) {
-        console.log(`Adding reference to ${queryForLabeling.id}`)
-        await metricsRef.update({
-          noneOfTheseCategories: admin.firestore.FieldValue.arrayUnion(queryForLabeling.id)
-        })
-      } else {
-        console.log('Unable to find metric ref')
-      }
+      console.log(`Date Key ${dateKey}`)
+      await store.collection(`${context}/metrics`).doc(dateKey).update({
+          noneOfTheseCategories: admin.firestore.FieldValue.arrayUnion(docRef.id)
+      })
+      
     }
   } catch (err) {
     console.error(err)
