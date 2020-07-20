@@ -20,7 +20,7 @@ const fallbackIntents = ['Default Fallback Intent']
 
 // Inspect the query against suggestions in context to determine whether or
 // not the agent and ml models should be updated
-const inspectForMl = async (query, intent, dfContext, context) => {
+const inspectForMl = async (query, intent, dfContext, context, timezoneOffset) => {
   const suggestions = dfContext.parameters.suggestions
   const userQuery = dfContext.parameters.originalQuery
 
@@ -152,8 +152,6 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const settings = await getSubjectMatterSettings(subjectMatter)
   const timezoneOffset = settings.timezone.offset
 
-  let queriesForLabelingId;
-
   // Check if the query has the should-inspect-for-ml parameter
   if (reqData.queryResult.outputContexts) {
     const inspections = []
@@ -163,7 +161,8 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
           reqData.queryResult.queryText.toLowerCase(),
           intent,
           dfContext,
-          context))
+          context,
+          timezoneOffset))
       }
     }
 
