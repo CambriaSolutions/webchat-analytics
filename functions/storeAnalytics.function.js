@@ -82,9 +82,13 @@ const inspectForMl = (query, intent, dfContext, context) => {
     const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
 
     const createdAt = admin.firestore.Timestamp.now()
-    queriesForLabeling.add({ suggestions, userQuery, createdAt }).catch(error => {
-      res.status(500).send(`Error storing data: ${error}`)
-    })
+    queriesForLabeling.add({ suggestions, userQuery, createdAt })
+      .then(writeResult => { 
+        return writeResult.id 
+      })
+      .catch(error => {
+        res.status(500).send(`Error storing data: ${error}`)
+      })
   }
 }
 
@@ -142,11 +146,13 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const settings = await getSubjectMatterSettings(subjectMatter)
   const timezoneOffset = settings.timezone.offset
 
+  let queriesForLabelingId;
+
   // Check if the query has the should-inspect-for-ml parameter
   if (reqData.queryResult.outputContexts) {
     for (const dfContext of reqData.queryResult.outputContexts) {
       if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
-        inspectForMl(
+        queriesForLabelingId = inspectForMl(
           reqData.queryResult.queryText.toLowerCase(),
           intent,
           dfContext,
@@ -328,7 +334,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         isFallbackIntent,
         conversation.fallbackTriggeringQuery,
         isNoneOfTheseIntent,
-        conversation.mlCategories
+        queriesForLabelingId
       )
 
       return res.status(200).send('Analytics stored successfully')
@@ -409,7 +415,7 @@ const storeMetrics = (
   isFallbackIntent,
   fallbackTriggeringQuery,
   isNoneOfTheseIntent,
-  mlCategories
+  queriesForLabelingId
 ) => {
   const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
   const dateKey = format(currentDate, 'MM-DD-YYYY')
@@ -595,14 +601,11 @@ const storeMetrics = (
         }
 
         if (isNoneOfTheseIntent) {
-          console.log(`Match on ${noneOfTheseIntent} to [${currIntent.name}] --- ${fallbackTriggeringQuery} ${JSON.stringify(mlCategories)}`)
           updatedMetrics.noneOfTheseCategories = currMetric.noneOfTheseCategories
-          updatedMetrics.noneOfTheseCategories.push({
-            queryText: fallbackTriggeringQuery,
-            mlCategoriesPresented: mlCategories
-          })
-        } else {
-          console.log(`No match on ${noneOfTheseIntent} to [${currIntent.name}]`)
+          console.log(`Queries for labeling id ${queriesForLabelingId}`)
+          if (queriesForLabelingId !== undefined) {
+            updatedMetrics.noneOfTheseCategories.push(queriesForLabelingId)
+          }          
         }
 
         // Update the metrics collection for this request
