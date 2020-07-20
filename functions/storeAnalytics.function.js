@@ -81,7 +81,7 @@ const inspectForMl = (query, intent, dfContext, context) => {
     // query to a collection for human inspection
     const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
 
-    const createdAt = admin.firestore.Timestamp(new Date())
+    const createdAt = admin.firestore.Timestamp.now()
     queriesForLabeling.add({ suggestions, userQuery, createdAt }).catch(error => {
       res.status(500).send(`Error storing data: ${error}`)
     })
@@ -596,6 +596,8 @@ const storeMetrics = (
             queryText: fallbackTriggeringQuery,
             mlCategoriesPresented: mlCategories
           })
+        } else {
+          console.log(`No match on ${noneOfTheseIntent} to [${currIntent.name}]`)
         }
 
         // Update the metrics collection for this request
