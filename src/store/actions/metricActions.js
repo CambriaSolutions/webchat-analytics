@@ -47,7 +47,7 @@ export const fetchMetrics = (dateRange, context) => {
           // Load data from today and continue listening for changes
           const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
             const metric = doc.data()
-            if (metric) dispatch(updateMetrics(metric))
+            if (metric) dispatch(fetchMetricsSuccess([metric]))
           })
 
           dispatch(storeMetricsSubscription(unsubscribeMetrics))
@@ -284,6 +284,7 @@ const formatExitIntents = exitIntents => {
 // TODO - need to revise this entire thing. It is supposed to trigger
 // off of a subscription to today's data changes, but the fields changed
 // are calculated differently from when they are fetched in fetchMetrics.
+// BA 07/21/2020: Currently not using this function. Pending review.
 export const updateMetrics = metric => {
   return (dispatch, getState) => {
     const emptyFeedback = {
