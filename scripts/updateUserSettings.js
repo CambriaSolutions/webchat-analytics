@@ -14,7 +14,7 @@ const updateUserSettings = async () => {
   const oldUsersBackupRef = store.collection(`oldUsersBackup`)
 
   const users = await usersRef.get()
-  const subjectMatters = ['none', 'cse', 'tanf', 'snap']
+  const subjectMatters = ['general', 'cse', 'tanf', 'snap']
 
   users.forEach(async doc => {
     // By destructuring like this, we remove projects and defaultProject and keep all 

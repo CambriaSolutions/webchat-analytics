@@ -122,7 +122,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     if (intentNameSplit.length === 2 && intentNameSplit[1] === 'root') {
       subjectMatter = intentNameSplit[0]
     } else {
-      subjectMatter = 'none'
+      subjectMatter = 'general'
     }
   } else {
     const outputContextObjectNameSplit = outputContextObject.name.split('/')
