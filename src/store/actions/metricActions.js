@@ -39,19 +39,20 @@ export const fetchMetrics = (dateRange, context) => {
 
         dispatch(fetchMetricsSuccess(fetchedMetrics))
 
-        // Only subscribe to real time updates and its the same day view
-        if (useRealtimeUpdates && isToday) {
-          const dateWithSubjectMatterTimezone = getUTCDate(new Date(), timezoneOffset)
-          const dateKey = format(dateWithSubjectMatterTimezone, 'MM-dd-yyyy')
+        // BA 07/22/2020 #378 - Per Nibeer's request, we are temporarily disabling the live updates functionality
+        // // Only subscribe to real time updates and its the same day view
+        // if (useRealtimeUpdates && isToday) {
+        //   const dateWithSubjectMatterTimezone = getUTCDate(new Date(), timezoneOffset)
+        //   const dateKey = format(dateWithSubjectMatterTimezone, 'MM-dd-yyyy')
 
-          // Load data from today and continue listening for changes
-          const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
-            const metric = doc.data()
-            if (metric) dispatch(fetchMetricsSuccess([metric]))
-          })
+        //   // Load data from today and continue listening for changes
+        //   const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
+        //     const metric = doc.data()
+        //     if (metric) dispatch(fetchMetricsSuccess([metric]))
+        //   })
 
-          dispatch(storeMetricsSubscription(unsubscribeMetrics))
-        }
+        //   dispatch(storeMetricsSubscription(unsubscribeMetrics))
+        // }
       })
       .catch(err => {
         dispatch(fetchMetricsFail(err))
@@ -284,7 +285,7 @@ const formatExitIntents = exitIntents => {
 // TODO - need to revise this entire thing. It is supposed to trigger
 // off of a subscription to today's data changes, but the fields changed
 // are calculated differently from when they are fetched in fetchMetrics.
-// BA 07/21/2020: Currently not using this function. Pending review.
+// BA 07/21/2020 #378: Currently not using this function. Pending review.
 export const updateMetrics = metric => {
   return (dispatch, getState) => {
     const emptyFeedback = {
