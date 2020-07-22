@@ -11,7 +11,7 @@ const store = admin.firestore()
 const createDatabaseSubjectMatters = async () => {
   const subjectMattersRef = store.collection(`subjectMatters`)
 
-  const subjectMatters = ['none', 'cse', 'tanf', 'snap']
+  const subjectMatters = ['general', 'cse', 'tanf', 'snap']
 
   subjectMatters.forEach(sm => {
     subjectMattersRef.doc(sm).set({})
