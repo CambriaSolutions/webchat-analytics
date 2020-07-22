@@ -36,19 +36,18 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const EngagedUserChart = props => {
   const { data } = prepareDataForComposedChart(props.metrics, props.filterLabel)
-  const [ darkestColor, lightestColor ] = contrastingColors(props.colors)
+  const [ darkestColor ] = contrastingColors(props.colors)
 
   return (
     <>
       <Header>
         <HeaderText>
-          Total Users vs Engaged Users
+          Engaged Users
         </HeaderText>
       </Header>
       <ComposedChart
         data={data}
         xKey='id'>
-        <Line type="monotone" dataKey="numConversations" stroke={lightestColor} name="Total Users" />
         <Line type="monotone" dataKey="numConversationsWithDuration" stroke={darkestColor} name="Engaged Users" />
         <Legend />
         <Tooltip content={<CustomTooltip />} />

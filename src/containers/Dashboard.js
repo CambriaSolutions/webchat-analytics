@@ -183,7 +183,7 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
-                <Tooltip TransitionComponent={Zoom} title={`The number of total users and engaged users who selected the [${this.props.subjectMatterName}] subject matter over time.`} arrow placement='top-start'>
+                <Tooltip TransitionComponent={Zoom} title={`The number of engaged users who selected the [${this.props.subjectMatterName}] subject matter over time.`} arrow placement='top-start'>
                   <HelpOutlineIcon />
                 </Tooltip>
                 <EngagedUserChart colors={this.props.colors} />
