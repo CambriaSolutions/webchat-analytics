@@ -172,7 +172,6 @@ const prepareDataForComposedChart = (data, dateFilter) => {
   if (dateFilter === 'Last 12 months') {
     return prepareDataForComposedChartByMonth(data)
   } else {
-    console.log('prepareDataForComposedChartByDay:', prepareDataForComposedChartByDay(data, dateFilter))
     return prepareDataForComposedChartByDay(data, dateFilter)
   }
 }
