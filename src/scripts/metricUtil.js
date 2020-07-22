@@ -113,7 +113,6 @@ const prepareDataForComposedChartByDay = (rawData, dateFilter) => {
     id: day.id,
     numConversations: day.numConversations,
     numConversationsWithDuration: day.numConversationsWithDuration,
-
     // Add each type of support ticket as a piece of data at root level for use by line chart. 
     ...(reduce(day.supportRequests, function (result, supportRequest) {
       // Add to collection of types of support requests
@@ -173,6 +172,7 @@ const prepareDataForComposedChart = (data, dateFilter) => {
   if (dateFilter === 'Last 12 months') {
     return prepareDataForComposedChartByMonth(data)
   } else {
+    console.log('prepareDataForComposedChartByDay:', prepareDataForComposedChartByDay(data, dateFilter))
     return prepareDataForComposedChartByDay(data, dateFilter)
   }
 }

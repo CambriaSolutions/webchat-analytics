@@ -51,19 +51,19 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
       break
     case 'Last 7 days':
       dateRange = {
-        start: formatDate(startOfDay(subDays(today, 8)), timezoneOffset),
+        start: formatDate(startOfDay(subDays(today, 7)), timezoneOffset),
         end: formatDate(endOfDay(subDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 30 days':
       dateRange = {
-        start: formatDate(startOfDay(subDays(today, 31)), timezoneOffset),
+        start: formatDate(startOfDay(subDays(today, 30)), timezoneOffset),
         end: formatDate(endOfDay(subDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 90 days':
       dateRange = {
-        start: formatDate(startOfDay(subDays(today, 91)), timezoneOffset),
+        start: formatDate(startOfDay(subDays(today, 90)), timezoneOffset),
         end: formatDate(endOfDay(subDays(today, 1)), timezoneOffset),
       }
       break
