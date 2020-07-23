@@ -27,6 +27,8 @@ import SettingsIcon from '@material-ui/icons/Settings'
 // Date Filter
 import DateFilter from '../components/DateFilter'
 
+import { filter } from 'lodash'
+
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
   margin-left: 10px !important;
@@ -61,11 +63,16 @@ class Header extends Component {
             onChange={event => this.props.onSubjectMatterChange(event.target.value, this.props.subjectMattersSettings)}
             name='subjectMatter'
           >
-            {this.props.subjectMattersSettings.map(subjectMatter => (
-              <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
-                {subjectMatter.name}
-              </MenuItem>
-            ))}
+            {filter(this.props.subjectMattersSettings, x => x.name.toLowerCase() !== 'general').map(subjectMatter =>
+              (
+                <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
+                  {subjectMatter.name}
+                </MenuItem>
+              )
+            )}
+            <MenuItem value='general' key='general'>
+              general
+            </MenuItem>
           </Dropdown>
         </Hidden>
       )
