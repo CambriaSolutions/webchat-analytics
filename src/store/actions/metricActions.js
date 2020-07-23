@@ -7,7 +7,7 @@ import { reduce } from 'lodash'
 
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
-    const useRealtimeUpdates = getState().config.updateRealtime
+    // const useRealtimeUpdates = getState().config.updateRealtime
 
     if (typeof dateRange === 'undefined') {
       dateRange = getState().filters.dateFilters
@@ -17,13 +17,13 @@ export const fetchMetrics = (dateRange, context) => {
       context = getState().filters.context
     }
 
-    const timezoneOffset = getState().filters.timezoneOffset
+    // const timezoneOffset = getState().filters.timezoneOffset
     const metricsRef = db.collection(`${context}/metrics`)
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
 
     const today = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
-    const isToday = today.startsWith(dateRange.start.slice(0, 10))
+    // const isToday = today.startsWith(dateRange.start.slice(0, 10))
 
     dispatch(fetchMetricsStart())
 
