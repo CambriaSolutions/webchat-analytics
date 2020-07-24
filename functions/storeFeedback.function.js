@@ -19,6 +19,8 @@ exports = module.exports = functions.https.onRequest((req, res) => {
       res.send(500, 'Missing feedback parameters')
     }
 
+    console.log('reqData: ' + JSON.stringify(reqData))
+
     // If one of the context's name contains 'subject-matter' then this is the context 
     // used to identify the subject matter. But name field has full format
     // e.g. "projects/mdhs-csa-dev/agent/sessions/3c007146-2b0c-99e8-2806-563698d992d4/contexts/cse-subject-matter"
