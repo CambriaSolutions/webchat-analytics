@@ -43,7 +43,7 @@ const analyzeQueries = () => {
     if (queryDictionary[message]) {
       // The same message has been used before
       // Increment the count of that query
-      queryDictionary[message].occurences += 1
+      queryDictionary[message].occurrences += 1
       // Add any output contexts
       if (contexts.length > 0) {
         queryDictionary[message].context.push(contexts)
@@ -52,7 +52,7 @@ const analyzeQueries = () => {
       // This is the first time the message has appeared
       // Populate our dictionary with the message and contexts if available
       queryDictionary[message] = {
-        occurences: 1,
+        occurrences: 1,
         context: contexts,
       }
     }
@@ -63,7 +63,7 @@ const analyzeQueries = () => {
   }
 
   sortableArray.sort((a, b) => {
-    return b[1].occurences - a[1].occurences
+    return b[1].occurrences - a[1].occurrences
   })
 
   // Save full intent data
@@ -89,12 +89,12 @@ const analyzeQueries = () => {
           if (entitiesCollection[entity]) {
             // The same message has been used before
             // Increment the count of that query
-            entitiesCollection[entity].occurences += 1
+            entitiesCollection[entity].occurrences += 1
           } else {
             // This is the first time the message has appeared
             // Populate our dictionary with the message and contexts if available
             entitiesCollection[entity] = {
-              occurences: 1,
+              occurrences: 1,
             }
           }
         })
@@ -106,7 +106,7 @@ const analyzeQueries = () => {
     }
 
     entitiesToSort.sort((a, b) => {
-      return b[1].occurences - a[1].occurences
+      return b[1].occurrences - a[1].occurrences
     })
     // Save full intent data
     fs.writeFile(

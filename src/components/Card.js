@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Icon from '@material-ui/core/Icon'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Tooltip from '@material-ui/core/Tooltip'
+import Zoom from '@material-ui/core/Zoom';
 
 const StyledCard = styled(Card)`
   color: #fff;
@@ -50,8 +53,15 @@ const card = props => {
     backgroundColor: `${props.color}`,
   }
 
+  const tooltipIconStyle = {
+    color: "#ffffff"
+  }
+
   return (
     <StyledCard style={cardStyle}>
+      <Tooltip TransitionComponent={Zoom} title={props.tooltip} arrow placement='top-start'>
+        <HelpOutlineIcon style={tooltipIconStyle} />
+      </Tooltip>
       <Details>
         <h5>{props.value}</h5>
         <p>{props.label}</p>

@@ -1,5 +1,4 @@
 const admin = require('firebase-admin')
-const serviceAccount = require('./keys/firestore-key.json')
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
@@ -11,7 +10,6 @@ const bucketName = 'daily-json-exports'
 
 // Date FNS imports
 const format = require('date-fns/format')
-const parse = require('date-fns/parse')
 const startOfDay = require('date-fns/start_of_day')
 const endOfDay = require('date-fns/end_of_day')
 const subDays = require('date-fns/sub_days')
@@ -29,15 +27,17 @@ var db = admin.firestore()
 // 3. A collection of conversationIds needed to update the exit intent per conversation
 // In order to keep our queries efficient, we delete the day's unneeded metrics.
 
-const cleanUpMetrics = async () => {
+const cleanUpMetrics = async (context) => {
   console.log(`New Date() = ${format(new Date(), 'MM-DD-YYYY')}`)
   console.log(`Today: ${today}`)
   console.log(`startTime: ${startTime}`)
+
   // The metric's id is a formatted day
   const metricName = format(today, 'MM-DD-YYYY')
+
   // Create a reference to the previous days metrics
   const metricsRef = db
-    .collection(`projects/${process.env.FIRESTORE_PROJECT}/metrics`)
+    .collection(`${context}/metrics`)
     .doc(metricName)
 
   // Retrieve and parse the day's metrics
@@ -55,19 +55,19 @@ const cleanUpMetrics = async () => {
     conversationsWithSupportRequests: admin.firestore.FieldValue.delete(), // This deletes the conversations with support requests
     dailyExitIntents: admin.firestore.FieldValue.delete(), // This deletes the daily exit intents collection
   })
-  console.log(`metrics successfully cleaned for ${metricName}`)
+  console.log(`metrics successfully cleaned for ${context + '/metrics/' + metricName}`)
 }
 
-const uploadToBucket = filename => {
+const uploadToBucket = (filename, subjectMatter) => {
   // Uploads a local file to the bucket
   const bucket = storage.bucket(bucketName)
-  const jsonExportName = format(today, 'MM-DD-YYYY')
+  const jsonExportName = subjectMatter + '-' + format(today, 'MM-DD-YYYY')
   bucket.upload(
     filename,
     {
       destination: bucket.file(`${jsonExportName}.json`),
     },
-    (err, file) => {
+    (err) => {
       if (err) {
         return console.log(err)
       }
@@ -77,9 +77,9 @@ const uploadToBucket = filename => {
   console.log(`${jsonExportName} uploaded to ${bucketName}.`)
 }
 
-const retrieveData = async () => {
+const retrieveData = async (context, subjectMatter) => {
   const aggregateRef = db.collection(
-    `projects/${process.env.FIRESTORE_PROJECT}/aggregate`
+    `${context}/aggregate`
   )
   const activeRef = await aggregateRef
     .where('createdAt', '>', startTime)
@@ -90,7 +90,7 @@ const retrieveData = async () => {
   let conversationsIdx = 1
   if (conversationsCount > 0) {
     // Write collection to JSON file
-    const fileName = 'firestore-export.json'
+    const fileName = subjectMatter + '-firestore-export.json'
     const tempFilePath = path.join(os.tmpdir(), fileName) // `./${fileName}`
     let f = fs.openSync(tempFilePath, 'w')
     fs.writeSync(f, '{"conversations": [')
@@ -132,11 +132,12 @@ const retrieveData = async () => {
   }
 }
 
-exports.handler = async (event, context, callback) => {
+exports.handler = async (subjectMatter, callback) => {
+  const context = 'subjectMatters/' + subjectMatter
   // Retrieve today's data from Firestore
   try {
-    await retrieveData()
-    await cleanUpMetrics()
+    await retrieveData(context, subjectMatter)
+    await cleanUpMetrics(context)
     callback(null, 'Success!');
   } catch (err) {
     callback(err, 'Error retrieving data');

@@ -6,9 +6,12 @@
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
+    "emulator-dev": "firebase emulators:start --only functions --project dev",
+    "emulator-dev-debug": "firebase emulators:start --inspect-functions",
     "deploy-dev": "firebase deploy --only functions --project dev",
     "deploy-stage": "firebase deploy --only functions --project stage",
     "deploy-prod": "firebase deploy --only functions --project prod",
+    "deploy-isd": "firebase deploy --only functions --project isd",
     "logs": "firebase functions:log"
   },
   "dependencies": {
@@ -20,8 +23,8 @@
     "dialogflow": "^0.12.2",
     "dotenv": "^8.2.0",
     "firebase": "^6.4.0",
-    "firebase-admin": "^8.6.1",
-    "firebase-functions": "^3.3.0",
+    "firebase-admin": "^8.12.1",
+    "firebase-functions": "^3.7.0",
     "fs": "0.0.1-security",
     "glob": "^7.1.6",
     "os": "^0.1.1",

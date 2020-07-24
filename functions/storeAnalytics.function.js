@@ -3,9 +3,9 @@ const admin = require('firebase-admin')
 
 // Connect to DB
 const store = admin.firestore()
-// Project Default Settings
-const PROJECT_DEFAULT_PRIMARY_COLOR = '#6497AD'
-const PROJECT_DEFAULT_TIMEZONE = {
+// Subject Matter Default Settings
+const SUBJECT_MATTER_DEFAULT_PRIMARY_COLOR = '#6497AD'
+const SUBJECT_MATTER_DEFAULT_TIMEZONE = {
   name: '(UTC-07:00) Pacific Time (US & Canada)',
   offset: -7,
 }
@@ -16,9 +16,11 @@ const addHours = require('date-fns/add_hours')
 const differenceInSeconds = require('date-fns/difference_in_seconds')
 const isSameDay = require('date-fns/is_same_day')
 
+const fallbackIntents = ['Default Fallback Intent']
+
 // Inspect the query against suggestions in context to determine whether or
 // not the agent and ml models should be updated
-const inspectForMl = (query, intent, dfContext, context) => {
+const inspectForMl = async (query, intent, dfContext, context, timezoneOffset) => {
   const suggestions = dfContext.parameters.suggestions
   const userQuery = dfContext.parameters.originalQuery
 
@@ -30,22 +32,23 @@ const inspectForMl = (query, intent, dfContext, context) => {
     return suggestion.suggestionText.toLowerCase() === query
   })
 
-  if (queryMatchingSuggestions.length > 0) {
-    // The user has selected one of the presented suggestions
-    const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
-
-    // Create a reference depending on the current project
-    const queriesForTrainingRef = store.collection(
-      `${context}/queriesForTraining`
-    )
-
-    // Attempt to find a document where the userQuery and suggestion text match
-    queriesForTrainingRef
-      .where('phrase', '==', userQuery)
-      .where('selectedSuggestion', '==', suggestionText)
-      .where('category', '==', mlCategory)
-      .get()
-      .then(snap => {
+  try {
+    if (queryMatchingSuggestions.length > 0) {
+      // The user has selected one of the presented suggestions
+      const { suggestionText, mlCategory } = queryMatchingSuggestions[0]
+  
+      // Create a reference depending on the current subject matter
+      const queriesForTrainingRef = store.collection(
+        `${context}/queriesForTraining`
+      )
+  
+      // Attempt to find a document where the userQuery and suggestion text match
+      const snap = await queriesForTrainingRef
+        .where('phrase', '==', userQuery)
+        .where('selectedSuggestion', '==', suggestionText)
+        .where('category', '==', mlCategory)
+        .get()
+        
         if (snap.empty) {
           // The combination of the userQuery and the suggestion text has not occurred
           // so we create a document
@@ -68,20 +71,26 @@ const inspectForMl = (query, intent, dfContext, context) => {
             })
           })
         }
-        return;
-      })
-      .catch(e => {
-        console.error(e)
-      })
-  } else {
-    // The user did not select any of our suggestions, so add the suggestions and
-    // query to a collection for human inspection
-    const queriesForLabeling = store.collection(`${context}/queriesForLabeling`)
+    } else {
+      // The user did not select any of our suggestions, so add the suggestions and
+      // query to a collection for human inspection
+      const createdAt = admin.firestore.Timestamp.now()
+      const docRef = await store.collection(`${context}/queriesForLabeling`).add({ suggestions, userQuery, createdAt })
 
-    queriesForLabeling.add({ suggestions, userQuery }).catch(error => {
-      res.status(500).send(`Error storing data: ${error}`)
-    })
+      const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
+      const dateKey = format(currentDate, 'MM-DD-YYYY')
+      console.log(`Date Key ${dateKey}`)
+      await store.collection(`${context}/metrics`).doc(dateKey).update({
+          noneOfTheseCategories: admin.firestore.FieldValue.arrayUnion(docRef.id)
+      })
+      
+    }
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(`Error storing data: ${error}`)
   }
+  
+  return;
 }
 
 // Calculate metrics based on requests
@@ -97,12 +106,34 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     res.status(500).send('Missing conversation parameters')
   }
 
-  // Check that session ID is valid: projects/project_name/agent/sessions/session_id
-  const projectName = reqData.session.split('/')[1]
-  if (!projectName) {
-    res.status(500).send('Invalid session ID')
+  // If one of the context's name contains 'subject-matter' then this is the context 
+  // used to identify the subject matter. But name field has full format
+  // e.g. "projects/mdhs-csa-dev/agent/sessions/3c007146-2b0c-99e8-2806-563698d992d4/contexts/cse-subject-matter"
+  const outputContextObject = reqData.queryResult.outputContexts.find(x => x.name.indexOf('subject-matter') >= 0)
+
+  let subjectMatter = ''
+
+  // If no subject matter was found, then one has not been picked by user yet, or user is at SM root.
+  if (outputContextObject === undefined) {
+    const intentNameSplit = reqData.queryResult.intent.displayName.split('-')
+
+    // Check if the intent name has the format "[subjectMatter]-root"
+    // If true, and there is no "[subjectMatter]-subject-matter" context, then this is a sm root.
+    if (intentNameSplit.length === 2 && intentNameSplit[1] === 'root') {
+      subjectMatter = intentNameSplit[0]
+    } else {
+      subjectMatter = 'general'
+    }
+  } else {
+    const outputContextObjectNameSplit = outputContextObject.name.split('/')
+    const subjectMatterContext = outputContextObjectNameSplit[outputContextObjectNameSplit.length - 1]
+
+    // Take the first portion of the context name as the subject matter. e.g. for 'cse-account-balance', we use 'cse' 
+    subjectMatter = subjectMatterContext.split('-')[0]
   }
-  const context = `projects/${projectName}`
+
+  // const context = `projects/${projectName}`
+  const context = `subjectMatters/${subjectMatter}`
 
   // Get ID's from conversation (session) & intent
   const conversationId = getIdFromPath(reqData.session)
@@ -112,28 +143,35 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
     name: currIntent.displayName,
   }
 
-  // Get project settings
-  const settings = await getProjectSettings(projectName)
+  // Get subject matter settings
+  const settings = await getSubjectMatterSettings(subjectMatter)
   const timezoneOffset = settings.timezone.offset
 
   // Check if the query has the should-inspect-for-ml parameter
   if (reqData.queryResult.outputContexts) {
+    const inspections = []
     for (const dfContext of reqData.queryResult.outputContexts) {
       if (getIdFromPath(dfContext.name) === 'should-inspect-for-ml') {
-        inspectForMl(
+        inspections.push(inspectForMl(
           reqData.queryResult.queryText.toLowerCase(),
           intent,
           dfContext,
-          context
-        )
+          context,
+          timezoneOffset))
       }
+    }
+
+    if (inspections.length > 0) {
+      await Promise.all(inspections)
     }
   }
 
   // Check if conversation has a support request
-  const hasSupportRequest = intent.name.startsWith('support')
+  const hasSupportRequest = intent.name.startsWith('cse-support')
+
   // Get support type
   let supportType = ''
+
   if (hasSupportRequest && reqData.queryResult.outputContexts) {
     // Loop through request output contexts array to find the ticket information
     for (let context of reqData.queryResult.outputContexts) {
@@ -151,6 +189,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   // Save request data, add timestamp
   reqData.createdAt = admin.firestore.Timestamp.now()
   reqData.intentId = intent.id
+
   store
     .collection(`${context}/requests`)
     .add(reqData)
@@ -162,6 +201,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const aggregateRef = store
     .collection(`${context}/aggregate`)
     .doc(conversationId)
+
   aggregateRef
     .get()
     .then(doc => {
@@ -191,6 +231,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
   const conversationRef = store
     .collection(`${context}/conversations`)
     .doc(conversationId)
+
   conversationRef
     .get()
     .then(doc => {
@@ -205,8 +246,10 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
       let previousConversationDuration = 0
       let shouldCalculateDuration = true
 
+      const isFallbackIntent = fallbackIntents.includes(intent.name)
+
       // The conversation has a support request only if it has been submitted
-      const supportRequestSubmitted = intent.name === 'support-submit-issue'
+      const supportRequestSubmitted = intent.name === 'cse-support-submit-issue'
       if (doc.exists) {
         const currConversation = doc.data()
         // Calculate conversation duration (compare creation time with current)
@@ -245,6 +288,13 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
             conversation.supportRequests.push(supportType)
           }
         }
+
+        if (isFallbackIntent) {
+          if (reqData.queryResult.queryText.length > 0) {
+            conversation.fallbackTriggeringQuery = reqData.queryResult.queryText
+          }
+        }
+
         conversationRef.update(conversation)
       } else {
         // Conversation data doesn't exist for this id
@@ -257,6 +307,8 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         conversation.hasSupportRequest = supportRequestSubmitted
         conversation.supportRequests =
           hasSupportRequest && supportType !== '' ? [supportType] : []
+        conversation.fallbackTriggeringQuery = ''
+
         conversationRef.set(conversation)
       }
 
@@ -273,7 +325,9 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
         newConversationDuration,
         previousConversationDuration,
         newConversationFirstDuration,
-        shouldCalculateDuration
+        shouldCalculateDuration,
+        isFallbackIntent,
+        conversation.fallbackTriggeringQuery
       )
 
       return res.status(200).send('Analytics stored successfully')
@@ -286,7 +340,7 @@ exports = module.exports = functions.https.onRequest(async (req, res) => {
 // Regex to retrieve text after last "/" on a path
 const getIdFromPath = path => /[^/]*$/.exec(path)[0]
 
-const getDateWithProjectTimezone = timezoneOffset => {
+const getDateWithSubjectMatterTimezone = timezoneOffset => {
   const currDate = new Date()
   // Get the timezone offset from local time in minutes
   const tzDifference = timezoneOffset * 60 + currDate.getTimezoneOffset()
@@ -294,17 +348,16 @@ const getDateWithProjectTimezone = timezoneOffset => {
   return new Date(currDate.getTime() + tzDifference * 60 * 1000)
 }
 
-const getProjectSettings = async projectName => {
-  const settingsRef = store.collection('settings').doc(projectName)
+const getSubjectMatterSettings = async subjectMatterName => {
+  const settingsRef = store.collection('settings').doc(subjectMatterName)
   return await settingsRef
     .get()
     .then(doc => {
-      // If setting doesn't exist, add new project setting with default values
+      // If setting doesn't exist, add new subject matter setting with default values
       if (!doc.exists) {
         const defaultSettings = {
-          name: projectName,
-          primaryColor: PROJECT_DEFAULT_PRIMARY_COLOR,
-          timezone: PROJECT_DEFAULT_TIMEZONE,
+          primaryColor: SUBJECT_MATTER_DEFAULT_PRIMARY_COLOR,
+          timezone: SUBJECT_MATTER_DEFAULT_TIMEZONE,
         }
         settingsRef.set(defaultSettings)
         return defaultSettings
@@ -313,7 +366,7 @@ const getProjectSettings = async projectName => {
       }
     })
     .catch(error => {
-      console.log(`Error getting settings for project ${projectName}:`, error)
+      console.log(`Error getting settings for subject matter:` + error)
       return -7
     })
 }
@@ -351,12 +404,15 @@ const storeMetrics = (
   newConversationDuration,
   previousConversationDuration,
   newConversationFirstDuration,
-  shouldCalculateDuration
+  shouldCalculateDuration,
+  isFallbackIntent,
+  fallbackTriggeringQuery
 ) => {
-  const currentDate = getDateWithProjectTimezone(timezoneOffset)
+  const currentDate = getDateWithSubjectMatterTimezone(timezoneOffset)
   const dateKey = format(currentDate, 'MM-DD-YYYY')
 
   const metricsRef = store.collection(`${context}/metrics`).doc(dateKey)
+
   metricsRef
     .get()
     .then(doc => {
@@ -367,6 +423,7 @@ const storeMetrics = (
         // Update number of conversations and number of
         // conversations with durations
         let numConversations = currMetric.numConversations
+
         let numConversationsWithDuration =
           currMetric.numConversationsWithDuration
         const oldNumConversations = currMetric.numConversationsWithDuration
@@ -376,6 +433,7 @@ const storeMetrics = (
           numConversationsWithDuration += 1
           updatedMetrics.numConversationsWithDuration = numConversationsWithDuration
         }
+
         if (newConversation && !newConversationDuration) {
           // This is a new conversation, but doesn't have a duration yet
           numConversations += 1
@@ -491,11 +549,12 @@ const storeMetrics = (
         const intentMetric = currMetric.intents.filter(
           intent => intent.id === currIntent.id
         )[0]
+
         // Update intent metric counters
         if (intentMetric) {
           intentMetric.occurrences++
 
-          // Check if current conversation is already included in intent metric, if not increse the sessions counter
+          // Check if current conversation is already included in intent metric, if not increase the sessions counter
           if (!intentMetric.conversations.includes(conversationId)) {
             intentMetric.sessions++
             intentMetric.conversations.push(conversationId)
@@ -513,6 +572,23 @@ const storeMetrics = (
           updatedMetrics.intents = admin.firestore.FieldValue.arrayUnion(
             newIntent
           )
+        }
+
+        if (isFallbackIntent) {
+          updatedMetrics.numFallbacks = (currMetric.numFallbacks || 0) + 1
+          updatedMetrics.fallbackTriggeringQueries = currMetric.fallbackTriggeringQueries || []
+          const queryOccurs = updatedMetrics.fallbackTriggeringQueries.filter(queryMetric => {
+            return queryMetric.queryText === fallbackTriggeringQuery
+          })
+
+          if(queryOccurs.length > 0) {
+            queryOccurs[0].occurrences = queryOccurs[0].occurrences + 1
+          } else {
+            updatedMetrics.fallbackTriggeringQueries.push({
+              queryText: fallbackTriggeringQuery,
+              occurrences: 1
+            })
+          }
         }
 
         // Update the metrics collection for this request
@@ -549,6 +625,9 @@ const storeMetrics = (
           numConversationsWithDuration: 0,
           averageConversationDuration: 0,
           numConversationsWithSupportRequests: 0,
+          numFallbacks: 0,
+          fallbackTriggeringQueries: [],
+          noneOfTheseCategories: [],
           supportRequests: supportRequestType
             ? [
               {
@@ -565,6 +644,6 @@ const storeMetrics = (
       return
     })
     .catch(error => {
-      console.log(`Error getting metric document with key ${dateKey}:`, error)
+      console.log(`Error getting metric document with key ${dateKey}:` + error)
     })
 }

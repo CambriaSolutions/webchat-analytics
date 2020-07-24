@@ -4,8 +4,8 @@ import {
   toggleSettings,
   updateExportDate,
   downloadExport,
-  updateDefaultProject,
-  updateProjectTimezone,
+  updateSubjectMatterTimezone,
+  updateDefaultSubjectMatter
 } from '../store/actions/configActions'
 import { updateMainColor } from '../store/actions/filterActions'
 import { signOut, resetPassword } from '../store/actions/authActions'
@@ -128,9 +128,10 @@ class Settings extends Component {
       background: ${this.props.mainColor};
     `
 
-    let downloadExportsSetting = '',
-      defaultProjectSetting = '',
-      currentProjectSettings = ''
+    let downloadExportsSetting = ''
+    let defaultSubjectMatterSetting = null
+    let currentSubjectMatterSettings = null
+
     if (this.props.user.dataExport) {
       let downloadBtnToggle = (
         <IconButton
@@ -171,21 +172,21 @@ class Settings extends Component {
       </div>
     )
 
-    if (this.props.projects.length > 1) {
-      defaultProjectSetting = (
+    if (this.props.subjectMattersSettings.length > 1) {
+      defaultSubjectMatterSetting = (
         <div>
-          <List subheader={<ListHeader>Default Project</ListHeader>}>
+          <List subheader={<ListHeader>Default Subject Matter</ListHeader>}>
             <ListItem>
               <Select
-                value={this.props.defaultProject}
+                value={this.props.defaultSubjectMatter}
                 onChange={event =>
-                  this.props.onProjectChange(event.target.value)
+                  this.props.onDefaultSubjectMatterChange(event.target.value)
                 }
                 name='context'
               >
-                {this.props.projects.map(project => (
-                  <MenuItem value={project.name} key={project.name}>
-                    {project.name}
+                {this.props.subjectMattersSettings.map(subjectMatter => (
+                  <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
+                    {subjectMatter.name}
                   </MenuItem>
                 ))}
               </Select>
@@ -195,8 +196,9 @@ class Settings extends Component {
         </div>
       )
     }
+
     if (this.props.user.isAdmin) {
-      currentProjectSettings = (
+      currentSubjectMatterSettings = (
         <div>
           <List subheader={<ListHeader>Primary Color</ListHeader>}>
             <ListItem>
@@ -243,11 +245,11 @@ class Settings extends Component {
     return (
       <StyledDiv>
         {downloadExportsSetting}
-        {currentProjectSettings !== '' || defaultProjectSetting !== ''
+        {currentSubjectMatterSettings !== '' || defaultSubjectMatterSetting !== ''
           ? settingsHeader
           : ''}
-        {currentProjectSettings}
-        {defaultProjectSetting}
+        {currentSubjectMatterSettings}
+        {defaultSubjectMatterSetting}
         <BottomDiv>
           <AuthButton
             color='primary'
@@ -282,19 +284,19 @@ class Settings extends Component {
 }
 
 const mapStateToProps = state => {
-  const projects = state.config.projects
-  const projectName = state.filters.context.replace('projects/', '')
-  let currProject = projects.filter(p => p.name === projectName)[0]
+  const subjectMattersSettings = state.config.subjectMattersSettings
+  const subjectMatterName = state.filters.context.replace('subjectMatters/', '')
+  let currSubjectMatter = subjectMattersSettings.filter(p => p.name === subjectMatterName)[0]
 
   return {
     filterLabel: state.filters.filterLabel,
     mainColor: state.filters.mainColor,
-    projects: projects,
-    defaultProject: state.config.defaultProject,
+    subjectMattersSettings: subjectMattersSettings,
+    defaultSubjectMatter: state.config.defaultSubjectMatter,
     downloadDate: state.config.downloadExportDate,
     user: state.auth.user,
     loadingDownload: state.config.loading,
-    timezone: currProject.timezone.name,
+    timezone: currSubjectMatter.timezone.name,
   }
 }
 
@@ -303,12 +305,12 @@ const mapDispatchToProps = dispatch => {
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
     onDownloadDateChange: newDate => dispatch(updateExportDate(newDate)),
     onExportDownload: () => dispatch(downloadExport()),
-    onProjectChange: defaultProject =>
-      dispatch(updateDefaultProject(defaultProject)),
+    onDefaultSubjectMatterChange: defaultSubjectMatter =>
+      dispatch(updateDefaultSubjectMatter(defaultSubjectMatter)),
     onMainColorChange: (newColor, updateDB) =>
       dispatch(updateMainColor(newColor, updateDB)),
     onTimezoneChange: newTimezone =>
-      dispatch(updateProjectTimezone(newTimezone)),
+      dispatch(updateSubjectMatterTimezone(newTimezone)),
     onPwdReset: () => dispatch(resetPassword()),
     onSignOut: () => dispatch(signOut()),
   }

@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject } from '../utility'
 
 const initialState = {
   // Set Today filter by default
@@ -20,25 +19,28 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_FILTERS:
-      return updateObject(state, {
+      return {
+        ...state,
         filterLabel: action.filterLabel,
         dateFilters: action.dateFilters,
-      })
+      }
 
     case actionTypes.UPDATE_CONTEXT:
-      return updateObject(state, {
+      return {
+        ...state,
         context: action.context,
         mainColor: action.mainColor,
         colors: action.colors,
         timezoneOffset: action.timezoneOffset,
         dateFilters: action.dateFilters,
-      })
+      }
 
     case actionTypes.UPDATE_MAIN_COLOR:
-      return updateObject(state, {
+      return {
+        ...state,
         mainColor: action.mainColor,
         colors: action.colors,
-      })
+      }
 
     case actionTypes.SET_IS_CUSTOM_DATE_RANGE:
       return {
@@ -53,9 +55,10 @@ const reducer = (state = initialState, action) => {
       }
 
     case actionTypes.UPDATE_ENGAGED_USER_TOGGLE:
-      return updateObject(state, {
+      return {
+        ...state,
         showEngagedUser: action.showEngagedUser,
-      })
+      }
 
     default:
       return state

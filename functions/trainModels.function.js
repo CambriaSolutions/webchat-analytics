@@ -3,15 +3,16 @@ const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 const automl = require('@google-cloud/automl')
 const format = require('date-fns/format')
-const differenceInWeeks = require('date-fns/difference_in_weeks')
 const store = admin.firestore()
 
 // Instantiate autoML client
-const client = new automl.v1beta1.AutoMlClient()
-const agentProject = 'mdhs-csa-stage'
+const client = new automl.v1beta1.AutoMlClient({
+  projectId: process.env.AUTOML_MDHS_PROJECT_ID,
+  keyFilename: './mdhs-key.json'
+})
 
 const runtimeOpts = {
-  timeoutSeconds: 60, 
+  timeoutSeconds: 60,
   memory: '256MB',
 }
 
@@ -19,15 +20,16 @@ const runtimeOpts = {
  * Trigger training weekly
  **/
 exports = module.exports = functions
-.runWith(runtimeOpts)
+  .runWith(runtimeOpts)
   .pubsub
   .schedule('0 21 * * 1') // Every Monday at 1 AM CST
   .timeZone('America/Los_Angeles')
   .onRun(async (context) => {
     try {
+      const subjectMatter = 'cse'
       await store
         .collection(
-          `/projects/${process.env.AGENT_PROJECT}/queriesForTraining/`
+          `/subjectMatters/${subjectMatter}/queriesForTraining/`
         )
         .where('occurrences', '>=', 10)
         .where('categoryModelTrained', '==', false)
@@ -35,19 +37,19 @@ exports = module.exports = functions
         .then(async (snap) => {
           const queriesToTrain = snap.size;
           console.log(`Identified ${queriesToTrain} queries to train.`);
-          
+
           if (queriesToTrain > 0) {
             // Train the model
-            await trainCategoryModel()
+            await trainCategoryModel(subjectMatter)
 
             // Update training status in individual queries
             snap.forEach(async doc => {
-              const query = await store
+              await store
                 .collection(
-                  `/projects/${process.env.AGENT_PROJECT}/queriesForTraining`
+                  `/subjectMatters/${subjectMatter}/queriesForTraining`
                 )
                 .doc(doc.id)
-                .set({ categoryModelTrained: true }, { merge: true })
+                .update({ categoryModelTrained: true }, { merge: true })
             })
           } else {
             console.log("Training was skipped.")
@@ -66,14 +68,12 @@ exports = module.exports = functions
  * Train Category Model
  * @param {*} intent
  */
-async function trainCategoryModel() {
-  const projectId = `${process.env.GCS_PROJECT_ID}`
-  const computeRegion = `${process.env.AUTOML_LOCATION}`
-  const datasetId = `${process.env.AUTOML_DATASET}`
+async function trainCategoryModel(subjectMatter) {
+  const datasetId = process.env.AUTOML_MDHS_DATASET_ID
   const date = format(new Date(), 'MM_DD_YYYY')
-  const modelName = `mdhs_csa_analytics_${date}`
+  const modelName = `mdhs_${subjectMatter}_${date}`
 
-  const projectLocation = client.locationPath(projectId, computeRegion)
+  const projectLocation = client.locationPath(process.env.AUTOML_MDHS_PROJECT_ID, 'us-central1')
 
   // Set model name and model metadata for the dataset.
   const modelData = {
@@ -88,24 +88,30 @@ async function trainCategoryModel() {
       parent: projectLocation,
       model: modelData,
     })
+
     console.log(`Training operation name: ${initialApiResponse.name}`)
     console.log(`Training started...`)
+
     // Update training status in db
     await store
-      .collection(`/projects/`)
-      .doc(`${process.env.AGENT_PROJECT}`)
+      .collection(`/subjectMatters/`)
+      .doc(`${subjectMatter}`)
       .update({
         isTrainingProcessing: true,
       })
+
     const [model] = await operation.promise()
+
     // Retrieve deployment state.
     let deploymentState = ``
+
     if (model.deploymentState === 1) {
       deploymentState = `deployed`
+
       // Update training status in db
       await store
-        .collection(`/projects/`)
-        .doc(`${process.env.AGENT_PROJECT}`)
+        .collection(`/subjectMatters/`)
+        .doc(`${subjectMatter}`)
         .update({
           isTrainingProcessing: false,
           lastTrained: admin.firestore.Timestamp.now(),
@@ -119,9 +125,10 @@ async function trainCategoryModel() {
     console.log(`Model deployment state: ${deploymentState}`)
   } catch (err) {
     console.log(err)
+
     await store
-      .collection(`/projects/`)
-      .doc(`${process.env.AGENT_PROJECT}`)
+      .collection(`/subjectMatters/`)
+      .doc(`${subjectMatter}`)
       .update({
         isTrainingProcessing: false,
       })

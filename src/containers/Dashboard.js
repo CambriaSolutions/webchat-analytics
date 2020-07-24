@@ -13,6 +13,9 @@ import Drawer from '@material-ui/core/Drawer'
 import Dialog from '@material-ui/core/Dialog'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Tooltip from '@material-ui/core/Tooltip'
+import Zoom from '@material-ui/core/Zoom';
 
 // Components
 import Card from '../components/Card'
@@ -24,8 +27,13 @@ import IntentDetails from '../components/IntentDetails'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import SupportRequestsTile from '../components/SupportRequestsTile'
 
+import EngagedUserChart from '../components/EngagedUserChart'
+import SupportRequestChart from './SupportRequestChart'
+
 // Helpers
 import { colorShades } from '../common/helper'
+
+const getNameFromContext = context => /[^/]*$/.exec(context)[0]
 
 const rootStyles = {
   flexGrow: 1,
@@ -127,6 +135,11 @@ class Dashboard extends Component {
                 label='Total Users'
                 notes=''
                 icon='account_circle'
+                tooltip={
+                  this.props.subjectMatterName === 'general'
+                  ? 'Counts the number of impressions when a user acknowledges the privacy statement.'
+                  : `Counts the number of impressions when a user selects the ${this.props.subjectMatterName.toUpperCase()} option from the home screen.`
+                }
               />
             </Grid>
             <Grid item xs={12} sm={3}>
@@ -140,37 +153,71 @@ class Dashboard extends Component {
                 label='Avg. Conv Duration'
                 notes=''
                 icon='schedule'
+                tooltip={
+                  this.props.subjectMatterName === 'general'
+                  ? 'The average time between Gen\'s first response and when a user selects a knowledge area.'
+                  : `The average time of each session for the ${this.props.subjectMatterName.toUpperCase()} knowledge area. A session is the time b/w when a user selects the ${this.props.subjectMatterName.toUpperCase()} option from home screen and the last response that Gen gives them. This does not include the time b/w the last response and closing their browser window or Gen.`
+                }
               />
             </Grid>
             <Grid item xs={12} sm={3}>
               <Card
                 color={colorShades(this.props.mainColor, 20)}
-                value={
-                  this.props.showEngagedUser
+                value={ this.props.subjectMatterName === 'general' ? 'N/A' :
+                  (this.props.showEngagedUser
                     ? `${this.props.supportEngagedRequestsPercentage}%`
-                    : `${this.props.supportRequestsPercentage}%`
+                    : `${this.props.supportRequestsPercentage}%`)
                 }
                 label='Support Requests'
-                notes={
+                notes={this.props.subjectMatterName === 'general' ? '' : (
                   this.props.supportRequestTotal > 0
                     ? `${this.props.supportRequestTotal} requests`
-                    : ''
+                    : '')
                 }
                 icon='contact_support'
+                tooltip={
+                  this.props.subjectMatterName === 'general'
+                  ? `This metric is not applicable to the ${this.props.subjectMatterName.toUpperCase()} knowledge area.`
+                  : `Percentage of users submitting support tickets for the ${this.props.subjectMatterName.toUpperCase()} knowledge area.`
+                }
               />
             </Grid>
             <Grid item xs={12} sm={3}>
               <Card
                 color={colorShades(this.props.mainColor, 10)}
-                value={`${this.props.conversationsDurationTotal}`}
+                value={this.props.subjectMatterName === 'general' ? 'N/A' : `${this.props.conversationsDurationTotal}`}
                 label='Engaged Users'
-                notes={`${this.props.conversationsTotal -
-                  this.props.conversationsDurationTotal} immediate exits`}
+                notes={this.props.subjectMatterName === 'general' ? '' : (`${this.props.conversationsTotal -
+                  this.props.conversationsDurationTotal} immediate exits`)}
                 icon='speaker_notes'
+                tooltip={
+                  this.props.subjectMatterName === 'general'
+                  ? `This metric is not applicable to the ${this.props.subjectMatterName.toUpperCase()} knowledge area.`
+                  : `Counts the number of times a user interacted with Gen in the ${this.props.subjectMatterName.toUpperCase()} knowledge area`
+                }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title={`The number of engaged users who selected the [${this.props.subjectMatterName}] subject matter over time.`} arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
+                <EngagedUserChart colors={this.props.colors} />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+              <Tooltip TransitionComponent={Zoom} title={`The number of support requests submitted for the [${this.props.subjectMatterName}] subject matter over time`} arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
+                <SupportRequestChart colors={this.props.colors} tooltip={`The number of support requests submitted over time for the [${this.props.subjectMatterName}] subject matter`} />
+              </GraphWrap>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title={`Intents being triggered the most number of times for the [${this.props.subjectMatterName}] subject matter`} arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <h3>Frequently used intents</h3>
                 <PieChart
                   data={frequentIntents}
@@ -181,6 +228,9 @@ class Dashboard extends Component {
             </Grid>
             <Grid item xs={12} sm={6}>
               <GraphWrap>
+                <Tooltip TransitionComponent={Zoom} title={`Intents specific to the [${this.props.subjectMatterName}] subject matter after which users exit Gen`} arrow placement='top-start'>
+                  <HelpOutlineIcon />
+                </Tooltip>
                 <h3>Top exit intents on conversations</h3>
                 <BarChart
                   data={exitIntents}
@@ -250,8 +300,7 @@ class Dashboard extends Component {
         <Drawer
           anchor='right'
           open={this.props.showSettings}
-          onClose={this.props.onSettingsToggle}
-        >
+          onClose={this.props.onSettingsToggle}>
           <Settings />
         </Drawer>
         {dashboardUI}
@@ -260,8 +309,7 @@ class Dashboard extends Component {
           onClose={this.props.onIntentsModalClose}
           maxWidth={'md'}
           fullWidth={true}
-          aria-labelledby='intent_details_title'
-        >
+          aria-labelledby='intent_details_title'>
           <IntentDetails
             loading={this.props.loadingIntentDetails}
             data={this.props.intentDetails}
@@ -320,9 +368,11 @@ const mapStateToProps = state => {
   let allIntents = beautifyIntents(state.metrics.intents)
   let allSupportRequests = beautifyIntents(state.metrics.supportRequests)
   const allExitIntents = beautifyIntents(state.metrics.exitIntents)
+
   // Sort arrays by exits & occurrences
   allExitIntents.sort(compareValues('exits', 'desc'))
   allSupportRequests.sort(compareValues('occurrences', 'desc'))
+
   if (!state.metrics.loading) {
     // Merge exit intents with intents array
     allIntents = allIntents.map(intent =>
@@ -339,20 +389,21 @@ const mapStateToProps = state => {
   }
 
   return {
+    dailyMetrics: state.metrics.dailyMetrics,
     showEngagedUser: state.filters.showEngagedUser,
     loadingConversations: state.metrics.loading,
     loadingIntents: state.metrics.loading,
     loadingIntentDetails: state.config.loadingIntentDetails,
     conversationsTotal: state.metrics.conversationsTotal,
     supportRequestsPercentage: round(
-      (state.metrics.supportRequestTotal / state.metrics.conversationsTotal) *
-        100,
+      (state.metrics.numConversationsWithSupportRequests / state.metrics.conversationsTotal) *
+      100,
       1
     ),
     supportEngagedRequestsPercentage: round(
-      (state.metrics.supportRequestTotal /
+      (state.metrics.numConversationsWithSupportRequests /
         state.metrics.conversationsDurationTotal) *
-        100,
+      100,
       1
     ),
     supportRequestTotal: state.metrics.supportRequestTotal,
@@ -371,6 +422,7 @@ const mapStateToProps = state => {
     showIntentModal: state.config.showIntentModal,
     intentDetails: state.config.intentDetails,
     timezoneOffset: state.filters.timezoneOffset,
+    subjectMatterName: getNameFromContext(state.filters.context)
   }
 }
 
