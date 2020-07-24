@@ -24,8 +24,7 @@ exports = module.exports = functions.https.onRequest((req, res) => {
     // e.g. "projects/mdhs-csa-dev/agent/sessions/3c007146-2b0c-99e8-2806-563698d992d4/contexts/cse-subject-matter"
     const outputContextObject = reqData.outputContexts.find(x => x.name.indexOf('subject-matter') >= 0)
 
-    const outputContextObjectNameSplit = outputContextObject.name.split('/')
-    const subjectMatterContext = outputContextObjectNameSplit[outputContextObjectNameSplit.length - 1]
+    const subjectMatterContext = outputContextObject.name.split('/').pop()
 
     // Take the first portion of the context name as the subject matter. e.g. for 'cse-account-balance', we use 'cse' 
     const subjectMatter = subjectMatterContext.split('-')[0]
