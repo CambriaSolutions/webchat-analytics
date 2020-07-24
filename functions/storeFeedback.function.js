@@ -22,28 +22,13 @@ exports = module.exports = functions.https.onRequest((req, res) => {
     // If one of the context's name contains 'subject-matter' then this is the context 
     // used to identify the subject matter. But name field has full format
     // e.g. "projects/mdhs-csa-dev/agent/sessions/3c007146-2b0c-99e8-2806-563698d992d4/contexts/cse-subject-matter"
-    const outputContextObject = reqData.queryResult.outputContexts.find(x => x.name.indexOf('subject-matter') >= 0)
+    const outputContextObject = reqData.outputContexts.find(x => x.name.indexOf('subject-matter') >= 0)
 
-    let subjectMatter = ''
+    const outputContextObjectNameSplit = outputContextObject.name.split('/')
+    const subjectMatterContext = outputContextObjectNameSplit[outputContextObjectNameSplit.length - 1]
 
-    // If no subject matter was found, then one has not been picked by user yet, or user is at SM root.
-    if (outputContextObject === undefined) {
-      const intentNameSplit = reqData.queryResult.intent.displayName.split('-')
-
-      // Check if the intent name has the format "[subjectMatter]-root"
-      // If true, and there is no "[subjectMatter]-subject-matter" context, then this is a sm root.
-      if (intentNameSplit.length === 2 && intentNameSplit[1] === 'root') {
-        subjectMatter = intentNameSplit[0]
-      } else {
-        subjectMatter = 'general'
-      }
-    } else {
-      const outputContextObjectNameSplit = outputContextObject.name.split('/')
-      const subjectMatterContext = outputContextObjectNameSplit[outputContextObjectNameSplit.length - 1]
-
-      // Take the first portion of the context name as the subject matter. e.g. for 'cse-account-balance', we use 'cse' 
-      subjectMatter = subjectMatterContext.split('-')[0]
-    }
+    // Take the first portion of the context name as the subject matter. e.g. for 'cse-account-balance', we use 'cse' 
+    const subjectMatter = subjectMatterContext.split('-')[0]
 
     // const context = `projects/${projectName}`
     const context = `subjectMatters/${subjectMatter}`
