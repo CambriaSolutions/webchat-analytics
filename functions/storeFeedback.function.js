@@ -27,7 +27,7 @@ exports = module.exports = functions.https.onRequest((req, res) => {
     const subjectMatterContext = outputContextObject.name.split('/').pop()
 
     // Take the first portion of the context name as the subject matter. e.g. for 'cse-account-balance', we use 'cse' 
-    const subjectMatter = subjectMatterContext.split('-')[0]
+    const subjectMatter = subjectMatterContext.split('-').shift()
 
     // const context = `projects/${projectName}`
     const context = `subjectMatters/${subjectMatter}`
