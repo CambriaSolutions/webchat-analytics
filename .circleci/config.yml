@@ -123,7 +123,7 @@ workflows:
           firebaseApiKey: PROD_FIREBASE_API_KEY
           firebaseAuthDomain: PROD_FIREBASE_AUTH_DOMAIN
           firebaseDatabaseUrl: PROD_FIREBASE_DATABASE_URL
-          firebaseDeployToken: PROD_FIREBASE_DEPLOY_TOKEN
+          firebaseDeployToken: FIREBASE_DEPLOY_TOKEN
           firebaseMessagingSenderId: PROD_FIREBASE_MESSAGING_SENDER_ID
           firebaseProjectId: PROD_FIREBASE_PROJECT_ID
           firebaseStorageBucket: PROD_FIREBASE_STORAGE_BUCKET
