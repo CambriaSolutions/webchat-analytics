@@ -27,11 +27,6 @@ const Dropdown = styled(Select)`
     color: #fff;
   }
 `
-const CustomMenuItem = styled(MenuItem)`
-  && {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-  }
-`
 
 class DateFilter extends Component {
   constructor(props) {
@@ -55,17 +50,14 @@ class DateFilter extends Component {
         <Dropdown
           value={filterLabel}
           onChange={event => this.props.onFilterChange(event)}
-          name='filter'
-        >
+          name='filter'>
           <MenuItem value={'Today'}>Today</MenuItem>
           <MenuItem value={'Yesterday'}>Yesterday</MenuItem>
           <MenuItem value={'Last 7 days'}>Last 7 days</MenuItem>
           <MenuItem value={'Last 30 days'}>Last 30 days</MenuItem>
-          <MenuItem value={'Last 60 days'}>Last 60 days</MenuItem>
           <MenuItem value={'Last 90 days'}>Last 90 days</MenuItem>
           <MenuItem value={'Last quarter'}>Last quarter</MenuItem>
           <MenuItem value={'Last 12 months'}>Last 12 months</MenuItem>
-          <CustomMenuItem value={'Custom'}>Custom</CustomMenuItem>
         </Dropdown>
         {isCustomDateRange && <CustomDateDialog />}
       </>

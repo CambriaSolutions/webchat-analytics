@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import { fetchMetrics } from './metricActions'
-import { updateProjectColor } from './configActions'
+import { updateSubjectMatterColor } from './configActions'
 import { clearSubscriptions } from './realtimeActions'
 import randomColor from 'randomcolor'
 import {
@@ -8,9 +8,9 @@ import {
   startOfDay,
   endOfDay,
   subDays,
-  addDays,
   subMonths,
   startOfQuarter,
+  startOfMonth,
   isSameDay,
 } from 'date-fns'
 import { getUTCDate } from '../../common/helper'
@@ -52,25 +52,19 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
     case 'Last 7 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 7)), timezoneOffset),
-        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
+        end: formatDate(endOfDay(subDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 30 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 30)), timezoneOffset),
-        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
-      }
-      break
-    case 'Last 60 days':
-      dateRange = {
-        start: formatDate(startOfDay(subDays(today, 60)), timezoneOffset),
-        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
+        end: formatDate(endOfDay(subDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last 90 days':
       dateRange = {
         start: formatDate(startOfDay(subDays(today, 90)), timezoneOffset),
-        end: formatDate(endOfDay(addDays(today, 1)), timezoneOffset),
+        end: formatDate(endOfDay(subDays(today, 1)), timezoneOffset),
       }
       break
     case 'Last quarter':
@@ -78,8 +72,8 @@ const getDateFilters = (newFilter, timezoneOffset = -7) => {
       break
     case 'Last 12 months':
       dateRange = {
-        start: formatDate(startOfDay(subMonths(today, 12)), timezoneOffset),
-        end: formatDate(endOfDay(today), timezoneOffset),
+        start: formatDate(startOfMonth(subMonths(today, 12)), timezoneOffset),
+        end: formatDate(subDays(startOfMonth(today), 1), timezoneOffset),
       }
       break
 
@@ -183,7 +177,7 @@ export const updateMainColor = (newColor, updateDB = false) => {
       colors: COLORS,
     })
     if (updateDB) {
-      dispatch(updateProjectColor(newColor))
+      dispatch(updateSubjectMatterColor(newColor))
     }
   }
 }
@@ -197,37 +191,41 @@ export const updateEngagedUserToggle = showEngagedUser => {
   }
 }
 
-// Change project/context and retrieve new metrics & conversations
-export const updateContext = (projectName, projects = []) => {
-  const context = `projects/${projectName}`
+// Change subjectMatter/context and retrieve new metrics & conversations
+export const updateSubjectMatter = (subjectMatter, subjectMattersSettings = []) => {
+  const context = `subjectMatters/${subjectMatter}`
 
   return (dispatch, getState) => {
     dispatch(clearSubscriptions())
-    // Get projects settings based on the given context
-    if (projects.length === 0) {
-      projects = getState().config.projects
+
+    // Get subjectMatter's settings based on the given context
+    if (!subjectMattersSettings.length === 0) {
+      subjectMattersSettings = getState().config.subjectMattersSettings
     }
 
-    const currProject = projects.filter(p => p.name === projectName)[0]
-    if (currProject) {
+
+    const currSubjectMatter = subjectMattersSettings.filter(p => p.name === subjectMatter)[0]
+    if (currSubjectMatter) {
       const dateFilters = getDateFilters(
         getState().filters.filterLabel,
-        currProject.timezone.offset
+        currSubjectMatter.timezone.offset
       )
 
       dispatch(fetchMetrics(dateFilters, context))
 
       const COLORS = randomColor({
         count: 10,
-        hue: currProject.primaryColor,
+        hue: currSubjectMatter.primaryColor,
       })
+
+      console.log('COLORS', COLORS)
 
       dispatch({
         type: actionTypes.UPDATE_CONTEXT,
         context: context,
-        mainColor: currProject.primaryColor,
+        mainColor: currSubjectMatter.primaryColor,
         colors: COLORS,
-        timezoneOffset: currProject.timezone.offset,
+        timezoneOffset: currSubjectMatter.timezone.offset,
         dateFilters: dateFilters,
       })
     } else {

@@ -3,22 +3,30 @@ import { storeMetricsSubscription } from './realtimeActions'
 import db from '../../Firebase'
 import { getUTCDate } from '../../common/helper'
 import { format } from 'date-fns'
+import { reduce } from 'lodash'
 
 export const fetchMetrics = (dateRange, context) => {
   return (dispatch, getState) => {
-    const useRealtimeUpdates = getState().config.updateRealtime
-    if (typeof dateRange === 'undefined')
+    // const useRealtimeUpdates = getState().config.updateRealtime
+
+    if (typeof dateRange === 'undefined') {
       dateRange = getState().filters.dateFilters
-    if (typeof context === 'undefined') context = getState().filters.context
-    const timezoneOffset = getState().filters.timezoneOffset
+    }
+
+    if (typeof context === 'undefined') {
+      context = getState().filters.context
+    }
+
+    // const timezoneOffset = getState().filters.timezoneOffset
     const metricsRef = db.collection(`${context}/metrics`)
     const startDate = new Date(dateRange.start)
     let endDate = new Date(dateRange.end)
 
     const today = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
-    const isToday = today.startsWith(dateRange.start.slice(0, 10))
+    // const isToday = today.startsWith(dateRange.start.slice(0, 10))
 
     dispatch(fetchMetricsStart())
+
     metricsRef
       .where('date', '>=', startDate)
       .where('date', '<=', endDate)
@@ -31,19 +39,20 @@ export const fetchMetrics = (dateRange, context) => {
 
         dispatch(fetchMetricsSuccess(fetchedMetrics))
 
-        // Only subscribe to real time updates and its the same day view
-        if (useRealtimeUpdates && isToday) {
-          const dateWithProjectTimezone = getUTCDate(new Date(), timezoneOffset)
-          const dateKey = format(dateWithProjectTimezone, 'MM-dd-yyyy')
+        // BA 07/22/2020 #378 - Per Nibeer's request, we are temporarily disabling the live updates functionality
+        // // Only subscribe to real time updates and its the same day view
+        // if (useRealtimeUpdates && isToday) {
+        //   const dateWithSubjectMatterTimezone = getUTCDate(new Date(), timezoneOffset)
+        //   const dateKey = format(dateWithSubjectMatterTimezone, 'MM-dd-yyyy')
 
-          // Load data from today and continue listening for changes
-          const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
-            const metric = doc.data()
-            if (metric) dispatch(updateMetrics(metric))
-          })
+        //   // Load data from today and continue listening for changes
+        //   const unsubscribeMetrics = metricsRef.doc(dateKey).onSnapshot(doc => {
+        //     const metric = doc.data()
+        //     if (metric) dispatch(fetchMetricsSuccess([metric]))
+        //   })
 
-          dispatch(storeMetricsSubscription(unsubscribeMetrics))
-        }
+        //   dispatch(storeMetricsSubscription(unsubscribeMetrics))
+        // }
       })
       .catch(err => {
         dispatch(fetchMetricsFail(err))
@@ -62,15 +71,22 @@ export const fetchMetricsSuccess = metrics => {
     let numConversations = 0
     let numConversationsWithDuration = 0
     let numConversationsWithSupportRequests = 0
-    const exitIntents = []
+    let numSupportRequests = 0
 
+    const exitIntents = []
+    console.log('metrics', metrics)
     // Loop through metrics per day
     for (let metric of metrics) {
-      avgConvoDuration += metric.averageConversationDuration
+      avgConvoDuration += metric.averageConversationDuration * metric.numConversationsWithDuration
       numConversations += metric.numConversations
       numConversationsWithDuration += metric.numConversationsWithDuration
       numConversationsWithSupportRequests +=
         metric.numConversationsWithSupportRequests
+
+      numSupportRequests += reduce(metric.supportRequests, (result, value, key) => {
+        result += value.occurrences
+        return result
+      }, 0)
 
       for (const intent in metric.exitIntents) {
         const currentIntent = metric.exitIntents[intent].name
@@ -105,6 +121,7 @@ export const fetchMetricsSuccess = metrics => {
             sessions: dateIntent.sessions,
           }
       }
+
       // Support requests
       const dateSupportRequests = metric.supportRequests
       if (dateSupportRequests) {
@@ -121,6 +138,7 @@ export const fetchMetricsSuccess = metrics => {
             }
         }
       }
+
       // Feedback
       const feedbackEntry = metric.feedback
       if (feedbackEntry) {
@@ -140,6 +158,7 @@ export const fetchMetricsSuccess = metrics => {
               occurrences: helpfulFeedback.occurrences,
             }
         }
+
         // Count through not-helpful feedback
         for (let notHelpfulFeedback of feedbackEntry.notHelpful) {
           const notHelpfulFeedbackId = notHelpfulFeedback.name.replace(
@@ -167,14 +186,18 @@ export const fetchMetricsSuccess = metrics => {
       ...intents[key],
       id: key,
     }))
+
     supportRequests = Object.keys(supportRequests).map(key => ({
       ...supportRequests[key],
     }))
+
     dispatch({
       type: actionTypes.FETCH_METRICS_SUCCESS,
+      dailyMetrics: metrics,
       intents: intents,
       supportRequests: supportRequests,
-      supportRequestTotal: numConversationsWithSupportRequests,
+      numConversationsWithSupportRequests: numConversationsWithSupportRequests,
+      supportRequestTotal: numSupportRequests,
       feedback: feedback,
       feedbackSelected: 'positive',
       feedbackFiltered: feedbackFiltered,
@@ -259,6 +282,10 @@ const formatExitIntents = exitIntents => {
   return exitIntentsAggregate
 }
 
+// TODO - need to revise this entire thing. It is supposed to trigger
+// off of a subscription to today's data changes, but the fields changed
+// are calculated differently from when they are fetched in fetchMetrics.
+// BA 07/21/2020 #378: Currently not using this function. Pending review.
 export const updateMetrics = metric => {
   return (dispatch, getState) => {
     const emptyFeedback = {
@@ -272,8 +299,10 @@ export const updateMetrics = metric => {
 
     const metricFeedback = metric.feedback ? metric.feedback : emptyFeedback
     const updatedExitIntents = formatExitIntents(metric.exitIntents)
+
     dispatch({
       type: actionTypes.UPDATE_METRICS,
+      dailyMetrics: metric,
       intents: metric.intents,
       supportRequests: metric.supportRequests,
       feedback: metricFeedback,

@@ -3,9 +3,9 @@
 # dependencies
 /node_modules
 export/node_modules
+autoML/node_modules
+scripts/node_modules
 export/package-lock.json
-functions/package-lock.json
-package-lock.json
 /.pnp
 .pnp.js
 
@@ -24,17 +24,27 @@ package-lock.json
 .env.development.local
 .env.test.local
 .env.production.local
-/.vscode
 /.firebase
 .env
 
+firebase-debug.log
+*.csv
+**key.json
 export/keys
 export/*.zip
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-scripts/node_modules
+
 functions/testAnalyticsKey.json
 scripts/testAnalyticsKey.json
 scripts/analyticsKey.json
+scripts/dataFiles/
+
+# work with ml integration
+autoMl/analyticsKey.json
+
+# admin page wip
+admin/
+**/keys/

@@ -15,6 +15,7 @@ export const fetchConversations = (dateRange, context) => {
     let conversationsRef = db.collection(`${context}/conversations`)
 
     dispatch(fetchConversationsStart())
+    
     conversationsRef
       .where('createdAt', '>', new Date(dateRange.start))
       .where('createdAt', '<', new Date(dateRange.end))
@@ -59,7 +60,7 @@ export const fetchConversations = (dateRange, context) => {
         }
       })
       .catch(err => {
-        dispatch(fetchCoversationsFail(err))
+        dispatch(fetchConversationsFail(err))
       })
   }
 }
@@ -107,7 +108,7 @@ export const fetchConversationsSuccess = conversations => {
   }
 }
 
-export const fetchCoversationsFail = error => {
+export const fetchConversationsFail = error => {
   console.log(error)
   return {
     type: actionTypes.FETCH_CONVERSATIONS_FAIL,

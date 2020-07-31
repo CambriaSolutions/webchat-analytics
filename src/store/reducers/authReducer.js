@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject } from '../utility'
 
 const initialState = {
   isLoggedIn: false,
@@ -11,38 +10,44 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_USER:
-      return updateObject(state, {
+      return {
+        ...state,
         user: action.user,
         isLoggedIn: action.isLoggedIn,
-      })
+      }
     case actionTypes.UPDATE_USER_STATUS:
-      return updateObject(state, {
+      return {
+        ...state,
         isLoggedIn: true
-      })
+      }
     case actionTypes.SIGNIN_START:
-      return updateObject(state, {
+      return {
+        ...state,
         isLoading: true,
         isAuthenticating: true
-      })
+      }
     case actionTypes.SIGNIN_FAIL:
-      return updateObject(state, {
+      return {
+        ...state,
         isLoading: false,
         isAuthenticating: false
-      })
+      }
     case actionTypes.SIGNIN_SUCCESS:
-      return updateObject(state, {
+      return {
+        ...state,
         isLoggedIn: true,
         user: action.user,
         isLoading: false,
         isAuthenticating: false
-      })
+      }
     case actionTypes.SIGNOUT_USER:
-      return updateObject(state, {
+      return {
+        ...state,
         isLoggedIn: false,
         isLoading: false,
         isAuthenticating: false,
         user: null,
-      })
+      }
     default:
       return state
   }

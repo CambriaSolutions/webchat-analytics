@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
   updateFilters,
-  updateContext,
+  updateSubjectMatter,
   updateEngagedUserToggle,
 } from '../store/actions/filterActions'
 import { toggleSettings } from '../store/actions/configActions'
@@ -26,6 +26,8 @@ import SettingsIcon from '@material-ui/icons/Settings'
 
 // Date Filter
 import DateFilter from '../components/DateFilter'
+
+import { filter } from 'lodash'
 
 const ToolbarTitle = styled(Typography)`
   flex-grow: 1;
@@ -51,20 +53,26 @@ const getNameFromContext = context => /[^/]*$/.exec(context)[0]
 
 class Header extends Component {
   render() {
-    let projectDropdown = ''
-    if (this.props.projects.length > 1) {
-      projectDropdown = (
+    let subjectMatterDropdown = ''
+
+    if (this.props.subjectMattersSettings.length > 1) {
+      subjectMatterDropdown = (
         <Hidden xsDown>
           <Dropdown
-            value={this.props.projectName}
-            onChange={event => this.props.onProjectChange(event.target.value)}
-            name='context'
+            value={this.props.subjectMatterName}
+            onChange={event => this.props.onSubjectMatterChange(event.target.value, this.props.subjectMattersSettings)}
+            name='subjectMatter'
           >
-            {this.props.projects.map(project => (
-              <MenuItem value={project.name} key={project.name}>
-                {project.name}
-              </MenuItem>
-            ))}
+            {filter(this.props.subjectMattersSettings, x => x.name.toLowerCase() !== 'general').map(subjectMatter =>
+              (
+                <MenuItem value={subjectMatter.name} key={subjectMatter.name}>
+                  {subjectMatter.name}
+                </MenuItem>
+              )
+            )}
+            <MenuItem value='general' key='general'>
+              general
+            </MenuItem>
           </Dropdown>
         </Hidden>
       )
@@ -74,7 +82,7 @@ class Header extends Component {
       <AppBar position='static' color='primary'>
         <Toolbar>
           <InsertChartOutlined />
-          {projectDropdown}
+          {subjectMatterDropdown}
           <ToolbarTitle variant='h5' color='inherit'>
             Analytics
           </ToolbarTitle>
@@ -116,15 +124,15 @@ const mapStateToProps = state => {
     filterLabel: state.filters.filterLabel,
     showEngagedUser: state.filters.showEngagedUser,
     mainColor: state.filters.mainColor,
-    projects: state.config.projects,
-    projectName: getNameFromContext(state.filters.context),
+    subjectMattersSettings: state.config.subjectMattersSettings,
+    subjectMatterName: getNameFromContext(state.filters.context),
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: newFilter => dispatch(updateFilters(newFilter)),
-    onProjectChange: newContext => dispatch(updateContext(newContext)),
+    onSubjectMatterChange: (newSubjectMatter, subjectMattersSettings) => dispatch(updateSubjectMatter(newSubjectMatter, subjectMattersSettings)),
     onEngagedUserToggle: showEngagedUser =>
       dispatch(updateEngagedUserToggle(showEngagedUser)),
     onSettingsToggle: showSettings => dispatch(toggleSettings(showSettings)),
